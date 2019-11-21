@@ -135,7 +135,7 @@ public class UserDemo implements Iterable<HTMLElement> {
                                                 .attr("target", "_blank")
                                                 .textContent("https://www.countryflags.io"))
                                         .add(". See ")
-                                        .add(a("https://github.com/hpehl/patternfly-java/blob/master/patternfly-showcase/src/main/java/org/patternfly/showcase/client/documentation/demos/UserDemo.java")
+                                        .add(a("https://github.com/patternfly-java/showcase/blob/master/src/main/java/org/patternfly/showcase/client/documentation/demos/UserDemo.java")
                                                 .attr("target", "_blank").textContent("UserDemo.java"))
                                         .add(" for the code.")
                                 )))
