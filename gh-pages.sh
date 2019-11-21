@@ -45,15 +45,15 @@ fi
 
 # Build showcase
 box "Build showcase"
-mvn install -P prod -Dformat.skip
+mvn install -P prod
 
 
 
 # Push showcase to gh-pages
-rm -rf /tmp/patternfly-java
+rm -rf /tmp/showcase
 cd /tmp/
-git clone -b gh-pages --single-branch git@github.com:hpehl/patternfly-java.git
-cd patternfly-java
+git clone -b gh-pages --single-branch git@github.com:patternfly-java/showcase.git
+cd showcase
 
 box "Push showcase to gh-pages"
 rm -rf *
