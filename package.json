@@ -14,7 +14,7 @@
     "code-prettify": "^0.1.0",
     "color-themes-for-google-code-prettify": "^2.0.4",
     "@github/time-elements": "^3.0.8",
-    "@patternfly/patternfly": "^2.40.11"
+    "@patternfly/patternfly": "^2.43.1"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.1",

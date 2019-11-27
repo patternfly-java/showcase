@@ -9,7 +9,7 @@ import org.patternfly.client.components.Page;
 import org.patternfly.showcase.client.resources.Routes;
 
 import static com.github.nalukit.nalu.client.event.RouterStateEvent.RouterState.ROUTING_DONE;
-import static elemental2.dom.DomGlobal.document;
+import static org.jboss.gwt.elemento.core.Elements.body;
 import static org.jboss.gwt.elemento.core.Elements.failSafeRemoveFromParent;
 import static org.patternfly.client.components.AlertGroup.toast;
 import static org.patternfly.client.components.Components.brand;
@@ -22,6 +22,7 @@ import static org.patternfly.showcase.client.resources.Routes.*;
 public class ShowcaseShell extends AbstractShell<ShowcaseContext> {
 
     private Navigation navigation;
+    private Page page;
 
     public ShowcaseShell() {
         navigation = Navigation.horizontal()
@@ -29,6 +30,14 @@ public class ShowcaseShell extends AbstractShell<ShowcaseContext> {
                 .add(new NavigationItem("documentation", "Documentation", documentation("alert")))
                 .add(new NavigationItem("contribute", "Contribute", hash(CONTRIBUTE)))
                 .add(new NavigationItem("get-in-touch", "Get in Touch", hash(GET_IN_TOUCH)));
+        page = page(ROOT_CONTAINER)
+                .header(pageHeader(brand("./images/PF-Masthead-Logo.svg"), hash(HOME))
+                        .add(navigation));
+    }
+
+    @Override
+    public void attachShell() {
+        body().addAll(page, toast());
     }
 
     @Override
@@ -45,15 +54,8 @@ public class ShowcaseShell extends AbstractShell<ShowcaseContext> {
     }
 
     @Override
-    public void attachShell() {
-        document.body.appendChild(page(pageHeader(brand("./images/PF-Masthead-Logo.svg"), hash(HOME))
-                .navigation(navigation), ROOT_CONTAINER).element());
-        document.body.appendChild(toast().element());
-    }
-
-    @Override
     public void detachShell() {
-        failSafeRemoveFromParent(Page.instance().element());
-        failSafeRemoveFromParent(toast().element());
+        failSafeRemoveFromParent(page);
+        failSafeRemoveFromParent(toast());
     }
 }

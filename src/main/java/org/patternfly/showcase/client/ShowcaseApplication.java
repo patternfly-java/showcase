@@ -11,5 +11,4 @@ import static org.patternfly.showcase.client.resources.Routes.HOME;
 @Application(startRoute = HOME, context = ShowcaseContext.class)
 @Debug(logLevel = SIMPLE, logger = DefaultElementoLogger.class)
 interface ShowcaseApplication extends IsApplication {
-
 }

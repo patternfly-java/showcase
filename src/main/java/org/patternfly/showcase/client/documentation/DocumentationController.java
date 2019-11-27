@@ -7,7 +7,6 @@ import elemental2.dom.HTMLElement;
 import org.patternfly.client.components.Navigation;
 import org.patternfly.client.components.NavigationItem;
 import org.patternfly.client.components.Page;
-import org.patternfly.client.resources.Theme;
 import org.patternfly.showcase.client.ShowcaseContext;
 import org.patternfly.showcase.client.resources.Ids;
 
@@ -54,7 +53,7 @@ public class DocumentationController
 
     @Override
     public void start() {
-        Page.instance().sidebar(navigation, Theme.LIGHT);
+        Page.instance().sidebar(navigation);
     }
 
     @AcceptParameter("id")
