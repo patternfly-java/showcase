@@ -12,9 +12,9 @@ import static com.github.nalukit.nalu.client.event.RouterStateEvent.RouterState.
 import static org.jboss.gwt.elemento.core.Elements.body;
 import static org.jboss.gwt.elemento.core.Elements.failSafeRemoveFromParent;
 import static org.patternfly.client.components.AlertGroup.toast;
-import static org.patternfly.client.components.Components.brand;
+import static org.patternfly.client.components.Brand.brand;
+import static org.patternfly.client.components.Page.header;
 import static org.patternfly.client.components.Page.page;
-import static org.patternfly.client.components.PageHeader.pageHeader;
 import static org.patternfly.showcase.client.resources.Ids.ROOT_CONTAINER;
 import static org.patternfly.showcase.client.resources.Routes.*;
 
@@ -31,7 +31,7 @@ public class ShowcaseShell extends AbstractShell<ShowcaseContext> {
                 .add(new NavigationItem("contribute", "Contribute", hash(CONTRIBUTE)))
                 .add(new NavigationItem("get-in-touch", "Get in Touch", hash(GET_IN_TOUCH)));
         page = page(ROOT_CONTAINER)
-                .header(pageHeader(brand("./images/PF-Masthead-Logo.svg"), hash(HOME))
+                .add(header(brand("./images/PF-Masthead-Logo.svg"), hash(HOME))
                         .add(navigation));
     }
 

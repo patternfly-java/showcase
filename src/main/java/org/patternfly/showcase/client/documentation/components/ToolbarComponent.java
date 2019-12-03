@@ -1,7 +1,6 @@
 package org.patternfly.showcase.client.documentation.components;
 
 import org.patternfly.client.components.Button;
-import org.patternfly.client.components.Components;
 import org.patternfly.client.components.InputGroup;
 import org.patternfly.client.components.SingleSelect;
 import org.patternfly.showcase.client.documentation.Snippet;
@@ -10,10 +9,11 @@ import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.patternfly.client.components.Button.button;
-import static org.patternfly.client.components.Components.icon;
+import static org.patternfly.client.components.Icon.icon;
 import static org.patternfly.client.components.Toolbar.content;
 import static org.patternfly.client.components.Toolbar.group;
 import static org.patternfly.client.components.Toolbar.item;
+import static org.patternfly.client.components.Toolbar.toolbar;
 import static org.patternfly.client.resources.CSS.fas;
 import static org.patternfly.client.resources.CSS.modifier;
 
@@ -27,7 +27,7 @@ public class ToolbarComponent extends BaseComponent {
                 asList(
                         new Snippet("Items", "NYI",
                                 () -> div()
-                                        .add(Components.<Void>toolbar()
+                                        .add(toolbar()
                                                 .add(content()
                                                         .add(item().add(new InputGroup.Search()))
                                                         .add(item().add(button("Action").secondary()))
@@ -35,7 +35,7 @@ public class ToolbarComponent extends BaseComponent {
                                                         .add(item().add(button("Action").primary())))).element()),
                         new Snippet("Adjusting item spacers", "NYI",
                                 () -> div()
-                                        .add(Components.<Void>toolbar()
+                                        .add(toolbar()
                                                 .add(content()
                                                         .add(item().css(modifier("spacer-none"))
                                                                 .add(button("Action").secondary()))
@@ -60,7 +60,7 @@ public class ToolbarComponent extends BaseComponent {
                                         .element()),
                         new Snippet("Groups", "NYI",
                                 () -> div()
-                                        .add(Components.<Void>toolbar()
+                                        .add(toolbar()
                                                 .add(content()
                                                         .add(group().filter()
                                                                 .add(item()
@@ -86,7 +86,7 @@ public class ToolbarComponent extends BaseComponent {
                                         .element()),
                         new Snippet("Toggle group", "NYI",
                                 () -> div()
-                                        .add(Components.<Void>toolbar()
+                                        .add(toolbar()
                                                 .add(content()
                                                         .add(group().toggle("show-on-lg")
                                                                 .add(item().add(new InputGroup.Search()))

@@ -11,7 +11,7 @@ import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.patternfly.client.components.Alert.info;
 import static org.patternfly.client.components.AlertGroup.toast;
 import static org.patternfly.client.components.Button.button;
-import static org.patternfly.client.components.Components.icon;
+import static org.patternfly.client.components.Icon.icon;
 import static org.patternfly.client.resources.CSS.fas;
 
 public class ButtonComponent extends BaseComponent {

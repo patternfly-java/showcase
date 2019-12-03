@@ -11,11 +11,7 @@ import static org.jboss.gwt.elemento.core.Elements.input;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.patternfly.client.components.Card.Head.actions;
-import static org.patternfly.client.components.Card.body;
-import static org.patternfly.client.components.Card.footer;
-import static org.patternfly.client.components.Card.head;
-import static org.patternfly.client.components.Card.header;
-import static org.patternfly.client.components.Components.card;
+import static org.patternfly.client.components.Card.*;
 import static org.patternfly.client.resources.CSS.modifier;
 import static org.patternfly.client.resources.Constants.noFill;
 

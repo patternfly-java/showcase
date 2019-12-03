@@ -9,7 +9,7 @@ import org.patternfly.showcase.client.documentation.Snippet;
 import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Components.icon;
+import static org.patternfly.client.components.Icon.icon;
 import static org.patternfly.client.resources.CSS.fas;
 
 public class OptionsMenuComponent extends BaseComponent {

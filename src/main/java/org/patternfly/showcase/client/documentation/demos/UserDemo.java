@@ -12,6 +12,8 @@ import org.patternfly.client.components.CardView;
 import org.patternfly.client.components.DataList;
 import org.patternfly.client.components.DataTable;
 import org.patternfly.client.components.Dropdown;
+import org.patternfly.client.components.Icon;
+import org.patternfly.client.components.Page;
 import org.patternfly.client.components.Toolbar;
 import org.patternfly.client.components.Toolbar.SortOption;
 import org.patternfly.client.components.Toolbar.SortOptions;
@@ -25,20 +27,12 @@ import static org.jboss.gwt.elemento.core.Elements.*;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
 import static org.patternfly.client.components.Card.Head.actions;
 import static org.patternfly.client.components.Card.head;
-import static org.patternfly.client.components.Components.cardView;
-import static org.patternfly.client.components.Components.content;
-import static org.patternfly.client.components.Components.dataList;
-import static org.patternfly.client.components.Components.dataTable;
-import static org.patternfly.client.components.Components.icon;
-import static org.patternfly.client.components.Components.pageSection;
-import static org.patternfly.client.components.Components.pagination;
-import static org.patternfly.client.components.Components.title;
-import static org.patternfly.client.components.Components.toolbar;
+import static org.patternfly.client.components.CardView.cardView;
+import static org.patternfly.client.components.Content.content;
 import static org.patternfly.client.components.DataList.*;
-import static org.patternfly.client.components.DataTable.actionsColumn;
-import static org.patternfly.client.components.DataTable.checkboxColumn;
-import static org.patternfly.client.components.DataTable.column;
-import static org.patternfly.client.components.DataTable.expandColumn;
+import static org.patternfly.client.components.DataTable.*;
+import static org.patternfly.client.components.Pagination.pagination;
+import static org.patternfly.client.components.Title.title;
 import static org.patternfly.client.components.Toolbar.bulkSelect;
 import static org.patternfly.client.components.Toolbar.group;
 import static org.patternfly.client.components.Toolbar.sortMenu;
@@ -62,7 +56,7 @@ public class UserDemo implements Iterable<HTMLElement> {
     public UserDemo() {
         DataProvider<User> dataProvider = new DataProvider<>(user -> user.login.uuid);
 
-        Toolbar<User> toolbar = toolbar(dataProvider)
+        Toolbar<User> toolbar = Toolbar.toolbar(dataProvider)
                 .style("background-color: var(--pf-global--BackgroundColor--100)")
                 .add(Toolbar.content()
                         .add(Toolbar.item()
@@ -79,11 +73,11 @@ public class UserDemo implements Iterable<HTMLElement> {
                                         .add(new SortOption<>("Age", comparing(user -> user.dob.age)))
                                         .add(new SortOption<>("Nationality", comparing(user -> user.nat))))))
                         .add(group().iconButton()
-                                .add(Toolbar.item().add(Button.icon(icon(fas("address-card")), "Card view")
+                                .add(Toolbar.item().add(Button.icon(Icon.icon(fas("address-card")), "Card view")
                                         .onClick(() -> show(cardView.element()))))
-                                .add(Toolbar.item().add(Button.icon(icon(fas("list")), "Card view")
+                                .add(Toolbar.item().add(Button.icon(Icon.icon(fas("list")), "Card view")
                                         .onClick(() -> show(dataList.element()))))
-                                .add(Toolbar.item().add(Button.icon(icon(fas("table")), "Card view")
+                                .add(Toolbar.item().add(Button.icon(Icon.icon(fas("table")), "Card view")
                                         .onClick(() -> show(dataTable.element())))))
                         .add(Toolbar.item()
                                 .add(pagination().compact())));
@@ -123,7 +117,7 @@ public class UserDemo implements Iterable<HTMLElement> {
         dataProvider.update(Users.get()); // 123 random users
 
         elements = collect()
-                .add(pageSection()
+                .add(Page.section()
                         .add(content()
                                 .add(title(1, "Users", _4xl))
                                 .add(p().add("A list of 123 random users provided by ")
@@ -139,7 +133,7 @@ public class UserDemo implements Iterable<HTMLElement> {
                                                 .attr("target", "_blank").textContent("UserDemo.java"))
                                         .add(" for the code.")
                                 )))
-                .add(pageSection()
+                .add(Page.section()
                         .add(toolbar)
                         .add(dataContainer = div().element())).elements();
 

@@ -6,7 +6,7 @@ import org.patternfly.showcase.client.resources.LoremIpsum;
 
 import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.Components.content;
+import static org.patternfly.client.components.Content.content;
 
 public class ContentComponent extends BaseComponent {
 

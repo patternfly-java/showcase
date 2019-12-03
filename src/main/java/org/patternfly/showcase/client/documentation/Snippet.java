@@ -6,9 +6,9 @@ import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.By;
 import org.jboss.gwt.elemento.core.IsElement;
 import org.patternfly.client.components.Button;
+import org.patternfly.client.components.Icon;
 
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.Components.icon;
 import static org.patternfly.client.resources.CSS.fas;
 
 public class Snippet implements IsElement<HTMLElement> {
@@ -24,9 +24,9 @@ public class Snippet implements IsElement<HTMLElement> {
                 .add(h(3, header).css("sc-documentation__heading"))
                 .add(this.demo = demo.get())
                 .add(div().css("sc-documentation__toolbar")
-                        .add(Button.icon(icon(fas("code")), "Toggle code").onClick(this::toggleCode))
-                        .add(Button.icon(icon(fas("copy")), "Copy code").onClick(this::copyCode))
-                        .add(Button.icon(icon(fas("undo")), "Undo changes").onClick(this::undo)))
+                        .add(Button.icon(Icon.icon(fas("code")), "Toggle code").onClick(this::toggleCode))
+                        .add(Button.icon(Icon.icon(fas("copy")), "Copy code").onClick(this::copyCode))
+                        .add(Button.icon(Icon.icon(fas("undo")), "Undo changes").onClick(this::undo)))
                 .add(this.code = div().css("sc-documentation__code")
                         .add(pre().css("prettyprint").textContent(code)).element()).element();
         this.demo.classList.add("sc-documentation__example");

@@ -9,7 +9,7 @@ import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.patternfly.client.components.Alert.info;
 import static org.patternfly.client.components.AlertGroup.toast;
-import static org.patternfly.client.components.Components.icon;
+import static org.patternfly.client.components.Icon.icon;
 import static org.patternfly.client.resources.CSS.fas;
 
 public class DropdownComponent extends BaseComponent {

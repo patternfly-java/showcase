@@ -1,7 +1,7 @@
 package org.patternfly.showcase.client.documentation.components;
 
 import org.patternfly.client.components.Badge;
-import org.patternfly.client.components.Components;
+import org.patternfly.client.components.ContextSelector;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 
@@ -22,11 +22,11 @@ public class ContextSelectorComponent extends BaseComponent {
                 asList(
                         new Snippet("Simple context selector", Code.get().contextSelectorSimple().getText(),
                                 () -> div()
-                                        .add(Components.<String>contextSelector("Stage")
+                                        .add(ContextSelector.<String>contextSelector("Stage")
                                                 .add(asList("Development", "Staging", "QA", "Production"))).element()),
                         new Snippet("Typed context selector", Code.get().contextSelectorTyped().getText(),
                                 () -> div()
-                                        .add(Components.<Stage>contextSelector("Stage")
+                                        .add(ContextSelector.<Stage>contextSelector("Stage")
                                                 .display(
                                                         (html, stage) -> html.css(util("justify-content-space-between"))
                                                                 .title(stage.url)
@@ -38,7 +38,7 @@ public class ContextSelectorComponent extends BaseComponent {
                                                         new Stage("Production", "https://acme.org", 12)))).element()),
                         new Snippet("Context selector events", Code.get().contextSelectorEvent().getText(),
                                 () -> div()
-                                        .add(Components.<String>contextSelector("Stage")
+                                        .add(ContextSelector.<String>contextSelector("Stage")
                                                 .onToggle(open -> toast().add(
                                                         info("Context selector " + (open ? "expanded" : "collapsed"))))
                                                 .onSelect(

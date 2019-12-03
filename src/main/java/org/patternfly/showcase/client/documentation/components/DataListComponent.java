@@ -12,18 +12,18 @@ import org.patternfly.showcase.client.resources.LoremIpsum;
 
 import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.Components.dataList;
+import static org.patternfly.client.components.DataList.dataList;
+import static org.patternfly.client.components.DataList.expandableContent;
+import static org.patternfly.client.components.DataList.itemAction;
+import static org.patternfly.client.components.DataList.itemContent;
+import static org.patternfly.client.components.DataList.itemControl;
+import static org.patternfly.client.components.DataList.itemRow;
 import static org.patternfly.client.components.DataList.*;
 import static org.patternfly.client.resources.CSS.component;
 import static org.patternfly.client.resources.CSS.fas;
 import static org.patternfly.client.resources.CSS.modifier;
-import static org.patternfly.client.resources.Constants.action;
-import static org.patternfly.client.resources.Constants.alignRight;
 import static org.patternfly.client.resources.Constants.dataList;
-import static org.patternfly.client.resources.Constants.hidden;
-import static org.patternfly.client.resources.Constants.icon;
-import static org.patternfly.client.resources.Constants.noFill;
-import static org.patternfly.client.resources.Constants.noPadding;
+import static org.patternfly.client.resources.Constants.*;
 
 public class DataListComponent extends BaseComponent {
 

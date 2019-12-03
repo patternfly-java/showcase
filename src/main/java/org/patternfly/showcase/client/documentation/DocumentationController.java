@@ -53,7 +53,7 @@ public class DocumentationController
 
     @Override
     public void start() {
-        Page.instance().sidebar(navigation);
+        Page.instance().add(navigation);
     }
 
     @AcceptParameter("id")

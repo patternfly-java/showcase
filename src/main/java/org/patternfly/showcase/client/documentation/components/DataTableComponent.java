@@ -15,11 +15,7 @@ import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_860
 import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.Components.dataTable;
-import static org.patternfly.client.components.DataTable.actionsColumn;
-import static org.patternfly.client.components.DataTable.checkboxColumn;
-import static org.patternfly.client.components.DataTable.column;
-import static org.patternfly.client.components.DataTable.expandColumn;
+import static org.patternfly.client.components.DataTable.*;
 
 public class DataTableComponent extends BaseComponent {
 

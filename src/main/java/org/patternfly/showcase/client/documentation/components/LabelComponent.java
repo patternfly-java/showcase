@@ -6,7 +6,7 @@ import org.patternfly.showcase.client.documentation.Snippet;
 import static java.util.Collections.singletonList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Components.label;
+import static org.patternfly.client.components.Label.label;
 
 public class LabelComponent extends BaseComponent {
 
@@ -16,7 +16,6 @@ public class LabelComponent extends BaseComponent {
                         "or make it more searchable.").element(),
                 singletonList(new Snippet("Simple label", Code.get().label().getText(),
                         () -> div()
-                                .add(label("Default Label"))
                                 .add(" ")
                                 .add(label("Compact Label", true)).element())));
     }
