@@ -1,5 +1,5 @@
-import static org.patternfly.client.components.Components.title;
-import static org.patternfly.client.resources.CSS.Size.*;
+import static org.patternfly.components.Components.title;
+import static org.patternfly.resources.CSS.Size.*;
 
 Title t1 = title(1, "4xl Title", _4xL);
 Title t2 = title(2, "3xl Title", _3xL);

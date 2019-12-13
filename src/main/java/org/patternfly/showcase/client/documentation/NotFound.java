@@ -6,13 +6,13 @@ import org.jboss.gwt.elemento.core.IsElement;
 import static org.jboss.gwt.elemento.core.Elements.code;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Page.section;
-import static org.patternfly.client.components.Title.title;
-import static org.patternfly.client.resources.CSS.Size._4xl;
-import static org.patternfly.client.resources.CSS.component;
-import static org.patternfly.client.resources.CSS.modifier;
-import static org.patternfly.client.resources.Constants.content;
-import static org.patternfly.client.resources.Constants.light;
+import static org.patternfly.components.Page.section;
+import static org.patternfly.components.Title.title;
+import static org.patternfly.resources.CSS.Size._4xl;
+import static org.patternfly.resources.CSS.component;
+import static org.patternfly.resources.CSS.modifier;
+import static org.patternfly.resources.Constants.content;
+import static org.patternfly.resources.Constants.light;
 
 class NotFound implements IsElement<HTMLElement> {
 

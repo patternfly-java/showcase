@@ -1,6 +1,5 @@
 import static java.util.Arrays.asList;
-import static org.patternfly.client.components.Components.contextSelector;
-import static org.patternfly.client.resources.CSS.util;
+import static org.patternfly.resources.CSS.util;
 
 static class Stage {
 
@@ -26,7 +25,7 @@ List<Stage> stages = asList(
         new Stage("QA", "https://qa.acme.org", 3),
         new Stage("Production", "https://acme.org", 12));
 
-ContextSelector<Stage> contextSelector = contextSelector("Stage")
+ContextSelector<Stage> contextSelector = ContextSelector.contextSelector("Stage")
         .display((html, stage) -> html.css(util("justify-content-space-between"))
                 .title(stage.url)
                 .add(stage.name)

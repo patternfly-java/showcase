@@ -1,13 +1,13 @@
 package org.patternfly.showcase.client.documentation.components;
 
-import org.patternfly.client.components.SingleSelect;
+import org.patternfly.components.SingleSelect;
 import org.patternfly.showcase.client.documentation.Snippet;
 
 import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Icon.icon;
-import static org.patternfly.client.resources.CSS.fas;
+import static org.patternfly.components.Icon.icon;
+import static org.patternfly.resources.CSS.fas;
 
 public class SelectComponent extends BaseComponent {
 

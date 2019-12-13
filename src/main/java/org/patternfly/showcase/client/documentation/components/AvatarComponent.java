@@ -6,7 +6,7 @@ import org.patternfly.showcase.client.documentation.Snippet;
 import static java.util.Collections.singletonList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Avatar.avatar;
+import static org.patternfly.components.Avatar.avatar;
 
 public class AvatarComponent extends BaseComponent {
 

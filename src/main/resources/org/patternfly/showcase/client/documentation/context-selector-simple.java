@@ -1,4 +1,4 @@
-import static org.patternfly.client.components.Components.contextSelector;
+import static java.util.Arrays.asList;
 
-ContextSelector<String> contextSelector = contextSelector("Stage")
+ContextSelector<String> contextSelector = ContextSelector.contextSelector("Stage")
         .add(asList("Development", "Staging", "QA", "Production"));

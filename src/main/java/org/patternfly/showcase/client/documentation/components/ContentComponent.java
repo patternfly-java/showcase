@@ -5,8 +5,19 @@ import org.patternfly.showcase.client.documentation.Snippet;
 import org.patternfly.showcase.client.resources.LoremIpsum;
 
 import static java.util.Arrays.asList;
-import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.Content.content;
+import static org.jboss.gwt.elemento.core.Elements.a;
+import static org.jboss.gwt.elemento.core.Elements.blockquote;
+import static org.jboss.gwt.elemento.core.Elements.dd;
+import static org.jboss.gwt.elemento.core.Elements.div;
+import static org.jboss.gwt.elemento.core.Elements.dl;
+import static org.jboss.gwt.elemento.core.Elements.dt;
+import static org.jboss.gwt.elemento.core.Elements.h;
+import static org.jboss.gwt.elemento.core.Elements.li;
+import static org.jboss.gwt.elemento.core.Elements.ol;
+import static org.jboss.gwt.elemento.core.Elements.p;
+import static org.jboss.gwt.elemento.core.Elements.small;
+import static org.jboss.gwt.elemento.core.Elements.ul;
+import static org.patternfly.components.Content.content;
 
 public class ContentComponent extends BaseComponent {
 

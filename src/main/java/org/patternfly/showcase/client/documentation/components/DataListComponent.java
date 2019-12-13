@@ -1,29 +1,29 @@
 package org.patternfly.showcase.client.documentation.components;
 
 import org.jboss.gwt.elemento.core.Elements;
-import org.patternfly.client.components.Button;
-import org.patternfly.client.components.DataList;
-import org.patternfly.client.components.DataList.*;
-import org.patternfly.client.components.Dropdown;
-import org.patternfly.client.dataprovider.DataProvider;
+import org.patternfly.components.Button;
+import org.patternfly.components.DataList;
+import org.patternfly.components.DataList.*;
+import org.patternfly.components.Dropdown;
+import org.patternfly.dataprovider.DataProvider;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 import org.patternfly.showcase.client.resources.LoremIpsum;
 
 import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.DataList.dataList;
-import static org.patternfly.client.components.DataList.expandableContent;
-import static org.patternfly.client.components.DataList.itemAction;
-import static org.patternfly.client.components.DataList.itemContent;
-import static org.patternfly.client.components.DataList.itemControl;
-import static org.patternfly.client.components.DataList.itemRow;
-import static org.patternfly.client.components.DataList.*;
-import static org.patternfly.client.resources.CSS.component;
-import static org.patternfly.client.resources.CSS.fas;
-import static org.patternfly.client.resources.CSS.modifier;
-import static org.patternfly.client.resources.Constants.dataList;
-import static org.patternfly.client.resources.Constants.*;
+import static org.patternfly.components.DataList.dataList;
+import static org.patternfly.components.DataList.expandableContent;
+import static org.patternfly.components.DataList.itemAction;
+import static org.patternfly.components.DataList.itemContent;
+import static org.patternfly.components.DataList.itemControl;
+import static org.patternfly.components.DataList.itemRow;
+import static org.patternfly.components.DataList.*;
+import static org.patternfly.resources.CSS.component;
+import static org.patternfly.resources.CSS.fas;
+import static org.patternfly.resources.CSS.modifier;
+import static org.patternfly.resources.Constants.dataList;
+import static org.patternfly.resources.Constants.*;
 
 public class DataListComponent extends BaseComponent {
 

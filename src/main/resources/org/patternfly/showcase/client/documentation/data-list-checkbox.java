@@ -1,17 +1,17 @@
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.span;
-import static org.patternfly.client.components.Components.dataList;
-import static org.patternfly.client.components.DataList.itemCell;
-import static org.patternfly.client.components.DataList.itemContent;
-import static org.patternfly.client.components.DataList.itemRow;
-import static org.patternfly.client.resources.CSS.component;
-import static org.patternfly.client.resources.CSS.modifier;
-import static org.patternfly.client.resources.Constants.action;
-import static org.patternfly.client.resources.Constants.alignRight;
-import static org.patternfly.client.resources.Constants.hidden;
+import static org.patternfly.components.DataList.dataList;
+import static org.patternfly.components.DataList.itemCell;
+import static org.patternfly.components.DataList.itemContent;
+import static org.patternfly.components.DataList.itemRow;
+import static org.patternfly.resources.CSS.component;
+import static org.patternfly.resources.CSS.modifier;
+import static org.patternfly.resources.Constants.action;
+import static org.patternfly.resources.Constants.alignRight;
+import static org.patternfly.resources.Constants.hidden;
 
 DisplayData[] items = {
-        new DisplayData((html, provider, item) -> html.add(itemRow()
+        new DisplayData((li, provider, item) -> li.add(itemRow()
                 .add(itemControl().checkbox())
                 .add(itemContent()
                         .add(itemCell().add(span().id(item.id()).textContent("Primary Content. " + LoremIpsum.paragraph())))
@@ -27,7 +27,7 @@ DisplayData[] items = {
                                         .add("Disabled Action", true)
                                         .addSeparator()
                                         .add("Final Action")))))),
-        new DisplayData((html, provider, item) -> html.add(itemRow()
+        new DisplayData((li, provider, item) -> li.add(itemRow()
                 .add(itemControl().checkbox())
                 .add(itemContent()
                         .add(itemCell().add(span().id(item.id()).textContent("Primary Content. " + LoremIpsum.paragraph())))
@@ -43,7 +43,7 @@ DisplayData[] items = {
                 .add(itemAction().css(modifier(hidden), modifier("visible-on-lg"))
                         .add(Button.button("Primary").primary())
                         .add(Button.button("Secondary").secondary())))),
-        new DisplayData((html, provider, item) -> html.add(itemRow()
+        new DisplayData((li, provider, item) -> li.add(itemRow()
                 .add(itemControl().checkbox())
                 .add(itemContent()
                         .add(itemCell().add(span().id(item.id()).textContent("Primary Content. " + LoremIpsum.paragraph())))
@@ -63,10 +63,10 @@ DisplayData[] items = {
                         .add(Button.button("Secondary").secondary()))))
 };
 
-DataProvider<DisplayData> dataProvider = new DataProvider<>(DisplayData::id);
-DataList<DisplayData> dl = dataList(dataProvider, (html, provider, item) -> data.display.render(html, provider, item));
-dataProvider.addDisplay(dl);
-dataProvider.update(items);
+DataProvider<DisplayData> dp = new DataProvider<>(DisplayData::id);
+DataList<DisplayData> dl = dataList(dp, (li, provider, item) -> item.display.render(li, provider, item));
+dp.addDisplay(dl);
+dp.update(items);
 
 // Just a fake item data w/ a display delegate. See demos for a real example
 static class DisplayData {

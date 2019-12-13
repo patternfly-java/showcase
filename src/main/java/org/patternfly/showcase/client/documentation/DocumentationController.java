@@ -4,9 +4,9 @@ import com.github.nalukit.nalu.client.component.AbstractComponentController;
 import com.github.nalukit.nalu.client.component.annotation.AcceptParameter;
 import com.github.nalukit.nalu.client.component.annotation.Controller;
 import elemental2.dom.HTMLElement;
-import org.patternfly.client.components.Navigation;
-import org.patternfly.client.components.NavigationItem;
-import org.patternfly.client.components.Page;
+import org.patternfly.components.Navigation;
+import org.patternfly.components.NavigationItem;
+import org.patternfly.components.Page;
 import org.patternfly.showcase.client.ShowcaseContext;
 import org.patternfly.showcase.client.resources.Ids;
 

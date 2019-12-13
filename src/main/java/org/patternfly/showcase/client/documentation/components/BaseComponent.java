@@ -9,11 +9,11 @@ import org.patternfly.showcase.client.documentation.Snippet;
 import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 import static org.jboss.gwt.elemento.core.Elements.div;
-import static org.patternfly.client.components.Page.section;
-import static org.patternfly.client.components.Title.title;
-import static org.patternfly.client.resources.CSS.Size._4xl;
-import static org.patternfly.client.resources.CSS.component;
-import static org.patternfly.client.resources.Constants.content;
+import static org.patternfly.components.Page.section;
+import static org.patternfly.components.Title.title;
+import static org.patternfly.resources.CSS.Size._4xl;
+import static org.patternfly.resources.CSS.component;
+import static org.patternfly.resources.Constants.content;
 
 class BaseComponent implements Iterable<HTMLElement> {
 

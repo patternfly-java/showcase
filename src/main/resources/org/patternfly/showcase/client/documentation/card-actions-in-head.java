@@ -1,9 +1,9 @@
 import static org.jboss.gwt.elemento.core.Elements.input;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
-import static org.patternfly.client.components.Card.body;
-import static org.patternfly.client.components.Card.footer;
-import static org.patternfly.client.components.Card.header;
-import static org.patternfly.client.components.Components.card;
+import static org.patternfly.components.Card.Head.actions;
+import static org.patternfly.components.Card.body;
+import static org.patternfly.components.Card.card;
+import static org.patternfly.components.Card.head;
 
 Card card = card()
         .add(head()

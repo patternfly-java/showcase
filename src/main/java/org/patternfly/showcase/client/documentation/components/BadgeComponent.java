@@ -1,6 +1,6 @@
 package org.patternfly.showcase.client.documentation.components;
 
-import org.patternfly.client.components.Badge;
+import org.patternfly.components.Badge;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 

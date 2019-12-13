@@ -4,9 +4,9 @@ import java.util.Date;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import elemental2.dom.HTMLElement;
-import org.patternfly.client.components.DataTable;
-import org.patternfly.client.components.Dropdown;
-import org.patternfly.client.dataprovider.DataProvider;
+import org.patternfly.components.DataTable;
+import org.patternfly.components.Dropdown;
+import org.patternfly.dataprovider.DataProvider;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 import org.patternfly.showcase.client.resources.LoremIpsum;
@@ -15,7 +15,7 @@ import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_860
 import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.DataTable.*;
+import static org.patternfly.components.DataTable.*;
 
 public class DataTableComponent extends BaseComponent {
 

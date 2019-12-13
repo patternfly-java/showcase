@@ -1,6 +1,6 @@
 package org.patternfly.showcase.client.documentation.components;
 
-import org.patternfly.client.components.AlertGroup;
+import org.patternfly.components.AlertGroup;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 
@@ -8,8 +8,8 @@ import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.a;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Alert.*;
-import static org.patternfly.client.components.AlertGroup.toast;
+import static org.patternfly.components.Alert.*;
+import static org.patternfly.components.AlertGroup.toast;
 
 public class AlertComponent extends BaseComponent {
 

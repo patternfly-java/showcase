@@ -1,6 +1,6 @@
 package org.patternfly.showcase.client.documentation.components;
 
-import org.patternfly.client.components.Dropdown;
+import org.patternfly.components.Dropdown;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 
@@ -10,10 +10,14 @@ import static org.jboss.gwt.elemento.core.Elements.img;
 import static org.jboss.gwt.elemento.core.Elements.input;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.jboss.gwt.elemento.core.InputType.checkbox;
-import static org.patternfly.client.components.Card.Head.actions;
-import static org.patternfly.client.components.Card.*;
-import static org.patternfly.client.resources.CSS.modifier;
-import static org.patternfly.client.resources.Constants.noFill;
+import static org.patternfly.components.Card.Head.actions;
+import static org.patternfly.components.Card.body;
+import static org.patternfly.components.Card.card;
+import static org.patternfly.components.Card.footer;
+import static org.patternfly.components.Card.head;
+import static org.patternfly.components.Card.header;
+import static org.patternfly.resources.CSS.modifier;
+import static org.patternfly.resources.Constants.noFill;
 
 public class CardComponent extends BaseComponent {
 

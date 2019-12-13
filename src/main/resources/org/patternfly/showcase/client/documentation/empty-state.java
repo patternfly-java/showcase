@@ -1,6 +1,6 @@
-import static org.patternfly.client.components.EmptyState.emptyState;
-import static org.patternfly.client.core.Callback.noop;
-import static org.patternfly.client.resources.CSS.fas;
+import static org.patternfly.components.EmptyState.emptyState;
+import static org.patternfly.core.Callback.noop;
+import static org.patternfly.resources.CSS.fas;
 
 EmptyState emptyState = emptyState(fas("cubes"), "Empty State")
         .body("This represents an the empty state pattern in PatternFly 4. " +

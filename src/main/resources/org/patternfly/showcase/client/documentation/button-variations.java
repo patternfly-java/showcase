@@ -1,21 +1,21 @@
-import static org.patternfly.client.components.Button.button;
-import static org.patternfly.client.resources.CSS.fas;
+import static org.patternfly.components.Icon.icon;
+import static org.patternfly.resources.CSS.fas;
 
-Button b01 = button("Primary").primary());
-Button b02 = button("Secondary").secondary());
-Button b03 = button("Tertiary").tertiary());
-Button b04 = button("Danger").danger()));
+Button b00 = Button.button("Primary").primary());
+Button b01 = Button.button("Secondary").secondary());
+Button b02 = Button.button("Tertiary").tertiary());
+Button b03 = Button.button("Danger").danger()));
 
-Button b05 = button("Primary icon").primary().withIcon(fas("address-card")));
-Button b06 = button("Secondary icon").secondary().withIcon(fas("address-card")));
-Button b07 = button("Tertiary icon").tertiary().withIcon(fas("address-card")));
-Button b08 = button("Danger icon").danger().withIcon(fas("address-card"))));
+Button b04 = Button.button(icon(fas("address-card")), "Primary icon").primary();
+Button b05 = Button.button(icon(fas("address-card")), "Secondary icon").secondary();
+Button b06 = Button.button(icon(fas("address-card")), "Tertiary icon").tertiary();
+Button b07 = Button.button(icon(fas("address-card"))), "Danger icon").danger();
 
-Button b09 = Button.link("Link"));
-Button b10 = Button.link("Link icon").withIcon(fas("calendar-plus")));
-Button b11 = Button.icon(fas("chart-pie"), "Chart"));
-Button b12 = Button.inline("Inline Link")));
+Button b08 = Button.link("Link"));
+Button b09 = Button.link(icon(fas("calendar-plus")), "Link icon");
+Button b10 = Button.icon(icon(fas("chart-pie")), "Chart");
+Button b11 = Button.inline("Inline Link")));
 
-Button b13 = Button.control("Control"));
-Button b14 = Button.control("Control icon").withIcon(fas("clock")));
-Button b15 = Button.control(fas("code"), "Code")));
+Button b12 = Button.control("Control"));
+Button b13 = Button.control(icon(fas("clock")), "Control icon");
+Button b14 = Button.control(icon(fas("code"));

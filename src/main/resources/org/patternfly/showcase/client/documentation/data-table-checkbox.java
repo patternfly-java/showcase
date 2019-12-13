@@ -1,10 +1,11 @@
 import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_8601;
 import static elemental2.dom.DomGlobal.document;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.components.Components.dataTable;
-import static org.patternfly.client.components.DataTable.actionsColumn;
-import static org.patternfly.client.components.DataTable.checkboxColumn;
-import static org.patternfly.client.components.DataTable.column;
+import static org.patternfly.components.Components.dataTable;
+import static org.patternfly.components.DataTable.actionsColumn;
+import static org.patternfly.components.DataTable.checkboxColumn;
+import static org.patternfly.components.DataTable.column;
+
 
 class Repository {
 

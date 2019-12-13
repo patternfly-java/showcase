@@ -5,11 +5,11 @@ import java.util.function.Supplier;
 import elemental2.dom.HTMLElement;
 import org.jboss.gwt.elemento.core.By;
 import org.jboss.gwt.elemento.core.IsElement;
-import org.patternfly.client.components.Button;
-import org.patternfly.client.components.Icon;
+import org.patternfly.components.Button;
+import org.patternfly.components.Icon;
 
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.client.resources.CSS.fas;
+import static org.patternfly.resources.CSS.fas;
 
 public class Snippet implements IsElement<HTMLElement> {
 

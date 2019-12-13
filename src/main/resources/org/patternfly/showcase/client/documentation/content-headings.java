@@ -1,6 +1,6 @@
-import static org.patternfly.client.components.Components.text;
+import static org.jboss.gwt.elemento.core.Elements.h;
 
-Text headings = text()
+Content content = Content.content()
         .add(h(1, "Hello World"))
         .add(h(2, "Second Level"))
         .add(h(3, "Third Level"))

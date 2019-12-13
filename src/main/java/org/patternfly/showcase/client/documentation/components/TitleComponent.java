@@ -6,8 +6,8 @@ import org.patternfly.showcase.client.documentation.Snippet;
 import static java.util.Collections.singletonList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Title.title;
-import static org.patternfly.client.resources.CSS.Size.*;
+import static org.patternfly.components.Title.title;
+import static org.patternfly.resources.CSS.Size.*;
 
 public class TitleComponent extends BaseComponent {
 

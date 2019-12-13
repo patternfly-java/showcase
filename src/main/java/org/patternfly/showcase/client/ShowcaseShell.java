@@ -3,18 +3,18 @@ package org.patternfly.showcase.client;
 import com.github.nalukit.nalu.client.component.AbstractShell;
 import com.github.nalukit.nalu.client.component.annotation.Shell;
 import com.github.nalukit.nalu.client.event.RouterStateEvent;
-import org.patternfly.client.components.Navigation;
-import org.patternfly.client.components.NavigationItem;
-import org.patternfly.client.components.Page;
+import org.patternfly.components.Navigation;
+import org.patternfly.components.NavigationItem;
+import org.patternfly.components.Page;
 import org.patternfly.showcase.client.resources.Routes;
 
 import static com.github.nalukit.nalu.client.event.RouterStateEvent.RouterState.ROUTING_DONE;
 import static org.jboss.gwt.elemento.core.Elements.body;
 import static org.jboss.gwt.elemento.core.Elements.failSafeRemoveFromParent;
-import static org.patternfly.client.components.AlertGroup.toast;
-import static org.patternfly.client.components.Brand.brand;
-import static org.patternfly.client.components.Page.header;
-import static org.patternfly.client.components.Page.page;
+import static org.patternfly.components.AlertGroup.toast;
+import static org.patternfly.components.Brand.brand;
+import static org.patternfly.components.Page.header;
+import static org.patternfly.components.Page.page;
 import static org.patternfly.showcase.client.resources.Ids.ROOT_CONTAINER;
 import static org.patternfly.showcase.client.resources.Routes.*;
 

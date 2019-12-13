@@ -1,18 +1,18 @@
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.span;
-import static org.patternfly.client.components.Components.dataList;
-import static org.patternfly.client.components.DataList.itemCell;
-import static org.patternfly.client.components.DataList.itemContent;
-import static org.patternfly.client.components.DataList.itemRow;
-import static org.patternfly.client.resources.CSS.component;
-import static org.patternfly.client.resources.CSS.modifier;
-import static org.patternfly.client.resources.Constants.action;
-import static org.patternfly.client.resources.Constants.alignRight;
-import static org.patternfly.client.resources.Constants.hidden;
-import static org.patternfly.client.resources.Constants.noPadding;
+import static org.patternfly.components.Components.dataList;
+import static org.patternfly.components.DataList.itemCell;
+import static org.patternfly.components.DataList.itemContent;
+import static org.patternfly.components.DataList.itemRow;
+import static org.patternfly.resources.CSS.component;
+import static org.patternfly.resources.CSS.modifier;
+import static org.patternfly.resources.Constants.action;
+import static org.patternfly.resources.Constants.alignRight;
+import static org.patternfly.resources.Constants.hidden;
+import static org.patternfly.resources.Constants.noPadding;
 
 DisplayData[] items = {
-        new DisplayData((html, provider, item) -> html
+        new DisplayData((li, provider, item) -> li
                 .add(itemRow()
                         .add(itemControl().expandable())
                         .add(itemContent()
@@ -33,7 +33,7 @@ DisplayData[] items = {
                                                 .add("Final Action")))))
                 .add(expandableContent()
                         .add(expandableBody().textContent(LoremIpsum.paragraphs(5))))),
-        new DisplayData((html, provider, item) -> html
+        new DisplayData((li, provider, item) -> li
                 .add(itemRow()
                         .add(itemControl().expandable())
                         .add(itemContent()
@@ -54,7 +54,7 @@ DisplayData[] items = {
                                                 .add("Final Action")))))
                 .add(expandableContent()
                         .add(expandableBody().textContent(LoremIpsum.paragraphs(5))))),
-        new DisplayData((html, provider, item) -> html
+        new DisplayData((li, provider, item) -> li
                 .add(itemRow()
                         .add(itemControl().expandable())
                         .add(itemContent()
@@ -76,6 +76,11 @@ DisplayData[] items = {
                 .add(expandableContent()
                         .add(expandableBody().css(modifier(noPadding)).textContent(LoremIpsum.paragraph()))))
 };
+
+DataProvider<DisplayData> dp = new DataProvider<>(DisplayData::id);
+DataList<DisplayData> dl = dataList(dp, (li, provider, item) -> item.display.render(li, provider, item));
+dp.addDisplay(dl);
+dp.update(items);
 
 // Just a fake item data w/ a display delegate. See demos for a real example
 static class DisplayData {

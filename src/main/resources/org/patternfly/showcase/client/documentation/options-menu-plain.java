@@ -1,4 +1,4 @@
-import static org.patternfly.client.resources.CSS.fas;
+import static org.patternfly.resources.CSS.fas;
 
 SingleOptionsMenu som1 = SingleOptionsMenu.<String> icon(fas("sort-amount-down"))
         .add(new String[] {

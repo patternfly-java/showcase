@@ -2,9 +2,9 @@ package org.patternfly.showcase.client.documentation.components;
 
 import java.util.Random;
 
-import org.patternfly.client.components.Button;
-import org.patternfly.client.components.ChipGroup;
-import org.patternfly.client.components.ChipGroupToolbar;
+import org.patternfly.components.Button;
+import org.patternfly.components.ChipGroup;
+import org.patternfly.components.ChipGroupToolbar;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 
@@ -12,11 +12,11 @@ import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
 import static org.jboss.gwt.elemento.core.Elements.uniqueId;
-import static org.patternfly.client.components.Chip.chip;
-import static org.patternfly.client.components.ChipGroup.chipGroup;
-import static org.patternfly.client.components.ChipGroupToolbar.chipGroupToolbar;
-import static org.patternfly.client.components.Icon.icon;
-import static org.patternfly.client.resources.CSS.fas;
+import static org.patternfly.components.Chip.chip;
+import static org.patternfly.components.ChipGroup.chipGroup;
+import static org.patternfly.components.ChipGroupToolbar.chipGroupToolbar;
+import static org.patternfly.components.Icon.icon;
+import static org.patternfly.resources.CSS.fas;
 
 public class ChipGroupComponent extends BaseComponent {
 

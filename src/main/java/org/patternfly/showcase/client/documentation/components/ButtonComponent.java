@@ -1,18 +1,18 @@
 package org.patternfly.showcase.client.documentation.components;
 
-import org.patternfly.client.components.Button;
-import org.patternfly.client.components.Button.Type;
+import org.patternfly.components.Button;
+import org.patternfly.components.Button.Type;
 import org.patternfly.showcase.client.documentation.Code;
 import org.patternfly.showcase.client.documentation.Snippet;
 
 import static java.util.Arrays.asList;
 import static org.jboss.gwt.elemento.core.Elements.div;
 import static org.jboss.gwt.elemento.core.Elements.p;
-import static org.patternfly.client.components.Alert.info;
-import static org.patternfly.client.components.AlertGroup.toast;
-import static org.patternfly.client.components.Button.button;
-import static org.patternfly.client.components.Icon.icon;
-import static org.patternfly.client.resources.CSS.fas;
+import static org.patternfly.components.Alert.info;
+import static org.patternfly.components.AlertGroup.toast;
+import static org.patternfly.components.Button.button;
+import static org.patternfly.components.Icon.icon;
+import static org.patternfly.resources.CSS.fas;
 
 public class ButtonComponent extends BaseComponent {
 

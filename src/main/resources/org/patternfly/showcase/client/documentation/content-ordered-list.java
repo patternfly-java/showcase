@@ -1,6 +1,9 @@
-import static org.patternfly.client.components.Components.text;
+import org.patternfly.showcase.client.resources.LoremIpsum;
 
-Text orderedLists = text()
+import static org.jboss.gwt.elemento.core.Elements.li;
+import static org.jboss.gwt.elemento.core.Elements.ol;
+
+Content content = Content.content()
         .add(ol()
                 .add(li().textContent(LoremIpsum.words()))
                 .add(li().textContent(LoremIpsum.words()))
@@ -8,4 +11,4 @@ Text orderedLists = text()
                 .add(li().textContent(LoremIpsum.words()))
                 .add(li().textContent(LoremIpsum.words()))
                 .add(li().textContent(LoremIpsum.words()))
-                .add(li().textContent(LoremIpsum.words()))));
+                .add(li().textContent(LoremIpsum.words())));
