@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Random;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
+import elemental2.core.JsNumber;
 import elemental2.dom.HTMLElement;
 import org.patternfly.components.DataTable;
 import org.patternfly.components.Dropdown;
@@ -13,6 +14,7 @@ import org.patternfly.showcase.client.documentation.Snippet;
 import org.patternfly.showcase.client.resources.LoremIpsum;
 
 import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_8601;
+import static elemental2.dom.DomGlobal.console;
 import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
 import static org.jboss.gwt.elemento.core.Elements.*;
@@ -134,10 +136,7 @@ public class DataTableComponent extends BaseComponent {
 
     static class Repository {
 
-        private static final int MAX_TRIES = 500;
-        private static final int ONE_DAY_IN_MILLIS = 86400000;
-        private static final long FIVE_SECONDS_IN_MILLIS = 5000L;
-        private static final long TWO_YEARS_IN_MILLIS = 63113904000L;
+        private static final int ONE_WEEK_IN_MILLIS = 604800000;
 
         final String name;
         final String link;
@@ -158,17 +157,14 @@ public class DataTableComponent extends BaseComponent {
         }
 
         private Date randomDate() {
-            int tries = 0;
-            long timestamp = -1;
-            long now = System.currentTimeMillis() - FIVE_SECONDS_IN_MILLIS;
-            long twoYearsAgo = now - TWO_YEARS_IN_MILLIS;
+            int diff = 0;
+            long now = System.currentTimeMillis();
             Random random = new Random();
 
-            while ((timestamp < twoYearsAgo || timestamp > now) && tries < MAX_TRIES) {
-                timestamp = random.nextLong();
-                tries++;
+            for (int i = 0; i < 123; i++) {
+                diff = random.nextInt(ONE_WEEK_IN_MILLIS);
             }
-            return tries == MAX_TRIES ? new Date(now - random.nextInt(ONE_DAY_IN_MILLIS)) : new Date(timestamp);
+            return new Date(now - diff);
         }
     }
 
