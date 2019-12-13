@@ -11,10 +11,11 @@
     "watch": "webpack --watch --config webpack.dev.js"
   },
   "dependencies": {
+    "@github/time-elements": "^3.0.8",
+    "@patternfly/patternfly": "^2.43.1",
     "code-prettify": "^0.1.0",
     "color-themes-for-google-code-prettify": "^2.0.4",
-    "@github/time-elements": "^3.0.8",
-    "@patternfly/patternfly": "^2.43.1"
+    "serialize-javascript": "^2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.1",
