@@ -1,6 +1,7 @@
 package org.patternfly.showcase.client.documentation.components;
 
 import java.util.Date;
+import java.util.Random;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import elemental2.dom.HTMLElement;
@@ -117,21 +118,26 @@ public class DataTableComponent extends BaseComponent {
     private static Repository[] repositories() {
         return new Repository[]{
                 new Repository("wildfly/wildfly", "https://github.com/wildfly/wildfly",
-                        12, 52, 318, DATE_FORMAT.parse("2019-11-03T10:05:45.000")),
+                        12, 52, 318),
                 new Repository("quarkusio/quarkus", "https://github.com/quarkusio/quarkus",
-                        17, 71, 174, DATE_FORMAT.parse("2019-11-03T11:25:50.000")),
+                        17, 71, 174),
                 new Repository("patternfly/patternfly-next", "https://github.com/patternfly/patternfly-next",
-                        18, 16, 41, DATE_FORMAT.parse("2019-11-02T20:08:17.000")),
+                        18, 16, 41),
                 new Repository("hal/console", "https://github.com/hal/console",
-                        12, 9, 11, DATE_FORMAT.parse("2019-09-30T10:07:56.000")),
+                        12, 9, 11),
                 new Repository("hal/elemento", "https://github.com/hal/elemento",
-                        6, 0, 9, DATE_FORMAT.parse("2019-10-24T21:56:20.000")),
+                        6, 0, 9),
                 new Repository("hpehl/patternfly-java", "https://github.com/hpehl/patternfly-java",
-                        2, 0, 2, DATE_FORMAT.parse("2019-11-02T11:43:09.000")),
+                        2, 0, 2),
         };
     }
 
     static class Repository {
+
+        private static final int MAX_TRIES = 500;
+        private static final int ONE_DAY_IN_MILLIS = 86400000;
+        private static final long FIVE_SECONDS_IN_MILLIS = 5000L;
+        private static final long TWO_YEARS_IN_MILLIS = 63113904000L;
 
         final String name;
         final String link;
@@ -141,14 +147,28 @@ public class DataTableComponent extends BaseComponent {
         final int contributors;
         final Date lastCommit;
 
-        Repository(String name, String link, int branches, int pullRequests, int contributors, Date lastCommit) {
+        Repository(String name, String link, int branches, int pullRequests, int contributors) {
             this.name = name;
             this.link = link;
             this.lorem = LoremIpsum.paragraphs(3);
             this.branches = branches;
             this.pullRequests = pullRequests;
             this.contributors = contributors;
-            this.lastCommit = lastCommit;
+            this.lastCommit = randomDate();
+        }
+
+        private Date randomDate() {
+            int tries = 0;
+            long timestamp = -1;
+            long now = System.currentTimeMillis() - FIVE_SECONDS_IN_MILLIS;
+            long twoYearsAgo = now - TWO_YEARS_IN_MILLIS;
+            Random random = new Random();
+
+            while ((timestamp < twoYearsAgo || timestamp > now) && tries < MAX_TRIES) {
+                timestamp = random.nextLong();
+                tries++;
+            }
+            return tries == MAX_TRIES ? new Date(now - random.nextInt(ONE_DAY_IN_MILLIS)) : new Date(timestamp);
         }
     }
 

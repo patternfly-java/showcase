@@ -147,6 +147,5 @@ public class DropdownComponent extends BaseComponent {
             this.bg = bg;
             this.fg = fg;
         }
-
     }
 }

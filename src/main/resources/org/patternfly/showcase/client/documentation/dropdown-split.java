@@ -1,4 +1,4 @@
-Dropdown<String> dropdown1 = Dropdown.split()
+Dropdown<String> dropdown0 = Dropdown.split()
         .add("Link")
         .add("Action")
         .add("Disabled Link", true)
@@ -6,7 +6,7 @@ Dropdown<String> dropdown1 = Dropdown.split()
         .addSeparator()
         .add("Separated Link");
 
-Dropdown dropdown2 = Dropdown.split("Dropdown")
+Dropdown dropdown1 = Dropdown.split("Dropdown")
         .add("Link")
         .add("Action")
         .add("Disabled Link", true)

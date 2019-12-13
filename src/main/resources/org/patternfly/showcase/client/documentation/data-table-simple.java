@@ -1,8 +1,8 @@
 import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_8601;
 import static elemental2.dom.DomGlobal.document;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.components.Components.dataTable;
 import static org.patternfly.components.DataTable.column;
+import static org.patternfly.components.DataTable.dataTable;
 
 class Repository {
 

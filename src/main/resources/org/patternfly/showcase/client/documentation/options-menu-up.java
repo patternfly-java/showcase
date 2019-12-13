@@ -1,4 +1,4 @@
-SingleOptionsMenu som = SingleOptionsMenu.<String> text("Options menu").up()
+SingleOptionsMenu<String> som = SingleOptionsMenu.text("Options menu").up()
         .add(new String[] {
                 "Option 1",
                 "Option 2",

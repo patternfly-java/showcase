@@ -4,8 +4,8 @@ import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_860
 import static elemental2.dom.DomGlobal.document;
 import static java.util.Comparator.comparing;
 import static org.jboss.gwt.elemento.core.Elements.*;
-import static org.patternfly.components.Components.dataTable;
 import static org.patternfly.components.DataTable.column;
+import static org.patternfly.components.DataTable.dataTable;
 
 class Repository {
 

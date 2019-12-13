@@ -1,3 +1,6 @@
+import static org.patternfly.components.Alert.info;
+import static org.patternfly.components.AlertGroup.toast;
+
 Dropdown<String> dropdown = Dropdown.split("Dropdown")
         .add("Link")
         .add("Action")
