@@ -15,10 +15,8 @@
   ~ limitations under the License.
   -->
 <module>
-    <inherits name="com.google.gwt.resources.Resources"/>
-    <inherits name="com.google.gwt.i18n.I18N"/>
-    <inherits name="com.github.nalukit.nalu.Nalu"/>
-    <inherits name="com.github.nalukit.nalu.plugin.elemento.NaluPluginElemento"/>
-    <public path="public"/>
+    <inherits name="org.gwtproject.resources.Resources"/>
+    <inherits name="org.gwtproject.i18n.DateTimeFormat"/>
     <entry-point class="org.patternfly.showcase.client.Showcase"/>
+    <set-configuration-property name="locale" value="en"/>
 </module>

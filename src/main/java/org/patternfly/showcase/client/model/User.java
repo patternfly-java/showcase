@@ -2,17 +2,17 @@ package org.patternfly.showcase.client.model;
 
 import java.util.Date;
 
-import com.google.gwt.i18n.client.DateTimeFormat;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLImageElement;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.jboss.gwt.elemento.core.Elements;
+import org.elemento.Elements;
+import org.gwtproject.i18n.client.DateTimeFormat;
 
-import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_8601;
-import static org.jboss.gwt.elemento.core.Elements.*;
+import static org.elemento.Elements.*;
+import static org.gwtproject.i18n.client.DateTimeFormat.PredefinedFormat.ISO_8601;
 import static org.patternfly.resources.CSS.fas;
 import static org.patternfly.resources.CSS.util;
 
