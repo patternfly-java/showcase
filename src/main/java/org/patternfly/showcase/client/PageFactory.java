@@ -20,15 +20,15 @@ class PageFactory {
 
     PageFactory() {
         pages = new HashMap<>();
-        pages.put(Places.CONTRIBUTE, ContributeElement::new);
-        pages.put(Places.GET_IN_TOUCH, GetInTouchElement::new);
-        pages.put(Places.GET_STARTED, GetStartedElement::new);
-        pages.put(Places.HOME, HomeElement::new);
+        pages.put(Places.CONTRIBUTE, ContributePage::new);
+        pages.put(Places.GET_IN_TOUCH, GetInTouchPage::new);
+        pages.put(Places.GET_STARTED, GetStartedPage::new);
+        pages.put(Places.HOME, HomePage::new);
     }
 
     IsElement<HTMLElement> get(String place) {
         if (place == null || place.length() == 0) {
-            return new HomeElement();
+            return new HomePage();
         } else {
             return pages.getOrDefault(place, () -> new NotFound(place)).get();
         }

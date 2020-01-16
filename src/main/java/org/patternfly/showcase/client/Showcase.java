@@ -4,6 +4,7 @@ import com.google.gwt.core.client.EntryPoint;
 import org.patternfly.components.Navigation;
 import org.patternfly.components.NavigationItem;
 import org.patternfly.components.Page;
+import org.patternfly.showcase.client.documentation.demos.user.DocumentationFactory;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
