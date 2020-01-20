@@ -7,7 +7,7 @@ import elemental2.dom.HTMLElement;
 
 import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
-import static org.elemento.Elements.div;
+import static org.jboss.elemento.Elements.div;
 import static org.patternfly.components.Page.section;
 import static org.patternfly.components.Title.title;
 import static org.patternfly.resources.CSS.Size._4xl;

@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
-import org.elemento.HtmlContentBuilder;
+import org.jboss.elemento.HtmlContentBuilder;
 import org.gwtproject.i18n.client.DateTimeFormat;
 import org.patternfly.components.Button;
 import org.patternfly.components.Card;
@@ -23,8 +23,8 @@ import org.patternfly.components.Toolbar.SortOptions;
 import org.patternfly.dataprovider.DataProvider;
 
 import static java.util.Comparator.comparing;
-import static org.elemento.Elements.*;
-import static org.elemento.InputType.checkbox;
+import static org.jboss.elemento.Elements.*;
+import static org.jboss.elemento.InputType.checkbox;
 import static org.gwtproject.i18n.client.DateTimeFormat.PredefinedFormat.DATE_SHORT;
 import static org.patternfly.resources.CSS.Size._4xl;
 import static org.patternfly.resources.CSS.fas;

@@ -4,18 +4,18 @@ import org.patternfly.showcase.client.Resources;
 import org.patternfly.showcase.client.LoremIpsum;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.a;
-import static org.elemento.Elements.blockquote;
-import static org.elemento.Elements.dd;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.dl;
-import static org.elemento.Elements.dt;
-import static org.elemento.Elements.h;
-import static org.elemento.Elements.li;
-import static org.elemento.Elements.ol;
-import static org.elemento.Elements.p;
-import static org.elemento.Elements.small;
-import static org.elemento.Elements.ul;
+import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.blockquote;
+import static org.jboss.elemento.Elements.dd;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.dl;
+import static org.jboss.elemento.Elements.dt;
+import static org.jboss.elemento.Elements.h;
+import static org.jboss.elemento.Elements.li;
+import static org.jboss.elemento.Elements.ol;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.small;
+import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.components.Content.content;
 
 public class ContentComponent extends BaseComponent {

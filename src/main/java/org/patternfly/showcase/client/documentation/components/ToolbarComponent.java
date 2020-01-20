@@ -5,8 +5,8 @@ import org.patternfly.components.InputGroup;
 import org.patternfly.components.SingleSelect;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.p;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Button.button;
 import static org.patternfly.components.Icon.icon;
 import static org.patternfly.components.Toolbar.content;

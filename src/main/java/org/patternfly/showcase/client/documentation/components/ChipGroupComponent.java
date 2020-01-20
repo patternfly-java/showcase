@@ -8,9 +8,9 @@ import org.patternfly.components.ChipGroupToolbar;
 import org.patternfly.showcase.client.Resources;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.p;
-import static org.elemento.Elements.uniqueId;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.uniqueId;
 import static org.patternfly.components.Chip.chip;
 import static org.patternfly.components.ChipGroup.chipGroup;
 import static org.patternfly.components.ChipGroupToolbar.chipGroupToolbar;

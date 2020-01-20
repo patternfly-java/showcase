@@ -13,7 +13,7 @@ import org.patternfly.showcase.client.LoremIpsum;
 
 import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
-import static org.elemento.Elements.*;
+import static org.jboss.elemento.Elements.*;
 import static org.gwtproject.i18n.client.DateTimeFormat.PredefinedFormat.ISO_8601;
 import static org.patternfly.components.DataTable.*;
 

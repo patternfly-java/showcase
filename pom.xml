@@ -77,13 +77,6 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.elemento</groupId>
-                <artifactId>elemento-bom</artifactId>
-                <version>${elemento.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>com.google.gwt</groupId>
                 <artifactId>gwt</artifactId>
                 <version>${gwt.version}</version>
@@ -100,8 +93,9 @@
             <version>${patternfly.java.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.elemento</groupId>
+            <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
+            <version>${elemento.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.i18n</groupId>

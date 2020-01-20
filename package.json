@@ -13,6 +13,7 @@
   "dependencies": {
     "@github/time-elements": "^3.0.10",
     "@patternfly/patternfly": "^2.46.1",
+    "clipboard": "^2.0.4",
     "code-prettify": "^0.1.0",
     "color-themes-for-google-code-prettify": "^2.0.4"
   },

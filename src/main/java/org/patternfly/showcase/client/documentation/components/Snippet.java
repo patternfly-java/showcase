@@ -3,12 +3,12 @@ package org.patternfly.showcase.client.documentation.components;
 import java.util.function.Supplier;
 
 import elemental2.dom.HTMLElement;
-import org.elemento.By;
-import org.elemento.IsElement;
+import org.jboss.elemento.By;
+import org.jboss.elemento.IsElement;
 import org.patternfly.components.Button;
 import org.patternfly.components.Icon;
 
-import static org.elemento.Elements.*;
+import static org.jboss.elemento.Elements.*;
 import static org.patternfly.resources.CSS.fas;
 
 class Snippet implements IsElement<HTMLElement> {

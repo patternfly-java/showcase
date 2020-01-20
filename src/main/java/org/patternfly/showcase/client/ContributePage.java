@@ -1,9 +1,9 @@
 package org.patternfly.showcase.client;
 
 import elemental2.dom.HTMLElement;
-import org.elemento.IsElement;
+import org.jboss.elemento.IsElement;
 
-import static org.elemento.Elements.p;
+import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Content.content;
 import static org.patternfly.components.Page.section;
 import static org.patternfly.components.Title.title;

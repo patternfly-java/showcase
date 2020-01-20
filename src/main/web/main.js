@@ -9,6 +9,7 @@ import "@patternfly/patternfly/assets/images/PF-Masthead-Logo.svg";
 import "code-prettify/src/run_prettify";
 import "color-themes-for-google-code-prettify/src/themes/github-v2.scss";
 import "@github/time-elements/dist/time-elements";
+import "clipboard/src/clipboard"
 // app dependencies
 import "./favicon.ico";
 import "./styles.scss";

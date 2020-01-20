@@ -4,9 +4,9 @@ import org.patternfly.components.AlertGroup;
 import org.patternfly.showcase.client.Resources;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.a;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.p;
+import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Alert.*;
 import static org.patternfly.components.AlertGroup.toast;
 

@@ -4,8 +4,8 @@ import org.patternfly.components.Chip;
 import org.patternfly.showcase.client.Resources;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.p;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Alert.info;
 import static org.patternfly.components.AlertGroup.toast;
 import static org.patternfly.components.Chip.chip;

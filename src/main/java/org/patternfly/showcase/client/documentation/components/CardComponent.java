@@ -4,11 +4,11 @@ import org.patternfly.components.Dropdown;
 import org.patternfly.showcase.client.Resources;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.img;
-import static org.elemento.Elements.input;
-import static org.elemento.Elements.p;
-import static org.elemento.InputType.checkbox;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.img;
+import static org.jboss.elemento.Elements.input;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.InputType.checkbox;
 import static org.patternfly.components.Card.Head.actions;
 import static org.patternfly.components.Card.body;
 import static org.patternfly.components.Card.card;

@@ -5,8 +5,8 @@ import org.patternfly.components.EmptyState;
 import org.patternfly.showcase.client.Resources;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.p;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.EmptyState.emptyState;
 import static org.patternfly.components.Icon.icon;
 import static org.patternfly.core.Callback.noop;

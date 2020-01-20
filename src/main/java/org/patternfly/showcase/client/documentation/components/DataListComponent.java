@@ -1,6 +1,6 @@
 package org.patternfly.showcase.client.documentation.components;
 
-import org.elemento.Elements;
+import org.jboss.elemento.Elements;
 import org.patternfly.components.Button;
 import org.patternfly.components.DataList;
 import org.patternfly.components.DataList.*;
@@ -10,7 +10,7 @@ import org.patternfly.showcase.client.Resources;
 import org.patternfly.showcase.client.LoremIpsum;
 
 import static java.util.Arrays.asList;
-import static org.elemento.Elements.*;
+import static org.jboss.elemento.Elements.*;
 import static org.patternfly.components.DataList.dataList;
 import static org.patternfly.components.DataList.expandableContent;
 import static org.patternfly.components.DataList.itemAction;

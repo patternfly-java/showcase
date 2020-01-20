@@ -28,9 +28,9 @@ import org.patternfly.showcase.client.documentation.components.ToolbarComponent;
 import org.patternfly.showcase.client.documentation.demos.server.ServerDemo;
 
 import static java.util.Collections.singletonList;
-import static org.elemento.Elements.code;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.p;
+import static org.jboss.elemento.Elements.code;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Page.section;
 import static org.patternfly.components.Title.title;
 import static org.patternfly.resources.CSS.component;

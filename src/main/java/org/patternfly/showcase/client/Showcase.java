@@ -8,10 +8,10 @@ import org.patternfly.showcase.client.documentation.demos.user.DocumentationFact
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
-import static org.elemento.Elements.body;
-import static org.elemento.Elements.removeChildrenFrom;
-import static org.elemento.EventType.bind;
-import static org.elemento.EventType.hashchange;
+import static org.jboss.elemento.Elements.body;
+import static org.jboss.elemento.Elements.removeChildrenFrom;
+import static org.jboss.elemento.EventType.bind;
+import static org.jboss.elemento.EventType.hashchange;
 import static org.patternfly.components.AlertGroup.toast;
 import static org.patternfly.components.Brand.brand;
 import static org.patternfly.components.Page.header;

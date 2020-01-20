@@ -3,8 +3,8 @@ package org.patternfly.showcase.client.documentation.components;
 import org.patternfly.showcase.client.Resources;
 
 import static java.util.Collections.singletonList;
-import static org.elemento.Elements.div;
-import static org.elemento.Elements.p;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Title.title;
 import static org.patternfly.resources.CSS.Size.*;
 
