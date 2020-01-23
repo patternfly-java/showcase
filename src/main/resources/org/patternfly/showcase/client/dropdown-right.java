@@ -1,7 +1,7 @@
-Dropdown<String> dropdown = Dropdown.text("Dropdown").right()
-        .add("Link")
-        .add("Action")
-        .add("Disabled Link", true)
-        .add("Disabled Action", true)
+Dropdown<String> right = Dropdown.<String>text("Dropdown").right()
+        .add("Item 1")
+        .add("Item 2")
+        .add("Disabled")
         .addSeparator()
-        .add("Separated Link");
+        .add("Separated Item");
+right.disable("Disabled");

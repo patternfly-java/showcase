@@ -1,15 +1,15 @@
-Dropdown<String> dropdown0 = Dropdown.split()
-        .add("Link")
-        .add("Action")
-        .add("Disabled Link", true)
-        .add("Disabled Action", true)
+Dropdown<String> noText = Dropdown.<String>splitCheckbox()
+        .add("Item 1")
+        .add("Item 2")
+        .add("Disabled")
         .addSeparator()
-        .add("Separated Link");
+        .add("Separated Item");
+noText.disable("Disabled");
 
-Dropdown dropdown1 = Dropdown.split("Dropdown")
-        .add("Link")
-        .add("Action")
-        .add("Disabled Link", true)
-        .add("Disabled Action", true)
+Dropdown<String> withText = Dropdown.<String>splitCheckbox("Dropdown")
+        .add("Item 1")
+        .add("Item 2")
+        .add("Disabled")
         .addSeparator()
-        .add("Separated Link");
+        .add("Separated Item");
+withText.disable("Disabled");

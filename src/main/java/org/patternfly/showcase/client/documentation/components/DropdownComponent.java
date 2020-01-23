@@ -19,46 +19,62 @@ public class DropdownComponent extends BaseComponent {
                         .element(),
                 asList(
                         new Snippet("Simple dropdown", Resources.get().dropdownSimple().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>text("Dropdown")
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link"))
-                                        .add(" ")
-                                        .add(Dropdown.<String>text("Dropdown").disable()).element()),
+                                () -> {
+                                    Dropdown<String> dropdown = Dropdown.<String>text("Dropdown")
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    dropdown.disable("Disabled");
+                                    return div()
+                                            .add(dropdown)
+                                            .add(" ")
+                                            .add(Dropdown.<String>text("Dropdown").disable()).element();
+                                }),
                         new Snippet("Dropdown with groups", Resources.get().dropdownGroups().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>text("Dropdown", true)
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Group 2", "Group 2 link")
-                                                .add("Group 2", "Group 2 action")
-                                                .add("Group 3", "Group 3 link")
-                                                .add("Group 3", "Group 3 action")).element()),
+                                () -> {
+                                    Dropdown<String> dropdown = Dropdown.<String>text("Dropdown")
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add(Dropdown.<String>group("Group 1")
+                                                    .add("Group 1 item 1")
+                                                    .add("Group 1 item 2"))
+                                            .add(Dropdown.<String>group("Group 2")
+                                                    .add("Group 2 item 1")
+                                                    .add("Group 2 item 2"))
+                                            // this item is added to the unnamed group above!
+                                            .add("Item 3");
+                                    dropdown.getGroup("Group 2").disable("Group 2 item 1");
+                                    return div()
+                                            .add(dropdown)
+                                            .element();
+                                }),
                         new Snippet("Split button", Resources.get().dropdownSplit().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>split()
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link"))
-                                        .add(" ")
-                                        .add(Dropdown.<String>split().disable())
-                                        .add(" ")
-                                        .add(Dropdown.<String>split("Dropdown")
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link"))
-                                        .add(" ")
-                                        .add(Dropdown.<String>split("Dropdown").disable()).element()),
+                                () -> {
+                                    Dropdown<String> noText = Dropdown.<String>splitCheckbox()
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    noText.disable("Disabled");
+                                    Dropdown<String> withText = Dropdown.<String>splitCheckbox("Dropdown")
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    withText.disable("Disabled");
+                                    return div()
+                                            .add(noText)
+                                            .add(" ")
+                                            .add(Dropdown.<String>splitCheckbox().disable())
+                                            .add(" ")
+                                            .add(withText)
+                                            .add(" ")
+                                            .add(Dropdown.<String>splitCheckbox("Dropdown").disable()).element();
+                                }),
                         new Snippet("Dropdown typed", Resources.get().dropdownTyped().getText(),
                                 () -> div()
                                         .add(Dropdown.<Color>text("Dropdown")
@@ -67,68 +83,82 @@ public class DropdownComponent extends BaseComponent {
                                                         .textContent(color.name()))
                                                 .add(Color.values())).element()),
                         new Snippet("Dropdown with kebab", Resources.get().dropdownKebab().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>kebab()
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link"))
-                                        .add(" ")
-                                        .add(Dropdown.<String>kebab().disable()).element()),
+                                () -> {
+                                    Dropdown<String> kebab = Dropdown.<String>kebab()
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    kebab.disable("Disabled");
+                                    return div()
+                                            .add(kebab)
+                                            .add(" ")
+                                            .add(Dropdown.<String>kebab().disable()).element();
+                                }),
                         new Snippet("Dropdown (icon only)", Resources.get().dropdownIcon().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>icon(icon(fas("th")))
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link"))
-                                        .add(" ")
-                                        .add(Dropdown.<String>icon(icon(fas("th"))).disable()).element()),
+                                () -> {
+                                    Dropdown<String> icon = Dropdown.<String>icon(icon(fas("th")))
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    icon.disable("Disabled");
+                                    return div()
+                                            .add(icon)
+                                            .add(" ")
+                                            .add(Dropdown.<String>icon(icon(fas("th"))).disable()).element();
+                                }),
                         new Snippet("Dropdown (primary toggle)", Resources.get().dropdownPrimary().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>text("Dropdown").primary()
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link")).element()),
+                                () -> {
+                                    Dropdown<String> primary = Dropdown.<String>text("Dropdown").primary()
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    primary.disable("Disabled");
+                                    return div().add(primary).element();
+                                }),
                         new Snippet("Dropdown (position right)", Resources.get().dropdownRight().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>text("Dropdown").right()
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link")).element()),
+                                () -> {
+                                    Dropdown<String> right = Dropdown.<String>text("Dropdown").right()
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    right.disable("Disabled");
+                                    return div().add(right).element();
+                                }),
                         new Snippet("Dropdown (direction up)", Resources.get().dropdownUp().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>text("Dropdown").up()
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link")).element()),
+                                () -> {
+                                    Dropdown<String> up = Dropdown.<String>text("Dropdown").up()
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item");
+                                    up.disable("Disabled");
+                                    return div().add(up).element();
+                                }),
                         new Snippet("Dropdown events", Resources.get().dropdownEvent().getText(),
-                                () -> div()
-                                        .add(Dropdown.<String>split("Dropdown")
-                                                .add("Link")
-                                                .add("Action")
-                                                .add("Disabled Link", true)
-                                                .add("Disabled Action", true)
-                                                .addSeparator()
-                                                .add("Separated Link")
-                                                .onToggle(open -> toast().add(
-                                                        info("Dropdown " + (open ? "expanded" : "collapsed"))))
-                                                .onChange(value -> toast().add(
-                                                        info("Dropdown " + (value ? "checked" : "not checked"))))
-                                                .onSelect(item -> toast().add(info("Selected " + item)))).element())));
+                                () -> {
+                                    Dropdown<String> dropdown = Dropdown.<String>text("Dropdown")
+                                            .add("Item 1")
+                                            .add("Item 2")
+                                            .add("Disabled")
+                                            .addSeparator()
+                                            .add("Separated Item")
+                                            .onToggle(open -> toast().add(
+                                                    info("Dropdown " + (open ? "expanded" : "collapsed"))))
+                                            .onChange(value -> toast().add(
+                                                    info("Dropdown " + (value ? "checked" : "not checked"))))
+                                            .onSelect(item -> toast().add(info("Selected " + item)));
+                                    dropdown.disable("Disabled");
+                                    return div().add(dropdown).element();
+                                })));
     }
 
     enum Color {

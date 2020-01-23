@@ -1,3 +1,6 @@
+import org.patternfly.components.Dropdown;
+import org.patternfly.showcase.client.documentation.components.DropdownComponent;
+
 enum Color {
 
     Success("#92D400", "#151515"),
@@ -14,7 +17,7 @@ enum Color {
     }
 }
 
-Dropdown<Color> dropdown = Dropdown.text("Dropdown")
+Dropdown<Color> dropdown = Dropdown.<Color>text("Dropdown")
     .display((html, color) -> html.style("background-color:" + color.bg + ";color:" + color.fg)
             .textContent(color.name()))
     .add(Color.values());

@@ -26,7 +26,7 @@ import static org.patternfly.resources.Constants.*;
 
 public class DataListComponent extends BaseComponent {
 
-    // Pull display data items to top level to have less code indent
+    // Pull display data items to top-level to have less code indent
     private static final DisplayData[] SIMPLE = {
             new DisplayData((li, provider, item) -> li.add(itemRow()
                     .add(itemContent()
@@ -58,7 +58,6 @@ public class DataListComponent extends BaseComponent {
                                     .add(Dropdown.<String>kebab().right()
                                             .add("Action One")
                                             .add("Action Two")
-                                            .add("Disabled Action", true)
                                             .addSeparator()
                                             .add("Final Action")))))),
             new DisplayData((li, provider, item) -> li.add(itemRow()
@@ -72,7 +71,6 @@ public class DataListComponent extends BaseComponent {
                                     .add(Dropdown.<String>kebab().right()
                                             .add("Action One")
                                             .add("Action Two")
-                                            .add("Disabled Action", true)
                                             .addSeparator()
                                             .add("Final Action"))))
                     .add(itemAction().css(modifier(hidden), modifier("visible-on-lg"))
@@ -89,7 +87,6 @@ public class DataListComponent extends BaseComponent {
                                     .add(Dropdown.<String>kebab().right()
                                             .add("Action One")
                                             .add("Action Two")
-                                            .add("Disabled Action", true)
                                             .addSeparator()
                                             .add("Final Action"))))
                     .add(itemAction().css(modifier(hidden), modifier("visible-on-xl"))
@@ -116,7 +113,6 @@ public class DataListComponent extends BaseComponent {
                                             .add(Dropdown.<String>kebab().right()
                                                     .add("Action One")
                                                     .add("Action Two")
-                                                    .add("Disabled Action", true)
                                                     .addSeparator()
                                                     .add("Final Action")))))
                     .add(expandableContent()
@@ -137,7 +133,6 @@ public class DataListComponent extends BaseComponent {
                                             .add(Dropdown.<String>kebab().right()
                                                     .add("Action One")
                                                     .add("Action Two")
-                                                    .add("Disabled Action", true)
                                                     .addSeparator()
                                                     .add("Final Action")))))
                     .add(expandableContent()
@@ -158,7 +153,6 @@ public class DataListComponent extends BaseComponent {
                                             .add(Dropdown.<String>kebab().right()
                                                     .add("Action One")
                                                     .add("Action Two")
-                                                    .add("Disabled Action", true)
                                                     .addSeparator()
                                                     .add("Final Action")))))
                     .add(expandableContent()
@@ -196,7 +190,6 @@ public class DataListComponent extends BaseComponent {
                                     .add(Dropdown.<String>kebab().right()
                                             .add("Action One")
                                             .add("Action Two")
-                                            .add("Disabled Action", true)
                                             .addSeparator()
                                             .add("Final Action"))))))
     };
@@ -225,7 +218,6 @@ public class DataListComponent extends BaseComponent {
                                             .add(Dropdown.<String>kebab().right()
                                                     .add("Action One")
                                                     .add("Action Two")
-                                                    .add("Disabled Action", true)
                                                     .addSeparator()
                                                     .add("Final Action")))))
                     .add(expandableContent()
@@ -241,7 +233,7 @@ public class DataListComponent extends BaseComponent {
         return dl;
     }
 
-    // Just a fake item data w/ a display delegate. See demos for a real example
+    // Just a fake item data w/ a display delegate. See demos for a real example.
     static class DisplayData {
 
         final Display<DisplayData> display;

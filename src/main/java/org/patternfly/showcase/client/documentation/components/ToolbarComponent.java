@@ -28,7 +28,7 @@ public class ToolbarComponent extends BaseComponent {
                                 () -> div()
                                         .add(toolbar()
                                                 .add(content()
-                                                        .add(item().add(new InputGroup.Search()))
+                                                        .add(item().add(InputGroup.search()))
                                                         .add(item().add(button("Action").secondary()))
                                                         .add(item().separator())
                                                         .add(item().add(button("Action").primary())))).element()),
@@ -88,7 +88,7 @@ public class ToolbarComponent extends BaseComponent {
                                         .add(toolbar()
                                                 .add(content()
                                                         .add(group().toggle("show-on-lg")
-                                                                .add(item().add(new InputGroup.Search()))
+                                                                .add(item().add(InputGroup.search()))
                                                                 .add(group().filter()
                                                                         .add(item().add(SingleSelect.<String>single(
                                                                                 "Status")

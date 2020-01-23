@@ -1,7 +1,7 @@
-Dropdown<String> dropdown = Dropdown.text("Dropdown").primary()
-        .add("Link")
-        .add("Action")
-        .add("Disabled Link", true)
-        .add("Disabled Action", true)
+Dropdown<String> primary = Dropdown.<String>text("Dropdown").primary()
+        .add("Item 1")
+        .add("Item 2")
+        .add("Disabled")
         .addSeparator()
-        .add("Separated Link");
+        .add("Separated Item");
+primary.disable("Disabled");

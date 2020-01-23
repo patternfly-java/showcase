@@ -32,7 +32,7 @@ public class CardComponent extends BaseComponent {
                                                 .add(body().textContent("Body"))
                                                 .add(footer().textContent("Footer"))).element()),
 
-                        new Snippet("Card with image and actions", Resources.get().cardImageActions().getText(),
+                        new Snippet("Card with an image and actions", Resources.get().cardImageActions().getText(),
                                 () -> div()
                                         .add(card()
                                                 .add(head()
@@ -41,8 +41,6 @@ public class CardComponent extends BaseComponent {
                                                                 .add(Dropdown.<String>kebab().right()
                                                                         .add("Link")
                                                                         .add("Action")
-                                                                        .add("Disabled Link", true)
-                                                                        .add("Disabled Action", true)
                                                                         .addSeparator()
                                                                         .add("Separated Link"))
                                                                 .add(input(checkbox))))
@@ -57,8 +55,6 @@ public class CardComponent extends BaseComponent {
                                                                 .add(Dropdown.<String>kebab().right()
                                                                         .add("Link")
                                                                         .add("Action")
-                                                                        .add("Disabled Link", true)
-                                                                        .add("Disabled Action", true)
                                                                         .addSeparator()
                                                                         .add("Separated Link"))
                                                                 .add(input(checkbox)))
@@ -77,13 +73,11 @@ public class CardComponent extends BaseComponent {
                                                                 .add(Dropdown.<String>kebab().right()
                                                                         .add("Link")
                                                                         .add("Action")
-                                                                        .add("Disabled Link", true)
-                                                                        .add("Disabled Action", true)
                                                                         .addSeparator()
                                                                         .add("Separated Link"))
                                                                 .add(input(checkbox))))
                                                 .add(body().textContent(
-                                                        "This is the card body, there is only actions in the card head.")))
+                                                        "This is the card body, there are only actions in the card head.")))
                                         .element()),
                         new Snippet("Only image in the card head", Resources.get().cardImageInHead().getText(),
                                 () -> div()

@@ -1,7 +1,7 @@
-Dropdown<String> dropdown = Dropdown.kebab()
-        .add("Link")
-        .add("Action")
-        .add("Disabled Link", true)
-        .add("Disabled Action", true)
+Dropdown<String> kebab = Dropdown.<String>kebab()
+        .add("Item 1")
+        .add("Item 2")
+        .add("Disabled")
         .addSeparator()
-        .add("Separated Link");
+        .add("Separated Item");
+kebab.disable("Disabled");

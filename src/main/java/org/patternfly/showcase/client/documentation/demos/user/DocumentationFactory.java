@@ -23,6 +23,7 @@ import org.patternfly.showcase.client.documentation.components.EmptyStateCompone
 import org.patternfly.showcase.client.documentation.components.ExpandableComponent;
 import org.patternfly.showcase.client.documentation.components.LabelComponent;
 import org.patternfly.showcase.client.documentation.components.OptionsMenuComponent;
+import org.patternfly.showcase.client.documentation.components.SelectComponent;
 import org.patternfly.showcase.client.documentation.components.TitleComponent;
 import org.patternfly.showcase.client.documentation.components.ToolbarComponent;
 import org.patternfly.showcase.client.documentation.demos.server.ServerDemo;
@@ -62,7 +63,7 @@ public class DocumentationFactory {
         elements.put("expandable", () -> new ExpandableComponent());
         elements.put("label", () -> new LabelComponent());
         elements.put("options-menu", () -> new OptionsMenuComponent());
-        elements.put("select", () -> new ContextSelectorComponent());
+        elements.put("select", () -> new SelectComponent());
         elements.put("title", () -> new TitleComponent());
         elements.put("toolbar", () -> new ToolbarComponent());
         elements.put("user-demo", () -> new UserDemo());
