@@ -71,7 +71,7 @@ public class Showcase implements EntryPoint {
     @Override
     public void onModuleLoad() {
         page = page()
-                .add(header(brand("./images/PF-Masthead-Logo.svg"), place(HOME))
+                .add(header(brand("./assets/images/PF-Masthead-Logo.svg"), place(HOME))
                         .setNavigation(mainNavigation))
                 .add(main = main(ROOT_CONTAINER));
 

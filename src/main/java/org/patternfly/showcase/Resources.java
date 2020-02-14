@@ -7,7 +7,7 @@ import org.gwtproject.resources.client.TextResource;
 @Resource
 public interface Resources extends ClientBundle {
 
-    Resources INSTANCE = new ResourcesImpl();
+    Resources INSTANCE = new org.patternfly.showcase.ResourcesImpl();
 
     static Resources get() {
         return INSTANCE;

@@ -36,7 +36,7 @@ public class CardComponent extends BaseComponent {
                                 () -> div()
                                         .add(card()
                                                 .add(head()
-                                                        .add(img("./images/pf_logo.svg").style("width: 300px"))
+                                                        .add(img("./assets/images/pf_logo.svg").style("width: 300px"))
                                                         .add(actions()
                                                                 .add(Dropdown.<String>kebab().right()
                                                                         .add("Link")
@@ -83,7 +83,7 @@ public class CardComponent extends BaseComponent {
                                 () -> div()
                                         .add(card()
                                                 .add(head()
-                                                        .add(img("./images/pf_logo.svg").style("width: 300px")))
+                                                        .add(img("./assets/images/pf_logo.svg").style("width: 300px")))
                                                 .add(header().textContent("Header"))
                                                 .add(body().textContent("Body"))
                                                 .add(footer().textContent("Footer"))).element()),
