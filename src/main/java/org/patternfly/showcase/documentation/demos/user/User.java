@@ -8,11 +8,11 @@ import elemental2.dom.HTMLImageElement;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import org.gwtproject.i18n.shared.DateTimeFormat;
 import org.jboss.elemento.Elements;
-import org.gwtproject.i18n.client.DateTimeFormat;
 
+import static org.gwtproject.i18n.shared.DateTimeFormat.PredefinedFormat.ISO_8601;
 import static org.jboss.elemento.Elements.*;
-import static org.gwtproject.i18n.client.DateTimeFormat.PredefinedFormat.ISO_8601;
 import static org.patternfly.resources.CSS.fas;
 import static org.patternfly.resources.CSS.util;
 

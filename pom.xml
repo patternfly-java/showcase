@@ -68,9 +68,8 @@
         <tomcat7-plugin.version>2.2</tomcat7-plugin.version>
 
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
-        <gwt.version>HEAD-SNAPSHOT</gwt.version>
+        <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
         <gwt-i18n.version>1.0-SNAPSHOT</gwt-i18n.version>
-        <gwt-maven-plugin.version>1.0.0</gwt-maven-plugin.version>
         <gwt-resources.version>1.0-SNAPSHOT</gwt-resources.version>
         <patternfly.html.version>2.65.0</patternfly.html.version>
         <patternfly.java.version>0.0.1</patternfly.java.version>
@@ -93,9 +92,9 @@
             <version>${elemento.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.gwtproject.i18n</groupId>
-            <artifactId>gwt-datetimeformat</artifactId>
-            <version>${gwt-i18n.version}</version>
+            <groupId>org.gwtproject.core</groupId>
+            <artifactId>gwt-core</artifactId>
+            <version>${gwt-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.resources</groupId>
