@@ -231,6 +231,9 @@
                     <compilationLevel>${j2cl-compilation.level}</compilationLevel>
                     <entrypoint>org.patternfly.showcase.Showcase</entrypoint>
                     <initialScriptFilename>showcase.js</initialScriptFilename>
+                    <defines>
+                        <locale>en_US</locale>
+                    </defines>
                 </configuration>
             </plugin>
             <plugin>
