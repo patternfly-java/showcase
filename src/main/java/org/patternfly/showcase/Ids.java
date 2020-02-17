@@ -17,7 +17,7 @@ package org.patternfly.showcase;
 
 public interface Ids {
 
-    String ROOT_CONTAINER = "showcase-root";
+    String MAIN_CONTAINER = "showcase-main";
     String COMPONENT_GROUP = "Components";
     String DEMO_GROUP = "Demos";
 }

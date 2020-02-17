@@ -69,7 +69,7 @@
 
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
         <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
-        <gwt-i18n.version>1.0-SNAPSHOT</gwt-i18n.version>
+        <gwt-datetimeformat.version>1.0-SNAPSHOT</gwt-datetimeformat.version>
         <gwt-resources.version>1.0-SNAPSHOT</gwt-resources.version>
         <patternfly.html.version>2.65.0</patternfly.html.version>
         <patternfly.java.version>0.0.1</patternfly.java.version>
@@ -95,6 +95,11 @@
             <groupId>org.gwtproject.core</groupId>
             <artifactId>gwt-core</artifactId>
             <version>${gwt-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gwtproject.i18n</groupId>
+            <artifactId>gwt-datetimeformat</artifactId>
+            <version>${gwt-datetimeformat.version}</version>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.resources</groupId>

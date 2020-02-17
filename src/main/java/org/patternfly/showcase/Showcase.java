@@ -9,7 +9,6 @@ import org.patternfly.showcase.documentation.demos.user.DocumentationFactory;
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
-import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.hashchange;
 import static org.patternfly.components.AlertGroup.toast;
@@ -17,9 +16,10 @@ import static org.patternfly.components.Brand.brand;
 import static org.patternfly.components.Page.header;
 import static org.patternfly.components.Page.main;
 import static org.patternfly.components.Page.page;
+import static org.patternfly.components.Page.sidebar;
 import static org.patternfly.showcase.Ids.COMPONENT_GROUP;
 import static org.patternfly.showcase.Ids.DEMO_GROUP;
-import static org.patternfly.showcase.Ids.ROOT_CONTAINER;
+import static org.patternfly.showcase.Ids.MAIN_CONTAINER;
 import static org.patternfly.showcase.PR.prettyPrint;
 import static org.patternfly.showcase.Places.*;
 
@@ -30,7 +30,6 @@ public class Showcase implements EntryPoint {
     private final PageFactory pageFactory;
     private final DocumentationFactory documentationFactory;
     private Page page;
-    private Page.Main main;
 
     public Showcase() {
         mainNavigation = Navigation.horizontal()
@@ -72,8 +71,8 @@ public class Showcase implements EntryPoint {
     public void onModuleLoad() {
         page = page()
                 .add(header(brand("./assets/images/PF-Masthead-Logo.svg"), place(HOME))
-                        .setNavigation(mainNavigation))
-                .add(main = main(ROOT_CONTAINER));
+                        .add(mainNavigation))
+                .add(main(MAIN_CONTAINER));
 
         body().addAll(page, toast());
         bind(window, hashchange, e -> navigate(location.getHash()));
@@ -81,18 +80,17 @@ public class Showcase implements EntryPoint {
     }
 
     private void navigate(String hash) {
-        removeChildrenFrom(main);
         String place = hash != null && hash.startsWith("#") ? hash.substring(1) : "";
         if (place.startsWith(DOCUMENTATION)) {
             int index = place.indexOf(':');
             String documentation = index != -1 ? place.substring(index + 1) : null;
-            page.add(documentationNavigation);
-            main.addAll(documentationFactory.get(documentation));
+            page.add(sidebar().add(documentationNavigation));
+            page.getMain().replaceAll(documentationFactory.get(documentation));
             mainNavigation.select(DOCUMENTATION);
             documentationNavigation.select(documentation);
         } else {
             page.removeSidebar();
-            main.add(pageFactory.get(place));
+            page.getMain().replace(pageFactory.get(place));
             mainNavigation.select(place);
         }
         prettyPrint();

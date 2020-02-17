@@ -8,10 +8,9 @@ import elemental2.dom.HTMLImageElement;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import org.gwtproject.i18n.shared.DateTimeFormat;
+import org.gwtproject.i18n.client.DateTimeFormat;
 import org.jboss.elemento.Elements;
 
-import static org.gwtproject.i18n.shared.DateTimeFormat.PredefinedFormat.ISO_8601;
 import static org.jboss.elemento.Elements.*;
 import static org.patternfly.resources.CSS.fas;
 import static org.patternfly.resources.CSS.util;
@@ -20,7 +19,7 @@ import static org.patternfly.resources.CSS.util;
 public class User {
 
     @JsOverlay
-    private static final DateTimeFormat DATE_FORMAT = DateTimeFormat.getFormat(ISO_8601);
+    private static final DateTimeFormat ISO_8601 = DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.ISO_8601);
 
     public String gender;
     public Name name;
@@ -41,12 +40,12 @@ public class User {
 
     @JsOverlay
     public final Date getBirthday() {
-        return DATE_FORMAT.parse(dob.date);
+        return ISO_8601.parse(dob.date);
     }
 
     @JsOverlay
     public final Date getRegistered() {
-        return DATE_FORMAT.parse(registered.date);
+        return ISO_8601.parse(registered.date);
     }
 
     @JsOverlay
