@@ -21,7 +21,6 @@ import static org.patternfly.components.Page.sidebar;
 import static org.patternfly.showcase.Ids.COMPONENT_GROUP;
 import static org.patternfly.showcase.Ids.DEMO_GROUP;
 import static org.patternfly.showcase.Ids.MAIN_CONTAINER;
-import static org.patternfly.showcase.PR.prettyPrint;
 import static org.patternfly.showcase.Places.*;
 
 public class Showcase implements EntryPoint {
@@ -95,6 +94,6 @@ public class Showcase implements EntryPoint {
             page.main().replace(pageFactory.get(place));
             mainNavigation.select(place);
         }
-        prettyPrint();
+        PR.prettyPrint();
     }
 }
