@@ -1,7 +1,7 @@
 package org.patternfly.showcase.documentation.components;
 
 import org.patternfly.components.Button;
-import org.patternfly.components.InputGroup;
+import org.patternfly.components.Search;
 import org.patternfly.components.SingleSelect;
 
 import static java.util.Arrays.asList;
@@ -28,7 +28,7 @@ public class ToolbarComponent extends BaseComponent {
                                 () -> div()
                                         .add(toolbar()
                                                 .add(content()
-                                                        .add(item().add(InputGroup.search()))
+                                                        .add(item().add(Search.search()))
                                                         .add(item().add(button("Action").secondary()))
                                                         .add(item().separator())
                                                         .add(item().add(button("Action").primary())))).element()),
@@ -88,7 +88,7 @@ public class ToolbarComponent extends BaseComponent {
                                         .add(toolbar()
                                                 .add(content()
                                                         .add(group().toggle("show-on-lg")
-                                                                .add(item().add(InputGroup.search()))
+                                                                .add(item().add(Search.search()))
                                                                 .add(group().filter()
                                                                         .add(item().add(SingleSelect.<String>single(
                                                                                 "Status")

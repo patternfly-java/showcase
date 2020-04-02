@@ -4,7 +4,8 @@ import org.gwtproject.core.client.EntryPoint;
 import org.patternfly.components.Navigation;
 import org.patternfly.components.NavigationItem;
 import org.patternfly.components.Page;
-import org.patternfly.showcase.documentation.demos.user.DocumentationFactory;
+import org.patternfly.resources.Theme;
+import org.patternfly.showcase.documentation.DocumentationFactory;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
@@ -58,6 +59,7 @@ public class Showcase implements EntryPoint {
                 .add(COMPONENT_GROUP, new NavigationItem("label", "Label", documentation("label")))
                 .add(COMPONENT_GROUP, new NavigationItem("options-menu", "Options menu", documentation("options-menu")))
                 .add(COMPONENT_GROUP, new NavigationItem("select", "Select", documentation("select")))
+                .add(COMPONENT_GROUP, new NavigationItem("tabs", "Tabs", documentation("tabs")))
                 .add(COMPONENT_GROUP, new NavigationItem("title", "Title", documentation("title")))
                 .add(COMPONENT_GROUP, new NavigationItem("toolbar", "Toolbar", documentation("toolbar")))
                 .add(DEMO_GROUP, new NavigationItem("server-demo", "Server", documentation("server-demo")))
@@ -84,13 +86,13 @@ public class Showcase implements EntryPoint {
         if (place.startsWith(DOCUMENTATION)) {
             int index = place.indexOf(':');
             String documentation = index != -1 ? place.substring(index + 1) : null;
-            page.add(sidebar().add(documentationNavigation));
-            page.getMain().replaceAll(documentationFactory.get(documentation));
+            page.add(sidebar(Theme.DARK).add(documentationNavigation));
+            page.main().replaceAll(documentationFactory.get(documentation));
             mainNavigation.select(DOCUMENTATION);
             documentationNavigation.select(documentation);
         } else {
             page.removeSidebar();
-            page.getMain().replace(pageFactory.get(place));
+            page.main().replace(pageFactory.get(place));
             mainNavigation.select(place);
         }
         prettyPrint();

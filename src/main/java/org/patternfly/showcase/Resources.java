@@ -232,6 +232,9 @@ public interface Resources extends ClientBundle {
     @Source("servers.json")
     TextResource servers();
 
+    @Source("tabs.java")
+    TextResource tabs();
+
     @Source("title.java")
     TextResource title();
 }

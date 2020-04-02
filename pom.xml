@@ -71,7 +71,7 @@
         <gwt-datetimeformat.version>1.0-SNAPSHOT</gwt-datetimeformat.version>
         <gwt-resources.version>1.0-SNAPSHOT</gwt-resources.version>
         <patternfly.html.version>2.65.0</patternfly.html.version>
-        <patternfly.java.version>0.0.1</patternfly.java.version>
+        <patternfly.java.version>2.43.1</patternfly.java.version>
     </properties>
 
     <dependencies>
@@ -99,11 +99,23 @@
             <groupId>org.gwtproject.i18n</groupId>
             <artifactId>gwt-datetimeformat</artifactId>
             <version>${gwt-datetimeformat.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.gwtproject.i18n</groupId>
+                    <artifactId>gwt-cldr</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.resources</groupId>
             <artifactId>gwt-resources-api</artifactId>
             <version>${gwt-resources.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.gwtproject.i18n</groupId>
+                    <artifactId>gwt-cldr</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.resources</groupId>
@@ -255,14 +267,23 @@
 
     <repositories>
         <repository>
+            <id>sonatype-snapshots-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
             <id>google-snapshots</id>
             <name>OSS Sonatype</name>
             <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-        </repository>
-        <repository>
-            <id>sonatype-snapshots</id>
-            <name>Sonatype Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
         </repository>
         <repository>
             <id>vertispan-releases</id>
@@ -273,9 +294,14 @@
             <id>vertispan-j2cl-snapshots</id>
             <name>Vertispan hosted artifacts-snapshots</name>
             <url>https://repo.vertispan.com/j2cl/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
         </repository>
         <repository>
-            <id>vertispan-gwt3-snapshots</id>
+            <id>vertispan-snapshots</id>
             <name>Vertispan Snapshots</name>
             <url>https://repo.vertispan.com/gwt-snapshot/</url>
             <snapshots>

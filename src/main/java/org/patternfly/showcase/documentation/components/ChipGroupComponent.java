@@ -2,6 +2,7 @@ package org.patternfly.showcase.documentation.components;
 
 import java.util.Random;
 
+import org.jboss.elemento.Id;
 import org.patternfly.components.Button;
 import org.patternfly.components.ChipGroup;
 import org.patternfly.components.ChipGroupToolbar;
@@ -10,7 +11,6 @@ import org.patternfly.showcase.Resources;
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.jboss.elemento.Elements.uniqueId;
 import static org.patternfly.components.Chip.chip;
 import static org.patternfly.components.ChipGroup.chipGroup;
 import static org.patternfly.components.ChipGroupToolbar.chipGroupToolbar;
@@ -28,15 +28,15 @@ public class ChipGroupComponent extends BaseComponent {
                         new Snippet("Chip group", Resources.get().chipGroup().getText(),
                                 () -> {
                                     ChipGroup group = chipGroup(5)
-                                            .add(chip(uniqueId()))
-                                            .add(chip(uniqueId()))
-                                            .add(chip(uniqueId()));
+                                            .add(chip(Id.unique()))
+                                            .add(chip(Id.unique()))
+                                            .add(chip(Id.unique()));
                                     return div()
                                             .add(div().css("sc-documentation__code-block")
                                                     .add(group))
                                             .add(div().css("sc-documentation__code-block")
                                                     .add(Button.link(icon(fas("plus-circle")), "Add cip")
-                                                            .onClick(() -> group.add(chip(uniqueId()))))).element();
+                                                            .onClick(() -> group.add(chip(Id.unique()))))).element();
                                 }),
                         new Snippet("Chip toolbar", Resources.get().chipToolbar().getText(),
                                 () -> {
@@ -58,7 +58,7 @@ public class ChipGroupComponent extends BaseComponent {
                                                     .add(Button.link(icon(fas("plus-circle")), "Add chip")
                                                             .onClick(() -> {
                                                                 int i = new Random().nextInt(3);
-                                                                groups[i].add(chip(uniqueId()));
+                                                                groups[i].add(chip(Id.unique()));
                                                             }))).element();
                                 })));
     }

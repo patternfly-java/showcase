@@ -1,13 +1,13 @@
 package org.patternfly.showcase.documentation.components;
 
-import org.jboss.elemento.Elements;
+import org.jboss.elemento.Id;
 import org.patternfly.components.Button;
 import org.patternfly.components.DataList;
 import org.patternfly.components.DataList.*;
 import org.patternfly.components.Dropdown;
 import org.patternfly.dataprovider.DataProvider;
-import org.patternfly.showcase.Resources;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Resources;
 
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.*;
@@ -243,7 +243,7 @@ public class DataListComponent extends BaseComponent {
         }
 
         String id() {
-            return Elements.uniqueId();
+            return Id.unique();
         }
     }
 

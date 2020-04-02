@@ -30,10 +30,14 @@
 
 .sc-documentation__code {
     background-color: var(--pf-global--BackgroundColor--100);
-    font-size: var(--pf-global--FontSize--sm);
+    font-size: var(--pf-global--FontSize--lg);
     max-height: 37.5rem;
     overflow: auto !important;
     padding: 10px;
+}
+
+.sc-documentation__code pre.prettyprint {
+    border: none;
 }
 
 .sc-documentation__code-block {

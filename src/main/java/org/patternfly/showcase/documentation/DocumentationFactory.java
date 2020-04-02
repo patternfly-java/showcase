@@ -1,4 +1,4 @@
-package org.patternfly.showcase.documentation.demos.user;
+package org.patternfly.showcase.documentation;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,9 +24,11 @@ import org.patternfly.showcase.documentation.components.ExpandableComponent;
 import org.patternfly.showcase.documentation.components.LabelComponent;
 import org.patternfly.showcase.documentation.components.OptionsMenuComponent;
 import org.patternfly.showcase.documentation.components.SelectComponent;
+import org.patternfly.showcase.documentation.components.TabsComponent;
 import org.patternfly.showcase.documentation.components.TitleComponent;
 import org.patternfly.showcase.documentation.components.ToolbarComponent;
 import org.patternfly.showcase.documentation.demos.server.ServerDemo;
+import org.patternfly.showcase.documentation.demos.user.UserDemo;
 
 import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.code;
@@ -64,6 +66,7 @@ public class DocumentationFactory {
         elements.put("label", () -> new LabelComponent());
         elements.put("options-menu", () -> new OptionsMenuComponent());
         elements.put("select", () -> new SelectComponent());
+        elements.put("tabs", () -> new TabsComponent());
         elements.put("title", () -> new TitleComponent());
         elements.put("toolbar", () -> new ToolbarComponent());
         elements.put("user-demo", () -> new UserDemo());

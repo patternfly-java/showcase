@@ -32,7 +32,7 @@ public class DropdownComponent extends BaseComponent {
                                             .add(" ")
                                             .add(Dropdown.<String>text("Dropdown").disable()).element();
                                 }),
-                        new Snippet("Dropdown with groups", Resources.get().dropdownGroups().getText(),
+/*                        new Snippet("Dropdown with groups", Resources.get().dropdownGroups().getText(),
                                 () -> {
                                     Dropdown<String> dropdown = Dropdown.<String>text("Dropdown")
                                             .add("Item 1")
@@ -49,7 +49,7 @@ public class DropdownComponent extends BaseComponent {
                                     return div()
                                             .add(dropdown)
                                             .element();
-                                }),
+                                }),*/
                         new Snippet("Split button", Resources.get().dropdownSplit().getText(),
                                 () -> {
                                     Dropdown<String> noText = Dropdown.<String>splitCheckbox()
