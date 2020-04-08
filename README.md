@@ -6,11 +6,11 @@ Showcase for [PatternFly Java](https://github.com/patternfly-java/patternfly-jav
 
 ### Development Mode
 
-- `mvn clean j2cl:watch`
-- start tomcat in another terminal: `mvn tomcat7:run`
-- open http://localhost:8080/patternfly-showcase
+- run `mvn gwt:devmode` in one terminal
+- run `npm run dev` in another terminal
+- open http://localhost:8888/showcase
 
 ### Production mode
 
 - `mvn package -P prod`
-- Find the compiled web app in `target/patternfly-showcase`
+- Find the compiled web app in `target/patternfly-showcase/showcase`
