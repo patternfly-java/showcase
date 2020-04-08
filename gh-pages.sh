@@ -57,7 +57,7 @@ cd showcase
 
 box "Push showcase to gh-pages"
 rm -rf *
-cp -R ${ROOT}/target/patternfly-showcase-*/showcase/* .
+cp -R ${ROOT}/target/patternfly-showcase/showcase/* .
 date > .build
 git add --all
 git commit -am "Update showcase"

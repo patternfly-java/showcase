@@ -27,10 +27,10 @@
 
     <groupId>org.patternfly</groupId>
     <artifactId>patternfly-showcase</artifactId>
-    <version>0.0.1</version>
+    <version>2.43.1</version>
     <name>PatternFly Java Showcase</name>
-    <description>Showcase for the Java implementation of PatternFly 4</description>
-    <packaging>war</packaging>
+    <description>Showcase for PatternFly Java</description>
+    <packaging>gwt-app</packaging>
 
     <url>https://github.com/patternfly-java/patternfly-java</url>
     <organization>
@@ -57,33 +57,34 @@
     </developers>
 
     <properties>
-        <j2cl-compilation.level>BUNDLE</j2cl-compilation.level>
+        <!-- project / plugin related properties -->
+        <gwt.draftCompile>true</gwt.draftCompile>
+        <gwt.style>DETAILED</gwt.style>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <j2cl-plugin.version>0.13-SNAPSHOT</j2cl-plugin.version>
-        <tomcat7-plugin.version>2.2</tomcat7-plugin.version>
+        <!-- plugin versions -->
+        <frontend.plugin.version>1.9.1</frontend.plugin.version>
+        <gwt.plugin.version>1.0.0</gwt.plugin.version>
 
+        <!-- dependency versions -->
+        <elemental2.version>1.0.0</elemental2.version>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
-        <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
+        <gwt-com.version>HEAD-SNAPSHOT</gwt-com.version>
         <gwt-datetimeformat.version>1.0-SNAPSHOT</gwt-datetimeformat.version>
         <gwt-resources.version>1.0-SNAPSHOT</gwt-resources.version>
-        <patternfly.html.version>2.65.0</patternfly.html.version>
-        <patternfly.java.version>2.43.1</patternfly.java.version>
+        <node.version>v13.12.0</node.version>
+        <npm.version>6.14.4</npm.version>
+        <patternfly.version>2.43.1</patternfly.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.patternfly</groupId>
             <artifactId>patternfly-java</artifactId>
-            <version>${patternfly.java.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.webjars.npm</groupId>
-            <artifactId>patternfly__patternfly</artifactId>
-            <version>${patternfly.html.version}</version>
+            <version>${patternfly.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.elemento</groupId>
@@ -91,37 +92,31 @@
             <version>${elemento.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.gwtproject.core</groupId>
-            <artifactId>gwt-core</artifactId>
-            <version>${gwt-core.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.gwtproject.i18n</groupId>
             <artifactId>gwt-datetimeformat</artifactId>
             <version>${gwt-datetimeformat.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.gwtproject.i18n</groupId>
-                    <artifactId>gwt-cldr</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.resources</groupId>
             <artifactId>gwt-resources-api</artifactId>
             <version>${gwt-resources.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.gwtproject.i18n</groupId>
-                    <artifactId>gwt-cldr</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.gwtproject.resources</groupId>
             <artifactId>gwt-resources-processor</artifactId>
             <version>${gwt-resources.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- Necessary by the GWT plugin -->
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-dev</artifactId>
+            <version>${gwt-com.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${gwt-com.version}</version>
         </dependency>
     </dependencies>
 
@@ -149,108 +144,20 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-clean-plugin</artifactId>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>${gwt.plugin.version}</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>src/main/webapp</directory>
-                            <includes>
-                                <include>patternfly.*</include>
-                            </includes>
-                        </fileset>
-                        <fileset>
-                            <directory>src/main/webapp/assets</directory>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>unpack-patternfly</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.webjars.npm</groupId>
-                                    <artifactId>patternfly__patternfly</artifactId>
-                                    <version>${patternfly.html.version}</version>
-                                    <type>jar</type>
-                                </artifactItem>
-                            </artifactItems>
-                            <includes>**/assets/**,**/patternfly.*,</includes>
-                            <outputDirectory>${project.build.directory}/patternfly</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy-patternfly</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <copy todir="${basedir}/src/main/webapp">
-                                    <fileset dir="${project.build.directory}/patternfly/">
-                                        <include name="**/assets/"/>
-                                        <include name="**/patternfly.*"/>
-                                    </fileset>
-                                    <cutdirsmapper dirs="5"/>
-                                </copy>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.vertispan.j2cl</groupId>
-                <artifactId>j2cl-maven-plugin</artifactId>
-                <version>${j2cl-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>build-js</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <defaultWebappDirectory>${project.build.directory}/gwt/launcherDir</defaultWebappDirectory>
-                    <compilationLevel>${j2cl-compilation.level}</compilationLevel>
-                    <entrypoint>org.patternfly.showcase.Showcase</entrypoint>
-                    <initialScriptFilename>showcase.js</initialScriptFilename>
-                    <defines>
-                        <locale>en_US</locale>
-                    </defines>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <packagingExcludes>WEB-INF/classes/**</packagingExcludes>
-                    <packagingExcludes>WEB-INF/lib/**</packagingExcludes>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>${tomcat7-plugin.version}</version>
-                <configuration>
-                    <contextFile>${basedir}/src/main/tomcat/context.xml</contextFile>
+                    <devmodeArgs>
+                        <devmodeArg>-startupUrl</devmodeArg>
+                        <devmodeArg>showcase/index.html</devmodeArg>
+                    </devmodeArgs>
+                    <draftCompile>${gwt.draftCompile}</draftCompile>
+                    <moduleName>org.patternfly.showcase.Showcase</moduleName>
+                    <moduleShortName>showcase</moduleShortName>
+                    <sourceLevel>1.8</sourceLevel>
+                    <style>${gwt.style}</style>
                 </configuration>
             </plugin>
         </plugins>
@@ -260,63 +167,50 @@
         <profile>
             <id>prod</id>
             <properties>
-                <j2cl-compilation.level>ADVANCED</j2cl-compilation.level>
+                <gwt.draftCompile>false</gwt.draftCompile>
+                <gwt.style>OBFUSCATED</gwt.style>
+                <npm.task>build</npm.task>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <version>${frontend.plugin.version}</version>
+                        <configuration>
+                            <nodeVersion>${node.version}</nodeVersion>
+                            <npmVersion>${npm.version}</npmVersion>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install node and npm</id>
+                                <goals>
+                                    <goal>install-node-and-npm</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>npm install</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>parcel</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run build</arguments>
+                                </configuration>
+                                <phase>package</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>sonatype-snapshots-repo</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>google-snapshots</id>
-            <name>OSS Sonatype</name>
-            <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted artifacts-releases</name>
-            <url>https://repo.vertispan.com/j2cl/</url>
-        </repository>
-        <repository>
-            <id>vertispan-j2cl-snapshots</id>
-            <name>Vertispan hosted artifacts-snapshots</name>
-            <url>https://repo.vertispan.com/j2cl/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>vertispan-snapshots</id>
-            <name>Vertispan Snapshots</name>
-            <url>https://repo.vertispan.com/gwt-snapshot/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>vertispan-releases</id>
-            <name>Vertispan hosted plugin-releases</name>
-            <url>https://repo.vertispan.com/j2cl/</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

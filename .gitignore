@@ -1,5 +1,6 @@
 *.iml
 *.bak
+.cache
 .DS_Store
 .idea
 .settings
@@ -11,5 +12,4 @@ hs_err*
 node
 node_modules
 out
-src/main/resources/org/patternfly/showcase/public
 target
