@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/main/web/index.html --out-dir target/gwt/devmode/war/showcase --public-url /showcase/",
-    "build": "parcel build src/main/web/index.html --out-dir target/patternfly-showcase/showcase",
+    "build": "parcel build src/main/web/index.html --out-dir target/patternfly-showcase/showcase --public-url /showcase/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
