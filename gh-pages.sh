@@ -45,7 +45,7 @@ fi
 
 # Build showcase
 box "Build showcase"
-mvn install -P prod
+mvn package -P prod
 
 
 
