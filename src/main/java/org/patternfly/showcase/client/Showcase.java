@@ -1,6 +1,6 @@
 package org.patternfly.showcase.client;
 
-import com.google.gwt.core.client.EntryPoint;
+import org.gwtproject.core.client.EntryPoint;
 import org.patternfly.components.Navigation;
 import org.patternfly.components.NavigationItem;
 import org.patternfly.components.Page;

@@ -15,6 +15,7 @@
   ~ limitations under the License.
   -->
 <module>
+    <inherits name="org.gwtproject.core.Core"/>
     <inherits name="org.gwtproject.resources.Resources"/>
     <inherits name="org.gwtproject.i18n.DateTimeFormat"/>
     <inherits name="org.patternfly.PatternFly"/>

@@ -73,6 +73,7 @@
         <elemental2.version>1.0.0</elemental2.version>
         <elemento.version>HEAD-SNAPSHOT</elemento.version>
         <gwt-com.version>HEAD-SNAPSHOT</gwt-com.version>
+        <gwt-core.version>1.0-SNAPSHOT</gwt-core.version>
         <gwt-datetimeformat.version>1.0-SNAPSHOT</gwt-datetimeformat.version>
         <gwt-resources.version>1.0-SNAPSHOT</gwt-resources.version>
         <node.version>v13.12.0</node.version>
@@ -107,7 +108,12 @@
             <version>${gwt-resources.version}</version>
             <scope>provided</scope>
         </dependency>
-        <!-- Necessary by the GWT plugin -->
+        <dependency>
+            <groupId>org.gwtproject.core</groupId>
+            <artifactId>gwt-core</artifactId>
+            <version>${gwt-core.version}</version>
+        </dependency>
+        <!-- Necessary by the GWT maven plugin -->
         <dependency>
             <groupId>com.google.gwt</groupId>
             <artifactId>gwt-dev</artifactId>
@@ -124,25 +130,6 @@
         <finalName>${project.artifactId}</finalName>
 
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>enforce-java</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireJavaVersion>
-                                    <version>[1.8,1.9)</version>
-                                </requireJavaVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>net.ltgt.gwt.maven</groupId>
                 <artifactId>gwt-maven-plugin</artifactId>
