@@ -1,42 +1,20 @@
 {
   "name": "patternfly-showcase",
-  "version": "2.43.1",
   "description": "Showcase for PatternFly Java",
-  "main": "index.js",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "parcel src/main/web/index.html --out-dir target/gwt/devmode/war/showcase --public-url /showcase/",
-    "build": "parcel build src/main/web/index.html --out-dir target/patternfly-showcase/showcase --public-url /showcase/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite build --outDir target/gwt/devmode/war/showcase --emptyOutDir false --base /showcase --sourcemap true --minify false",
+    "prod": "vite build --outDir target/vite --base /showcase"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patternfly-java/showcase.git"
-  },
-  "keywords": [
-    "patternfly",
-    "java"
-  ],
-  "author": "Harald Pehl",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/patternfly-java/showcase/issues"
-  },
-  "homepage": "https://github.com/patternfly-java/showcase#readme",
   "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-change-file": "^1.3.0",
-    "parcel-plugin-static-files-copy": "^2.3.1",
-    "sass": "^1.26.3"
+    "vite": "^4.4.8"
   },
   "dependencies": {
-    "@github/time-elements": "^3.0.0",
+    "@github/relative-time-element": "^4.3.0",
     "@patternfly/patternfly": "^2.71.3",
-    "clipboard": "^2.0.6",
+    "clipboard": "^2.0.11",
     "color-themes-for-google-code-prettify": "^2.0.4",
     "google-code-prettify": "^1.0.5"
-  },
-  "parcel-plugin-change-file": {},
-  "staticFiles": {
-    "staticPath": "src/main/web/static"
   }
 }

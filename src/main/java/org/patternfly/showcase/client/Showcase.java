@@ -1,11 +1,26 @@
+/*
+ *  Copyright 2023 Red Hat
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
 package org.patternfly.showcase.client;
 
-import org.gwtproject.core.client.EntryPoint;
 import org.patternfly.components.Navigation;
 import org.patternfly.components.NavigationItem;
 import org.patternfly.components.Page;
 import org.patternfly.resources.Theme;
-import org.patternfly.showcase.client.documentation.DocumentationFactory;
+
+import com.google.gwt.core.client.EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
@@ -21,7 +36,13 @@ import static org.patternfly.components.Page.sidebar;
 import static org.patternfly.showcase.client.Ids.COMPONENT_GROUP;
 import static org.patternfly.showcase.client.Ids.DEMO_GROUP;
 import static org.patternfly.showcase.client.Ids.MAIN_CONTAINER;
-import static org.patternfly.showcase.client.Places.*;
+import static org.patternfly.showcase.client.Places.CONTRIBUTE;
+import static org.patternfly.showcase.client.Places.DOCUMENTATION;
+import static org.patternfly.showcase.client.Places.GET_IN_TOUCH;
+import static org.patternfly.showcase.client.Places.GET_STARTED;
+import static org.patternfly.showcase.client.Places.HOME;
+import static org.patternfly.showcase.client.Places.documentation;
+import static org.patternfly.showcase.client.Places.place;
 
 public class Showcase implements EntryPoint {
 
@@ -32,8 +53,7 @@ public class Showcase implements EntryPoint {
     private Page page;
 
     public Showcase() {
-        mainNavigation = Navigation.horizontal()
-                .add(new NavigationItem(GET_STARTED, "Get Started", place(GET_STARTED)))
+        mainNavigation = Navigation.horizontal().add(new NavigationItem(GET_STARTED, "Get Started", place(GET_STARTED)))
                 .add(new NavigationItem(DOCUMENTATION, "Documentation", documentation("alert")))
                 .add(new NavigationItem(CONTRIBUTE, "Contribute", place(CONTRIBUTE)))
                 .add(new NavigationItem(GET_IN_TOUCH, "Get in Touch", place(GET_IN_TOUCH)));
@@ -70,14 +90,11 @@ public class Showcase implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        page = page()
-                .add(header(brand("./PF-Masthead-Logo.svg"), place(HOME))
-                        .add(mainNavigation))
-                .add(main(MAIN_CONTAINER));
+        page = page().add(header(brand(Assets.mastheadLogo), place(HOME)).add(mainNavigation)).add(main(MAIN_CONTAINER));
 
         body().addAll(page, toast());
-        bind(window, hashchange, e -> navigate(location.getHash()));
-        navigate(location.getHash());
+        bind(window, hashchange, e -> navigate(location.hash));
+        navigate(location.hash);
     }
 
     private void navigate(String hash) {

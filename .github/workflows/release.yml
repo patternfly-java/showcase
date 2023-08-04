@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+
+  build:
+    name: Build Showcase
+    runs-on: ubuntu-latest
+    env:
+      MVN: ./mvnw --show-version --batch-mode
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+      - name: Set up JDK
+        id: setup-jdk
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+          cache: maven
+      - name: Package
+        id: package
+        run: $MVN package -P prod
+      - name: Publish
+        id: publish
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        with:
+          branch: gh-pages
+          folder: ./target/showcase-pages
+          clean: true
