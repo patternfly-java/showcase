@@ -69,7 +69,7 @@
         <!-- Dependency versions -->
         <version.checkstyle.config>1.0.8.Final</version.checkstyle.config>
         <version.elemental2>1.2.0</version.elemental2>
-        <version.elemento>1.0.12</version.elemento>
+        <version.elemento>1.0.14</version.elemento>
         <version.gwt>2.10.0</version.gwt>
         <version.gwt.core>1.0.0-RC1</version.gwt.core>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
