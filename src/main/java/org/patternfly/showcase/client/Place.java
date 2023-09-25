@@ -15,9 +15,19 @@
  */
 package org.patternfly.showcase.client;
 
-public interface Ids {
+import java.util.function.Supplier;
 
-    String MAIN_CONTAINER = "showcase-main";
-    String COMPONENT_GROUP = "Components";
-    String DEMO_GROUP = "Demos";
+class Place {
+
+    public final String id;
+    public final String place;
+    public final String title;
+    public final Supplier<Page> page;
+
+    Place(String id, String title, Supplier<Page> page) {
+        this.id = id;
+        this.place = "#" + id;
+        this.title = title;
+        this.page = page;
+    }
 }

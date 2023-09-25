@@ -68,15 +68,15 @@
     <properties>
         <!-- Dependency versions -->
         <version.checkstyle.config>1.0.8.Final</version.checkstyle.config>
-        <version.elemental2>1.2.0</version.elemental2>
-        <version.elemento>1.0.12</version.elemento>
+        <version.elemental2>1.2.1</version.elemental2>
+        <version.elemento>1.2.0</version.elemento>
         <version.gwt>2.10.0</version.gwt>
         <version.gwt.core>1.0.0-RC1</version.gwt.core>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.10.0</version.junit>
         <version.node>v20.5.0</version.node>
-        <version.patternfly.java>5.0.0</version.patternfly.java>
+        <version.patternfly.java>5.0.0-SNAPSHOT</version.patternfly.java>
 
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
@@ -95,7 +95,7 @@
         <encoding>UTF-8</encoding>
         <gwt.draftCompile>true</gwt.draftCompile>
         <gwt.style>DETAILED</gwt.style>
-        <java.version>17</java.version>
+        <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.min.version>3.2.5</maven.min.version>
@@ -184,7 +184,7 @@
                     <artifactId>impsort-maven-plugin</artifactId>
                     <version>${version.impsort.plugin}</version>
                     <configuration>
-                        <compliance>${java.version}</compliance>
+                        <compliance>17</compliance>
                         <groups>java.,javax.,jakarta.,org.,io.,com.</groups>
                         <removeUnused>true</removeUnused>
                         <staticAfter>true</staticAfter>

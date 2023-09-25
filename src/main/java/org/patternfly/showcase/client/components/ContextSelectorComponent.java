@@ -18,37 +18,41 @@ package org.patternfly.showcase.client.components;
 import org.patternfly.components.Badge;
 import org.patternfly.components.ContextSelector;
 
+import static elemental2.dom.DomGlobal.console;
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.components.Alert.info;
-import static org.patternfly.components.AlertGroup.toast;
-import static org.patternfly.resources.CSS.util;
+import static org.patternfly.layout.Classes.util;
 
-public class ContextSelectorComponent extends BaseComponent {
+public class ContextSelectorComponent extends ComponentPage {
 
     public ContextSelectorComponent() {
         super("Context selector",
                 p().textContent("A context selector can be used in addition to global navigation when the data "
-                        + "or resources you show in the interface need to change depending on the users’ context.").element(),
-                asList(new Snippet("Simple context selector", "Resources.get().contextSelectorSimple().getText()",
-                        () -> div().add(ContextSelector.<String> contextSelector("Stage")
-                                .add(asList("Development", "Staging", "QA", "Production"))).element()),
-                        new Snippet("Typed context selector", "Resources.get().contextSelectorTyped().getText()",
-                                () -> div()
-                                        .add(ContextSelector.<Stage> contextSelector("Stage")
-                                                .display((html, stage) -> html.css(util("justify-content-space-between"))
-                                                        .title(stage.url).add(stage.name).add(Badge.read(stage.nodes)))
-                                                .add(asList(new Stage("Development", "http://localhost:8080", 2),
-                                                        new Stage("Staging", "https://staging.acme.org", 5),
-                                                        new Stage("QA", "https://qa.acme.org", 3),
-                                                        new Stage("Production", "https://acme.org", 12))))
-                                        .element()),
-                        new Snippet("Context selector events", "Resources.get().contextSelectorEvent().getText()",
-                                () -> div().add(ContextSelector.<String> contextSelector("Stage").onToggle(
-                                        open -> toast().add(info("Context selector " + (open ? "expanded" : "collapsed"))))
-                                        .onSelect(stage -> toast().add(info("Stage selected").description(stage)))
-                                        .add(asList("Development", "Staging", "QA", "Production"))).element())));
+                        + "or resources you show in the interface need to change depending on the users’ context.")
+                        .element());
+
+        addSnippet(new Snippet("Simple context selector", "Resources.get().contextSelectorSimple().getText()",
+                () -> div().add(ContextSelector.<String> contextSelector("Stage")
+                        .add(asList("Development", "Staging", "QA", "Production"))).element()));
+
+        addSnippet(new Snippet("Typed context selector", "Resources.get().contextSelectorTyped().getText()",
+                () -> div()
+                        .add(ContextSelector.<Stage> contextSelector("Stage")
+                                .display((html, stage) -> html.css(util("justify-content-space-between"))
+                                        .title(stage.url).add(stage.name).add(Badge.read(stage.nodes)))
+                                .add(asList(new Stage("Development", "http://localhost:8080", 2),
+                                        new Stage("Staging", "https://staging.acme.org", 5),
+                                        new Stage("QA", "https://qa.acme.org", 3),
+                                        new Stage("Production", "https://acme.org", 12))))
+                        .element()));
+
+        addSnippet(new Snippet("Context selector events", "Resources.get().contextSelectorEvent().getText()",
+                () -> div().add(ContextSelector.<String> contextSelector("Stage").onToggle(
+                        open -> console.log(
+                                "NYI")/* toast().add(info("Context selector " + (open ? "expanded" : "collapsed"))) */)
+                        .onSelect(stage -> console.log() /* toast().add(info("Stage selected").description(stage)) */)
+                        .add(asList("Development", "Staging", "QA", "Production"))).element()));
     }
 
     static class Stage {

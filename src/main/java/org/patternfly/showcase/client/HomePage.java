@@ -15,26 +15,25 @@
  */
 package org.patternfly.showcase.client;
 
-import org.jboss.elemento.IsElement;
-
 import elemental2.dom.HTMLElement;
 
+import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Content.content;
-import static org.patternfly.components.Page.section;
 import static org.patternfly.components.Title.title;
-import static org.patternfly.resources.CSS.modifier;
-import static org.patternfly.resources.Constants.light;
+import static org.patternfly.components.page.PageMainSection.pageMainSection;
 
-class HomePage implements IsElement<HTMLElement> {
+class HomePage implements Page {
 
     @Override
-    public HTMLElement element() {
-        return section().css(modifier(light), "sc-page")
+    public Iterable<HTMLElement> elements() {
+        return singletonList(pageMainSection()
+                .light()
+                .css("sc-page")
                 .add(content().add(title(1, "PatternFly - Java"))
                         .add(p().add("PatternFly Java is a Java implementation of PatternFly 4 based on GWT and ")
                                 .add(a("https://github.com/hal/elemento").textContent("Elemento")).add(".")))
-                .element();
+                .element());
     }
 }

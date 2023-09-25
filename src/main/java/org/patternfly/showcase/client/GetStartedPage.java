@@ -15,22 +15,24 @@
  */
 package org.patternfly.showcase.client;
 
-import org.jboss.elemento.IsElement;
-
 import elemental2.dom.HTMLElement;
 
+import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Content.content;
-import static org.patternfly.components.Page.section;
 import static org.patternfly.components.Title.title;
-import static org.patternfly.resources.CSS.modifier;
-import static org.patternfly.resources.Constants.light;
+import static org.patternfly.components.page.PageMainSection.pageMainSection;
 
-class GetStartedPage implements IsElement<HTMLElement> {
+class GetStartedPage implements Page {
 
     @Override
-    public HTMLElement element() {
-        return section().css(modifier(light), "sc-page")
-                .add(content().add(title(1, "Get Started")).add(p().textContent("Pending"))).element();
+    public Iterable<HTMLElement> elements() {
+        return singletonList(pageMainSection()
+                .light()
+                .css("sc-page")
+                .add(content()
+                        .add(title(1, "Get started"))
+                        .add(p().textContent("Pending")))
+                .element());
     }
 }

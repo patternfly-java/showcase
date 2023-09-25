@@ -15,24 +15,15 @@
  */
 package org.patternfly.showcase.client;
 
+import java.util.Iterator;
+
 import elemental2.dom.HTMLElement;
 
-import static java.util.Collections.singletonList;
-import static org.jboss.elemento.Elements.p;
-import static org.patternfly.components.Content.content;
-import static org.patternfly.components.Title.title;
-import static org.patternfly.components.page.PageMainSection.pageMainSection;
+public interface Page extends Iterable<HTMLElement> {
 
-class GetInTouchPage implements Page {
-
-    @Override
-    public Iterable<HTMLElement> elements() {
-        return singletonList(pageMainSection()
-                .light()
-                .css("sc-page")
-                .add(content()
-                        .add(title(1, "Get in touch"))
-                        .add(p().textContent("Pending")))
-                .element());
+    default Iterator<HTMLElement> iterator() {
+        return elements().iterator();
     }
+
+    Iterable<HTMLElement> elements();
 }

@@ -15,16 +15,17 @@
  */
 package org.patternfly.showcase.client.components;
 
-import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.components.Brand.brand;
+import static org.patternfly.components.brand.Brand.brand;
 
-public class BrandComponent extends BaseComponent {
+public class BrandComponent extends ComponentPage {
 
     public BrandComponent() {
-        super("Brand", p().textContent("Brand is used to place a product logotype on a screen.").element(),
-                singletonList(new Snippet("Simple brand", "Resources.get().brand().getText()",
-                        () -> div().add(brand("https://www.patternfly.org/assets/images/pf_logo.svg")).element())));
+        super("Brand", p().textContent("Brand is used to place a product logotype on a screen.").element());
+
+        addSnippet(new Snippet("Simple brand", "Resources.get().brand().getText()", () -> div()
+                .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg"))
+                .element()));
     }
 }

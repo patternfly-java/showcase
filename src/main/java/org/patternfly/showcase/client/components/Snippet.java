@@ -19,12 +19,18 @@ import java.util.function.Supplier;
 
 import org.jboss.elemento.IsElement;
 import org.patternfly.components.Button;
-import org.patternfly.components.Icon;
 
 import elemental2.dom.HTMLElement;
 
-import static org.jboss.elemento.Elements.*;
-import static org.patternfly.resources.CSS.fas;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
+import static org.jboss.elemento.Elements.h;
+import static org.jboss.elemento.Elements.insertBefore;
+import static org.jboss.elemento.Elements.isVisible;
+import static org.jboss.elemento.Elements.pre;
+import static org.jboss.elemento.Elements.section;
+import static org.jboss.elemento.Elements.setVisible;
+import static org.patternfly.layout.Icons.fas;
 
 class Snippet implements IsElement<HTMLElement> {
 
@@ -36,12 +42,16 @@ class Snippet implements IsElement<HTMLElement> {
 
     Snippet(String header, String code, Supplier<HTMLElement> demo) {
         demoSupplier = demo;
-        root = section().css("sc-documentation").add(h(3, header).css("sc-documentation__heading")).add(this.demo = demo.get())
+        root = section().css("sc-documentation")
+                .add(h(3, header).css("sc-documentation__heading"))
+                .add(this.demo = demo.get())
                 .add(toolbar = div().css("sc-documentation__toolbar")
-                        .add(Button.icon(Icon.icon(fas("code")), "Toggle code").onClick(this::toggleCode))
-                        .add(Button.icon(Icon.icon(fas("copy")), "Copy code").onClick(this::copyCode))
-                        .add(Button.icon(Icon.icon(fas("undo")), "Undo changes").onClick(this::undo)).element())
-                .add(this.code = div().css("sc-documentation__code").add(pre().css("prettyprint").textContent(code)).element())
+                        .add(Button.icon(fas("code"), "Toggle code").onClick(this::toggleCode))
+                        .add(Button.icon(fas("copy"), "Copy code").onClick(this::copyCode))
+                        .add(Button.icon(fas("undo"), "Undo changes").onClick(this::undo)).element())
+                .add(this.code = div().css("sc-documentation__code")
+                        .add(pre().css("prettyprint").textContent(code))
+                        .element())
                 .element();
         this.demo.classList.add("sc-documentation__example");
         setVisible(this.code, false);

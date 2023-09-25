@@ -13,12 +13,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import avatarSvg from "./img_avatar.svg"
-import mastheadLogo from "./PF-Masthead-Logo.svg"
-import pfLogo from "./pf_logo.svg"
+import avatar from "./avatar.svg"
+import pfLogo from "./pf-logo.svg"
 
 window["PatternFlyAssets"] = {
-    avatarSvg: avatarSvg,
-    mastheadLogo: mastheadLogo,
+    avatar: avatar,
     pfLogo: pfLogo
 };

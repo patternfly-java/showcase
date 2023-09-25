@@ -15,24 +15,25 @@
  */
 package org.patternfly.showcase.client.demos.server;
 
-import java.util.Iterator;
-
 import org.patternfly.components.DataTable;
-import org.patternfly.components.Page;
 import org.patternfly.dataprovider.DataProvider;
 import org.patternfly.showcase.client.Data;
+import org.patternfly.showcase.client.Page;
 
 import elemental2.dom.HTMLElement;
 
+import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
-import static org.jboss.elemento.Elements.bag;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Content.content;
-import static org.patternfly.components.DataTable.*;
+import static org.patternfly.components.DataTable.checkboxColumn;
+import static org.patternfly.components.DataTable.column;
+import static org.patternfly.components.DataTable.dataTable;
 import static org.patternfly.components.Title.title;
-import static org.patternfly.resources.CSS.Size._4xl;
+import static org.patternfly.components.page.PageMainSection.pageMainSection;
+import static org.patternfly.layout.Size._4xl;
 
-public class ServerDemo implements Iterable<HTMLElement> {
+public class ServerDemo implements Page {
 
     private final Iterable<HTMLElement> elements;
 
@@ -54,17 +55,19 @@ public class ServerDemo implements Iterable<HTMLElement> {
         dataProvider.bindDisplay(dataTable);
         dataProvider.update(Data.servers);
 
-        elements = bag()
-                .add(Page.section()
-                        .add(content().add(title(1, "Servers", _4xl)).add(p().add("Filter servers based on user input."))))
-                .add(Page.section()
+        elements = asList(
+                pageMainSection()
+                        .add(content().add(title(1, "Servers", _4xl))
+                                .add(p().add("Filter servers based on user input.")))
+                        .element(),
+                pageMainSection()
                         // .add(toolbar)
-                        .add(dataTable))
-                .elements();
+                        .add(dataTable)
+                        .element());
     }
 
     @Override
-    public Iterator<HTMLElement> iterator() {
-        return elements.iterator();
+    public Iterable<HTMLElement> elements() {
+        return elements;
     }
 }

@@ -26,12 +26,18 @@ import org.patternfly.showcase.client.LoremIpsum;
 import elemental2.core.JsDate;
 import elemental2.dom.HTMLElement;
 
-import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
-import static org.jboss.elemento.Elements.*;
-import static org.patternfly.components.DataTable.*;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.htmlElement;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.span;
+import static org.patternfly.components.DataTable.actionsColumn;
+import static org.patternfly.components.DataTable.checkboxColumn;
+import static org.patternfly.components.DataTable.column;
+import static org.patternfly.components.DataTable.dataTable;
+import static org.patternfly.components.DataTable.expandColumn;
 
-public class DataTableComponent extends BaseComponent {
+public class DataTableComponent extends ComponentPage {
 
     // Pull data table definitions to top-level to have less code indent
     private static DataProvider<Repository> dataProvider() {
@@ -46,7 +52,8 @@ public class DataTableComponent extends BaseComponent {
                 .add(column("Pull Requests", (td, dp, repo) -> td.textContent(String.valueOf(repo.pullRequests))))
                 .add(column("Contributors", (td, dp, repo) -> td.textContent(String.valueOf(repo.contributors))))
                 .add(column("Last Commit", (td, dp, repo) -> td
-                        .add(htmlElement("relative-time", HTMLElement.class).attr("datetime", repo.lastCommit.toISOString()))));
+                        .add(htmlElement("relative-time", HTMLElement.class).attr("datetime",
+                                repo.lastCommit.toISOString()))));
         dataProvider.bindDisplay(dataTable);
         dataProvider.update(repositories());
         return dataTable;
@@ -118,7 +125,8 @@ public class DataTableComponent extends BaseComponent {
     private static Repository[] repositories() {
         return new Repository[] { new Repository("wildfly/wildfly", "https://github.com/wildfly/wildfly", 12, 52, 318),
                 new Repository("quarkusio/quarkus", "https://github.com/quarkusio/quarkus", 17, 71, 174),
-                new Repository("patternfly/patternfly-next", "https://github.com/patternfly/patternfly-next", 18, 16, 41),
+                new Repository("patternfly/patternfly-next", "https://github.com/patternfly/patternfly-next", 18, 16,
+                        41),
                 new Repository("hal/console", "https://github.com/hal/console", 12, 9, 11),
                 new Repository("hal/elemento", "https://github.com/hal/elemento", 6, 0, 9),
                 new Repository("hpehl/patternfly-java", "https://github.com/hpehl/patternfly-java", 2, 0, 2), };
@@ -163,14 +171,18 @@ public class DataTableComponent extends BaseComponent {
     public DataTableComponent() {
         super("Data table",
                 p().textContent("A table is used to display large data sets that can be easily "
-                        + "laid out in a simple grid with column headers.").element(),
-                asList(new Snippet("Simple table", "Resources.get().dataTableSimple().getText()",
-                        () -> div().add(simple()).element()),
-                        new Snippet("Sortable table", "Resources.get().dataTableSortable().getText()",
-                                () -> div().add(sortable()).element()),
-                        new Snippet("Table with checkboxes and actions", "Resources.get().dataTableCheckbox().getText()",
-                                () -> div().add(checkbox()).element()),
-                        new Snippet("Expandable table", "Resources.get().dataTableExpandable().getText()",
-                                () -> div().add(expandable()).element())));
+                        + "laid out in a simple grid with column headers.").element());
+
+        addSnippet(new Snippet("Simple table", "Resources.get().dataTableSimple().getText()",
+                () -> div().add(simple()).element()));
+
+        addSnippet(new Snippet("Sortable table", "Resources.get().dataTableSortable().getText()",
+                () -> div().add(sortable()).element()));
+
+        addSnippet(new Snippet("Table with checkboxes and actions", "Resources.get().dataTableCheckbox().getText()",
+                () -> div().add(checkbox()).element()));
+
+        addSnippet(new Snippet("Expandable table", "Resources.get().dataTableExpandable().getText()",
+                () -> div().add(expandable()).element()));
     }
 }

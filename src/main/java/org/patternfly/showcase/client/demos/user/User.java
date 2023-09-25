@@ -27,9 +27,15 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
-import static org.jboss.elemento.Elements.*;
-import static org.patternfly.resources.CSS.fas;
-import static org.patternfly.resources.CSS.util;
+import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.br;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.i;
+import static org.jboss.elemento.Elements.img;
+import static org.jboss.elemento.Elements.li;
+import static org.jboss.elemento.Elements.ul;
+import static org.patternfly.layout.Classes.util;
+import static org.patternfly.layout.Icons.fas;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public class User {
@@ -71,9 +77,14 @@ public class User {
 
     @JsOverlay
     public final HTMLElement address() {
-        return Elements.address().add(location.street.name + " " + location.street.number).add(br())
-                .add(location.postcode + " " + location.city).add(br()).add(location.state + ", " + nat)
-                .add(a(googleMaps()).attr("target", "map").css(util("ml-sm")).add(i().css(fas("map-marked-alt")))).element();
+        return Elements.address()
+                .add(location.street.name + " " + location.street.number)
+                .add(br())
+                .add(location.postcode + " " + location.city)
+                .add(br())
+                .add(location.state + ", " + nat)
+                .add(a(googleMaps()).attr("target", "map").css(util("ml-sm")).add(i().css(fas("map-marked-alt"))))
+                .element();
     }
 
     @JsOverlay
@@ -101,7 +112,8 @@ public class User {
 
     @JsOverlay
     public final boolean match(String query) {
-        return name.first.toLowerCase().contains(query.toLowerCase()) || name.last.toLowerCase().contains(query.toLowerCase())
+        return name.first.toLowerCase().contains(query.toLowerCase()) || name.last.toLowerCase()
+                .contains(query.toLowerCase())
                 || email.toLowerCase().contains(query.toLowerCase())
                 || login.username.toLowerCase().contains(query.toLowerCase());
     }

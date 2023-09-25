@@ -21,7 +21,6 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "PatternFlyAssets")
 public class Assets {
 
-    public static String avatarSvg;
-    public static String mastheadLogo;
+    public static String avatar;
     public static String pfLogo;
 }

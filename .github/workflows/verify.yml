@@ -23,6 +23,6 @@ jobs:
           java-version: 17
           distribution: temurin
           cache: maven
-      - name: Cerify
+      - name: Verify
         id: verify
         run: $MVN verify

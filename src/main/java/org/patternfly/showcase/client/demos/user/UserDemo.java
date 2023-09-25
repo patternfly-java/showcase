@@ -15,9 +15,7 @@
  */
 package org.patternfly.showcase.client.demos.user;
 
-import java.util.Iterator;
-
-import org.jboss.elemento.HtmlContentBuilder;
+import org.jboss.elemento.HTMLContainerBuilder;
 import org.patternfly.components.Button;
 import org.patternfly.components.Card;
 import org.patternfly.components.CardView;
@@ -26,27 +24,41 @@ import org.patternfly.components.DataList;
 import org.patternfly.components.DataTable;
 import org.patternfly.components.Dropdown;
 import org.patternfly.components.Icon;
-import org.patternfly.components.Page;
+import org.patternfly.components.OldToolbar;
+import org.patternfly.components.OldToolbar.SortOption;
+import org.patternfly.components.OldToolbar.SortOptions;
 import org.patternfly.components.Pagination;
 import org.patternfly.components.Title;
-import org.patternfly.components.Toolbar;
-import org.patternfly.components.Toolbar.SortOption;
-import org.patternfly.components.Toolbar.SortOptions;
 import org.patternfly.dataprovider.DataProvider;
 import org.patternfly.showcase.client.Data;
+import org.patternfly.showcase.client.Page;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
 
+import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
-import static org.jboss.elemento.Elements.*;
+import static org.jboss.elemento.Elements.a;
+import static org.jboss.elemento.Elements.code;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.htmlElement;
+import static org.jboss.elemento.Elements.i;
+import static org.jboss.elemento.Elements.input;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.removeChildrenFrom;
+import static org.jboss.elemento.Elements.small;
+import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.InputType.checkbox;
-import static org.patternfly.resources.CSS.*;
-import static org.patternfly.resources.CSS.Size._4xl;
-import static org.patternfly.resources.Constants.flex;
-import static org.patternfly.resources.Constants.icon;
+import static org.patternfly.components.page.PageMainSection.pageMainSection;
+import static org.patternfly.layout.Classes.flex;
+import static org.patternfly.layout.Classes.icon;
+import static org.patternfly.layout.Classes.layout;
+import static org.patternfly.layout.Classes.modifier;
+import static org.patternfly.layout.Classes.util;
+import static org.patternfly.layout.Icons.fas;
+import static org.patternfly.layout.Size._4xl;
 
-public class UserDemo implements Iterable<HTMLElement> {
+public class UserDemo implements Page {
 
     private static final String SOURCE_CODE = "https://github.com/patternfly-java/showcase/blob/master/src/main/java/org/patternfly/showcase/client/documentation/demos/user/UserDemo.java";
 
@@ -60,28 +72,29 @@ public class UserDemo implements Iterable<HTMLElement> {
     public UserDemo() {
         DataProvider<User> dataProvider = new DataProvider<>(user -> user.login.uuid);
 
-        Toolbar<User> toolbar = Toolbar.toolbar(dataProvider)
-                .add(Toolbar.content().add(Toolbar.item().add(Toolbar.bulkSelect()))
-                        .add(Toolbar.group().toggle("show-on-xl")
-                                .add(Toolbar.item().<User> add("byName", "Search by name", query -> user -> user.match(query))))
-                        .add(Toolbar.item()
-                                .add(Toolbar.sortMenu(new SortOptions<User>()
+        OldToolbar<User> toolbar = OldToolbar.toolbar(dataProvider)
+                .add(OldToolbar.content().add(OldToolbar.item().add(OldToolbar.bulkSelect()))
+                        .add(OldToolbar.group().toggle("show-on-xl")
+                                .add(OldToolbar.item()
+                                        .<User> add("byName", "Search by name", query -> user -> user.match(query))))
+                        .add(OldToolbar.item()
+                                .add(OldToolbar.sortMenu(new SortOptions<User>()
                                         .add(new SortOption<>("Last name", comparing(user -> user.name.last)))
                                         .add(new SortOption<>("First name", comparing(user -> user.name.first)))
                                         .add(new SortOption<>("User name", comparing(user -> user.login.username)))
                                         .add(new SortOption<>("Age", comparing(user -> user.dob.age)))
                                         .add(new SortOption<>("Nationality", comparing(user -> user.nat))))))
-                        .add(Toolbar.group().iconButton()
-                                .add(Toolbar.item()
+                        .add(OldToolbar.group().iconButton()
+                                .add(OldToolbar.item()
                                         .add(Button.icon(Icon.icon(fas("address-card")), "Card view")
                                                 .onClick(() -> show(cardView.element()))))
-                                .add(Toolbar.item()
+                                .add(OldToolbar.item()
                                         .add(Button.icon(Icon.icon(fas("list")), "Card view")
                                                 .onClick(() -> show(dataList.element()))))
-                                .add(Toolbar.item()
+                                .add(OldToolbar.item()
                                         .add(Button.icon(Icon.icon(fas("table")), "Card view")
                                                 .onClick(() -> show(dataTable.element())))))
-                        .add(Toolbar.item().add(Pagination.pagination().compact())));
+                        .add(OldToolbar.item().add(Pagination.pagination().compact())));
 
         cardView = CardView.cardView(dataProvider, new UserCardDisplay())
                 .style("background-color: var(--pf-c-page__main-section--BackgroundColor)").css(util("py-lg")).compact()
@@ -97,9 +110,11 @@ public class UserDemo implements Iterable<HTMLElement> {
                         (td, dp, user) -> td.textContent(user.getBirthday().toLocaleDateString())))
                 .add(DataTable.column("Registered", User.REGISTERED_COMPARATOR,
                         (td, dp, user) -> td
-                                .add(htmlElement("relative-time", HTMLElement.class).attr("datetime", user.registered.date))))
+                                .add(htmlElement("relative-time", HTMLElement.class).attr("datetime",
+                                        user.registered.date))))
                 .add(DataTable
-                        .actionsColumn((td, dp, user) -> td.add(Dropdown.<String> kebab().right().add("Edit").add("Remove"))))
+                        .actionsColumn(
+                                (td, dp, user) -> td.add(Dropdown.<String> kebab().right().add("Edit").add("Remove"))))
                 .expandableRow((html, dp, user) -> html
                         .add(div().css(layout(flex), modifier("align-items-center"), modifier("space-items-2xl"))
                                 .add(user.photo()).add(user.address()).add(user.contact())));
@@ -110,23 +125,30 @@ public class UserDemo implements Iterable<HTMLElement> {
         dataProvider.bindDisplay(dataTable);
         dataProvider.update(Data.users); // 123 random users
 
-        elements = bag()
-                .add(Page.section().add(Content.content().add(Title.title(1, "Users", _4xl))
-                        .add(p().add("A list of 123 random users provided by ")
-                                .add(a("https://randomuser.me").attr("target", "_blank").textContent("https://randomuser.me"))
-                                .add(". Flags generated with ")
-                                .add(a("https://www.countryflags.io").attr("target", "_blank")
-                                        .textContent("https://www.countryflags.io"))
-                                .add(". See ").add(a(SOURCE_CODE, "_blank").textContent("UserDemo.java"))
-                                .add(" for the code."))))
-                .add(Page.section().add(toolbar).add(dataContainer = div().element())).elements();
+        elements = asList(
+                pageMainSection()
+                        .add(Content.content()
+                                .add(Title.title(1, "Users", _4xl))
+                                .add(p().add("A list of 123 random users provided by ")
+                                        .add(a("https://randomuser.me").attr("target", "_blank")
+                                                .textContent("https://randomuser.me"))
+                                        .add(". Flags generated with ")
+                                        .add(a("https://www.countryflags.io").attr("target", "_blank")
+                                                .textContent("https://www.countryflags.io"))
+                                        .add(". See ").add(a(SOURCE_CODE, "_blank").textContent("UserDemo.java"))
+                                        .add(" for the code.")))
+                        .element(),
+                pageMainSection()
+                        .add(toolbar)
+                        .add(dataContainer = div().element())
+                        .element());
 
         show(cardView.element());
     }
 
     @Override
-    public Iterator<HTMLElement> iterator() {
-        return elements.iterator();
+    public Iterable<HTMLElement> elements() {
+        return elements;
     }
 
     private void show(HTMLElement element) {
@@ -154,7 +176,7 @@ public class UserDemo implements Iterable<HTMLElement> {
     static class UserListDisplay implements DataList.Display<User> {
 
         @Override
-        public void render(HtmlContentBuilder<HTMLLIElement> li, DataProvider<User> dataProvider, User user) {
+        public void render(HTMLContainerBuilder<HTMLLIElement> li, DataProvider<User> dataProvider, User user) {
             li.add(DataList.itemRow().add(DataList.itemControl().expandable().checkbox())
                     .add(DataList.itemContent().add(DataList.itemCell().css(modifier(icon)).add(user.nat()))
                             .add(DataList.itemCell().add(p().id(dataProvider.getId(user)).textContent(user.fullName())))

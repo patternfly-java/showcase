@@ -22,27 +22,38 @@ import org.patternfly.components.Dropdown;
 import org.patternfly.dataprovider.DataProvider;
 import org.patternfly.showcase.client.LoremIpsum;
 
-import static java.util.Arrays.asList;
-import static org.jboss.elemento.Elements.*;
-import static org.patternfly.components.DataList.*;
+import static org.jboss.elemento.Elements.b;
+import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.h;
+import static org.jboss.elemento.Elements.i;
+import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.span;
+import static org.patternfly.components.DataList.Display;
 import static org.patternfly.components.DataList.dataList;
+import static org.patternfly.components.DataList.expandableBody;
 import static org.patternfly.components.DataList.expandableContent;
 import static org.patternfly.components.DataList.itemAction;
+import static org.patternfly.components.DataList.itemCell;
 import static org.patternfly.components.DataList.itemContent;
 import static org.patternfly.components.DataList.itemControl;
 import static org.patternfly.components.DataList.itemRow;
-import static org.patternfly.resources.CSS.component;
-import static org.patternfly.resources.CSS.fas;
-import static org.patternfly.resources.CSS.modifier;
-import static org.patternfly.resources.Constants.*;
-import static org.patternfly.resources.Constants.dataList;
+import static org.patternfly.layout.Classes.action;
+import static org.patternfly.layout.Classes.alignRight;
+import static org.patternfly.layout.Classes.component;
+import static org.patternfly.layout.Classes.dataList;
+import static org.patternfly.layout.Classes.icon;
+import static org.patternfly.layout.Classes.modifier;
+import static org.patternfly.layout.Classes.noFill;
+import static org.patternfly.layout.Classes.noPadding;
+import static org.patternfly.layout.Icons.fas;
 
-public class DataListComponent extends BaseComponent {
+public class DataListComponent extends ComponentPage {
 
     // Pull display data items to top-level to have less code indent
     private static final DisplayData[] SIMPLE = { new DisplayData((li, provider,
-            item) -> li.add(itemRow().add(itemContent().add(itemCell().add(span().id(item.id()).textContent("Primary Content")))
-                    .add(itemCell().textContent("Secondary Content"))))),
+            item) -> li.add(
+                    itemRow().add(itemContent().add(itemCell().add(span().id(item.id()).textContent("Primary Content")))
+                            .add(itemCell().textContent("Secondary Content"))))),
 
             new DisplayData((li, provider,
                     item) -> li.add(itemRow().add(itemContent()
@@ -71,7 +82,7 @@ public class DataListComponent extends BaseComponent {
                                             .add(Dropdown.<String> kebab().right().add("Action One").add("Action Two")
                                                     .addSeparator().add("Final Action"))))
                             .add(itemAction()
-                                    .css(modifier(hidden), modifier("visible-on-lg")).add(Button.button("Primary").primary())
+                                    .css(modifier("hidden"), modifier("visible-on-lg")).add(Button.button("Primary").primary())
                                     .add(Button.button("Secondary").secondary())))),
             new DisplayData((li, provider,
                     item) -> li.add(itemRow().add(itemControl().checkbox()).add(itemContent()
@@ -81,7 +92,7 @@ public class DataListComponent extends BaseComponent {
                                     .add(div().css(component(dataList, action))
                                             .add(Dropdown.<String> kebab().right().add("Action One").add("Action Two")
                                                     .addSeparator().add("Final Action"))))
-                            .add(itemAction().css(modifier(hidden), modifier("visible-on-xl"))
+                            .add(itemAction().css(modifier("hidden"), modifier("visible-on-xl"))
                                     .add(Button.button("Primary").primary()).add(Button.button("Secondary").secondary())
                                     .add(Button.button("Secondary").secondary())
                                     .add(Button.button("Secondary").secondary())))) };
@@ -95,7 +106,8 @@ public class DataListComponent extends BaseComponent {
                                                     .add(i().css(component(dataList, icon), fas("code-branch"))))
                                             .add(itemCell().add(div().id(item.id()).textContent("Primary Content"))
                                                     .add(span().textContent(LoremIpsum.paragraph())))
-                                            .add(itemCell().textContent(LoremIpsum.paragraphs(2))).add(itemCell().textContent(
+                                            .add(itemCell().textContent(LoremIpsum.paragraphs(2)))
+                                            .add(itemCell().textContent(
                                                     LoremIpsum.paragraphs(2))))
                                     .add(itemAction().add(div().css(component(dataList, action))
                                             .add(Dropdown.<String> kebab().right().add("Action One").add("Action Two")
@@ -160,7 +172,8 @@ public class DataListComponent extends BaseComponent {
             .add(itemRow().add(itemControl().expandable().checkbox())
                     .add(itemContent()
                             .add(itemCell().css(modifier("flex-5"))
-                                    .add(div().css("sc-data-list__blue-box").add(b().id(item.id()).textContent("width 5"))
+                                    .add(div().css("sc-data-list__blue-box")
+                                            .add(b().id(item.id()).textContent("width 5"))
                                             .add(p().textContent(LoremIpsum.paragraphs(2)))))
                             .add(itemCell().css(modifier("flex-2"))
                                     .add(div().css("sc-data-list__blue-box").add(b().textContent("width 2"))
@@ -174,7 +187,8 @@ public class DataListComponent extends BaseComponent {
 
     private static DataList<DisplayData> dl(DisplayData[] items) {
         DataProvider<DisplayData> dataProvider = new DataProvider<>(DisplayData::id);
-        DataList<DisplayData> dl = dataList(dataProvider, (html, dataList, data) -> data.display.render(html, dataList, data));
+        DataList<DisplayData> dl = dataList(dataProvider,
+                (html, dataList, data) -> data.display.render(html, dataList, data));
         dataProvider.bindDisplay(dl);
         dataProvider.update(items);
         return dl;
@@ -197,17 +211,21 @@ public class DataListComponent extends BaseComponent {
     public DataListComponent() {
         super("Data list",
                 p().textContent("A data list is used to display large data sets when you need a flexible layout or "
-                        + "need to include interactive content like charts.").element(),
-                asList(new Snippet("Simple data list", "Resources.get().dataListSimple().getText()",
-                        () -> div().add(dl(SIMPLE)).element()),
-                        new Snippet("Data list checkboxes, actions and additional cells",
-                                "Resources.get().dataListCheckbox().getText()", () -> div().add(dl(CHECKBOXES)).element()),
-                        new Snippet("Data list expandable", "Resources.get().dataListExpandable().getText()",
-                                () -> div().add(dl(EXPANDABLE)).element()),
-                        new Snippet("Data list width modifiers", "Resources.get().dataListModifiers().getText()",
-                                () -> div().add(h(2, "Default fitting - example 1")).add(dl(MODIFIERS_1))
-                                        .add(h(2, "Flex modifiers - example 2").css("pf-u-mt-lg")).add(dl(MODIFIERS_2))
-                                        .add(h(2, "Flex modifiers - example 3").css("pf-u-mt-lg")).add(dl(MODIFIERS_3))
-                                        .element())));
+                        + "need to include interactive content like charts.").element());
+
+        addSnippet(new Snippet("Simple data list", "Resources.get().dataListSimple().getText()",
+                () -> div().add(dl(SIMPLE)).element()));
+
+        addSnippet(new Snippet("Data list checkboxes, actions and additional cells",
+                "Resources.get().dataListCheckbox().getText()", () -> div().add(dl(CHECKBOXES)).element()));
+
+        addSnippet(new Snippet("Data list expandable", "Resources.get().dataListExpandable().getText()",
+                () -> div().add(dl(EXPANDABLE)).element()));
+
+        addSnippet(new Snippet("Data list width modifiers", "Resources.get().dataListModifiers().getText()",
+                () -> div().add(h(2, "Default fitting - example 1")).add(dl(MODIFIERS_1))
+                        .add(h(2, "Flex modifiers - example 2").css("pf-u-mt-lg")).add(dl(MODIFIERS_2))
+                        .add(h(2, "Flex modifiers - example 3").css("pf-u-mt-lg")).add(dl(MODIFIERS_3))
+                        .element()));
     }
 }
