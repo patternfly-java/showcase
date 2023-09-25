@@ -29,8 +29,8 @@ import static org.patternfly.components.Content.content;
 import static org.patternfly.components.DataTable.checkboxColumn;
 import static org.patternfly.components.DataTable.column;
 import static org.patternfly.components.DataTable.dataTable;
-import static org.patternfly.components.Title.title;
 import static org.patternfly.components.page.PageMainSection.pageMainSection;
+import static org.patternfly.components.title.Title.title;
 import static org.patternfly.layout.Size._4xl;
 
 public class ServerDemo implements Page {

@@ -30,7 +30,7 @@ public class TabsComponent extends ComponentPage {
                 p().textContent("Tabs are used to present a set on tabs for organizing content on a page. "
                         + "It must always be used together with a tab content component.").element());
 
-        addSnippet(new Snippet("Basic", "Resources.get().tabs().getText()",
+        addSnippet(new Snippet("basic", "Basic", "Resources.get().tabs().getText()",
                 () -> Tabs.tabs().add("Tab Item 1", div().textContent("Tab 1"))
                         .add("Tab Item 2", div().textContent("Tab 2")).add("Tab Item 3", div().textContent("Tab 3"))
                         .add("tab-item-4", tab -> tab.add("Tab 4").add(icon(fas("address-book")).css(util("pl-sm"))),

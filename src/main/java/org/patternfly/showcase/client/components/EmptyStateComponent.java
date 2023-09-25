@@ -34,7 +34,7 @@ public class EmptyStateComponent extends ComponentPage {
                         + "task. An empty state may include a call to action to guide the user on what to do next.")
                         .element());
 
-        addSnippet(new Snippet("Empty state", "Resources.get().emptyState().getText()", () -> div()
+        addSnippet(new Snippet("empty-state", "Empty state", "Resources.get().emptyState().getText()", () -> div()
                 .add(emptyState(icon(fas("cubes")), "Empty State")
                         .body("This represents an the empty state pattern in PatternFly 4. "
                                 + "Hopefully it's simple enough to use but flexible enough to "
@@ -45,7 +45,7 @@ public class EmptyStateComponent extends ComponentPage {
                         .secondary("Action area", noop()).element())
                 .element()));
 
-        addSnippet(new Snippet("Empty state small", "Resources.get().emptyStateSmall().getText()", () -> div()
+        addSnippet(new Snippet("small", "Empty state small", "Resources.get().emptyStateSmall().getText()", () -> div()
                 .add(emptyState(icon(fas("cubes")), "Empty State").small()
                         .body("This represents an the empty state pattern in PatternFly 4. "
                                 + "Hopefully it's simple enough to use but flexible enough to "
@@ -56,7 +56,7 @@ public class EmptyStateComponent extends ComponentPage {
                         .secondary("Action area", noop()).element())
                 .element()));
 
-        addSnippet(new Snippet("Empty state large", "Resources.get().emptyStateLarge().getText()", () -> div()
+        addSnippet(new Snippet("large", "Empty state large", "Resources.get().emptyStateLarge().getText()", () -> div()
                 .add(emptyState(icon(fas("cubes")), "Empty State").large()
                         .body("This represents an the empty state pattern in PatternFly 4. "
                                 + "Hopefully it's simple enough to use but flexible enough to "
@@ -67,7 +67,8 @@ public class EmptyStateComponent extends ComponentPage {
                         .secondary("Action area", noop()).element())
                 .element()));
 
-        addSnippet(new Snippet("Empty state w/ primary element", "Resources.get().emptyStatePrimary().getText()",
+        addSnippet(new Snippet("primary", "Empty state w/ primary element",
+                "Resources.get().emptyStatePrimary().getText()",
                 () -> div()
                         .add(emptyState(icon(fas("cubes")), "Empty State")
                                 .body("This represents an the empty state pattern in PatternFly 4. "
@@ -76,10 +77,11 @@ public class EmptyStateComponent extends ComponentPage {
                                 .primary(Button.link("Action button")).element())
                         .element()));
 
-        addSnippet(new Snippet("Empty state loading", "Resources.get().emptyStateSpinner().getText()",
+        addSnippet(new Snippet("loading", "Empty state loading", "Resources.get().emptyStateSpinner().getText()",
                 () -> div().add(EmptyState.spinner()).element()));
 
-        addSnippet(new Snippet("Empty state no match found", "Resources.get().emptyStateNoMatch().getText()",
-                () -> div().add(EmptyState.noResults(noop())).element()));
+        addSnippet(
+                new Snippet("not-found", "Empty state no match found", "Resources.get().emptyStateNoMatch().getText()",
+                        () -> div().add(EmptyState.noResults(noop())).element()));
     }
 }

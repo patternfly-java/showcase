@@ -78,9 +78,9 @@ public class Showcase implements EntryPoint {
         String mainId = "main-id";
         body().add(page()
                 .addSkipToContent(skipToContent(mainId))
-                .addMasthead(pageMasthead()
+                .addMasthead(pageMasthead().css("ws-masthead")
                         .addToggle(mastheadToggle())
-                        .addBrand(brand(pfLogo), HOME.place))
+                        .addBrand(brand(pfLogo).style("--pf-v5-c-brand--Height:36px"), HOME.place))
                 .addSidebar(pageSidebar()
                         .addBody(pageSidebarBody()
                                 .addNavigation(navigation)))

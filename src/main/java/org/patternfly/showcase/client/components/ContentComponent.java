@@ -40,7 +40,7 @@ public class ContentComponent extends ComponentPage {
                                 + "to provide correct formatting when using standard HTML tags.")
                         .element());
 
-        addSnippet(new Snippet("Headings", "Resources.get().contentHeadings().getText()",
+        addSnippet(new Snippet("headings", "Headings", "Resources.get().contentHeadings().getText()",
                 () -> div()
                         .add(content()
                                 .add(h(1, "Hello World")).add(h(2, "Second Level")).add(h(3, "Third Level")).add(
@@ -48,14 +48,14 @@ public class ContentComponent extends ComponentPage {
                                 .add(h(5, "Fifth Level")).add(h(6, "Sixth Level")))
                         .element()));
 
-        addSnippet(new Snippet("Body text", "Resources.get().contentBody().getText()", () -> div().add(content()
+        addSnippet(new Snippet("body-text", "Body text", "Resources.get().contentBody().getText()", () -> div().add(content()
                 .add(p().textContent(LoremIpsum.paragraphs(5)))
                 .add(p().add(LoremIpsum.paragraphs(3) + " ").add(a("#").textContent(LoremIpsum.paragraph()))
                         .add(" " + LoremIpsum.paragraphs(2)))
                 .add(blockquote().textContent(LoremIpsum.paragraphs(2)))
                 .add(small().textContent(LoremIpsum.paragraphs(3)))).element()));
 
-        addSnippet(new Snippet("Unordered list", "Resources.get().contentUnorderedList().getText()",
+        addSnippet(new Snippet("ul", "Unordered list", "Resources.get().contentUnorderedList().getText()",
                 () -> div().add(content().add(
                         ul().add(li().textContent(LoremIpsum.words())).add(li().textContent(LoremIpsum.words()))
                                 .add(li().add(LoremIpsum.words())
@@ -64,14 +64,14 @@ public class ContentComponent extends ComponentPage {
                                 .add(li().add(LoremIpsum.words()))))
                         .element()));
 
-        addSnippet(new Snippet("Ordered list", "Resources.get().contentOrderedList().getText()",
+        addSnippet(new Snippet("ol", "Ordered list", "Resources.get().contentOrderedList().getText()",
                 () -> div().add(content().add(ol().add(li().textContent(LoremIpsum.words()))
                         .add(li().textContent(LoremIpsum.words())).add(li().textContent(LoremIpsum.words()))
                         .add(li().textContent(LoremIpsum.words())).add(li().textContent(LoremIpsum.words()))
                         .add(li().textContent(LoremIpsum.words())).add(li().textContent(LoremIpsum.words()))))
                         .element()));
 
-        addSnippet(new Snippet("Data list", "Resources.get().contentDataList().getText()",
+        addSnippet(new Snippet("dl", "Data list", "Resources.get().contentDataList().getText()",
                 () -> div().add(content().add(dl().add(dt().textContent("Web"))
                         .add(dd().textContent(
                                 "The part of the Internet that contains " + "websites and web pages"))

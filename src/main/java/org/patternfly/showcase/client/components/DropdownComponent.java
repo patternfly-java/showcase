@@ -30,7 +30,7 @@ public class DropdownComponent extends ComponentPage {
                 p().textContent("Use a dropdown when you want to present a list of actions in a limited space.")
                         .element());
 
-        addSnippet(new Snippet("Simple dropdown", "Resources.get().dropdownSimple().getText()", () -> {
+        addSnippet(new Snippet("simple", "Simple dropdown", "Resources.get().dropdownSimple().getText()", () -> {
             Dropdown<String> dropdown = Dropdown.<String> text("Dropdown").add("Item 1").add("Item 2").add("Disabled")
                     .addSeparator().add("Separated Item");
             dropdown.disable("Disabled");
@@ -44,7 +44,7 @@ public class DropdownComponent extends ComponentPage {
          * dropdown.getGroup("Group 2").disable("Group 2 item 1"); return div() .add(dropdown) .element(); }),
          */
 
-        addSnippet(new Snippet("Split button", "Resources.get().dropdownSplit().getText()", () -> {
+        addSnippet(new Snippet("split", "Split button", "Resources.get().dropdownSplit().getText()", () -> {
             Dropdown<String> noText = Dropdown.<String> splitCheckbox().add("Item 1").add("Item 2")
                     .add("Disabled").addSeparator().add("Separated Item");
             noText.disable("Disabled");
@@ -56,48 +56,51 @@ public class DropdownComponent extends ComponentPage {
                     .element();
         }));
 
-        addSnippet(new Snippet("Dropdown typed", "Resources.get().dropdownTyped().getText()", () -> div().add(Dropdown
-                .<Color> text("Dropdown")
-                .display((html, color) -> html.style("background-color:" + color.bg + ";color:" + color.fg)
-                        .textContent(color.name()))
-                .add(Color.values())).element()));
+        addSnippet(new Snippet("types", "Dropdown typed", "Resources.get().dropdownTyped().getText()",
+                () -> div().add(Dropdown
+                        .<Color> text("Dropdown")
+                        .display((html, color) -> html.style("background-color:" + color.bg + ";color:" + color.fg)
+                                .textContent(color.name()))
+                        .add(Color.values())).element()));
 
-        addSnippet(new Snippet("Dropdown with kebab", "Resources.get().dropdownKebab().getText()", () -> {
+        addSnippet(new Snippet("kebab", "Dropdown with kebab", "Resources.get().dropdownKebab().getText()", () -> {
             Dropdown<String> kebab = Dropdown.<String> kebab().add("Item 1").add("Item 2").add("Disabled")
                     .addSeparator().add("Separated Item");
             kebab.disable("Disabled");
             return div().add(kebab).add(" ").add(Dropdown.<String> kebab().disable()).element();
         }));
 
-        addSnippet(new Snippet("Dropdown (icon only)", "Resources.get().dropdownIcon().getText()", () -> {
+        addSnippet(new Snippet("icons", "Dropdown (icon only)", "Resources.get().dropdownIcon().getText()", () -> {
             Dropdown<String> icon = Dropdown.<String> icon(icon(fas("th"))).add("Item 1").add("Item 2")
                     .add("Disabled").addSeparator().add("Separated Item");
             icon.disable("Disabled");
             return div().add(icon).add(" ").add(Dropdown.<String> icon(icon(fas("th"))).disable()).element();
         }));
 
-        addSnippet(new Snippet("Dropdown (primary toggle)", "Resources.get().dropdownPrimary().getText()", () -> {
-            Dropdown<String> primary = Dropdown.<String> text("Dropdown").primary().add("Item 1").add("Item 2")
-                    .add("Disabled").addSeparator().add("Separated Item");
-            primary.disable("Disabled");
-            return div().add(primary).element();
-        }));
+        addSnippet(new Snippet("primary", "Dropdown (primary toggle)", "Resources.get().dropdownPrimary().getText()",
+                () -> {
+                    Dropdown<String> primary = Dropdown.<String> text("Dropdown").primary().add("Item 1").add("Item 2")
+                            .add("Disabled").addSeparator().add("Separated Item");
+                    primary.disable("Disabled");
+                    return div().add(primary).element();
+                }));
 
-        addSnippet(new Snippet("Dropdown (position right)", "Resources.get().dropdownRight().getText()", () -> {
-            Dropdown<String> right = Dropdown.<String> text("Dropdown").right().add("Item 1").add("Item 2")
-                    .add("Disabled").addSeparator().add("Separated Item");
-            right.disable("Disabled");
-            return div().add(right).element();
-        }));
+        addSnippet(
+                new Snippet("right", "Dropdown (position right)", "Resources.get().dropdownRight().getText()", () -> {
+                    Dropdown<String> right = Dropdown.<String> text("Dropdown").right().add("Item 1").add("Item 2")
+                            .add("Disabled").addSeparator().add("Separated Item");
+                    right.disable("Disabled");
+                    return div().add(right).element();
+                }));
 
-        addSnippet(new Snippet("Dropdown (direction up)", "Resources.get().dropdownUp().getText()", () -> {
+        addSnippet(new Snippet("up", "Dropdown (direction up)", "Resources.get().dropdownUp().getText()", () -> {
             Dropdown<String> up = Dropdown.<String> text("Dropdown").up().add("Item 1").add("Item 2")
                     .add("Disabled").addSeparator().add("Separated Item");
             up.disable("Disabled");
             return div().add(up).element();
         }));
 
-        addSnippet(new Snippet("Dropdown events", "Resources.get().dropdownEvent().getText()", () -> {
+        addSnippet(new Snippet("events", "Dropdown events", "Resources.get().dropdownEvent().getText()", () -> {
             Dropdown<String> dropdown = Dropdown.<String> text("Dropdown").add("Item 1").add("Item 2")
                     .add("Disabled").addSeparator().add("Separated Item")
                     .onToggle(open -> console.log(

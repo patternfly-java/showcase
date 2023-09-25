@@ -29,14 +29,14 @@ public class ChipComponent extends ComponentPage {
                 "A Chip is used to display items that have been filtered or selected from a larger group. They comprise of a text element and a button component that is used to remove the chip from selection. When the text overflows it is truncated using ellipses. A chip can be grouped by using the \"chip-group\" layout.")
                 .element());
 
-        addSnippet(new Snippet("Chip", "Resources.get().chip().getText()",
+        addSnippet(new Snippet("chip", "Chip", "Resources.get().chip().getText()",
                 () -> div().add(div().css("sc-documentation__code-block").add(chip("Just Text")))
                         .add(div().css("sc-documentation__code-block").add(chip("Count", 23)))
                         .add(div().css("sc-documentation__code-block").add(Chip.readOnly("Readonly")))
                         .add(div().css("sc-documentation__code-block").add(Chip.readOnly("RO Count", 42)))
                         .add(div().add(Chip.overflow("Overflow"))).element()));
 
-        addSnippet(new Snippet("Chip onClose", "Resources.get().chipOnClose().getText()",
+        addSnippet(new Snippet("chip-on-close", "Chip onClose", "Resources.get().chipOnClose().getText()",
                 () -> div().add(chip("Close Me").onClose(() -> console.log("NYI") /* toast().add(info("Goodbye")) */))
                         .element()));
     }

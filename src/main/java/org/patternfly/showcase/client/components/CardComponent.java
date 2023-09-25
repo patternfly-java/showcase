@@ -38,12 +38,12 @@ public class CardComponent extends ComponentPage {
                 "A card is a flexible element for containing any kind of content. Cards are used on dashboards, in data displays (e.g. Card View), or for positioning content on a page.")
                 .element());
 
-        addSnippet(new Snippet("Simple card", "Resources.get().cardSimple().getText()", () -> div()
+        addSnippet(new Snippet("simple-card", "Simple card", "Resources.get().cardSimple().getText()", () -> div()
                 .add(card().add(header().textContent("Header")).add(body().textContent("Body"))
                         .add(footer().textContent("Footer")))
                 .element()));
 
-        addSnippet(new Snippet("Card with an image and actions",
+        addSnippet(new Snippet("card-image", "Card with an image and actions",
                 "Resources.get().cardImageActions().getText()",
                 () -> div()
                         .add(card()
@@ -54,7 +54,7 @@ public class CardComponent extends ComponentPage {
                                 .add(footer().textContent("Footer")))
                         .element()));
 
-        addSnippet(new Snippet("Card header in card head",
+        addSnippet(new Snippet("card-header", "Card header in card head",
                 "Resources.get().cardHeaderInHead().getText()",
                 () -> div().add(card()
                         .add(head()
@@ -66,7 +66,7 @@ public class CardComponent extends ComponentPage {
                         .add(header().textContent("Header")).add(body().textContent("Body"))
                         .add(footer().textContent("Footer"))).element()));
 
-        addSnippet(new Snippet("Only actions in card head (no header/footer)",
+        addSnippet(new Snippet("card-actions", "Only actions in card head (no header/footer)",
                 "Resources.get().cardActionsInHead().getText()",
                 () -> div().add(card()
                         .add(head().add(actions().add(Dropdown.<String> kebab().right().add("Link")
@@ -75,36 +75,39 @@ public class CardComponent extends ComponentPage {
                                 "This is the card body, there are only actions in the card head.")))
                         .element()));
 
-        addSnippet(new Snippet("Only image in the card head", "Resources.get().cardImageInHead().getText()",
+        addSnippet(new Snippet("card-image-only", "Only image in the card head",
+                "Resources.get().cardImageInHead().getText()",
                 () -> div()
                         .add(card().add(head().add(img("./pf_logo.svg").style("width: 300px")))
                                 .add(header().textContent("Header")).add(body().textContent("Body"))
                                 .add(footer().textContent("Footer")))
                         .element()));
 
-        addSnippet(new Snippet("Card with no footer", "Resources.get().cardNoFooter().getText()",
+        addSnippet(new Snippet("card-no-footer", "Card with no footer", "Resources.get().cardNoFooter().getText()",
                 () -> div()
                         .add(card()
                                 .add(header().textContent("Header")).add(
                                         body().textContent("This card has no footer")))
                         .element()));
 
-        addSnippet(new Snippet("Card with no header", "Resources.get().cardNoHeader().getText()",
+        addSnippet(new Snippet("card-no-header", "Card with no header", "Resources.get().cardNoHeader().getText()",
                 () -> div().add(card().add(body().textContent("This card has no header"))
                         .add(footer().textContent("Footer"))).element()));
 
-        addSnippet(new Snippet(
+        addSnippet(new Snippet("card-content",
                 "Card with only a content section", "Resources.get().cardContentOnly().getText()", () -> div()
                         .add(card().add(body().textContent("Body"))).element()));
 
-        addSnippet(new Snippet("Card with multiple body sections", "Resources.get().cardMultipleBodies().getText()",
+        addSnippet(new Snippet("card-m-body", "Card with multiple body sections",
+                "Resources.get().cardMultipleBodies().getText()",
                 () -> div()
                         .add(card().add(header().textContent("Header")).add(body().textContent("Body"))
                                 .add(body().textContent("Body")).add(body().textContent("Body")).add(
                                         footer().textContent("Footer")))
                         .element()));
 
-        addSnippet(new Snippet("Card with only one body that fills", "Resources.get().cardBodyFill().getText()",
+        addSnippet(new Snippet("card-body-fit", "Card with only one body that fills",
+                "Resources.get().cardBodyFill().getText()",
                 () -> div()
                         .add(card().style("min-height: 30em;").add(header().textContent("Header"))
                                 .add(body().css(modifier(noFill)).textContent("Body pf-m-no-fill"))
@@ -112,13 +115,13 @@ public class CardComponent extends ComponentPage {
                                 .add(body().textContent("Body")).add(footer().textContent("Footer")))
                         .element()));
 
-        addSnippet(new Snippet("Card hover example", "Resources.get().cardHover().getText()",
+        addSnippet(new Snippet("card-hover", "Card hover example", "Resources.get().cardHover().getText()",
                 () -> div()
                         .add(card().hoverable().add(header().textContent("Header"))
                                 .add(body().textContent("Body")).add(footer().textContent("Footer")))
                         .element()));
 
-        addSnippet(new Snippet("Card compact example", "Resources.get().cardCompact().getText()",
+        addSnippet(new Snippet("card-compact", "Card compact example", "Resources.get().cardCompact().getText()",
                 () -> div()
                         .add(card().compact().add(header().textContent("Header"))
                                 .add(body().textContent("Body")).add(footer().textContent("Footer")))

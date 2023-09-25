@@ -173,16 +173,17 @@ public class DataTableComponent extends ComponentPage {
                 p().textContent("A table is used to display large data sets that can be easily "
                         + "laid out in a simple grid with column headers.").element());
 
-        addSnippet(new Snippet("Simple table", "Resources.get().dataTableSimple().getText()",
+        addSnippet(new Snippet("simple", "Simple table", "Resources.get().dataTableSimple().getText()",
                 () -> div().add(simple()).element()));
 
-        addSnippet(new Snippet("Sortable table", "Resources.get().dataTableSortable().getText()",
+        addSnippet(new Snippet("sortable", "Sortable table", "Resources.get().dataTableSortable().getText()",
                 () -> div().add(sortable()).element()));
 
-        addSnippet(new Snippet("Table with checkboxes and actions", "Resources.get().dataTableCheckbox().getText()",
+        addSnippet(new Snippet("actions", "Table with checkboxes and actions",
+                "Resources.get().dataTableCheckbox().getText()",
                 () -> div().add(checkbox()).element()));
 
-        addSnippet(new Snippet("Expandable table", "Resources.get().dataTableExpandable().getText()",
+        addSnippet(new Snippet("expandable", "Expandable table", "Resources.get().dataTableExpandable().getText()",
                 () -> div().add(expandable()).element()));
     }
 }

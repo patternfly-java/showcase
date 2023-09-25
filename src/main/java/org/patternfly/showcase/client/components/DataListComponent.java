@@ -213,16 +213,16 @@ public class DataListComponent extends ComponentPage {
                 p().textContent("A data list is used to display large data sets when you need a flexible layout or "
                         + "need to include interactive content like charts.").element());
 
-        addSnippet(new Snippet("Simple data list", "Resources.get().dataListSimple().getText()",
+        addSnippet(new Snippet("simple", "Simple data list", "Resources.get().dataListSimple().getText()",
                 () -> div().add(dl(SIMPLE)).element()));
 
-        addSnippet(new Snippet("Data list checkboxes, actions and additional cells",
+        addSnippet(new Snippet("check", "Data list checkboxes, actions and additional cells",
                 "Resources.get().dataListCheckbox().getText()", () -> div().add(dl(CHECKBOXES)).element()));
 
-        addSnippet(new Snippet("Data list expandable", "Resources.get().dataListExpandable().getText()",
+        addSnippet(new Snippet("expandable", "Data list expandable", "Resources.get().dataListExpandable().getText()",
                 () -> div().add(dl(EXPANDABLE)).element()));
 
-        addSnippet(new Snippet("Data list width modifiers", "Resources.get().dataListModifiers().getText()",
+        addSnippet(new Snippet("width-modifiers", "Data list width modifiers", "Resources.get().dataListModifiers().getText()",
                 () -> div().add(h(2, "Default fitting - example 1")).add(dl(MODIFIERS_1))
                         .add(h(2, "Flex modifiers - example 2").css("pf-u-mt-lg")).add(dl(MODIFIERS_2))
                         .add(h(2, "Flex modifiers - example 3").css("pf-u-mt-lg")).add(dl(MODIFIERS_3))

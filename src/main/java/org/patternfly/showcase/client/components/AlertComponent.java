@@ -34,7 +34,7 @@ public class AlertComponent extends ComponentPage {
         super("Alert", p().textContent("Alerts are used to notify the user about a change in status or other event")
                 .element());
 
-        addSnippet(new Snippet("Alert variants", code.get("alert-variants"), () -> div()
+        addSnippet(new Snippet("alert-variants", "Alert variants", code.get("alert-variants"), () -> div()
                 .add(Alert.custom("Custom alert title"))
                 .add(br())
                 .add(Alert.info("Info alert title"))
@@ -46,7 +46,7 @@ public class AlertComponent extends ComponentPage {
                 .add(Alert.danger("Danger alert title"))
                 .element()));
 
-        addSnippet(new Snippet("Alert variations", code.get("alert-variations"), () -> div()
+        addSnippet(new Snippet("alert-variations", "Alert variations", code.get("alert-variations"), () -> div()
                 .add(Alert.success("Success alert title")
                         .closable()
                         .addDescription(
@@ -91,7 +91,7 @@ public class AlertComponent extends ComponentPage {
                                         .add(" to limit the title to a single line and truncate any overflow text with ellipses."))))
                 .element()));
 
-        addSnippet(new Snippet("Inline types", code.get("alert-inline-types"), () -> div()
+        addSnippet(new Snippet("inline-types", "Inline types", code.get("alert-inline-types"), () -> div()
                 .add(Alert.custom("Custom inline alert title")
                         .inline())
                 .add(br())

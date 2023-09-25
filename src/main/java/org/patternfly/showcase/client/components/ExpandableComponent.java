@@ -27,7 +27,7 @@ public class ExpandableComponent extends ComponentPage {
                         + "you don’t want controls or information to be shown by default. This may be used to hide "
                         + "advanced features, for example.").element());
 
-        addSnippet(new Snippet("Simple expandable", "Resources.get().expandable().getText()",
+        addSnippet(new Snippet("simple", "Simple expandable", "Resources.get().expandable().getText()",
                 () -> div()
                         .add(expandable().textContent("This content is visible only when the component is expanded."))
                         .element()));

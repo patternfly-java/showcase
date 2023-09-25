@@ -37,7 +37,7 @@ public class ToolbarComponent extends ComponentPage {
                 "Toolbars can be included to allow a user to manage and manipulate a data set. Data can be presented in any valid presentation, a table, a list, or a data visualization (chart), for example. The PatternFly Toolbar component is a flexible layout system that accommodates a variety of configurations that can be adapted to your specific needs.")
                 .element());
 
-        addSnippet(new Snippet("Items", "NYI",
+        addSnippet(new Snippet("items", "Items", "NYI",
                 () -> div()
                         .add(toolbar()
                                 .add(content().add(item().add(Search.search()))
@@ -46,7 +46,7 @@ public class ToolbarComponent extends ComponentPage {
                                         .add(item().separator()).add(item().add(button("Action").primary()))))
                         .element()));
 
-        addSnippet(new Snippet("Adjusting item spacers", "NYI", () -> div().add(toolbar().add(content()
+        addSnippet(new Snippet("spacers", "Adjusting item spacers", "NYI", () -> div().add(toolbar().add(content()
                 .add(item().css(modifier("spacer-none")).add(button("Action").secondary()))
                 .add(item().css(modifier("spacer-sm")).add(button("Action").secondary()))
                 .add(item().css(modifier("spacer-md")).add(button("Action").secondary()))
@@ -60,7 +60,7 @@ public class ToolbarComponent extends ComponentPage {
                                 .add(item().add(button("Action").secondary())))))
                 .element()));
 
-        addSnippet(new Snippet("Groups", "NYI", () -> div()
+        addSnippet(new Snippet("groups", "Groups", "NYI", () -> div()
                 .add(toolbar().add(content()
                         .add(group().filter()
                                 .add(item().add(SingleSelect.<String> single("Filter 1")
@@ -77,7 +77,7 @@ public class ToolbarComponent extends ComponentPage {
                                 .add(item().add(button("Tertiary").tertiary())))))
                 .element()));
 
-        addSnippet(new Snippet("Toggle group", "NYI",
+        addSnippet(new Snippet("toggle", "Toggle group", "NYI",
                 () -> div()
                         .add(toolbar().add(content().add(group().toggle("show-on-lg")
                                 .add(item().add(Search.search()))

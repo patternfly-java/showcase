@@ -21,8 +21,8 @@ import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.components.Content.content;
-import static org.patternfly.components.Title.title;
 import static org.patternfly.components.page.PageMainSection.pageMainSection;
+import static org.patternfly.components.title.Title.title;
 
 class HomePage implements Page {
 

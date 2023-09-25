@@ -37,7 +37,7 @@ public class ChipGroupComponent extends ComponentPage {
                 "A chip group is used to represent an attribute that has been assigned one or more values. An OR relationship is implied between values in the group. Chip groups are useful to express complex filters to a data set, for example.")
                 .element());
 
-        addSnippet(new Snippet("Chip group", "Resources.get().chipGroup().getText()", () -> {
+        addSnippet(new Snippet("chip-group", "Chip group", "Resources.get().chipGroup().getText()", () -> {
             ChipGroup group = chipGroup(5).add(chip(Id.unique())).add(chip(Id.unique())).add(chip(Id.unique()));
             return div().add(div().css("sc-documentation__code-block").add(group)).add(div()
                     .css("sc-documentation__code-block")
@@ -45,7 +45,7 @@ public class ChipGroupComponent extends ComponentPage {
                     .element();
         }));
 
-        addSnippet(new Snippet("Chip toolbar", "Resources.get().chipToolbar().getText()", () -> {
+        addSnippet(new Snippet("chip-toolbar", "Chip toolbar", "Resources.get().chipToolbar().getText()", () -> {
             ChipGroup[] groups = new ChipGroup[] { chipGroup(3), chipGroup(4), chipGroup() };
 
             ChipGroupToolbar toolbar = chipGroupToolbar().add("Max 3", groups[0]).add("Max 4", groups[1])

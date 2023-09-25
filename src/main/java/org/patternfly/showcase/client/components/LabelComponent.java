@@ -26,7 +26,7 @@ public class LabelComponent extends ComponentPage {
                 p().textContent("Use a label when you want to highlight an element on a page to draw attention to it "
                         + "or make it more searchable.").element());
 
-        addSnippet(new Snippet("Simple label", "Resources.get().label().getText()",
+        addSnippet(new Snippet("simple", "Simple label", "Resources.get().label().getText()",
                 () -> div().add(" ").add(label("Compact Label", true)).element()));
     }
 }

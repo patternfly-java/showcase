@@ -16,7 +16,14 @@
 import "@patternfly/patternfly/patternfly.css";
 import "google-code-prettify/src/prettify.css";
 import "color-themes-for-google-code-prettify/src/themes/github-v2.scss";
-import "./styles.scss";
+import "./pforg/autoLinkHeader.css";
+import "./pforg/cssVariables.css";
+import "./pforg/tableOfContents.css";
+import "./pforg/example.css";
+import "./pforg/footer.css";
+import "./pforg/sideNav.css";
+import './pforg/sideNavLayout.css';
+import "./styles.css";
 
 import "google-code-prettify/src/prettify";
 import "@github/relative-time-element";

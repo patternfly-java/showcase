@@ -27,24 +27,24 @@ public class SelectComponent extends ComponentPage {
     public SelectComponent() {
         super("Select", p().textContent("Use a select to choose one or more values from a list").element());
 
-        addSnippet(new Snippet("Single", "NYI", () -> div()
+        addSnippet(new Snippet("single", "Single", "NYI", () -> div()
                 .add(SingleSelect.<String> single("Choose...")
                         .add(new String[] { "Running", "Stopped", "Down", "Degraded", "Needs Maintenance", }))
                 .element()));
 
-        addSnippet(new Snippet("Icon", "NYI",
+        addSnippet(new Snippet("icon", "Icon", "NYI",
                 () -> div()
                         .add(SingleSelect
                                 .<String> single(icon(fas("server")), "Choose...")
                                 .add(new String[] { "Running", "Stopped", "Down", "Degraded", "Needs Maintenance", }))
                         .element()));
 
-        addSnippet(new Snippet("Disabled", "NYI",
+        addSnippet(new Snippet("disabled", "Disabled", "NYI",
                 () -> div().add(SingleSelect.<String> single("Choose...")
                         .add(new String[] { "Running", "Stopped", "Down", "Degraded", "Needs Maintenance", })
                         .select("Down").disable()).element()));
 
-        addSnippet(new Snippet("Up", "NYI",
+        addSnippet(new Snippet("up", "Up", "NYI",
                 () -> div()
                         .add(SingleSelect.<String> single("Choose...").up()
                                 .add(new String[] { "Running", "Stopped", "Down", "Degraded", "Needs Maintenance", }))

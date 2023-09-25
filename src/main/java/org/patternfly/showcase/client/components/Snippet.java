@@ -18,47 +18,46 @@ package org.patternfly.showcase.client.components;
 import java.util.function.Supplier;
 
 import org.jboss.elemento.IsElement;
-import org.patternfly.components.Button;
 
 import elemental2.dom.HTMLElement;
 
+import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
-import static org.jboss.elemento.Elements.h;
-import static org.jboss.elemento.Elements.insertBefore;
-import static org.jboss.elemento.Elements.isVisible;
-import static org.jboss.elemento.Elements.pre;
-import static org.jboss.elemento.Elements.section;
-import static org.jboss.elemento.Elements.setVisible;
-import static org.patternfly.layout.Icons.fas;
+import static org.jboss.elemento.Elements.removeChildrenFrom;
+import static org.patternfly.components.title.Title.title;
+import static org.patternfly.core.Aria.hidden;
+import static org.patternfly.layout.Classes.flex;
+import static org.patternfly.layout.Classes.layout;
+import static org.patternfly.layout.Classes.modifier;
+import static org.patternfly.layout.Constants.tabindex;
+import static org.patternfly.layout.Size.lg;
 
 class Snippet implements IsElement<HTMLElement> {
 
     private final Supplier<HTMLElement> demoSupplier;
-    private final HTMLElement toolbar;
-    private final HTMLElement code;
     private final HTMLElement root;
-    private HTMLElement demo;
+    private final HTMLElement preview;
 
-    Snippet(String header, String code, Supplier<HTMLElement> demo) {
+    Snippet(String id, String header, String code, Supplier<HTMLElement> demo) {
         demoSupplier = demo;
-        root = section().css("sc-documentation")
-                .add(h(3, header).css("sc-documentation__heading"))
-                .add(this.demo = demo.get())
-                .add(toolbar = div().css("sc-documentation__toolbar")
-                        .add(Button.icon(fas("code"), "Toggle code").onClick(this::toggleCode))
-                        .add(Button.icon(fas("copy"), "Copy code").onClick(this::copyCode))
-                        .add(Button.icon(fas("undo"), "Undo changes").onClick(this::undo)).element())
-                .add(this.code = div().css("sc-documentation__code")
-                        .add(pre().css("prettyprint").textContent(code))
+        root = div().css("ws-example")
+                .add(div().css("ws-example-header")
+                        .add(div().css(layout(flex), modifier("space-items-none"), modifier("align-items-center"))
+                                .add(title(3, header, lg).css("ws-heading", "ws-example-heading")
+                                        .id(id)
+                                        .attr(tabindex, -1)
+                                        .add(a("#" + id).css("ws-heading-anchor")
+                                                .aria(hidden, true)
+                                                .attr(tabindex, -1)))))
+                .add(preview = div().css("ws-preview")
+                        .add(demo.get())
                         .element())
+                .add(div().css("ws-code-editor"))
                 .element();
-        this.demo.classList.add("sc-documentation__example");
-        setVisible(this.code, false);
     }
 
     private void toggleCode() {
-        setVisible(code, !isVisible(code));
+        // TODO toggle code
     }
 
     private void copyCode() {
@@ -66,10 +65,8 @@ class Snippet implements IsElement<HTMLElement> {
     }
 
     private void undo() {
-        failSafeRemoveFromParent(demo);
-        demo = demoSupplier.get();
-        demo.classList.add("sc-documentation__example");
-        insertBefore(demo, toolbar);
+        removeChildrenFrom(preview);
+        preview.appendChild(demoSupplier.get());
     }
 
     @Override

@@ -31,7 +31,7 @@ public class OptionsMenuComponent extends ComponentPage {
                 p().textContent("An options menu is similar to a dropdown, but provides a way to select among a set "
                         + "of optional settings rather than trigger an action.").element());
 
-        addSnippet(new Snippet("Options menu - single", "Resources.get().optionsMenuSingle().getText()",
+        addSnippet(new Snippet("single", "Options menu - single", "Resources.get().optionsMenuSingle().getText()",
                 () -> div()
                         .add(SingleOptionsMenu.<String> text("Options menu")
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }).select("Option 2"))
@@ -40,14 +40,14 @@ public class OptionsMenuComponent extends ComponentPage {
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }))
                         .element()));
 
-        addSnippet(new Snippet("Options menu - multiple", "Resources.get().optionsMenuMultiple().getText()",
+        addSnippet(new Snippet("multiple", "Options menu - multiple", "Resources.get().optionsMenuMultiple().getText()",
                 () -> div().add(MultiOptionsMenu.icon(icon(fas("sort-amount-down")))
                         .add(new Group<String>("Sort by").add(new String[] { "Name", "Date", "Size" }))
                         .add(new Group<String>("Sort direction")
                                 .add(new String[] { "Ascending", "Descending" })))
                         .element()));
 
-        addSnippet(new Snippet("Options menu - plain", "Resources.get().optionsMenuPlain().getText()",
+        addSnippet(new Snippet("plain", "Options menu - plain", "Resources.get().optionsMenuPlain().getText()",
                 () -> div()
                         .add(SingleOptionsMenu.<String> icon(icon(fas("sort-amount-down")))
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }).select("Option 2"))
@@ -62,14 +62,14 @@ public class OptionsMenuComponent extends ComponentPage {
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }))
                         .element()));
 
-        addSnippet(new Snippet("Options menu - up", "Resources.get().optionsMenuUp().getText()",
+        addSnippet(new Snippet("up", "Options menu - up", "Resources.get().optionsMenuUp().getText()",
                 () -> div()
                         .add(SingleOptionsMenu
                                 .<String> text("Options menu").up()
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }).select("Option 2"))
                         .element()));
 
-        addSnippet(new Snippet("Options menu - right", "Resources.get().optionsMenuRight().getText()",
+        addSnippet(new Snippet("right", "Options menu - right", "Resources.get().optionsMenuRight().getText()",
                 () -> div().add(SingleOptionsMenu.<String> text("Options menu").right()
                         .add(new String[] { "Option 1", "Another option", "Last option", }).select("Option 2"))
                         .element()));

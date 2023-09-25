@@ -28,7 +28,6 @@ import org.patternfly.components.OldToolbar;
 import org.patternfly.components.OldToolbar.SortOption;
 import org.patternfly.components.OldToolbar.SortOptions;
 import org.patternfly.components.Pagination;
-import org.patternfly.components.Title;
 import org.patternfly.dataprovider.DataProvider;
 import org.patternfly.showcase.client.Data;
 import org.patternfly.showcase.client.Page;
@@ -50,6 +49,7 @@ import static org.jboss.elemento.Elements.small;
 import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.InputType.checkbox;
 import static org.patternfly.components.page.PageMainSection.pageMainSection;
+import static org.patternfly.components.title.Title.title;
 import static org.patternfly.layout.Classes.flex;
 import static org.patternfly.layout.Classes.icon;
 import static org.patternfly.layout.Classes.layout;
@@ -128,7 +128,7 @@ public class UserDemo implements Page {
         elements = asList(
                 pageMainSection()
                         .add(Content.content()
-                                .add(Title.title(1, "Users", _4xl))
+                                .add(title(1, "Users", _4xl))
                                 .add(p().add("A list of 123 random users provided by ")
                                         .add(a("https://randomuser.me").attr("target", "_blank")
                                                 .textContent("https://randomuser.me"))

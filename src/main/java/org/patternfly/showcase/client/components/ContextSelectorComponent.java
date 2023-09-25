@@ -32,11 +32,11 @@ public class ContextSelectorComponent extends ComponentPage {
                         + "or resources you show in the interface need to change depending on the users’ context.")
                         .element());
 
-        addSnippet(new Snippet("Simple context selector", "Resources.get().contextSelectorSimple().getText()",
+        addSnippet(new Snippet("simple", "Simple context selector", "Resources.get().contextSelectorSimple().getText()",
                 () -> div().add(ContextSelector.<String> contextSelector("Stage")
                         .add(asList("Development", "Staging", "QA", "Production"))).element()));
 
-        addSnippet(new Snippet("Typed context selector", "Resources.get().contextSelectorTyped().getText()",
+        addSnippet(new Snippet("type-ahead", "Typed context selector", "Resources.get().contextSelectorTyped().getText()",
                 () -> div()
                         .add(ContextSelector.<Stage> contextSelector("Stage")
                                 .display((html, stage) -> html.css(util("justify-content-space-between"))
@@ -47,7 +47,7 @@ public class ContextSelectorComponent extends ComponentPage {
                                         new Stage("Production", "https://acme.org", 12))))
                         .element()));
 
-        addSnippet(new Snippet("Context selector events", "Resources.get().contextSelectorEvent().getText()",
+        addSnippet(new Snippet("events", "Context selector events", "Resources.get().contextSelectorEvent().getText()",
                 () -> div().add(ContextSelector.<String> contextSelector("Stage").onToggle(
                         open -> console.log(
                                 "NYI")/* toast().add(info("Context selector " + (open ? "expanded" : "collapsed"))) */)

@@ -26,7 +26,7 @@ public class BadgeComponent extends ComponentPage {
         super("Badge", p().textContent(
                 "A badge is used to annotate other information like a label or an object name. Badges are typically used to reflect a count, e.g. number of object, number of events, number of unread, etc.")
                 .element());
-        addSnippet(new Snippet("Badge (read)", "Resources.get().badgeUnread().getText()", () -> div()
+        addSnippet(new Snippet("badge-read", "Badge (read)", "Resources.get().badgeUnread().getText()", () -> div()
                 .add(Badge.read(7))
                 .add(" ")
                 .add(Badge.read(24))
@@ -35,7 +35,7 @@ public class BadgeComponent extends ComponentPage {
                 .add(" ")
                 .add(Badge.read("999+"))
                 .element()));
-        addSnippet(new Snippet("Badge (unread)", "Resources.get().badgeRead().getText()", () -> div()
+        addSnippet(new Snippet("badge-unread", "Badge (unread)", "Resources.get().badgeRead().getText()", () -> div()
                 .add(Badge.unread(7))
                 .add(" ")
                 .add(Badge.unread(24))

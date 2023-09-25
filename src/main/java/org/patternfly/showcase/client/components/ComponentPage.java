@@ -23,10 +23,12 @@ import elemental2.dom.HTMLElement;
 
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.components.Title.title;
+import static org.patternfly.components.page.PageMainBody.pageMainBody;
 import static org.patternfly.components.page.PageMainSection.pageMainSection;
+import static org.patternfly.components.title.Title.title;
 import static org.patternfly.layout.Classes.component;
 import static org.patternfly.layout.Classes.content;
+import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Size._4xl;
 
 public class ComponentPage implements Page {
@@ -36,13 +38,16 @@ public class ComponentPage implements Page {
 
     ComponentPage(String title, HTMLElement description) {
         elements = asList(
-                pageMainSection().css("sc-page")
-                        .light()
-                        .add(div().css(component(content))
-                                .add(title(1, title, _4xl))
-                                .add(description))
-                        .element(),
                 pageMainSection()
+                        .light()
+                        .limitWidth()
+                        .addBody(pageMainBody()
+                                .add(div().css(component(content))
+                                        .add(title(1, title, _4xl))
+                                        .add(description)))
+                        .element(),
+                pageMainSection().css(modifier("light-100"))
+                        .fill()
                         .add(snippets = div().element())
                         .element());
     }
