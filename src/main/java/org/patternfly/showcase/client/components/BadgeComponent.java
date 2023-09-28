@@ -15,10 +15,9 @@
  */
 package org.patternfly.showcase.client.components;
 
-import org.patternfly.components.Badge;
-
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
+import static org.patternfly.components.badge.Badge.badge;
 
 public class BadgeComponent extends ComponentPage {
 
@@ -27,22 +26,22 @@ public class BadgeComponent extends ComponentPage {
                 "A badge is used to annotate other information like a label or an object name. Badges are typically used to reflect a count, e.g. number of object, number of events, number of unread, etc.")
                 .element());
         addSnippet(new Snippet("badge-read", "Badge (read)", "Resources.get().badgeUnread().getText()", () -> div()
-                .add(Badge.read(7))
+                .add(badge(7).read())
                 .add(" ")
-                .add(Badge.read(24))
+                .add(badge(24).read())
                 .add(" ")
-                .add(Badge.read(423))
+                .add(badge(423).read())
                 .add(" ")
-                .add(Badge.read("999+"))
+                .add(badge(1000).limit(999).read())
                 .element()));
         addSnippet(new Snippet("badge-unread", "Badge (unread)", "Resources.get().badgeRead().getText()", () -> div()
-                .add(Badge.unread(7))
+                .add(badge(7).unread())
                 .add(" ")
-                .add(Badge.unread(24))
+                .add(badge(24).unread())
                 .add(" ")
-                .add(Badge.unread(423))
+                .add(badge(423).unread())
                 .add(" ")
-                .add(Badge.unread("999+"))
+                .add(badge(1000).limit(999).read())
                 .element()));
     }
 }

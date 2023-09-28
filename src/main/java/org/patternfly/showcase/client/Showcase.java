@@ -15,7 +15,6 @@
  */
 package org.patternfly.showcase.client;
 
-import org.patternfly.components.navigation.ExpandableNavigationGroup;
 import org.patternfly.components.navigation.Navigation;
 import org.patternfly.components.navigation.NavigationItem;
 
@@ -51,20 +50,12 @@ public class Showcase implements EntryPoint {
     private final Navigation navigation;
 
     public Showcase() {
-        ExpandableNavigationGroup components = expandableNavigationGroup("components", "Components");
-        for (Place place : COMPONENTS.values()) {
-            components.addItem(placeToItem(place));
-        }
-
-        ExpandableNavigationGroup demos = expandableNavigationGroup("demos", "Demos");
-        for (Place place : DEMOS.values()) {
-            demos.addItem(placeToItem(place));
-        }
-
         navigation = navigation(expandable)
                 .addItem(placeToItem(GET_STARTED))
-                .addGroup(components)
-                .addGroup(demos)
+                .addGroup(expandableNavigationGroup("components", "Components")
+                        .addItems(COMPONENTS.values(), this::placeToItem))
+                .addGroup(expandableNavigationGroup("demos", "Demos")
+                        .addItems(DEMOS.values(), this::placeToItem))
                 .addItem(placeToItem(CONTRIBUTE))
                 .addItem(placeToItem(GET_IN_TOUCH));
     }

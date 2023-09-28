@@ -15,13 +15,13 @@
  */
 package org.patternfly.showcase.client.components;
 
-import org.patternfly.components.Badge;
 import org.patternfly.components.ContextSelector;
 
 import static elemental2.dom.DomGlobal.console;
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
+import static org.patternfly.components.badge.Badge.badge;
 import static org.patternfly.layout.Classes.util;
 
 public class ContextSelectorComponent extends ComponentPage {
@@ -36,16 +36,17 @@ public class ContextSelectorComponent extends ComponentPage {
                 () -> div().add(ContextSelector.<String> contextSelector("Stage")
                         .add(asList("Development", "Staging", "QA", "Production"))).element()));
 
-        addSnippet(new Snippet("type-ahead", "Typed context selector", "Resources.get().contextSelectorTyped().getText()",
-                () -> div()
-                        .add(ContextSelector.<Stage> contextSelector("Stage")
-                                .display((html, stage) -> html.css(util("justify-content-space-between"))
-                                        .title(stage.url).add(stage.name).add(Badge.read(stage.nodes)))
-                                .add(asList(new Stage("Development", "http://localhost:8080", 2),
-                                        new Stage("Staging", "https://staging.acme.org", 5),
-                                        new Stage("QA", "https://qa.acme.org", 3),
-                                        new Stage("Production", "https://acme.org", 12))))
-                        .element()));
+        addSnippet(
+                new Snippet("type-ahead", "Typed context selector", "Resources.get().contextSelectorTyped().getText()",
+                        () -> div()
+                                .add(ContextSelector.<Stage> contextSelector("Stage")
+                                        .display((html, stage) -> html.css(util("justify-content-space-between"))
+                                                .title(stage.url).add(stage.name).add(badge(stage.nodes).read()))
+                                        .add(asList(new Stage("Development", "http://localhost:8080", 2),
+                                                new Stage("Staging", "https://staging.acme.org", 5),
+                                                new Stage("QA", "https://qa.acme.org", 3),
+                                                new Stage("Production", "https://acme.org", 12))))
+                                .element()));
 
         addSnippet(new Snippet("events", "Context selector events", "Resources.get().contextSelectorEvent().getText()",
                 () -> div().add(ContextSelector.<String> contextSelector("Stage").onToggle(
