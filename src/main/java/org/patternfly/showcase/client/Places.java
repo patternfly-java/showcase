@@ -34,6 +34,7 @@ import org.patternfly.showcase.client.components.DropdownComponent;
 import org.patternfly.showcase.client.components.EmptyStateComponent;
 import org.patternfly.showcase.client.components.ExpandableComponent;
 import org.patternfly.showcase.client.components.LabelComponent;
+import org.patternfly.showcase.client.components.MenuComponent;
 import org.patternfly.showcase.client.components.OptionsMenuComponent;
 import org.patternfly.showcase.client.components.SelectComponent;
 import org.patternfly.showcase.client.components.TabsComponent;
@@ -50,15 +51,16 @@ import static org.patternfly.components.Content.content;
 import static org.patternfly.components.page.PageMainSection.pageMainSection;
 import static org.patternfly.components.title.Title.title;
 
+@SuppressWarnings("Convert2MethodRef")
 final class Places {
 
     // ------------------------------------------------------ pages
 
     static final Map<String, Place> PAGES = new LinkedHashMap<>();
-    static final Place CONTRIBUTE = new Place("contribute", "Contribute", ContributePage::new);
-    static final Place GET_IN_TOUCH = new Place("get-in-touch", "Get in touch", GetInTouchPage::new);
-    static final Place GET_STARTED = new Place("get-started", "Get started", GetStartedPage::new);
-    static final Place HOME = new Place("home", "Home", HomePage::new);
+    static final Place CONTRIBUTE = new Place("contribute", "Contribute", () -> new ContributePage());
+    static final Place GET_IN_TOUCH = new Place("get-in-touch", "Get in touch", () -> new GetInTouchPage());
+    static final Place GET_STARTED = new Place("get-started", "Get started", () -> new GetStartedPage());
+    static final Place HOME = new Place("home", "Home", () -> new HomePage());
 
     static {
         PAGES.put(CONTRIBUTE.id, CONTRIBUTE);
@@ -70,27 +72,28 @@ final class Places {
     // ------------------------------------------------------ components
 
     static final Map<String, Place> COMPONENTS = new LinkedHashMap<>();
-    static final Place ALERT = new Place("c-alert", "Alert", AlertComponent::new);
-    static final Place AVATAR = new Place("c-avatar", "Avatar", AvatarComponent::new);
-    static final Place BADGE = new Place("c-badge", "Badge", BadgeComponent::new);
-    static final Place BRAND = new Place("c-brand", "Brand", BrandComponent::new);
-    static final Place BUTTON = new Place("c-button", "Button", ButtonComponent::new);
-    static final Place CARD = new Place("c-card", "Card", CardComponent::new);
-    static final Place CHIP = new Place("c-chip", "Chip", ChipComponent::new);
-    static final Place CONTENT = new Place("c-content", "Content", ContentComponent::new);
+    static final Place ALERT = new Place("c-alert", "Alert", () -> new AlertComponent());
+    static final Place AVATAR = new Place("c-avatar", "Avatar", () -> new AvatarComponent());
+    static final Place BADGE = new Place("c-badge", "Badge", () -> new BadgeComponent());
+    static final Place BRAND = new Place("c-brand", "Brand", () -> new BrandComponent());
+    static final Place BUTTON = new Place("c-button", "Button", () -> new ButtonComponent());
+    static final Place CARD = new Place("c-card", "Card", () -> new CardComponent());
+    static final Place CHIP = new Place("c-chip", "Chip", () -> new ChipComponent());
+    static final Place CONTENT = new Place("c-content", "Content", () -> new ContentComponent());
     static final Place CONTEXT_SELECTOR = new Place("c-context-selector", "Context selector",
-            ContextSelectorComponent::new);
-    static final Place DATA_LIST = new Place("c-data-list", "Data list", DataListComponent::new);
-    static final Place DATA_TABLE = new Place("c-data-table", "Data table", DataTableComponent::new);
-    static final Place DROPDOWN = new Place("c-dropdown", "Dropdown", DropdownComponent::new);
-    static final Place EMPTY_STATE = new Place("c-empty-state", "Empty state", EmptyStateComponent::new);
-    static final Place EXPANDABLE = new Place("c-expandable", "Expandable", ExpandableComponent::new);
-    static final Place LABEL = new Place("c-label", "Label", LabelComponent::new);
-    static final Place OPTIONS_MENU = new Place("c-options-menu", "Options menu", OptionsMenuComponent::new);
-    static final Place SELECT = new Place("c-select", "Select", SelectComponent::new);
-    static final Place TABS = new Place("c-tabs", "Tabs", TabsComponent::new);
-    static final Place TITLE = new Place("c-title", "Title", TitleComponent::new);
-    static final Place TOOLBAR = new Place("c-toolbar", "Toolbar", ToolbarComponent::new);
+            () -> new ContextSelectorComponent());
+    static final Place DATA_LIST = new Place("c-data-list", "Data list", () -> new DataListComponent());
+    static final Place DATA_TABLE = new Place("c-data-table", "Data table", () -> new DataTableComponent());
+    static final Place DROPDOWN = new Place("c-dropdown", "Dropdown", () -> new DropdownComponent());
+    static final Place EMPTY_STATE = new Place("c-empty-state", "Empty state", () -> new EmptyStateComponent());
+    static final Place EXPANDABLE = new Place("c-expandable", "Expandable", () -> new ExpandableComponent());
+    static final Place LABEL = new Place("c-label", "Label", () -> new LabelComponent());
+    static final Place MENU = new Place("c-menu", "Menu", () -> new MenuComponent());
+    static final Place OPTIONS_MENU = new Place("c-options-menu", "Options menu", () -> new OptionsMenuComponent());
+    static final Place SELECT = new Place("c-select", "Select", () -> new SelectComponent());
+    static final Place TABS = new Place("c-tabs", "Tabs", () -> new TabsComponent());
+    static final Place TITLE = new Place("c-title", "Title", () -> new TitleComponent());
+    static final Place TOOLBAR = new Place("c-toolbar", "Toolbar", () -> new ToolbarComponent());
 
     static {
         COMPONENTS.put(ALERT.id, ALERT);
@@ -108,6 +111,7 @@ final class Places {
         COMPONENTS.put(EMPTY_STATE.id, EMPTY_STATE);
         COMPONENTS.put(EXPANDABLE.id, EXPANDABLE);
         COMPONENTS.put(LABEL.id, LABEL);
+        COMPONENTS.put(MENU.id, MENU);
         COMPONENTS.put(OPTIONS_MENU.id, OPTIONS_MENU);
         COMPONENTS.put(SELECT.id, SELECT);
         COMPONENTS.put(TABS.id, TABS);
@@ -118,8 +122,8 @@ final class Places {
     // ------------------------------------------------------ demos
 
     static final Map<String, Place> DEMOS = new LinkedHashMap<>();
-    static final Place SERVER = new Place("d-server", "Server", ServerDemo::new);
-    static final Place USER = new Place("d-user", "User", UserDemo::new);
+    static final Place SERVER = new Place("d-server", "Server", () -> new ServerDemo());
+    static final Place USER = new Place("d-user", "User", () -> new UserDemo());
 
     static {
         DEMOS.put(SERVER.id, SERVER);
