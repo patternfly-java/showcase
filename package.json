@@ -8,7 +8,7 @@
     "prod": "vite build --outDir target/vite --base /showcase"
   },
   "devDependencies": {
-    "vite": "^4.4.8"
+    "vite": "^4.4.10"
   },
   "dependencies": {
     "@github/relative-time-element": "^4.3.0",
