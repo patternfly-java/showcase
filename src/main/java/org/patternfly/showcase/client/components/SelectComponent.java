@@ -42,7 +42,7 @@ public class SelectComponent extends ComponentPage {
         addSnippet(new Snippet("disabled", "Disabled", "NYI",
                 () -> div().add(SingleSelect.<String> single("Choose...")
                         .add(new String[] { "Running", "Stopped", "Down", "Degraded", "Needs Maintenance", })
-                        .select("Down").disable()).element()));
+                        .select("Down").disabled()).element()));
 
         addSnippet(new Snippet("up", "Up", "NYI",
                 () -> div()

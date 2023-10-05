@@ -14,6 +14,7 @@
  *  limitations under the License.
  */
 import "@patternfly/patternfly/patternfly.css";
+import "@patternfly/patternfly/patternfly-addons.css";
 import "google-code-prettify/src/prettify.css";
 import "color-themes-for-google-code-prettify/src/themes/github-v2.scss";
 import "./pforg/autoLinkHeader.css";

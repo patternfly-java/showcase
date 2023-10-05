@@ -36,7 +36,7 @@ public class OptionsMenuComponent extends ComponentPage {
                         .add(SingleOptionsMenu.<String> text("Options menu")
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }).select("Option 2"))
                         .add(" ")
-                        .add(SingleOptionsMenu.<String> text("Options menu").disable()
+                        .add(SingleOptionsMenu.<String> text("Options menu").disabled()
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }))
                         .element()));
 
@@ -52,13 +52,13 @@ public class OptionsMenuComponent extends ComponentPage {
                         .add(SingleOptionsMenu.<String> icon(icon(fas("sort-amount-down")))
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }).select("Option 2"))
                         .add(" ")
-                        .add(SingleOptionsMenu.<String> icon(icon(fas("sort-amount-down"))).disable()
+                        .add(SingleOptionsMenu.<String> icon(icon(fas("sort-amount-down"))).disabled()
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }))
                         .add(SingleOptionsMenu.<String> plain("Options menu")
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }).select("Option 2"))
                         .add(" ")
                         .add(SingleOptionsMenu
-                                .<String> plain("Options menu").disable()
+                                .<String> plain("Options menu").disabled()
                                 .add(new String[] { "Option 1", "Option 2", "Option 3", }))
                         .element()));
 

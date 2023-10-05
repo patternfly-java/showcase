@@ -26,10 +26,10 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.patternfly.components.title.Title.title;
 import static org.patternfly.core.Aria.hidden;
+import static org.patternfly.core.Constants.tabindex;
 import static org.patternfly.layout.Classes.flex;
 import static org.patternfly.layout.Classes.layout;
 import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Constants.tabindex;
 import static org.patternfly.layout.Size.lg;
 
 class Snippet implements IsElement<HTMLElement> {

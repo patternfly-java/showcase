@@ -22,7 +22,7 @@ import static org.patternfly.components.brand.Brand.brand;
 public class BrandComponent extends ComponentPage {
 
     public BrandComponent() {
-        super("Brand", p().textContent("Brand is used to place a product logotype on a screen.").element());
+        super("Brand", p().textContent("A brand is used to place a product logotype on a screen.").element());
 
         addSnippet(new Snippet("simple-brand", "Simple brand", "Resources.get().brand().getText()", () -> div()
                 .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg"))

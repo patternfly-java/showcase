@@ -34,7 +34,7 @@ public class DropdownComponent extends ComponentPage {
             Dropdown<String> dropdown = Dropdown.<String> text("Dropdown").add("Item 1").add("Item 2").add("Disabled")
                     .addSeparator().add("Separated Item");
             dropdown.disable("Disabled");
-            return div().add(dropdown).add(" ").add(Dropdown.<String> text("Dropdown").disable()).element();
+            return div().add(dropdown).add(" ").add(Dropdown.<String> text("Dropdown").disabled()).element();
         }));
         /*
          * new Snippet("Dropdown with groups", "Resources.get().dropdownGroups().getText()", () -> { Dropdown<String> dropdown =
@@ -51,8 +51,8 @@ public class DropdownComponent extends ComponentPage {
             Dropdown<String> withText = Dropdown.<String> splitCheckbox("Dropdown").add("Item 1").add("Item 2")
                     .add("Disabled").addSeparator().add("Separated Item");
             withText.disable("Disabled");
-            return div().add(noText).add(" ").add(Dropdown.<String> splitCheckbox().disable()).add(" ")
-                    .add(withText).add(" ").add(Dropdown.<String> splitCheckbox("Dropdown").disable())
+            return div().add(noText).add(" ").add(Dropdown.<String> splitCheckbox().disabled()).add(" ")
+                    .add(withText).add(" ").add(Dropdown.<String> splitCheckbox("Dropdown").disabled())
                     .element();
         }));
 
@@ -67,14 +67,14 @@ public class DropdownComponent extends ComponentPage {
             Dropdown<String> kebab = Dropdown.<String> kebab().add("Item 1").add("Item 2").add("Disabled")
                     .addSeparator().add("Separated Item");
             kebab.disable("Disabled");
-            return div().add(kebab).add(" ").add(Dropdown.<String> kebab().disable()).element();
+            return div().add(kebab).add(" ").add(Dropdown.<String> kebab().disabled()).element();
         }));
 
         addSnippet(new Snippet("icons", "Dropdown (icon only)", "Resources.get().dropdownIcon().getText()", () -> {
             Dropdown<String> icon = Dropdown.<String> icon(icon(fas("th"))).add("Item 1").add("Item 2")
                     .add("Disabled").addSeparator().add("Separated Item");
             icon.disable("Disabled");
-            return div().add(icon).add(" ").add(Dropdown.<String> icon(icon(fas("th"))).disable()).element();
+            return div().add(icon).add(" ").add(Dropdown.<String> icon(icon(fas("th"))).disabled()).element();
         }));
 
         addSnippet(new Snippet("primary", "Dropdown (primary toggle)", "Resources.get().dropdownPrimary().getText()",

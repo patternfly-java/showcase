@@ -15,10 +15,8 @@
  */
 package org.patternfly.showcase.client;
 
-import org.patternfly.components.navigation.Navigation;
-import org.patternfly.components.navigation.NavigationItem;
-
 import com.google.gwt.core.client.EntryPoint;
+import org.patternfly.components.navigation.Navigation;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
@@ -38,12 +36,6 @@ import static org.patternfly.components.page.PageSidebar.pageSidebar;
 import static org.patternfly.components.page.PageSidebarBody.pageSidebarBody;
 import static org.patternfly.components.page.SkipToContent.skipToContent;
 import static org.patternfly.showcase.client.Assets.pfLogo;
-import static org.patternfly.showcase.client.Places.COMPONENTS;
-import static org.patternfly.showcase.client.Places.CONTRIBUTE;
-import static org.patternfly.showcase.client.Places.DEMOS;
-import static org.patternfly.showcase.client.Places.GET_IN_TOUCH;
-import static org.patternfly.showcase.client.Places.GET_STARTED;
-import static org.patternfly.showcase.client.Places.HOME;
 
 public class Showcase implements EntryPoint {
 
@@ -51,17 +43,39 @@ public class Showcase implements EntryPoint {
 
     public Showcase() {
         navigation = navigation(expandable)
-                .addItem(placeToItem(GET_STARTED))
+                .addItem(navigationItem("get-started", "Get started", "#get-started"))
                 .addGroup(expandableNavigationGroup("components", "Components")
-                        .addItems(COMPONENTS.values(), this::placeToItem))
+                        .addItem(navigationItem("c-alert", "Alert", "#c-alert"))
+                        .addItem(navigationItem("c-avatar", "Avatar", "#c-avatar"))
+                        .addItem(navigationItem("c-badge", "Badge", "#c-badge"))
+                        .addItem(navigationItem("c-brand", "Brand", "#c-brand"))
+                        .addItem(navigationItem("c-button", "Button", "#c-button"))
+                        .addItem(navigationItem("c-card", "Card", "#c-card"))
+                        .addItem(navigationItem("c-chip", "Chip", "#c-chip"))
+                        .addItem(navigationItem("c-content", "Content", "#c-content"))
+                        .addItem(navigationItem("c-context-selector", "Context selector", "#c-context-selector"))
+                        .addItem(navigationItem("c-data-list", "Data list", "#c-data-list"))
+                        .addItem(navigationItem("c-data-table", "Data table", "#c-data-table"))
+                        .addItem(navigationItem("c-dropdown", "Dropdown", "#c-dropdown"))
+                        .addItem(navigationItem("c-empty-state", "Empty state", "#c-empty-state"))
+                        .addItem(navigationItem("c-expandable", "Expandable", "#c-expandable"))
+                        .addGroup(expandableNavigationGroup("c-forms", "Forms")
+                                .addItem(navigationItem("c-checkbox", "Checkbox", "#c-checkbox"))
+                                .addItem(navigationItem("c-text-input", "Text input", "#c-text-input")))
+                        .addItem(navigationItem("c-label", "Label", "#c-label"))
+                        .addGroup(expandableNavigationGroup("c-menus", "Menus")
+                                .addItem(navigationItem("c-menu", "Menu", "#c-menu")))
+                        .addItem(navigationItem("c-options-menu", "Options menu", "#c-options-menu"))
+                        .addItem(navigationItem("c-select", "Select", "#c-select"))
+                        .addItem(navigationItem("c-tabs", "Tabs", "#c-tabs"))
+                        .addItem(navigationItem("c-text-input-group", "Text input group", "#c-text-input-group"))
+                        .addItem(navigationItem("c-title", "Title", "#c-title"))
+                        .addItem(navigationItem("c-toolbar", "Toolbar", "#c-toolbar")))
                 .addGroup(expandableNavigationGroup("demos", "Demos")
-                        .addItems(DEMOS.values(), this::placeToItem))
-                .addItem(placeToItem(CONTRIBUTE))
-                .addItem(placeToItem(GET_IN_TOUCH));
-    }
-
-    private NavigationItem placeToItem(Place place) {
-        return navigationItem(place.id, place.title, place.place);
+                        .addItem(navigationItem("d-server", "Server", "#d-server"))
+                        .addItem(navigationItem("d-user", "User", "#d-user")))
+                .addItem(navigationItem("contribute", "Contribute", "#contribute"))
+                .addItem(navigationItem("get-in-touch", "Get in touch", "#get-in-touch"));
     }
 
     @Override
@@ -71,7 +85,7 @@ public class Showcase implements EntryPoint {
                 .addSkipToContent(skipToContent(mainId))
                 .addMasthead(pageMasthead().css("ws-masthead")
                         .addToggle(mastheadToggle())
-                        .addBrand(brand(pfLogo).style("--pf-v5-c-brand--Height:36px"), HOME.place))
+                        .addBrand(brand(pfLogo).style("--pf-v5-c-brand--Height:36px"), "#home"))
                 .addSidebar(pageSidebar()
                         .addBody(pageSidebarBody()
                                 .addNavigation(navigation)))
@@ -83,7 +97,7 @@ public class Showcase implements EntryPoint {
 
     private void navigate(String hash) {
         String id = hash != null && hash.startsWith("#") ? hash.substring(1) : "";
-        page().main().replace(Places.lookup(id).get());
+        page().main().replace(Placemanager.lookup(id).get());
         navigation.select(id);
         PR.prettyPrint();
     }

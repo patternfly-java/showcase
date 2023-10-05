@@ -32,7 +32,7 @@ class HomePage implements Page {
                 .light()
                 .css("sc-page")
                 .add(content().add(title(1, "PatternFly - Java"))
-                        .add(p().add("PatternFly Java is a Java implementation of PatternFly 4 based on GWT and ")
+                        .add(p().add("PatternFly Java is a Java implementation of PatternFly based on GWT and ")
                                 .add(a("https://github.com/hal/elemento").textContent("Elemento")).add(".")))
                 .element());
     }
