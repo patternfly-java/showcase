@@ -85,7 +85,7 @@
         <version.formatter.plugin>2.23.0</version.formatter.plugin>
         <version.gwt.maven.plugin>1.1.0</version.gwt.maven.plugin>
         <version.impsort.plugin>1.9.0</version.impsort.plugin>
-        <version.license.plugin>4.2</version.license.plugin>
+        <version.license.plugin>4.3</version.license.plugin>
 
         <!-- Repos, URLs & protocols -->
         <repo.scm.connection>git@github.com:patternfly-java/showcase.git</repo.scm.connection>
