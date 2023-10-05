@@ -29,7 +29,7 @@
 
     <groupId>org.patternfly</groupId>
     <artifactId>patternfly-showcase</artifactId>
-    <version>1</version>
+    <version>2</version>
     <name>PatternFly Java Showcase</name>
     <description>Showcase for PatternFly Java</description>
     <packaging>gwt-app</packaging>
