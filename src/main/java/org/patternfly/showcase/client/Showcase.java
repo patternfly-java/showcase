@@ -15,8 +15,9 @@
  */
 package org.patternfly.showcase.client;
 
-import com.google.gwt.core.client.EntryPoint;
 import org.patternfly.components.navigation.Navigation;
+
+import com.google.gwt.core.client.EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
