@@ -14,10 +14,10 @@
  *  limitations under the License.
  */
 import static org.elemento.Elements.span;
-import static org.patternfly.components.DataList.dataList
-import static org.patternfly.components.DataList.itemCell;
-import static org.patternfly.components.DataList.itemContent;
-import static org.patternfly.components.DataList.itemRow;
+import static org.patternfly.component.DataList.dataList
+import static org.patternfly.component.DataList.itemCell;
+import static org.patternfly.component.DataList.itemContent;
+import static org.patternfly.component.DataList.itemRow;
 import static org.patternfly.resources.CSS.modifier;
 import static org.patternfly.resources.Constants.alignRight;
 import static org.patternfly.resources.Constants.noFill;

@@ -1,5 +1,5 @@
 import static org.patternfly.core.Callback.noop;
-import static org.patternfly.components.Icon.icon;
+import static org.patternfly.component.Icon.icon;
 import static org.patternfly.resources.CSS.fas;
 
 EmptyState large = EmptyState.emptyState(icon(fas("cubes")), "Empty State").large()

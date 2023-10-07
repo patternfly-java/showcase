@@ -13,9 +13,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import static org.patternfly.components.Alert.info;
-import static org.patternfly.components.AlertGroup.toast;
-import static org.patternfly.components.Button.button;
+import static org.patternfly.component.Alert.info;
+import static org.patternfly.component.AlertGroup.toast;
+import static org.patternfly.component.Button.button;
 
 Button button = Button.button("Click me").primary()
         .onClick(() -> toast().add(info("Hello")));

@@ -15,7 +15,7 @@
  */
 package org.patternfly.showcase.client;
 
-import org.patternfly.components.navigation.Navigation;
+import org.patternfly.component.navigation.Navigation;
 
 import com.google.gwt.core.client.EntryPoint;
 
@@ -24,18 +24,18 @@ import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.hashchange;
-import static org.patternfly.components.brand.Brand.brand;
-import static org.patternfly.components.navigation.ExpandableNavigationGroup.expandableNavigationGroup;
-import static org.patternfly.components.navigation.Navigation.navigation;
-import static org.patternfly.components.navigation.NavigationItem.navigationItem;
-import static org.patternfly.components.navigation.NavigationType.Vertical.expandable;
-import static org.patternfly.components.page.Masthead.pageMasthead;
-import static org.patternfly.components.page.MastheadToggle.mastheadToggle;
-import static org.patternfly.components.page.Page.page;
-import static org.patternfly.components.page.PageMain.pageMain;
-import static org.patternfly.components.page.PageSidebar.pageSidebar;
-import static org.patternfly.components.page.PageSidebarBody.pageSidebarBody;
-import static org.patternfly.components.page.SkipToContent.skipToContent;
+import static org.patternfly.component.brand.Brand.brand;
+import static org.patternfly.component.navigation.ExpandableNavigationGroup.expandableNavigationGroup;
+import static org.patternfly.component.navigation.Navigation.navigation;
+import static org.patternfly.component.navigation.NavigationItem.navigationItem;
+import static org.patternfly.component.navigation.NavigationType.Vertical.expandable;
+import static org.patternfly.component.page.Masthead.pageMasthead;
+import static org.patternfly.component.page.MastheadToggle.mastheadToggle;
+import static org.patternfly.component.page.Page.page;
+import static org.patternfly.component.page.PageMain.pageMain;
+import static org.patternfly.component.page.PageSidebar.pageSidebar;
+import static org.patternfly.component.page.PageSidebarBody.pageSidebarBody;
+import static org.patternfly.component.page.SkipToContent.skipToContent;
 import static org.patternfly.showcase.client.Assets.pfLogo;
 
 public class Showcase implements EntryPoint {
@@ -59,7 +59,7 @@ public class Showcase implements EntryPoint {
                         .addItem(navigationItem("c-data-table", "Data table", "#c-data-table"))
                         .addItem(navigationItem("c-dropdown", "Dropdown", "#c-dropdown"))
                         .addItem(navigationItem("c-empty-state", "Empty state", "#c-empty-state"))
-                        .addItem(navigationItem("c-expandable", "Expandable", "#c-expandable"))
+                        .addItem(navigationItem("c-expandable-section", "Expandable section", "#c-expandable-section"))
                         .addGroup(expandableNavigationGroup("c-forms", "Forms")
                                 .addItem(navigationItem("c-checkbox", "Checkbox", "#c-checkbox"))
                                 .addItem(navigationItem("c-text-input", "Text input", "#c-text-input")))

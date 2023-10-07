@@ -1,6 +1,6 @@
-import static org.patternfly.components.Card.body;
-import static org.patternfly.components.Card.card;
-import static org.patternfly.components.Card.header;
+import static org.patternfly.component.Card.body;
+import static org.patternfly.component.Card.card;
+import static org.patternfly.component.Card.header;
 
 Card card = card()
         .add(header().textContent("Header"))

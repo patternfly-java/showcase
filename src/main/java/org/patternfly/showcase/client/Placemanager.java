@@ -19,40 +19,40 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import org.patternfly.showcase.client.components.AlertComponent;
-import org.patternfly.showcase.client.components.AvatarComponent;
-import org.patternfly.showcase.client.components.BadgeComponent;
-import org.patternfly.showcase.client.components.BrandComponent;
-import org.patternfly.showcase.client.components.ButtonComponent;
-import org.patternfly.showcase.client.components.CardComponent;
-import org.patternfly.showcase.client.components.CheckboxComponent;
-import org.patternfly.showcase.client.components.ChipComponent;
-import org.patternfly.showcase.client.components.ContentComponent;
-import org.patternfly.showcase.client.components.ContextSelectorComponent;
-import org.patternfly.showcase.client.components.DataListComponent;
-import org.patternfly.showcase.client.components.DataTableComponent;
-import org.patternfly.showcase.client.components.DropdownComponent;
-import org.patternfly.showcase.client.components.EmptyStateComponent;
-import org.patternfly.showcase.client.components.ExpandableComponent;
-import org.patternfly.showcase.client.components.LabelComponent;
-import org.patternfly.showcase.client.components.MenuComponent;
-import org.patternfly.showcase.client.components.OptionsMenuComponent;
-import org.patternfly.showcase.client.components.SelectComponent;
-import org.patternfly.showcase.client.components.TabsComponent;
-import org.patternfly.showcase.client.components.TextInputComponent;
-import org.patternfly.showcase.client.components.TextInputGroupComponent;
-import org.patternfly.showcase.client.components.TitleComponent;
-import org.patternfly.showcase.client.components.ToolbarComponent;
-import org.patternfly.showcase.client.demos.server.ServerDemo;
-import org.patternfly.showcase.client.demos.user.UserDemo;
+import org.patternfly.showcase.client.component.AlertComponent;
+import org.patternfly.showcase.client.component.AvatarComponent;
+import org.patternfly.showcase.client.component.BadgeComponent;
+import org.patternfly.showcase.client.component.BrandComponent;
+import org.patternfly.showcase.client.component.ButtonComponent;
+import org.patternfly.showcase.client.component.CardComponent;
+import org.patternfly.showcase.client.component.CheckboxComponent;
+import org.patternfly.showcase.client.component.ChipComponent;
+import org.patternfly.showcase.client.component.ContentComponent;
+import org.patternfly.showcase.client.component.ContextSelectorComponent;
+import org.patternfly.showcase.client.component.DataListComponent;
+import org.patternfly.showcase.client.component.DataTableComponent;
+import org.patternfly.showcase.client.component.DropdownComponent;
+import org.patternfly.showcase.client.component.EmptyStateComponent;
+import org.patternfly.showcase.client.component.ExpandableSectionComponent;
+import org.patternfly.showcase.client.component.LabelComponent;
+import org.patternfly.showcase.client.component.MenuComponent;
+import org.patternfly.showcase.client.component.OptionsMenuComponent;
+import org.patternfly.showcase.client.component.SelectComponent;
+import org.patternfly.showcase.client.component.TabsComponent;
+import org.patternfly.showcase.client.component.TextInputComponent;
+import org.patternfly.showcase.client.component.TextInputGroupComponent;
+import org.patternfly.showcase.client.component.TitleComponent;
+import org.patternfly.showcase.client.component.ToolbarComponent;
+import org.patternfly.showcase.client.demo.server.ServerDemo;
+import org.patternfly.showcase.client.demo.user.UserDemo;
 
 import elemental2.dom.HTMLElement;
 
 import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.components.Content.content;
-import static org.patternfly.components.page.PageMainSection.pageMainSection;
-import static org.patternfly.components.title.Title.title;
+import static org.patternfly.component.Content.content;
+import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.title.Title.title;
 
 @SuppressWarnings("Convert2MethodRef")
 final class Placemanager {
@@ -78,7 +78,7 @@ final class Placemanager {
         places.put("c-data-table", () -> new DataTableComponent());
         places.put("c-dropdown", () -> new DropdownComponent());
         places.put("c-empty-state", () -> new EmptyStateComponent());
-        places.put("c-expandable", () -> new ExpandableComponent());
+        places.put("c-expandable-section", () -> new ExpandableSectionComponent());
         places.put("c-label", () -> new LabelComponent());
         places.put("c-menu", () -> new MenuComponent());
         places.put("c-options-menu", () -> new OptionsMenuComponent());

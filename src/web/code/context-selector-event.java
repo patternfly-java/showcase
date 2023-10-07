@@ -14,8 +14,8 @@
  *  limitations under the License.
  */
 import static java.util.Arrays.asList;
-import static org.patternfly.components.Alert.info;
-import static org.patternfly.components.AlertGroup.toast;
+import static org.patternfly.component.Alert.info;
+import static org.patternfly.component.AlertGroup.toast;
 
 ContextSelector<String> contextSelector = ContextSelector.contextSelector("Stage")
         .onToggle(open -> toast().add(info("Context selector " + (open ? "expanded" : "collapsed"))))

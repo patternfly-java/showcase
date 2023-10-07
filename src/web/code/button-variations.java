@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import static org.patternfly.components.Icon.icon;
+import static org.patternfly.component.Icon.icon;
 import static org.patternfly.resources.CSS.fas;
 
 Button b00 = Button.button("Primary").primary());

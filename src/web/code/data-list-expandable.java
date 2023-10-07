@@ -15,10 +15,10 @@
  */
 import static org.elemento.Elements.div;
 import static org.elemento.Elements.span;
-import static org.patternfly.components.Components.dataList;
-import static org.patternfly.components.DataList.itemCell;
-import static org.patternfly.components.DataList.itemContent;
-import static org.patternfly.components.DataList.itemRow;
+import static org.patternfly.component.Components.dataList;
+import static org.patternfly.component.DataList.itemCell;
+import static org.patternfly.component.DataList.itemContent;
+import static org.patternfly.component.DataList.itemRow;
 import static org.patternfly.resources.CSS.component;
 import static org.patternfly.resources.CSS.modifier;
 import static org.patternfly.resources.Constants.action;

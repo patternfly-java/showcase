@@ -19,8 +19,8 @@ import static com.google.gwt.i18n.client.DateTimeFormat.PredefinedFormat.ISO_860
 import static elemental2.dom.DomGlobal.document;
 import static java.util.Comparator.comparing;
 import static org.elemento.Elements.*;
-import static org.patternfly.components.DataTable.column;
-import static org.patternfly.components.DataTable.dataTable;
+import static org.patternfly.component.DataTable.column;
+import static org.patternfly.component.DataTable.dataTable;
 
 class Repository {
 

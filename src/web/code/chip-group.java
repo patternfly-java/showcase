@@ -1,7 +1,7 @@
 import static org.elemento.Elements.uniqueId;
-import static org.patternfly.components.Chip.chip;
-import static org.patternfly.components.ChipGroup.chipGroup;
-import static org.patternfly.components.Icon.icon;
+import static org.patternfly.component.Chip.chip;
+import static org.patternfly.component.ChipGroup.chipGroup;
+import static org.patternfly.component.Icon.icon;
 import static org.patternfly.resources.CSS.fas;
 
 ChipGroup group = chipGroup(5)

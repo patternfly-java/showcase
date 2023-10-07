@@ -13,8 +13,8 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import static org.patternfly.components.Alert.info;
-import static org.patternfly.components.AlertGroup.toast;
+import static org.patternfly.component.Alert.info;
+import static org.patternfly.component.AlertGroup.toast;
 
 Dropdown<String> dropdown = Dropdown.<String>text("Dropdown")
         .add("Item 1")

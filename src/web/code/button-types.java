@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import org.patternfly.components.Button.Type;
+import org.patternfly.component.Button.Type;
 
 Button b0 = Button.button("Submit").type(Type.SUBMIT);
 Button b1 = Button.button("Reset").type(Type.RESET);

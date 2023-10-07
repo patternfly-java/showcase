@@ -15,8 +15,8 @@
  */
 package org.patternfly.showcase.client;
 
-import org.patternfly.showcase.client.demos.server.Server;
-import org.patternfly.showcase.client.demos.user.User;
+import org.patternfly.showcase.client.demo.server.Server;
+import org.patternfly.showcase.client.demo.user.User;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;

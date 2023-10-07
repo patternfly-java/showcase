@@ -20,9 +20,9 @@ import elemental2.dom.HTMLElement;
 import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.components.Content.content;
-import static org.patternfly.components.page.PageMainSection.pageMainSection;
-import static org.patternfly.components.title.Title.title;
+import static org.patternfly.component.Content.content;
+import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.title.Title.title;
 
 class HomePage implements Page {
 

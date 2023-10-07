@@ -1,4 +1,4 @@
-import org.patternfly.components.Dropdown;
+import org.patternfly.component.Dropdown;
 
 enum Color {
 

@@ -1,4 +1,4 @@
-import static org.patternfly.components.Icon.icon;
+import static org.patternfly.component.Icon.icon;
 import static org.patternfly.resources.CSS.fas;
 import static org.patternfly.resources.CSS.util;
 
