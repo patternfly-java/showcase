@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@github/relative-time-element": "^4.3.0",
-    "@patternfly/patternfly": "^5.0.4",
+    "@patternfly/patternfly": "^5.1.0",
     "clipboard": "^2.0.11",
     "color-themes-for-google-code-prettify": "^2.0.4",
     "google-code-prettify": "^1.0.5"
