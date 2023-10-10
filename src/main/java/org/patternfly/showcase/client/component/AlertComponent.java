@@ -37,6 +37,7 @@ public class AlertComponent extends ComponentPage {
 
     public AlertComponent() {
         super("Alert",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/alert/Alert.html",
                 "https://www.patternfly.org/components/alert/design-guidelines",
                 p().textContent("Alerts are used to notify the user about a change in status or other event")
                         .element());

@@ -171,6 +171,7 @@ public class TableComponent extends ComponentPage {
 
     public TableComponent() {
         super("Data table",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/",
                 p().textContent("A table is used to display large data sets that can be easily "
                         + "laid out in a simple grid with column headers.").element());

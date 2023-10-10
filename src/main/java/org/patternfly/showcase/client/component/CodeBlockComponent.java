@@ -36,6 +36,7 @@ public class CodeBlockComponent extends ComponentPage {
 
     public CodeBlockComponent() {
         super("Code block",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeBlock.html",
                 "https://www.patternfly.org/components/code-block/design-guidelines",
                 p().textContent(
                         "A code block is a component that contains 2 or more lines of read-only code. The code in a code block can be copied to the clipboard.")

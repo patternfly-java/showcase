@@ -28,6 +28,7 @@ public class TabsComponent extends ComponentPage {
 
     public TabsComponent() {
         super("Tabs",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/components/tabs/design-guidelines",
                 p().textContent("Tabs are used to present a set on tabs for organizing content on a page. "
                         + "It must always be used together with a tab content component.").element());

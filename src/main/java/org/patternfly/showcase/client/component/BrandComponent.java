@@ -24,6 +24,7 @@ public class BrandComponent extends ComponentPage {
 
     public BrandComponent() {
         super("Brand",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/brand/Brand.html",
                 "https://www.patternfly.org/components/brand/design-guidelines",
                 p().textContent("A brand is used to place a product logotype on a screen.").element());
 

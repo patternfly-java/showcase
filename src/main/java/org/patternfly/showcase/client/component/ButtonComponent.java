@@ -33,6 +33,7 @@ public class ButtonComponent extends ComponentPage {
 
     public ButtonComponent() {
         super("Button",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/button/Button.html",
                 "https://www.patternfly.org/components/button/design-guidelines",
                 p().textContent("Buttons communicate and trigger actions a user can take in an application or website.")
                         .element());

@@ -29,6 +29,7 @@ public class TitleComponent extends ComponentPage {
 
     public TitleComponent() {
         super("Title",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/components/tile/design-guidelines",
                 p().textContent("The title component applies top and bottom margins, font-weight, font-size, "
                         + "and line-height to titles.").element());

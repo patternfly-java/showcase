@@ -211,6 +211,7 @@ public class DataListComponent extends ComponentPage {
 
     public DataListComponent() {
         super("Data list",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/components/data-list/design-guidelines",
                 p().textContent("A data list is used to display large data sets when you need a flexible layout or "
                         + "need to include interactive content like charts.").element());

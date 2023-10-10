@@ -33,6 +33,7 @@ public class SpinnerComponent extends ComponentPage {
 
     public SpinnerComponent() {
         super("Spinner",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/spinner/Spinner.html",
                 "https://www.patternfly.org/components/spinner/design-guidelines",
                 p().textContent(
                         "A spinner is used to indicate to users that an action is in progress. For actions that may take a long time, use a progress bar instead.")

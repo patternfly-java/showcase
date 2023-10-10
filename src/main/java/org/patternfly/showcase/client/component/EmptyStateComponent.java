@@ -30,6 +30,7 @@ public class EmptyStateComponent extends ComponentPage {
 
     public EmptyStateComponent() {
         super("Empty state",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/components/empty-state/design-guidelines",
                 p().textContent("Use an empty state component when there is no data or other information to show. "
                         + "It can also be used to communicate completion or other status at the end of a sequential "

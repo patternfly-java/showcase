@@ -30,6 +30,7 @@ public class TextInputComponent extends ComponentPage {
 
     public TextInputComponent() {
         super("Text input",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/TextInput.html",
                 "https://www.patternfly.org/components/forms/text-input/design-guidelines",
                 p().textContent("A text input is used to gather free-form text from a user.").element());
 

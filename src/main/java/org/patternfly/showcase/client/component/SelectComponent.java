@@ -27,6 +27,7 @@ public class SelectComponent extends ComponentPage {
 
     public SelectComponent() {
         super("Select",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/",
                 p().textContent("Use a select to choose one or more values from a list").element());
 

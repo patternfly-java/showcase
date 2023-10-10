@@ -43,6 +43,7 @@ public class CodeEditorComponent extends ComponentPage {
 
     public CodeEditorComponent() {
         super("Code editor",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeEditor.html",
                 "https://www.patternfly.org/components/code-editor/design-guidelines",
                 p().textContent(
                         "A code editor is a versatile text editor that allows for editing various languages. ")

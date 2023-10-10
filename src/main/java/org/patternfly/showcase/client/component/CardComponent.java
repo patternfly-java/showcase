@@ -36,6 +36,7 @@ public class CardComponent extends ComponentPage {
 
     public CardComponent() {
         super("Card",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/components/card/design-guidelines",
                 p().textContent(
                         "A card is a flexible element for containing any kind of content. Cards are used on dashboards, in data displays (e.g. Card View), or for positioning content on a page.")

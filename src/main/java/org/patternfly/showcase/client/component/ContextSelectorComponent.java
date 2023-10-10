@@ -29,6 +29,7 @@ public class ContextSelectorComponent extends ComponentPage {
 
     public ContextSelectorComponent() {
         super("Context selector",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/",
                 p().textContent("A context selector can be used in addition to global navigation when the data "
                         + "or resources you show in the interface need to change depending on the users’ context.")

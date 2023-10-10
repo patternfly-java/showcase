@@ -38,6 +38,7 @@ public class TextContentComponent extends ComponentPage {
 
     public TextContentComponent() {
         super("Text",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/text/TextContent.html",
                 "https://www.patternfly.org/components/text/design-guidelines",
                 p().textContent(
                         "Text and TextList components are always wrapped in TextContent and provide correct formatting to a number of standard HTML tags.")

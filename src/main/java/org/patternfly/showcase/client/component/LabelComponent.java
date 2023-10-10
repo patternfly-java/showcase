@@ -24,6 +24,7 @@ public class LabelComponent extends ComponentPage {
 
     public LabelComponent() {
         super("Label",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/components/label/design-guidelines",
                 p().textContent("Use a label when you want to highlight an element on a page to draw attention to it "
                         + "or make it more searchable.").element());

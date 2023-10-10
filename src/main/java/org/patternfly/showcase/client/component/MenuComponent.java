@@ -42,6 +42,7 @@ public class MenuComponent extends ComponentPage {
 
     public MenuComponent() {
         super("Menu",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/menu/Menu.html",
                 "https://www.patternfly.org/components/menus/menu/design-guidelines",
                 p().textContent(
                         "A menu is a list of options or actions that users can choose from. It can be used in a variety of contexts whenever the user needs to choose between multiple values, options, or actions. A menu is most often paired with a menu toggle as its trigger, but can also be used inline or can be attached to other interactable elements to toggle it open and close.")

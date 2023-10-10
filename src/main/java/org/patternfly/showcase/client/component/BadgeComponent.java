@@ -24,6 +24,7 @@ public class BadgeComponent extends ComponentPage {
 
     public BadgeComponent() {
         super("Badge",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/badge/Badge.html",
                 "https://www.patternfly.org/components/badge/design-guidelines",
                 p().textContent(
                         "A badge is used to annotate other information like a label or an object name. Badges are typically used to reflect a count, e.g. number of object, number of events, number of unread, etc.")

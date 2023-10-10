@@ -34,6 +34,7 @@ import static org.patternfly.layout.Classes.floatRight;
 import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Classes.util;
 import static org.patternfly.layout.PredefinedIcon.fas;
+import static org.patternfly.layout.PredefinedIcon.pfIcon;
 import static org.patternfly.layout.Size._4xl;
 
 public class ComponentPage implements Page {
@@ -41,7 +42,7 @@ public class ComponentPage implements Page {
     private final List<HTMLElement> elements;
     private final HTMLElement snippets;
 
-    ComponentPage(String title, String href, HTMLElement description) {
+    ComponentPage(String title, String javadocLink, String designLink, HTMLElement description) {
         elements = asList(
                 pageMainSection()
                         .light()
@@ -50,10 +51,17 @@ public class ComponentPage implements Page {
                                 .add(div().css(util(floatRight))
                                         .add(button(link)
                                                 .plain()
-                                                .href(href)
+                                                .href(designLink)
                                                 .target("patternfly")
                                                 .attr("title", "Design guidelines")
                                                 .addIcon(fas("swatchbook"))))
+                                .add(div().css(util(floatRight))
+                                        .add(button(link)
+                                                .plain()
+                                                .href(javadocLink)
+                                                .target("javadoc")
+                                                .attr("title", "API documentation")
+                                                .addIcon(pfIcon("catalog"))))
                                 .add(div().css(component(content))
                                         .add(title(1, title, _4xl))
                                         .add(description)))

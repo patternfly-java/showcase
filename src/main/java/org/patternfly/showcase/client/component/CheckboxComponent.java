@@ -28,6 +28,7 @@ public class CheckboxComponent extends ComponentPage {
 
     public CheckboxComponent() {
         super("Checkbox",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/Checkbox.html",
                 "https://www.patternfly.org/components/forms/checkbox/design-guidelines",
                 p().textContent(
                         "A checkbox is used to select a single item or multiple items, typically to choose elements to perform an action or to reflect a binary setting.")

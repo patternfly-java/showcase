@@ -26,6 +26,7 @@ public class AvatarComponent extends ComponentPage {
 
     public AvatarComponent() {
         super("Avatar",
+                "https://patternfly-java.github.io/patternfly-java/",
                 "https://www.patternfly.org/components/avatar/design-guidelines",
                 p().textContent(
                         "The avatar is used to represent a user. It may contain an image that represents the user or a placeholder graphic in the absence of an image. Typical usage is to represent the current user in the masthead. Related design guidelines: Masthead")
