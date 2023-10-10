@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.showcase.client.LoremIpsum;
+
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.code;
@@ -30,8 +32,6 @@ import static org.patternfly.component.alert.AlertType.success;
 import static org.patternfly.component.alert.AlertType.warning;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.showcase.client.LoremIpsum;
 
 public class AlertComponent extends ComponentPage {
 

@@ -15,14 +15,14 @@
  */
 package org.patternfly.showcase.client;
 
-import elemental2.dom.HTMLElement;
-
 import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
+
+import elemental2.dom.HTMLElement;
 
 class HomePage implements Page {
 
@@ -32,8 +32,16 @@ class HomePage implements Page {
                 .light()
                 .css("sc-page")
                 .add(textContent().add(title(1, "PatternFly - Java"))
-                        .add(p().add("PatternFly Java is a Java implementation of PatternFly based on GWT and ")
-                                .add(a("https://github.com/hal/elemento").textContent("Elemento")).add(".")))
+                        .add(p()
+                                .add(a("https://github.com/patternfly-java/patternfly-java", "_blank")
+                                        .textContent("PatternFly Java"))
+                                .add(" is a Java implementation of ")
+                                .add(a("https://www.patternfly.org/", "_blank")
+                                        .textContent("PatternFly"))
+                                .add(" based on GWT and ")
+                                .add(a("https://github.com/hal/elemento", "_blank")
+                                        .textContent("Elemento"))
+                                .add(".")))
                 .element());
     }
 }

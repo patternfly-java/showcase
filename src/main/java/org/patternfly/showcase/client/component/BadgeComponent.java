@@ -50,7 +50,7 @@ public class BadgeComponent extends ComponentPage {
                         .add(" ")
                         .add(badge(423).unread())
                         .add(" ")
-                        .add(badge(1000).limit(999).read())
+                        .add(badge(1000).limit(999).unread())
                         .element()));
     }
 }

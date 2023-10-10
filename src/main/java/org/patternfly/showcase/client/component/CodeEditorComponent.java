@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.layout.PredefinedIcon;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
@@ -30,9 +32,6 @@ import static org.patternfly.component.code.CodeEditorTab.codeEditorTab;
 import static org.patternfly.layout.PredefinedIcon.download;
 import static org.patternfly.layout.PredefinedIcon.upload;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.layout.PredefinedIcon;
-import org.patternfly.showcase.client.Code;
 
 public class CodeEditorComponent extends ComponentPage {
 

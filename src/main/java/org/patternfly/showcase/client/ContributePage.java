@@ -18,6 +18,7 @@ package org.patternfly.showcase.client;
 import elemental2.dom.HTMLElement;
 
 import static java.util.Collections.singletonList;
+import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.text.TextContent.textContent;
@@ -32,7 +33,11 @@ class ContributePage implements Page {
                 .css("sc-page")
                 .add(textContent()
                         .add(title(1, "Contribute"))
-                        .add(p().textContent("Pending")))
+                        .add(p()
+                                .add("Please see the ")
+                                .add(a("https://github.com/patternfly-java/patternfly-java/blob/main/CONTRIBUTING.md", "_blank")
+                                        .textContent("contribution guidelines"))
+                                .add(" on the GitHub repository.")))
                 .element());
     }
 }

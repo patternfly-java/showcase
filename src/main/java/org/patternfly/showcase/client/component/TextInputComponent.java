@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.component.form.Checkbox;
+import org.patternfly.component.form.TextInput;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
@@ -22,9 +25,6 @@ import static org.patternfly.component.form.TextInput.textInput;
 import static org.patternfly.layout.Classes.util;
 import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.component.form.Checkbox;
-import org.patternfly.component.form.TextInput;
 
 public class TextInputComponent extends ComponentPage {
 

@@ -15,8 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.showcase.client.Code;
-
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
