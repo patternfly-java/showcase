@@ -1,5 +1,5 @@
-Alert.custom("Custom alert title");
-Alert.info("Info alert title");
-Alert.success("Success alert title");
-Alert.warning("Warning alert title");
-Alert.danger("Danger alert title");
+alert(custom, "Custom alert title");
+alert(info, "Info alert title");
+alert(success, "Success alert title");
+alert(warning, "Warning alert title");
+alert(danger, "Danger alert title");

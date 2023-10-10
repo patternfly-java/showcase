@@ -1,0 +1,12 @@
+codeEditor()
+        .addHeader(codeEditorHeader()
+                .addActions(codeEditorActions()
+                        .addAction(codeEditorCopyToClipboardAction())
+                        .addAction(codeEditorAction(download))
+                        .addAction(codeEditorAction(upload)))
+                .addMain(codeEditorHeaderMain()
+                        .textContent("Header main content"))
+                .addLinks(codeEditorLinks()
+                        .addLink(codeEditorViewShortcutsLink()))
+                .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
+        .code(CODE);

@@ -17,19 +17,34 @@ package org.patternfly.showcase.client.component;
 
 import java.util.function.Supplier;
 
+import org.jboss.elemento.By;
 import org.jboss.elemento.IsElement;
+import org.patternfly.component.code.CodeEditor;
+import org.patternfly.layout.Classes;
+import org.patternfly.layout.PredefinedIcon;
 
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.isVisible;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
+import static org.jboss.elemento.Elements.setVisible;
+import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.code.CodeEditor.codeEditor;
+import static org.patternfly.component.code.CodeEditorAction.codeEditorAction;
+import static org.patternfly.component.code.CodeEditorAction.codeEditorCopyToClipboardAction;
+import static org.patternfly.component.code.CodeEditorActions.codeEditorActions;
+import static org.patternfly.component.code.CodeEditorHeader.codeEditorHeader;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.core.Aria.hidden;
 import static org.patternfly.core.Attributes.tabindex;
+import static org.patternfly.layout.Classes.component;
 import static org.patternfly.layout.Classes.flex;
 import static org.patternfly.layout.Classes.layout;
+import static org.patternfly.layout.Classes.main;
 import static org.patternfly.layout.Classes.modifier;
+import static org.patternfly.layout.PredefinedIcon.undo;
 import static org.patternfly.layout.Size.lg;
 
 class Snippet implements IsElement<HTMLElement> {
@@ -37,6 +52,7 @@ class Snippet implements IsElement<HTMLElement> {
     private final Supplier<HTMLElement> demoSupplier;
     private final HTMLElement root;
     private final HTMLElement preview;
+    private final CodeEditor codeEditor;
 
     Snippet(String id, String header, String code, Supplier<HTMLElement> demo) {
         demoSupplier = demo;
@@ -52,16 +68,29 @@ class Snippet implements IsElement<HTMLElement> {
                 .add(preview = div().css("ws-preview")
                         .add(demo.get())
                         .element())
-                .add(div().css("ws-code-editor"))
+                .add(codeEditor = codeEditor().css("ws-code-editor")
+                        .addHeader(codeEditorHeader()
+                                .addActions(codeEditorActions()
+                                        .addAction(codeEditorAction(button()
+                                                .css("ws-code-editor-control")
+                                                .control()
+                                                .addIconAndText(PredefinedIcon.code, "Java"))
+                                                .onAction((event, codeEditor) -> {
+                                                    HTMLElement mainElement = codeEditor.find(
+                                                            By.classname(component(Classes.codeEditor, main)));
+                                                    setVisible(mainElement, !isVisible(mainElement));
+                                                }))
+                                        .addAction(codeEditorCopyToClipboardAction()
+                                                .css("ws-code-editor-control"))
+                                        .addAction(codeEditorAction(undo)
+                                                .css("ws-code-editor-control")
+                                                .onAction((event, codeEditor) -> undo()))))
+                        .code(code))
                 .element();
-    }
 
-    private void toggleCode() {
-        // TODO toggle code
-    }
+        HTMLElement mainElement = codeEditor.find(By.classname(component(Classes.codeEditor, main)));
+        setVisible(mainElement, false);
 
-    private void copyCode() {
-        // TODO copy to clipboard
     }
 
     private void undo() {

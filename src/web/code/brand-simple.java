@@ -1,0 +1,1 @@
+brand("https://www.patternfly.org/assets/images/pf_logo.svg")

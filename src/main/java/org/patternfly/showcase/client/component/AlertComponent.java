@@ -15,18 +15,23 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.component.alert.Alert;
-import org.patternfly.showcase.client.LoremIpsum;
-
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.code;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
+import static org.patternfly.component.alert.Alert.alert;
 import static org.patternfly.component.alert.AlertActionGroup.alertActionGroup;
 import static org.patternfly.component.alert.AlertDescription.alertDescription;
+import static org.patternfly.component.alert.AlertType.custom;
+import static org.patternfly.component.alert.AlertType.danger;
+import static org.patternfly.component.alert.AlertType.info;
+import static org.patternfly.component.alert.AlertType.success;
+import static org.patternfly.component.alert.AlertType.warning;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.showcase.client.Code.code;
+
+import org.patternfly.showcase.client.LoremIpsum;
 
 public class AlertComponent extends ComponentPage {
 
@@ -39,29 +44,29 @@ public class AlertComponent extends ComponentPage {
         addSnippet(new Snippet("alert-variants", "Alert variants",
                 code.get("alert-variants"),
                 () -> div()
-                        .add(Alert.custom("Custom alert title"))
+                        .add(alert(custom, "Custom alert title"))
                         .add(br())
-                        .add(Alert.info("Info alert title"))
+                        .add(alert(info, "Info alert title"))
                         .add(br())
-                        .add(Alert.success("Success alert title"))
+                        .add(alert(success, "Success alert title"))
                         .add(br())
-                        .add(Alert.warning("Warning alert title"))
+                        .add(alert(warning, "Warning alert title"))
                         .add(br())
-                        .add(Alert.danger("Danger alert title"))
+                        .add(alert(danger, "Danger alert title"))
                         .element()));
 
         addSnippet(new Snippet("alert-variations", "Alert variations",
                 code.get("alert-variations"),
                 () -> div()
-                        .add(Alert.success("Success alert title")
+                        .add(alert(success, "Success alert title")
                                 .closable()
                                 .addDescription(
                                         "Success alert description. This should tell the user more information about the alert.")
                                 .addActionGroup(alertActionGroup()
-                                        .add(button("View details").inline())
-                                        .add(button("Ignore").inline())))
+                                        .add(button("View details").inline().link())
+                                        .add(button("Ignore").inline().link())))
                         .add(br())
-                        .add(Alert.success("Success alert title")
+                        .add(alert(success, "Success alert title")
                                 .closable()
                                 .addDescription(alertDescription()
                                         .add(p()
@@ -69,18 +74,18 @@ public class AlertComponent extends ComponentPage {
                                                 .add(a("#").textContent("This is a link"))
                                                 .add("."))))
                         .add(br())
-                        .add(Alert.success("Success alert title")
+                        .add(alert(success, "Success alert title")
                                 .closable()
                                 .addActionGroup(alertActionGroup()
-                                        .add(button("View details").inline())
-                                        .add(button("Ignore").inline())))
+                                        .add(button("View details").inline().link())
+                                        .add(button("Ignore").inline().link())))
                         .add(br())
-                        .add(Alert.success("Success alert title")
+                        .add(alert(success, "Success alert title")
                                 .closable())
                         .add(br())
-                        .add(Alert.success("Success alert title"))
+                        .add(alert(success, "Success alert title"))
                         .add(br())
-                        .add(Alert.success(LoremIpsum.words(75))
+                        .add(alert(success, LoremIpsum.words(75))
                                 .truncate()
                                 .addDescription(alertDescription()
                                         .add(p()
@@ -88,7 +93,7 @@ public class AlertComponent extends ComponentPage {
                                                 .add(code("Alert.truncate()"))
                                                 .add(" to limit the title to a single line and truncate any overflow text with ellipses."))))
                         .add(br())
-                        .add(Alert.success(LoremIpsum.words(75))
+                        .add(alert(success, LoremIpsum.words(75))
                                 .truncate(2)
                                 .addDescription(alertDescription()
                                         .add(p()
@@ -100,19 +105,19 @@ public class AlertComponent extends ComponentPage {
         addSnippet(new Snippet("alert-inline-types", "Inline types",
                 code.get("alert-inline-types"),
                 () -> div()
-                        .add(Alert.custom("Custom inline alert title")
+                        .add(alert(custom, "Custom inline alert title")
                                 .inline())
                         .add(br())
-                        .add(Alert.info("Info inline alert title")
+                        .add(alert(info, "Info inline alert title")
                                 .inline())
                         .add(br())
-                        .add(Alert.success("Success inline alert title")
+                        .add(alert(success, "Success inline alert title")
                                 .inline())
                         .add(br())
-                        .add(Alert.warning("Warning inline alert title")
+                        .add(alert(warning, "Warning inline alert title")
                                 .inline())
                         .add(br())
-                        .add(Alert.danger("Danger inline alert title")
+                        .add(alert(danger, "Danger inline alert title")
                                 .inline())
                         .element()));
     }

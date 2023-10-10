@@ -28,6 +28,7 @@ import org.patternfly.showcase.client.component.CardComponent;
 import org.patternfly.showcase.client.component.CheckboxComponent;
 import org.patternfly.showcase.client.component.ChipComponent;
 import org.patternfly.showcase.client.component.CodeBlockComponent;
+import org.patternfly.showcase.client.component.CodeEditorComponent;
 import org.patternfly.showcase.client.component.ContextSelectorComponent;
 import org.patternfly.showcase.client.component.DataListComponent;
 import org.patternfly.showcase.client.component.DropdownComponent;
@@ -76,6 +77,7 @@ final class Placemanager {
         places.put("c-checkbox", () -> new CheckboxComponent());
         places.put("c-chip", () -> new ChipComponent());
         places.put("c-code-block", () -> new CodeBlockComponent());
+        places.put("c-code-editor", () -> new CodeEditorComponent());
         places.put("c-context-selector", () -> new ContextSelectorComponent());
         places.put("c-data-list", () -> new DataListComponent());
         places.put("c-dropdown", () -> new DropdownComponent());

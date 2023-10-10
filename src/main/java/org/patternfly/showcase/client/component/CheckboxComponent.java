@@ -22,6 +22,7 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.CheckboxBody.checkboxBody;
 import static org.patternfly.component.form.CheckboxDescription.checkboxDescription;
+import static org.patternfly.showcase.client.Code.code;
 
 public class CheckboxComponent extends ComponentPage {
 
@@ -33,7 +34,7 @@ public class CheckboxComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("checkbox-basic", "Basic",
-                "No code yet",
+                code.get("checkbox-basic"),
                 () -> div()
                         .add(checkbox("basic-checkbox-0", "Checkbox 1")
                                 .value(true))
@@ -41,7 +42,7 @@ public class CheckboxComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("checkbox-disabled", "Disabled",
-                "No code yet",
+                code.get("checkbox-disabled"),
                 () -> div()
                         .add(checkbox("disabled-checkbox-0", "Disabled checkbox 1")
                                 .value(true)
@@ -51,21 +52,21 @@ public class CheckboxComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("checkbox-description", "Checkbox with description",
-                "No code yet",
+                code.get("checkbox-description"),
                 () -> div()
                         .add(checkbox("cwd-0", "Checkbox with description")
                                 .addDescription(checkboxDescription(LoremIpsum.words(50))))
                         .element()));
 
         addSnippet(new Snippet("checkbox-body", "Checkbox with body",
-                "No code yet",
+                code.get("checkbox-body"),
                 () -> div()
                         .add(checkbox("cwb-0", "Checkbox with body")
                                 .addBody(checkboxBody("This is where custom content goes.")))
                         .element()));
 
         addSnippet(new Snippet("checkbox-description-body", "Checkbox with description and body",
-                "No code yet",
+                code.get("checkbox-description-body"),
                 () -> div()
                         .add(checkbox("cdb-0", "Checkbox with description and body")
                                 .addDescription(checkboxDescription(LoremIpsum.words(50)))
@@ -73,13 +74,13 @@ public class CheckboxComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("checkbox-standalone", "Standalone input",
-                "No code yet",
+                code.get("checkbox-standalone"),
                 () -> div()
                         .add(checkbox("standalone-checkbox-0"))
                         .element()));
 
         addSnippet(new Snippet("checkbox-required", "Required input",
-                "No code yet",
+                code.get("checkbox-required"),
                 () -> div()
                         .add(checkbox("required-checkbox-0", "Required checkbox")
                                 .required())

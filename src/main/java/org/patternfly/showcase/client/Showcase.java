@@ -54,6 +54,7 @@ public class Showcase implements EntryPoint {
                         // .addItem(navigationItem("c-card", "Card", "#c-card"))
                         // .addItem(navigationItem("c-chip", "Chip", "#c-chip"))
                         .addItem(navigationItem("c-code-block", "Code block", "#c-code-block"))
+                        .addItem(navigationItem("c-code-editor", "Code editor", "#c-code-editor"))
                         // .addItem(navigationItem("c-context-selector", "Context selector", "#c-context-selector"))
                         // .addItem(navigationItem("c-data-list", "Data list", "#c-data-list"))
                         // .addItem(navigationItem("c-dropdown", "Dropdown", "#c-dropdown"))

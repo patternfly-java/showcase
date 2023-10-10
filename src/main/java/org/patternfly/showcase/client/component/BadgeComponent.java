@@ -18,6 +18,7 @@ package org.patternfly.showcase.client.component;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
+import static org.patternfly.showcase.client.Code.code;
 
 public class BadgeComponent extends ComponentPage {
 
@@ -29,7 +30,7 @@ public class BadgeComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("badge-read", "Badge (read)",
-                "No code yet",
+                code.get("badge-read"),
                 () -> div()
                         .add(badge(7).read())
                         .add(" ")
@@ -41,7 +42,7 @@ public class BadgeComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("badge-unread", "Badge (unread)",
-                "No code yet",
+                code.get("badge-unread"),
                 () -> div()
                         .add(badge(7).unread())
                         .add(" ")

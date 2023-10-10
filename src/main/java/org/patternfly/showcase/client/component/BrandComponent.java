@@ -18,6 +18,7 @@ package org.patternfly.showcase.client.component;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.brand.Brand.brand;
+import static org.patternfly.showcase.client.Code.code;
 
 public class BrandComponent extends ComponentPage {
 
@@ -27,7 +28,7 @@ public class BrandComponent extends ComponentPage {
                 p().textContent("A brand is used to place a product logotype on a screen.").element());
 
         addSnippet(new Snippet("brand-simple", "Simple brand",
-                "No code yet",
+                code.get("brand-simple"),
                 () -> div()
                         .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg"))
                         .element()));

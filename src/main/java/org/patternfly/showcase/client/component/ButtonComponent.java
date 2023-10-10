@@ -27,6 +27,7 @@ import static org.patternfly.layout.PredefinedIcon.externalLinkSquareAlt;
 import static org.patternfly.layout.PredefinedIcon.plusCircle;
 import static org.patternfly.layout.PredefinedIcon.times;
 import static org.patternfly.layout.PredefinedIcon.upload;
+import static org.patternfly.showcase.client.Code.code;
 
 public class ButtonComponent extends ComponentPage {
 
@@ -37,7 +38,7 @@ public class ButtonComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("button-variant-examples", "Variant examples",
-                "No code yet",
+                code.get("button-variant-examples"),
                 () -> div()
                         .add(div()
                                 .add(button("Primary").primary())
@@ -68,7 +69,7 @@ public class ButtonComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("button-disabled", "Disabled buttons",
-                "No code yet",
+                code.get("button-disabled"),
                 () -> div()
                         .add(div()
                                 .add(button("Primary disabled").primary().disabled())
@@ -97,7 +98,7 @@ public class ButtonComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("button-small", "Small buttons",
-                "No code yet",
+                code.get("button-small"),
                 () -> div()
                         .add(button("Primary").primary().small())
                         .add(" ")
@@ -113,7 +114,7 @@ public class ButtonComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("button-cta", "Call to action (CTA) buttons",
-                "No code yet",
+                code.get("button-cta"),
                 () -> div()
                         .add(button("Call to action").primary().callToAction())
                         .add(" ")
@@ -125,13 +126,13 @@ public class ButtonComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("button-block-level", "Block level buttons",
-                "No code yet",
+                code.get("button-block-level"),
                 () -> div()
                         .add(button("Block level button").primary().block())
                         .element()));
 
         addSnippet(new Snippet("button-progress", "Progress indicators",
-                "No code yet",
+                code.get("button-progress"),
                 () -> div()
                         .add(div()
                                 .add(button("Click to stop loading").primary().inProgress(true)
@@ -169,7 +170,7 @@ public class ButtonComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("button-block-links", "Links as buttons",
-                "No code yet",
+                code.get("button-block-links"),
                 () -> div()
                         .add(button("Link to docs", "https://www.patternfly.org/", "_blank").primary())
                         .add(" ")
@@ -183,7 +184,7 @@ public class ButtonComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("button-count", "Button with count",
-                "No code yet",
+                code.get("button-count"),
                 () -> div()
                         .add(div()
                                 .add(p().textContent("Unread"))
