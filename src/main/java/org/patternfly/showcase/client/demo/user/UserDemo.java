@@ -16,14 +16,11 @@
 package org.patternfly.showcase.client.demo.user;
 
 import org.jboss.elemento.HTMLContainerBuilder;
-import org.patternfly.component.Button;
 import org.patternfly.component.Card;
 import org.patternfly.component.CardView;
-import org.patternfly.component.Content;
 import org.patternfly.component.DataList;
 import org.patternfly.component.DataTable;
 import org.patternfly.component.Dropdown;
-import org.patternfly.component.Icon;
 import org.patternfly.component.OldToolbar;
 import org.patternfly.component.OldToolbar.SortOption;
 import org.patternfly.component.OldToolbar.SortOptions;
@@ -48,7 +45,10 @@ import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.small;
 import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.InputType.checkbox;
+import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.layout.Classes.flex;
 import static org.patternfly.layout.Classes.icon;
@@ -86,14 +86,14 @@ public class UserDemo implements Page {
                                         .add(new SortOption<>("Nationality", comparing(user -> user.nat))))))
                         .add(OldToolbar.group().iconButton()
                                 .add(OldToolbar.item()
-                                        .add(Button.icon(Icon.icon(fas("address-card")), "Card view")
-                                                .onClick(() -> show(cardView.element()))))
+                                        .add(button(inlineIcon(fas("address-card")), "Card view")
+                                                .onAction((e, b) -> show(cardView.element()))))
                                 .add(OldToolbar.item()
-                                        .add(Button.icon(Icon.icon(fas("list")), "Card view")
-                                                .onClick(() -> show(dataList.element()))))
+                                        .add(button(inlineIcon(fas("list")), "Card view")
+                                                .onAction((e, b) -> show(dataList.element()))))
                                 .add(OldToolbar.item()
-                                        .add(Button.icon(Icon.icon(fas("table")), "Card view")
-                                                .onClick(() -> show(dataTable.element())))))
+                                        .add(button(inlineIcon(fas("table")), "Card view")
+                                                .onAction((e, b) -> show(dataTable.element())))))
                         .add(OldToolbar.item().add(Pagination.pagination().compact())));
 
         cardView = CardView.cardView(dataProvider, new UserCardDisplay())
@@ -127,7 +127,7 @@ public class UserDemo implements Page {
 
         elements = asList(
                 pageMainSection()
-                        .add(Content.content()
+                        .add(textContent()
                                 .add(title(1, "Users", _4xl))
                                 .add(p().add("A list of 123 random users provided by ")
                                         .add(a("https://randomuser.me").attr("target", "_blank")
@@ -184,8 +184,8 @@ public class UserDemo implements Page {
                                     .add(p().add(i().css(fas("user-alt"), util("mr-sm"))).add(user.login.username))
                                     .add(p().add(small().add("MD5: ").add(code().textContent(user.login.md5))))
                                     .add(p().add(small().add("SHA-1: ").add(code().textContent(user.login.sha1))))))
-                    .add(DataList.itemAction().add(Button.button("Edit").secondary())
-                            .add(Button.button("Remove").secondary())));
+                    .add(DataList.itemAction().add(button("Edit").secondary())
+                            .add(button("Remove").secondary())));
             li.add(DataList.expandableContent()
                     .add(DataList.expandableBody()
                             .add(div().css(layout(flex), modifier("align-items-center"), modifier("space-items-2xl"))

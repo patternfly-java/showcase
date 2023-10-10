@@ -16,6 +16,7 @@
 package org.patternfly.showcase.client.component;
 
 import org.patternfly.component.badge.Badge;
+import org.patternfly.showcase.client.LoremIpsum;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -34,11 +35,13 @@ public class ExpandableSectionComponent extends ComponentPage {
 
     public ExpandableSectionComponent() {
         super("Expandable section",
+                "https://www.patternfly.org/components/expandable-section/design-guidelines",
                 p().textContent(
                         "An expandable section component is used to support progressive disclosure in a form or page by hiding additional content when you don't want it to be shown by default. An expandable section can contain any type of content such as plain text, form inputs, and charts.")
                         .element());
 
-        addSnippet(new Snippet("expandable-section-basic", "Basic", "No code yet",
+        addSnippet(new Snippet("expandable-section-basic", "Basic",
+                "No code yet",
                 () -> div()
                         .add(expandableSection()
                                 .addToggle(expandableSectionToggle("Show more"))
@@ -46,7 +49,8 @@ public class ExpandableSectionComponent extends ComponentPage {
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()));
 
-        addSnippet(new Snippet("expandable-section-dynamic-text", "Basic with dynamic toggle text", "No code yet",
+        addSnippet(new Snippet("expandable-section-dynamic-text", "Basic with dynamic toggle text",
+                "No code yet",
                 () -> div()
                         .add(expandableSection()
                                 .addToggle(expandableSectionToggle("Show more", "Show less"))
@@ -54,7 +58,8 @@ public class ExpandableSectionComponent extends ComponentPage {
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()));
 
-        addSnippet(new Snippet("expandable-section-detached", "Detached", "No code yet",
+        addSnippet(new Snippet("expandable-section-detached", "Detached",
+                "No code yet",
                 () -> div()
                         .add(stack().gutter()
                                 .addItem(stackItem()
@@ -70,7 +75,8 @@ public class ExpandableSectionComponent extends ComponentPage {
                                                         .up()))))
                         .element()));
 
-        addSnippet(new Snippet("expandable-section-disclosure", "Disclosure variation", "No code yet",
+        addSnippet(new Snippet("expandable-section-disclosure", "Disclosure variation",
+                "No code yet",
                 () -> div()
                         .add(expandableSection()
                                 .disclosure()
@@ -79,7 +85,8 @@ public class ExpandableSectionComponent extends ComponentPage {
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()));
 
-        addSnippet(new Snippet("expandable-section-indented", "Indented", "No code yet",
+        addSnippet(new Snippet("expandable-section-indented", "Indented",
+                "No code yet",
                 () -> div()
                         .add(expandableSection()
                                 .indented()
@@ -88,7 +95,8 @@ public class ExpandableSectionComponent extends ComponentPage {
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()));
 
-        addSnippet(new Snippet("expandable-section-custom-toggle", "With custom toggle content", "No code yet",
+        addSnippet(new Snippet("expandable-section-custom-toggle", "With custom toggle content",
+                "No code yet",
                 () -> {
                     Badge badge = badge(4).read();
                     return div()
@@ -107,5 +115,15 @@ public class ExpandableSectionComponent extends ComponentPage {
                                                     "This content is visible only when the component is expanded.")))
                             .element();
                 }));
+
+        addSnippet(new Snippet("expandable-section-truncate", "Truncate",
+                "No code yet",
+                () -> div()
+                        .add(expandableSection()
+                                .truncate(2)
+                                .addContent(expandableSectionContent()
+                                        .textContent(LoremIpsum.paragraphs(20)))
+                                .addToggle(expandableSectionToggle("Show more", "Show less")))
+                        .element()));
     }
 }

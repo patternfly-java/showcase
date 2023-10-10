@@ -24,10 +24,12 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.layout.Classes.util;
 
+@Deprecated
 public class ContextSelectorComponent extends ComponentPage {
 
     public ContextSelectorComponent() {
         super("Context selector",
+                "https://www.patternfly.org/",
                 p().textContent("A context selector can be used in addition to global navigation when the data "
                         + "or resources you show in the interface need to change depending on the users’ context.")
                         .element());

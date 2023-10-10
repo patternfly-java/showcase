@@ -24,10 +24,12 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.Icon.icon;
 import static org.patternfly.layout.PredefinedIcon.fas;
 
+@Deprecated
 public class OptionsMenuComponent extends ComponentPage {
 
     public OptionsMenuComponent() {
         super("Options menu",
+                "https://www.patternfly.org/",
                 p().textContent("An options menu is similar to a dropdown, but provides a way to select among a set "
                         + "of optional settings rather than trigger an action.").element());
 

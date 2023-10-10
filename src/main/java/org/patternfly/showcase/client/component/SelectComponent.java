@@ -22,10 +22,13 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.Icon.icon;
 import static org.patternfly.layout.PredefinedIcon.fas;
 
+@Deprecated
 public class SelectComponent extends ComponentPage {
 
     public SelectComponent() {
-        super("Select", p().textContent("Use a select to choose one or more values from a list").element());
+        super("Select",
+                "https://www.patternfly.org/",
+                p().textContent("Use a select to choose one or more values from a list").element());
 
         addSnippet(new Snippet("single", "Single", "NYI", () -> div()
                 .add(SingleSelect.<String> single("Choose...")

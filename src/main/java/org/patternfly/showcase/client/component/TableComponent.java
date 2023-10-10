@@ -37,7 +37,8 @@ import static org.patternfly.component.DataTable.column;
 import static org.patternfly.component.DataTable.dataTable;
 import static org.patternfly.component.DataTable.expandColumn;
 
-public class DataTableComponent extends ComponentPage {
+@Deprecated
+public class TableComponent extends ComponentPage {
 
     // Pull data table definitions to top-level to have less code indent
     private static DataProvider<Repository> dataProvider() {
@@ -168,8 +169,9 @@ public class DataTableComponent extends ComponentPage {
         }
     }
 
-    public DataTableComponent() {
+    public TableComponent() {
         super("Data table",
+                "https://www.patternfly.org/",
                 p().textContent("A table is used to display large data sets that can be easily "
                         + "laid out in a simple grid with column headers.").element());
 

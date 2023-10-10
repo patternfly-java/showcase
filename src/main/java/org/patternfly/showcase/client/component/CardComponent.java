@@ -31,12 +31,15 @@ import static org.patternfly.component.Card.Head.actions;
 import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Classes.noFill;
 
+@Deprecated
 public class CardComponent extends ComponentPage {
 
     public CardComponent() {
-        super("Card", p().textContent(
-                "A card is a flexible element for containing any kind of content. Cards are used on dashboards, in data displays (e.g. Card View), or for positioning content on a page.")
-                .element());
+        super("Card",
+                "https://www.patternfly.org/components/card/design-guidelines",
+                p().textContent(
+                        "A card is a flexible element for containing any kind of content. Cards are used on dashboards, in data displays (e.g. Card View), or for positioning content on a page.")
+                        .element());
 
         addSnippet(new Snippet("simple-card", "Simple card", "Resources.get().cardSimple().getText()", () -> div()
                 .add(card().add(header().textContent("Header")).add(body().textContent("Body"))

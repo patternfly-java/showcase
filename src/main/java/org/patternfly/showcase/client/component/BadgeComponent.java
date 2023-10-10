@@ -22,26 +22,34 @@ import static org.patternfly.component.badge.Badge.badge;
 public class BadgeComponent extends ComponentPage {
 
     public BadgeComponent() {
-        super("Badge", p().textContent(
-                "A badge is used to annotate other information like a label or an object name. Badges are typically used to reflect a count, e.g. number of object, number of events, number of unread, etc.")
-                .element());
-        addSnippet(new Snippet("badge-read", "Badge (read)", "Resources.get().badgeUnread().getText()", () -> div()
-                .add(badge(7).read())
-                .add(" ")
-                .add(badge(24).read())
-                .add(" ")
-                .add(badge(423).read())
-                .add(" ")
-                .add(badge(1000).limit(999).read())
-                .element()));
-        addSnippet(new Snippet("badge-unread", "Badge (unread)", "Resources.get().badgeRead().getText()", () -> div()
-                .add(badge(7).unread())
-                .add(" ")
-                .add(badge(24).unread())
-                .add(" ")
-                .add(badge(423).unread())
-                .add(" ")
-                .add(badge(1000).limit(999).read())
-                .element()));
+        super("Badge",
+                "https://www.patternfly.org/components/badge/design-guidelines",
+                p().textContent(
+                        "A badge is used to annotate other information like a label or an object name. Badges are typically used to reflect a count, e.g. number of object, number of events, number of unread, etc.")
+                        .element());
+
+        addSnippet(new Snippet("badge-read", "Badge (read)",
+                "No code yet",
+                () -> div()
+                        .add(badge(7).read())
+                        .add(" ")
+                        .add(badge(24).read())
+                        .add(" ")
+                        .add(badge(423).read())
+                        .add(" ")
+                        .add(badge(1000).limit(999).read())
+                        .element()));
+
+        addSnippet(new Snippet("badge-unread", "Badge (unread)",
+                "No code yet",
+                () -> div()
+                        .add(badge(7).unread())
+                        .add(" ")
+                        .add(badge(24).unread())
+                        .add(" ")
+                        .add(badge(423).unread())
+                        .add(" ")
+                        .add(badge(1000).limit(999).read())
+                        .element()));
     }
 }

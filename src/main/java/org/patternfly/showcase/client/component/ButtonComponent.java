@@ -15,147 +15,220 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.component.Button;
-import org.patternfly.component.Button.Type;
-
-import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Button.button;
-import static org.patternfly.component.Icon.icon;
-import static org.patternfly.layout.PredefinedIcon.fas;
+import static org.patternfly.component.badge.Badge.badge;
+import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.button.IconPosition.end;
+import static org.patternfly.layout.Classes.util;
+import static org.patternfly.layout.PredefinedIcon.arrowRight;
+import static org.patternfly.layout.PredefinedIcon.copy;
+import static org.patternfly.layout.PredefinedIcon.externalLinkSquareAlt;
+import static org.patternfly.layout.PredefinedIcon.plusCircle;
+import static org.patternfly.layout.PredefinedIcon.times;
+import static org.patternfly.layout.PredefinedIcon.upload;
 
 public class ButtonComponent extends ComponentPage {
 
     public ButtonComponent() {
         super("Button",
+                "https://www.patternfly.org/components/button/design-guidelines",
                 p().textContent("Buttons communicate and trigger actions a user can take in an application or website.")
                         .element());
 
-        addSnippet(new Snippet("button-variations", "Button variations", "Resources.get().buttonVariations().getText()",
+        addSnippet(new Snippet("button-variant-examples", "Variant examples",
+                "No code yet",
                 () -> div()
-                        .add(div().css("sc-documentation__code-block")
+                        .add(div()
                                 .add(button("Primary").primary())
                                 .add(" ")
                                 .add(button("Secondary").secondary())
                                 .add(" ")
+                                .add(button("Danger secondary").secondary().danger())
+                                .add(" ")
                                 .add(button("Tertiary").tertiary())
                                 .add(" ")
-                                .add(button("Danger").danger()))
-                        .add(div().css("sc-documentation__code-block")
-                                .add(Button.icon(fas("address-card"), "Primary icon").primary())
+                                .add(button("Danger").danger())
                                 .add(" ")
-                                .add(Button.icon(fas("address-card"), "Secondary icon").secondary())
+                                .add(button("Warning").warning()))
+                        .add(div().css(util("mt-lg"))
+                                .add(button().addIconAndText(plusCircle, "Link").link())
                                 .add(" ")
-                                .add(Button.icon(fas("address-card"), "Tertiary icon").tertiary())
+                                .add(button().addIconAndText(externalLinkSquareAlt, "Link", end).link())
                                 .add(" ")
-                                .add(Button.icon(fas("address-card"), "Danger icon").danger()))
-                        .add(div().css("sc-documentation__code-block")
-                                .add(Button.link("Link"))
+                                .add(button("Inline link").inline().link())
                                 .add(" ")
-                                .add(Button.link(icon(fas("calendar-plus")), "Link icon"))
+                                .add(button("Danger link").link().danger()))
+                        .add(div().css(util("mt-lg"))
+                                .add(button(times).plain()))
+                        .add(div().css(util("mt-lg"))
+                                .add(button("Control").control())
                                 .add(" ")
-                                .add(Button.icon(icon(fas("chart-pie")), "Chart"))
-                                .add(" ")
-                                .add(Button.inline("Inline Link")))
-                        .add(div().css("sc-documentation__code-block")
-                                .add(Button.control("Control"))
-                                .add(" ")
-                                .add(Button.control(icon(fas("clock")), "Control icon"))
-                                .add(" ")
-                                .add(Button.control(icon(fas("code")))))
+                                .add(button(copy).control()))
                         .element()));
 
-        addSnippet(new Snippet("button-states", "Button states", "Resources.get().buttonStates().getText()", () -> div()
-                .add(div().css("sc-documentation__code-block")
-                        .add(button("Primary").primary())
-                        .add(" ")
-                        .add(button("Primary focus").primary().focus())
-                        .add(" ")
-                        .add(button("Primary active").primary().active())
-                        .add(" ")
-                        .add(button("Primary disabled").primary().disabled()))
-                .add(div().css("sc-documentation__code-block")
-                        .add(button("Secondary").secondary())
-                        .add(" ")
-                        .add(button("Secondary focus").secondary().focus())
-                        .add(" ")
-                        .add(button("Secondary active").secondary().active())
-                        .add(" ")
-                        .add(button("Secondary disabled").secondary().disabled()))
-                .add(div().css("sc-documentation__code-block")
-                        .add(button("Tertiary").tertiary())
-                        .add(" ")
-                        .add(button("Tertiary focus").tertiary().focus())
-                        .add(" ")
-                        .add(button("Tertiary active").tertiary().active())
-                        .add(" ")
-                        .add(button("Tertiary disabled").tertiary().disabled()))
-                .add(div().css("sc-documentation__code-block")
-                        .add(button("Danger").danger())
-                        .add(" ")
-                        .add(button("Danger focus").danger().focus())
-                        .add(" ")
-                        .add(button("Danger active").danger().active())
-                        .add(" ")
-                        .add(button("Danger disabled").danger().disabled()))
-                .add(div().css("sc-documentation__code-block")
-                        .add(Button.link("Link"))
-                        .add(" ")
-                        .add(Button.link("Link focus").focus())
-                        .add(" ")
-                        .add(Button.link("Link active").active())
-                        .add(" ")
-                        .add(Button.link("Link disabled").disabled()))
-                .add(div().css("sc-documentation__code-block")
-                        .add(Button.link(icon(fas("calendar-plus")), "Link icon"))
-                        .add(" ")
-                        .add(Button.link(icon(fas("calendar-plus")), "Link icon focus").focus())
-                        .add(" ")
-                        .add(Button.link(icon(fas("calendar-plus")), "Link icon active").active())
-                        .add(" ")
-                        .add(Button.link(icon(fas("calendar-plus")), "Link icon disabled").disabled()))
-                .add(div().css("sc-documentation__code-block")
-                        .add(Button.icon(icon(fas("chart-pie")), "Chart"))
-                        .add(" ")
-                        .add(Button.icon(icon(fas("chart-pie")), "Chart focus").focus())
-                        .add(" ")
-                        .add(Button.icon(icon(fas("chart-pie")), "Chart active").active())
-                        .add(" ")
-                        .add(Button.icon(icon(fas("chart-pie")), "Chart disabled").disabled()))
-                .add(div().css("sc-documentation__code-block")
-                        .add(Button.control("Control"))
-                        .add(" ")
-                        .add(Button.control("Control focus").focus())
-                        .add(" ")
-                        .add(Button.control("Control active").active())
-                        .add(" ")
-                        .add(Button.control("Control expanded").expanded())
-                        .add(" ")
-                        .add(Button.control("Control disabled").disabled()))
-                .element()));
+        addSnippet(new Snippet("button-disabled", "Disabled buttons",
+                "No code yet",
+                () -> div()
+                        .add(div()
+                                .add(button("Primary disabled").primary().disabled())
+                                .add(" ")
+                                .add(button("Secondary disabled").secondary().disabled())
+                                .add(" ")
+                                .add(button("Danger secondary disabled").secondary().danger().disabled())
+                                .add(" ")
+                                .add(button("Tertiary disabled").tertiary().disabled())
+                                .add(" ")
+                                .add(button("Danger disabled").danger().disabled())
+                                .add(" ")
+                                .add(button("Warning disabled").warning().disabled()))
+                        .add(div().css(util("mt-lg"))
+                                .add(button().addIconAndText(plusCircle, "Link disabled").link().disabled())
+                                .add(" ")
+                                .add(button("Inline link disabled").inline().link().disabled())
+                                .add(" ")
+                                .add(button("Danger link disabled").link().danger().disabled()))
+                        .add(div().css(util("mt-lg"))
+                                .add(button(times).plain().disabled()))
+                        .add(div().css(util("mt-lg"))
+                                .add(button("Control disabled").control().disabled())
+                                .add(" ")
+                                .add(button(copy).control().disabled()))
+                        .element()));
 
-        addSnippet(new Snippet("button-links", "Links as buttons", "Resources.get().buttonLinks().getText()", () -> div()
-                .add(Button.link("Primary link to W3.org", "https://www.w3.org/").primary())
-                .add(" ")
-                .add(Button.link("Secondary link to W3.org", "https://www.w3.org/").secondary())
-                .add(" ")
-                .add(Button.link(icon(fas("external-link-alt")), "Tertiary link to W3.org",
-                        "https://www.w3.org/", "_blank").tertiary())
-                .element()));
+        addSnippet(new Snippet("button-small", "Small buttons",
+                "No code yet",
+                () -> div()
+                        .add(button("Primary").primary().small())
+                        .add(" ")
+                        .add(button("Secondary").secondary().small())
+                        .add(" ")
+                        .add(button("Danger secondary").secondary().danger().small())
+                        .add(" ")
+                        .add(button("Tertiary").tertiary().small())
+                        .add(" ")
+                        .add(button("Danger").danger().small())
+                        .add(" ")
+                        .add(button("Warning").warning().small())
+                        .element()));
 
-        addSnippet(new Snippet("button-block",
-                "Button (block level)", "Resources.get().buttonBlock().getText()", () -> div()
-                        .add(button("Block level button").block()).element()));
+        addSnippet(new Snippet("button-cta", "Call to action (CTA) buttons",
+                "No code yet",
+                () -> div()
+                        .add(button("Call to action").primary().callToAction())
+                        .add(" ")
+                        .add(button("Call to action").secondary().callToAction())
+                        .add(" ")
+                        .add(button("Call to action").tertiary().callToAction())
+                        .add(" ")
+                        .add(button().addIconAndText(arrowRight, "Call to action", end).link().callToAction())
+                        .element()));
 
-        addSnippet(new Snippet("button-types", "Button types", "Resources.get().buttonTypes().getText()", () -> div()
-                .add(button("Submit").type(Type.SUBMIT))
-                .add(" ")
-                .add(button("Reset").type(Type.RESET))
-                .add(" ")
-                .add(button("Default").type(Type.DEFAULT)).element()));
+        addSnippet(new Snippet("button-block-level", "Block level buttons",
+                "No code yet",
+                () -> div()
+                        .add(button("Block level button").primary().block())
+                        .element()));
 
-        addSnippet(new Snippet("button-event", "Button event", "Resources.get().buttonEvent().getText()", () -> div()
-                .add(button("Click me").primary().onClick(() -> console.log("Clicked"))).element()));
+        addSnippet(new Snippet("button-progress", "Progress indicators",
+                "No code yet",
+                () -> div()
+                        .add(div()
+                                .add(button("Click to stop loading").primary().inProgress(true)
+                                        .onAction((event, button) -> {
+                                            button.toggleProgress();
+                                            if (button.isInProgress()) {
+                                                button.text("Click to stop loading");
+                                            } else {
+                                                button.text("Click to start loading");
+                                            }
+                                        }))
+                                .add(" ")
+                                .add(button("Click to stop loading").secondary().inProgress(true)
+                                        .onAction((event, button) -> {
+                                            button.toggleProgress();
+                                            if (button.isInProgress()) {
+                                                button.text("Click to stop loading");
+                                            } else {
+                                                button.text("Click to start loading");
+                                            }
+                                        })))
+                        .add(div().css(util("mt-lg"))
+                                .add(button(upload).plain()
+                                        .onAction((event, button) -> button.toggleProgress())))
+                        .add(div().css(util("mt-lg"))
+                                .add(button("Pause loading logs").link().inline().inProgress(true)
+                                        .onAction((event, button) -> {
+                                            button.toggleProgress();
+                                            if (button.isInProgress()) {
+                                                button.text("Pause loading logs");
+                                            } else {
+                                                button.text("Resume loading logs");
+                                            }
+                                        })))
+                        .element()));
+
+        addSnippet(new Snippet("button-block-links", "Links as buttons",
+                "No code yet",
+                () -> div()
+                        .add(button("Link to docs", "https://www.patternfly.org/", "_blank").primary())
+                        .add(" ")
+                        .add(button("Secondary link to docs", "https://www.patternfly.org/", "_blank").secondary())
+                        .add(" ")
+                        .add(button("Tertiary link to docs", "https://www.patternfly.org/", "_blank").tertiary()
+                                .disabled())
+                        .add(" ")
+                        .add(button("Jump to lifecycle in developer contributions",
+                                "https://www.patternfly.org/get-started/contribute/developer-contributions#lifecycle").link())
+                        .element()));
+
+        addSnippet(new Snippet("button-count", "Button with count",
+                "No code yet",
+                () -> div()
+                        .add(div()
+                                .add(p().textContent("Unread"))
+                                .add(button("View issues").primary().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").secondary().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").tertiary().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").control().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").link().addBadge(badge(7).unread())))
+                        .add(div().css(util("mt-sm"))
+                                .add(p().textContent("Unread disabled"))
+                                .add(button("View issues").primary().disabled().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").secondary().disabled().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").tertiary().disabled().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").control().disabled().addBadge(badge(7).unread()))
+                                .add(" ")
+                                .add(button("View issues").link().disabled().addBadge(badge(7).unread())))
+                        .add(div().css(util("mt-sm"))
+                                .add(p().textContent("Read"))
+                                .add(button("View issues").primary().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").secondary().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").tertiary().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").control().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").link().addBadge(badge(10).unread())))
+                        .add(div().css(util("mt-sm"))
+                                .add(p().textContent("Read disabled"))
+                                .add(button("View issues").primary().disabled().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").secondary().disabled().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").tertiary().disabled().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").control().disabled().addBadge(badge(10).unread()))
+                                .add(" ")
+                                .add(button("View issues").link().disabled().addBadge(badge(10).unread())))
+                        .element()));
     }
 }

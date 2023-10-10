@@ -27,18 +27,21 @@ import org.patternfly.showcase.client.component.ButtonComponent;
 import org.patternfly.showcase.client.component.CardComponent;
 import org.patternfly.showcase.client.component.CheckboxComponent;
 import org.patternfly.showcase.client.component.ChipComponent;
-import org.patternfly.showcase.client.component.ContentComponent;
+import org.patternfly.showcase.client.component.CodeBlockComponent;
 import org.patternfly.showcase.client.component.ContextSelectorComponent;
 import org.patternfly.showcase.client.component.DataListComponent;
-import org.patternfly.showcase.client.component.DataTableComponent;
 import org.patternfly.showcase.client.component.DropdownComponent;
 import org.patternfly.showcase.client.component.EmptyStateComponent;
 import org.patternfly.showcase.client.component.ExpandableSectionComponent;
+import org.patternfly.showcase.client.component.IconComponent;
 import org.patternfly.showcase.client.component.LabelComponent;
 import org.patternfly.showcase.client.component.MenuComponent;
 import org.patternfly.showcase.client.component.OptionsMenuComponent;
 import org.patternfly.showcase.client.component.SelectComponent;
+import org.patternfly.showcase.client.component.SpinnerComponent;
+import org.patternfly.showcase.client.component.TableComponent;
 import org.patternfly.showcase.client.component.TabsComponent;
+import org.patternfly.showcase.client.component.TextContentComponent;
 import org.patternfly.showcase.client.component.TextInputComponent;
 import org.patternfly.showcase.client.component.TextInputGroupComponent;
 import org.patternfly.showcase.client.component.TitleComponent;
@@ -50,8 +53,8 @@ import elemental2.dom.HTMLElement;
 
 import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Content.content;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
 
 @SuppressWarnings("Convert2MethodRef")
@@ -72,18 +75,21 @@ final class Placemanager {
         places.put("c-card", () -> new CardComponent());
         places.put("c-checkbox", () -> new CheckboxComponent());
         places.put("c-chip", () -> new ChipComponent());
-        places.put("c-content", () -> new ContentComponent());
+        places.put("c-code-block", () -> new CodeBlockComponent());
         places.put("c-context-selector", () -> new ContextSelectorComponent());
         places.put("c-data-list", () -> new DataListComponent());
-        places.put("c-data-table", () -> new DataTableComponent());
         places.put("c-dropdown", () -> new DropdownComponent());
         places.put("c-empty-state", () -> new EmptyStateComponent());
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());
+        places.put("c-icon", () -> new IconComponent());
         places.put("c-label", () -> new LabelComponent());
         places.put("c-menu", () -> new MenuComponent());
         places.put("c-options-menu", () -> new OptionsMenuComponent());
         places.put("c-select", () -> new SelectComponent());
+        places.put("c-spinner", () -> new SpinnerComponent());
+        places.put("c-table", () -> new TableComponent());
         places.put("c-tabs", () -> new TabsComponent());
+        places.put("c-text-content", () -> new TextContentComponent());
         places.put("c-title", () -> new TitleComponent());
         places.put("c-text-input", () -> new TextInputComponent());
         places.put("c-text-input-group", () -> new TextInputGroupComponent());
@@ -113,7 +119,7 @@ final class Placemanager {
             return singletonList(pageMainSection()
                     .light()
                     .css("sc-page")
-                    .add(content()
+                    .add(textContent()
                             .add(title(1, "Not Found"))
                             .add(p().textContent("Page " + place + " not found")))
                     .element());

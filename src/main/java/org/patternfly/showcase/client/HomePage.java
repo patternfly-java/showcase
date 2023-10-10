@@ -20,8 +20,8 @@ import elemental2.dom.HTMLElement;
 import static java.util.Collections.singletonList;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Content.content;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
 
 class HomePage implements Page {
@@ -31,7 +31,7 @@ class HomePage implements Page {
         return singletonList(pageMainSection()
                 .light()
                 .css("sc-page")
-                .add(content().add(title(1, "PatternFly - Java"))
+                .add(textContent().add(title(1, "PatternFly - Java"))
                         .add(p().add("PatternFly Java is a Java implementation of PatternFly based on GWT and ")
                                 .add(a("https://github.com/hal/elemento").textContent("Elemento")).add(".")))
                 .element());

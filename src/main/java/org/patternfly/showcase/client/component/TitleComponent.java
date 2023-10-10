@@ -24,10 +24,12 @@ import static org.patternfly.layout.Size._4xl;
 import static org.patternfly.layout.Size.lg;
 import static org.patternfly.layout.Size.md;
 
+@Deprecated
 public class TitleComponent extends ComponentPage {
 
     public TitleComponent() {
         super("Title",
+                "https://www.patternfly.org/components/tile/design-guidelines",
                 p().textContent("The title component applies top and bottom margins, font-weight, font-size, "
                         + "and line-height to titles.").element());
 

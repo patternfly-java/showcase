@@ -23,10 +23,12 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.Icon.icon;
 import static org.patternfly.layout.PredefinedIcon.fas;
 
+@Deprecated
 public class DropdownComponent extends ComponentPage {
 
     public DropdownComponent() {
         super("Dropdown",
+                "https://www.patternfly.org/",
                 p().textContent("Use a dropdown when you want to present a list of actions in a limited space.")
                         .element());
 

@@ -28,7 +28,9 @@ import static org.patternfly.layout.PredefinedIcon.fas;
 public class TextInputComponent extends ComponentPage {
 
     public TextInputComponent() {
-        super("Text input", p().textContent("A text input is used to gather free-form text from a user.").element());
+        super("Text input",
+                "https://www.patternfly.org/components/forms/text-input/design-guidelines",
+                p().textContent("A text input is used to gather free-form text from a user.").element());
 
         addSnippet(new Snippet("basic-text-input", "Basic", "No code yet", () -> div()
                 .add(textInput("basic-text-input-0"))

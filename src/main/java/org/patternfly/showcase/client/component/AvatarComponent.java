@@ -21,13 +21,19 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.Avatar.avatar;
 
+@Deprecated
 public class AvatarComponent extends ComponentPage {
 
     public AvatarComponent() {
-        super("Avatar", p().textContent(
-                "The avatar is used to represent a user. It may contain an image that represents the user or a placeholder graphic in the absence of an image. Typical usage is to represent the current user in the masthead. Related design guidelines: Masthead")
-                .element());
-        addSnippet(new Snippet("simple-avatar", "Simple avatar", "Resources.get().avatar().getText()",
-                () -> div().add(avatar(Assets.avatar, "avatar")).element()));
+        super("Avatar",
+                "https://www.patternfly.org/components/avatar/design-guidelines",
+                p().textContent(
+                        "The avatar is used to represent a user. It may contain an image that represents the user or a placeholder graphic in the absence of an image. Typical usage is to represent the current user in the masthead. Related design guidelines: Masthead")
+                        .element());
+
+        addSnippet(new Snippet("avatar-simple", "Simple avatar",
+                "No code yet", () -> div()
+                        .add(avatar(Assets.avatar, "avatar"))
+                        .element()));
     }
 }

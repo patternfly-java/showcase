@@ -19,10 +19,12 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.Label.label;
 
+@Deprecated
 public class LabelComponent extends ComponentPage {
 
     public LabelComponent() {
         super("Label",
+                "https://www.patternfly.org/components/label/design-guidelines",
                 p().textContent("Use a label when you want to highlight an element on a page to draw attention to it "
                         + "or make it more searchable.").element());
 

@@ -25,11 +25,11 @@ import elemental2.dom.HTMLElement;
 import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Content.content;
 import static org.patternfly.component.DataTable.checkboxColumn;
 import static org.patternfly.component.DataTable.column;
 import static org.patternfly.component.DataTable.dataTable;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.layout.Size._4xl;
 
@@ -57,7 +57,7 @@ public class ServerDemo implements Page {
 
         elements = asList(
                 pageMainSection()
-                        .add(content().add(title(1, "Servers", _4xl))
+                        .add(textContent().add(title(1, "Servers", _4xl))
                                 .add(p().add("Filter servers based on user input.")))
                         .element(),
                 pageMainSection()

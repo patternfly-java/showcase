@@ -16,7 +16,6 @@
 package org.patternfly.showcase.client.component;
 
 import org.jboss.elemento.Id;
-import org.patternfly.component.Button;
 import org.patternfly.component.DataList;
 import org.patternfly.component.Dropdown;
 import org.patternfly.dataprovider.DataProvider;
@@ -37,6 +36,7 @@ import static org.patternfly.component.DataList.itemCell;
 import static org.patternfly.component.DataList.itemContent;
 import static org.patternfly.component.DataList.itemControl;
 import static org.patternfly.component.DataList.itemRow;
+import static org.patternfly.component.button.Button.button;
 import static org.patternfly.layout.Classes.action;
 import static org.patternfly.layout.Classes.alignRight;
 import static org.patternfly.layout.Classes.component;
@@ -47,6 +47,7 @@ import static org.patternfly.layout.Classes.noFill;
 import static org.patternfly.layout.Classes.noPadding;
 import static org.patternfly.layout.PredefinedIcon.fas;
 
+@Deprecated
 public class DataListComponent extends ComponentPage {
 
     // Pull display data items to top-level to have less code indent
@@ -82,8 +83,8 @@ public class DataListComponent extends ComponentPage {
                                             .add(Dropdown.<String> kebab().right().add("Action One").add("Action Two")
                                                     .addSeparator().add("Final Action"))))
                             .add(itemAction()
-                                    .css(modifier("hidden"), modifier("visible-on-lg")).add(Button.button("Primary").primary())
-                                    .add(Button.button("Secondary").secondary())))),
+                                    .css(modifier("hidden"), modifier("visible-on-lg")).add(button("Primary").primary())
+                                    .add(button("Secondary").secondary())))),
             new DisplayData((li, provider,
                     item) -> li.add(itemRow().add(itemControl().checkbox()).add(itemContent()
                             .add(itemCell().add(span().id(item.id()).textContent("Primary Content. " + LoremIpsum.paragraph())))
@@ -93,9 +94,9 @@ public class DataListComponent extends ComponentPage {
                                             .add(Dropdown.<String> kebab().right().add("Action One").add("Action Two")
                                                     .addSeparator().add("Final Action"))))
                             .add(itemAction().css(modifier("hidden"), modifier("visible-on-xl"))
-                                    .add(Button.button("Primary").primary()).add(Button.button("Secondary").secondary())
-                                    .add(Button.button("Secondary").secondary())
-                                    .add(Button.button("Secondary").secondary())))) };
+                                    .add(button("Primary").primary()).add(button("Secondary").secondary())
+                                    .add(button("Secondary").secondary())
+                                    .add(button("Secondary").secondary())))) };
 
     private static final DisplayData[] EXPANDABLE = {
             new DisplayData(
@@ -210,6 +211,7 @@ public class DataListComponent extends ComponentPage {
 
     public DataListComponent() {
         super("Data list",
+                "https://www.patternfly.org/components/data-list/design-guidelines",
                 p().textContent("A data list is used to display large data sets when you need a flexible layout or "
                         + "need to include interactive content like charts.").element());
 
@@ -222,7 +224,8 @@ public class DataListComponent extends ComponentPage {
         addSnippet(new Snippet("expandable", "Data list expandable", "Resources.get().dataListExpandable().getText()",
                 () -> div().add(dl(EXPANDABLE)).element()));
 
-        addSnippet(new Snippet("width-modifiers", "Data list width modifiers", "Resources.get().dataListModifiers().getText()",
+        addSnippet(new Snippet("width-modifiers", "Data list width modifiers",
+                "Resources.get().dataListModifiers().getText()",
                 () -> div().add(h(2, "Default fitting - example 1")).add(dl(MODIFIERS_1))
                         .add(h(2, "Flex modifiers - example 2").css("pf-u-mt-lg")).add(dl(MODIFIERS_2))
                         .add(h(2, "Flex modifiers - example 3").css("pf-u-mt-lg")).add(dl(MODIFIERS_3))

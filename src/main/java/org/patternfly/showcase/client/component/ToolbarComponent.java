@@ -15,27 +15,29 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.component.Button;
 import org.patternfly.component.Search;
 import org.patternfly.component.SingleSelect;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Button.button;
-import static org.patternfly.component.Icon.icon;
 import static org.patternfly.component.OldToolbar.content;
 import static org.patternfly.component.OldToolbar.group;
 import static org.patternfly.component.OldToolbar.item;
 import static org.patternfly.component.OldToolbar.toolbar;
+import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.PredefinedIcon.fas;
 
+@Deprecated
 public class ToolbarComponent extends ComponentPage {
 
     public ToolbarComponent() {
-        super("Toolbar", p().textContent(
-                "Toolbars can be included to allow a user to manage and manipulate a data set. Data can be presented in any valid presentation, a table, a list, or a data visualization (chart), for example. The PatternFly Toolbar component is a flexible layout system that accommodates a variety of configurations that can be adapted to your specific needs.")
-                .element());
+        super("Toolbar",
+                "https://www.patternfly.org/components/toolbar/design-guidelines",
+                p().textContent(
+                        "Toolbars can be included to allow a user to manage and manipulate a data set. Data can be presented in any valid presentation, a table, a list, or a data visualization (chart), for example. The PatternFly Toolbar component is a flexible layout system that accommodates a variety of configurations that can be adapted to your specific needs.")
+                        .element());
 
         addSnippet(new Snippet("items", "Items", "NYI",
                 () -> div()
@@ -69,9 +71,9 @@ public class ToolbarComponent extends ComponentPage {
                                         .add(new String[] { "1", "2", "3" })))
                                 .add(item().add(SingleSelect.<String> single("Filter 3")
                                         .add(new String[] { "I", "II", "III" }))))
-                        .add(group().iconButton().add(item().add(Button.icon(icon(fas("edit")), "Edit")))
-                                .add(item().add(Button.icon(icon(fas("clone")), "Clone")))
-                                .add(item().add(Button.icon(icon(fas("sync")), "Sync"))))
+                        .add(group().iconButton().add(item().add(button(inlineIcon(fas("edit")), "Edit")))
+                                .add(item().add(button(inlineIcon(fas("clone")), "Clone")))
+                                .add(item().add(button(inlineIcon(fas("sync")), "Sync"))))
                         .add(group().button().add(item().add(button("Action").primary()))
                                 .add(item().add(button("Secondary").secondary()))
                                 .add(item().add(button("Tertiary").tertiary())))))
