@@ -1,0 +1,13 @@
+menu(none)
+        .addContent(menuContent()
+                .addList(menuList()
+                        .addItem(actionMenuItem("item-0", "Action 1")
+                                .icon(fas("code-branch"))
+                                .description("Description"))
+                        .addItem(actionMenuItem("item-1", "Action 2 disabled")
+                                .icon(fas("code-branch"))
+                                .description("Description")
+                                .disabled())
+                        .addItem(actionMenuItem("item-2", "Action 3")
+                                .icon(fas("code-branch"))
+                                .description(LoremIpsum.words(50)))));

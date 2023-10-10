@@ -48,7 +48,7 @@ public class MenuComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("menu-basic", "Basic menu",
-                code.get("basic-menu"),
+                code.get("menu-basic"),
                 () -> div()
                         .add(menu(none)
                                 .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
@@ -66,7 +66,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-danger", "Danger menu item",
-                "No code yet",
+                code.get("menu-danger"),
                 () -> div()
                         .add(menu(none)
                                 .addContent(menuContent()
@@ -79,7 +79,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-icons", "With icons",
-                "No code yet",
+                code.get("menu-icons"),
                 () -> div()
                         .add(menu(none)
                                 .addContent(menuContent()
@@ -93,7 +93,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-actions", "With action",
-                "No code yet",
+                code.get("menu-actions"),
                 () -> div()
                         .add(menu(multi)
                                 .onAction(itemAction -> console.log(
@@ -119,7 +119,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-links", "With links",
-                "No code yet",
+                code.get("menu-links"),
                 () -> div()
                         .add(menu(none)
                                 .addContent(menuContent()
@@ -132,7 +132,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-descriptions", "With descriptions",
-                "No code yet",
+                code.get("menu-descriptions"),
                 () -> div()
                         .add(menu(none)
                                 .addContent(menuContent()
@@ -150,7 +150,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-checkbox", "Item checkbox",
-                "No code yet",
+                code.get("menu-checkbox"),
                 () -> div()
                         .add(menu(multi)
                                 .addContent(menuContent()
@@ -162,7 +162,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-footer", "Menu footer",
-                "No code yet",
+                code.get("menu-footer"),
                 () -> div()
                         .add(menu(none)
                                 .addContent(menuContent()
@@ -178,7 +178,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-separator", "Separated items",
-                "No code yet",
+                code.get("menu-separator"),
                 () -> div()
                         .add(menu(none)
                                 .addContent(menuContent()
@@ -190,7 +190,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-titled-groups", "Titled groups of items",
-                "No code yet",
+                code.get("menu-titled-groups"),
                 () -> div()
                         .add(menu(none)
                                 .addContent(menuContent()
@@ -210,7 +210,7 @@ public class MenuComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("menu-favorites", "With favorites",
-                "No code yet",
+                code.get("menu-favorites"),
                 () -> div()
                         .add(menu(none)
                                 .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
