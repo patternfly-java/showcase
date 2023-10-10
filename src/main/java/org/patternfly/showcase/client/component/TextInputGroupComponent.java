@@ -15,12 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.jboss.elemento.EventType;
-import org.patternfly.component.textinputgroup.TextInputGroup;
-import org.patternfly.component.textinputgroup.TextInputGroupUtilities;
-
-import elemental2.dom.HTMLInputElement;
-
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.setVisible;
@@ -31,6 +25,13 @@ import static org.patternfly.component.textinputgroup.TextInputGroupMain.textInp
 import static org.patternfly.component.textinputgroup.TextInputGroupUtilities.textInputGroupUtilities;
 import static org.patternfly.layout.PredefinedIcon.search;
 import static org.patternfly.layout.PredefinedIcon.times;
+import static org.patternfly.showcase.client.Code.code;
+
+import org.jboss.elemento.EventType;
+import org.patternfly.component.textinputgroup.TextInputGroup;
+import org.patternfly.component.textinputgroup.TextInputGroupUtilities;
+
+import elemental2.dom.HTMLInputElement;
 
 public class TextInputGroupComponent extends ComponentPage {
 
@@ -42,14 +43,14 @@ public class TextInputGroupComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("tig-basic", "Basic",
-                "No code yet",
+                code.get("tig-basic"),
                 () -> div()
                         .add(textInputGroup()
                                 .addMain(textInputGroupMain("basic-text-input-group-0")))
                         .element()));
 
         addSnippet(new Snippet("tig-disabled", "Disabled",
-                "No code yet",
+                code.get("tig-disabled"),
                 () -> div()
                         .add(textInputGroup()
                                 .addMain(textInputGroupMain("disabled-text-input-group-0")
@@ -57,6 +58,7 @@ public class TextInputGroupComponent extends ComponentPage {
                                 .disabled())
                         .element()));
 
+        // TODO Update demo once the internal wiring has enhanced.
         TextInputGroupUtilities utilities = textInputGroupUtilities();
         TextInputGroup textInputGroup = textInputGroup()
                 .addMain(textInputGroupMain("utilities-and-icon-0")
@@ -73,9 +75,10 @@ public class TextInputGroupComponent extends ComponentPage {
                             setVisible(utilities, false);
                         }));
         setVisible(utilities, false);
-        addSnippet(new Snippet("tig-utilities-and-icon", "Utilities and icon", "No code yet", () -> div()
-                .add(textInputGroup
-                        .addUtilities(utilities))
-                .element()));
+        addSnippet(new Snippet("tig-utilities-and-icon", "Utilities and icon",
+                "No code yet", () -> div()
+                        .add(textInputGroup
+                                .addUtilities(utilities))
+                        .element()));
     }
 }
