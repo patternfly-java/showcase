@@ -30,6 +30,7 @@ import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
+import static org.patternfly.showcase.client.Code.code;
 
 public class ExpandableSectionComponent extends ComponentPage {
 
@@ -41,7 +42,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("expandable-section-basic", "Basic",
-                "No code yet",
+                code.get("expandable-section-basic"),
                 () -> div()
                         .add(expandableSection()
                                 .addToggle(expandableSectionToggle("Show more"))
@@ -50,7 +51,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("expandable-section-dynamic-text", "Basic with dynamic toggle text",
-                "No code yet",
+                code.get("expandable-section-dynamic-text"),
                 () -> div()
                         .add(expandableSection()
                                 .addToggle(expandableSectionToggle("Show more", "Show less"))
@@ -59,7 +60,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("expandable-section-detached", "Detached",
-                "No code yet",
+                code.get("expandable-section-detached"),
                 () -> div()
                         .add(stack().gutter()
                                 .addItem(stackItem()
@@ -76,7 +77,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("expandable-section-disclosure", "Disclosure variation",
-                "No code yet",
+                code.get("expandable-section-disclosure"),
                 () -> div()
                         .add(expandableSection()
                                 .disclosure()
@@ -86,7 +87,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("expandable-section-indented", "Indented",
-                "No code yet",
+                code.get("expandable-section-indented"),
                 () -> div()
                         .add(expandableSection()
                                 .indented()
@@ -96,7 +97,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("expandable-section-custom-toggle", "With custom toggle content",
-                "No code yet",
+                code.get("expandable-section-custom-toggle"),
                 () -> {
                     Badge badge = badge(4).read();
                     return div()
@@ -117,7 +118,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                 }));
 
         addSnippet(new Snippet("expandable-section-truncate", "Truncate",
-                "No code yet",
+                code.get("expandable-section-truncate"),
                 () -> div()
                         .add(expandableSection()
                                 .truncate(2)

@@ -46,6 +46,7 @@ import static org.patternfly.layout.Status.danger;
 import static org.patternfly.layout.Status.info;
 import static org.patternfly.layout.Status.success;
 import static org.patternfly.layout.Status.warning;
+import static org.patternfly.showcase.client.Code.code;
 
 public class IconComponent extends ComponentPage {
 
@@ -57,7 +58,7 @@ public class IconComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("icon-basic", "Basic",
-                "No code yet",
+                code.get("icon-basic"),
                 () -> div()
                         .add(icon(fas("long-arrow-alt-down")))
                         .add(" ")
@@ -69,7 +70,7 @@ public class IconComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("icon-sizes", "Sizes",
-                "No code yet",
+                code.get("icon-sizes"),
                 () -> div()
                         .add(icon(plusCircle).size(sm))
                         .add(" ")
@@ -81,7 +82,7 @@ public class IconComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("icon-status-colors", "Status colors",
-                "No code yet",
+                code.get("icon-status-colors"),
                 () -> div()
                         .add(icon(exclamationCircle).status(danger))
                         .add(" ")
@@ -95,7 +96,7 @@ public class IconComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("icon-container", "Sizing an icon within the icon container",
-                "No code yet",
+                code.get("icon-container"),
                 () -> div()
                         .add(icon(plusCircle).size(xl).iconSize(sm))
                         .add(" ")
@@ -107,7 +108,7 @@ public class IconComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("icon-inline", "Inline",
-                "No code yet",
+                code.get("icon-inline"),
                 () -> div()
                         .add(textContent()
                                 .add(h(1)
@@ -141,7 +142,7 @@ public class IconComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("icon-in-progress", "In progress",
-                "No code yet",
+                code.get("icon-in-progress"),
                 () -> {
                     Icon icon = icon(checkCircle);
                     return div()
@@ -153,7 +154,7 @@ public class IconComponent extends ComponentPage {
                 }));
 
         addSnippet(new Snippet("icon-in-progress-custom", "Custom in progress icon",
-                "No code yet",
+                code.get("icon-in-progress-custom"),
                 () -> {
                     Icon icon = icon(checkCircle);
                     return div()
