@@ -1,1 +1,0 @@
-Avatar.avatar("./images/img_avatar.svg", "avatar");

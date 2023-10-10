@@ -1,1 +1,0 @@
-Expandable e = Expandable.expandable().textContent("This content is visible only when the component is expanded.");

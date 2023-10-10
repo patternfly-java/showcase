@@ -27,6 +27,7 @@ import static org.patternfly.layout.Size.lg;
 import static org.patternfly.layout.Size.md;
 import static org.patternfly.layout.Size.sm;
 import static org.patternfly.layout.Size.xl;
+import static org.patternfly.showcase.client.Code.code;
 
 public class SpinnerComponent extends ComponentPage {
 
@@ -38,13 +39,13 @@ public class SpinnerComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("spinner-basic", "Basic",
-                "No code yet",
+                code.get("spinner-basic"),
                 () -> div()
                         .add(spinner())
                         .element()));
 
         addSnippet(new Snippet("spinner-sizes", "Sizes",
-                "No code yet",
+                code.get("spinner-sizes"),
                 () -> div()
                         .add(spinner(sm))
                         .add(" ")
@@ -56,13 +57,13 @@ public class SpinnerComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("spinner-custom-size", "Custom size",
-                "No code yet",
+                code.get("spinner-custom-size"),
                 () -> div()
                         .add(spinner().diameter("80px"))
                         .element()));
 
         addSnippet(new Snippet("spinner-inline-size", "Inline size",
-                "No code yet",
+                code.get("spinner-inline-size"),
                 () -> div()
                         .add(textContent()
                                 .add(h(1)
