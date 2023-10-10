@@ -1,0 +1,9 @@
+textContent()
+        .add(ul()
+                .add(li().textContent(LoremIpsum.words()))
+                .add(li().textContent(LoremIpsum.words()))
+                .add(li().add(LoremIpsum.words())
+                        .add(ul()
+                                .add(li().textContent(LoremIpsum.words()))
+                                .add(li().textContent(LoremIpsum.words()))))
+                .add(li().add(LoremIpsum.words())));

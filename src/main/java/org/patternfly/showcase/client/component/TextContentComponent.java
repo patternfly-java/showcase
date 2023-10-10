@@ -32,6 +32,7 @@ import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Classes.plain;
+import static org.patternfly.showcase.client.Code.code;
 
 public class TextContentComponent extends ComponentPage {
 
@@ -43,7 +44,7 @@ public class TextContentComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("text-content-headings", "Heading",
-                "No code yet",
+                code.get("text-content-headings"),
                 () -> div()
                         .add(textContent()
                                 .add(h(1, "Hello World"))
@@ -55,7 +56,7 @@ public class TextContentComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("text-content-body", "Body",
-                "No code yet",
+                code.get("text-content-body"),
                 () -> div()
                         .add(textContent()
                                 .add(p().textContent(LoremIpsum.paragraphs(5)))
@@ -68,7 +69,7 @@ public class TextContentComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("text-content-ul", "Unordered list",
-                "No code yet",
+                code.get("text-content-ul"),
                 () -> div()
                         .add(textContent()
                                 .add(ul()
@@ -82,7 +83,7 @@ public class TextContentComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("text-content-ol", "Ordered list",
-                "No code yet",
+                code.get("text-content-ol"),
                 () -> div()
                         .add(textContent()
                                 .add(ol()
@@ -96,7 +97,7 @@ public class TextContentComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("text-content-plain-list", "Plain list",
-                "No code yet",
+                code.get("text-content-plain-list"),
                 () -> div()
                         .add(textContent()
                                 .add(h(3, "Plain unordered list"))
@@ -117,7 +118,7 @@ public class TextContentComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("text-content-dl", "Description list",
-                "No code yet",
+                code.get("text-content-dl"),
                 () -> div()
                         .add(textContent()
                                 .add(dl()
