@@ -13,4 +13,4 @@ Showcase for [PatternFly Java](https://github.com/patternfly-java/patternfly-jav
 ### Production mode
 
 - `mvn package -P prod`
-- Find the compiled web app in `target/patternfly-showcase/showcase`
+- Find the compiled web app in `target/showcase-pages`
