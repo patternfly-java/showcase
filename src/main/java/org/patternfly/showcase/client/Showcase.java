@@ -25,17 +25,17 @@ import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.hashchange;
 import static org.patternfly.component.brand.Brand.brand;
+import static org.patternfly.component.masthead.Masthead.masthead;
+import static org.patternfly.component.masthead.MastheadToggle.mastheadToggle;
 import static org.patternfly.component.navigation.ExpandableNavigationGroup.expandableNavigationGroup;
 import static org.patternfly.component.navigation.Navigation.navigation;
 import static org.patternfly.component.navigation.NavigationItem.navigationItem;
 import static org.patternfly.component.navigation.NavigationType.Vertical.expandable;
-import static org.patternfly.component.page.Masthead.pageMasthead;
-import static org.patternfly.component.page.MastheadToggle.mastheadToggle;
 import static org.patternfly.component.page.Page.page;
 import static org.patternfly.component.page.PageMain.pageMain;
-import static org.patternfly.component.page.PageSidebar.pageSidebar;
-import static org.patternfly.component.page.PageSidebarBody.pageSidebarBody;
-import static org.patternfly.component.page.SkipToContent.skipToContent;
+import static org.patternfly.component.sidebar.Sidebar.sidebar;
+import static org.patternfly.component.sidebar.SidebarBody.sidebarBody;
+import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.client.Assets.pfLogo;
 
 public class Showcase implements EntryPoint {
@@ -46,6 +46,7 @@ public class Showcase implements EntryPoint {
         navigation = navigation(expandable)
                 .addItem(navigationItem("get-started", "Get started", "#get-started"))
                 .addGroup(expandableNavigationGroup("components", "Components")
+                        .addItem(navigationItem("c-action-list", "Action list", "#c-action-list"))
                         .addItem(navigationItem("c-alert", "Alert", "#c-alert"))
                         // .addItem(navigationItem("c-avatar", "Avatar", "#c-avatar"))
                         .addItem(navigationItem("c-badge", "Badge", "#c-badge"))
@@ -89,11 +90,11 @@ public class Showcase implements EntryPoint {
         String mainId = "main-id";
         body().add(page()
                 .addSkipToContent(skipToContent(mainId))
-                .addMasthead(pageMasthead().css("ws-masthead")
+                .addMasthead(masthead().css("ws-masthead")
                         .addToggle(mastheadToggle())
                         .addBrand(brand(pfLogo).style("--pf-v5-c-brand--Height:36px"), "#home"))
-                .addSidebar(pageSidebar()
-                        .addBody(pageSidebarBody()
+                .addSidebar(sidebar()
+                        .addBody(sidebarBody()
                                 .addNavigation(navigation)))
                 .addMain(pageMain(mainId)));
 

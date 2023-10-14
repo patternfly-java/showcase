@@ -149,7 +149,7 @@ public class IconComponent extends ComponentPage {
                     return div()
                             .add(div().css(util("mb-md"))
                                     .add(checkbox("in-progress-cb", "Toggle in progress state")
-                                            .onChange((checkBox, value) -> icon.inProgress(value))))
+                                            .onChange((checkBox, value) -> icon.progress(value))))
                             .add(icon)
                             .element();
                 }));
@@ -161,7 +161,7 @@ public class IconComponent extends ComponentPage {
                     return div()
                             .add(div().css(util("mb-md"))
                                     .add(checkbox("in-progress-custom-cb", "Toggle in progress state")
-                                            .onChange((checkBox, value) -> icon.inProgress(value,
+                                            .onChange((checkBox, value) -> icon.progress(value,
                                                     spinner -> spinner.diameter("2em")))))
                             .add(icon)
                             .element();

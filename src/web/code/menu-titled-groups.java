@@ -1,4 +1,4 @@
-menu(none)
+menu(click)
         .addContent(menuContent()
                 .addGroup(menuGroup()
                         .addList(menuList()

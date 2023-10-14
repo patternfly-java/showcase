@@ -1,4 +1,4 @@
-menu(none)
+menu(click)
         .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
         .onAction(itemAction -> console.log(
                 "Action " + itemAction.id + " on item " + itemAction.menuItem.id + " clicked"))

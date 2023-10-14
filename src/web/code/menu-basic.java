@@ -1,4 +1,4 @@
-menu(none)
+menu(click)
         .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
         .addContent(menuContent()
                 .addList(menuList()

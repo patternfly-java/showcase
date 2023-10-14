@@ -1,4 +1,4 @@
-menu(none)
+menu(click)
         .addContent(menuContent()
                 .addList(menuList()
                         .addItem(linkMenuItem("item-0", "Link 1", "#home")

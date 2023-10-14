@@ -31,8 +31,8 @@ import static org.patternfly.component.menu.MenuItem.checkboxMenuItem;
 import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuItemAction.menuItemAction;
 import static org.patternfly.component.menu.MenuList.menuList;
+import static org.patternfly.core.SelectionMode.click;
 import static org.patternfly.core.SelectionMode.multi;
-import static org.patternfly.core.SelectionMode.none;
 import static org.patternfly.layout.PredefinedIcon.bars;
 import static org.patternfly.layout.PredefinedIcon.bell;
 import static org.patternfly.layout.PredefinedIcon.fas;
@@ -51,7 +51,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-basic", "Basic menu",
                 code.get("menu-basic"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -69,7 +69,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-danger", "Danger menu item",
                 code.get("menu-danger"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Action 1"))
@@ -82,7 +82,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-icons", "With icons",
                 code.get("menu-icons"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Item 1")
@@ -122,7 +122,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-links", "With links",
                 code.get("menu-links"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(linkMenuItem("item-0", "Link 1", "#home")
@@ -135,7 +135,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-descriptions", "With descriptions",
                 code.get("menu-descriptions"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Action 1")
@@ -165,7 +165,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-footer", "Menu footer",
                 code.get("menu-footer"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Action"))
@@ -181,7 +181,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-separator", "Separated items",
                 code.get("menu-separator"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Action 1"))
@@ -193,7 +193,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-titled-groups", "Titled groups of items",
                 code.get("menu-titled-groups"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .addContent(menuContent()
                                         .addGroup(menuGroup()
                                                 .addList(menuList()
@@ -213,7 +213,7 @@ public class MenuComponent extends ComponentPage {
         addSnippet(new Snippet("menu-favorites", "With favorites",
                 code.get("menu-favorites"),
                 () -> div()
-                        .add(menu(none)
+                        .add(menu(click)
                                 .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
                                 .onAction(itemAction -> console.log(
                                         "Action " + itemAction.id + " on item " + itemAction.menuItem.id + " clicked"))

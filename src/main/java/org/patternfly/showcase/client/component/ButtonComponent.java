@@ -136,20 +136,20 @@ public class ButtonComponent extends ComponentPage {
                 code.get("button-progress"),
                 () -> div()
                         .add(div()
-                                .add(button("Click to stop loading").primary().inProgress(true)
+                                .add(button("Click to stop loading").primary().progress(true)
                                         .onAction((event, button) -> {
                                             button.toggleProgress();
-                                            if (button.isInProgress()) {
+                                            if (button.inProgress()) {
                                                 button.text("Click to stop loading");
                                             } else {
                                                 button.text("Click to start loading");
                                             }
                                         }))
                                 .add(" ")
-                                .add(button("Click to stop loading").secondary().inProgress(true)
+                                .add(button("Click to stop loading").secondary().progress(true)
                                         .onAction((event, button) -> {
                                             button.toggleProgress();
-                                            if (button.isInProgress()) {
+                                            if (button.inProgress()) {
                                                 button.text("Click to stop loading");
                                             } else {
                                                 button.text("Click to start loading");
@@ -159,10 +159,10 @@ public class ButtonComponent extends ComponentPage {
                                 .add(button(upload).plain()
                                         .onAction((event, button) -> button.toggleProgress())))
                         .add(div().css(util("mt-lg"))
-                                .add(button("Pause loading logs").link().inline().inProgress(true)
+                                .add(button("Pause loading logs").link().inline().progress(true)
                                         .onAction((event, button) -> {
                                             button.toggleProgress();
-                                            if (button.isInProgress()) {
+                                            if (button.inProgress()) {
                                                 button.text("Pause loading logs");
                                             } else {
                                                 button.text("Resume loading logs");

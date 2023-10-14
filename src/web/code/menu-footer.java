@@ -1,4 +1,4 @@
-menu(none)
+menu(click)
         .addContent(menuContent()
                 .addList(menuList()
                         .addItem(actionMenuItem("item-0", "Action"))
