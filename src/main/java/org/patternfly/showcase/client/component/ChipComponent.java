@@ -15,33 +15,77 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.component.Chip;
-
-import static elemental2.dom.DomGlobal.console;
+import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Chip.chip;
+import static org.patternfly.component.badge.Badge.badge;
+import static org.patternfly.component.chip.Chip.chip;
+import static org.patternfly.component.chip.ChipGroup.chipGroup;
+import static org.patternfly.showcase.client.Code.code;
 
-@Deprecated
 public class ChipComponent extends ComponentPage {
 
     public ChipComponent() {
         super("Chip",
-                "https://patternfly-java.github.io/patternfly-java/",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/chip/Chip.html",
                 "https://www.patternfly.org/components/chip/design-guidelines",
                 p().textContent(
-                        "A Chip is used to display items that have been filtered or selected from a larger group. They comprise of a text element and a button component that is used to remove the chip from selection. When the text overflows it is truncated using ellipses. A chip can be grouped by using the \"chip-group\" layout.")
+                        "A chip is used to communicate a value or a set of attribute-value pairs within workflows that involve filtering a set of objects.")
                         .element());
 
-        addSnippet(new Snippet("chip", "Chip", "Resources.get().chip().getText()",
-                () -> div().add(div().css("sc-documentation__code-block").add(chip("Just Text")))
-                        .add(div().css("sc-documentation__code-block").add(chip("Count", 23)))
-                        .add(div().css("sc-documentation__code-block").add(Chip.readOnly("Readonly")))
-                        .add(div().css("sc-documentation__code-block").add(Chip.readOnly("RO Count", 42)))
-                        .add(div().add(Chip.overflow("Overflow"))).element()));
+        addSnippet(new Snippet("chip-variants", "Chip variants",
+                code.get("chip-variants"),
+                () -> div()
+                        .add(chip("Chip 1"))
+                        .add(br())
+                        .add(br())
+                        .add(chip("Really long chip that goes on and on"))
+                        .add(br())
+                        .add(br())
+                        .add(chip("Chip").addBadge(badge(7).read()))
+                        .add(br())
+                        .add(br())
+                        .add(chip("Read-only chip").readonly())
+                        .element()));
 
-        addSnippet(new Snippet("chip-on-close", "Chip onClose", "Resources.get().chipOnClose().getText()",
-                () -> div().add(chip("Close Me").onClose(() -> console.log("NYI") /* toast().add(info("Goodbye")) */))
+        addSnippet(new Snippet("chip-group", "Chip group",
+                code.get("chip-group"),
+                () -> div()
+                        .add(chipGroup()
+                                .addChip(chip("Chip one"))
+                                .addChip(chip("Really long chip that goes on and on"))
+                                .addChip(chip("Chip three"))
+                                .addChip(chip("Chip four"))
+                                .addChip(chip("Chip five")))
+                        .element()));
+
+        addSnippet(new Snippet("chip-group-category", "Chip group with category",
+                code.get("chip-group-category"),
+                () -> div()
+                        .add(chipGroup("Category one")
+                                .addChip(chip("Chip one"))
+                                .addChip(chip("Really long chip that goes on and on"))
+                                .addChip(chip("Chip three"))
+                                .addChip(chip("Chip four"))
+                                .addChip(chip("Chip five")))
+                        .element()));
+
+        addSnippet(new Snippet("chip-group-removable-category", "Chip group with removable category",
+                code.get("chip-group-removable-category"),
+                () -> div()
+                        .add(chipGroup("Category one")
+                                .closable()
+                                .addChip(chip("Chip one"))
+                                .addChip(chip("Chip two"))
+                                .addChip(chip("Chip three")))
+                        .add(br())
+                        .add(br())
+                        .add(chipGroup("Category two has a very long name")
+                                .closable()
+                                .addChip(chip("Chip one"))
+                                .addChip(chip("Chip two"))
+                                .addChip(chip("Chip three"))
+                                .addChip(chip("Chip four")))
                         .element()));
     }
 }

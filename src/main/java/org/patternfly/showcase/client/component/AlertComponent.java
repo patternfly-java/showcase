@@ -21,6 +21,8 @@ import org.patternfly.showcase.client.LoremIpsum;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
 
+import static elemental2.dom.DomGlobal.clearInterval;
+import static elemental2.dom.DomGlobal.setInterval;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.code;
@@ -299,10 +301,8 @@ public class AlertComponent extends ComponentPage {
                         .add(actionList()
                                 .addItem(actionListItem()
                                         .add(button("Add toast success alert").secondary()
-                                                .onAction((e, b) -> {
-                                                    alertGroup(toast)
-                                                            .addAlert(alert(success, "Toast success alert"));
-                                                })))
+                                                .onAction((e, b) -> alertGroup(toast)
+                                                        .addAlert(alert(success, "Toast success alert")))))
                                 .addItem(actionListItem()
                                         .add(button("Add toast danger alert").secondary()
                                                 .onAction((e, b) -> alertGroup(toast)
@@ -312,5 +312,29 @@ public class AlertComponent extends ComponentPage {
                                                 .onAction((e, b) -> alertGroup(toast)
                                                         .addAlert(alert(info, "Toast info alert"))))))
                         .element()));
+
+        addSnippet(new Snippet("alert-group-asynchronous", "Asynchronous alert groups",
+                code.get("alert-group-asynchronous"),
+                () -> {
+                    final int[] counter = { 0 };
+                    final double[] intervalHandle = { 0 };
+                    return div()
+                            .add(actionList()
+                                    .addItem(actionListItem()
+                                            .add(button("Start async alerts").secondary()
+                                                    .onAction((e, b) -> intervalHandle[0] = setInterval(__ -> {
+                                                        counter[0] = counter[0] + 1;
+                                                        alertGroup(toast)
+                                                                .addAlert(alert(danger, "Async notification " + counter[0]
+                                                                        + " was added to the queue."));
+                                                    }, 1_000))))
+                                    .addItem(actionListItem()
+                                            .add(button("Stop async alerts").secondary()
+                                                    .onAction((e, b) -> {
+                                                        counter[0] = 0;
+                                                        clearInterval(intervalHandle[0]);
+                                                    }))))
+                            .element();
+                }));
     }
 }

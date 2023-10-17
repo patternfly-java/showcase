@@ -25,6 +25,7 @@ import org.patternfly.showcase.client.component.BadgeComponent;
 import org.patternfly.showcase.client.component.BrandComponent;
 import org.patternfly.showcase.client.component.ButtonComponent;
 import org.patternfly.showcase.client.component.CheckboxComponent;
+import org.patternfly.showcase.client.component.ChipComponent;
 import org.patternfly.showcase.client.component.CodeBlockComponent;
 import org.patternfly.showcase.client.component.CodeEditorComponent;
 import org.patternfly.showcase.client.component.ExpandableSectionComponent;
@@ -55,6 +56,7 @@ final class Placemanager {
         places.put("get-in-touch", () -> new GetInTouchPage());
         places.put("get-started", () -> new GetStartedPage());
         places.put("home", () -> new HomePage());
+
         places.put("c-action-list", () -> new ActionListComponent());
         places.put("c-alert", () -> new AlertComponent());
         // places.put("c-avatar", () -> new AvatarComponent());
@@ -63,7 +65,7 @@ final class Placemanager {
         places.put("c-button", () -> new ButtonComponent());
         // places.put("c-card", () -> new CardComponent());
         places.put("c-checkbox", () -> new CheckboxComponent());
-        // places.put("c-chip", () -> new ChipComponent());
+        places.put("c-chip", () -> new ChipComponent());
         places.put("c-code-block", () -> new CodeBlockComponent());
         places.put("c-code-editor", () -> new CodeEditorComponent());
         // places.put("c-context-selector", () -> new ContextSelectorComponent());
@@ -84,6 +86,7 @@ final class Placemanager {
         places.put("c-text-input", () -> new TextInputComponent());
         places.put("c-text-input-group", () -> new TextInputGroupComponent());
         // places.put("c-toolbar", () -> new ToolbarComponent());
+
         places.put("d-server", () -> new ServerDemo());
         places.put("d-user", () -> new UserDemo());
     }

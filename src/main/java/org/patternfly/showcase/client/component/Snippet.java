@@ -52,10 +52,11 @@ class Snippet implements IsElement<HTMLElement> {
     private final Supplier<HTMLElement> demoSupplier;
     private final HTMLElement root;
     private final HTMLElement preview;
-    private final CodeEditor codeEditor;
 
     Snippet(String id, String header, String code, Supplier<HTMLElement> demo) {
         demoSupplier = demo;
+
+        CodeEditor codeEditor;
         root = div().css("ws-example")
                 .add(div().css("ws-example-header")
                         .add(div().css(layout(flex), modifier("space-items-none"), modifier("align-items-center"))
@@ -75,8 +76,8 @@ class Snippet implements IsElement<HTMLElement> {
                                                 .css("ws-code-editor-control")
                                                 .control()
                                                 .addIconAndText(PredefinedIcon.code, "Java"))
-                                                .onAction((event, codeEditor) -> {
-                                                    HTMLElement mainElement = codeEditor.find(
+                                                .onAction((event, codeEditorAction) -> {
+                                                    HTMLElement mainElement = codeEditorAction.mainComponent().find(
                                                             By.classname(component(Classes.codeEditor, main)));
                                                     setVisible(mainElement, !isVisible(mainElement));
                                                 }))
@@ -84,7 +85,7 @@ class Snippet implements IsElement<HTMLElement> {
                                                 .css("ws-code-editor-control"))
                                         .addAction(codeEditorAction(undo)
                                                 .css("ws-code-editor-control")
-                                                .onAction((event, codeEditor) -> undo()))))
+                                                .onAction((event, codeEditorAction) -> undo()))))
                         .code(code))
                 .element();
 

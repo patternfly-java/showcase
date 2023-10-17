@@ -15,15 +15,14 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.jboss.elemento.EventType;
 import org.patternfly.component.textinputgroup.TextInputGroup;
-import org.patternfly.component.textinputgroup.TextInputGroupUtilities;
 
 import elemental2.dom.HTMLInputElement;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.setVisible;
+import static org.jboss.elemento.EventType.click;
 import static org.jboss.elemento.EventType.keyup;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.textinputgroup.TextInputGroup.textInputGroup;
@@ -59,27 +58,27 @@ public class TextInputGroupComponent extends ComponentPage {
                                 .disabled())
                         .element()));
 
-        // TODO Update demo once the internal wiring has enhanced.
-        TextInputGroupUtilities utilities = textInputGroupUtilities();
-        TextInputGroup textInputGroup = textInputGroup()
-                .addMain(textInputGroupMain("utilities-and-icon-0")
-                        .addIcon(search)
-                        .withInputElement(inputElement -> inputElement.on(keyup, e -> {
-                            String value = ((HTMLInputElement) e.target).value;
-                            setVisible(utilities, !value.isEmpty());
-                        }))
-                        .placeholder("Placeholder"));
-        utilities
-                .add(button(times).plain()
-                        .on(EventType.click, e -> {
-                            textInputGroup.main().inputElement().element().value = "";
-                            setVisible(utilities, false);
-                        }));
-        setVisible(utilities, false);
         addSnippet(new Snippet("tig-utilities-and-icon", "Utilities and icon",
-                "No code yet", () -> div()
-                        .add(textInputGroup
-                                .addUtilities(utilities))
-                        .element()));
+                code.get("tig-utilities-and-icon"), () -> {
+                    TextInputGroup textInputGroup = textInputGroup();
+                    textInputGroup
+                            .addMain(textInputGroupMain("tig-utilities-and-icon-0")
+                                    .addIcon(search)
+                                    .placeholder("Placeholder")
+                                    .withInputElement(inputElement -> inputElement.on(keyup, e -> {
+                                        String value = ((HTMLInputElement) e.target).value;
+                                        setVisible(textInputGroup.utilities(), !value.isEmpty());
+                                    })))
+                            .addUtilities(textInputGroupUtilities()
+                                    .apply(e -> setVisible(e, false))
+                                    .add(button(times).plain()
+                                            .on(click, e -> {
+                                                textInputGroup.clear();
+                                                setVisible(textInputGroup.utilities(), false);
+                                            })));
+                    return div()
+                            .add(textInputGroup)
+                            .element();
+                }));
     }
 }

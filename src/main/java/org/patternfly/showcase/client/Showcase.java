@@ -53,7 +53,7 @@ public class Showcase implements EntryPoint {
                         .addItem(navigationItem("c-brand", "Brand", "#c-brand"))
                         .addItem(navigationItem("c-button", "Button", "#c-button"))
                         // .addItem(navigationItem("c-card", "Card", "#c-card"))
-                        // .addItem(navigationItem("c-chip", "Chip", "#c-chip"))
+                        .addItem(navigationItem("c-chip", "Chip", "#c-chip"))
                         .addItem(navigationItem("c-code-block", "Code block", "#c-code-block"))
                         .addItem(navigationItem("c-code-editor", "Code editor", "#c-code-editor"))
                         // .addItem(navigationItem("c-context-selector", "Context selector", "#c-context-selector"))
