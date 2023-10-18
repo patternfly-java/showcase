@@ -1,0 +1,13 @@
+actionList()
+        .addItem(actionListItem()
+                .add(button("Add toast success alert").secondary()
+                        .onAction((e, b) -> alertGroup(toast)
+                                .addAlert(alert(success, "Toast success alert")))))
+        .addItem(actionListItem()
+                .add(button("Add toast danger alert").secondary()
+                        .onAction((e, b) -> alertGroup(toast)
+                                .addAlert(alert(danger, "Toast danger alert")))))
+        .addItem(actionListItem()
+                .add(button("Add toast info alert").secondary()
+                        .onAction((e, b) -> alertGroup(toast)
+                                .addAlert(alert(info, "Toast info alert")))));

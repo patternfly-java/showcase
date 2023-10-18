@@ -264,7 +264,7 @@ public class AlertComponent extends ComponentPage {
                         .element()));
 
         addSnippet(new Snippet("alert-static-live-region", "Static live region alerts",
-                code.get("alert-plain-inline-variations"),
+                code.get("alert-static-live-region"),
                 () -> div()
                         .add(alert(info, "Default live region configuration")
                                 .closable()

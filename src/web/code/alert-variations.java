@@ -1,42 +1,28 @@
 alert(success, "Success alert title")
-        .closable()
+        .closable((e, a) -> DomGlobal.alert("Clicked the close button"))
         .addDescription(
                 "Success alert description. This should tell the user more information about the alert.")
         .addActionGroup(alertActionGroup()
-                .add(button("View details").inline().link())
-                .add(button("Ignore").inline().link()));
+                .addAction("View details", (e, a) -> DomGlobal.alert("Clicked on View details"))
+                .addAction("Ignore", (e, a) -> DomGlobal.alert("Clicked on Ignore")));
 
 alert(success, "Success alert title")
-        .closable()
+        .closable((e, a) -> DomGlobal.alert("Clicked the close button"))
         .addDescription(alertDescription()
                 .add(p()
                         .add("Success alert description. This should tell the user more information about the alert. ")
                         .add(a("#").textContent("This is a link"))
-                        .add("."))));
+                        .add(".")));
 
 alert(success, "Success alert title")
-        .closable()
+        .closable((e, a) -> DomGlobal.alert("Clicked the close button"))
         .addActionGroup(alertActionGroup()
-                .add(button("View details").inline().link())
-                .add(button("Ignore").inline().link()));
+                .addAction(button("View details").inline().link(),
+                        (e, a) -> DomGlobal.alert("Clicked on View details"))
+                .addAction(button("Ignore").inline().link(),
+                        (e, a) -> DomGlobal.alert("Clicked on Ignore")));
 
 alert(success, "Success alert title")
-        .closable();
+        .closable((e, a) -> DomGlobal.alert("Clicked the close button"));
 
 alert(success, "Success alert title");
-
-alert(success, LoremIpsum.words(75))
-        .truncate()
-        .addDescription(alertDescription()
-                .add(p()
-                        .add("This example uses ")
-                        .add(code("Alert.truncate()"))
-                        .add(" to limit the title to a single line and truncate any overflow text with ellipses."))):
-
-alert(success, LoremIpsum.words(75))
-        .truncate(2)
-        .addDescription(alertDescription()
-                .add(p()
-                        .add("This example uses ")
-                        .add(code("Alert.truncate(2)"))
-                        .add(" to limit the title to a single line and truncate any overflow text with ellipses.")));
