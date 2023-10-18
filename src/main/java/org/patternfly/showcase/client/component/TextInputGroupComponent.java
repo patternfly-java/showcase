@@ -15,6 +15,14 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.jboss.elemento.Key;
+import org.patternfly.component.chip.Chip;
+import org.patternfly.component.chip.ChipGroup;
+import org.patternfly.component.textinputgroup.TextInputGroup;
+import org.patternfly.handler.CloseHandler;
+
+import elemental2.dom.HTMLInputElement;
+
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
@@ -31,14 +39,6 @@ import static org.patternfly.component.textinputgroup.TextInputGroupUtilities.te
 import static org.patternfly.layout.PredefinedIcon.search;
 import static org.patternfly.layout.PredefinedIcon.times;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.jboss.elemento.Key;
-import org.patternfly.component.chip.Chip;
-import org.patternfly.component.chip.ChipGroup;
-import org.patternfly.component.textinputgroup.TextInputGroup;
-import org.patternfly.handler.CloseHandler;
-
-import elemental2.dom.HTMLInputElement;
 
 public class TextInputGroupComponent extends ComponentPage {
 
