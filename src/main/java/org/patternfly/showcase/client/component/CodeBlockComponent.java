@@ -49,7 +49,7 @@ public class CodeBlockComponent extends ComponentPage {
                                 .addAction(codeBlockCopyToClipboardAction())
                                 .addAction(codeBlockAction(play)
                                         .ariaLabel("Play")
-                                        .onAction((action, codeBlock) -> console.log(
+                                        .onClick((action, codeBlock) -> console.log(
                                                 "Play not yet implemented")))
                                 .code(CODE))
                         .element()));
@@ -61,7 +61,7 @@ public class CodeBlockComponent extends ComponentPage {
                                 .addAction(codeBlockCopyToClipboardAction())
                                 .addAction(codeBlockAction(play)
                                         .ariaLabel("Play")
-                                        .onAction((action, codeBlock) -> console.log("Play not yet implemented")))
+                                        .onClick((action, codeBlock) -> console.log("Play not yet implemented")))
                                 .truncate()
                                 .code(CODE))
                         .element()));

@@ -75,6 +75,7 @@ public class Showcase implements EntryPoint {
                         // .addItem(navigationItem("c-tabs", "Tabs", "#c-tabs"))
                         .addItem(navigationItem("c-text-content", "Text content", "#c-text-content"))
                         .addItem(navigationItem("c-text-input-group", "Text input group", "#c-text-input-group"))
+                        .addItem(navigationItem("c-tooltip", "Tooltip", "#c-tooltip"))
                 // .addItem(navigationItem("c-title", "Title", "#c-title"))
                 // .addItem(navigationItem("c-toolbar", "Toolbar", "#c-toolbar"))
                 )
@@ -106,6 +107,5 @@ public class Showcase implements EntryPoint {
         String id = hash != null && hash.startsWith("#") ? hash.substring(1) : "";
         page().main().replace(Placemanager.lookup(id).get());
         navigation.select(id);
-        PR.prettyPrint();
     }
 }

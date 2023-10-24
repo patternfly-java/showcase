@@ -87,13 +87,13 @@ public class UserDemo implements Page {
                         .add(OldToolbar.group().iconButton()
                                 .add(OldToolbar.item()
                                         .add(button(inlineIcon(fas("address-card")), "Card view")
-                                                .onAction((e, b) -> show(cardView.element()))))
+                                                .onClick((e, b) -> show(cardView.element()))))
                                 .add(OldToolbar.item()
                                         .add(button(inlineIcon(fas("list")), "Card view")
-                                                .onAction((e, b) -> show(dataList.element()))))
+                                                .onClick((e, b) -> show(dataList.element()))))
                                 .add(OldToolbar.item()
                                         .add(button(inlineIcon(fas("table")), "Card view")
-                                                .onAction((e, b) -> show(dataTable.element())))))
+                                                .onClick((e, b) -> show(dataTable.element())))))
                         .add(OldToolbar.item().add(Pagination.pagination().compact())));
 
         cardView = CardView.cardView(dataProvider, new UserCardDisplay())

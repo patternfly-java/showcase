@@ -15,8 +15,6 @@
  */
 import "@patternfly/patternfly/patternfly.css";
 import "@patternfly/patternfly/patternfly-addons.css";
-import "google-code-prettify/src/prettify.css";
-import "color-themes-for-google-code-prettify/src/themes/github-v2.scss";
 import "./pforg/autoLinkHeader.css";
 import "./pforg/cssVariables.css";
 import "./pforg/tableOfContents.css";
@@ -26,9 +24,11 @@ import "./pforg/sideNav.css";
 import './pforg/sideNavLayout.css';
 import "./styles.css";
 
-import "google-code-prettify/src/prettify";
+import {createPopper} from "@popperjs/core";
 import "@github/relative-time-element";
-import "clipboard"
 import "./assets/assets";
 import "./code/code";
 import "./data/data";
+
+// Necessary for the GWT integration of popper
+window["createPopper"] = createPopper;

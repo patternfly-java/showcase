@@ -106,7 +106,7 @@ public class MenuComponent extends ComponentPage {
                                                                 .description("This is a description")
                                                                 .addAction(menuItemAction("action-0", fas("code-branch"))
                                                                         .aria(Aria.label, "Code")
-                                                                        .onAction((e, itemAction) -> console.log(
+                                                                        .onClick((e, itemAction) -> console.log(
                                                                                 "Code action clicked"))))
                                                         .addItem(actionMenuItem("item-1", "Item 2")
                                                                 .description("This is a description")
@@ -229,7 +229,7 @@ public class MenuComponent extends ComponentPage {
                                                                         "# Item " + item.id + " clicked"))
                                                                 .description("Description 2")
                                                                 .addAction(menuItemAction("action-1", fas("clipboard"))
-                                                                        .onAction((e, itemAction) -> console.log(
+                                                                        .onClick((e, itemAction) -> console.log(
                                                                                 "# Action " + itemAction.id + " on item "
                                                                                         + itemAction.menuItem.id
                                                                                         + " clicked"))))

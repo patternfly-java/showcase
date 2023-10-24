@@ -76,7 +76,7 @@ class Snippet implements IsElement<HTMLElement> {
                                                 .css("ws-code-editor-control")
                                                 .control()
                                                 .addIconAndText(PredefinedIcon.code, "Java"))
-                                                .onAction((event, codeEditorAction) -> {
+                                                .onClick((event, codeEditorAction) -> {
                                                     HTMLElement mainElement = codeEditorAction.mainComponent().find(
                                                             By.classname(component(Classes.codeEditor, main)));
                                                     setVisible(mainElement, !isVisible(mainElement));
@@ -85,7 +85,7 @@ class Snippet implements IsElement<HTMLElement> {
                                                 .css("ws-code-editor-control"))
                                         .addAction(codeEditorAction(undo)
                                                 .css("ws-code-editor-control")
-                                                .onAction((event, codeEditorAction) -> undo()))))
+                                                .onClick((event, codeEditorAction) -> undo()))))
                         .code(code))
                 .element();
 

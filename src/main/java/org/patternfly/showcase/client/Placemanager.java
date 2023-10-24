@@ -35,6 +35,7 @@ import org.patternfly.showcase.client.component.SpinnerComponent;
 import org.patternfly.showcase.client.component.TextContentComponent;
 import org.patternfly.showcase.client.component.TextInputComponent;
 import org.patternfly.showcase.client.component.TextInputGroupComponent;
+import org.patternfly.showcase.client.component.TooltipComponent;
 import org.patternfly.showcase.client.demo.server.ServerDemo;
 import org.patternfly.showcase.client.demo.user.UserDemo;
 
@@ -85,6 +86,7 @@ final class Placemanager {
         // places.put("c-title", () -> new TitleComponent());
         places.put("c-text-input", () -> new TextInputComponent());
         places.put("c-text-input-group", () -> new TextInputGroupComponent());
+        places.put("c-tooltip", () -> new TooltipComponent());
         // places.put("c-toolbar", () -> new ToolbarComponent());
 
         places.put("d-server", () -> new ServerDemo());

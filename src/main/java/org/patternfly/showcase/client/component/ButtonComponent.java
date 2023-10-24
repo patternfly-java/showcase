@@ -137,7 +137,7 @@ public class ButtonComponent extends ComponentPage {
                 () -> div()
                         .add(div()
                                 .add(button("Click to stop loading").primary().progress(true)
-                                        .onAction((event, button) -> {
+                                        .onClick((event, button) -> {
                                             button.toggleProgress();
                                             if (button.inProgress()) {
                                                 button.text("Click to stop loading");
@@ -147,7 +147,7 @@ public class ButtonComponent extends ComponentPage {
                                         }))
                                 .add(" ")
                                 .add(button("Click to stop loading").secondary().progress(true)
-                                        .onAction((event, button) -> {
+                                        .onClick((event, button) -> {
                                             button.toggleProgress();
                                             if (button.inProgress()) {
                                                 button.text("Click to stop loading");
@@ -157,10 +157,10 @@ public class ButtonComponent extends ComponentPage {
                                         })))
                         .add(div().css(util("mt-lg"))
                                 .add(button(upload).plain()
-                                        .onAction((event, button) -> button.toggleProgress())))
+                                        .onClick((event, button) -> button.toggleProgress())))
                         .add(div().css(util("mt-lg"))
                                 .add(button("Pause loading logs").link().inline().progress(true)
-                                        .onAction((event, button) -> {
+                                        .onClick((event, button) -> {
                                             button.toggleProgress();
                                             if (button.inProgress()) {
                                                 button.text("Pause loading logs");

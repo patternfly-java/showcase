@@ -127,7 +127,7 @@ public class AlertComponent extends ComponentPage {
                             .add(actionList()
                                     .addItem(actionListItem()
                                             .add(button("Add alert").secondary()
-                                                    .onAction((event, button) -> alerts.appendChild(li()
+                                                    .onClick((event, button) -> alerts.appendChild(li()
                                                             .add(alert(custom, "Default timeout Alert")
                                                                     .timeout()
                                                                     .addDescription("This alert will dismiss after 8 seconds")
@@ -137,7 +137,7 @@ public class AlertComponent extends ComponentPage {
                                                             .element()))))
                                     .addItem(actionListItem()
                                             .add(button("Remove all alerts").secondary()
-                                                    .onAction((event, button) -> removeChildrenFrom(alerts)))))
+                                                    .onClick((event, button) -> removeChildrenFrom(alerts)))))
                             .add(alerts)
                             .element();
                 }));
@@ -301,15 +301,15 @@ public class AlertComponent extends ComponentPage {
                         .add(actionList()
                                 .addItem(actionListItem()
                                         .add(button("Add toast success alert").secondary()
-                                                .onAction((e, b) -> alertGroup(toast)
+                                                .onClick((e, b) -> alertGroup(toast)
                                                         .addAlert(alert(success, "Toast success alert")))))
                                 .addItem(actionListItem()
                                         .add(button("Add toast danger alert").secondary()
-                                                .onAction((e, b) -> alertGroup(toast)
+                                                .onClick((e, b) -> alertGroup(toast)
                                                         .addAlert(alert(danger, "Toast danger alert")))))
                                 .addItem(actionListItem()
                                         .add(button("Add toast info alert").secondary()
-                                                .onAction((e, b) -> alertGroup(toast)
+                                                .onClick((e, b) -> alertGroup(toast)
                                                         .addAlert(alert(info, "Toast info alert"))))))
                         .element()));
 
@@ -322,7 +322,7 @@ public class AlertComponent extends ComponentPage {
                             .add(actionList()
                                     .addItem(actionListItem()
                                             .add(button("Start async alerts").secondary()
-                                                    .onAction((e, b) -> intervalHandle[0] = setInterval(__ -> {
+                                                    .onClick((e, b) -> intervalHandle[0] = setInterval(__ -> {
                                                         counter[0] = counter[0] + 1;
                                                         alertGroup(toast)
                                                                 .addAlert(alert(danger, "Async notification " + counter[0]
@@ -330,7 +330,7 @@ public class AlertComponent extends ComponentPage {
                                                     }, 1_000))))
                                     .addItem(actionListItem()
                                             .add(button("Stop async alerts").secondary()
-                                                    .onAction((e, b) -> {
+                                                    .onClick((e, b) -> {
                                                         counter[0] = 0;
                                                         clearInterval(intervalHandle[0]);
                                                     }))))
