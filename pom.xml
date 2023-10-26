@@ -81,7 +81,7 @@
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
         <version.enforcer.plugin>3.3.0</version.enforcer.plugin>
-        <version.frontend.plugin>1.14.0</version.frontend.plugin>
+        <version.frontend.plugin>1.14.2</version.frontend.plugin>
         <version.formatter.plugin>2.23.0</version.formatter.plugin>
         <version.gwt.maven.plugin>1.1.0</version.gwt.maven.plugin>
         <version.impsort.plugin>1.9.0</version.impsort.plugin>
