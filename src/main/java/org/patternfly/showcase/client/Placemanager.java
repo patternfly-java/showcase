@@ -31,6 +31,7 @@ import org.patternfly.showcase.client.component.CodeEditorComponent;
 import org.patternfly.showcase.client.component.ExpandableSectionComponent;
 import org.patternfly.showcase.client.component.IconComponent;
 import org.patternfly.showcase.client.component.MenuComponent;
+import org.patternfly.showcase.client.component.PopoverComponent;
 import org.patternfly.showcase.client.component.SpinnerComponent;
 import org.patternfly.showcase.client.component.TextContentComponent;
 import org.patternfly.showcase.client.component.TextInputComponent;
@@ -77,6 +78,7 @@ final class Placemanager {
         places.put("c-icon", () -> new IconComponent());
         // places.put("c-label", () -> new LabelComponent());
         places.put("c-menu", () -> new MenuComponent());
+        places.put("c-popover", () -> new PopoverComponent());
         // places.put("c-options-menu", () -> new OptionsMenuComponent());
         // places.put("c-select", () -> new SelectComponent());
         places.put("c-spinner", () -> new SpinnerComponent());

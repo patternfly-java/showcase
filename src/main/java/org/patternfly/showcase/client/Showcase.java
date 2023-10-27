@@ -70,6 +70,7 @@ public class Showcase implements EntryPoint {
                                 .addItem(navigationItem("c-menu", "Menu", "#c-menu")))
                         // .addItem(navigationItem("c-options-menu", "Options menu", "#c-options-menu"))
                         // .addItem(navigationItem("c-select", "Select", "#c-select"))
+                        .addItem(navigationItem("c-popover", "Popover", "#c-popover"))
                         .addItem(navigationItem("c-spinner", "Spinner", "#c-spinner"))
                         // .addItem(navigationItem("c-table", "Table", "#c-table"))
                         // .addItem(navigationItem("c-tabs", "Tabs", "#c-tabs"))

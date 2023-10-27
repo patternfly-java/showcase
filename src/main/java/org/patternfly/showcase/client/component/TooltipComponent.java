@@ -26,10 +26,10 @@ import elemental2.dom.ScrollIntoViewOptions;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.component.tooltip.Position.auto;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.layout.PredefinedIcon.copy;
 import static org.patternfly.showcase.client.Code.code;
+import static org.patternfly.thirdparty.popper.Placement.auto;
 
 public class TooltipComponent extends ComponentPage {
 
@@ -42,32 +42,37 @@ public class TooltipComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("tooltip-basic", "Basic",
-                code.get("tooltip-basic"),
-                () -> div().style("margin", "100px")
+                code.get("tooltip-basic"), () ->
+                // @code-start:tooltip-basic
+                div().style("margin", "100px")
                         .add(button("I have a tooltip").primary()
                                 .id("tooltip-basic-button"))
                         .add(tooltip(By.id("tooltip-basic-button"), LoremIpsum.words()))
-                        .element()));
+                        .element()
+        // @code-end:tooltip-basic
+        ));
 
         addSnippet(new Snippet("tooltip-dynamic", "Dynamic content",
                 code.get("tooltip-dynamic"),
                 () -> {
+                    // @code-start:tooltip-dynamic
                     Tooltip tooltip = tooltip(By.id("tooltip-dynamic-button"), "Copy to clipboard")
-                            .onHidden((e, t) -> t.text("Copy to clipboard"));
-                    Button button = button(copy, "Copy").plain()
-                            .id("tooltip-dynamic-button")
-                            .onClick((e, b) -> tooltip.text("Successfully copied to clipboard!"));
+                            .onClose((e, t) -> t.text("Copy to clipboard"))
+                            .appendToBody();
                     return div().style("margin", "100px")
-                            .add(button)
-                            .add(tooltip)
+                            .add(button(copy, "Copy").plain()
+                                    .id("tooltip-dynamic-button")
+                                    .onClick((e, b) -> tooltip.text("Successfully copied to clipboard!")))
                             .element();
+                    // @code-end:tooltip-dynamic
                 }));
 
         addSnippet(new Snippet("tooltip-auto", "Placement auto",
                 code.get("tooltip-auto"),
                 () -> {
+                    // @code-start:tooltip-auto
                     Button button = button("Tooltip");
-                    Attachable.register(button, (mr) -> {
+                    Attachable.register(button, mr -> {
                         ScrollIntoViewOptions options = ScrollIntoViewOptions.create();
                         options.setBlock("center");
                         options.setInline("center");
@@ -78,8 +83,9 @@ public class TooltipComponent extends ComponentPage {
                                     .add(button.css("tooltip-button").primary()
                                             .id("tooltip-options-button"))
                                     .add(tooltip(By.id("tooltip-options-button"), LoremIpsum.words())
-                                            .position(auto)))
+                                            .placement(auto)))
                             .element();
+                    // @code-end:tooltip-auto
                 }));
     }
 }
