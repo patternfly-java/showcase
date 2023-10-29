@@ -4,11 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "./extract-code.kts",
     "dev": "vite build --outDir target/gwt/devmode/war/showcase --emptyOutDir false --base /showcase --sourcemap true --minify false",
+    "preprod": "./extract-code.kts",
     "prod": "vite build --outDir target/vite --base /showcase"
   },
   "devDependencies": {
-    "vite": "^4.4.11"
+    "vite": "^4.5.0"
   },
   "dependencies": {
     "@github/relative-time-element": "^4.3.0",

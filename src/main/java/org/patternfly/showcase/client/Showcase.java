@@ -66,6 +66,7 @@ public class Showcase implements EntryPoint {
                                 .addItem(navigationItem("c-text-input", "Text input", "#c-text-input")))
                         .addItem(navigationItem("c-icon", "Icon", "#c-icon"))
                         // .addItem(navigationItem("c-label", "Label", "#c-label"))
+                        .addItem(navigationItem("c-masthead", "Masthead", "#c-masthead"))
                         .addGroup(expandableNavigationGroup("c-menus", "Menus")
                                 .addItem(navigationItem("c-menu", "Menu", "#c-menu")))
                         // .addItem(navigationItem("c-options-menu", "Options menu", "#c-options-menu"))
@@ -96,6 +97,7 @@ public class Showcase implements EntryPoint {
                         .addToggle(mastheadToggle())
                         .addBrand(brand(pfLogo).style("--pf-v5-c-brand--Height:36px"), "#home"))
                 .addSidebar(sidebar()
+                        .style("z-index", "auto")
                         .addBody(sidebarBody()
                                 .addNavigation(navigation)))
                 .addMain(pageMain(mainId)));

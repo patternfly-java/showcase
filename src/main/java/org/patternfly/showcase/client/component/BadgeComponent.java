@@ -31,8 +31,9 @@ public class BadgeComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("badge-read", "Badge (read)",
-                code.get("badge-read"),
-                () -> div()
+                code.get("badge-read"), () ->
+                // @code-start:badge-read
+                div()
                         .add(badge(7).read())
                         .add(" ")
                         .add(badge(24).read())
@@ -40,11 +41,14 @@ public class BadgeComponent extends ComponentPage {
                         .add(badge(423).read())
                         .add(" ")
                         .add(badge(1000).limit(999).read())
-                        .element()));
+                        .element()
+        // @code-end:badge-read
+        ));
 
         addSnippet(new Snippet("badge-unread", "Badge (unread)",
-                code.get("badge-unread"),
-                () -> div()
+                code.get("badge-unread"), () ->
+                // @code-start:badge-unread
+                div()
                         .add(badge(7).unread())
                         .add(" ")
                         .add(badge(24).unread())
@@ -52,6 +56,8 @@ public class BadgeComponent extends ComponentPage {
                         .add(badge(423).unread())
                         .add(" ")
                         .add(badge(1000).limit(999).unread())
-                        .element()));
+                        .element()
+        // @code-end:badge-unread
+        ));
     }
 }

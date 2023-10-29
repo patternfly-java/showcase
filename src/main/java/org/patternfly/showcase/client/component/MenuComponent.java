@@ -15,9 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.core.Aria;
-import org.patternfly.showcase.client.LoremIpsum;
-
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -38,6 +35,9 @@ import static org.patternfly.layout.PredefinedIcon.bell;
 import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.client.Code.code;
 
+import org.patternfly.core.Aria;
+import org.patternfly.showcase.client.LoremIpsum;
+
 public class MenuComponent extends ComponentPage {
 
     public MenuComponent() {
@@ -49,8 +49,9 @@ public class MenuComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("menu-basic", "Basic menu",
-                code.get("menu-basic"),
-                () -> div()
+                code.get("menu-basic"), () ->
+                // @code-start:menu-basic
+                div()
                         .add(menu(click)
                                 .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
                                 .addContent(menuContent()
@@ -64,11 +65,14 @@ public class MenuComponent extends ComponentPage {
                                                         .disabled())
                                                 .addItem(linkMenuItem("item-3", "Disabled link", "#")
                                                         .disabled()))))
-                        .element()));
+                        .element()
+        // @code-end:menu-basic
+        ));
 
         addSnippet(new Snippet("menu-danger", "Danger menu item",
-                code.get("menu-danger"),
-                () -> div()
+                code.get("menu-danger"), () ->
+                // @code-start:menu-danger
+                div()
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -77,11 +81,14 @@ public class MenuComponent extends ComponentPage {
                                                 .addDivider()
                                                 .addItem(actionMenuItem("item-2", "Delete")
                                                         .danger()))))
-                        .element()));
+                        .element()
+        // @code-end:menu-danger
+        ));
 
         addSnippet(new Snippet("menu-icons", "With icons",
-                code.get("menu-icons"),
-                () -> div()
+                code.get("menu-icons"), () ->
+                // @code-start:menu-icons
+                div()
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -91,11 +98,14 @@ public class MenuComponent extends ComponentPage {
                                                         .icon(fas("layer-group")))
                                                 .addItem(actionMenuItem("item-2", "From Dockerfile")
                                                         .icon(fas("cube"))))))
-                        .element()));
+                        .element()
+        // @code-end:menu-icons
+        ));
 
         addSnippet(new Snippet("menu-actions", "With action",
-                code.get("menu-actions"),
-                () -> div()
+                code.get("menu-actions"), () ->
+                // @code-start:menu-actions
+                div()
                         .add(menu(multi)
                                 .onAction(itemAction -> console.log(
                                         "Action " + itemAction.id + " on item " + itemAction.menuItem.id + " clicked"))
@@ -117,11 +127,14 @@ public class MenuComponent extends ComponentPage {
                                                         .addItem(actionMenuItem("item-3", "Item 4")
                                                                 .description("This is a description")
                                                                 .addAction(menuItemAction("action-3", bars)))))))
-                        .element()));
+                        .element()
+        // @code-end:menu-actions
+        ));
 
         addSnippet(new Snippet("menu-links", "With links",
-                code.get("menu-links"),
-                () -> div()
+                code.get("menu-links"), () ->
+                // @code-start:menu-links
+                div()
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -130,11 +143,14 @@ public class MenuComponent extends ComponentPage {
                                                 .addItem(linkMenuItem("item-1", "Link 2", "#home")
                                                         .external())
                                                 .addItem(linkMenuItem("item-2", "Link 3", "#home")))))
-                        .element()));
+                        .element()
+        // @code-end:menu-links
+        ));
 
         addSnippet(new Snippet("menu-descriptions", "With descriptions",
-                code.get("menu-descriptions"),
-                () -> div()
+                code.get("menu-descriptions"), () ->
+                // @code-start:menu-descriptions
+                div()
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -148,11 +164,14 @@ public class MenuComponent extends ComponentPage {
                                                 .addItem(actionMenuItem("item-2", "Action 3")
                                                         .icon(fas("code-branch"))
                                                         .description(LoremIpsum.words(50))))))
-                        .element()));
+                        .element()
+        // @code-end:menu-descriptions
+        ));
 
         addSnippet(new Snippet("menu-checkbox", "Item checkbox",
-                code.get("menu-checkbox"),
-                () -> div()
+                code.get("menu-checkbox"), () ->
+                // @code-start:menu-checkbox
+                div()
                         .add(menu(multi)
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -160,11 +179,14 @@ public class MenuComponent extends ComponentPage {
                                                 .addItem(checkboxMenuItem("item-1", "Checkbox 2"))
                                                 .addItem(checkboxMenuItem("item-2", "Checkbox 3")
                                                         .disabled()))))
-                        .element()));
+                        .element()
+        // @code-end:menu-checkbox
+        ));
 
         addSnippet(new Snippet("menu-footer", "Menu footer",
-                code.get("menu-footer"),
-                () -> div()
+                code.get("menu-footer"), () ->
+                // @code-start:menu-footer
+                div()
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -176,11 +198,14 @@ public class MenuComponent extends ComponentPage {
                                                         .disabled())))
                                 .addFooter(menuFooter()
                                         .add(button("Action").link().inline())))
-                        .element()));
+                        .element()
+        // @code-end:menu-footer
+        ));
 
         addSnippet(new Snippet("menu-separator", "Separated items",
-                code.get("menu-separator"),
-                () -> div()
+                code.get("menu-separator"), () ->
+                // @code-start:menu-separator
+                div()
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
@@ -188,11 +213,14 @@ public class MenuComponent extends ComponentPage {
                                                 .addItem(actionMenuItem("item-1", "Action 2"))
                                                 .addDivider()
                                                 .addItem(actionMenuItem("item-2", "Action 3")))))
-                        .element()));
+                        .element()
+        // @code-end:menu-separator
+        ));
 
         addSnippet(new Snippet("menu-titled-groups", "Titled groups of items",
-                code.get("menu-titled-groups"),
-                () -> div()
+                code.get("menu-titled-groups"), () ->
+                // @code-start:menu-titled-groups
+                div()
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addGroup(menuGroup()
@@ -208,11 +236,14 @@ public class MenuComponent extends ComponentPage {
                                                 .addList(menuList()
                                                         .add(linkMenuItem("item-20", "Link 1", "#"))
                                                         .add(linkMenuItem("item-21", "Link 2", "#"))))))
-                        .element()));
+                        .element()
+        // @code-end:menu-titled-groups
+        ));
 
         addSnippet(new Snippet("menu-favorites", "With favorites",
-                code.get("menu-favorites"),
-                () -> div()
+                code.get("menu-favorites"), () ->
+                // @code-start:menu-favorites
+                div()
                         .add(menu(click)
                                 .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
                                 .onAction(itemAction -> console.log(
@@ -236,6 +267,8 @@ public class MenuComponent extends ComponentPage {
                                                         .addItem(actionMenuItem("item-2", "Item 3")
                                                                 .description("Description 3")
                                                                 .addAction(menuItemAction("action-2", bell)))))))
-                        .element()));
+                        .element()
+        // @code-end:menu-favorites
+        ));
     }
 }

@@ -15,8 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.showcase.client.LoremIpsum;
-
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
@@ -29,6 +27,8 @@ import static org.patternfly.layout.Size.sm;
 import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.client.Code.code;
 
+import org.patternfly.showcase.client.LoremIpsum;
+
 public class SpinnerComponent extends ComponentPage {
 
     public SpinnerComponent() {
@@ -40,14 +40,18 @@ public class SpinnerComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("spinner-basic", "Basic",
-                code.get("spinner-basic"),
-                () -> div()
+                code.get("spinner-basic"), () ->
+                // @code-start:spinner-basic
+                div()
                         .add(spinner())
-                        .element()));
+                        .element()
+        // @code-end:spinner-basic
+        ));
 
         addSnippet(new Snippet("spinner-sizes", "Sizes",
-                code.get("spinner-sizes"),
-                () -> div()
+                code.get("spinner-sizes"), () ->
+                // @code-start:spinner-sizes
+                div()
                         .add(spinner(sm))
                         .add(" ")
                         .add(spinner(md))
@@ -55,17 +59,23 @@ public class SpinnerComponent extends ComponentPage {
                         .add(spinner(lg))
                         .add(" ")
                         .add(spinner(xl))
-                        .element()));
+                        .element()
+        // @code-end:spinner-sizes
+        ));
 
         addSnippet(new Snippet("spinner-custom-size", "Custom size",
-                code.get("spinner-custom-size"),
-                () -> div()
+                code.get("spinner-custom-size"), () ->
+                // @code-start:spinner-custom-size
+                div()
                         .add(spinner().diameter("80px"))
-                        .element()));
+                        .element()
+        // @code-end:spinner-custom-size
+        ));
 
         addSnippet(new Snippet("spinner-inline-size", "Inline size",
-                code.get("spinner-inline-size"),
-                () -> div()
+                code.get("spinner-inline-size"), () ->
+                // @code-start:spinner-inline-size
+                div()
                         .add(textContent()
                                 .add(h(1)
                                         .add("Heading ")
@@ -81,6 +91,8 @@ public class SpinnerComponent extends ComponentPage {
                                 .add(small()
                                         .add("Sometimes you need small text ")
                                         .add(spinner("Spinner in small element").inline())))
-                        .element()));
+                        .element()
+        // @code-end:spinner-inline-size
+        ));
     }
 }

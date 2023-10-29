@@ -15,8 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.showcase.client.LoremIpsum;
-
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.blockquote;
 import static org.jboss.elemento.Elements.dd;
@@ -34,6 +32,8 @@ import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Classes.plain;
 import static org.patternfly.showcase.client.Code.code;
 
+import org.patternfly.showcase.client.LoremIpsum;
+
 public class TextContentComponent extends ComponentPage {
 
     public TextContentComponent() {
@@ -45,8 +45,9 @@ public class TextContentComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("text-content-headings", "Heading",
-                code.get("text-content-headings"),
-                () -> div()
+                code.get("text-content-headings"), () ->
+                // @code-start:text-content-headings
+                div()
                         .add(textContent()
                                 .add(h(1, "Hello World"))
                                 .add(h(2, "Second Level"))
@@ -54,11 +55,14 @@ public class TextContentComponent extends ComponentPage {
                                 .add(h(4, "Forth Level"))
                                 .add(h(5, "Fifth Level"))
                                 .add(h(6, "Sixth Level")))
-                        .element()));
+                        .element()
+        // @code-end:text-content-headings
+        ));
 
         addSnippet(new Snippet("text-content-body", "Body",
-                code.get("text-content-body"),
-                () -> div()
+                code.get("text-content-body"), () ->
+                // @code-start:text-content-body
+                div()
                         .add(textContent()
                                 .add(p().textContent(LoremIpsum.paragraphs(5)))
                                 .add(p()
@@ -67,11 +71,14 @@ public class TextContentComponent extends ComponentPage {
                                         .add(" " + LoremIpsum.paragraphs(2)))
                                 .add(blockquote().textContent(LoremIpsum.paragraphs(2)))
                                 .add(small().textContent(LoremIpsum.paragraphs(3))))
-                        .element()));
+                        .element()
+        // @code-end:text-content-body
+        ));
 
         addSnippet(new Snippet("text-content-ul", "Unordered list",
-                code.get("text-content-ul"),
-                () -> div()
+                code.get("text-content-ul"), () ->
+                // @code-start:text-content-ul
+                div()
                         .add(textContent()
                                 .add(ul()
                                         .add(li().textContent(LoremIpsum.words()))
@@ -81,11 +88,14 @@ public class TextContentComponent extends ComponentPage {
                                                         .add(li().textContent(LoremIpsum.words()))
                                                         .add(li().textContent(LoremIpsum.words()))))
                                         .add(li().add(LoremIpsum.words()))))
-                        .element()));
+                        .element()
+        // @code-end:text-content-ul
+        ));
 
         addSnippet(new Snippet("text-content-ol", "Ordered list",
-                code.get("text-content-ol"),
-                () -> div()
+                code.get("text-content-ol"), () ->
+                // @code-start:text-content-ol
+                div()
                         .add(textContent()
                                 .add(ol()
                                         .add(li().textContent(LoremIpsum.words()))
@@ -95,11 +105,14 @@ public class TextContentComponent extends ComponentPage {
                                         .add(li().textContent(LoremIpsum.words()))
                                         .add(li().textContent(LoremIpsum.words()))
                                         .add(li().textContent(LoremIpsum.words()))))
-                        .element()));
+                        .element()
+        // @code-end:text-content-ol
+        ));
 
         addSnippet(new Snippet("text-content-plain-list", "Plain list",
-                code.get("text-content-plain-list"),
-                () -> div()
+                code.get("text-content-plain-list"), () ->
+                // @code-start:text-content-plain-list
+                div()
                         .add(textContent()
                                 .add(h(3, "Plain unordered list"))
                                 .add(ul().css(modifier(plain))
@@ -116,11 +129,14 @@ public class TextContentComponent extends ComponentPage {
                                         .add(li().textContent(LoremIpsum.words()))
                                         .add(li().textContent(LoremIpsum.words()))
                                         .add(li().textContent(LoremIpsum.words()))))
-                        .element()));
+                        .element()
+        // @code-end:text-content-plain-list
+        ));
 
         addSnippet(new Snippet("text-content-dl", "Description list",
-                code.get("text-content-dl"),
-                () -> div()
+                code.get("text-content-dl"), () ->
+                // @code-start:text-content-dl
+                div()
                         .add(textContent()
                                 .add(dl()
                                         .add(dt().textContent("Web"))
@@ -130,6 +146,8 @@ public class TextContentComponent extends ComponentPage {
                                         .add(dd().textContent("A markup language for creating web pages"))
                                         .add(dt().textContent("CSS"))
                                         .add(dd().textContent("A technology to make HTML look better"))))
-                        .element()));
+                        .element()
+        // @code-end:text-content-dl
+        ));
     }
 }

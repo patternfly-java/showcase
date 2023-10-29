@@ -31,9 +31,12 @@ public class MastheadComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("masthead-basic", "Basic",
-                code.get("masthead-basic"),
-                () -> div()
+                code.get("masthead-basic"), () ->
+                // @code-start:masthead-basic
+                div()
                         .add(masthead())
-                        .element()));
+                        .element()
+        // @code-end:masthead-basic
+        ));
     }
 }

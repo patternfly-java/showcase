@@ -29,9 +29,12 @@ public class BrandComponent extends ComponentPage {
                 p().textContent("A brand is used to place a product logotype on a screen.").element());
 
         addSnippet(new Snippet("brand-simple", "Simple brand",
-                code.get("brand-simple"),
-                () -> div()
+                code.get("brand-simple"), () ->
+                // @code-start:brand-simple
+                div()
                         .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg"))
-                        .element()));
+                        .element()
+                // @code-end:brand-simple
+        ));
     }
 }

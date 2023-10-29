@@ -203,6 +203,7 @@
                                 <header>etc/license.txt</header>
                                 <excludes>
                                     <exclude>LICENSE</exclude>
+                                    <exclude>*.kts</exclude>
                                     <exclude>**/*license*.txt</exclude>
                                     <exclude>**/.parcel-cache/**</exclude>
                                     <exclude>src/web/code/*.java</exclude>

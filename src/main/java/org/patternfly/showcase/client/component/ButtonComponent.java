@@ -39,8 +39,9 @@ public class ButtonComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("button-variant-examples", "Variant examples",
-                code.get("button-variant-examples"),
-                () -> div()
+                code.get("button-variant-examples"), () ->
+                // @code-start:button-variant-examples
+                div()
                         .add(div()
                                 .add(button("Primary").primary())
                                 .add(" ")
@@ -67,11 +68,14 @@ public class ButtonComponent extends ComponentPage {
                                 .add(button("Control").control())
                                 .add(" ")
                                 .add(button(copy).control()))
-                        .element()));
+                        .element()
+        // @code-end:button-variant-examples
+        ));
 
         addSnippet(new Snippet("button-disabled", "Disabled buttons",
-                code.get("button-disabled"),
-                () -> div()
+                code.get("button-disabled"), () ->
+                // @code-start:button-disabled
+                div()
                         .add(div()
                                 .add(button("Primary disabled").primary().disabled())
                                 .add(" ")
@@ -96,10 +100,13 @@ public class ButtonComponent extends ComponentPage {
                                 .add(button("Control disabled").control().disabled())
                                 .add(" ")
                                 .add(button(copy).control().disabled()))
-                        .element()));
+                        .element()
+        // @code-end:button-disabled
+        ));
 
         addSnippet(new Snippet("button-small", "Small buttons",
                 code.get("button-small"),
+                // @code-start:button-small
                 () -> div()
                         .add(button("Primary").primary().small())
                         .add(" ")
@@ -112,11 +119,14 @@ public class ButtonComponent extends ComponentPage {
                         .add(button("Danger").danger().small())
                         .add(" ")
                         .add(button("Warning").warning().small())
-                        .element()));
+                        .element()
+        // @code-end:button-small
+        ));
 
         addSnippet(new Snippet("button-cta", "Call to action (CTA) buttons",
-                code.get("button-cta"),
-                () -> div()
+                code.get("button-cta"), () ->
+                // @code-start:button-cta
+                div()
                         .add(button("Call to action").primary().callToAction())
                         .add(" ")
                         .add(button("Call to action").secondary().callToAction())
@@ -124,17 +134,23 @@ public class ButtonComponent extends ComponentPage {
                         .add(button("Call to action").tertiary().callToAction())
                         .add(" ")
                         .add(button().addIconAndText(arrowRight, "Call to action", end).link().callToAction())
-                        .element()));
+                        .element()
+        // @code-end:button-cta
+        ));
 
         addSnippet(new Snippet("button-block-level", "Block level buttons",
-                code.get("button-block-level"),
-                () -> div()
+                code.get("button-block-level"), () ->
+                // @code-start:button-block-level
+                div()
                         .add(button("Block level button").primary().block())
-                        .element()));
+                        .element()
+        // @code-end:button-block-level
+        ));
 
         addSnippet(new Snippet("button-progress", "Progress indicators",
-                code.get("button-progress"),
-                () -> div()
+                code.get("button-progress"), () ->
+                // @code-start:button-progress
+                div()
                         .add(div()
                                 .add(button("Click to stop loading").primary().progress(true)
                                         .onClick((event, button) -> {
@@ -168,11 +184,14 @@ public class ButtonComponent extends ComponentPage {
                                                 button.text("Resume loading logs");
                                             }
                                         })))
-                        .element()));
+                        .element()
+        // @code-end:button-progress
+        ));
 
         addSnippet(new Snippet("button-block-links", "Links as buttons",
-                code.get("button-block-links"),
-                () -> div()
+                code.get("button-block-links"), () ->
+                // @code-start:button-block-links
+                div()
                         .add(button("Link to docs", "https://www.patternfly.org/", "_blank").primary())
                         .add(" ")
                         .add(button("Secondary link to docs", "https://www.patternfly.org/", "_blank").secondary())
@@ -182,11 +201,14 @@ public class ButtonComponent extends ComponentPage {
                         .add(" ")
                         .add(button("Jump to lifecycle in developer contributions",
                                 "https://www.patternfly.org/get-started/contribute/developer-contributions#lifecycle").link())
-                        .element()));
+                        .element()
+        // @code-end:button-block-links
+        ));
 
         addSnippet(new Snippet("button-count", "Button with count",
-                code.get("button-count"),
-                () -> div()
+                code.get("button-count"), () ->
+                // @code-start:button-count
+                div()
                         .add(div()
                                 .add(p().textContent("Unread"))
                                 .add(button("View issues").primary().addBadge(badge(7).unread()))
@@ -231,6 +253,8 @@ public class ButtonComponent extends ComponentPage {
                                 .add(button("View issues").control().disabled().addBadge(badge(10).read()))
                                 .add(" ")
                                 .add(button("View issues").link().disabled().addBadge(badge(10).read())))
-                        .element()));
+                        .element()
+        // @code-end:button-count
+        ));
     }
 }

@@ -38,8 +38,9 @@ public class ActionListComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("action-list-single-group", "Action list single group",
-                code.get("action-list-single-group"),
-                () -> div()
+                code.get("action-list-single-group"), () ->
+                // @code-start:action-list-single-group
+                div()
                         .add(actionList()
                                 .addItem(actionListItem()
                                         .add(button("Next").primary()))
@@ -54,21 +55,27 @@ public class ActionListComponent extends ComponentPage {
                                         .add(button("Back").secondary()))
                                 .addItem(actionListItem()
                                         .add(button(ellipsisV).plain()))) // TODO Add dropdown
-                        .element()));
+                        .element()
+        // @code-end:action-list-single-group
+        ));
 
         addSnippet(new Snippet("action-list-icons", "Action list with icons",
-                code.get("action-list-icons"),
-                () -> div()
+                code.get("action-list-icons"), () ->
+                // @code-start:action-list-icons
+                div()
                         .add(actionList().icons()
                                 .addItem(actionListItem()
                                         .add(button(times).plain()))
                                 .addItem(actionListItem()
                                         .add(button(check).plain())))
-                        .element()));
+                        .element()
+        // @code-end:action-list-icons
+        ));
 
         addSnippet(new Snippet("action-list-multiple-groups", "Action list multiple groups",
-                code.get("action-list-multiple-groups"),
-                () -> div()
+                code.get("action-list-multiple-groups"), () ->
+                // @code-start:action-list-multiple-groups
+                div()
                         .add("In modals, forms, data lists")
                         .add(actionList()
                                 .addItem(actionListItem()
@@ -86,6 +93,8 @@ public class ActionListComponent extends ComponentPage {
                                 .addGroup(actionListGroup()
                                         .addItem(actionListItem()
                                                 .add(button("Cancel").link()))))
-                        .element()));
+                        .element()
+        // @code-end:action-list-multiple-groups
+        ));
     }
 }

@@ -1,1 +1,0 @@
-checkbox("standalone-checkbox-0");

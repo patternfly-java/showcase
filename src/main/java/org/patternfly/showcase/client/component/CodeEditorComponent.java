@@ -15,8 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.layout.PredefinedIcon;
-
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
@@ -32,6 +30,8 @@ import static org.patternfly.component.code.CodeEditorTab.codeEditorTab;
 import static org.patternfly.layout.PredefinedIcon.download;
 import static org.patternfly.layout.PredefinedIcon.upload;
 import static org.patternfly.showcase.client.Code.code;
+
+import org.patternfly.layout.PredefinedIcon;
 
 public class CodeEditorComponent extends ComponentPage {
 
@@ -50,8 +50,9 @@ public class CodeEditorComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("code-editor-basic", "Basic",
-                code.get("code-editor-basic"),
-                () -> div()
+                code.get("code-editor-basic"), () ->
+                // @code-start:code-editor-basic
+                div()
                         .add(codeEditor()
                                 .addHeader(codeEditorHeader()
                                         .addActions(codeEditorActions()
@@ -60,11 +61,14 @@ public class CodeEditorComponent extends ComponentPage {
                                                 .addAction(codeEditorAction(upload)))
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-editor-basic
+        ));
 
         addSnippet(new Snippet("code-editor-readonly", "Readonly",
-                code.get("code-editor-readonly"),
-                () -> div()
+                code.get("code-editor-readonly"), () ->
+                // @code-start:code-editor-readonly
+                div()
                         .add(codeEditor()
                                 .readonly()
                                 .addHeader(codeEditorHeader()
@@ -74,20 +78,26 @@ public class CodeEditorComponent extends ComponentPage {
                                                 .addAction(codeEditorAction(button(upload).control().disabled())))
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-editor-readonly
+        ));
 
         addSnippet(new Snippet("code-editor-no-actions", "Without actions",
-                code.get("code-editor-no-actions"),
-                () -> div()
+                code.get("code-editor-no-actions"), () ->
+                // @code-start:code-editor-no-actions
+                div()
                         .add(codeEditor()
                                 .addHeader(codeEditorHeader()
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-editor-no-actions
+        ));
 
         addSnippet(new Snippet("code-editor-no-tab", "Without tab",
-                code.get("code-editor-no-tab"),
-                () -> div()
+                code.get("code-editor-no-tab"), () ->
+                // @code-start:code-editor-no-tab
+                div()
                         .add(codeEditor()
                                 .addHeader(codeEditorHeader()
                                         .addActions(codeEditorActions()
@@ -95,18 +105,24 @@ public class CodeEditorComponent extends ComponentPage {
                                                 .addAction(codeEditorAction(download))
                                                 .addAction(codeEditorAction(button(upload).control().disabled()))))
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-editor-no-tab
+        ));
 
         addSnippet(new Snippet("code-editor-no-actions-no-tab", "Without actions and tab",
-                code.get("code-editor-no-actions-no-tab"),
-                () -> div()
+                code.get("code-editor-no-actions-no-tab"), () ->
+                // @code-start:code-editor-no-actions-no-tab
+                div()
                         .add(codeEditor()
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-editor-no-actions-no-tab
+        ));
 
         addSnippet(new Snippet("code-editor-header-content", "With optional header content and keyboard shortcuts",
-                code.get("code-editor-header-content"),
-                () -> div()
+                code.get("code-editor-header-content"), () ->
+                // @code-start:code-editor-header-content
+                div()
                         .add(codeEditor()
                                 .addHeader(codeEditorHeader()
                                         .addActions(codeEditorActions()
@@ -119,6 +135,8 @@ public class CodeEditorComponent extends ComponentPage {
                                                 .addLink(codeEditorViewShortcutsLink()))
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-editor-header-content
+        ));
     }
 }

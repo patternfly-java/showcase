@@ -34,8 +34,9 @@ public class ChipComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("chip-variants", "Chip variants",
-                code.get("chip-variants"),
-                () -> div()
+                code.get("chip-variants"), () ->
+                // @code-start:chip-variants
+                div()
                         .add(chip("Chip 1"))
                         .add(br())
                         .add(br())
@@ -46,33 +47,42 @@ public class ChipComponent extends ComponentPage {
                         .add(br())
                         .add(br())
                         .add(chip("Read-only chip").readonly())
-                        .element()));
+                        .element()
+        // @code-end:chip-variants
+        ));
 
         addSnippet(new Snippet("chip-group", "Chip group",
-                code.get("chip-group"),
-                () -> div()
+                code.get("chip-group"), () ->
+                // @code-start:chip-group
+                div()
                         .add(chipGroup()
                                 .addChip(chip("Chip one"))
                                 .addChip(chip("Really long chip that goes on and on"))
                                 .addChip(chip("Chip three"))
                                 .addChip(chip("Chip four"))
                                 .addChip(chip("Chip five")))
-                        .element()));
+                        .element()
+        // @code-end:chip-group
+        ));
 
         addSnippet(new Snippet("chip-group-category", "Chip group with category",
-                code.get("chip-group-category"),
-                () -> div()
+                code.get("chip-group-category"), () ->
+                // @code-start:chip-group-category
+                div()
                         .add(chipGroup("Category one")
                                 .addChip(chip("Chip one"))
                                 .addChip(chip("Really long chip that goes on and on"))
                                 .addChip(chip("Chip three"))
                                 .addChip(chip("Chip four"))
                                 .addChip(chip("Chip five")))
-                        .element()));
+                        .element()
+        // @code-end:chip-group-category
+        ));
 
         addSnippet(new Snippet("chip-group-removable-category", "Chip group with removable category",
-                code.get("chip-group-removable-category"),
-                () -> div()
+                code.get("chip-group-removable-category"), () ->
+                // @code-start:chip-group-removable-category
+                div()
                         .add(chipGroup("Category one")
                                 .closable()
                                 .addChip(chip("Chip one"))
@@ -86,6 +96,8 @@ public class ChipComponent extends ComponentPage {
                                 .addChip(chip("Chip two"))
                                 .addChip(chip("Chip three"))
                                 .addChip(chip("Chip four")))
-                        .element()));
+                        .element()
+        // @code-end:chip-group-removable-category
+        ));
     }
 }

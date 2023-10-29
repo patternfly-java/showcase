@@ -30,6 +30,7 @@ import org.patternfly.showcase.client.component.CodeBlockComponent;
 import org.patternfly.showcase.client.component.CodeEditorComponent;
 import org.patternfly.showcase.client.component.ExpandableSectionComponent;
 import org.patternfly.showcase.client.component.IconComponent;
+import org.patternfly.showcase.client.component.MastheadComponent;
 import org.patternfly.showcase.client.component.MenuComponent;
 import org.patternfly.showcase.client.component.PopoverComponent;
 import org.patternfly.showcase.client.component.SpinnerComponent;
@@ -77,6 +78,7 @@ final class Placemanager {
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());
         places.put("c-icon", () -> new IconComponent());
         // places.put("c-label", () -> new LabelComponent());
+        places.put("c-masthead", () -> new MastheadComponent());
         places.put("c-menu", () -> new MenuComponent());
         places.put("c-popover", () -> new PopoverComponent());
         // places.put("c-options-menu", () -> new OptionsMenuComponent());

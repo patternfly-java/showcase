@@ -15,14 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.jboss.elemento.Key;
-import org.patternfly.component.chip.Chip;
-import org.patternfly.component.chip.ChipGroup;
-import org.patternfly.component.textinputgroup.TextInputGroup;
-import org.patternfly.handler.CloseHandler;
-
-import elemental2.dom.HTMLInputElement;
-
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
@@ -40,6 +32,14 @@ import static org.patternfly.layout.PredefinedIcon.search;
 import static org.patternfly.layout.PredefinedIcon.times;
 import static org.patternfly.showcase.client.Code.code;
 
+import org.jboss.elemento.Key;
+import org.patternfly.component.chip.Chip;
+import org.patternfly.component.chip.ChipGroup;
+import org.patternfly.component.textinputgroup.TextInputGroup;
+import org.patternfly.handler.CloseHandler;
+
+import elemental2.dom.HTMLInputElement;
+
 public class TextInputGroupComponent extends ComponentPage {
 
     public TextInputGroupComponent() {
@@ -51,23 +51,30 @@ public class TextInputGroupComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("tig-basic", "Basic",
-                code.get("tig-basic"),
-                () -> div()
+                code.get("tig-basic"), () ->
+                // @code-start:tig-basic
+                div()
                         .add(textInputGroup()
                                 .addMain(textInputGroupMain("basic-text-input-group-0")))
-                        .element()));
+                        .element()
+        // @code-end:tig-basic
+        ));
 
         addSnippet(new Snippet("tig-disabled", "Disabled",
-                code.get("tig-disabled"),
-                () -> div()
+                code.get("tig-disabled"), () ->
+                // @code-start:tig-disabled
+                div()
                         .add(textInputGroup()
                                 .addMain(textInputGroupMain("disabled-text-input-group-0")
                                         .value("Disabled"))
                                 .disabled())
-                        .element()));
+                        .element()
+        // @code-end:tig-disabled
+        ));
 
         addSnippet(new Snippet("tig-utilities-and-icon", "Utilities and icon",
                 code.get("tig-utilities-and-icon"), () -> {
+                    // @code-start:tig-utilities-and-icon
                     TextInputGroup textInputGroup = textInputGroup();
                     textInputGroup
                             .addMain(textInputGroupMain("tig-utilities-and-icon-0")
@@ -87,11 +94,12 @@ public class TextInputGroupComponent extends ComponentPage {
                     return div()
                             .add(textInputGroup)
                             .element();
+                    // @code-end:tig-utilities-and-icon
                 }));
 
         addSnippet(new Snippet("tig-filters", "Filters",
-                code.get("tig-filters"),
-                () -> {
+                code.get("tig-filters"), () -> {
+                    // @code-start:tig-filters
                     TextInputGroup textInputGroup = textInputGroup();
                     ChipGroup chipGroup = chipGroup();
                     CloseHandler<Chip> closeHandler = (event, chip) -> {
@@ -129,6 +137,7 @@ public class TextInputGroupComponent extends ComponentPage {
                     return div()
                             .add(textInputGroup)
                             .element();
+                    // @code-end:tig-filters
                 }));
     }
 }

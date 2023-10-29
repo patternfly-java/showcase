@@ -38,21 +38,19 @@ public class PopoverComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("popover-basic", "Basic",
-                code.get("popover-basic"), () -> {
-                    // @code-start:popover-basic
-                    popover(By.id("popover-basic-button"))
-                            .ariaLabel("Basic popover")
-                            .addHeader("Popover header")
-                            .addBody("Popovers are triggered by click rather than hover.")
-                            .addFooter("Popover footer")
-                            .appendToBody();
-
-                    return div().style("margin", "50px")
-                            .add(button("Toggle popover").primary()
-                                    .id("popover-basic-button"))
-                            .element();
-                    // @code-end:popover-basic
-                }));
+                code.get("popover-basic"), () ->
+                // @code-start:popover-basic
+                div().style("margin", "50px")
+                        .add(button("Toggle popover").primary()
+                                .id("popover-basic-button"))
+                        .add(popover(By.id("popover-basic-button"))
+                                .ariaLabel("Basic popover")
+                                .addHeader("Popover header")
+                                .addBody("Popovers are triggered by click rather than hover.")
+                                .addFooter("Popover footer"))
+                        .element()
+        // @code-end:popover-basic
+        ));
 
         addSnippet(new Snippet("popover-hoverable", "Hoverable",
                 code.get("popover-hoverable"), () -> {

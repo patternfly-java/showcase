@@ -15,12 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.core.Aria;
-import org.patternfly.showcase.client.LoremIpsum;
-
-import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLElement;
-
 import static elemental2.dom.DomGlobal.clearInterval;
 import static elemental2.dom.DomGlobal.setInterval;
 import static org.jboss.elemento.Elements.a;
@@ -59,6 +53,12 @@ import static org.patternfly.layout.PredefinedIcon.server;
 import static org.patternfly.layout.PredefinedIcon.users;
 import static org.patternfly.showcase.client.Code.code;
 
+import org.patternfly.core.Aria;
+import org.patternfly.showcase.client.LoremIpsum;
+
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
+
 public class AlertComponent extends ComponentPage {
 
     public AlertComponent() {
@@ -69,8 +69,9 @@ public class AlertComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("alert-variants", "Alert variants",
-                code.get("alert-variants"),
-                () -> div()
+                code.get("alert-variants"), () ->
+                // @code-start:alert-variants
+                div()
                         .add(alert(custom, "Custom alert title"))
                         .add(br())
                         .add(alert(info, "Info alert title"))
@@ -80,11 +81,14 @@ public class AlertComponent extends ComponentPage {
                         .add(alert(warning, "Warning alert title"))
                         .add(br())
                         .add(alert(danger, "Danger alert title"))
-                        .element()));
+                        .element()
+        // @code-end:alert-variants
+        ));
 
         addSnippet(new Snippet("alert-variations", "Alert variations",
-                code.get("alert-variations"),
-                () -> div()
+                code.get("alert-variations"), () ->
+                // @code-start:alert-variations
+                div()
                         .add(alert(success, "Success alert title")
                                 .closable((e, a) -> DomGlobal.alert("Clicked the close button"))
                                 .addDescription(
@@ -113,11 +117,14 @@ public class AlertComponent extends ComponentPage {
                                 .closable((e, a) -> DomGlobal.alert("Clicked the close button")))
                         .add(br())
                         .add(alert(success, "Success alert title"))
-                        .element()));
+                        .element()
+        // @code-end:alert-variations
+        ));
 
         addSnippet(new Snippet("alert-timeout", "Alert timeout",
                 code.get("alert-timeout"),
                 () -> {
+                    // @code-start:alert-timeout
                     HTMLElement alerts = ul().css(component(alertGroup), util("mt-sm"))
                             .aria(live, "polite")
                             .aria(Aria.atomic, false)
@@ -140,11 +147,13 @@ public class AlertComponent extends ComponentPage {
                                                     .onClick((event, button) -> removeChildrenFrom(alerts)))))
                             .add(alerts)
                             .element();
+                    // @code-end:alert-timeout
                 }));
 
         addSnippet(new Snippet("alert-expandable", "Expandable alerts",
-                code.get("alert-expandable"),
-                () -> div()
+                code.get("alert-expandable"), () ->
+                // @code-start:alert-expandable
+                div()
                         .add(alert(success, "Success alert title")
                                 .expandable()
                                 .closable((e, a) -> DomGlobal.alert("Clicked the close button"))
@@ -162,21 +171,27 @@ public class AlertComponent extends ComponentPage {
                                 .addActionGroup(alertActionGroup()
                                         .addAction("View details", (e, a) -> DomGlobal.alert("Clicked on View details"))
                                         .addAction("Ignore", (e, a) -> DomGlobal.alert("Clicked on Ignore"))))
-                        .element()));
+                        .element()
+        // @code-end:alert-expandable
+        ));
 
         addSnippet(new Snippet("alert-truncate", "Truncated alerts",
-                code.get("alert-truncate"),
-                () -> div()
+                code.get("alert-truncate"), () ->
+                // @code-start:alert-truncate
+                div()
                         .add(alert(info, LoremIpsum.paragraphs(10)).truncate(1))
                         .add(br())
                         .add(alert(warning, LoremIpsum.paragraphs(10)).truncate(2))
                         .add(br())
                         .add(alert(danger, LoremIpsum.paragraphs(10)).truncate(3))
-                        .element()));
+                        .element()
+        // @code-end:alert-truncate
+        ));
 
         addSnippet(new Snippet("alert-custom-icons", "Custom icons",
-                code.get("alert-custom-icons"),
-                () -> div()
+                code.get("alert-custom-icons"), () ->
+                // @code-start:alert-custom-icons
+                div()
                         .add(alert(custom, "Default alert title").customIcon(users))
                         .add(br())
                         .add(alert(info, "Info alert title").customIcon(box))
@@ -186,11 +201,14 @@ public class AlertComponent extends ComponentPage {
                         .add(alert(warning, "Warning alert title").customIcon(server))
                         .add(br())
                         .add(alert(danger, "Danger alert title").customIcon(laptop))
-                        .element()));
+                        .element()
+        // @code-end:alert-custom-icons
+        ));
 
         addSnippet(new Snippet("alert-inline-variants", "Inline alert variants",
-                code.get("alert-inline-types"),
-                () -> div()
+                code.get("alert-inline-types"), () ->
+                // @code-start:alert-inline-variants
+                div()
                         .add(alert(custom, "Custom inline alert title").inline())
                         .add(br())
                         .add(alert(info, "Info inline alert title").inline())
@@ -200,11 +218,14 @@ public class AlertComponent extends ComponentPage {
                         .add(alert(warning, "Warning inline alert title").inline())
                         .add(br())
                         .add(alert(danger, "Danger inline alert title").inline())
-                        .element()));
+                        .element()
+        // @code-end:alert-inline-variants
+        ));
 
         addSnippet(new Snippet("alert-inline-variations", "Inline alert variations",
-                code.get("alert-inline-variations"),
-                () -> div()
+                code.get("alert-inline-variations"), () ->
+                // @code-start:alert-inline-variations
+                div()
                         .add(alert(success, "Success alert title")
                                 .inline()
                                 .closable((e, a) -> DomGlobal.alert("Clicked the close button"))
@@ -238,11 +259,14 @@ public class AlertComponent extends ComponentPage {
                         .add(br())
                         .add(alert(success, "Success alert title")
                                 .inline())
-                        .element()));
+                        .element()
+        // @code-end:alert-inline-variations
+        ));
 
         addSnippet(new Snippet("alert-plain-inline-variants", "Plain inline alert variants",
-                code.get("alert-plain-inline-variants"),
-                () -> div()
+                code.get("alert-plain-inline-variants"), () ->
+                // @code-start:alert-plain-inline-variants
+                div()
                         .add(alert(custom, "Custom inline alert title").inline().plain())
                         .add(br())
                         .add(alert(info, "Info inline alert title").inline().plain())
@@ -252,20 +276,26 @@ public class AlertComponent extends ComponentPage {
                         .add(alert(warning, "Warning inline alert title").inline().plain())
                         .add(br())
                         .add(alert(danger, "Danger inline alert title").inline().plain())
-                        .element()));
+                        .element()
+        // @code-end:alert-plain-inline-variants
+        ));
 
         addSnippet(new Snippet("alert-plain-inline-variations", "Plain inline alert variations",
-                code.get("alert-plain-inline-variations"),
-                () -> div()
+                code.get("alert-plain-inline-variations"), () ->
+                // @code-start:alert-plain-inline-variations
+                div()
                         .add(alert(success, "Success alert title")
                                 .inline().plain()
                                 .addDescription(
                                         "Success alert description. This should tell the user more information about the alert."))
-                        .element()));
+                        .element()
+        // @code-end:alert-plain-inline-variations
+        ));
 
         addSnippet(new Snippet("alert-static-live-region", "Static live region alerts",
-                code.get("alert-static-live-region"),
-                () -> div()
+                code.get("alert-static-live-region"), () ->
+                // @code-start:alert-static-live-region
+                div()
                         .add(alert(info, "Default live region configuration")
                                 .closable()
                                 .liveRegion()
@@ -285,19 +315,25 @@ public class AlertComponent extends ComponentPage {
                                                 .add("You can alternatively omit the ")
                                                 .add(code("liveRegion()"))
                                                 .add(" to specify ARIA attributes and CSS manually on the containing element."))))
-                        .element()));
+                        .element()
+        // @code-end:alert-static-live-region
+        ));
 
         addSnippet(new Snippet("alert-group-static-inline", "Static inline alert group",
-                code.get("alert-group-static-inline"),
-                () -> div()
+                code.get("alert-group-static-inline"), () ->
+                // @code-start:alert-group-static-inline
+                div()
                         .add(alertGroup(staticInline)
                                 .addAlert(alert(success, "Success alert").inline())
                                 .addAlert(alert(info, "Info alert"))) // inline is added automatically!
-                        .element()));
+                        .element()
+        // @code-end:alert-group-static-inline
+        ));
 
         addSnippet(new Snippet("alert-group-toast", "Toast alert group",
-                code.get("alert-group-toast"),
-                () -> div()
+                code.get("alert-group-toast"), () ->
+                // @code-start:alert-group-toast
+                div()
                         .add(actionList()
                                 .addItem(actionListItem()
                                         .add(button("Add toast success alert").secondary()
@@ -311,11 +347,14 @@ public class AlertComponent extends ComponentPage {
                                         .add(button("Add toast info alert").secondary()
                                                 .onClick((e, b) -> alertGroup(toast)
                                                         .addAlert(alert(info, "Toast info alert"))))))
-                        .element()));
+                        .element()
+        // @code-end:alert-group-toast
+        ));
 
         addSnippet(new Snippet("alert-group-asynchronous", "Asynchronous alert groups",
                 code.get("alert-group-asynchronous"),
                 () -> {
+                    // @code-start:alert-group-asynchronous
                     final int[] counter = { 0 };
                     final double[] intervalHandle = { 0 };
                     return div()
@@ -335,6 +374,7 @@ public class AlertComponent extends ComponentPage {
                                                         clearInterval(intervalHandle[0]);
                                                     }))))
                             .element();
+                    // @code-end:alert-group-asynchronous
                 }));
     }
 }

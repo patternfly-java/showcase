@@ -43,8 +43,9 @@ public class CodeBlockComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("code-block-basic", "Basic",
-                code.get("code-block-basic"),
-                () -> div()
+                code.get("code-block-basic"), () ->
+                // @code-start:code-block-basic
+                div()
                         .add(codeBlock()
                                 .addAction(codeBlockCopyToClipboardAction())
                                 .addAction(codeBlockAction(play)
@@ -52,11 +53,14 @@ public class CodeBlockComponent extends ComponentPage {
                                         .onClick((action, codeBlock) -> console.log(
                                                 "Play not yet implemented")))
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-block-basic
+        ));
 
         addSnippet(new Snippet("code-block-expandable", "Expandable",
-                code.get("code-block-expandable"),
-                () -> div()
+                code.get("code-block-expandable"), () ->
+                // @code-start:code-block-expandable
+                div()
                         .add(codeBlock()
                                 .addAction(codeBlockCopyToClipboardAction())
                                 .addAction(codeBlockAction(play)
@@ -64,6 +68,8 @@ public class CodeBlockComponent extends ComponentPage {
                                         .onClick((action, codeBlock) -> console.log("Play not yet implemented")))
                                 .truncate()
                                 .code(CODE))
-                        .element()));
+                        .element()
+        // @code-end:code-block-expandable
+        ));
     }
 }

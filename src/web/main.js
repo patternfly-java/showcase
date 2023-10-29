@@ -27,8 +27,8 @@ import "./styles.css";
 import {createPopper} from "@popperjs/core";
 import "@github/relative-time-element";
 import "./assets/assets";
-import "./code/code";
 import "./data/data";
+import "./code";
 
 // Necessary for the GWT integration of popper
 window["createPopper"] = createPopper;
