@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.component.icon.Icon;
+import org.patternfly.showcase.client.LoremIpsum;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
@@ -44,9 +47,6 @@ import static org.patternfly.layout.Size.md;
 import static org.patternfly.layout.Size.sm;
 import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.component.icon.Icon;
-import org.patternfly.showcase.client.LoremIpsum;
 
 public class IconComponent extends ComponentPage {
 

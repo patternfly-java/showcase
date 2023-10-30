@@ -15,7 +15,6 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.jboss.elemento.Attachable;
 import org.jboss.elemento.By;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.tooltip.Tooltip;
@@ -24,6 +23,7 @@ import org.patternfly.showcase.client.LoremIpsum;
 import elemental2.dom.ScrollIntoViewOptions;
 
 import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.onAttach;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
@@ -72,7 +72,7 @@ public class TooltipComponent extends ComponentPage {
                 () -> {
                     // @code-start:tooltip-auto
                     Button button = button("Tooltip");
-                    Attachable.register(button, mr -> {
+                    onAttach(button, mr -> {
                         ScrollIntoViewOptions options = ScrollIntoViewOptions.create();
                         options.setBlock("center");
                         options.setInline("center");

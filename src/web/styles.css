@@ -17,7 +17,7 @@
     --pf-v5-c-content--FontSize: var(--pf-v5-global--FontSize--lg);
 }
 
-.tooltip-box {
+.popover-box, .tooltip-box {
     height: 450px;
     position: relative;
     width: 100%;
@@ -27,6 +27,8 @@
     border: 2px dashed #ff6b81;
 
 }
+.popover-box::before,
+.popover-box::after,
 .tooltip-box::before,
 .tooltip-box::after {
     content: '';
@@ -34,7 +36,7 @@
     width: 1500px;
     height: 600px;
 }
-.tooltip-button {
+.popover-button, .tooltip-button {
     position: absolute;
     left: 600px;
 }

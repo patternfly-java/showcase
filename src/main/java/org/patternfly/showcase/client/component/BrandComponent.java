@@ -34,7 +34,7 @@ public class BrandComponent extends ComponentPage {
                 div()
                         .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg"))
                         .element()
-                // @code-end:brand-simple
+        // @code-end:brand-simple
         ));
     }
 }

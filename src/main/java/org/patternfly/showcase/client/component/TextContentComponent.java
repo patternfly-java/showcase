@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.showcase.client.LoremIpsum;
+
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.blockquote;
 import static org.jboss.elemento.Elements.dd;
@@ -31,8 +33,6 @@ import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Classes.plain;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.showcase.client.LoremIpsum;
 
 public class TextContentComponent extends ComponentPage {
 

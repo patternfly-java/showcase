@@ -16,15 +16,29 @@
 package org.patternfly.showcase.client.component;
 
 import org.jboss.elemento.By;
+import org.patternfly.component.button.Button;
 import org.patternfly.component.popover.Popover;
+import org.patternfly.showcase.client.LoremIpsum;
+
+import elemental2.dom.ScrollIntoViewOptions;
 
 import static org.jboss.elemento.Elements.code;
 import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.onAttach;
 import static org.jboss.elemento.Elements.p;
+import static org.patternfly.component.actionlist.ActionList.actionList;
+import static org.patternfly.component.actionlist.ActionListItem.actionListItem;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.popover.Popover.popover;
 import static org.patternfly.component.popover.PopoverBody.popoverBody;
+import static org.patternfly.core.Severity.custom;
+import static org.patternfly.core.Severity.danger;
+import static org.patternfly.core.Severity.info;
+import static org.patternfly.core.Severity.success;
+import static org.patternfly.core.Severity.warning;
+import static org.patternfly.layout.PredefinedIcon.bullhorn;
 import static org.patternfly.showcase.client.Code.code;
+import static org.patternfly.thirdparty.popper.Placement.auto;
 import static org.patternfly.thirdparty.popper.TriggerAction.mouseenter;
 
 public class PopoverComponent extends ComponentPage {
@@ -112,5 +126,113 @@ public class PopoverComponent extends ComponentPage {
                             .element();
                     // @code-end:popover-no-padding
                 }));
+
+        addSnippet(new Snippet("popover-auto-width", "Width auto",
+                code.get("popover-auto-width"), () -> {
+                    // @code-start:popover-auto-width
+                    popover(By.id("popover-auto-width-button"))
+                            .autoWidth()
+                            .ariaLabel("Popover with auto-width.")
+                            .addBody("Removes fixed-width and allows width to be defined by contents.")
+                            .appendToBody();
+
+                    return div().style("margin", "50px")
+                            .add(button("Toggle popover").primary()
+                                    .id("popover-auto-width-button"))
+                            .element();
+                    // @code-end:popover-auto-width
+                }));
+
+        addSnippet(new Snippet("popover-advanced", "Advanced",
+                code.get("popover-advanced"), () -> {
+                    // @code-start:popover-advanced
+                    Button button = button("Toggle popover");
+                    onAttach(button, mr -> {
+                        ScrollIntoViewOptions options = ScrollIntoViewOptions.create();
+                        options.setBlock("center");
+                        options.setInline("center");
+                        button.element().scrollIntoView(options);
+                    });
+
+                    return div().style("width", "720px")
+                            .add(div().css("popover-box")
+                                    .add(button.css("popover-button").primary()
+                                            .id("popover-advanced-button"))
+                                    .add(popover(By.id("popover-advanced-button"))
+                                            .placement(auto)
+                                            .ariaLabel("Advanced popover")
+                                            .addHeader("Popover header")
+                                            .addBody(LoremIpsum.words(20))
+                                            .addFooter("Popover footer")))
+                            .element();
+                    // @code-end:popover-advanced
+                }));
+
+        addSnippet(new Snippet("popover-icon", "Popover with icon in the title",
+                code.get("popover-icon"), () -> {
+                    // @code-start:popover-icon
+                    popover(By.id("popover-icon-button"))
+                            .ariaLabel("Popover with icon in the title example.")
+                            .addHeader("Popover with icon")
+                            .addIcon(bullhorn)
+                            .addBody(LoremIpsum.words(20))
+                            .addFooter("Popover footer")
+                            .appendToBody();
+
+                    return div().style("margin", "50px")
+                            .add(button("Toggle popover").primary()
+                                    .id("popover-icon-button"))
+                            .element();
+                    // @code-end:popover-icon
+                }));
+
+        addSnippet(new Snippet("popover-alert", "Alert popover",
+                code.get("popover-alert"), () ->
+                // @code-start:popover-alert
+                div().style("margin", "50px")
+                        .add(actionList()
+                                .addItem(actionListItem()
+                                        .add(button("Custom").primary()
+                                                .id("popover-alert-custom"))
+                                        .add(popover(By.id("popover-alert-custom"))
+                                                .severity(custom)
+                                                .addHeader("Custom popover title")
+                                                .addBody(LoremIpsum.words(20))
+                                                .addFooter("Popover footer")))
+                                .addItem(actionListItem()
+                                        .add(button("Info").secondary()
+                                                .id("popover-alert-info"))
+                                        .add(popover(By.id("popover-alert-info"))
+                                                .severity(info)
+                                                .addHeader("Info popover title")
+                                                .addBody(LoremIpsum.words(20))
+                                                .addFooter("Popover footer")))
+                                .addItem(actionListItem()
+                                        .add(button("Success").tertiary()
+                                                .id("popover-alert-success"))
+                                        .add(popover(By.id("popover-alert-success"))
+                                                .severity(success)
+                                                .addHeader("Success popover title")
+                                                .addBody(LoremIpsum.words(20))
+                                                .addFooter("Popover footer")))
+                                .addItem(actionListItem()
+                                        .add(button("Warning").warning()
+                                                .id("popover-alert-warning"))
+                                        .add(popover(By.id("popover-alert-warning"))
+                                                .severity(warning)
+                                                .addHeader("Warning popover title")
+                                                .addBody(LoremIpsum.words(20))
+                                                .addFooter("Popover footer")))
+                                .addItem(actionListItem()
+                                        .add(button("Danger").danger()
+                                                .id("popover-alert-danger"))
+                                        .add(popover(By.id("popover-alert-danger"))
+                                                .severity(danger)
+                                                .addHeader("Danger popover title")
+                                                .addBody(LoremIpsum.words(20))
+                                                .addFooter("Popover footer"))))
+                        .element()
+        // @code-end:popover-alert
+        ));
     }
 }

@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.core.Aria;
+import org.patternfly.showcase.client.LoremIpsum;
+
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -34,9 +37,6 @@ import static org.patternfly.layout.PredefinedIcon.bars;
 import static org.patternfly.layout.PredefinedIcon.bell;
 import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.core.Aria;
-import org.patternfly.showcase.client.LoremIpsum;
 
 public class MenuComponent extends ComponentPage {
 

@@ -15,14 +15,14 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.showcase.client.LoremIpsum;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.CheckboxBody.checkboxBody;
 import static org.patternfly.component.form.CheckboxDescription.checkboxDescription;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.showcase.client.LoremIpsum;
 
 public class CheckboxComponent extends ComponentPage {
 

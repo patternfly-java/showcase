@@ -76,7 +76,7 @@
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.10.0</version.junit>
         <version.node>v20.5.0</version.node>
-        <version.patternfly.java>0.0.7-SNAPSHOT</version.patternfly.java>
+        <version.patternfly.java>0.0.7</version.patternfly.java>
 
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>

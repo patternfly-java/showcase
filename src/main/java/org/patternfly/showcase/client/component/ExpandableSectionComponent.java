@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.component.badge.Badge;
+import org.patternfly.showcase.client.LoremIpsum;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.span;
@@ -28,9 +31,6 @@ import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.component.badge.Badge;
-import org.patternfly.showcase.client.LoremIpsum;
 
 public class ExpandableSectionComponent extends ComponentPage {
 

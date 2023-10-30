@@ -15,6 +15,12 @@
  */
 package org.patternfly.showcase.client.component;
 
+import org.patternfly.core.Aria;
+import org.patternfly.showcase.client.LoremIpsum;
+
+import elemental2.dom.DomGlobal;
+import elemental2.dom.HTMLElement;
+
 import static elemental2.dom.DomGlobal.clearInterval;
 import static elemental2.dom.DomGlobal.setInterval;
 import static org.jboss.elemento.Elements.a;
@@ -52,12 +58,6 @@ import static org.patternfly.layout.PredefinedIcon.laptop;
 import static org.patternfly.layout.PredefinedIcon.server;
 import static org.patternfly.layout.PredefinedIcon.users;
 import static org.patternfly.showcase.client.Code.code;
-
-import org.patternfly.core.Aria;
-import org.patternfly.showcase.client.LoremIpsum;
-
-import elemental2.dom.DomGlobal;
-import elemental2.dom.HTMLElement;
 
 public class AlertComponent extends ComponentPage {
 
