@@ -1,4 +1,4 @@
-#!/usr/bin/env kscript
+#!/usr/bin/env kotlin
 
 import kotlin.io.path.*
 
