@@ -71,7 +71,7 @@
         <version.elemental2>1.2.1</version.elemental2>
         <version.elemento>1.2.7</version.elemento>
         <version.gwt>2.10.0</version.gwt>
-        <version.gwt.core>1.0.0-RC1</version.gwt.core>
+        <version.gwt.core>1.0.0-RC2</version.gwt.core>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.10.0</version.junit>
