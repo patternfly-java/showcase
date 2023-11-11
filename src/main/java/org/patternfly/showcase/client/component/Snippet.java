@@ -18,8 +18,11 @@ package org.patternfly.showcase.client.component;
 import java.util.function.Supplier;
 
 import org.jboss.elemento.By;
+import org.jboss.elemento.Id;
 import org.jboss.elemento.IsElement;
 import org.patternfly.component.code.CodeEditor;
+import org.patternfly.component.code.CodeEditorAction;
+import org.patternfly.component.tooltip.Tooltip;
 import org.patternfly.layout.Classes;
 import org.patternfly.layout.PredefinedIcon;
 
@@ -30,6 +33,7 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.isVisible;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.setVisible;
+import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.code.CodeEditor.codeEditor;
 import static org.patternfly.component.code.CodeEditorAction.codeEditorAction;
@@ -37,6 +41,7 @@ import static org.patternfly.component.code.CodeEditorAction.codeEditorCopyToCli
 import static org.patternfly.component.code.CodeEditorActions.codeEditorActions;
 import static org.patternfly.component.code.CodeEditorHeader.codeEditorHeader;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.core.Aria.hidden;
 import static org.patternfly.core.Attributes.tabindex;
 import static org.patternfly.layout.Classes.component;
@@ -44,6 +49,7 @@ import static org.patternfly.layout.Classes.flex;
 import static org.patternfly.layout.Classes.layout;
 import static org.patternfly.layout.Classes.main;
 import static org.patternfly.layout.Classes.modifier;
+import static org.patternfly.layout.Classes.tooltip;
 import static org.patternfly.layout.PredefinedIcon.undo;
 import static org.patternfly.layout.Size.lg;
 
@@ -57,6 +63,12 @@ class Snippet implements IsElement<HTMLElement> {
         demoSupplier = demo;
 
         CodeEditor codeEditor;
+        String codeId = Id.build(id, "code");
+        String copyId = Id.build(id, "copy");
+        String undoId = Id.build(id, "undo");
+        CodeEditorAction copyAction = codeEditorCopyToClipboardAction().id(copyId);
+        Tooltip copyTooltip = tooltip(By.id(copyId), "Copy code to clipboard");
+
         root = div().css("ws-example")
                 .add(div().css("ws-example-header")
                         .add(div().css(layout(flex), modifier("space-items-none"), modifier("align-items-center"))
@@ -73,6 +85,7 @@ class Snippet implements IsElement<HTMLElement> {
                         .addHeader(codeEditorHeader()
                                 .addActions(codeEditorActions()
                                         .addAction(codeEditorAction(button()
+                                                .id(codeId)
                                                 .css("ws-code-editor-control")
                                                 .control()
                                                 .addIconAndText(PredefinedIcon.code, "Java"))
@@ -81,17 +94,22 @@ class Snippet implements IsElement<HTMLElement> {
                                                             By.classname(component(Classes.codeEditor, main)));
                                                     setVisible(mainElement, !isVisible(mainElement));
                                                 }))
-                                        .addAction(codeEditorCopyToClipboardAction()
-                                                .css("ws-code-editor-control"))
-                                        .addAction(codeEditorAction(undo)
+                                        .add(tooltip(By.id(codeId), "Toggle Java code"))
+                                        .addAction(copyAction
                                                 .css("ws-code-editor-control")
-                                                .onClick((event, codeEditorAction) -> undo()))))
+                                                .on(click, e -> copyTooltip.text("Code copied")))
+                                        .add(copyTooltip
+                                                .onClose((e, t) -> t.text("Copy code to clipboard")))
+                                        .addAction(codeEditorAction(undo)
+                                                .id(undoId)
+                                                .css("ws-code-editor-control")
+                                                .onClick((event, codeEditorAction) -> undo()))
+                                        .add(tooltip(By.id(undoId), "Undo"))))
                         .code(code))
                 .element();
 
         HTMLElement mainElement = codeEditor.find(By.classname(component(Classes.codeEditor, main)));
         setVisible(mainElement, false);
-
     }
 
     private void undo() {

@@ -40,7 +40,7 @@ import static org.patternfly.layout.Size._4xl;
 public class ComponentPage implements Page {
 
     private final List<HTMLElement> elements;
-    private final HTMLElement snippets;
+    final HTMLElement snippets;
 
     ComponentPage(String title, String javadocLink, String designLink, HTMLElement description) {
         elements = asList(

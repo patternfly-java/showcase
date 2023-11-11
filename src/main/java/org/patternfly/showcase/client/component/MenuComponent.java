@@ -19,6 +19,7 @@ import org.patternfly.core.Aria;
 import org.patternfly.showcase.client.LoremIpsum;
 
 import static elemental2.dom.DomGlobal.console;
+import static java.util.stream.Collectors.joining;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
@@ -173,11 +174,19 @@ public class MenuComponent extends ComponentPage {
                 // @code-start:menu-checkbox
                 div()
                         .add(menu(multi)
+                                .onMultiSelect(menuItems -> {
+                                    console.log("### Selected items: " + menuItems.stream()
+                                            .map(mi -> mi.id)
+                                            .collect(joining(", ")));
+                                })
                                 .addContent(menuContent()
                                         .addList(menuList()
-                                                .addItem(checkboxMenuItem("item-0", "Checkbox 1"))
-                                                .addItem(checkboxMenuItem("item-1", "Checkbox 2"))
+                                                .addItem(checkboxMenuItem("item-0", "Checkbox 1")
+                                                        .onClick((e, mi) -> console.log("+++ Clicked on item " + mi.id)))
+                                                .addItem(checkboxMenuItem("item-1", "Checkbox 2")
+                                                        .onClick((e, mi) -> console.log("+++ Clicked on item " + mi.id)))
                                                 .addItem(checkboxMenuItem("item-2", "Checkbox 3")
+                                                        .onClick((e, mi) -> console.log("+++ Clicked on item " + mi.id))
                                                         .disabled()))))
                         .element()
         // @code-end:menu-checkbox

@@ -15,119 +15,211 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.component.Dropdown;
-
-import static elemental2.dom.DomGlobal.console;
+import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Icon.icon;
-import static org.patternfly.layout.PredefinedIcon.fas;
+import static org.patternfly.component.avatar.Avatar.avatar;
+import static org.patternfly.component.badge.Badge.badge;
+import static org.patternfly.component.menu.Dropdown.dropdown;
+import static org.patternfly.component.menu.Menu.menu;
+import static org.patternfly.component.menu.MenuContent.menuContent;
+import static org.patternfly.component.menu.MenuItem.actionMenuItem;
+import static org.patternfly.component.menu.MenuItem.linkMenuItem;
+import static org.patternfly.component.menu.MenuList.menuList;
+import static org.patternfly.component.menu.MenuToggle.menuToggle;
+import static org.patternfly.component.menu.MenuToggleAction.menuToggleAction;
+import static org.patternfly.component.menu.MenuToggleCheckbox.menuToggleCheckbox;
+import static org.patternfly.component.menu.MenuToggleType.split;
+import static org.patternfly.layout.PredefinedIcon.cog;
+import static org.patternfly.layout.PredefinedIcon.ellipsisV;
+import static org.patternfly.showcase.client.Assets.avatarLight;
+import static org.patternfly.showcase.client.Code.code;
 
-@Deprecated
 public class DropdownComponent extends ComponentPage {
 
     public DropdownComponent() {
         super("Dropdown",
-                "https://patternfly-java.github.io/patternfly-java/",
-                "https://www.patternfly.org/",
-                p().textContent("Use a dropdown when you want to present a list of actions in a limited space.")
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/menu/Dropdown.html",
+                "https://www.patternfly.org/components/menus/dropdown/design-guidelines/",
+                p().textContent(
+                        "A dropdown presents a menu of actions or links in a constrained space that will trigger a process or navigate to a new location. See select component guidelines for more information about making one or more selections from a list of items in a value list.")
                         .element());
 
-        addSnippet(new Snippet("simple", "Simple dropdown", "Resources.get().dropdownSimple().getText()", () -> {
-            Dropdown<String> dropdown = Dropdown.<String> text("Dropdown").add("Item 1").add("Item 2").add("Disabled")
-                    .addSeparator().add("Separated Item");
-            dropdown.disable("Disabled");
-            return div().add(dropdown).add(" ").add(Dropdown.<String> text("Dropdown").disabled()).element();
-        }));
-        /*
-         * new Snippet("Dropdown with groups", "Resources.get().dropdownGroups().getText()", () -> { Dropdown<String> dropdown =
-         * Dropdown.<String>text("Dropdown") .add("Item 1") .add("Item 2") .add(Dropdown.<String>group("Group 1")
-         * .add("Group 1 item 1") .add("Group 1 item 2")) .add(Dropdown.<String>group("Group 2") .add("Group 2 item 1")
-         * .add("Group 2 item 2")) // this item is added to the unnamed group above! .add("Item 3");
-         * dropdown.getGroup("Group 2").disable("Group 2 item 1"); return div() .add(dropdown) .element(); }),
-         */
+        addSnippet(new Snippet("dropdown-basic", "Basic dropdown",
+                code.get("dropdown-basic"), () ->
+                // @code-start:dropdown-basic
+                div()
+                        .add(dropdown()
+                                .addToggle(menuToggle("Dropdown"))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .element()
+        // @code-end:dropdown-basic
+        ));
 
-        addSnippet(new Snippet("split", "Split button", "Resources.get().dropdownSplit().getText()", () -> {
-            Dropdown<String> noText = Dropdown.<String> splitCheckbox().add("Item 1").add("Item 2")
-                    .add("Disabled").addSeparator().add("Separated Item");
-            noText.disable("Disabled");
-            Dropdown<String> withText = Dropdown.<String> splitCheckbox("Dropdown").add("Item 1").add("Item 2")
-                    .add("Disabled").addSeparator().add("Separated Item");
-            withText.disable("Disabled");
-            return div().add(noText).add(" ").add(Dropdown.<String> splitCheckbox().disabled()).add(" ")
-                    .add(withText).add(" ").add(Dropdown.<String> splitCheckbox("Dropdown").disabled())
-                    .element();
-        }));
+        addSnippet(new Snippet("dropdown-kebab", "With kebab toggle",
+                code.get("dropdown-kebab"), () ->
+                // @code-start:dropdown-kebab
+                div()
+                        .add(dropdown()
+                                .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .element()
+        // @code-end:dropdown-kebab
+        ));
 
-        addSnippet(new Snippet("types", "Dropdown typed", "Resources.get().dropdownTyped().getText()",
-                () -> div().add(Dropdown
-                        .<Color> text("Dropdown")
-                        .display((html, color) -> html.style("background-color:" + color.bg + ";color:" + color.fg)
-                                .textContent(color.name()))
-                        .add(Color.values())).element()));
+        addSnippet(new Snippet("dropdown-badge", "With a badge",
+                code.get("dropdown-badge"), () ->
+                // @code-start:dropdown-badge
+                div()
+                        .add(dropdown()
+                                .addToggle(menuToggle("Count")
+                                        .addBadge(badge(4).unread()))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .element()
+        // @code-end:dropdown-badge
+        ));
 
-        addSnippet(new Snippet("kebab", "Dropdown with kebab", "Resources.get().dropdownKebab().getText()", () -> {
-            Dropdown<String> kebab = Dropdown.<String> kebab().add("Item 1").add("Item 2").add("Disabled")
-                    .addSeparator().add("Separated Item");
-            kebab.disable("Disabled");
-            return div().add(kebab).add(" ").add(Dropdown.<String> kebab().disabled()).element();
-        }));
+        addSnippet(new Snippet("dropdown-icon", "With an icon",
+                code.get("dropdown-icon"), () ->
+                // @code-start:dropdown-icon
+                div()
+                        .add(dropdown()
+                                .addToggle(menuToggle("Icon")
+                                        .addIcon(cog))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .element()
+        // @code-end:dropdown-icon
+        ));
 
-        addSnippet(new Snippet("icons", "Dropdown (icon only)", "Resources.get().dropdownIcon().getText()", () -> {
-            Dropdown<String> icon = Dropdown.<String> icon(icon(fas("th"))).add("Item 1").add("Item 2")
-                    .add("Disabled").addSeparator().add("Separated Item");
-            icon.disable("Disabled");
-            return div().add(icon).add(" ").add(Dropdown.<String> icon(icon(fas("th"))).disabled()).element();
-        }));
+        addSnippet(new Snippet("dropdown-avatar", "With an avatar",
+                code.get("dropdown-avatar"), () ->
+                // @code-start:dropdown-avatar
+                div()
+                        .add(dropdown()
+                                .addToggle(menuToggle("John Doe")
+                                        .addAvatar(avatar(avatarLight, "Avatar")))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .element()
+        // @code-end:dropdown-avatar
+        ));
 
-        addSnippet(new Snippet("primary", "Dropdown (primary toggle)", "Resources.get().dropdownPrimary().getText()",
-                () -> {
-                    Dropdown<String> primary = Dropdown.<String> text("Dropdown").primary().add("Item 1").add("Item 2")
-                            .add("Disabled").addSeparator().add("Separated Item");
-                    primary.disable("Disabled");
-                    return div().add(primary).element();
-                }));
+        addSnippet(new Snippet("dropdown-split-check", "With a checkbox",
+                code.get("dropdown-split-check"), () ->
+                // @code-start:dropdown-split-check
+                div()
+                        .add(dropdown()
+                                .addToggle(menuToggle(split)
+                                        .addCheckbox(menuToggleCheckbox()))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .add(br())
+                        .add(br())
+                        .add(dropdown()
+                                .addToggle(menuToggle(split)
+                                        .addCheckbox(menuToggleCheckbox())
+                                        .text("10 selected"))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .element()
+        // @code-end:dropdown-split-check
+        ));
 
-        addSnippet(
-                new Snippet("right", "Dropdown (position right)", "Resources.get().dropdownRight().getText()", () -> {
-                    Dropdown<String> right = Dropdown.<String> text("Dropdown").right().add("Item 1").add("Item 2")
-                            .add("Disabled").addSeparator().add("Separated Item");
-                    right.disable("Disabled");
-                    return div().add(right).element();
-                }));
-
-        addSnippet(new Snippet("up", "Dropdown (direction up)", "Resources.get().dropdownUp().getText()", () -> {
-            Dropdown<String> up = Dropdown.<String> text("Dropdown").up().add("Item 1").add("Item 2")
-                    .add("Disabled").addSeparator().add("Separated Item");
-            up.disable("Disabled");
-            return div().add(up).element();
-        }));
-
-        addSnippet(new Snippet("events", "Dropdown events", "Resources.get().dropdownEvent().getText()", () -> {
-            Dropdown<String> dropdown = Dropdown.<String> text("Dropdown").add("Item 1").add("Item 2")
-                    .add("Disabled").addSeparator().add("Separated Item")
-                    .onToggle(open -> console.log(
-                            "NYI") /* toast().add(info("Dropdown " + (open ? "expanded" : "collapsed"))) */)
-                    .onChange(value -> console.log(
-                            "NYI")/* toast().add(info("Dropdown " + (value ? "checked" : "not checked"))) */)
-                    .onSelect(item -> console.log("NYI")/* toast().add(info("Selected " + item)) */);
-            dropdown.disable("Disabled");
-            return div().add(dropdown).element();
-        }));
-    }
-
-    enum Color {
-
-        Success("#92D400", "#151515"), Information("#73BCF7", "#151515"), Warning("#f0AB00", "#151515"), Danger("#C9190B",
-                "#eeeeee");
-
-        final String bg;
-
-        final String fg;
-
-        Color(String bg, String fg) {
-            this.bg = bg;
-            this.fg = fg;
-        }
+        addSnippet(new Snippet("dropdown-split-action", "With an action",
+                code.get("dropdown-split-action"), () ->
+                // @code-start:dropdown-split-action
+                div()
+                        .add(dropdown()
+                                .addToggle(menuToggle(split)
+                                        .addAction(menuToggleAction("Action")))
+                                .addMenu(menu()
+                                        .addContent(menuContent()
+                                                .addList(menuList()
+                                                        .addItem(actionMenuItem("item-0", "Action"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(actionMenuItem("item-2", "Disabled action")
+                                                                .disabled())
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                                .disabled())
+                                                        .addDivider()
+                                                        .addItem(actionMenuItem("item-4", "Separated action"))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                        .element()
+        // @code-end:dropdown-split-action
+        ));
     }
 }

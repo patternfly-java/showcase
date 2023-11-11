@@ -13,10 +13,12 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import avatar from "./avatar.svg"
+import avatarLight from "./avatar-light.svg"
+import avatarDark from "./avatar-dark.svg"
 import pfLogo from "./pf-logo.svg"
 
 window["PatternFlyAssets"] = {
-    avatar: avatar,
+    avatarLight: avatarLight,
+    avatarDark: avatarDark,
     pfLogo: pfLogo
 };

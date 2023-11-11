@@ -15,26 +15,74 @@
  */
 package org.patternfly.showcase.client.component;
 
-import org.patternfly.showcase.client.Assets;
-
+import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.Avatar.avatar;
+import static org.patternfly.component.avatar.Avatar.avatar;
+import static org.patternfly.layout.Brightness.dark;
+import static org.patternfly.layout.Brightness.light;
+import static org.patternfly.layout.Size.lg;
+import static org.patternfly.layout.Size.md;
+import static org.patternfly.layout.Size.sm;
+import static org.patternfly.layout.Size.xl;
+import static org.patternfly.showcase.client.Assets.avatarDark;
+import static org.patternfly.showcase.client.Assets.avatarLight;
+import static org.patternfly.showcase.client.Code.code;
 
-@Deprecated
 public class AvatarComponent extends ComponentPage {
 
     public AvatarComponent() {
         super("Avatar",
-                "https://patternfly-java.github.io/patternfly-java/",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/avatar/Avatar.html",
                 "https://www.patternfly.org/components/avatar/design-guidelines",
                 p().textContent(
-                        "The avatar is used to represent a user. It may contain an image that represents the user or a placeholder graphic in the absence of an image. Typical usage is to represent the current user in the masthead. Related design guidelines: Masthead")
+                        "An avatar is a visual used to represent a user. It may contain an image or a placeholder graphic.")
                         .element());
 
-        addSnippet(new Snippet("avatar-simple", "Simple avatar",
-                "No code yet", () -> div()
-                        .add(avatar(Assets.avatar, "avatar"))
-                        .element()));
+        addSnippet(new Snippet("avatar-basic", "Basic",
+                code.get("avatar-basic"), () ->
+                // @code-start:avatar-basic
+                div()
+                        .add(avatar(avatarLight, "avatar"))
+                        .element()
+        // @code-end:avatar-basic
+        ));
+
+        addSnippet(new Snippet("avatar-size", "Size variations",
+                code.get("avatar-size"), () ->
+                // @code-start:avatar-size
+                div()
+                        .add("Small").add(br())
+                        .add(avatar(avatarLight, "avatar").size(sm))
+                        .add(br()).add(br())
+                        .add("Medium").add(br())
+                        .add(avatar(avatarLight, "avatar").size(md))
+                        .add(br()).add(br())
+                        .add("Large").add(br())
+                        .add(avatar(avatarLight, "avatar").size(lg))
+                        .add(br()).add(br())
+                        .add("Extra large").add(br())
+                        .add(avatar(avatarLight, "avatar").size(xl))
+                        .element()
+        // @code-end:avatar-size
+        ));
+
+        addSnippet(new Snippet("avatar-bordered-light", "Bordered - light",
+                code.get("avatar-bordered-light"), () ->
+                // @code-start:avatar-bordered-light
+                div()
+                        .add(avatar(avatarLight, "avatar").border(light))
+                        .element()
+        // @code-end:avatar-bordered-light
+        ));
+
+        addSnippet(new Snippet("avatar-bordered-dark", "Bordered - dark",
+                code.get("avatar-bordered-dark"), () ->
+                // @code-start:avatar-bordered-dark
+                div()
+                        .add(avatar(avatarDark, "avatar").border(dark))
+                        .element()
+        // @code-end:avatar-bordered-dark
+        ));
     }
 }

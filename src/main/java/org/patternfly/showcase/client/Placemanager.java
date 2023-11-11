@@ -21,6 +21,7 @@ import java.util.function.Supplier;
 
 import org.patternfly.showcase.client.component.ActionListComponent;
 import org.patternfly.showcase.client.component.AlertComponent;
+import org.patternfly.showcase.client.component.AvatarComponent;
 import org.patternfly.showcase.client.component.BadgeComponent;
 import org.patternfly.showcase.client.component.BrandComponent;
 import org.patternfly.showcase.client.component.ButtonComponent;
@@ -28,10 +29,12 @@ import org.patternfly.showcase.client.component.CheckboxComponent;
 import org.patternfly.showcase.client.component.ChipComponent;
 import org.patternfly.showcase.client.component.CodeBlockComponent;
 import org.patternfly.showcase.client.component.CodeEditorComponent;
+import org.patternfly.showcase.client.component.DropdownComponent;
 import org.patternfly.showcase.client.component.ExpandableSectionComponent;
 import org.patternfly.showcase.client.component.IconComponent;
 import org.patternfly.showcase.client.component.MastheadComponent;
 import org.patternfly.showcase.client.component.MenuComponent;
+import org.patternfly.showcase.client.component.MenuToggleComponent;
 import org.patternfly.showcase.client.component.PopoverComponent;
 import org.patternfly.showcase.client.component.SpinnerComponent;
 import org.patternfly.showcase.client.component.TextContentComponent;
@@ -62,7 +65,7 @@ final class Placemanager {
 
         places.put("c-action-list", () -> new ActionListComponent());
         places.put("c-alert", () -> new AlertComponent());
-        // places.put("c-avatar", () -> new AvatarComponent());
+        places.put("c-avatar", () -> new AvatarComponent());
         places.put("c-badge", () -> new BadgeComponent());
         places.put("c-brand", () -> new BrandComponent());
         places.put("c-button", () -> new ButtonComponent());
@@ -73,13 +76,14 @@ final class Placemanager {
         places.put("c-code-editor", () -> new CodeEditorComponent());
         // places.put("c-context-selector", () -> new ContextSelectorComponent());
         // places.put("c-data-list", () -> new DataListComponent());
-        // places.put("c-dropdown", () -> new DropdownComponent());
+        places.put("c-dropdown", () -> new DropdownComponent());
         // places.put("c-empty-state", () -> new EmptyStateComponent());
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());
         places.put("c-icon", () -> new IconComponent());
         // places.put("c-label", () -> new LabelComponent());
         places.put("c-masthead", () -> new MastheadComponent());
         places.put("c-menu", () -> new MenuComponent());
+        places.put("c-menu-toggle", () -> new MenuToggleComponent());
         places.put("c-popover", () -> new PopoverComponent());
         // places.put("c-options-menu", () -> new OptionsMenuComponent());
         // places.put("c-select", () -> new SelectComponent());
