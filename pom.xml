@@ -29,7 +29,7 @@
 
     <groupId>org.patternfly</groupId>
     <artifactId>patternfly-showcase</artifactId>
-    <version>9</version>
+    <version>10</version>
     <name>PatternFly Java Showcase</name>
     <description>Showcase for PatternFly Java</description>
     <inceptionYear>2023</inceptionYear>
