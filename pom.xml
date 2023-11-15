@@ -24,7 +24,7 @@
     <parent>
         <groupId>org.jboss</groupId>
         <artifactId>jboss-parent</artifactId>
-        <version>40</version>
+        <version>41</version>
     </parent>
 
     <groupId>org.patternfly</groupId>
@@ -32,7 +32,6 @@
     <version>9</version>
     <name>PatternFly Java Showcase</name>
     <description>Showcase for PatternFly Java</description>
-    <packaging>gwt-app</packaging>
     <inceptionYear>2023</inceptionYear>
 
     <licenses>
@@ -70,20 +69,19 @@
         <version.checkstyle.config>1.0.8.Final</version.checkstyle.config>
         <version.elemental2>1.2.1</version.elemental2>
         <version.elemento>1.2.7</version.elemento>
-        <version.gwt>2.10.0</version.gwt>
-        <version.gwt.core>1.0.0-RC1</version.gwt.core>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.10.0</version.junit>
-        <version.node>v20.5.0</version.node>
-        <version.patternfly.java>0.0.8-SNAPSHOT</version.patternfly.java>
+        <version.node>v20.8.1</version.node>
+        <version.patternfly.java>0.1.0</version.patternfly.java>
+        <version.treblereel.j2cl.processors>0.6.3</version.treblereel.j2cl.processors>
 
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
         <version.enforcer.plugin>3.3.0</version.enforcer.plugin>
-        <version.frontend.plugin>1.14.0</version.frontend.plugin>
+        <version.frontend.plugin>1.14.2</version.frontend.plugin>
         <version.formatter.plugin>2.23.0</version.formatter.plugin>
-        <version.gwt.maven.plugin>1.1.0</version.gwt.maven.plugin>
+        <version.j2cl.plugin>0.22.0</version.j2cl.plugin>
         <version.impsort.plugin>1.9.0</version.impsort.plugin>
         <version.license.plugin>4.3</version.license.plugin>
 
@@ -93,13 +91,10 @@
 
         <!-- Build related -->
         <encoding>UTF-8</encoding>
-        <gwt.draftCompile>true</gwt.draftCompile>
-        <gwt.style>DETAILED</gwt.style>
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.min.version>3.2.5</maven.min.version>
-        <npm.script>dev</npm.script>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
     </properties>
@@ -107,9 +102,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.gwtproject</groupId>
-                <artifactId>gwt</artifactId>
-                <version>${version.gwt}</version>
+                <groupId>org.jboss.elemento</groupId>
+                <artifactId>elemento-bom</artifactId>
+                <version>${version.elemento}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -125,22 +120,17 @@
         <dependency>
             <groupId>org.jboss.elemento</groupId>
             <artifactId>elemento-core</artifactId>
-            <version>${version.elemento}</version>
         </dependency>
         <dependency>
-            <groupId>org.gwtproject.core</groupId>
-            <artifactId>gwt-core</artifactId>
-            <version>${version.gwt.core}</version>
+            <groupId>org.treblereel.j2cl.processors</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${version.treblereel.j2cl.processors}</version>
         </dependency>
         <dependency>
-            <groupId>org.gwtproject</groupId>
-            <artifactId>gwt-user</artifactId>
-            <version>${version.gwt}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.gwtproject</groupId>
-            <artifactId>gwt-dev</artifactId>
-            <version>${version.gwt}</version>
+            <groupId>org.treblereel.j2cl.processors</groupId>
+            <artifactId>processors</artifactId>
+            <version>${version.treblereel.j2cl.processors}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -164,22 +154,6 @@
                     </configuration>
                 </plugin>
                 <plugin>
-                    <groupId>net.ltgt.gwt.maven</groupId>
-                    <artifactId>gwt-maven-plugin</artifactId>
-                    <version>${version.gwt.maven.plugin}</version>
-                    <configuration>
-                        <devmodeArgs>
-                            <devmodeArg>-startupUrl</devmodeArg>
-                            <devmodeArg>showcase/index.html</devmodeArg>
-                        </devmodeArgs>
-                        <draftCompile>${gwt.draftCompile}</draftCompile>
-                        <moduleName>org.patternfly.showcase.Schowcase</moduleName>
-                        <moduleShortName>showcase</moduleShortName>
-                        <sourceLevel>auto</sourceLevel>
-                        <style>${gwt.style}</style>
-                    </configuration>
-                </plugin>
-                <plugin>
                     <groupId>net.revelc.code</groupId>
                     <artifactId>impsort-maven-plugin</artifactId>
                     <version>${version.impsort.plugin}</version>
@@ -191,6 +165,15 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>com.vertispan.j2cl</groupId>
+                    <artifactId>j2cl-maven-plugin</artifactId>
+                    <version>${version.j2cl.plugin}</version>
+                    <configuration>
+                        <initialScriptFilename>showcase.j2cl.js</initialScriptFilename>
+                        <webappDirectory>${project.build.directory}/showcase</webappDirectory>
+                    </configuration>
+                </plugin>
+                <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
                     <version>${version.license.plugin}</version>
@@ -198,15 +181,18 @@
                         <aggregate>true</aggregate>
                         <strictCheck>true</strictCheck>
                         <useDefaultExcludes>true</useDefaultExcludes>
+                        <mapping>
+                            <parcelrc>DOUBLESLASH_STYLE</parcelrc>
+                        </mapping>
                         <licenseSets>
                             <licenseSet>
                                 <header>etc/license.txt</header>
                                 <excludes>
                                     <exclude>LICENSE</exclude>
+                                    <exclude>README.md</exclude>
+                                    <exclude>**/.parcel-cache/**</exclude>
                                     <exclude>*.kts</exclude>
                                     <exclude>**/*license*.txt</exclude>
-                                    <exclude>**/.parcel-cache/**</exclude>
-                                    <exclude>src/web/code/*.java</exclude>
                                 </excludes>
                             </licenseSet>
                         </licenseSets>
@@ -268,42 +254,17 @@
         </pluginManagement>
 
         <plugins>
-            <!-- Ordered by artifactID -->
+            <!-- Ordered semantically -->
             <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>install-node-and-npm</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                        <configuration>
-                            <nodeVersion>${version.node}</nodeVersion>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>npm-install</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install</arguments>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>npm-parcel</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run ${npm.script}</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>.parcel-cache</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>net.revelc.code.formatter</groupId>
@@ -324,11 +285,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>net.ltgt.gwt.maven</groupId>
-                <artifactId>gwt-maven-plugin</artifactId>
-                <extensions>true</extensions>
             </plugin>
             <plugin>
                 <groupId>net.revelc.code</groupId>
@@ -372,24 +328,6 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>pages</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <configuration>
-                            <descriptors>
-                                <descriptor>src/assembly/pages.xml</descriptor>
-                            </descriptors>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <executions>
                     <execution>
@@ -414,17 +352,66 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install-node-and-npm</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>${version.node}</nodeVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm-install</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm-parcel</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.vertispan.j2cl</groupId>
+                <artifactId>j2cl-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>prod</id>
-            <properties>
-                <gwt.draftCompile>false</gwt.draftCompile>
-                <gwt.style>OBFUSCATED</gwt.style>
-                <npm.script>prod</npm.script>
-            </properties>
-        </profile>
-    </profiles>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>j2cl-staging</id>
+            <url>https://oss.sonatype.org/content/repositories/comvertispan-1082</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 </project>

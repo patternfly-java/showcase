@@ -2,15 +2,22 @@
   "name": "patternfly-showcase",
   "description": "Showcase for PatternFly Java",
   "private": true,
-  "type": "module",
+  "parcelIgnore": [
+    "showcase.j2cl.js"
+  ],
+  "source": "src/web/index.html",
   "scripts": {
-    "predev": "./extract-code.kts",
-    "dev": "vite build --outDir target/gwt/devmode/war/showcase --emptyOutDir false --base /showcase --sourcemap true --minify false",
-    "preprod": "./extract-code.kts",
-    "prod": "vite build --outDir target/vite --base /showcase"
+    "prewatch": "./extract-code.kts",
+    "watch": "parcel serve --dist-dir target/showcase --open",
+    "prebuild": "./extract-code.kts",
+    "build": "parcel build --dist-dir target/showcase --public-url \"./\""
   },
   "devDependencies": {
-    "vite": "^4.5.0"
+    "@parcel/reporter-cli": "^2.10.2",
+    "@parcel/resolver-glob": "^2.10.2",
+    "@parcel/transformer-inline-string": "^2.10.2",
+    "parcel": "^2.10.2",
+    "parcel-resolver-ignore": "^2.1.5"
   },
   "dependencies": {
     "@github/relative-time-element": "^4.3.0",

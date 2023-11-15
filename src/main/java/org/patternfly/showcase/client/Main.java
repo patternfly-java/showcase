@@ -16,8 +16,8 @@
 package org.patternfly.showcase.client;
 
 import org.patternfly.component.navigation.Navigation;
-
-import com.google.gwt.core.client.EntryPoint;
+import org.patternfly.thirdparty.ThirdParty;
+import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
@@ -38,11 +38,14 @@ import static org.patternfly.component.sidebar.SidebarBody.sidebarBody;
 import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.client.Assets.pfLogo;
 
-public class Showcase implements EntryPoint {
+@SuppressWarnings("unused")
+public class Main {
 
-    private final Navigation navigation;
+    private Navigation navigation;
 
-    public Showcase() {
+    @GWT3EntryPoint
+    public void onModuleLoad() {
+        ThirdParty.injectAll();
         navigation = navigation(expandable)
                 .addItem(navigationItem("get-started", "Get started", "#get-started"))
                 .addGroup(expandableNavigationGroup("components", "Components")
@@ -88,10 +91,7 @@ public class Showcase implements EntryPoint {
                 // .addItem(navigationItem("d-user", "User", "#d-user")))
                 .addItem(navigationItem("contribute", "Contribute", "#contribute"))
                 .addItem(navigationItem("get-in-touch", "Get in touch", "#get-in-touch"));
-    }
 
-    @Override
-    public void onModuleLoad() {
         String mainId = "main-id";
         body().add(page()
                 .addSkipToContent(skipToContent(mainId))

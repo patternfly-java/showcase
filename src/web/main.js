@@ -24,11 +24,8 @@ import "./pforg/sideNav.css";
 import './pforg/sideNavLayout.css';
 import "./styles.css";
 
-import {createPopper} from "@popperjs/core";
+import "@popperjs/core";
 import "@github/relative-time-element";
 import "./assets/assets";
 import "./data/data";
 import "./code";
-
-// Necessary for the GWT integration of popper
-window["createPopper"] = createPopper;

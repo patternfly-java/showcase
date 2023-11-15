@@ -4,13 +4,14 @@ Showcase for [PatternFly Java](https://github.com/patternfly-java/patternfly-jav
 
 ## Get Started
 
+The showcase is a [J2CL](https://github.com/google/j2cl/) web app built with the [J2CL Maven Plugin](https://github.com/Vertispan/j2clmavenplugin) and bundled with [Parcel](https://parceljs.org/). 
+
 ### Development Mode
 
-- run `mvn gwt:devmode` in one terminal
-- run `npm run dev` in another terminal
-- open http://localhost:8888/showcase
+- run `mvn j2cl:watch` in one terminal
+- run `npm run watch` in another terminal
 
 ### Production mode
 
-- `mvn package -P prod`
-- Find the compiled web app in `target/showcase-pages`
+- `mvn package`
+- Find the compiled web app in `target/showcase`

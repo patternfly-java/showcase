@@ -17,8 +17,12 @@ import avatarLight from "./avatar-light.svg"
 import avatarDark from "./avatar-dark.svg"
 import pfLogo from "./pf-logo.svg"
 
-window["PatternFlyAssets"] = {
+let PatternFlyAssets = {
     avatarLight: avatarLight,
     avatarDark: avatarDark,
     pfLogo: pfLogo
 };
+
+// Parcel cannot detect that this is going to be used from J2CL
+// "Export" it soo it doesn't get stripped away
+window["PatternFlyAssets"] = PatternFlyAssets;
