@@ -16,7 +16,7 @@ fun CodeBlock.writeToFile() {
 val startComment = "// @code-start:"
 val endComment = "// @code-end:"
 val targetPath = Path("./target/code")
-val sourcePath = Path("./src/main/java/org/patternfly/showcase/client/component")
+val sourcePath = Path("./src/main/java/org/patternfly/showcase/component")
 
 var name = ""
 var collectCode = false
