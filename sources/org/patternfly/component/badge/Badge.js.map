@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Badge.impl.java.js",
+"lineCount":130,
+"mappings":"A;;;;;;;;;;;;;;;;;;;MAoCa,K;;CAAA,W;EAAAA,Q;EAAAA;OAciB,qDAdjBA,C;EAAAA;OAeG,8CAfHA,K;EAAAA;OAgBG,8CAhBHA,K;EAAAA;OAiBW,qDAjBXA,C;EAAAA;OAkB6B,iDAlB7BA,C;;;QAIW,kD,eAAUC,K;EAAOC,gB;EACjCA,iC;;;QAGgB,uD,eAAUD,K,gBAAWE,K;EAAOD,gB;EAC5CA,6C;;;;QAWJ,Y,eAAUD,K;EAAVG,gB;EAAAA,4B;EAAAA,wE;EAAAA,iB;;;;CAAA,sD,eAAUH,K;EACNI,gH;;;;QAGJ,iB,eAAUJ,K,gBAAWE,K;EAArBC,gB;EAAAA,4B;EAAAA,oF;EAAAA,iB;;;;CAAA,2D,eAAUH,K,gBAAWE,K;EACjBE,irB;EACAA,mR;EACAA,4D;EACAA,+D;;;CAMS,4C;EACTC,uK;EACAA,kK;EACAA,Y;;;CAIS,8C;EACTC,qK;EACAA,oK;EACAA,Y;;;CAIS,kD,eAAUN,K;EACnBO,4D;EACAA,wM;EACAA;GACIA,kNADJA;G;EAGAA,Y;;;CAIS,kD,eAAUL,K;EACnBM,4D;EACAA,Y;;;CAGS,sE,gBAAoBC,I;EAC7BC;GACIA,yeADJA;G;EAGAA,8E;EACAA,Y;;;CAIS,4C;EACTC,Y;;;CAKS,sF,sCAAuCC,Q;EAChDC,kE;EACAA,Y;;;CAKO,Y;EACPN,2D;;;;CAtFK,uC;EAAAI,2D;;;QAAA,O;EAAAG,wB;EAAAA,qB;EAAAA;",
+"sources":["Badge.java"],
+"names":["org.patternfly.component.badge.Badge.<synthetic: ctor_js>","count","org.patternfly.component.badge.Badge.badge","limit","org.patternfly.component.badge.Badge.<synthetic: ctor_create>","org.patternfly.component.badge.Badge.<init>","org.patternfly.component.badge.Badge.read","org.patternfly.component.badge.Badge.unread","org.patternfly.component.badge.Badge.count","org.patternfly.component.badge.Badge.limit","text","org.patternfly.component.badge.Badge.screenReader","org.patternfly.component.badge.Badge.that","onChange","org.patternfly.component.badge.Badge.onChange","org.patternfly.component.badge.Badge.<clinit>"]
+}

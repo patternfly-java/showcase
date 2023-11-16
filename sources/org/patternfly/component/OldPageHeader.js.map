@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"OldPageHeader.impl.java.js",
+"lineCount":120,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;MAwCa,a;;CAAA,W;EAAAA,Q;EAAAA;OAEoB,0DAFpBA,C;EAAAA;OAGY,uDAHZA,C;EAAAA;OAIU,qDAJVA,C;EAAAA;OAKY,gDALZA,C;EAAAA;OAMc,kDANdA,C;;;QAQC,qD,oBAA0BC,K,iBAAcC,Q;EAAxCC,wB;EAAAA,oC;EAAAA,6H;EAAAA,iB;;;CAAA,iG,oBAA0BF,K,iBAAcC,Q;EAC9CE,20B;EACAA,4iEAIkCC,CAJlCD,EAIqCE,CAJrCF;GAIiCG,IAAID,GAAJC,+CAJjCH;GAK4BG;IACIA,sGADJA;IAL5BH;s7B;EAWAA,8D;;;CAIiB,8C;EACjBI,Y;;;CAMiB,6F,mBAAeC,U;EAChCC,uI;EACAA,wE;EACAA,6wB;;;CAIiB,oF,qBAAiBC,K;EAClCD,kI;EACAA,8D;EACAA,mO;;;CAGc,+D;EACdE,kE;;;CAGgB,iD;EAChBC,6D;;;CAKC,6F,uBAA+BC,O;EAChCC;GACIA,kEADJA;GAEIA,IAAOC,SAAPD,sDAFJA;GAGIA;IACIA,+JADJA;IAEIA,2EAFJA;IAHJA;GAOIA,mJAPJA;GAQIA,uMARJA;G;;;CAYC,sD;EACDE,+D;EACAA,mJ;EACAA,sI;EACAA,8D;;;CAGC,sD;EACDC,wI;;;CAGC,sD;EACDC,yI;;;;CAhFK,uC;EAAAX,6D;;;QAAA,O;EAAAY,gC;EAAAA,6B;EAAAA;",
+"sources":["OldPageHeader.java"],
+"names":["org.patternfly.component.OldPageHeader.<synthetic: ctor_js>","brand","homeLink","org.patternfly.component.OldPageHeader.<synthetic: ctor_create>","org.patternfly.component.OldPageHeader.<init>","e","b","org.patternfly.component.OldPageHeader.<lambda in <init>>","org.patternfly.component.OldPageHeader.that","navigation","org.patternfly.component.OldPageHeader.add","tools","org.patternfly.component.OldPageHeader.getNavigation","org.patternfly.component.OldPageHeader.getTools","sidebar","org.patternfly.component.OldPageHeader.registerSidebar","sidebarId","org.patternfly.component.OldPageHeader.unregisterSidebar","org.patternfly.component.OldPageHeader.showSidebarToggle","org.patternfly.component.OldPageHeader.hideSidebarToggle","org.patternfly.component.OldPageHeader.<clinit>"]
+}

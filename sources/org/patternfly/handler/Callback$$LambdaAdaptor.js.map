@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Callback$$LambdaAdaptor.impl.java.js",
+"lineCount":35,
+"mappings":"A;;;;;;;;;MAkBiB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;4D;EAAAA,kH;;;CAAA,wG;EAAAC,qC;EAAAA,+D;;;CAAA,Y;;GAAAC,0E;GAAAA,Y;;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["Callback.java"],
+"names":["org.patternfly.handler.Callback$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.patternfly.handler.Callback$$LambdaAdaptor.<init>","org.patternfly.handler.Callback$$LambdaAdaptor.call","org.patternfly.handler.Callback$$LambdaAdaptor.<clinit>"]
+}

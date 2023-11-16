@@ -1,0 +1,31 @@
+goog.module('org.patternfly.component.menu.Dropdown');
+
+goog.require('elemental2.dom.Event.$Overlay');
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('elemental2.dom.MutationRecord.$Overlay');
+goog.require('java.util.EnumSet');
+goog.require('java.util.Set');
+goog.require('java.util.function.Consumer');
+goog.require('nativebootstrap.Equality');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Attachable');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.patternfly.component.ComponentDelegate');
+goog.require('org.patternfly.component.ComponentType');
+goog.require('org.patternfly.component.menu.Menu');
+goog.require('org.patternfly.component.menu.MenuToggle');
+goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.Closeable');
+goog.require('org.patternfly.core.Expandable');
+goog.require('org.patternfly.handler.Callback');
+goog.require('org.patternfly.handler.CloseHandler');
+goog.require('org.patternfly.thirdparty.popper.Modifiers');
+goog.require('org.patternfly.thirdparty.popper.Placement');
+goog.require('org.patternfly.thirdparty.popper.PopperBuilder');
+goog.require('org.patternfly.thirdparty.popper.PopperWrapper');
+goog.require('org.patternfly.thirdparty.popper.TriggerAction');
+goog.require('vmbootstrap.Casts');
+
+const Dropdown = goog.require('org.patternfly.component.menu.Dropdown$impl');
+exports = Dropdown;

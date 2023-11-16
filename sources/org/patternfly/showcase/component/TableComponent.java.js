@@ -1,0 +1,33 @@
+goog.module('org.patternfly.showcase.component.TableComponent');
+
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('elemental2.dom.HTMLParagraphElement.$Overlay');
+goog.require('elemental2.dom.HTMLTableCellElement.$Overlay');
+goog.require('java.lang.Class');
+goog.require('java.lang.Integer');
+goog.require('java.lang.String');
+goog.require('java.util.Comparator');
+goog.require('java.util.function.Function');
+goog.require('java.util.function.Predicate');
+goog.require('java.util.function.Supplier');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.jboss.elemento.HTMLElementBuilder');
+goog.require('org.jboss.elemento.Id');
+goog.require('org.patternfly.component.DataTable');
+goog.require('org.patternfly.component.DataTable.BodyDisplay');
+goog.require('org.patternfly.component.DataTable.Column');
+goog.require('org.patternfly.component.DataTable.ExpandableDisplay');
+goog.require('org.patternfly.component.Dropdown');
+goog.require('org.patternfly.dataprovider.DataProvider');
+goog.require('org.patternfly.showcase.component.ComponentPage');
+goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.component.TableComponent.Repository');
+goog.require('vmbootstrap.Arrays');
+goog.require('vmbootstrap.Casts');
+goog.require('vmbootstrap.JavaScriptObject');
+
+const TableComponent = goog.require('org.patternfly.showcase.component.TableComponent$impl');
+exports = TableComponent;

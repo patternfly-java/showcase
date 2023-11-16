@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"DataListComponent$DisplayData.impl.java.js",
+"lineCount":36,
+"mappings":"A;;;;;;;;MAsMiB,W;;CAAA,W;EAAAA,Q;EAAAA;OAEkB,0EAFlBA,C;;;QAIT,kD,6BAAiCC,O;EAAjCC,sB;EAAAA,kC;EAAAA,2I;EAAAA,iB;;;CAAA,uH,6BAAiCD,O;EAASE,qC;EACtCA,0F;;;CAGG,4D;EACHC,uC;;;QATK,O;EAAAC,8B;EAAAA,2B;EAAAA;",
+"sources":["DataListComponent.java"],
+"names":["org.patternfly.showcase.component.DataListComponent$DisplayData.<synthetic: ctor_js>","display","org.patternfly.showcase.component.DataListComponent$DisplayData.<synthetic: ctor_create>","org.patternfly.showcase.component.DataListComponent$DisplayData.<init>","org.patternfly.showcase.component.DataListComponent$DisplayData.id","org.patternfly.showcase.component.DataListComponent$DisplayData.<clinit>"]
+}

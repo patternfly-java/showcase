@@ -1,0 +1,36 @@
+goog.module('org.patternfly.showcase.component.MenuComponent');
+
+goog.require('elemental2.dom.Event.$Overlay');
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLParagraphElement.$Overlay');
+goog.require('java.lang.String');
+goog.require('java.util.List');
+goog.require('java.util.function.Function');
+goog.require('java.util.function.Supplier');
+goog.require('java.util.stream.Collectors');
+goog.require('java.util.stream.Stream');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.patternfly.component.button.Button');
+goog.require('org.patternfly.component.menu.Menu');
+goog.require('org.patternfly.component.menu.MenuActionHandler');
+goog.require('org.patternfly.component.menu.MenuContent');
+goog.require('org.patternfly.component.menu.MenuFooter');
+goog.require('org.patternfly.component.menu.MenuGroup');
+goog.require('org.patternfly.component.menu.MenuItem');
+goog.require('org.patternfly.component.menu.MenuItemAction');
+goog.require('org.patternfly.component.menu.MenuList');
+goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.SelectionMode');
+goog.require('org.patternfly.handler.ComponentHandler');
+goog.require('org.patternfly.handler.MultiSelectHandler');
+goog.require('org.patternfly.handler.SelectHandler');
+goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('org.patternfly.showcase.LoremIpsum');
+goog.require('org.patternfly.showcase.component.ComponentPage');
+goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('vmbootstrap.Casts');
+
+const MenuComponent = goog.require('org.patternfly.showcase.component.MenuComponent$impl');
+exports = MenuComponent;

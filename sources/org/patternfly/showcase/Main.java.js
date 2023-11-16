@@ -1,0 +1,31 @@
+goog.module('org.patternfly.showcase.Main');
+
+goog.require('elemental2.dom.DomGlobal.$Overlay');
+goog.require('elemental2.dom.Event.$Overlay');
+goog.require('elemental2.dom.HashChangeEvent.$Overlay');
+goog.require('java.lang.Object');
+goog.require('java.lang.String');
+goog.require('nativebootstrap.Equality');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.EventType');
+goog.require('org.patternfly.component.brand.Brand');
+goog.require('org.patternfly.component.masthead.Masthead');
+goog.require('org.patternfly.component.masthead.MastheadToggle');
+goog.require('org.patternfly.component.navigation.ExpandableNavigationGroup');
+goog.require('org.patternfly.component.navigation.Navigation');
+goog.require('org.patternfly.component.navigation.NavigationItem');
+goog.require('org.patternfly.component.navigation.NavigationType.Vertical');
+goog.require('org.patternfly.component.page.Page');
+goog.require('org.patternfly.component.page.PageMain');
+goog.require('org.patternfly.component.sidebar.Sidebar');
+goog.require('org.patternfly.component.sidebar.SidebarBody');
+goog.require('org.patternfly.component.skiptocontent.SkipToContent');
+goog.require('org.patternfly.showcase.Page');
+goog.require('org.patternfly.showcase.Placemanager');
+goog.require('org.patternfly.thirdparty.ThirdParty');
+goog.require('vmbootstrap.Arrays');
+goog.require('vmbootstrap.Casts');
+
+const Main = goog.require('org.patternfly.showcase.Main$impl');
+exports = Main;

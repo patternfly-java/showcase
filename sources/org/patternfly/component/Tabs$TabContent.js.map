@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Tabs$TabContent.impl.java.js",
+"lineCount":35,
+"mappings":"A;;;;;;;;MAuMwB,U;;CAAA,W;EAAAA,Q;EAAAA;OAEe,+CAFfA,C;EAAAA;OAGS,mDAHTA,C;;;QAKT,qE,0BAA6BC,G,qBAAiBC,O;EAA9CC,qB;EAAAA,iC;EAAAA,4I;EAAAA,iB;;;CAAA,mH,0BAA6BF,G,qBAAiBC,O;EAASE,qC;EAC1DA,2D;EACAA,mE;;;QAPY,O;EAAAC,6B;EAAAA,0B;EAAAA;",
+"sources":["Tabs.java"],
+"names":["org.patternfly.component.Tabs$TabContent.<synthetic: ctor_js>","tab","content","org.patternfly.component.Tabs$TabContent.<synthetic: ctor_create>","org.patternfly.component.Tabs$TabContent.<init>","org.patternfly.component.Tabs$TabContent.<clinit>"]
+}

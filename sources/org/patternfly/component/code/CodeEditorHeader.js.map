@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"CodeEditorHeader.impl.java.js",
+"lineCount":117,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MA2Ba,gB;;CAAA,W;EAAAA,Q;EAAAA;OAWS,yDAXTA,C;EAAAA;OAYO,uDAZPA,C;EAAAA;OAaU,6DAbVA,C;;;QAKsB,kE;EAAmBC,2B;EAC9CA,oC;;;QASJ,S;EAAAC,2B;EAAAA,uC;EAAAA,wE;EAAAA,iB;;;CAAA,2D;EACIC,mrB;;;CAIQ,+D,mBAAyBC,U;EACjCC,gF;EACAA;GACIA,2IADJA;G;EAGAA;GACIA,yIADJA;G;;;CAMc,yD;EACdC,0E;;;CAKoB,6G,0BAA6BC,O;EACjDC,4H;;;CAIoB,sG,0BAAsBD,O;EAC1CE,yE;EACAA,sK;EACAA,Y;;;CAGoB,6G,6BAA6BC,I;EACjDC,qJ;;;CAGoB,yG,wBAAyBC,K;EAC7CC,wH;;;CAIoB,oG,wBAAoBD,K;EACxCH,qE;EACAA,oK;EACAA,Y;;;CAGoB,qG,sBAAqBK,G;EACzCC,oJ;;;CAMoB,sD;EACpBC,Y;;;;CAvEK,uD;EAAAV,wE;;;;CAAA,6D;EAAAD,6H;;;;CAAA,uC;EAAAW,qE;;;QAAA,O;EAAAC,mC;EAAAA,gC;EAAAA;",
+"sources":["CodeEditorHeader.java"],
+"names":["org.patternfly.component.code.CodeEditorHeader.<synthetic: ctor_js>","org.patternfly.component.code.CodeEditorHeader.codeEditorHeader","org.patternfly.component.code.CodeEditorHeader.<synthetic: ctor_create>","org.patternfly.component.code.CodeEditorHeader.<init>","codeEditor","org.patternfly.component.code.CodeEditorHeader.passComponent","org.patternfly.component.code.CodeEditorHeader.mainComponent","actions","org.patternfly.component.code.CodeEditorHeader.addActions","org.patternfly.component.code.CodeEditorHeader.add","main","org.patternfly.component.code.CodeEditorHeader.addMain","links","org.patternfly.component.code.CodeEditorHeader.addLinks","tab","org.patternfly.component.code.CodeEditorHeader.addTab","org.patternfly.component.code.CodeEditorHeader.that","org.patternfly.component.code.CodeEditorHeader.<clinit>"]
+}

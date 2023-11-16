@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"MenuFooter.impl.java.js",
+"lineCount":60,
+"mappings":"A;;;;;;;;;;;;;;;;;MA0Ba,U;;CAAA,W;EAAAA,Q;;;QAIgB,sD;EAAaC,qB;EAClCA,kD;;;QAGqB,wE,gBAAkBC,I;EAAMD,qB;EAC7CA,kD;;;QAKJ,yB,gBAAkBC,I;EAAlBC,qB;EAAAA,iC;EAAAA,wF;EAAAA,iB;;;CAAA,uE,gBAAkBD,I;EACdE,6qB;EACAA;GACIA,4EADJA;G;;;CAQc,gD;EACdC,Y;;;;CAzBK,uC;EAAAA,+D;;;QAAA,O;EAAAC,6B;EAAAA,0B;EAAAA;",
+"sources":["MenuFooter.java"],
+"names":["org.patternfly.component.menu.MenuFooter.<synthetic: ctor_js>","org.patternfly.component.menu.MenuFooter.menuFooter","text","org.patternfly.component.menu.MenuFooter.<synthetic: ctor_create>","org.patternfly.component.menu.MenuFooter.<init>","org.patternfly.component.menu.MenuFooter.that","org.patternfly.component.menu.MenuFooter.<clinit>"]
+}

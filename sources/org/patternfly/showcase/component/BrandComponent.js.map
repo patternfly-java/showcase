@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"BrandComponent.impl.java.js",
+"lineCount":39,
+"mappings":"A;;;;;;;;;;;;;;;MAsBa,c;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,yB;EAAAA,qC;EAAAA,0E;EAAAA,iB;;;CAAA,6D;EACHC,irB;EAKAA;GAGQC,scAHRD;O;;;QARK,O;EAAAE,iC;EAAAA,8B;EAAAA;",
+"sources":["BrandComponent.java"],
+"names":["org.patternfly.showcase.component.BrandComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.BrandComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.BrandComponent.<init>","org.patternfly.showcase.component.BrandComponent.<lambda in <init>>","org.patternfly.showcase.component.BrandComponent.<clinit>"]
+}

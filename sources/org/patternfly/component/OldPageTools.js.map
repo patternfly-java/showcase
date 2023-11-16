@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"OldPageTools.impl.java.js",
+"lineCount":47,
+"mappings":"A;;;;;;;;;;;;;;;;;MA0Ba,Y;;CAAA,W;EAAAA,Q;;;QAGC,S;EAAAC,uB;EAAAA,mC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EACNC,srB;;;CAIgB,6C;EAChBC,Y;;;;CATK,uC;EAAAA,4D;;;QAAA,O;EAAAC,+B;EAAAA,4B;EAAAA;",
+"sources":["OldPageTools.java"],
+"names":["org.patternfly.component.OldPageTools.<synthetic: ctor_js>","org.patternfly.component.OldPageTools.<synthetic: ctor_create>","org.patternfly.component.OldPageTools.<init>","org.patternfly.component.OldPageTools.that","org.patternfly.component.OldPageTools.<clinit>"]
+}

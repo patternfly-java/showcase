@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"OldItemDisplay.impl.java.js",
+"lineCount":75,
+"mappings":"A;;;;;;;;;;;;;;;;MA0Ba,c;;CAAA,W;EAAAA,Q;EAAAA;OAEkB,qDAFlBA,C;EAAAA;OAGkB,mDAHlBA,C;EAAAA;OAIqC,kDAJrCA,C;;;;QAMF,S;EAAAC,yB;EAAAA,qC;EAAAA,iE;EAAAA,iB;;;;CAAA,oD;EAAiBC,qC;EACpBA,oGAAkBC,IAAlBD;GAA0BE,8MAA1BF;K;EACAA;GAAgBE,sEAAhBF;K;EACAA,6EAAgBG,OAAhBH,WAAyBC,MAAzBD;GAAeE,IAACC,SAADD,iFAAfF;GAAkCE,wOAAlCF;K;;;;QAGG,gG,0CAAmCI,U,2CAAgCC,Q,gDAC3BC,O;EADxCP,yB;EAAAA,qC;EAAAA,uL;EAAAA,iB;;;;CAAA,6I,0CAAmCK,U,2CAAgCC,Q,gDAC3BC,O;EAASN,qC;EACpDA,wE;EACAA,oE;EACAA,kE;;;CAGU,4C,UAASC,I;EACnBM,2S;;;QApBK,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"sources":["OldItemDisplay.java"],
+"names":["org.patternfly.component.OldItemDisplay.<synthetic: ctor_js>","org.patternfly.component.OldItemDisplay.<synthetic: ctor_create>","org.patternfly.component.OldItemDisplay.<init>","item","org.patternfly.component.OldItemDisplay.<lambda in <init>>","element","identifier","asString","display","org.patternfly.component.OldItemDisplay.itemId","org.patternfly.component.OldItemDisplay.<clinit>"]
+}

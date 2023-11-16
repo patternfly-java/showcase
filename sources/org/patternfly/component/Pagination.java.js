@@ -1,0 +1,34 @@
+goog.module('org.patternfly.component.Pagination');
+
+goog.require('elemental2.dom.Event.$Overlay');
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('elemental2.dom.HTMLInputElement.$Overlay');
+goog.require('java.lang.Integer');
+goog.require('java.lang.NumberFormatException');
+goog.require('java.lang.String');
+goog.require('java.util.function.BiConsumer');
+goog.require('java.util.function.Consumer');
+goog.require('nativebootstrap.Equality');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.EventType');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.jboss.elemento.InputElementBuilder');
+goog.require('org.jboss.elemento.InputType');
+goog.require('org.patternfly.component.BaseComponent');
+goog.require('org.patternfly.component.SingleOptionsMenu');
+goog.require('org.patternfly.component.button.Button');
+goog.require('org.patternfly.core.Modifiers.Disabled');
+goog.require('org.patternfly.dataprovider.PageInfo');
+goog.require('org.patternfly.handler.Callback');
+goog.require('org.patternfly.handler.ComponentHandler');
+goog.require('org.patternfly.handler.SelectHandler');
+goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('vmbootstrap.Arrays');
+goog.require('vmbootstrap.Casts');
+goog.require('vmbootstrap.Exceptions');
+
+const Pagination = goog.require('org.patternfly.component.Pagination$impl');
+exports = Pagination;

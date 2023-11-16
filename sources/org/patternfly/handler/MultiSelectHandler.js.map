@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"MultiSelectHandler.impl.java.js",
+"lineCount":23,
+"mappings":"A;;;;;;;;;;;MAoBiB,kB;;CAER,gC,gBAAiBA,U;;QAFT,M;EAAAC,6B;EAAAA,gE;;;QAAA,O;EAAAC,qC;EAAAA;",
+"sources":["MultiSelectHandler.java"],
+"names":["components","org.patternfly.handler.MultiSelectHandler.<synthetic: adapt_lambda>","org.patternfly.handler.MultiSelectHandler.<clinit>"]
+}

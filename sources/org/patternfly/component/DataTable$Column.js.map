@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"DataTable$Column.impl.java.js",
+"lineCount":53,
+"mappings":"A;;;;;;;;;;;;;;;;;MA8iBwB,M;;CAAA,W;EAAAA,Q;EAAAA;OAEK,gDAFLA,C;EAAAA;OAGY,wDAHZA,C;EAAAA;OAIU,yDAJVA,C;EAAAA;OAKa,yDALbA,C;EAAAA;OAOiB,6DAPjBA,C;;;QASN,mM,gBAAcC,I,uBAAoBC,U,qBAAwBC,W,wBAA4BC,W,4BACrEC,e;EADjBC,iB;EAAAA,6B;EAAAA,0T;EAAAA,iB;;;CAAA,kP,gBAAcL,I,uBAAoBC,U,qBAAwBC,W,wBAA4BC,W,4BACrEC,e;EAAiBE,qC;EACxCA,qM;EACAA,2E;EACAA,6E;EACAA,6E;EACAA,qF;;;QAfY,O;EAAAC,yB;EAAAA,sB;EAAAA;",
+"sources":["DataTable.java"],
+"names":["org.patternfly.component.DataTable$Column.<synthetic: ctor_js>","name","comparator","headDisplay","bodyDisplay","compoundDisplay","org.patternfly.component.DataTable$Column.<synthetic: ctor_create>","org.patternfly.component.DataTable$Column.<init>","org.patternfly.component.DataTable$Column.<clinit>"]
+}

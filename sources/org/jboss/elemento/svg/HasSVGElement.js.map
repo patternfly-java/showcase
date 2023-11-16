@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"HasSVGElement.impl.java.js",
+"lineCount":38,
+"mappings":"A;;;;;;;;;;;;;;;;;MAuBiB,a;;CAIH,0D,gBAAaA,K;;CAWb,2E,gBAAYC,I,iBAAaC,K;;QAXzB,0G,sDAAaF,K;EAAbG,wB;EACNA,oH;EACAA,0D;;;QASM,2H,sDAAYF,I,iBAAaC,K;EAAzBE,wB;EACNA,mV;EACAA,0D;;;QAjBS,O;EAAAC,gC;EAAAA;",
+"sources":["HasSVGElement.java"],
+"names":["style","name","value","org.jboss.elemento.svg.HasSVGElement.style__$default","org.jboss.elemento.svg.HasSVGElement.data__$default","org.jboss.elemento.svg.HasSVGElement.<clinit>"]
+}

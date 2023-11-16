@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Label.impl.java.js",
+"lineCount":74,
+"mappings":"A;;;;;;;;;;;;;;;;MAgCa,K;;CAAA,W;EAAAA,Q;;;QAIW,yD,gBAAaC,I;EAAMC,gB;EACnCA,6C;;;QAGgB,kE,gBAAaD,I,iBAAcE,O;EAASD,gB;EACpDA,+D;;;;QAKJ,yB,gBAAaD,I;EAAbG,gB;EAAAA,4B;EAAAA,8E;EAAAA,iB;;;;CAAA,6D,gBAAaH,I;EACTI,yF;;;;QAGJ,kC,gBAAaJ,I,iBAAcE,O;EAA3BC,gB;EAAAA,4B;EAAAA,gG;EAAAA,iB;;;;CAAA,sE,gBAAaH,I,iBAAcE,O;EACvBE,wtB;EACAA;GACIA,qKADJA;G;;;CAMS,sC;EACTC,Y;;;;CA3BK,uC;EAAAA,qD;;;QAAA,O;EAAAC,wB;EAAAA,qB;EAAAA;",
+"sources":["Label.java"],
+"names":["org.patternfly.component.Label.<synthetic: ctor_js>","text","org.patternfly.component.Label.label","compact","org.patternfly.component.Label.<synthetic: ctor_create>","org.patternfly.component.Label.<init>","org.patternfly.component.Label.that","org.patternfly.component.Label.<clinit>"]
+}

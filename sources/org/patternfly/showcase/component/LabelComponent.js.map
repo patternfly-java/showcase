@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"LabelComponent.impl.java.js",
+"lineCount":41,
+"mappings":"A;;;;;;;;;;;;;;;;;MAsBa,c;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,yB;EAAAA,qC;EAAAA,0E;EAAAA,iB;;;CAAA,6D;EACHC,osB;EAMAA;GACcC,4jBADdD;O;;;QATK,O;EAAAE,iC;EAAAA,8B;EAAAA;",
+"sources":["LabelComponent.java"],
+"names":["org.patternfly.showcase.component.LabelComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.LabelComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.LabelComponent.<init>","org.patternfly.showcase.component.LabelComponent.<lambda in <init>>","org.patternfly.showcase.component.LabelComponent.<clinit>"]
+}

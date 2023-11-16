@@ -1,0 +1,37 @@
+goog.module('org.patternfly.component.button.Button');
+
+goog.require('elemental2.dom.Event.$Overlay');
+goog.require('elemental2.dom.HTMLAnchorElement.$Overlay');
+goog.require('elemental2.dom.HTMLButtonElement.$Overlay');
+goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('elemental2.dom.MouseEvent.$Overlay');
+goog.require('java.lang.String');
+goog.require('java.util.function.Consumer');
+goog.require('nativebootstrap.Equality');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.By');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.EventType');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.patternfly.component.BaseComponent');
+goog.require('org.patternfly.component.ComponentType');
+goog.require('org.patternfly.component.badge.Badge');
+goog.require('org.patternfly.component.button.ButtonElement');
+goog.require('org.patternfly.component.button.IconPosition');
+goog.require('org.patternfly.component.icon.InlineIcon');
+goog.require('org.patternfly.component.spinner.Spinner');
+goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.Modifiers.Disabled');
+goog.require('org.patternfly.core.Modifiers.Inline');
+goog.require('org.patternfly.core.Modifiers.NoPadding');
+goog.require('org.patternfly.core.Modifiers.Plain');
+goog.require('org.patternfly.core.WithProgress');
+goog.require('org.patternfly.handler.ComponentHandler');
+goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('org.patternfly.layout.Size');
+goog.require('vmbootstrap.Arrays');
+goog.require('vmbootstrap.Casts');
+
+const Button = goog.require('org.patternfly.component.button.Button$impl');
+exports = Button;

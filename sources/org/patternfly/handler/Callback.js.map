@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Callback.impl.java.js",
+"lineCount":26,
+"mappings":"A;;;;;;;;;MAkBiB,Q;;QAEG,uC;EAAOA,mB;EACnBA,gC;;;CAKC,Y;;QARQ,M;EAAAC,mB;EAAAA,8B;;;QAAA,O;EAAAC,2B;EAAAA;",
+"sources":["Callback.java"],
+"names":["org.patternfly.handler.Callback.noop","org.patternfly.handler.Callback.<synthetic: adapt_lambda>","org.patternfly.handler.Callback.<clinit>"]
+}

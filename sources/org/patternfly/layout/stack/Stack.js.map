@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Stack.impl.java.js",
+"lineCount":60,
+"mappings":"A;;;;;;;;;;;;;;;;;MA4Ba,K;;CAAA,W;EAAAA,Q;;;QAIW,0C;EAAQC,gB;EACxBA,yB;;;QAKJ,S;EAAAC,gB;EAAAA,4B;EAAAA,2D;EAAAA,iB;;;CAAA,8C;EACIC,unB;;;CAIS,yC;EACTC,Y;;;CAKS,mF,kBAAkBC,I;EAC3BC,+H;;;CAMS,2C;EACTC,0R;;;;CA7BK,uC;EAAAH,wD;;;QAAA,O;EAAAI,wB;EAAAA,qB;EAAAA;",
+"sources":["Stack.java"],
+"names":["org.patternfly.layout.stack.Stack.<synthetic: ctor_js>","org.patternfly.layout.stack.Stack.stack","org.patternfly.layout.stack.Stack.<synthetic: ctor_create>","org.patternfly.layout.stack.Stack.<init>","org.patternfly.layout.stack.Stack.that","item","org.patternfly.layout.stack.Stack.addItem","org.patternfly.layout.stack.Stack.gutter","org.patternfly.layout.stack.Stack.<clinit>"]
+}

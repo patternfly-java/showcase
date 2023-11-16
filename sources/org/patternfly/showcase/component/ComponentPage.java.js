@@ -1,0 +1,30 @@
+goog.module('org.patternfly.showcase.component.ComponentPage');
+
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('java.lang.Iterable');
+goog.require('java.lang.Object');
+goog.require('java.lang.String');
+goog.require('java.util.Arrays');
+goog.require('java.util.Iterator');
+goog.require('java.util.List');
+goog.require('java.util.Spliterator');
+goog.require('java.util.function.Consumer');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.patternfly.component.button.Button');
+goog.require('org.patternfly.component.button.ButtonElement');
+goog.require('org.patternfly.component.page.PageMainBody');
+goog.require('org.patternfly.component.page.PageMainSection');
+goog.require('org.patternfly.component.title.Title');
+goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('org.patternfly.layout.Size');
+goog.require('org.patternfly.showcase.Page');
+goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('vmbootstrap.Arrays');
+goog.require('vmbootstrap.Casts');
+
+const ComponentPage = goog.require('org.patternfly.showcase.component.ComponentPage$impl');
+exports = ComponentPage;

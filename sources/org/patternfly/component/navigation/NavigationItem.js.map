@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"NavigationItem.impl.java.js",
+"lineCount":87,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MAmCa,c;;CAAA,W;EAAAA,Q;EAAAA;OAcW,wDAdXA,C;EAAAA;OAee,uDAffA,C;;;QAIoB,wG,gBAAsBC,E,iBAAWC,K;EAAOC,yB;EACjEA,qG;;;QAGyB,0H,gBAAsBF,E,iBAAWC,K,iBAAcE,I;EAAMD,yB;EAC9EA,qG;;;QAQJ,6D,gBAAsBF,E,iBAAWI,I,iBAAaD,I;EAA9CE,yB;EAAAA,qC;EAAAA,gJ;EAAAA,iB;;;CAAA,qH,gBAAsBL,E,iBAAWI,I,iBAAaD,I;EAC1CG,qrB;EACAA,mE;EAEAA,0lC;EAIAA;GACIA,yEADJA;G;;;CAQkB,0D;EAClBC,Y;;;CAKkB,sG,yCAAyCC,O;EAC3DC,sSAAeC,CAAfD;GAAeE,IAAAD,GAAAC,gEAAfF;GAAoBE,0EAApBF;K;EACAA,Y;;;CAKC,sD;EACDG,qL;EACAA,2N;EACAA,uJ;;;;CAjDK,uC;EAAAL,yE;;;QAAA,O;EAAAM,iC;EAAAA,8B;EAAAA;",
+"sources":["NavigationItem.java"],
+"names":["org.patternfly.component.navigation.NavigationItem.<synthetic: ctor_js>","id","title","org.patternfly.component.navigation.NavigationItem.navigationItem","href","text","org.patternfly.component.navigation.NavigationItem.<synthetic: ctor_create>","org.patternfly.component.navigation.NavigationItem.<init>","org.patternfly.component.navigation.NavigationItem.that","handler","org.patternfly.component.navigation.NavigationItem.onClick","e","org.patternfly.component.navigation.NavigationItem.<lambda in onClick>","org.patternfly.component.navigation.NavigationItem.select","org.patternfly.component.navigation.NavigationItem.<clinit>"]
+}
