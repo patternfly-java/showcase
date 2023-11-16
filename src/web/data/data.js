@@ -16,7 +16,7 @@
 import servers from "./servers.json"
 import users from "./users.json"
 
-let PatternFlyData = {
+const PatternFlyData = {
     servers: servers,
     users: users,
 };

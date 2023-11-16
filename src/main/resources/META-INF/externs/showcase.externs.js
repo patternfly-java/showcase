@@ -1,3 +1,5 @@
+// noinspection BadExpressionStatementJS
+
 /*
  *  Copyright 2023 Red Hat
  *
@@ -13,6 +15,8 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
+// noinspection BadExpressionStatementJS,JSUnusedGlobalSymbols,SpellCheckingInspection,ES6ConvertVarToLetConst
+
 /**
  * @fileoverview Declaration of JS code used in this showcase.
  * @externs
@@ -29,15 +33,15 @@ var PatternFlyAssets;
 
 /**
  * @typedef {{
- *     servers: {Object},
- *     users: {Object}
+ *     servers: Object,
+ *     users: Object
  * }}
  */
 var PatternFlyData;
 
 /**
  * @typedef {{
- *     code: {Map}
+ *     code: Map<string,string>
  * }}
  */
 var PatternFlyCode;

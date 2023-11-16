@@ -24,7 +24,7 @@ for (const [path, value] of Object.entries(snippets)) {
     code.set(key, value);
 }
 
-let PatternFlyCode = {
+const PatternFlyCode = {
     code: code
 };
 

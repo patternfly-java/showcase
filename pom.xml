@@ -169,6 +169,7 @@
                     <artifactId>j2cl-maven-plugin</artifactId>
                     <version>${version.j2cl.plugin}</version>
                     <configuration>
+                        <enableSourcemaps>true</enableSourcemaps>
                         <initialScriptFilename>showcase.j2cl.js</initialScriptFilename>
                         <webappDirectory>${project.build.directory}/showcase</webappDirectory>
                     </configuration>

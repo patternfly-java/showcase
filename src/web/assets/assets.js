@@ -17,7 +17,7 @@ import avatarLight from "./avatar-light.svg"
 import avatarDark from "./avatar-dark.svg"
 import pfLogo from "./pf-logo.svg"
 
-let PatternFlyAssets = {
+const PatternFlyAssets = {
     avatarLight: avatarLight,
     avatarDark: avatarDark,
     pfLogo: pfLogo
