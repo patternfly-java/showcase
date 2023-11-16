@@ -141,4 +141,4 @@ git push --quiet origin main &> /dev/null
 msg "Push tag"
 git tag "${TAG}"
 git push --quiet --tags origin main &> /dev/null
-msg "Done. Watch the release workflow at https://github.com/hal/elemento-samples/actions/workflows/release.yml"
+msg "Done. Watch the release workflow at https://github.com/patternfly-java/showcase/actions/workflows/release.yml"
