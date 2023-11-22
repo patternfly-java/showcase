@@ -93,7 +93,8 @@ public class CheckboxComponent extends ComponentPage {
                 code.get("checkbox-standalone"), () ->
                 // @code-start:checkbox-standalone
                 div()
-                        .add(checkbox("standalone-checkbox-0"))
+                        .add(checkbox("standalone-checkbox-0")
+                                .standalone())
                         .element()
         // @code-end:checkbox-standalone
         ));

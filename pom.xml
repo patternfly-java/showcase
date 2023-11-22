@@ -73,7 +73,7 @@
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.10.0</version.junit>
         <version.node>v20.8.1</version.node>
-        <version.patternfly.java>0.1.0</version.patternfly.java>
+        <version.patternfly.java>0.1.1-SNAPSHOT</version.patternfly.java>
         <version.treblereel.j2cl.processors>0.6.3</version.treblereel.j2cl.processors>
 
         <!-- Plugin versions -->

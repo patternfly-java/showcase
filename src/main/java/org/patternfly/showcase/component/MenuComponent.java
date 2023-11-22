@@ -54,7 +54,7 @@ public class MenuComponent extends ComponentPage {
                 // @code-start:menu-basic
                 div()
                         .add(menu(click)
-                                .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
+                                .onSingleSelect((item, selected) -> console.log("Item " + item.id + " selected"))
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Action")
@@ -174,11 +174,9 @@ public class MenuComponent extends ComponentPage {
                 // @code-start:menu-checkbox
                 div()
                         .add(menu(multi)
-                                .onMultiSelect(menuItems -> {
-                                    console.log("### Selected items: " + menuItems.stream()
-                                            .map(mi -> mi.id)
-                                            .collect(joining(", ")));
-                                })
+                                .onMultiSelect(menuItems -> console.log("### Selected items: " + menuItems.stream()
+                                        .map(mi -> mi.id)
+                                        .collect(joining(", "))))
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(checkboxMenuItem("item-0", "Checkbox 1")
@@ -254,7 +252,7 @@ public class MenuComponent extends ComponentPage {
                 // @code-start:menu-favorites
                 div()
                         .add(menu(click)
-                                .onSingleSelect(item -> console.log("Item " + item.id + " selected"))
+                                .onSingleSelect((item, selected) -> console.log("Item " + item.id + " selected"))
                                 .onAction(itemAction -> console.log(
                                         "Action " + itemAction.id + " on item " + itemAction.menuItem.id + " clicked"))
                                 .favorites()

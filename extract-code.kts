@@ -1,6 +1,7 @@
 #!/usr/bin/env kotlin
 
 import kotlin.io.path.*
+import kotlin.time.measureTime
 
 data class CodeBlock(val name: String, val code: List<String>)
 
@@ -22,30 +23,37 @@ var name = ""
 var collectCode = false
 var leadingWhitespace = 0
 val code = mutableListOf<String>()
+var counter = 0
 
 if (!targetPath.exists()) {
     targetPath.createDirectory()
 }
-sourcePath.forEachDirectoryEntry("*Component.java") { path ->
-    if (!path.isDirectory() && path.isReadable()) {
-        path.forEachLine { line ->
-            if (line.contains(startComment)) {
-                leadingWhitespace = line.indexOf(startComment)
-                name = line.substringAfter(startComment)
-                collectCode = true
-            } else {
-                if (collectCode) {
-                    if (line.contains(endComment + name)) {
-                        CodeBlock(name, code).writeToFile()
-                        reset()
-                    } else {
-                        code.add(if (line.length < leadingWhitespace) line else line.substring(leadingWhitespace))
+
+val timeTaken = measureTime {
+    sourcePath.forEachDirectoryEntry("*Component.java") { path ->
+        if (!path.isDirectory() && path.isReadable()) {
+            path.forEachLine { line ->
+                if (line.contains(startComment)) {
+                    leadingWhitespace = line.indexOf(startComment)
+                    name = line.substringAfter(startComment)
+                    collectCode = true
+                } else {
+                    if (collectCode) {
+                        if (line.contains(endComment + name)) {
+                            CodeBlock(name, code).writeToFile()
+                            counter++
+                            reset()
+                        } else {
+                            code.add(if (line.length < leadingWhitespace) line else line.substring(leadingWhitespace))
+                        }
                     }
                 }
             }
         }
     }
 }
+println("-".repeat(40))
+println("Processed $counter files in $timeTaken")
 
 fun reset() {
     name = ""

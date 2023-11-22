@@ -17,6 +17,7 @@ package org.patternfly.showcase.component;
 
 import java.util.List;
 
+import org.jboss.elemento.By;
 import org.patternfly.showcase.Page;
 
 import elemental2.dom.HTMLElement;
@@ -28,6 +29,7 @@ import static org.patternfly.component.button.ButtonElement.link;
 import static org.patternfly.component.page.PageMainBody.pageMainBody;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.layout.Classes.component;
 import static org.patternfly.layout.Classes.content;
 import static org.patternfly.layout.Classes.floatRight;
@@ -36,6 +38,7 @@ import static org.patternfly.layout.Classes.util;
 import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.layout.PredefinedIcon.pfIcon;
 import static org.patternfly.layout.Size._4xl;
+import static org.patternfly.thirdparty.popper.Placement.auto;
 
 public class ComponentPage implements Page {
 
@@ -50,18 +53,22 @@ public class ComponentPage implements Page {
                         .addBody(pageMainBody()
                                 .add(div().css(util(floatRight))
                                         .add(button(link)
+                                                .id("design-guidelines")
                                                 .plain()
                                                 .href(designLink)
                                                 .target("patternfly")
-                                                .attr("title", "Design guidelines")
-                                                .addIcon(fas("swatchbook"))))
+                                                .addIcon(fas("swatchbook")))
+                                        .add(tooltip(By.id("design-guidelines"), "Design guidelines")
+                                                .placement(auto)))
                                 .add(div().css(util(floatRight))
                                         .add(button(link)
+                                                .id("api-documentation")
                                                 .plain()
                                                 .href(javadocLink)
                                                 .target("javadoc")
-                                                .attr("title", "API documentation")
-                                                .addIcon(pfIcon("catalog"))))
+                                                .addIcon(pfIcon("catalog")))
+                                        .add(tooltip(By.id("api-documentation"), "API documentation")
+                                                .placement(auto)))
                                 .add(div().css(component(content))
                                         .add(title(1, title, _4xl))
                                         .add(description)))

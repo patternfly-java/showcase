@@ -15,8 +15,8 @@
  */
 package org.patternfly.showcase.demo.server;
 
-import org.patternfly.component.DataTable;
 import org.patternfly.dataprovider.DataProvider;
+import org.patternfly.deprecated.DataTable;
 import org.patternfly.showcase.Data;
 import org.patternfly.showcase.Page;
 
@@ -25,12 +25,12 @@ import elemental2.dom.HTMLElement;
 import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.DataTable.checkboxColumn;
-import static org.patternfly.component.DataTable.column;
-import static org.patternfly.component.DataTable.dataTable;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.deprecated.DataTable.checkboxColumn;
+import static org.patternfly.deprecated.DataTable.column;
+import static org.patternfly.deprecated.DataTable.dataTable;
 import static org.patternfly.layout.Size._4xl;
 
 public class ServerDemo implements Page {

@@ -16,16 +16,16 @@
 package org.patternfly.showcase.demo.user;
 
 import org.jboss.elemento.HTMLContainerBuilder;
-import org.patternfly.component.Card;
-import org.patternfly.component.CardView;
-import org.patternfly.component.DataList;
-import org.patternfly.component.DataTable;
-import org.patternfly.component.Dropdown;
-import org.patternfly.component.OldToolbar;
-import org.patternfly.component.OldToolbar.SortOption;
-import org.patternfly.component.OldToolbar.SortOptions;
-import org.patternfly.component.Pagination;
 import org.patternfly.dataprovider.DataProvider;
+import org.patternfly.deprecated.Card;
+import org.patternfly.deprecated.CardView;
+import org.patternfly.deprecated.DataList;
+import org.patternfly.deprecated.DataTable;
+import org.patternfly.deprecated.Dropdown;
+import org.patternfly.deprecated.Pagination;
+import org.patternfly.deprecated.Toolbar;
+import org.patternfly.deprecated.Toolbar.SortOption;
+import org.patternfly.deprecated.Toolbar.SortOptions;
 import org.patternfly.showcase.Data;
 import org.patternfly.showcase.Page;
 
@@ -72,29 +72,29 @@ public class UserDemo implements Page {
     public UserDemo() {
         DataProvider<User> dataProvider = new DataProvider<>(user -> user.login.uuid);
 
-        OldToolbar<User> toolbar = OldToolbar.toolbar(dataProvider)
-                .add(OldToolbar.content().add(OldToolbar.item().add(OldToolbar.bulkSelect()))
-                        .add(OldToolbar.group().toggle("show-on-xl")
-                                .add(OldToolbar.item()
+        Toolbar<User> toolbar = Toolbar.toolbar(dataProvider)
+                .add(Toolbar.content().add(Toolbar.item().add(Toolbar.bulkSelect()))
+                        .add(Toolbar.group().toggle("show-on-xl")
+                                .add(Toolbar.item()
                                         .<User> add("byName", "Search by name", query -> user -> user.match(query))))
-                        .add(OldToolbar.item()
-                                .add(OldToolbar.sortMenu(new SortOptions<User>()
+                        .add(Toolbar.item()
+                                .add(Toolbar.sortMenu(new SortOptions<User>()
                                         .add(new SortOption<>("Last name", comparing(user -> user.name.last)))
                                         .add(new SortOption<>("First name", comparing(user -> user.name.first)))
                                         .add(new SortOption<>("User name", comparing(user -> user.login.username)))
                                         .add(new SortOption<>("Age", comparing(user -> user.dob.age)))
                                         .add(new SortOption<>("Nationality", comparing(user -> user.nat))))))
-                        .add(OldToolbar.group().iconButton()
-                                .add(OldToolbar.item()
+                        .add(Toolbar.group().iconButton()
+                                .add(Toolbar.item()
                                         .add(button(inlineIcon(fas("address-card")), "Card view")
                                                 .onClick((e, b) -> show(cardView.element()))))
-                                .add(OldToolbar.item()
+                                .add(Toolbar.item()
                                         .add(button(inlineIcon(fas("list")), "Card view")
                                                 .onClick((e, b) -> show(dataList.element()))))
-                                .add(OldToolbar.item()
+                                .add(Toolbar.item()
                                         .add(button(inlineIcon(fas("table")), "Card view")
                                                 .onClick((e, b) -> show(dataTable.element())))))
-                        .add(OldToolbar.item().add(Pagination.pagination().compact())));
+                        .add(Toolbar.item().add(Pagination.pagination().compact())));
 
         cardView = CardView.cardView(dataProvider, new UserCardDisplay())
                 .style("background-color: var(--pf-c-page__main-section--BackgroundColor)").css(util("py-lg")).compact()

@@ -15,120 +15,452 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.Dropdown;
+import org.patternfly.component.card.Card;
+import org.patternfly.component.card.CardActions;
+import org.patternfly.component.menu.Dropdown;
 
+import static elemental2.dom.DomGlobal.console;
+import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.img;
-import static org.jboss.elemento.Elements.input;
 import static org.jboss.elemento.Elements.p;
-import static org.jboss.elemento.InputType.checkbox;
-import static org.patternfly.component.Card.body;
-import static org.patternfly.component.Card.card;
-import static org.patternfly.component.Card.footer;
-import static org.patternfly.component.Card.head;
-import static org.patternfly.component.Card.header;
-import static org.patternfly.component.Card.Head.actions;
+import static org.patternfly.component.brand.Brand.brand;
+import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.card.Card.card;
+import static org.patternfly.component.card.CardActions.cardActions;
+import static org.patternfly.component.card.CardBody.cardBody;
+import static org.patternfly.component.card.CardExpandableContent.cardExpandableContent;
+import static org.patternfly.component.card.CardFooter.cardFooter;
+import static org.patternfly.component.card.CardHeader.cardHeader;
+import static org.patternfly.component.card.CardSelectableActions.cardSelectableActions;
+import static org.patternfly.component.card.CardTitle.cardTitle;
+import static org.patternfly.component.form.Checkbox.checkbox;
+import static org.patternfly.component.menu.Dropdown.dropdown;
+import static org.patternfly.component.menu.Menu.menu;
+import static org.patternfly.component.menu.MenuContent.menuContent;
+import static org.patternfly.component.menu.MenuItem.actionMenuItem;
+import static org.patternfly.component.menu.MenuItem.linkMenuItem;
+import static org.patternfly.component.menu.MenuList.menuList;
+import static org.patternfly.component.menu.MenuToggle.menuToggle;
+import static org.patternfly.core.SelectionMode.single;
 import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Classes.noFill;
+import static org.patternfly.layout.Classes.util;
+import static org.patternfly.layout.PredefinedIcon.ellipsisV;
+import static org.patternfly.showcase.Code.code;
 
-@Deprecated
 public class CardComponent extends ComponentPage {
 
     public CardComponent() {
         super("Card",
-                "https://patternfly-java.github.io/patternfly-java/",
+                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/card/Card.html",
                 "https://www.patternfly.org/components/card/design-guidelines",
                 p().textContent(
-                        "A card is a flexible element for containing any kind of content. Cards are used on dashboards, in data displays (e.g. Card View), or for positioning content on a page.")
+                        "A card is a square or rectangular container that can contain any kind of content. Cards symbolize units of information, and each one acts as an entry point for users to access more details. For example, in dashboards and catalog views, cards function as a preview of a detailed page. Cards may also be used in data displays like card views, or for positioning content on a page.")
                         .element());
 
-        addSnippet(new Snippet("simple-card", "Simple card", "Resources.get().cardSimple().getText()", () -> div()
-                .add(card().add(header().textContent("Header")).add(body().textContent("Body"))
-                        .add(footer().textContent("Footer")))
-                .element()));
-
-        addSnippet(new Snippet("card-image", "Card with an image and actions",
-                "Resources.get().cardImageActions().getText()",
-                () -> div()
+        addSnippet(new Snippet("card-basic", "Basic cards",
+                code.get("card-basic"), () ->
+                // @code-start:card-basic
+                div()
                         .add(card()
-                                .add(head().add(img("./pf_logo.svg").style("width: 300px"))
-                                        .add(actions().add(Dropdown.<String> kebab().right().add("Link").add("Action")
-                                                .addSeparator().add("Separated Link")).add(input(checkbox))))
-                                .add(header().textContent("Header")).add(body().textContent("Body"))
-                                .add(footer().textContent("Footer")))
-                        .element()));
+                                .addTitle(cardTitle("Title"))
+                                .addBody(cardBody().textContent("Body"))
+                                .addFooter(cardFooter().textContent("Footer")))
+                        .element()
+        // @code-end:card-basic
+        ));
 
-        addSnippet(new Snippet("card-header", "Card header in card head",
-                "Resources.get().cardHeaderInHead().getText()",
-                () -> div().add(card()
-                        .add(head()
-                                .add(actions().add(Dropdown
-                                        .<String> kebab().right().add("Link").add("Action").addSeparator()
-                                        .add("Separated Link")).add(input(checkbox)))
-                                .add(header().textContent(
-                                        "This is a really really really really really really really really really really long header")))
-                        .add(header().textContent("Header")).add(body().textContent("Body"))
-                        .add(footer().textContent("Footer"))).element()));
+        addSnippet(new Snippet("card-modifiers", "Modifiers",
+                code.get("card-modifiers"), () -> {
+                    // @code-start:card-modifiers
+                    Card card = card();
+                    return div()
+                            .add(div().css(util("mb-md"))
+                                    .add(checkbox("card-modifiers-compact", "compact")
+                                            .onChange((c, value) -> card.compact(value)))
+                                    .add(checkbox("card-modifiers-flat", "flat")
+                                            .onChange((c, value) -> card.flat(value)))
+                                    .add(checkbox("card-modifiers-rounded", "rounded")
+                                            .onChange((c, value) -> card.rounded(value)))
+                                    .add(checkbox("card-modifiers-large", "large")
+                                            .onChange((c, value) -> card.large(value)))
+                                    .add(checkbox("card-modifiers-fullHeight", "fullHeight")
+                                            .onChange((c, value) -> card.fullHeight(value)))
+                                    .add(checkbox("card-modifiers-plain", "plain")
+                                            .onChange((c, value) -> card.plain(value))))
+                            .add(div().style("height", "15rem")
+                                    .add(card
+                                            .addTitle(cardTitle("Title"))
+                                            .addBody(cardBody().textContent("Body"))
+                                            .addFooter(cardFooter().textContent("Footer"))))
+                            .element();
+                    // @code-end:card-modifiers
+                }));
 
-        addSnippet(new Snippet("card-actions", "Only actions in card head (no header/footer)",
-                "Resources.get().cardActionsInHead().getText()",
-                () -> div().add(card()
-                        .add(head().add(actions().add(Dropdown.<String> kebab().right().add("Link")
-                                .add("Action").addSeparator().add("Separated Link")).add(input(checkbox))))
-                        .add(body().textContent(
-                                "This is the card body, there are only actions in the card head.")))
-                        .element()));
+        addSnippet(new Snippet("card-header-image", "Header images and actions",
+                code.get("card-header-image"), () -> {
+                    // @code-start:card-header-image
+                    Dropdown dropdown = dropdown()
+                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                            .addMenu(menu()
+                                    .addContent(menuContent()
+                                            .addList(menuList()
+                                                    .addItem(actionMenuItem("item-0", "Action"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(actionMenuItem("item-2", "Disabled action")
+                                                            .disabled())
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                            .disabled())
+                                                    .addDivider()
+                                                    .addItem(actionMenuItem("item-4", "Separated action"))
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+                    CardActions cardActions = cardActions();
+                    return div()
+                            .add(card()
+                                    .addHeader(cardHeader()
+                                            .addActions(cardActions
+                                                    .add(dropdown)
+                                                    .add(checkbox("card-header-image-check")))
+                                            .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg")
+                                                    .style("width", "300px")))
+                                    .addTitle(cardTitle("Title"))
+                                    .addBody(cardBody().textContent("Body"))
+                                    .addFooter(cardFooter().textContent("Footer")))
+                            .add(div().css(util("mt-md"))
+                                    .add(checkbox("card-header-image-no-offset", "no offset")
+                                            .onChange((c, value) -> cardActions.noOffset(value))))
+                            .element();
+                    // @code-end:card-header-image
+                }));
 
-        addSnippet(new Snippet("card-image-only", "Only image in the card head",
-                "Resources.get().cardImageInHead().getText()",
-                () -> div()
-                        .add(card().add(head().add(img("./pf_logo.svg").style("width: 300px")))
-                                .add(header().textContent("Header")).add(body().textContent("Body"))
-                                .add(footer().textContent("Footer")))
-                        .element()));
+        addSnippet(new Snippet("card-title-inline", "Title inline with images and actions",
+                code.get("card-title-inline"), () -> {
+                    // @code-start:card-title-inline
+                    Dropdown dropdown = dropdown()
+                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                            .addMenu(menu()
+                                    .addContent(menuContent()
+                                            .addList(menuList()
+                                                    .addItem(actionMenuItem("item-0", "Action"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(actionMenuItem("item-2", "Disabled action")
+                                                            .disabled())
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                            .disabled())
+                                                    .addDivider()
+                                                    .addItem(actionMenuItem("item-4", "Separated action"))
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+                    return div()
+                            .add(card()
+                                    .addHeader(cardHeader()
+                                            .addTitle(cardTitle(
+                                                    "This is a really really really really really really really really really really long header"))
+                                            .addActions(cardActions()
+                                                    .add(dropdown)
+                                                    .add(checkbox("card-title-inline-check"))))
+                                    .addBody(cardBody().textContent("Body"))
+                                    .addFooter(cardFooter().textContent("Footer")))
+                            .element();
+                    // @code-end:card-title-inline
+                }));
 
-        addSnippet(new Snippet("card-no-footer", "Card with no footer", "Resources.get().cardNoFooter().getText()",
-                () -> div()
+        addSnippet(new Snippet("card-header-no-title", "Card header without title",
+                code.get("card-header-no-title"), () -> {
+                    // @code-start:card-header-no-title
+                    Dropdown dropdown = dropdown()
+                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                            .addMenu(menu()
+                                    .addContent(menuContent()
+                                            .addList(menuList()
+                                                    .addItem(actionMenuItem("item-0", "Action"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(actionMenuItem("item-2", "Disabled action")
+                                                            .disabled())
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                            .disabled())
+                                                    .addDivider()
+                                                    .addItem(actionMenuItem("item-4", "Separated action"))
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+                    return div()
+                            .add(card()
+                                    .addHeader(cardHeader()
+                                            .addActions(cardActions()
+                                                    .add(dropdown)
+                                                    .add(checkbox("card-header-no-title-check"))))
+                                    .addBody(cardBody()
+                                            .textContent("This is the card body. There are only actions in the card head.")))
+                            .element();
+                    // @code-end:card-header-no-title
+                }));
+
+        addSnippet(new Snippet("card-heading", "With HTML heading element",
+                code.get("card-heading"), () ->
+                // @code-start:card-heading
+                div()
                         .add(card()
-                                .add(header().textContent("Header")).add(
-                                        body().textContent("This card has no footer")))
-                        .element()));
+                                .addTitle(cardTitle("Title within an <h4> element", 4))
+                                .addBody(cardBody().textContent("Body"))
+                                .addFooter(cardFooter().textContent("Footer")))
+                        .element()
+        // @code-end:card-heading
+        ));
 
-        addSnippet(new Snippet("card-no-header", "Card with no header", "Resources.get().cardNoHeader().getText()",
-                () -> div().add(card().add(body().textContent("This card has no header"))
-                        .add(footer().textContent("Footer"))).element()));
+        addSnippet(new Snippet("card-multiple-bodies", "With multiple body sections",
+                code.get("card-multiple-bodies"), () ->
+                // @code-start:card-multiple-bodies
+                div()
+                        .add(card()
+                                .addTitle(cardTitle("Title"))
+                                .addBody(cardBody().textContent("Body"))
+                                .addBody(cardBody().textContent("Body"))
+                                .addBody(cardBody().textContent("Body"))
+                                .addFooter(cardFooter().textContent("Footer")))
+                        .element()
+        // @code-end:card-multiple-bodies
+        ));
 
-        addSnippet(new Snippet("card-content",
-                "Card with only a content section", "Resources.get().cardContentOnly().getText()", () -> div()
-                        .add(card().add(body().textContent("Body"))).element()));
+        addSnippet(new Snippet("card-primary-body-fill", "With a primary body section that fills",
+                code.get("card-primary-body-fill"), () ->
+                // @code-start:card-primary-body-fill
+                div()
+                        .add(card().style("min-height", "30em")
+                                .addTitle(cardTitle("Title"))
+                                .addBody(cardBody().noFill().textContent("Body " + modifier(noFill)))
+                                .addBody(cardBody().noFill().textContent("Body " + modifier(noFill)))
+                                .addBody(cardBody().textContent("Body"))
+                                .addFooter(cardFooter().textContent("Footer")))
+                        .element()
+        // @code-end:card-primary-body-fill
+        ));
 
-        addSnippet(new Snippet("card-m-body", "Card with multiple body sections",
-                "Resources.get().cardMultipleBodies().getText()",
-                () -> div()
-                        .add(card().add(header().textContent("Header")).add(body().textContent("Body"))
-                                .add(body().textContent("Body")).add(body().textContent("Body")).add(
-                                        footer().textContent("Footer")))
-                        .element()));
+        addSnippet(new Snippet("card-selectable", "Selectable",
+                code.get("card-selectable"), () ->
+                // @code-start:card-selectable
+                div()
+                        .add(card()
+                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("First card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is selectable.")))
+                        .add(card()
+                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("Second card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is selectable.")))
+                        .add(card().disabled()
+                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("Third card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is selectable but disabled.")))
+                        .element()
+        // @code-end:card-selectable
+        ));
 
-        addSnippet(new Snippet("card-body-fit", "Card with only one body that fills",
-                "Resources.get().cardBodyFill().getText()",
-                () -> div()
-                        .add(card().style("min-height: 30em;").add(header().textContent("Header"))
-                                .add(body().css(modifier(noFill)).textContent("Body pf-m-no-fill"))
-                                .add(body().css(modifier(noFill)).textContent("Body pf-m-no-fill"))
-                                .add(body().textContent("Body")).add(footer().textContent("Footer")))
-                        .element()));
+        addSnippet(new Snippet("card-single-selectable", "Single selectable",
+                code.get("card-single-selectable"), () ->
+                // @code-start:card-single-selectable
+                div()
+                        .add(card()
+                                .selectable(single,
+                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .name("card-single-selection")
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("First card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is single selectable.")))
+                        .add(card()
+                                .selectable(single,
+                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .name("card-single-selection")
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("Second card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is single selectable.")))
+                        .add(card().disabled()
+                                .selectable(single,
+                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .name("card-single-selection")
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("Third card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is single selectable but disabled.")))
+                        .element()
+        // @code-end:card-single-selectable
+        ));
 
-        addSnippet(new Snippet("card-hover", "Card hover example", "Resources.get().cardHover().getText()",
-                () -> div()
-                        .add(card().hoverable().add(header().textContent("Header"))
-                                .add(body().textContent("Body")).add(footer().textContent("Footer")))
-                        .element()));
+        addSnippet(new Snippet("card-clickable", "Clickable",
+                code.get("card-clickable"), () ->
+                // @code-start:card-clickable
+                div()
+                        .add(card().clickable((e, c) -> console.log("Card clicked: " + c.element().id))
+                                .name("card-click")
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("First card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is performs an action on click.")))
+                        .add(card().clickable("#c-card")
+                                .name("card-click")
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("Second card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card can navigate to a link on click.")))
+                        .add(card().disabled().clickable((e, c) -> console.log("Selected card: " + c.element().id))
+                                .name("card-click")
+                                .addHeader(cardHeader()
+                                        .addTitle(cardTitle("Third card"))
+                                        .addActions(cardActions().noOffset()
+                                                .addSelectableActions(cardSelectableActions())))
+                                .addBody(cardBody().textContent("This card is single clickable but disabled.")))
+                        .element()
+        // @code-end:card-clickable
+        ));
 
-        addSnippet(new Snippet("card-compact", "Card compact example", "Resources.get().cardCompact().getText()",
-                () -> div()
-                        .add(card().compact().add(header().textContent("Header"))
-                                .add(body().textContent("Body")).add(footer().textContent("Footer")))
-                        .element()));
+        addSnippet(new Snippet("card-clickable-selectable", "Clickable and selectable",
+                code.get("card-clickable-selectable"), () -> {
+                    // @code-start:card-clickable-selectable
+                    Card card = card();
+                    return div()
+                            .add(card
+                                    .clickable()
+                                    .selectable()
+                                    .addHeader(cardHeader()
+                                            .addTitle(cardTitle()
+                                                    .add(button("First card")
+                                                            .link()
+                                                            .inline()
+                                                            .onClick((e, b) -> card.select(!card.selected()))))
+                                            .addActions(cardActions().noOffset()
+                                                    .addSelectableActions(cardSelectableActions())))
+                                    .addBody(cardBody().textContent(
+                                            "This card performs an action upon clicking the card title and is selectable.")))
+                            .add(card()
+                                    .clickable()
+                                    .selectable()
+                                    .addHeader(cardHeader()
+                                            .addTitle(cardTitle("Second card"))
+                                            .addActions(cardActions().noOffset()
+                                                    .addSelectableActions(cardSelectableActions())))
+                                    .addBody(cardBody()
+                                            .add("This card is selectable and has a link in the card body that navigates to ")
+                                            .add(button("PatternFly", "#c-card")
+                                                    .link()
+                                                    .inline())
+                                            .add(".")))
+                            .add(card().disabled()
+                                    .clickable()
+                                    .selectable()
+                                    .addHeader(cardHeader()
+                                            .addTitle(cardTitle("Third card"))
+                                            .addActions(cardActions().noOffset()
+                                                    .addSelectableActions(cardSelectableActions())))
+                                    .addBody(cardBody().textContent("This card is clickable and selectable, but disabled.")))
+                            .element();
+                    // @code-end:card-clickable-selectable
+                }));
+
+        addSnippet(new Snippet("card-expandable", "Expandable cards",
+                code.get("card-expandable"), () -> {
+                    // @code-start:card-expandable
+                    Dropdown dropdown1 = dropdown()
+                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                            .addMenu(menu()
+                                    .addContent(menuContent()
+                                            .addList(menuList()
+                                                    .addItem(actionMenuItem("item-0", "Action"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(actionMenuItem("item-2", "Disabled action")
+                                                            .disabled())
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                            .disabled())
+                                                    .addDivider()
+                                                    .addItem(actionMenuItem("item-4", "Separated action"))
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+
+                    Dropdown dropdown2 = dropdown()
+                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                            .addMenu(menu()
+                                    .addContent(menuContent()
+                                            .addList(menuList()
+                                                    .addItem(actionMenuItem("item-0", "Action"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(actionMenuItem("item-2", "Disabled action")
+                                                            .disabled())
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                            .disabled())
+                                                    .addDivider()
+                                                    .addItem(actionMenuItem("item-4", "Separated action"))
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+
+                    return div()
+                            .add(card().expandable()
+                                    .addHeader(cardHeader()
+                                            .addActions(cardActions()
+                                                    .add(dropdown1)
+                                                    .add(checkbox("card-expandable-check-1")))
+                                            .addTitle(cardTitle("Title")))
+                                    .addExpandableContent(cardExpandableContent()
+                                            .addBody(cardBody().textContent("Body"))
+                                            .addFooter(cardFooter().textContent("Footer"))))
+                            .add(br())
+                            .add(card().expandable(true)
+                                    .addHeader(cardHeader()
+                                            .addActions(cardActions()
+                                                    .add(dropdown2)
+                                                    .add(checkbox("card-expandable-check-2")))
+                                            .addTitle(cardTitle("Title")))
+                                    .addExpandableContent(cardExpandableContent()
+                                            .addBody(cardBody().textContent("Body"))
+                                            .addFooter(cardFooter().textContent("Footer"))))
+                            .element();
+                    // @code-end:card-expandable
+                }));
+
+        addSnippet(new Snippet("card-expandable-image", "Expandable with icon",
+                code.get("card-expandable-image"), () -> {
+                    // @code-start:card-expandable-image
+                    Dropdown dropdown = dropdown()
+                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                            .addMenu(menu()
+                                    .addContent(menuContent()
+                                            .addList(menuList()
+                                                    .addItem(actionMenuItem("item-0", "Action"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(actionMenuItem("item-2", "Disabled action")
+                                                            .disabled())
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                            .disabled())
+                                                    .addDivider()
+                                                    .addItem(actionMenuItem("item-4", "Separated action"))
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+
+                    return div()
+                            .add(card().expandable()
+                                    .addHeader(cardHeader()
+                                            .addActions(cardActions()
+                                                    .add(dropdown)
+                                                    .add(checkbox("card-expandable-image-check")))
+                                            .add(img("https://www.patternfly.org/assets/images/pf-logo-small.svg")
+                                                    .apply(i -> {
+                                                        i.alt = "PatternFly logo";
+                                                        i.setAttribute("width", "27px");
+                                                    })))
+                                    .addExpandableContent(cardExpandableContent()
+                                            .addBody(cardBody().textContent("Body"))
+                                            .addFooter(cardFooter().textContent("Footer"))))
+                            .element();
+                    // @code-end:card-expandable-image
+                }));
     }
 }
