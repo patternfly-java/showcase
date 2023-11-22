@@ -15,6 +15,11 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.HTMLContainerBuilder;
+import org.patternfly.layout.Color;
+
+import elemental2.dom.HTMLDivElement;
+
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
@@ -28,11 +33,6 @@ import static org.patternfly.layout.Color.purple;
 import static org.patternfly.layout.Color.red;
 import static org.patternfly.layout.PredefinedIcon.infoCircle;
 import static org.patternfly.showcase.Code.code;
-
-import org.jboss.elemento.HTMLContainerBuilder;
-import org.patternfly.layout.Color;
-
-import elemental2.dom.HTMLDivElement;
 
 public class LabelComponent extends ComponentPage {
 
