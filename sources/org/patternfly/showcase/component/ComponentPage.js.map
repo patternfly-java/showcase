@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"ComponentPage.impl.java.js",
-"lineCount":81,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAuCa,a;;CAAA,W;EAAAA,Q;EAAAA;OAEuB,4DAFvBA,C;EAAAA;OAGS,2DAHTA,C;;;QAKT,yF,gBAAqBC,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAA/EC,wB;EAAAA,oC;EAAAA,sM;EAAAA,iB;;;CAAA,8I,gBAAqBJ,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAAaE,qC;EACxFA,4rK;;;CA6BC,mG,gBAAmBC,O;EACpBC,8H;;;CAIyB,8B;EACzBC,yE;;;;CAzCK,4C;EAAAC,gG;;;;CAAA,8B;EAAAC,yF;;;;CAAA,oC;EAAAC,iI;;;QAAA,O;EAAAC,gC;EAAAA,6B;EAAAA,qB;EAAAA;",
+"lineCount":84,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA0Ca,a;;CAAA,W;EAAAA,Q;EAAAA;OAEuB,4DAFvBA,C;EAAAA;OAGS,2DAHTA,C;;;QAKT,yF,gBAAqBC,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAA/EC,wB;EAAAA,oC;EAAAA,sM;EAAAA,iB;;;CAAA,8I,gBAAqBJ,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAAaE,qC;EACxFA,4nM;;;CAiCC,mG,gBAAmBC,O;EACpBC,8H;;;CAIyB,8B;EACzBC,yE;;;;CA7CK,4C;EAAAC,gG;;;;CAAA,8B;EAAAC,yF;;;;CAAA,oC;EAAAC,iI;;;QAAA,O;EAAAC,gC;EAAAA,6B;EAAAA,qB;EAAAA;",
 "sources":["ComponentPage.java"],
 "names":["org.patternfly.showcase.component.ComponentPage.<synthetic: ctor_js>","title","javadocLink","designLink","description","org.patternfly.showcase.component.ComponentPage.<synthetic: ctor_create>","org.patternfly.showcase.component.ComponentPage.<init>","snippet","org.patternfly.showcase.component.ComponentPage.addSnippet","org.patternfly.showcase.component.ComponentPage.elements","org.patternfly.showcase.component.ComponentPage.forEach","org.patternfly.showcase.component.ComponentPage.iterator","org.patternfly.showcase.component.ComponentPage.spliterator","org.patternfly.showcase.component.ComponentPage.<clinit>"]
 }

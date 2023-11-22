@@ -2,7 +2,7 @@
 "version":3,
 "file":"Modifiers$NoFill.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;;;MA+Ec,M;;CAGI,yC;;CAKA,kD,gBAAeA,M;;QALf,yF;EAAAC,iB;EACNA,yE;;;QAIM,kG,+CAAeD,M;EAAfC,iB;EACNA,kT;;;QATE,O;EAAAC,yB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MA4Fc,M;;CAGI,yC;;CAKA,kD,gBAAeA,M;;QALf,yF;EAAAC,iB;EACNA,yE;;;QAIM,kG,+CAAeD,M;EAAfC,iB;EACNA,kT;;;QATE,O;EAAAC,yB;EAAAA;",
 "sources":["Modifiers.java"],
 "names":["noFill","org.patternfly.core.Modifiers$NoFill.noFill__$default","org.patternfly.core.Modifiers$NoFill.<clinit>"]
 }

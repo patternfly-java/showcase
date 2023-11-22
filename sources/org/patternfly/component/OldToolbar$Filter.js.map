@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"OldToolbar$Filter.impl.java.js",
-"lineCount":28,
-"mappings":"A;;;;;;;;MA8byB,M;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,6B;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EAAAC,qC;;;QAAA,O;EAAAC,yB;EAAAA,sB;EAAAA;",
-"sources":["OldToolbar.java"],
-"names":["org.patternfly.component.OldToolbar$Filter.<synthetic: ctor_js>","org.patternfly.component.OldToolbar$Filter.<synthetic: ctor_create>","org.patternfly.component.OldToolbar$Filter.<init>","org.patternfly.component.OldToolbar$Filter.<clinit>"]
-}

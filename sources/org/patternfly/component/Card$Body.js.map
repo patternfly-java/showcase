@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Card$Body.impl.java.js",
-"lineCount":47,
-"mappings":"A;;;;;;;;;;;;;;;;;MAkIwB,I;;CAAA,W;EAAAA,Q;;;QAER,S;EAAAC,e;EAAAA,2B;EAAAA,4D;EAAAA,iB;;;CAAA,+C;EACJC,ooB;;;CAIQ,0C;EACRC,Y;;;;CARY,uC;EAAAA,yD;;;QAAA,O;EAAAC,uB;EAAAA,oB;EAAAA;",
-"sources":["Card.java"],
-"names":["org.patternfly.component.Card$Body.<synthetic: ctor_js>","org.patternfly.component.Card$Body.<synthetic: ctor_create>","org.patternfly.component.Card$Body.<init>","org.patternfly.component.Card$Body.that","org.patternfly.component.Card$Body.<clinit>"]
-}

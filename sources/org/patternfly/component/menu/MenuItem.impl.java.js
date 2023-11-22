@@ -23,6 +23,7 @@ let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
+let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Checkbox = goog.forwardDeclare('org.patternfly.component.form.Checkbox$impl');
 let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
 let Menu = goog.forwardDeclare('org.patternfly.component.menu.Menu$impl');
@@ -31,6 +32,7 @@ let MenuItemType = goog.forwardDeclare('org.patternfly.component.menu.MenuItemTy
 let MenuType = goog.forwardDeclare('org.patternfly.component.menu.MenuType$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
+let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let SelectionMode = goog.forwardDeclare('org.patternfly.core.SelectionMode$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
@@ -127,7 +129,7 @@ class MenuItem extends SubComponent {
    itemBuilder.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_mainElement__org_patternfly_component_menu_MenuItem_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_main__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_check__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_checkboxComponent__org_patternfly_component_menu_MenuItem_ = Checkbox.m_checkbox__java_lang_String__org_patternfly_component_form_Checkbox(checkboxId)), HTMLContainerBuilder))), HTMLContainerBuilder)).m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_textElement__org_patternfly_component_menu_MenuItem_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_text__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement()), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   } else {
    itemBuilder = /**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_mainElement__org_patternfly_component_menu_MenuItem_ = /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_textElement__org_patternfly_component_menu_MenuItem_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay))), HTMLContainerBuilder));
-   goog.global.console.error('Unknown menu item type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(itemType));
+   Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(ComponentType.f_Menu__org_patternfly_component_ComponentType, 'Unknown menu item type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(itemType));
   }
   this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_itemElement__org_patternfly_component_menu_MenuItem_ = /**@type {HTMLElement}*/ (/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(itemBuilder.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement()));
   if (!$Equality.$same(text, null)) {
@@ -272,7 +274,7 @@ class MenuItem extends SubComponent {
   if ($Equality.$same(this.f_itemType__org_patternfly_component_menu_MenuItem, MenuItemType.f_link__org_patternfly_component_menu_MenuItemType)) {
    /**@type {HTMLAnchorElement}*/ ($Casts.$to(this.f_itemElement__org_patternfly_component_menu_MenuItem_, HTMLAnchorElement_$Overlay)).href = href;
   } else {
-   goog.global.console.warn('Ignore href on menu item \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_id__org_patternfly_component_menu_MenuItem) + '\' with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_itemType__org_patternfly_component_menu_MenuItem.name()) + '\'');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(ComponentType.f_Menu__org_patternfly_component_ComponentType, 'Ignore href on menu item \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_id__org_patternfly_component_menu_MenuItem) + '\' with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_itemType__org_patternfly_component_menu_MenuItem.name()) + '\'');
   }
   return this;
  }
@@ -283,7 +285,7 @@ class MenuItem extends SubComponent {
    this.f_mainElement__org_patternfly_component_menu_MenuItem_.appendChild(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_externalIcon__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_externalLinkAlt__org_patternfly_layout_PredefinedIcon)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
    this.f_mainElement__org_patternfly_component_menu_MenuItem_.appendChild(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_screenReader__org_patternfly_layout_Classes], j_l_String))), HTMLContainerBuilder)).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('(opens a new window)'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   } else {
-   goog.global.console.warn('Ignore external flag on menu item \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_id__org_patternfly_component_menu_MenuItem) + '\' with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_itemType__org_patternfly_component_menu_MenuItem.name()) + '\'');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(ComponentType.f_Menu__org_patternfly_component_ComponentType, 'Ignore external flag on menu item \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_id__org_patternfly_component_menu_MenuItem) + '\' with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_itemType__org_patternfly_component_menu_MenuItem.name()) + '\'');
   }
   return this;
  }
@@ -441,6 +443,7 @@ class MenuItem extends SubComponent {
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Id = goog.module.get('org.jboss.elemento.Id$impl');
+  ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Checkbox = goog.module.get('org.patternfly.component.form.Checkbox$impl');
   InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
   Menu = goog.module.get('org.patternfly.component.menu.Menu$impl');
@@ -449,6 +452,7 @@ class MenuItem extends SubComponent {
   MenuType = goog.module.get('org.patternfly.component.menu.MenuType$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
+  Logger = goog.module.get('org.patternfly.core.Logger$impl');
   SelectionMode = goog.module.get('org.patternfly.core.SelectionMode$impl');
   Classes = goog.module.get('org.patternfly.layout.Classes$impl');
   PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');

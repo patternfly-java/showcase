@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Wizard.impl.java.js",
-"lineCount":53,
-"mappings":"A;;;;;;;;;;;;;;;;;;MA8Ba,M;;CAAA,W;EAAAA,Q;;;QAOY,yC;EAASC,iB;EAC1BA,0B;;;QAKJ,S;EAAAC,iB;EAAAA,6B;EAAAA,yD;EAAAA,iB;;;CAAA,4C;EACIC,ksB;;;CAIU,uC;EACVC,Y;;;;CAnBK,uC;EAAAA,sD;;;QAAA,O;EAAAC,yB;EAAAA,sB;EAAAA;",
-"sources":["Wizard.java"],
-"names":["org.patternfly.component.Wizard.<synthetic: ctor_js>","org.patternfly.component.Wizard.wizard","org.patternfly.component.Wizard.<synthetic: ctor_create>","org.patternfly.component.Wizard.<init>","org.patternfly.component.Wizard.that","org.patternfly.component.Wizard.<clinit>"]
-}

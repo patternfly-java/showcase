@@ -37,6 +37,7 @@ let MultiSelectHandler = goog.forwardDeclare('org.patternfly.handler.MultiSelect
 let SelectHandler = goog.forwardDeclare('org.patternfly.handler.SelectHandler$impl');
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
 let Variable = goog.forwardDeclare('org.patternfly.layout.Variable$impl');
+let Variables = goog.forwardDeclare('org.patternfly.layout.Variables$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -162,7 +163,7 @@ class Menu extends BaseComponent {
  }
  /** @nodts @return {Menu} */
  m_height__java_lang_String__org_patternfly_component_menu_Menu(/** ?string */ height) {
-  return /**@type {Menu}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['MaxHeight'], j_l_String))).m_style__org_jboss_elemento_HasHTMLElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, height), Menu));
+  return /**@type {Menu}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_MaxHeight__org_patternfly_layout_Variables], j_l_String))).m_applyTo__org_jboss_elemento_HasHTMLElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, height), Menu));
  }
  /** @nodts @return {Menu} */
  m_that__org_patternfly_component_menu_Menu() {
@@ -216,7 +217,7 @@ class Menu extends BaseComponent {
    }
    if (fireEvent) {
     if (!$Equality.$same(this.f_selectHandler__org_patternfly_component_menu_Menu_, null)) {
-     this.f_selectHandler__org_patternfly_component_menu_Menu_.m_onSelect__java_lang_Object__void(item);
+     this.f_selectHandler__org_patternfly_component_menu_Menu_.m_onSelect__java_lang_Object__boolean__void(item, selected);
     }
     if (!$Equality.$same(this.f_multiSelectHandler__org_patternfly_component_menu_Menu_, null)) {
      let selection = /**@type {List<MenuItem>}*/ ($Casts.$to(this.m_items__java_util_List_$pp_org_patternfly_component_menu().m_stream__java_util_stream_Stream().m_filter__java_util_function_Predicate__java_util_stream_Stream(Predicate.$adapt((arg0) =>{
@@ -394,6 +395,7 @@ class Menu extends BaseComponent {
   SelectionMode = goog.module.get('org.patternfly.core.SelectionMode$impl');
   Classes = goog.module.get('org.patternfly.layout.Classes$impl');
   Variable = goog.module.get('org.patternfly.layout.Variable$impl');
+  Variables = goog.module.get('org.patternfly.layout.Variables$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

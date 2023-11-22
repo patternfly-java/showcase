@@ -1,6 +1,7 @@
 goog.module('org.patternfly.component.chip.Chip$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
+const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
 const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
 const Closeable = goog.require('org.patternfly.core.Closeable$impl');
@@ -9,6 +10,7 @@ const HasValue = goog.require('org.patternfly.core.HasValue$impl');
 let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Objects = goog.forwardDeclare('java.util.Objects$impl');
+let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
@@ -18,20 +20,25 @@ let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$
 let Badge = goog.forwardDeclare('org.patternfly.component.badge.Badge$impl');
 let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
 let ChipGroup = goog.forwardDeclare('org.patternfly.component.chip.ChipGroup$impl');
+let Tooltip = goog.forwardDeclare('org.patternfly.component.tooltip.Tooltip$impl');
+let TooltipToggle = goog.forwardDeclare('org.patternfly.component.tooltip.TooltipToggle$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
+let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
 let Variable = goog.forwardDeclare('org.patternfly.layout.Variable$impl');
+let Variables = goog.forwardDeclare('org.patternfly.layout.Variables$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 let $Objects = goog.forwardDeclare('vmbootstrap.Objects$impl');
 
 /**
  * @extends {BaseComponent<HTMLElement, Chip>}
- * @implements {HasValue<?string>}
  * @implements {ComponentReference<ChipGroup>}
  * @implements {Closeable<HTMLElement, Chip>}
+ * @implements {HasValue<?string>}
+ * @implements {Attachable}
  */
 class Chip extends BaseComponent {
  /** @protected @nodts */
@@ -45,6 +52,8 @@ class Chip extends BaseComponent {
   this.f_contentElement__org_patternfly_component_chip_Chip_;
   /**@type {HTMLElement} @nodts*/
   this.f_actionsElement__org_patternfly_component_chip_Chip_;
+  /**@type {TooltipToggle} @nodts*/
+  this.f_tooltipToggle__org_patternfly_component_chip_Chip_;
   /**@type {ChipGroup} @nodts*/
   this.f_chipGroup__org_patternfly_component_chip_Chip_;
   /**@type {Badge} @nodts*/
@@ -77,9 +86,18 @@ class Chip extends BaseComponent {
    let event_1 = /**@type {MouseEvent}*/ ($Casts.$to(event, MouseEvent_$Overlay));
    this.m_close__elemental2_dom_Event__boolean__void(event_1, true);
   }), Button))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
-  if (!$Equality.$same(text, null) && j_l_String.m_length__java_lang_String__int(text) > Chip.f_DEFAULT_MAX_WIDTH__org_patternfly_component_chip_Chip_) {
+  this.f_tooltipToggle__org_patternfly_component_chip_Chip_ = TooltipToggle.$create__elemental2_dom_HTMLElement(this.f_textElement__org_patternfly_component_chip_Chip);
+  Attachable.m_register__org_jboss_elemento_IsElement__org_jboss_elemento_Attachable__void(this, this);
+ }
+ /** @override @nodts */
+ m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
+  this.f_tooltipToggle__org_patternfly_component_chip_Chip_.m_eval__java_util_function_Consumer__java_util_function_Consumer__void(Consumer.$adapt((tt) =>{
+   let tt_1 = /**@type {Tooltip}*/ ($Casts.$to(tt, Tooltip));
    this.m_element__elemental2_dom_HTMLElement().tabIndex = 0;
-  }
+  }), Consumer.$adapt((tt_2) =>{
+   let tt_3 = /**@type {Tooltip}*/ ($Casts.$to(tt_2, Tooltip));
+   this.m_element__elemental2_dom_HTMLElement().removeAttribute(Attributes.f_tabindex__org_patternfly_core_Attributes);
+  }));
  }
  /** @nodts */
  m_passComponent__org_patternfly_component_chip_ChipGroup__void(/** ChipGroup */ chipGroup) {
@@ -121,9 +139,28 @@ class Chip extends BaseComponent {
   return this.m_onClose__org_patternfly_handler_CloseHandler__org_patternfly_component_chip_Chip(null);
  }
  /** @nodts @return {Chip} */
- m_maxWidth__java_lang_String__org_patternfly_component_chip_Chip(/** ?string */ maxWidth) {
-  this.m_element__elemental2_dom_HTMLElement().tabIndex = 0;
-  return /**@type {Chip}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_chip__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_text__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['MaxWidth'], j_l_String))).m_style__org_jboss_elemento_HasHTMLElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, maxWidth), Chip));
+ m_text__java_lang_String__org_patternfly_component_chip_Chip(/** ?string */ text) {
+  this.f_textElement__org_patternfly_component_chip_Chip.textContent = text;
+  this.f_tooltipToggle__org_patternfly_component_chip_Chip_.m_eval__java_util_function_Consumer__java_util_function_Consumer__void(Consumer.$adapt((tt) =>{
+   let tt_1 = /**@type {Tooltip}*/ ($Casts.$to(tt, Tooltip));
+   this.m_element__elemental2_dom_HTMLElement().tabIndex = 0;
+  }), Consumer.$adapt((tt_2) =>{
+   let tt_3 = /**@type {Tooltip}*/ ($Casts.$to(tt_2, Tooltip));
+   this.m_element__elemental2_dom_HTMLElement().removeAttribute(Attributes.f_tabindex__org_patternfly_core_Attributes);
+  }));
+  return this;
+ }
+ /** @nodts @return {Chip} */
+ m_textMaxWidth__java_lang_String__org_patternfly_component_chip_Chip(/** ?string */ maxWidth) {
+  Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_chip__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_text__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_MaxWidth__org_patternfly_layout_Variables], j_l_String))).m_applyTo__org_jboss_elemento_HasHTMLElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, maxWidth);
+  this.f_tooltipToggle__org_patternfly_component_chip_Chip_.m_eval__java_util_function_Consumer__java_util_function_Consumer__void(Consumer.$adapt((tt) =>{
+   let tt_1 = /**@type {Tooltip}*/ ($Casts.$to(tt, Tooltip));
+   this.m_element__elemental2_dom_HTMLElement().tabIndex = 0;
+  }), Consumer.$adapt((tt_2) =>{
+   let tt_3 = /**@type {Tooltip}*/ ($Casts.$to(tt_2, Tooltip));
+   this.m_element__elemental2_dom_HTMLElement().removeAttribute(Attributes.f_tabindex__org_patternfly_core_Attributes);
+  }));
+  return this;
  }
  /** @nodts @return {Chip} */
  m_that__org_patternfly_component_chip_Chip() {
@@ -163,11 +200,6 @@ class Chip extends BaseComponent {
  /** @nodts */
  m_foo__void_$p_org_patternfly_component_chip_Chip() {}
  //Bridge method.
- /** @final @override @nodts @return {?string} */
- m_value__java_lang_Object() {
-  return this.m_value__java_lang_String();
- }
- //Bridge method.
  /** @final @override @nodts @return {ChipGroup} */
  m_mainComponent__org_patternfly_component_BaseComponent() {
   return this.m_mainComponent__org_patternfly_component_chip_ChipGroup();
@@ -197,12 +229,23 @@ class Chip extends BaseComponent {
  m_onClose__org_patternfly_handler_CloseHandler__org_jboss_elemento_TypedBuilder(/** CloseHandler<Chip> */ arg0) {
   return this.m_onClose__org_patternfly_handler_CloseHandler__org_patternfly_component_chip_Chip(arg0);
  }
+ //Bridge method.
+ /** @final @override @nodts @return {?string} */
+ m_value__java_lang_Object() {
+  return this.m_value__java_lang_String();
+ }
+ //Default method forwarding stub.
+ /** @override @nodts */
+ m_detach__elemental2_dom_MutationRecord__void(/** MutationRecord */ arg0) {
+  Attachable.m_detach__$default__org_jboss_elemento_Attachable__elemental2_dom_MutationRecord__void(this, arg0);
+ }
  /** @nodts */
  static $clinit() {
   Chip.$clinit = () =>{};
   Chip.$loadModules();
   BaseComponent.$clinit();
   Closeable.$clinit();
+  Attachable.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -214,6 +257,7 @@ class Chip extends BaseComponent {
   MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Objects = goog.module.get('java.util.Objects$impl');
+  Consumer = goog.module.get('java.util.function.Consumer$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
@@ -222,11 +266,15 @@ class Chip extends BaseComponent {
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
   ChipGroup = goog.module.get('org.patternfly.component.chip.ChipGroup$impl');
+  Tooltip = goog.module.get('org.patternfly.component.tooltip.Tooltip$impl');
+  TooltipToggle = goog.module.get('org.patternfly.component.tooltip.TooltipToggle$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
+  Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
   CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');
   Classes = goog.module.get('org.patternfly.layout.Classes$impl');
   PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
   Variable = goog.module.get('org.patternfly.layout.Variable$impl');
+  Variables = goog.module.get('org.patternfly.layout.Variables$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
   $Objects = goog.module.get('vmbootstrap.Objects$impl');
@@ -234,9 +282,10 @@ class Chip extends BaseComponent {
 }
 /**@const {number} @nodts*/
 Chip.f_DEFAULT_MAX_WIDTH__org_patternfly_component_chip_Chip_ = 16;
-HasValue.$markImplementor(Chip);
 ComponentReference.$markImplementor(Chip);
 Closeable.$markImplementor(Chip);
+HasValue.$markImplementor(Chip);
+Attachable.$markImplementor(Chip);
 $Util.$setClassMetadata(Chip, 'org.patternfly.component.chip.Chip');
 
 exports = Chip;

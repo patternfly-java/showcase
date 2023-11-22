@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"OldPageMain.impl.java.js",
-"lineCount":83,
-"mappings":"A;;;;;;;;;;;;;;;;;;MA4Ba,W;;CAAA,W;EAAAA,Q;;;QAEC,yB,gBAAmBC,E;EAAnBC,sB;EAAAA,kC;EAAAA,kF;EAAAA,iB;;;CAAA,mE,gBAAmBD,E;EACzBE,qjC;;;CASe,4C;EACfC,Y;;;CAKe,oE,aAAaC,O;EAC5BC,0G;EACAA,qI;;;CAGe,6E,qBAAqBD,O;EACpCC,0G;EACAA,8I;;;CAGe,+E,oBAAmBC,K;EAClCC,0G;EACAA,8I;;;CAGe,kF,uBAAsBC,Q;EACrCD,0G;EACAA,oJ;;;CAGe,sF,2BAA0BC,Q;EACzCD,0G;EACAA,wJ;;;CAGe,wF,4BAA2BC,Q;EAC1CD,0G;EACAA,0J;;;CAGe,sE,oBAAuBC,Q;EACtCD,0G;EACAA,wI;;;;CAlDK,uC;EAAAJ,2D;;;QAAA,O;EAAAM,8B;EAAAA,2B;EAAAA;",
-"sources":["OldPageMain.java"],
-"names":["org.patternfly.component.OldPageMain.<synthetic: ctor_js>","id","org.patternfly.component.OldPageMain.<synthetic: ctor_create>","org.patternfly.component.OldPageMain.<init>","org.patternfly.component.OldPageMain.that","element","org.patternfly.component.OldPageMain.replace","nodes","org.patternfly.component.OldPageMain.replaceAll","elements","org.patternfly.component.OldPageMain.<clinit>"]
-}

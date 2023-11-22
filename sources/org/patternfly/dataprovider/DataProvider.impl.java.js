@@ -217,7 +217,7 @@ class DataProvider extends j_l_Object {
   for (let $iterator = this.f_selectHandler__org_patternfly_dataprovider_DataProvider_.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
    let handler = /**@type {SelectHandler<T>}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), SelectHandler));
    {
-    handler.m_onSelect__java_lang_Object__void(item);
+    handler.m_onSelect__java_lang_Object__boolean__void(item, true);
    }
   }
  }

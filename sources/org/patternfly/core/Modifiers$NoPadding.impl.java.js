@@ -26,7 +26,7 @@ class NoPadding {
  /** @nodts @template E, B @return {B} */
  static m_noPadding__$default__org_patternfly_core_Modifiers_NoPadding__boolean__org_jboss_elemento_TypedBuilder(/** !NoPadding<E, B> */ $thisArg, /** boolean */ noPadding) {
   NoPadding.$clinit();
-  return Modifiers.m_changeModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_noPadding__org_patternfly_layout_Classes, noPadding);
+  return Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_noPadding__org_patternfly_layout_Classes, noPadding);
  }
  /** @nodts */
  static $clinit() {

@@ -17,12 +17,13 @@ let Menu = goog.forwardDeclare('org.patternfly.component.menu.Menu$impl');
 let MenuToggle = goog.forwardDeclare('org.patternfly.component.menu.MenuToggle$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Expandable = goog.forwardDeclare('org.patternfly.core.Expandable$impl');
+let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let Callback = goog.forwardDeclare('org.patternfly.handler.Callback$impl');
 let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
 let Modifiers = goog.forwardDeclare('org.patternfly.thirdparty.popper.Modifiers$impl');
 let Placement = goog.forwardDeclare('org.patternfly.thirdparty.popper.Placement$impl');
+let Popper = goog.forwardDeclare('org.patternfly.thirdparty.popper.Popper$impl');
 let PopperBuilder = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperBuilder$impl');
-let PopperWrapper = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperWrapper$impl');
 let TriggerAction = goog.forwardDeclare('org.patternfly.thirdparty.popper.TriggerAction$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -47,7 +48,7 @@ class Dropdown extends ComponentDelegate {
   this.f_flip__org_patternfly_component_menu_Dropdown_ = false;
   /**@type {Placement} @nodts*/
   this.f_placement__org_patternfly_component_menu_Dropdown_;
-  /**@type {PopperWrapper} @nodts*/
+  /**@type {Popper} @nodts*/
   this.f_popper__org_patternfly_component_menu_Dropdown_;
   /**@type {CloseHandler<Dropdown>} @nodts*/
   this.f_closeHandler__org_patternfly_component_menu_Dropdown_;
@@ -77,15 +78,15 @@ class Dropdown extends ComponentDelegate {
   if (!$Equality.$same(this.f_toggle__org_patternfly_component_menu_Dropdown_, null) && !$Equality.$same(this.f_menu__org_patternfly_component_menu_Dropdown_, null)) {
    Elements.m_setVisible__org_jboss_elemento_IsElement__boolean__void(this.f_menu__org_patternfly_component_menu_Dropdown_, false);
    Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.f_menu__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), $Overlay)), this.f_toggle__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement());
-   this.f_popper__org_patternfly_component_menu_Dropdown_ = PopperBuilder.$create__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(this.f_toggle__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_menu__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), $Overlay))).m_zIndex__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_zIndex__org_patternfly_component_menu_Dropdown_).m_placement__org_patternfly_thirdparty_popper_Placement__org_patternfly_thirdparty_popper_PopperBuilder(this.f_placement__org_patternfly_component_menu_Dropdown_).m_addModifier__arrayOf_org_patternfly_thirdparty_popper_Modifier__org_patternfly_thirdparty_popper_PopperBuilder([Modifiers.m_noOverflow__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_hide__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_flip__boolean__org_patternfly_thirdparty_popper_Modifier($Equality.$same(this.f_placement__org_patternfly_component_menu_Dropdown_, Placement.f_auto__org_patternfly_thirdparty_popper_Placement) || this.f_flip__org_patternfly_component_menu_Dropdown_), Modifiers.m_placement__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_eventListeners__boolean__org_patternfly_thirdparty_popper_Modifier(false)]).m_registerHandler__elemental2_dom_HTMLElement__java_util_Set__java_util_function_Consumer__java_util_function_Consumer__org_patternfly_thirdparty_popper_PopperBuilder(this.f_toggle__org_patternfly_component_menu_Dropdown_.f_toggleElement__org_patternfly_component_menu_MenuToggle, this.f_triggerActions__org_patternfly_component_menu_Dropdown_, Consumer.$adapt((arg0) =>{
+   this.f_popper__org_patternfly_component_menu_Dropdown_ = PopperBuilder.$create__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(this.m_componentType__org_patternfly_component_ComponentType(), this.f_toggle__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_menu__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), $Overlay))).m_zIndex__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_zIndex__org_patternfly_component_menu_Dropdown_).m_placement__org_patternfly_thirdparty_popper_Placement__org_patternfly_thirdparty_popper_PopperBuilder(this.f_placement__org_patternfly_component_menu_Dropdown_).m_addModifier__arrayOf_org_patternfly_thirdparty_popper_Modifier__org_patternfly_thirdparty_popper_PopperBuilder([Modifiers.m_noOverflow__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_hide__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_flip__boolean__org_patternfly_thirdparty_popper_Modifier($Equality.$same(this.f_placement__org_patternfly_component_menu_Dropdown_, Placement.f_auto__org_patternfly_thirdparty_popper_Placement) || this.f_flip__org_patternfly_component_menu_Dropdown_), Modifiers.m_placement__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_eventListeners__boolean__org_patternfly_thirdparty_popper_Modifier(false)]).m_registerHandler__elemental2_dom_HTMLElement__java_util_Set__java_util_function_Consumer__java_util_function_Consumer__org_patternfly_thirdparty_popper_PopperBuilder(this.f_toggle__org_patternfly_component_menu_Dropdown_.f_toggleElement__org_patternfly_component_menu_MenuToggle, this.f_triggerActions__org_patternfly_component_menu_Dropdown_, Consumer.$adapt((arg0) =>{
     let arg0_1 = /**@type {Event}*/ ($Casts.$to(arg0, Event_$Overlay));
     this.m_show__elemental2_dom_Event__void(arg0_1);
    }), Consumer.$adapt((arg0_2) =>{
     let arg0_3 = /**@type {Event}*/ ($Casts.$to(arg0_2, Event_$Overlay));
     this.m_close__elemental2_dom_Event__void(arg0_3);
-   })).m_build__org_patternfly_thirdparty_popper_PopperWrapper();
+   })).m_build__org_patternfly_thirdparty_popper_Popper();
   } else {
-   goog.global.console.error('No toggle and/or menu defined for dropdown!');
+   Logger.m_undefined__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'No toggle and/or menu defined for dropdown');
   }
  }
  /** @override @nodts */
@@ -217,6 +218,7 @@ class Dropdown extends ComponentDelegate {
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Expandable = goog.module.get('org.patternfly.core.Expandable$impl');
+  Logger = goog.module.get('org.patternfly.core.Logger$impl');
   Callback = goog.module.get('org.patternfly.handler.Callback$impl');
   CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');
   Modifiers = goog.module.get('org.patternfly.thirdparty.popper.Modifiers$impl');

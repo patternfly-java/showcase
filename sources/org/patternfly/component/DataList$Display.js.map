@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"DataList$Display.impl.java.js",
-"lineCount":25,
-"mappings":"A;;;;;;;;;;;;;MA4PqB,O;;CAER,mH,4CAA2CA,E,yBAAoBC,Y,WAAgBC,I;;QAFvE,M;EAAAC,kB;EAAAA,gE;;;QAAA,O;EAAAC,0B;EAAAA;",
-"sources":["DataList.java"],
-"names":["li","dataProvider","item","org.patternfly.component.DataList$Display.<synthetic: adapt_lambda>","org.patternfly.component.DataList$Display.<clinit>"]
-}

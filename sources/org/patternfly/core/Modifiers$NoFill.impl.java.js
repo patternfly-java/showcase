@@ -26,7 +26,7 @@ class NoFill {
  /** @nodts @template E, B @return {B} */
  static m_noFill__$default__org_patternfly_core_Modifiers_NoFill__boolean__org_jboss_elemento_TypedBuilder(/** !NoFill<E, B> */ $thisArg, /** boolean */ noFill) {
   NoFill.$clinit();
-  return Modifiers.m_changeModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_noFill__org_patternfly_layout_Classes, noFill);
+  return Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_noFill__org_patternfly_layout_Classes, noFill);
  }
  /** @nodts */
  static $clinit() {

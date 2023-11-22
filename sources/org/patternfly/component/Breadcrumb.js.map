@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Breadcrumb.impl.java.js",
-"lineCount":52,
-"mappings":"A;;;;;;;;;;;;;;;;;MA8Ba,U;;CAAA,W;EAAAA,Q;;;QAOgB,iD;EAAaC,qB;EAClCA,8B;;;QAKJ,S;EAAAC,qB;EAAAA,iC;EAAAA,6D;EAAAA,iB;;;CAAA,gD;EACIC,mpB;;;CAIc,2C;EACdC,Y;;;;CAnBK,uC;EAAAA,0D;;;QAAA,O;EAAAC,6B;EAAAA,0B;EAAAA;",
-"sources":["Breadcrumb.java"],
-"names":["org.patternfly.component.Breadcrumb.<synthetic: ctor_js>","org.patternfly.component.Breadcrumb.breadcrumb","org.patternfly.component.Breadcrumb.<synthetic: ctor_create>","org.patternfly.component.Breadcrumb.<init>","org.patternfly.component.Breadcrumb.that","org.patternfly.component.Breadcrumb.<clinit>"]
-}

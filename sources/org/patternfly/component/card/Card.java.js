@@ -1,0 +1,37 @@
+goog.module('org.patternfly.component.card.Card');
+
+goog.require('elemental2.dom.Event.$Overlay');
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.MutationRecord.$Overlay');
+goog.require('elemental2.dom.Window.$Overlay');
+goog.require('java.lang.String');
+goog.require('nativebootstrap.Equality');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Attachable');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.patternfly.component.BaseComponent');
+goog.require('org.patternfly.component.ComponentType');
+goog.require('org.patternfly.component.card.CardBody');
+goog.require('org.patternfly.component.card.CardExpandableContent');
+goog.require('org.patternfly.component.card.CardFooter');
+goog.require('org.patternfly.component.card.CardHeader');
+goog.require('org.patternfly.component.card.CardTitle');
+goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.Expandable');
+goog.require('org.patternfly.core.Logger');
+goog.require('org.patternfly.core.Modifiers');
+goog.require('org.patternfly.core.Modifiers.Compact');
+goog.require('org.patternfly.core.Modifiers.Disabled');
+goog.require('org.patternfly.core.Modifiers.Plain');
+goog.require('org.patternfly.core.SelectionMode');
+goog.require('org.patternfly.handler.ComponentHandler');
+goog.require('org.patternfly.handler.SelectHandler');
+goog.require('org.patternfly.handler.ToggleHandler');
+goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.layout.Size');
+goog.require('vmbootstrap.Arrays');
+goog.require('vmbootstrap.Casts');
+
+const Card = goog.require('org.patternfly.component.card.Card$impl');
+exports = Card;

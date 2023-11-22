@@ -21,6 +21,7 @@ goog.require('org.patternfly.component.button.IconPosition');
 goog.require('org.patternfly.component.icon.InlineIcon');
 goog.require('org.patternfly.component.spinner.Spinner');
 goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.Logger');
 goog.require('org.patternfly.core.Modifiers.Disabled');
 goog.require('org.patternfly.core.Modifiers.Inline');
 goog.require('org.patternfly.core.Modifiers.NoPadding');

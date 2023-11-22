@@ -214,7 +214,7 @@ class Alert extends BaseComponent {
  m_truncate__int__org_patternfly_component_alert_Alert(/** number */ lines) {
   this.f_titleElement__org_patternfly_component_alert_Alert_.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_truncate__org_patternfly_layout_Classes));
   if (lines != 1) {
-   Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_title__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['max-lines'], j_l_String))).m_style__elemental2_dom_HTMLElement__int__void(this.f_titleElement__org_patternfly_component_alert_Alert_, lines);
+   Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_title__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['max-lines'], j_l_String))).m_applyTo__elemental2_dom_HTMLElement__int__void(this.f_titleElement__org_patternfly_component_alert_Alert_, lines);
   }
   return this;
  }

@@ -26,7 +26,7 @@ class Readonly2 {
  /** @nodts @template E, B @return {B} */
  static m_readonly__$default__org_patternfly_core_Modifiers_Readonly2__boolean__org_jboss_elemento_TypedBuilder(/** !Readonly2<E, B> */ $thisArg, /** boolean */ readonly) {
   Readonly2.$clinit();
-  return Modifiers.m_changeModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_readOnly__org_patternfly_layout_Classes, readonly);
+  return Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_readOnly__org_patternfly_layout_Classes, readonly);
  }
  /** @nodts */
  static $clinit() {

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"TableComponent$Repository.impl.java.js",
-"lineCount":82,
-"mappings":"A;;;;;;;;;;;MAuIiB,U;;CAAA,W;EAAAA,Q;EAAAA;OAII,mEAJJA,C;EAAAA;OAKI,mEALJA,C;EAAAA;OAMI,oEANJA,C;EAAAA;OAOC,uEAPDA,K;EAAAA;OAQC,2EARDA,K;EAAAA;OASC,2EATDA,K;EAAAA;OAUI,yEAVJA,C;;;QAYT,0D,gBAAkBC,I,iBAAaC,I,gBAAUC,Q,gBAAcC,Y,gBAAkBC,Y;EAAzEC,qB;EAAAA,iC;EAAAA,wL;EAAAA,iB;;;CAAA,2H,gBAAkBL,I,iBAAaC,I,gBAAUC,Q,gBAAcC,Y,gBAAkBC,Y;EAAcE,qC;EACnFA,gF;EACAA,gF;EACAA,8H;EACAA,wF;EACAA,gG;EACAA,gG;EACAA,4L;;;CAGW,mG;EACXC,IAAIC,IAAJD,K;EACAA,IAAKE,GAALF,sC;EACAA,IAAOG,MAAPH,sB;EAEAA,SAASI,CAATJ;GACIA,iIADJA;G;EAGAA,IAAOK,IAAPL,c;EACAA,qG;EACAA,Y;;;QAhCK,O;EAAAM,6B;EAAAA,0B;EAAAA,qB;;;;;;;;;;;;;;;;AAET;WAAyB,kFAAzB;",
-"sources":["TableComponent.java"],
-"names":["org.patternfly.showcase.component.TableComponent$Repository.<synthetic: ctor_js>","name","link","branches","pullRequests","contributors","org.patternfly.showcase.component.TableComponent$Repository.<synthetic: ctor_create>","org.patternfly.showcase.component.TableComponent$Repository.<init>","org.patternfly.showcase.component.TableComponent$Repository.randomDate","diff","now","random","i","date","org.patternfly.showcase.component.TableComponent$Repository.<clinit>"]
-}

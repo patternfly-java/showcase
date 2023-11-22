@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Popper.impl.java.js",
+"lineCount":37,
+"mappings":"A;;;;;;;;;MAqBiB,M;;CAIE,oC;;CAEV,6C,iBAAcA,O;;CAEd,6C,iBAAcC,M;;CAEd,e;;QAVQ,O;EAAAC,yB;EAAAA,sB;;;;;;;;;;;;;;AAEb;OAAI,oDAAJ;",
+"sources":["Popper.java"],
+"names":["visible","hidden","org.patternfly.thirdparty.popper.Popper.<clinit>"]
+}

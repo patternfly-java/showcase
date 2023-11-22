@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"UserDemo$UserListDisplay.impl.java.js",
-"lineCount":58,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;MA+KiB,e;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,0B;EAAAA,sC;EAAAA,oF;EAAAA,iB;;;CAAA,uE;EAAAC,qC;;;CAGG,yI,4CAA2CC,E,8BAAuBC,Y,gBAAmBC,I;EAC7FC,q2L;EASAA,g0D;;;;CAbK,mH;EAAAA,6M;;;QAAA,O;EAAAC,kC;EAAAA,+B;EAAAA;",
-"sources":["UserDemo.java"],
-"names":["org.patternfly.showcase.demo.user.UserDemo$UserListDisplay.<synthetic: ctor_js>","org.patternfly.showcase.demo.user.UserDemo$UserListDisplay.<synthetic: ctor_create>","org.patternfly.showcase.demo.user.UserDemo$UserListDisplay.<init>","li","dataProvider","user","org.patternfly.showcase.demo.user.UserDemo$UserListDisplay.render","org.patternfly.showcase.demo.user.UserDemo$UserListDisplay.<clinit>"]
-}

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Card$Footer.impl.java.js",
-"lineCount":47,
-"mappings":"A;;;;;;;;;;;;;;;;;MA+IwB,M;;CAAA,W;EAAAA,Q;;;QAER,S;EAAAC,iB;EAAAA,6B;EAAAA,8D;EAAAA,iB;;;CAAA,iD;EACJC,6qB;;;CAIU,4C;EACVC,Y;;;;CARY,uC;EAAAA,2D;;;QAAA,O;EAAAC,yB;EAAAA,sB;EAAAA;",
-"sources":["Card.java"],
-"names":["org.patternfly.component.Card$Footer.<synthetic: ctor_js>","org.patternfly.component.Card$Footer.<synthetic: ctor_create>","org.patternfly.component.Card$Footer.<init>","org.patternfly.component.Card$Footer.that","org.patternfly.component.Card$Footer.<clinit>"]
-}

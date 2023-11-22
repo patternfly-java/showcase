@@ -26,7 +26,7 @@ class Invalid {
  /** @nodts @template E, B @return {B} */
  static m_invalid__$default__org_patternfly_core_Modifiers_Invalid__boolean__org_jboss_elemento_TypedBuilder(/** !Invalid<E, B> */ $thisArg, /** boolean */ invalid) {
   Invalid.$clinit();
-  return Modifiers.m_changeModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_error__org_patternfly_layout_Classes, invalid);
+  return Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder($thisArg.m_that__org_jboss_elemento_TypedBuilder(), $thisArg.m_element__elemental2_dom_Element(), Classes.f_error__org_patternfly_layout_Classes, invalid);
  }
  /** @nodts */
  static $clinit() {

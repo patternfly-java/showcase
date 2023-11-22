@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"OldToolbar$SortOption.impl.java.js",
-"lineCount":48,
-"mappings":"A;;;;;;;;;;;;;;MA4oBwB,U;;CAAA,W;EAAAA,Q;EAAAA;OAEK,qDAFLA,C;EAAAA;OAGK,uDAHLA,C;EAAAA;OAIY,6DAJZA,C;;;QAMT,+C,gBAAkBC,I,uBAAoBC,U;EAAtCC,qB;EAAAA,iC;EAAAA,gI;EAAAA,iB;;;CAAA,mG,gBAAkBF,I,uBAAoBC,U;EAAYE,qC;EACrDA,0M;EACAA,oE;EACAA,gF;;;CAIU,Q;EACVC,oE;;;QAdY,O;EAAAC,6B;EAAAA,0B;EAAAA;",
-"sources":["OldToolbar.java"],
-"names":["org.patternfly.component.OldToolbar$SortOption.<synthetic: ctor_js>","name","comparator","org.patternfly.component.OldToolbar$SortOption.<synthetic: ctor_create>","org.patternfly.component.OldToolbar$SortOption.<init>","org.patternfly.component.OldToolbar$SortOption.toString","org.patternfly.component.OldToolbar$SortOption.<clinit>"]
-}

@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"Tabs.impl.java.js",
+"lineCount":83,
+"mappings":"A;;;;;;;;;;;;;;;;;MAgCa,I;;CAAA,W;EAAAA,Q;;;QAIU,0C;EAAOC,e;EACtBA,wB;;;QAKJ,S;EAAAC,e;EAAAA,2B;EAAAA,4D;EAAAA,iB;;;CAAA,+C;EACIC,uT;;;CAKQ,4C;EACRC,Y;;;CAIQ,yC;EACRC,Y;;;CAKQ,wE;EACRC,Y;;;CAIQ,0C;EACRC,Y;;;CAKQ,iE,gBAAiBC,K;EACzBC,6K;;;CAKQ,oF,+BAA6BC,O;EACrCC,oMAAiBC,CAAjBD;GAAiBE,IAAAD,GAAAC,gEAAjBF;GAAsBE,0EAAtBF;a;;;CAKQ,mB;;CAIE,0B;EACVG,mC;;;CAKS,iD;;;CA5DJ,uC;EAAAP,yD;;;QAAA,O;EAAAQ,uB;EAAAA,oB;EAAAA;",
+"sources":["Tabs.java"],
+"names":["org.patternfly.component.tabs.Tabs.<synthetic: ctor_js>","org.patternfly.component.tabs.Tabs.tabs","org.patternfly.component.tabs.Tabs.<synthetic: ctor_create>","org.patternfly.component.tabs.Tabs.<init>","org.patternfly.component.tabs.Tabs.addFoo","org.patternfly.component.tabs.Tabs.add","org.patternfly.component.tabs.Tabs.methodsReturningAReferenceToItself","org.patternfly.component.tabs.Tabs.that","label","org.patternfly.component.tabs.Tabs.ariaLabel","handler","org.patternfly.component.tabs.Tabs.onFoo","e","org.patternfly.component.tabs.Tabs.<lambda in onFoo>","org.patternfly.component.tabs.Tabs.getter","org.patternfly.component.tabs.Tabs.<clinit>"]
+}

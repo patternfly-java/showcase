@@ -66,7 +66,7 @@ class Spinner extends BaseComponentSVG {
  }
  /** @nodts @return {Spinner} */
  m_diameter__java_lang_String__org_patternfly_component_spinner_Spinner(/** ?string */ diameter) {
-  return /**@type {Spinner}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_spinner__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['diameter'], j_l_String))).m_style__org_jboss_elemento_svg_HasSVGElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, diameter), Spinner));
+  return /**@type {Spinner}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_spinner__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['diameter'], j_l_String))).m_applyTo__org_jboss_elemento_svg_HasSVGElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, diameter), Spinner));
  }
  /** @nodts @return {Spinner} */
  m_that__org_patternfly_component_spinner_Spinner() {

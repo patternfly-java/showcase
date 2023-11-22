@@ -24,10 +24,11 @@ let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let Key = goog.forwardDeclare('org.jboss.elemento.Key$impl');
 let ObserverCallback = goog.forwardDeclare('org.jboss.elemento.ObserverCallback$impl');
+let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Placement = goog.forwardDeclare('org.patternfly.thirdparty.popper.Placement$impl');
-let PopperWrapper = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperWrapper$impl');
-let PopperWrapperError = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperWrapperError$impl');
-let PopperWrapperImpl = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperWrapperImpl$impl');
+let org_patternfly_thirdparty_popper_Popper = goog.forwardDeclare('org.patternfly.thirdparty.popper.Popper$impl');
+let PopperError = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperError$impl');
+let PopperImpl = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperImpl$impl');
 let TriggerAction = goog.forwardDeclare('org.patternfly.thirdparty.popper.TriggerAction$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -35,6 +36,8 @@ class PopperBuilder extends j_l_Object {
  /** @protected @nodts */
  constructor() {
   super();
+  /**@type {ComponentType} @nodts*/
+  this.f_componentType__org_patternfly_thirdparty_popper_PopperBuilder_;
   /**@type {HTMLElement} @nodts*/
   this.f_triggerElement__org_patternfly_thirdparty_popper_PopperBuilder_;
   /**@type {HTMLElement} @nodts*/
@@ -55,29 +58,30 @@ class PopperBuilder extends j_l_Object {
   this.f_placement__org_patternfly_thirdparty_popper_PopperBuilder_;
  }
  /** @nodts @return {!PopperBuilder} */
- static $create__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(/** HTMLElement */ triggerElement, /** HTMLElement */ popperElement) {
+ static $create__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(/** ComponentType */ componentType, /** HTMLElement */ triggerElement, /** HTMLElement */ popperElement) {
   PopperBuilder.$clinit();
   let $instance = new PopperBuilder();
-  $instance.$ctor__org_patternfly_thirdparty_popper_PopperBuilder__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(triggerElement, popperElement);
+  $instance.$ctor__org_patternfly_thirdparty_popper_PopperBuilder__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(componentType, triggerElement, popperElement);
   return $instance;
  }
  /** @nodts */
- $ctor__org_patternfly_thirdparty_popper_PopperBuilder__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/** HTMLElement */ triggerElement, /** HTMLElement */ popperElement) {
+ $ctor__org_patternfly_thirdparty_popper_PopperBuilder__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/** ComponentType */ componentType, /** HTMLElement */ triggerElement, /** HTMLElement */ popperElement) {
   this.$ctor__java_lang_Object__void();
+  this.f_componentType__org_patternfly_thirdparty_popper_PopperBuilder_ = componentType;
   this.f_triggerElement__org_patternfly_thirdparty_popper_PopperBuilder_ = triggerElement;
   this.f_popperElement__org_patternfly_thirdparty_popper_PopperBuilder_ = popperElement;
   this.f_modifiers__org_patternfly_thirdparty_popper_PopperBuilder_ = /**@type {!Array<Object>}*/ (new Array());
   this.f_handlerRegistrations__org_patternfly_thirdparty_popper_PopperBuilder_ = /**@type {!ArrayList<HandlerRegistration>}*/ (ArrayList.$create__());
-  this.f_animationDuration__org_patternfly_thirdparty_popper_PopperBuilder_ = PopperWrapper.f_UNDEFINED__org_patternfly_thirdparty_popper_PopperWrapper;
-  this.f_entryDelay__org_patternfly_thirdparty_popper_PopperBuilder_ = PopperWrapper.f_UNDEFINED__org_patternfly_thirdparty_popper_PopperWrapper;
-  this.f_exitDelay__org_patternfly_thirdparty_popper_PopperBuilder_ = PopperWrapper.f_UNDEFINED__org_patternfly_thirdparty_popper_PopperWrapper;
-  this.f_zIndex__org_patternfly_thirdparty_popper_PopperBuilder_ = PopperWrapper.f_UNDEFINED__org_patternfly_thirdparty_popper_PopperWrapper;
+  this.f_animationDuration__org_patternfly_thirdparty_popper_PopperBuilder_ = org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper;
+  this.f_entryDelay__org_patternfly_thirdparty_popper_PopperBuilder_ = org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper;
+  this.f_exitDelay__org_patternfly_thirdparty_popper_PopperBuilder_ = org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper;
+  this.f_zIndex__org_patternfly_thirdparty_popper_PopperBuilder_ = org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper;
   this.f_placement__org_patternfly_thirdparty_popper_PopperBuilder_ = Placement.f_auto__org_patternfly_thirdparty_popper_Placement;
  }
  /** @nodts @return {PopperBuilder} */
  m_animationDuration__int__org_patternfly_thirdparty_popper_PopperBuilder(/** number */ animationDuration) {
   this.f_animationDuration__org_patternfly_thirdparty_popper_PopperBuilder_ = animationDuration;
-  if (animationDuration != PopperWrapper.f_UNDEFINED__org_patternfly_thirdparty_popper_PopperWrapper) {
+  if (animationDuration != org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
    this.f_popperElement__org_patternfly_thirdparty_popper_PopperBuilder_.style.opacity = OpacityUnionType_$Overlay.m_of__java_lang_Object__elemental2_dom_CSSProperties_OpacityUnionType(Integer.m_valueOf__int__java_lang_Integer(0));
    this.f_popperElement__org_patternfly_thirdparty_popper_PopperBuilder_.style.transition = 'opacity ' + animationDuration + 'ms cubic-bezier(.54, 1.5, .38, 1.11)';
   }
@@ -96,7 +100,7 @@ class PopperBuilder extends j_l_Object {
  /** @nodts @return {PopperBuilder} */
  m_zIndex__int__org_patternfly_thirdparty_popper_PopperBuilder(/** number */ zIndex) {
   this.f_zIndex__org_patternfly_thirdparty_popper_PopperBuilder_ = zIndex;
-  if (zIndex != PopperWrapper.f_UNDEFINED__org_patternfly_thirdparty_popper_PopperWrapper) {
+  if (zIndex != org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
    this.f_popperElement__org_patternfly_thirdparty_popper_PopperBuilder_.style.zIndex = ZIndexUnionType_$Overlay.m_of__java_lang_Object__elemental2_dom_CSSProperties_ZIndexUnionType(Integer.m_valueOf__int__java_lang_Integer(zIndex));
   }
   return this;
@@ -182,17 +186,17 @@ class PopperBuilder extends j_l_Object {
   }));
   return this;
  }
- /** @nodts @return {PopperWrapper} */
- m_build__org_patternfly_thirdparty_popper_PopperWrapper() {
+ /** @nodts @return {org_patternfly_thirdparty_popper_Popper} */
+ m_build__org_patternfly_thirdparty_popper_Popper() {
   let createPopperFn = JsPropertyMap_$Overlay.m_nestedGetAsAny__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__jsinterop_base_Any(goog.global, 'Popper.createPopper');
   if (Js.isTripleEqual(createPopperFn, undefined)) {
-   return PopperWrapperError.$create__();
+   return PopperError.$create__org_patternfly_component_ComponentType(this.f_componentType__org_patternfly_thirdparty_popper_PopperBuilder_);
   } else {
    let options = new Object();
    options.placement = this.f_placement__org_patternfly_thirdparty_popper_PopperBuilder_.f_value__org_patternfly_thirdparty_popper_Placement;
    options.modifiers = this.f_modifiers__org_patternfly_thirdparty_popper_PopperBuilder_;
    let popper = Popper.createPopper(this.f_triggerElement__org_patternfly_thirdparty_popper_PopperBuilder_, this.f_popperElement__org_patternfly_thirdparty_popper_PopperBuilder_, options);
-   return PopperWrapperImpl.$create__org_patternfly_thirdparty_popper_Popper__java_util_List__int__int__int(popper, this.f_handlerRegistrations__org_patternfly_thirdparty_popper_PopperBuilder_, this.f_animationDuration__org_patternfly_thirdparty_popper_PopperBuilder_, this.f_entryDelay__org_patternfly_thirdparty_popper_PopperBuilder_, this.f_exitDelay__org_patternfly_thirdparty_popper_PopperBuilder_);
+   return PopperImpl.$create__org_patternfly_component_ComponentType__org_patternfly_thirdparty_popper_PopperJs__java_util_List__int__int__int(this.f_componentType__org_patternfly_thirdparty_popper_PopperBuilder_, popper, this.f_handlerRegistrations__org_patternfly_thirdparty_popper_PopperBuilder_, this.f_animationDuration__org_patternfly_thirdparty_popper_PopperBuilder_, this.f_entryDelay__org_patternfly_thirdparty_popper_PopperBuilder_, this.f_exitDelay__org_patternfly_thirdparty_popper_PopperBuilder_);
   }
  }
  /** @nodts */
@@ -226,9 +230,9 @@ class PopperBuilder extends j_l_Object {
   Key = goog.module.get('org.jboss.elemento.Key$impl');
   ObserverCallback = goog.module.get('org.jboss.elemento.ObserverCallback$impl');
   Placement = goog.module.get('org.patternfly.thirdparty.popper.Placement$impl');
-  PopperWrapper = goog.module.get('org.patternfly.thirdparty.popper.PopperWrapper$impl');
-  PopperWrapperError = goog.module.get('org.patternfly.thirdparty.popper.PopperWrapperError$impl');
-  PopperWrapperImpl = goog.module.get('org.patternfly.thirdparty.popper.PopperWrapperImpl$impl');
+  org_patternfly_thirdparty_popper_Popper = goog.module.get('org.patternfly.thirdparty.popper.Popper$impl');
+  PopperError = goog.module.get('org.patternfly.thirdparty.popper.PopperError$impl');
+  PopperImpl = goog.module.get('org.patternfly.thirdparty.popper.PopperImpl$impl');
   TriggerAction = goog.module.get('org.patternfly.thirdparty.popper.TriggerAction$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"OldToolbar$Group.impl.java.js",
-"lineCount":106,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MA6TwB,K;;CAAA,W;EAAAA,Q;EAAAA;OAEU,oDAFVA,C;EAAAA;OAGS,mDAHTA,C;;;QAKN,S;EAAAC,gB;EAAAA,4B;EAAAA,mE;EAAAA,iB;;;CAAA,sD;EACNC,4oB;EACAA,mH;EACAA,iH;;;CAIS,iD;EACTC,Y;;;CAGS,2F,cAAUC,K;EACnBC,qE;EACAA,mN;;;CAGS,0F,aAASC,I;EAClBD,mE;EACAA,kN;;;CAGS,mD;EACTE,+R;;;CAGS,mD;EACTC,+R;;;CAGS,uD;EACTC,mS;;;CAIS,qE,gBAAcC,U;EACvBC,IAAOC,UAAPD,+K;EACAA,uvC;;;CAKa,qG,sBAA0BE,O;EACvCC;GAAAA,IAAWV,KAAXU,gFAAAA;;IACIA,qHADJA;;G;EAGAA;GAAAA,IAAUR,IAAVQ,gFAAAA;;IACIA,mHADJA;;G;;;;CAlDY,uC;EAAAX,gE;;;;CAAA,2D;EAAAQ,wF;;;QAAA,O;EAAAI,wB;EAAAA,qB;EAAAA;",
-"sources":["OldToolbar.java"],
-"names":["org.patternfly.component.OldToolbar$Group.<synthetic: ctor_js>","org.patternfly.component.OldToolbar$Group.<synthetic: ctor_create>","org.patternfly.component.OldToolbar$Group.<init>","org.patternfly.component.OldToolbar$Group.that","group","org.patternfly.component.OldToolbar$Group.add","item","org.patternfly.component.OldToolbar$Group.button","org.patternfly.component.OldToolbar$Group.filter","org.patternfly.component.OldToolbar$Group.iconButton","breakpoint","org.patternfly.component.OldToolbar$Group.toggle","bpModifier","toolbar","org.patternfly.component.OldToolbar$Group.bindToolbar","org.patternfly.component.OldToolbar$Group.<clinit>"]
-}

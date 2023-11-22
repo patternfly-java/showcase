@@ -25,6 +25,7 @@ let IconPosition = goog.forwardDeclare('org.patternfly.component.button.IconPosi
 let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
 let Spinner = goog.forwardDeclare('org.patternfly.component.spinner.Spinner$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
+let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
@@ -100,7 +101,7 @@ class Button extends BaseComponent {
    case ButtonElement.$ordinal_link__org_patternfly_component_button_ButtonElement: 
     return Button.$create__org_jboss_elemento_HTMLContainerBuilder(Elements.m_a__org_jboss_elemento_HTMLContainerBuilder());
    default: 
-    goog.global.console.error('Unknown button element \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(element.name()) + '\'. Fallback to \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(ButtonElement.f_button__org_patternfly_component_button_ButtonElement.name()) + '\'.');
+    Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(ComponentType.f_Button__org_patternfly_component_ComponentType, 'Unknown button element \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(element.name()) + '\'. ' + 'Fallback to \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(ButtonElement.f_button__org_patternfly_component_button_ButtonElement.name()) + '\'.');
     return Button.$create__org_jboss_elemento_HTMLContainerBuilder(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder());
   }
  }
@@ -455,6 +456,7 @@ class Button extends BaseComponent {
   InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
   Spinner = goog.module.get('org.patternfly.component.spinner.Spinner$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
+  Logger = goog.module.get('org.patternfly.core.Logger$impl');
   Classes = goog.module.get('org.patternfly.layout.Classes$impl');
   Size = goog.module.get('org.patternfly.layout.Size$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');

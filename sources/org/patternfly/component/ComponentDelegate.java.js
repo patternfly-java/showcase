@@ -5,7 +5,6 @@ goog.require('elemental2.dom.EventTarget.$Overlay');
 goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('java.lang.Iterable');
 goog.require('java.lang.Object');
-goog.require('java.lang.String');
 goog.require('java.util.Objects');
 goog.require('java.util.function.Consumer');
 goog.require('java.util.function.Supplier');
@@ -20,6 +19,7 @@ goog.require('org.jboss.elemento.HasHTMLElement');
 goog.require('org.jboss.elemento.TypedBuilder');
 goog.require('org.patternfly.component.Component');
 goog.require('org.patternfly.component.ComponentType');
+goog.require('org.patternfly.core.Logger');
 goog.require('org.patternfly.core.Ouia');
 goog.require('vmbootstrap.Casts');
 

@@ -27,6 +27,7 @@ goog.require('org.patternfly.component.BaseComponent');
 goog.require('org.patternfly.component.ComponentType');
 goog.require('org.patternfly.component.button.Button');
 goog.require('org.patternfly.component.chip.Chip');
+goog.require('org.patternfly.component.tooltip.TooltipToggle');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.Attributes');
 goog.require('org.patternfly.core.Closeable');

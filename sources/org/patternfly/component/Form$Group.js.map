@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Form$Group.impl.java.js",
-"lineCount":46,
-"mappings":"A;;;;;;;;;;;;;;;;MA0DwB,K;;CAAA,W;EAAAA,Q;;;QAEN,S;EAAAC,gB;EAAAA,4B;EAAAA,6D;EAAAA,iB;;;CAAA,gD;EACNC,qqB;;;CAIS,2C;EACTC,Y;;;;CARY,uC;EAAAA,0D;;;QAAA,O;EAAAC,wB;EAAAA,qB;EAAAA;",
-"sources":["Form.java"],
-"names":["org.patternfly.component.Form$Group.<synthetic: ctor_js>","org.patternfly.component.Form$Group.<synthetic: ctor_create>","org.patternfly.component.Form$Group.<init>","org.patternfly.component.Form$Group.that","org.patternfly.component.Form$Group.<clinit>"]
-}

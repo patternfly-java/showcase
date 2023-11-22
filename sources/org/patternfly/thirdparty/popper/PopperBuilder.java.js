@@ -27,11 +27,12 @@ goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.EventType');
 goog.require('org.jboss.elemento.Key');
 goog.require('org.jboss.elemento.ObserverCallback');
+goog.require('org.patternfly.component.ComponentType');
 goog.require('org.patternfly.thirdparty.popper.Modifier.$Overlay');
 goog.require('org.patternfly.thirdparty.popper.Placement');
-goog.require('org.patternfly.thirdparty.popper.PopperWrapper');
-goog.require('org.patternfly.thirdparty.popper.PopperWrapperError');
-goog.require('org.patternfly.thirdparty.popper.PopperWrapperImpl');
+goog.require('org.patternfly.thirdparty.popper.Popper');
+goog.require('org.patternfly.thirdparty.popper.PopperError');
+goog.require('org.patternfly.thirdparty.popper.PopperImpl');
 goog.require('org.patternfly.thirdparty.popper.TriggerAction');
 goog.require('vmbootstrap.Casts');
 

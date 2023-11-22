@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"EmptyStateComponent.impl.java.js",
-"lineCount":60,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;MA4Ba,mB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,8B;EAAAA,0C;EAAAA,+E;EAAAA,iB;;;CAAA,kE;EACHC,u2B;EAQAA;GAAqGC,+gEAArGD;O;EAWAA;GAA0GC,8jEAA1GD;O;EAWAA;GAA0GC,8jEAA1GD;O;EAWAA;GAEcC,wmCAFdD;O;EAUAA;GACcC,oYADdD;O;EAGAA;GAEsBC,ydAFtBD;O;;;QAzDK,O;EAAAE,sC;EAAAA,mC;EAAAA;",
-"sources":["EmptyStateComponent.java"],
-"names":["org.patternfly.showcase.component.EmptyStateComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.EmptyStateComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.EmptyStateComponent.<init>","org.patternfly.showcase.component.EmptyStateComponent.<lambda in <init>>","org.patternfly.showcase.component.EmptyStateComponent.<clinit>"]
-}

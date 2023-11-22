@@ -8,7 +8,6 @@ const HasHTMLElement = goog.require('org.jboss.elemento.HasHTMLElement$impl');
 const Component = goog.require('org.patternfly.component.Component$impl');
 
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
-let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Objects = goog.forwardDeclare('java.util.Objects$impl');
 let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
@@ -18,6 +17,7 @@ let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let TypedBuilder = goog.forwardDeclare('org.jboss.elemento.TypedBuilder$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
+let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let Ouia = goog.forwardDeclare('org.patternfly.core.Ouia$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -51,7 +51,7 @@ class ComponentDelegate extends j_l_Object {
  /** @nodts @return {E} */
  m_element__elemental2_dom_HTMLElement() {
   if ($Equality.$same(this.f_delegate__org_patternfly_component_ComponentDelegate_, null)) {
-   goog.global.console.error('No delegate defined for component ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.m_componentType__org_patternfly_component_ComponentType().f_componentName__org_patternfly_component_ComponentType));
+   Logger.m_undefined__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'No delegate defined');
   }
   return this.f_delegate__org_patternfly_component_ComponentDelegate_;
  }
@@ -232,10 +232,10 @@ class ComponentDelegate extends j_l_Object {
  
  /** @nodts */
  static $loadModules() {
-  j_l_String = goog.module.get('java.lang.String$impl');
   Objects = goog.module.get('java.util.Objects$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
+  Logger = goog.module.get('org.patternfly.core.Logger$impl');
   Ouia = goog.module.get('org.patternfly.core.Ouia$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

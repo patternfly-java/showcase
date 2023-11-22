@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Icon.impl.java.js",
-"lineCount":58,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAmCa,I;;CAAA,W;EAAAA,Q;;;QAOU,uD,gBAAYC,S;EAAWC,e;EACtCA,iD;;;QAKJ,yB,gBAAYD,S;EAAZE,e;EAAAA,2B;EAAAA,kF;EAAAA,iB;;;CAAA,4D,gBAAYF,S;EACRG,+zD;;;CASQ,qC;EACRC,Y;;;CAQQ,iE,aAAUC,I;EAClBC,4N;;;;CAjCK,uC;EAAAF,oD;;;QAAA,O;EAAAG,uB;EAAAA,oB;EAAAA;",
-"sources":["Icon.java"],
-"names":["org.patternfly.component.Icon.<synthetic: ctor_js>","iconClass","org.patternfly.component.Icon.icon","org.patternfly.component.Icon.<synthetic: ctor_create>","org.patternfly.component.Icon.<init>","org.patternfly.component.Icon.that","size","org.patternfly.component.Icon.size","org.patternfly.component.Icon.<clinit>"]
-}

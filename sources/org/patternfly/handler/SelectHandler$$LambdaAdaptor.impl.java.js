@@ -10,23 +10,23 @@ const SelectHandler = goog.require('org.patternfly.handler.SelectHandler$impl');
  */
 class $LambdaAdaptor extends j_l_Object {
  /** @nodts */
- constructor(/** ?function(C):void */ fn) {
+ constructor(/** ?function(C, boolean):void */ fn) {
   $LambdaAdaptor.$clinit();
   super();
-  /**@type {?function(C):void} @nodts*/
+  /**@type {?function(C, boolean):void} @nodts*/
   this.f_fn__org_patternfly_handler_SelectHandler_$LambdaAdaptor;
   this.$ctor__org_patternfly_handler_SelectHandler_$LambdaAdaptor__org_patternfly_handler_SelectHandler_$JsFunction__void(fn);
  }
  /** @nodts */
- $ctor__org_patternfly_handler_SelectHandler_$LambdaAdaptor__org_patternfly_handler_SelectHandler_$JsFunction__void(/** ?function(C):void */ fn) {
+ $ctor__org_patternfly_handler_SelectHandler_$LambdaAdaptor__org_patternfly_handler_SelectHandler_$JsFunction__void(/** ?function(C, boolean):void */ fn) {
   this.$ctor__java_lang_Object__void();
   this.f_fn__org_patternfly_handler_SelectHandler_$LambdaAdaptor = fn;
  }
  /** @override @nodts */
- m_onSelect__java_lang_Object__void(/** C */ arg0) {
+ m_onSelect__java_lang_Object__boolean__void(/** C */ arg0, /** boolean */ arg1) {
   {
    let $function = this.f_fn__org_patternfly_handler_SelectHandler_$LambdaAdaptor;
-   $function(arg0);
+   $function(arg0, arg1);
   }
  }
  /** @nodts */

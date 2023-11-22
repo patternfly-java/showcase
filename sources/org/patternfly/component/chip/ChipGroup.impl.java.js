@@ -28,6 +28,7 @@ let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
 let Chip = goog.forwardDeclare('org.patternfly.component.chip.Chip$impl');
+let TooltipToggle = goog.forwardDeclare('org.patternfly.component.tooltip.TooltipToggle$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
@@ -54,20 +55,22 @@ class ChipGroup extends BaseComponent {
   this.f_expanded__org_patternfly_component_chip_ChipGroup_ = false;
   /**@type {number} @nodts*/
   this.f_numChips__org_patternfly_component_chip_ChipGroup_ = 0;
-  /**@type {Chip} @nodts*/
-  this.f_overflowChip__org_patternfly_component_chip_ChipGroup_;
-  /**@type {HTMLElement} @nodts*/
-  this.f_categoryElement__org_patternfly_component_chip_ChipGroup_;
-  /**@type {HTMLElement} @nodts*/
-  this.f_overflowItem__org_patternfly_component_chip_ChipGroup_;
-  /**@type {Button} @nodts*/
-  this.f_closeButton__org_patternfly_component_chip_ChipGroup_;
-  /**@type {CloseHandler<ChipGroup>} @nodts*/
-  this.f_closeHandler__org_patternfly_component_chip_ChipGroup_;
   /**@type {?string} @nodts*/
   this.f_collapsedText__org_patternfly_component_chip_ChipGroup_;
   /**@type {?string} @nodts*/
   this.f_expandedText__org_patternfly_component_chip_ChipGroup_;
+  /**@type {Chip} @nodts*/
+  this.f_overflowChip__org_patternfly_component_chip_ChipGroup_;
+  /**@type {Button} @nodts*/
+  this.f_closeButton__org_patternfly_component_chip_ChipGroup_;
+  /**@type {HTMLElement} @nodts*/
+  this.f_categoryElement__org_patternfly_component_chip_ChipGroup_;
+  /**@type {HTMLElement} @nodts*/
+  this.f_overflowItem__org_patternfly_component_chip_ChipGroup_;
+  /**@type {TooltipToggle} @nodts*/
+  this.f_tooltipToggle__org_patternfly_component_chip_ChipGroup_;
+  /**@type {CloseHandler<ChipGroup>} @nodts*/
+  this.f_closeHandler__org_patternfly_component_chip_ChipGroup_;
  }
  /** @nodts @return {ChipGroup} */
  static m_chipGroup__org_patternfly_component_chip_ChipGroup() {
@@ -104,6 +107,9 @@ class ChipGroup extends BaseComponent {
  }
  /** @override @nodts */
  m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
+  if (!$Equality.$same(this.f_tooltipToggle__org_patternfly_component_chip_ChipGroup_, null)) {
+   this.f_tooltipToggle__org_patternfly_component_chip_ChipGroup_.m_eval__void();
+  }
   for (let $iterator = this.f_chips__org_patternfly_component_chip_ChipGroup_.values().m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
    let chip = /**@type {Chip}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), Chip));
    {
@@ -149,6 +155,7 @@ class ChipGroup extends BaseComponent {
    this.f_categoryElement__org_patternfly_component_chip_ChipGroup_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_chipGroup__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_label__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_id__java_lang_String__org_jboss_elemento_TypedBuilder(categoryId), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement();
    Elements.m_insertBefore__elemental2_dom_Element__elemental2_dom_Element__void(this.f_categoryElement__org_patternfly_component_chip_ChipGroup_, this.f_listElement__org_patternfly_component_chip_ChipGroup_);
    this.m_aria__java_lang_String__java_lang_String__org_patternfly_component_chip_ChipGroup(Classes.f_labelledBy__org_patternfly_layout_Classes, categoryId);
+   this.f_tooltipToggle__org_patternfly_component_chip_ChipGroup_ = TooltipToggle.$create__elemental2_dom_HTMLElement(this.f_categoryElement__org_patternfly_component_chip_ChipGroup_);
   }
   this.f_categoryElement__org_patternfly_component_chip_ChipGroup_.textContent = category;
   return this;
@@ -330,6 +337,7 @@ class ChipGroup extends BaseComponent {
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
   Chip = goog.module.get('org.patternfly.component.chip.Chip$impl');
+  TooltipToggle = goog.module.get('org.patternfly.component.tooltip.TooltipToggle$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
   CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');

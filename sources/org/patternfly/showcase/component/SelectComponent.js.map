@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"SelectComponent.impl.java.js",
-"lineCount":54,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;MAyBa,e;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,0B;EAAAA,sC;EAAAA,2E;EAAAA,iB;;;CAAA,8D;EACHC,omB;EAKAA;GAAwDC,2oBAAxDD;O;EAKAA;GACcC,4yBADdD;O;EAOAA;GACcC,k0BADdD;O;EAKAA;GACcC,yrBADdD;O;;;QAzBK,O;EAAAE,kC;EAAAA,+B;EAAAA;",
-"sources":["SelectComponent.java"],
-"names":["org.patternfly.showcase.component.SelectComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.SelectComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.SelectComponent.<init>","org.patternfly.showcase.component.SelectComponent.<lambda in <init>>","org.patternfly.showcase.component.SelectComponent.<clinit>"]
-}

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"DataList$ExpandableContent.impl.java.js",
-"lineCount":46,
-"mappings":"A;;;;;;;;;;;;;;;;MA2VwB,iB;;CAAA,W;EAAAA,Q;;;QAEN,S;EAAAC,4B;EAAAA,wC;EAAAA,6E;EAAAA,iB;;;CAAA,gE;EACNC,yoB;;;CAIqB,2D;EACrBC,Y;;;;CARY,uC;EAAAA,0E;;;QAAA,O;EAAAC,oC;EAAAA,iC;EAAAA;",
-"sources":["DataList.java"],
-"names":["org.patternfly.component.DataList$ExpandableContent.<synthetic: ctor_js>","org.patternfly.component.DataList$ExpandableContent.<synthetic: ctor_create>","org.patternfly.component.DataList$ExpandableContent.<init>","org.patternfly.component.DataList$ExpandableContent.that","org.patternfly.component.DataList$ExpandableContent.<clinit>"]
-}

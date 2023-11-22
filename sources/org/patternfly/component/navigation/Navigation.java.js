@@ -33,6 +33,7 @@ goog.require('org.patternfly.component.navigation.NavigationType.Vertical');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.Attributes');
 goog.require('org.patternfly.core.Dataset');
+goog.require('org.patternfly.core.Logger');
 goog.require('org.patternfly.handler.SelectHandler');
 goog.require('org.patternfly.handler.ToggleHandler');
 goog.require('org.patternfly.layout.Classes');

@@ -2,7 +2,7 @@
 "version":3,
 "file":"Modifiers$Readonly.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;;;MAsHc,Q;;CAGI,2C;;CAKA,oD,gBAAiBA,Q;;QALjB,6F;EAAAC,mB;EACNA,2E;;;QAIM,sG,iDAAiBD,Q;EAAjBC,mB;EACNA,sT;;;QATE,O;EAAAC,2B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MAmIc,Q;;CAGI,2C;;CAKA,oD,gBAAiBA,Q;;QALjB,6F;EAAAC,mB;EACNA,2E;;;QAIM,sG,iDAAiBD,Q;EAAjBC,mB;EACNA,sT;;;QATE,O;EAAAC,2B;EAAAA;",
 "sources":["Modifiers.java"],
 "names":["readonly","org.patternfly.core.Modifiers$Readonly.readonly__$default","org.patternfly.core.Modifiers$Readonly.<clinit>"]
 }

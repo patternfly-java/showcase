@@ -32,6 +32,7 @@ let Vertical = goog.forwardDeclare('org.patternfly.component.navigation.Navigati
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let Dataset = goog.forwardDeclare('org.patternfly.core.Dataset$impl');
+let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let SelectHandler = goog.forwardDeclare('org.patternfly.handler.SelectHandler$impl');
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
@@ -112,22 +113,22 @@ class Navigation extends BaseComponent {
      break;
     case Vertical.$ordinal_drillDown__org_patternfly_component_navigation_NavigationType_Vertical: 
     case Vertical.$ordinal_flyout__org_patternfly_component_navigation_NavigationType_Vertical: 
-     goog.global.console.error('Drill-down and fly-out not yet implemented');
+     Logger.m_nyi__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Drill-down and fly-out not yet implemented');
      this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
      break;
     default: 
-     goog.global.console.error('Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
+     Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
      this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
    }
   } else {
-   goog.global.console.error('Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
+   Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
    this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   }
  }
  /** @nodts @template T @return {Navigation} */
  m_addItems__java_lang_Iterable__java_util_function_Function__org_patternfly_component_navigation_Navigation(/** Iterable<T> */ items, /** j_u_function_Function<T, NavigationItem> */ display) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical)) {
-   goog.global.console.error('addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   for (let $iterator = items.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
@@ -142,7 +143,7 @@ class Navigation extends BaseComponent {
  /** @nodts @return {Navigation} */
  m_addItem__org_patternfly_component_navigation_NavigationItem__org_patternfly_component_navigation_Navigation(/** NavigationItem */ item) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical)) {
-   goog.global.console.error('addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   this.f_items__org_patternfly_component_navigation_Navigation_.put(item.f_id__org_patternfly_component_navigation_NavigationItem, item);
@@ -152,7 +153,7 @@ class Navigation extends BaseComponent {
  /** @nodts @return {Navigation} */
  m_addGroup__org_patternfly_component_navigation_NavigationGroup__org_patternfly_component_navigation_Navigation(/** NavigationGroup */ group) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_flat__org_patternfly_component_navigation_NavigationType_Vertical) || $Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_expandable__org_patternfly_component_navigation_NavigationType_Vertical) || Horizontal.$isInstance(this.f_type__org_patternfly_component_navigation_Navigation_)) {
-   goog.global.console.error('addGroup(NavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addGroup(NavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   this.f_groups__org_patternfly_component_navigation_Navigation_.put(group.f_id__org_patternfly_component_navigation_NavigationGroup, group);
@@ -162,7 +163,7 @@ class Navigation extends BaseComponent {
  /** @nodts @return {Navigation} */
  m_addGroup__org_patternfly_component_navigation_ExpandableNavigationGroup__org_patternfly_component_navigation_Navigation(/** ExpandableNavigationGroup */ group) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_flat__org_patternfly_component_navigation_NavigationType_Vertical) || $Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical) || Horizontal.$isInstance(this.f_type__org_patternfly_component_navigation_Navigation_)) {
-   goog.global.console.error('addGroup(ExpandableNavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addGroup(ExpandableNavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   group.m_collapse__void_$pp_org_patternfly_component_navigation();
@@ -210,7 +211,7 @@ class Navigation extends BaseComponent {
    this.m_unselectAllItems__void_$p_org_patternfly_component_navigation_Navigation();
    item.m_select__void_$pp_org_patternfly_component_navigation();
    if (fireEvent && !$Equality.$same(this.f_onSelect__org_patternfly_component_navigation_Navigation_, null)) {
-    this.f_onSelect__org_patternfly_component_navigation_Navigation_.m_onSelect__java_lang_Object__void(item);
+    this.f_onSelect__org_patternfly_component_navigation_Navigation_.m_onSelect__java_lang_Object__boolean__void(item, true);
    }
    if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_expandable__org_patternfly_component_navigation_NavigationType_Vertical)) {
     this.m_unselectAllExpandableGroups__void_$p_org_patternfly_component_navigation_Navigation();
@@ -352,6 +353,7 @@ class Navigation extends BaseComponent {
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
   Dataset = goog.module.get('org.patternfly.core.Dataset$impl');
+  Logger = goog.module.get('org.patternfly.core.Logger$impl');
   Classes = goog.module.get('org.patternfly.layout.Classes$impl');
   PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"DataList$Display$$LambdaAdaptor.impl.java.js",
-"lineCount":39,
-"mappings":"A;;;;;;;;;;;;;MA4PqB,c;;CAAA,W;EAAAA,yB;EAAAA,Q;EAAAA;sE;EAAAA,sI;;;CAAA,4H;EAAAC,qC;EAAAA,yE;;;CAAA,mH;;GAAAC,oF;GAAAA,4B;;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
-"sources":["DataList.java"],
-"names":["org.patternfly.component.DataList$Display$$LambdaAdaptor.<synthetic: lambda_adaptor_ctor>","org.patternfly.component.DataList$Display$$LambdaAdaptor.<init>","org.patternfly.component.DataList$Display$$LambdaAdaptor.render","org.patternfly.component.DataList$Display$$LambdaAdaptor.<clinit>"]
-}

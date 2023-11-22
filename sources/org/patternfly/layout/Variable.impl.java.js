@@ -9,8 +9,10 @@ let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let HasHTMLElement = goog.forwardDeclare('org.jboss.elemento.HasHTMLElement$impl');
 let TypedBuilder = goog.forwardDeclare('org.jboss.elemento.TypedBuilder$impl');
 let HasSVGElement = goog.forwardDeclare('org.jboss.elemento.svg.HasSVGElement$impl');
+let SVGElement_$Overlay = goog.forwardDeclare('org.jboss.elemento.svg.SVGElement.$Overlay$impl');
 let PatternFly = goog.forwardDeclare('org.patternfly.core.PatternFly$impl');
 let VariableScope = goog.forwardDeclare('org.patternfly.layout.VariableScope$impl');
+let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 class Variable extends j_l_Object {
  /** @protected @nodts */
@@ -40,8 +42,7 @@ class Variable extends j_l_Object {
  /** @nodts @return {Variable} */
  static m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(/** ?string */ component, /** Array<?string> */ elements) {
   Variable.$clinit();
-  let builder = StringBuilder.$create__();
-  builder.m_append__java_lang_String__java_lang_StringBuilder('--pf-').m_append__java_lang_String__java_lang_StringBuilder(PatternFly.f_VERSION__org_patternfly_core_PatternFly).m_append__java_lang_String__java_lang_StringBuilder('-').m_append__java_lang_String__java_lang_StringBuilder(component);
+  let builder = StringBuilder.$create__java_lang_String('--').m_append__java_lang_String__java_lang_StringBuilder(component);
   if (!$Equality.$same(elements, null) && elements.length != 0) {
    builder.m_append__java_lang_String__java_lang_StringBuilder('--');
    for (let i = 0; i < elements.length; i = i + 1 | 0) {
@@ -67,32 +68,30 @@ class Variable extends j_l_Object {
   this.f_name__org_patternfly_layout_Variable = name;
  }
  /** @nodts @template E, B @return {B} */
- m_style__org_jboss_elemento_HasHTMLElement__int__org_jboss_elemento_TypedBuilder(/** HasHTMLElement<E, B> */ element, /** number */ value) {
-  return this.m_style__org_jboss_elemento_HasHTMLElement__java_lang_String__org_jboss_elemento_TypedBuilder(element, j_l_String.m_valueOf__int__java_lang_String(value));
+ m_applyTo__org_jboss_elemento_HasHTMLElement__int__org_jboss_elemento_TypedBuilder(/** HasHTMLElement<E, B> */ element, /** number */ value) {
+  return element.m_style__java_lang_String__int__org_jboss_elemento_TypedBuilder(this.f_name__org_patternfly_layout_Variable, value);
  }
  /** @nodts @template E, B @return {B} */
- m_style__org_jboss_elemento_HasHTMLElement__java_lang_String__org_jboss_elemento_TypedBuilder(/** HasHTMLElement<E, B> */ element, /** ?string */ value) {
-  return element.m_style__java_lang_String__org_jboss_elemento_TypedBuilder(this.m_assign__java_lang_String__java_lang_String_$p_org_patternfly_layout_Variable(value));
+ m_applyTo__org_jboss_elemento_HasHTMLElement__java_lang_String__org_jboss_elemento_TypedBuilder(/** HasHTMLElement<E, B> */ element, /** ?string */ value) {
+  return element.m_style__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this.f_name__org_patternfly_layout_Variable, value);
  }
  /** @nodts @template E, B @return {B} */
- m_style__org_jboss_elemento_svg_HasSVGElement__int__org_jboss_elemento_TypedBuilder(/** HasSVGElement<E, B> */ element, /** number */ value) {
-  return this.m_style__org_jboss_elemento_svg_HasSVGElement__java_lang_String__org_jboss_elemento_TypedBuilder(element, j_l_String.m_valueOf__int__java_lang_String(value));
+ m_applyTo__org_jboss_elemento_svg_HasSVGElement__int__org_jboss_elemento_TypedBuilder(/** HasSVGElement<E, B> */ element, /** number */ value) {
+  /**@type {!SVGElement}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), SVGElement_$Overlay)).style.setProperty(this.f_name__org_patternfly_layout_Variable, j_l_String.m_valueOf__int__java_lang_String(value));
+  return element.m_that__org_jboss_elemento_TypedBuilder();
  }
  /** @nodts @template E, B @return {B} */
- m_style__org_jboss_elemento_svg_HasSVGElement__java_lang_String__org_jboss_elemento_TypedBuilder(/** HasSVGElement<E, B> */ element, /** ?string */ value) {
-  return element.m_style__java_lang_String__org_jboss_elemento_TypedBuilder(this.m_assign__java_lang_String__java_lang_String_$p_org_patternfly_layout_Variable(value));
+ m_applyTo__org_jboss_elemento_svg_HasSVGElement__java_lang_String__org_jboss_elemento_TypedBuilder(/** HasSVGElement<E, B> */ element, /** ?string */ value) {
+  /**@type {!SVGElement}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), SVGElement_$Overlay)).style.setProperty(this.f_name__org_patternfly_layout_Variable, value);
+  return element.m_that__org_jboss_elemento_TypedBuilder();
  }
  /** @nodts */
- m_style__elemental2_dom_HTMLElement__int__void(/** HTMLElement */ element, /** number */ value) {
-  this.m_style__elemental2_dom_HTMLElement__java_lang_String__void(element, j_l_String.m_valueOf__int__java_lang_String(value));
+ m_applyTo__elemental2_dom_HTMLElement__int__void(/** HTMLElement */ element, /** number */ value) {
+  this.m_applyTo__elemental2_dom_HTMLElement__java_lang_String__void(element, j_l_String.m_valueOf__int__java_lang_String(value));
  }
  /** @nodts */
- m_style__elemental2_dom_HTMLElement__java_lang_String__void(/** HTMLElement */ element, /** ?string */ value) {
-  element.style.cssText = j_l_String.m_valueOf__java_lang_Object__java_lang_String(element.style.cssText) + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.m_assign__java_lang_String__java_lang_String_$p_org_patternfly_layout_Variable(value));
- }
- /** @nodts @return {?string} */
- m_assign__java_lang_String__java_lang_String_$p_org_patternfly_layout_Variable(/** ?string */ value) {
-  return j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_name__org_patternfly_layout_Variable) + ':' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(value);
+ m_applyTo__elemental2_dom_HTMLElement__java_lang_String__void(/** HTMLElement */ element, /** ?string */ value) {
+  element.style.setProperty(this.f_name__org_patternfly_layout_Variable, value);
  }
  /** @nodts */
  static $clinit() {
@@ -110,8 +109,10 @@ class Variable extends j_l_Object {
   j_l_String = goog.module.get('java.lang.String$impl');
   StringBuilder = goog.module.get('java.lang.StringBuilder$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
+  SVGElement_$Overlay = goog.module.get('org.jboss.elemento.svg.SVGElement.$Overlay$impl');
   PatternFly = goog.module.get('org.patternfly.core.PatternFly$impl');
   VariableScope = goog.module.get('org.patternfly.layout.VariableScope$impl');
+  $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
 $Util.$setClassMetadata(Variable, 'org.patternfly.layout.Variable');

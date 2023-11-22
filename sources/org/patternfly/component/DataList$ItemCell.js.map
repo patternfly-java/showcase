@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"DataList$ItemCell.impl.java.js",
-"lineCount":47,
-"mappings":"A;;;;;;;;;;;;;;;;;MA8UwB,Q;;CAAA,W;EAAAA,Q;;;QAEN,S;EAAAC,mB;EAAAA,+B;EAAAA,oE;EAAAA,iB;;;CAAA,uD;EACNC,+qB;;;CAIY,kD;EACZC,Y;;;;CARY,uC;EAAAA,iE;;;QAAA,O;EAAAC,2B;EAAAA,wB;EAAAA;",
-"sources":["DataList.java"],
-"names":["org.patternfly.component.DataList$ItemCell.<synthetic: ctor_js>","org.patternfly.component.DataList$ItemCell.<synthetic: ctor_create>","org.patternfly.component.DataList$ItemCell.<init>","org.patternfly.component.DataList$ItemCell.that","org.patternfly.component.DataList$ItemCell.<clinit>"]
-}

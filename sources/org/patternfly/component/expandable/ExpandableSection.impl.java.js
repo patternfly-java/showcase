@@ -24,6 +24,7 @@ let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$im
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
 let Size = goog.forwardDeclare('org.patternfly.layout.Size$impl');
 let Variable = goog.forwardDeclare('org.patternfly.layout.Variable$impl');
+let Variables = goog.forwardDeclare('org.patternfly.layout.Variables$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -89,7 +90,7 @@ class ExpandableSection extends BaseComponent {
     this.f_toggle__org_patternfly_component_expandable_ExpandableSection_.m_removeIcon__void_$pp_org_patternfly_component_expandable();
    }
    if (this.f_truncate__org_patternfly_component_expandable_ExpandableSection_ != ExpandableSection.f_DEFAULT_TRUNCATE__org_patternfly_component_expandable_ExpandableSection && !$Equality.$same(this.f_content__org_patternfly_component_expandable_ExpandableSection_, null)) {
-    Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_expandableSection__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['m-truncate__content', 'LineClamp'], j_l_String))).m_style__org_jboss_elemento_HasHTMLElement__int__org_jboss_elemento_TypedBuilder(this.f_content__org_patternfly_component_expandable_ExpandableSection_, this.f_truncate__org_patternfly_component_expandable_ExpandableSection_);
+    Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_expandableSection__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['m-truncate__content', Variables.f_LineClamp__org_patternfly_layout_Variables], j_l_String))).m_applyTo__org_jboss_elemento_HasHTMLElement__int__org_jboss_elemento_TypedBuilder(this.f_content__org_patternfly_component_expandable_ExpandableSection_, this.f_truncate__org_patternfly_component_expandable_ExpandableSection_);
    }
   }
   if (!$Equality.$same(this.f_detachedFromId__org_patternfly_component_expandable_ExpandableSection_, null)) {
@@ -286,6 +287,7 @@ class ExpandableSection extends BaseComponent {
   Classes = goog.module.get('org.patternfly.layout.Classes$impl');
   Size = goog.module.get('org.patternfly.layout.Size$impl');
   Variable = goog.module.get('org.patternfly.layout.Variable$impl');
+  Variables = goog.module.get('org.patternfly.layout.Variables$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

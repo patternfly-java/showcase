@@ -18,12 +18,13 @@ goog.require('org.patternfly.component.menu.MenuToggle');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.Closeable');
 goog.require('org.patternfly.core.Expandable');
+goog.require('org.patternfly.core.Logger');
 goog.require('org.patternfly.handler.Callback');
 goog.require('org.patternfly.handler.CloseHandler');
 goog.require('org.patternfly.thirdparty.popper.Modifiers');
 goog.require('org.patternfly.thirdparty.popper.Placement');
+goog.require('org.patternfly.thirdparty.popper.Popper');
 goog.require('org.patternfly.thirdparty.popper.PopperBuilder');
-goog.require('org.patternfly.thirdparty.popper.PopperWrapper');
 goog.require('org.patternfly.thirdparty.popper.TriggerAction');
 goog.require('vmbootstrap.Casts');
 

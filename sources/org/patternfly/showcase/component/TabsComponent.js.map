@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"TabsComponent.impl.java.js",
-"lineCount":53,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MA0Ba,a;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,wB;EAAAA,oC;EAAAA,yE;EAAAA,iB;;;CAAA,4D;EACHC,ytB;EAMAA;GACcC,sqCAEqBC,GAFrBD;IAEqBA,IAAAC,KAAAD,6EAFrBA;IAE4BA,8kBAF5BA;wBAGUE,KAHVF;IAGUA,IAAAE,OAAAF,+EAHVA;IAGmBA,kFAHnBA;0EADdD;O;;;QATK,O;EAAAI,gC;EAAAA,6B;EAAAA;",
-"sources":["TabsComponent.java"],
-"names":["org.patternfly.showcase.component.TabsComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.TabsComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.TabsComponent.<init>","org.patternfly.showcase.component.TabsComponent.<lambda in <init>>","tab","panel","org.patternfly.showcase.component.TabsComponent.<clinit>"]
-}

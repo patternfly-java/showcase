@@ -31,8 +31,8 @@ let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
 let Modifiers = goog.forwardDeclare('org.patternfly.thirdparty.popper.Modifiers$impl');
 let Placement = goog.forwardDeclare('org.patternfly.thirdparty.popper.Placement$impl');
+let Popper = goog.forwardDeclare('org.patternfly.thirdparty.popper.Popper$impl');
 let PopperBuilder = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperBuilder$impl');
-let PopperWrapper = goog.forwardDeclare('org.patternfly.thirdparty.popper.PopperWrapper$impl');
 let TriggerAction = goog.forwardDeclare('org.patternfly.thirdparty.popper.TriggerAction$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -66,7 +66,7 @@ class Tooltip extends BaseComponent {
   this.f_exitDelay__org_patternfly_component_tooltip_Tooltip_ = 0;
   /**@type {number} @nodts*/
   this.f_zIndex__org_patternfly_component_tooltip_Tooltip_ = 0;
-  /**@type {PopperWrapper} @nodts*/
+  /**@type {Popper} @nodts*/
   this.f_popper__org_patternfly_component_tooltip_Tooltip_;
   /**@type {TriggerAria} @nodts*/
   this.f_aria__org_patternfly_component_tooltip_Tooltip_;
@@ -146,13 +146,13 @@ class Tooltip extends BaseComponent {
  m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
   let triggerElement = /**@type {HTMLElement}*/ ($Casts.$to(this.f_trigger__org_patternfly_component_tooltip_Tooltip_.m_get__java_lang_Object(), $Overlay));
   if (!$Equality.$same(triggerElement, null)) {
-   this.f_popper__org_patternfly_component_tooltip_Tooltip_ = PopperBuilder.$create__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(triggerElement, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay))).m_animationDuration__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_animationDuration__org_patternfly_component_tooltip_Tooltip_).m_entryDelay__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_entryDelay__org_patternfly_component_tooltip_Tooltip_).m_exitDelay__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_exitDelay__org_patternfly_component_tooltip_Tooltip_).m_zIndex__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_zIndex__org_patternfly_component_tooltip_Tooltip_).m_placement__org_patternfly_thirdparty_popper_Placement__org_patternfly_thirdparty_popper_PopperBuilder(this.f_placement__org_patternfly_component_tooltip_Tooltip_).m_addModifier__arrayOf_org_patternfly_thirdparty_popper_Modifier__org_patternfly_thirdparty_popper_PopperBuilder([Modifiers.m_offset__int__org_patternfly_thirdparty_popper_Modifier(this.f_distance__org_patternfly_component_tooltip_Tooltip_), Modifiers.m_noOverflow__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_hide__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_flip__boolean__org_patternfly_thirdparty_popper_Modifier($Equality.$same(this.f_placement__org_patternfly_component_tooltip_Tooltip_, Placement.f_auto__org_patternfly_thirdparty_popper_Placement) || this.f_flip__org_patternfly_component_tooltip_Tooltip_), Modifiers.m_placement__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_eventListeners__boolean__org_patternfly_thirdparty_popper_Modifier(false)]).m_registerHandler__java_util_Set__java_util_function_Consumer__java_util_function_Consumer__org_patternfly_thirdparty_popper_PopperBuilder(this.f_triggerActions__org_patternfly_component_tooltip_Tooltip_, Consumer.$adapt((arg0) =>{
+   this.f_popper__org_patternfly_component_tooltip_Tooltip_ = PopperBuilder.$create__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(this.m_componentType__org_patternfly_component_ComponentType(), triggerElement, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay))).m_animationDuration__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_animationDuration__org_patternfly_component_tooltip_Tooltip_).m_entryDelay__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_entryDelay__org_patternfly_component_tooltip_Tooltip_).m_exitDelay__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_exitDelay__org_patternfly_component_tooltip_Tooltip_).m_zIndex__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_zIndex__org_patternfly_component_tooltip_Tooltip_).m_placement__org_patternfly_thirdparty_popper_Placement__org_patternfly_thirdparty_popper_PopperBuilder(this.f_placement__org_patternfly_component_tooltip_Tooltip_).m_addModifier__arrayOf_org_patternfly_thirdparty_popper_Modifier__org_patternfly_thirdparty_popper_PopperBuilder([Modifiers.m_offset__int__org_patternfly_thirdparty_popper_Modifier(this.f_distance__org_patternfly_component_tooltip_Tooltip_), Modifiers.m_noOverflow__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_hide__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_flip__boolean__org_patternfly_thirdparty_popper_Modifier($Equality.$same(this.f_placement__org_patternfly_component_tooltip_Tooltip_, Placement.f_auto__org_patternfly_thirdparty_popper_Placement) || this.f_flip__org_patternfly_component_tooltip_Tooltip_), Modifiers.m_placement__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_eventListeners__boolean__org_patternfly_thirdparty_popper_Modifier(false)]).m_registerHandler__java_util_Set__java_util_function_Consumer__java_util_function_Consumer__org_patternfly_thirdparty_popper_PopperBuilder(this.f_triggerActions__org_patternfly_component_tooltip_Tooltip_, Consumer.$adapt((arg0) =>{
     let arg0_1 = /**@type {Event}*/ ($Casts.$to(arg0, Event_$Overlay));
     this.m_show__elemental2_dom_Event__void(arg0_1);
    }), Consumer.$adapt((arg0_2) =>{
     let arg0_3 = /**@type {Event}*/ ($Casts.$to(arg0_2, Event_$Overlay));
     this.m_close__elemental2_dom_Event__void(arg0_3);
-   })).m_removePopperOnTriggerDetach__org_patternfly_thirdparty_popper_PopperBuilder().m_build__org_patternfly_thirdparty_popper_PopperWrapper();
+   })).m_removePopperOnTriggerDetach__org_patternfly_thirdparty_popper_PopperBuilder().m_build__org_patternfly_thirdparty_popper_Popper();
   }
  }
  /** @override @nodts */

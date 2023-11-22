@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"RadioBody.impl.java.js",
+"lineCount":59,
+"mappings":"A;;;;;;;;;;;;;;;;MA0Ba,S;;CAAA,W;EAAAA,Q;;;QAIe,oD;EAAYC,oB;EAChCA,iD;;;QAGoB,sE,gBAAiBC,I;EAAMD,oB;EAC3CA,iD;;;QAKJ,yB,gBAAiBC,I;EAAjBC,oB;EAAAA,gC;EAAAA,uF;EAAAA,iB;;;CAAA,sE,gBAAiBD,I;EACbE,snB;EAEAA;GACIA,gEADJA;G;;;CAQa,+C;EACbC,Y;;;;CA1BK,uC;EAAAA,8D;;;QAAA,O;EAAAC,4B;EAAAA,yB;EAAAA;",
+"sources":["RadioBody.java"],
+"names":["org.patternfly.component.form.RadioBody.<synthetic: ctor_js>","org.patternfly.component.form.RadioBody.radioBody","text","org.patternfly.component.form.RadioBody.<synthetic: ctor_create>","org.patternfly.component.form.RadioBody.<init>","org.patternfly.component.form.RadioBody.that","org.patternfly.component.form.RadioBody.<clinit>"]
+}

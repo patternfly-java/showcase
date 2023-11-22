@@ -25,6 +25,7 @@ import org.patternfly.showcase.component.AvatarComponent;
 import org.patternfly.showcase.component.BadgeComponent;
 import org.patternfly.showcase.component.BrandComponent;
 import org.patternfly.showcase.component.ButtonComponent;
+import org.patternfly.showcase.component.CardComponent;
 import org.patternfly.showcase.component.CheckboxComponent;
 import org.patternfly.showcase.component.ChipComponent;
 import org.patternfly.showcase.component.CodeBlockComponent;
@@ -32,17 +33,17 @@ import org.patternfly.showcase.component.CodeEditorComponent;
 import org.patternfly.showcase.component.DropdownComponent;
 import org.patternfly.showcase.component.ExpandableSectionComponent;
 import org.patternfly.showcase.component.IconComponent;
+import org.patternfly.showcase.component.LabelComponent;
 import org.patternfly.showcase.component.MastheadComponent;
 import org.patternfly.showcase.component.MenuComponent;
 import org.patternfly.showcase.component.MenuToggleComponent;
 import org.patternfly.showcase.component.PopoverComponent;
+import org.patternfly.showcase.component.RadioComponent;
 import org.patternfly.showcase.component.SpinnerComponent;
 import org.patternfly.showcase.component.TextContentComponent;
 import org.patternfly.showcase.component.TextInputComponent;
 import org.patternfly.showcase.component.TextInputGroupComponent;
 import org.patternfly.showcase.component.TooltipComponent;
-import org.patternfly.showcase.demo.server.ServerDemo;
-import org.patternfly.showcase.demo.user.UserDemo;
 
 import elemental2.dom.HTMLElement;
 
@@ -69,7 +70,7 @@ final class Placemanager {
         places.put("c-badge", () -> new BadgeComponent());
         places.put("c-brand", () -> new BrandComponent());
         places.put("c-button", () -> new ButtonComponent());
-        // places.put("c-card", () -> new CardComponent());
+        places.put("c-card", () -> new CardComponent());
         places.put("c-checkbox", () -> new CheckboxComponent());
         places.put("c-chip", () -> new ChipComponent());
         places.put("c-code-block", () -> new CodeBlockComponent());
@@ -80,11 +81,12 @@ final class Placemanager {
         // places.put("c-empty-state", () -> new EmptyStateComponent());
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());
         places.put("c-icon", () -> new IconComponent());
-        // places.put("c-label", () -> new LabelComponent());
+        places.put("c-label", () -> new LabelComponent());
         places.put("c-masthead", () -> new MastheadComponent());
         places.put("c-menu", () -> new MenuComponent());
         places.put("c-menu-toggle", () -> new MenuToggleComponent());
         places.put("c-popover", () -> new PopoverComponent());
+        places.put("c-radio", () -> new RadioComponent());
         // places.put("c-options-menu", () -> new OptionsMenuComponent());
         // places.put("c-select", () -> new SelectComponent());
         places.put("c-spinner", () -> new SpinnerComponent());
@@ -97,8 +99,8 @@ final class Placemanager {
         places.put("c-tooltip", () -> new TooltipComponent());
         // places.put("c-toolbar", () -> new ToolbarComponent());
 
-        places.put("d-server", () -> new ServerDemo());
-        places.put("d-user", () -> new UserDemo());
+        // places.put("d-server", () -> new ServerDemo());
+        // places.put("d-user", () -> new UserDemo());
     }
 
     static Supplier<Page> lookup(String id) {

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"OldToolbar$BulkSelectOption.impl.java.js",
-"lineCount":59,
-"mappings":"A;;;;;;;;;;;;;MAygByB,gB;;CAAA,W;EAAAA,Q;EAAAA;OAEI,2DAFJA,C;EAAAA;OAGF,6DAHEA,C;;;QAKT,2C,gBAAwBC,E,iBAAWC,I;EAAnCC,2B;EAAAA,uC;EAAAA,0H;EAAAA,iB;;;CAAA,qG,gBAAwBF,E,iBAAWC,I;EAAME,qC;EAC7CA,sE;EACAA,0E;;;CAIW,M,UAAcC,C;EACzBC;GACIA,YADJA;G;EAGAA;GACIA,aADJA;G;EAGAA,IAAiBC,IAAjBD,mE;EACAA,4M;;;CAIO,Q;EACPE,yH;;;CAIU,Q;EACVC,0E;;;QA7Ba,O;EAAAC,mC;EAAAA,gC;EAAAA;",
-"sources":["OldToolbar.java"],
-"names":["org.patternfly.component.OldToolbar$BulkSelectOption.<synthetic: ctor_js>","id","text","org.patternfly.component.OldToolbar$BulkSelectOption.<synthetic: ctor_create>","org.patternfly.component.OldToolbar$BulkSelectOption.<init>","o","org.patternfly.component.OldToolbar$BulkSelectOption.equals","that","org.patternfly.component.OldToolbar$BulkSelectOption.hashCode","org.patternfly.component.OldToolbar$BulkSelectOption.toString","org.patternfly.component.OldToolbar$BulkSelectOption.<clinit>"]
-}

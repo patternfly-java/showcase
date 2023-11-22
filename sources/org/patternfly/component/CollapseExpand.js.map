@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"CollapseExpand.impl.java.js",
-"lineCount":85,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;MAmCa,c;;CAAA,W;EAAAA,Q;EAAAA;OAEgB,mDAFhBA,C;EAAAA;OAGmB,wDAHnBA,C;;;QAAA,S;EAAAC,yB;EAAAA,qC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EAAAC,qC;;;CAKG,kG,oBAAmBC,I,qBAAkBC,M,qBAAoBC,I;EACjEC;GACIA,0UAAqCC,CAArCD;IAAqCE,IAAAD,GAAAC,gEAArCF;IACIE,IAAQC,WAARD,4EADJF;IAEIE;KACIA,8HADJA;KAFJF;MADJA;GAOIA,8HAPJA;GAQIA,2JARJA;GASIA,0EATJA;GAUIA,6EAVJA;GAWIA;IACIA,gGADJA;IAXJA;;GAeIA,8HAfJA;G;;;CAmBQ,oG,oBAAqBH,I,qBAAkBC,M,qBAAoBC,I;EACnEK;GACIA,iIADJA;GAEIA,4JAFJA;GAGIA,mBAHJA;GAIIA,8EAJJA;GAKIA,sFALJA;GAMIA;IACIA,iGADJA;IANJA;G;;;CAYW,+C,oBAAqBP,I;EAChCQ,0I;;;QAvCK,O;EAAAC,iC;EAAAA,8B;EAAAA;",
-"sources":["CollapseExpand.java"],
-"names":["org.patternfly.component.CollapseExpand.<synthetic: ctor_js>","org.patternfly.component.CollapseExpand.<synthetic: ctor_create>","org.patternfly.component.CollapseExpand.<init>","root","button","menu","org.patternfly.component.CollapseExpand.expand","e","org.patternfly.component.CollapseExpand.<lambda in expand>","clickInside","org.patternfly.component.CollapseExpand.collapse","org.patternfly.component.CollapseExpand.expanded","org.patternfly.component.CollapseExpand.<clinit>"]
-}

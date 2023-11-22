@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"EmptyState$Body.impl.java.js",
-"lineCount":47,
-"mappings":"A;;;;;;;;;;;;;;;;;MA2JwB,I;;CAAA,W;EAAAA,Q;;;QAEN,S;EAAAC,e;EAAAA,2B;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EACNC,0oB;;;CAIQ,gD;EACRC,Y;;;;CARY,uC;EAAAA,+D;;;QAAA,O;EAAAC,uB;EAAAA,oB;EAAAA;",
-"sources":["EmptyState.java"],
-"names":["org.patternfly.component.EmptyState$Body.<synthetic: ctor_js>","org.patternfly.component.EmptyState$Body.<synthetic: ctor_create>","org.patternfly.component.EmptyState$Body.<init>","org.patternfly.component.EmptyState$Body.that","org.patternfly.component.EmptyState$Body.<clinit>"]
-}

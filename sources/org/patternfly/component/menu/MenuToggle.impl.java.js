@@ -19,6 +19,7 @@ let MenuToggleAction = goog.forwardDeclare('org.patternfly.component.menu.MenuTo
 let MenuToggleCheckbox = goog.forwardDeclare('org.patternfly.component.menu.MenuToggleCheckbox$impl');
 let MenuToggleType = goog.forwardDeclare('org.patternfly.component.menu.MenuToggleType$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
+let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
@@ -91,7 +92,7 @@ class MenuToggle extends BaseComponent {
    case MenuToggleType.$ordinal_typeahead__org_patternfly_component_menu_MenuToggleType: 
     return MenuToggle.$create__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_component_menu_MenuToggleType(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder(), type);
    default: 
-    goog.global.console.error('Unknown menu toggle type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type.name()) + '\'. ' + 'Fallback to \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(MenuToggleType.f_default___org_patternfly_component_menu_MenuToggleType.name()) + '\'.');
+    Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(ComponentType.f_MenuToggle__org_patternfly_component_ComponentType, 'Unknown menu toggle type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type.name()) + '\'. ' + 'Fallback to \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(MenuToggleType.f_default___org_patternfly_component_menu_MenuToggleType.name()) + '\'.');
     return MenuToggle.$create__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_component_menu_MenuToggleType(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder(), type);
   }
  }
@@ -123,7 +124,7 @@ class MenuToggle extends BaseComponent {
   } else {
    this.f_toggleElement__org_patternfly_component_menu_MenuToggle = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
    this.f_controlElement__org_patternfly_component_menu_MenuToggle_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
-   goog.global.console.error('Unknown menu toggle type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type.name()) + '\'');
+   Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Unknown menu toggle type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type.name()) + '\'');
   }
  }
  /** @nodts @return {MenuToggle} */
@@ -145,7 +146,7 @@ class MenuToggle extends BaseComponent {
   } else if ($Equality.$same(this.f_type__org_patternfly_component_menu_MenuToggle_, MenuToggleType.f_default___org_patternfly_component_menu_MenuToggleType) || $Equality.$same(this.f_type__org_patternfly_component_menu_MenuToggle_, MenuToggleType.f_plainText__org_patternfly_component_menu_MenuToggleType)) {
    Elements.m_insertFirst__elemental2_dom_Element__elemental2_dom_Element__void(this.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menuToggle__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(icon), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   } else {
-   goog.global.console.warn('Icon is not supported for menu toggles with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_menu_MenuToggle_.name()) + '\'');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Icon is not supported for menu toggles with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_menu_MenuToggle_.name()) + '\'');
   }
   return this;
  }
@@ -158,7 +159,7 @@ class MenuToggle extends BaseComponent {
   if ($Equality.$same(this.f_type__org_patternfly_component_menu_MenuToggle_, MenuToggleType.f_default___org_patternfly_component_menu_MenuToggleType) || $Equality.$same(this.f_type__org_patternfly_component_menu_MenuToggle_, MenuToggleType.f_plainText__org_patternfly_component_menu_MenuToggleType)) {
    Elements.m_insertFirst__elemental2_dom_Element__elemental2_dom_Element__void(this.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menuToggle__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(avatar), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   } else {
-   goog.global.console.warn('Avatar is not supported for menu toggles with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_menu_MenuToggle_.name()) + '\'');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Avatar is not supported for menu toggles with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_menu_MenuToggle_.name()) + '\'');
   }
   return this;
  }
@@ -172,7 +173,7 @@ class MenuToggle extends BaseComponent {
    this.f_badge__org_patternfly_component_menu_MenuToggle_ = badge;
    Elements.m_insertBefore__org_jboss_elemento_IsElement__elemental2_dom_Element__void(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menuToggle__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_count__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(badge), HTMLContainerBuilder)), this.f_controlElement__org_patternfly_component_menu_MenuToggle_);
   } else {
-   goog.global.console.warn('Badge is not supported for menu toggles with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_menu_MenuToggle_.name()) + '\'');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Badge is not supported for menu toggles with type \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_menu_MenuToggle_.name()) + '\'');
   }
   return this;
  }
@@ -289,6 +290,7 @@ class MenuToggle extends BaseComponent {
   InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
   MenuToggleType = goog.module.get('org.patternfly.component.menu.MenuToggleType$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
+  Logger = goog.module.get('org.patternfly.core.Logger$impl');
   Classes = goog.module.get('org.patternfly.layout.Classes$impl');
   PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');

@@ -2,7 +2,7 @@
 "version":3,
 "file":"Modifiers$Invalid.impl.java.js",
 "lineCount":34,
-"mappings":"A;;;;;;;;;;;;;;;MAkEc,O;;CAGI,0C;;CAKA,mD,gBAAgBA,O;;QALhB,2F;EAAAC,kB;EACNA,0E;;;QAIM,oG,gDAAgBD,O;EAAhBC,kB;EACNA,kT;;;QATE,O;EAAAC,0B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;MA+Ec,O;;CAGI,0C;;CAKA,mD,gBAAgBA,O;;QALhB,2F;EAAAC,kB;EACNA,0E;;;QAIM,oG,gDAAgBD,O;EAAhBC,kB;EACNA,kT;;;QATE,O;EAAAC,0B;EAAAA;",
 "sources":["Modifiers.java"],
 "names":["invalid","org.patternfly.core.Modifiers$Invalid.invalid__$default","org.patternfly.core.Modifiers$Invalid.<clinit>"]
 }

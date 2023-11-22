@@ -42,7 +42,7 @@ class Breakpoint extends Enum {
  /** @nodts @return {!Array<!Breakpoint>} */
  static m_values__arrayOf_org_patternfly_layout_Breakpoint() {
   Breakpoint.$clinit();
-  return /**@type {!Array<Breakpoint>}*/ ($Arrays.$init([Breakpoint.f_sm__org_patternfly_layout_Breakpoint, Breakpoint.f_md__org_patternfly_layout_Breakpoint, Breakpoint.f_lg__org_patternfly_layout_Breakpoint, Breakpoint.f_xl__org_patternfly_layout_Breakpoint, Breakpoint.f__2xl__org_patternfly_layout_Breakpoint], Breakpoint));
+  return /**@type {!Array<Breakpoint>}*/ ($Arrays.$init([Breakpoint.f_default___org_patternfly_layout_Breakpoint, Breakpoint.f_sm__org_patternfly_layout_Breakpoint, Breakpoint.f_md__org_patternfly_layout_Breakpoint, Breakpoint.f_lg__org_patternfly_layout_Breakpoint, Breakpoint.f_xl__org_patternfly_layout_Breakpoint, Breakpoint.f__2xl__org_patternfly_layout_Breakpoint], Breakpoint));
  }
  /** @nodts */
  static $clinit() {
@@ -63,15 +63,19 @@ class Breakpoint extends Enum {
  }
 }
 /**@const {number} @nodts*/
-Breakpoint.$ordinal_sm__org_patternfly_layout_Breakpoint = 0;
+Breakpoint.$ordinal_default___org_patternfly_layout_Breakpoint = 0;
 /**@const {number} @nodts*/
-Breakpoint.$ordinal_md__org_patternfly_layout_Breakpoint = 1;
+Breakpoint.$ordinal_sm__org_patternfly_layout_Breakpoint = 1;
 /**@const {number} @nodts*/
-Breakpoint.$ordinal_lg__org_patternfly_layout_Breakpoint = 2;
+Breakpoint.$ordinal_md__org_patternfly_layout_Breakpoint = 2;
 /**@const {number} @nodts*/
-Breakpoint.$ordinal_xl__org_patternfly_layout_Breakpoint = 3;
+Breakpoint.$ordinal_lg__org_patternfly_layout_Breakpoint = 3;
 /**@const {number} @nodts*/
-Breakpoint.$ordinal__2xl__org_patternfly_layout_Breakpoint = 4;
+Breakpoint.$ordinal_xl__org_patternfly_layout_Breakpoint = 4;
+/**@const {number} @nodts*/
+Breakpoint.$ordinal__2xl__org_patternfly_layout_Breakpoint = 5;
+/**@const {!Breakpoint} @nodts*/
+Breakpoint.f_default___org_patternfly_layout_Breakpoint = /**@pureOrBreakMyCode*/ Breakpoint.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('default_'), Breakpoint.$ordinal_default___org_patternfly_layout_Breakpoint, 'default');
 /**@const {!Breakpoint} @nodts*/
 Breakpoint.f_sm__org_patternfly_layout_Breakpoint = /**@pureOrBreakMyCode*/ Breakpoint.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('sm'), Breakpoint.$ordinal_sm__org_patternfly_layout_Breakpoint, 'sm');
 /**@const {!Breakpoint} @nodts*/

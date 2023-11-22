@@ -38,7 +38,7 @@ class HomePage implements Page {
                                 .add(" is a Java implementation of ")
                                 .add(a("https://www.patternfly.org/", "_blank")
                                         .textContent("PatternFly"))
-                                .add(" based on GWT and ")
+                                .add(" based on J2CL and ")
                                 .add(a("https://github.com/hal/elemento", "_blank")
                                         .textContent("Elemento"))
                                 .add(".")))

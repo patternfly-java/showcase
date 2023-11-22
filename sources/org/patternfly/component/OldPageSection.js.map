@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"OldPageSection.impl.java.js",
-"lineCount":46,
-"mappings":"A;;;;;;;;;;;;;;;;MAyBa,c;;CAAA,W;EAAAA,Q;;;QAEC,S;EAAAC,yB;EAAAA,qC;EAAAA,iE;EAAAA,iB;;;CAAA,oD;EACNC,0nB;;;CAIkB,+C;EAClBC,Y;;;;CARK,uC;EAAAA,8D;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
-"sources":["OldPageSection.java"],
-"names":["org.patternfly.component.OldPageSection.<synthetic: ctor_js>","org.patternfly.component.OldPageSection.<synthetic: ctor_create>","org.patternfly.component.OldPageSection.<init>","org.patternfly.component.OldPageSection.that","org.patternfly.component.OldPageSection.<clinit>"]
-}

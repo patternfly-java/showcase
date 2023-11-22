@@ -2,7 +2,7 @@
 "version":3,
 "file":"Spinner.impl.java.js",
 "lineCount":105,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MAsCa,O;;CAAA,W;EAAAA,Q;;;QAIa,mD;EAAUC,kB;EAC5BA,wF;;;QAGkB,+E,aAAaC,I;EAAMD,kB;EACrCA,wF;;;QAGkB,qE,gBAAeE,K;EAAOF,kB;EACxCA,kF;;;QAGkB,iG,aAAaC,I,iBAAaC,K;EAAOF,kB;EACnDA,kF;;;QAKM,qD,aAAaC,I,iBAAaC,K;EAA1BC,kB;EAAAA,8B;EAAAA,2H;EAAAA,iB;;;CAAA,mG,aAAaF,I,iBAAaC,K;EAChCE,ikF;EAWAA;GACIA,+KADJA;G;;;CAOW,4E,aAAUH,I;EACrBI,kO;;;CAGW,sE,gBAAgBC,Q;EAC3BC,mhB;;;CAIW,gD;EACXC,Y;;;;CAnDK,uC;EAAAA,+D;;;;CAAA,yC;EAAAC,0J;;;;CAAA,kD;EAAAA,yK;;;;CAAA,kD;EAAAA,0J;;;;CAAA,2D;EAAAA,yK;;;QAAA,O;EAAAC,0B;EAAAA,uB;EAAAA,2B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MAsCa,O;;CAAA,W;EAAAA,Q;;;QAIa,mD;EAAUC,kB;EAC5BA,wF;;;QAGkB,+E,aAAaC,I;EAAMD,kB;EACrCA,wF;;;QAGkB,qE,gBAAeE,K;EAAOF,kB;EACxCA,kF;;;QAGkB,iG,aAAaC,I,iBAAaC,K;EAAOF,kB;EACnDA,kF;;;QAKM,qD,aAAaC,I,iBAAaC,K;EAA1BC,kB;EAAAA,8B;EAAAA,2H;EAAAA,iB;;;CAAA,mG,aAAaF,I,iBAAaC,K;EAChCE,ikF;EAWAA;GACIA,+KADJA;G;;;CAOW,4E,aAAUH,I;EACrBI,kO;;;CAGW,sE,gBAAgBC,Q;EAC3BC,qhB;;;CAIW,gD;EACXC,Y;;;;CAnDK,uC;EAAAA,+D;;;;CAAA,yC;EAAAC,0J;;;;CAAA,kD;EAAAA,yK;;;;CAAA,kD;EAAAA,0J;;;;CAAA,2D;EAAAA,yK;;;QAAA,O;EAAAC,0B;EAAAA,uB;EAAAA,2B;EAAAA;",
 "sources":["Spinner.java"],
 "names":["org.patternfly.component.spinner.Spinner.<synthetic: ctor_js>","org.patternfly.component.spinner.Spinner.spinner","size","label","org.patternfly.component.spinner.Spinner.<synthetic: ctor_create>","org.patternfly.component.spinner.Spinner.<init>","org.patternfly.component.spinner.Spinner.size","diameter","org.patternfly.component.spinner.Spinner.diameter","org.patternfly.component.spinner.Spinner.that","org.patternfly.component.spinner.Spinner.inline","org.patternfly.component.spinner.Spinner.<clinit>"]
 }

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"OldPageSidebar.impl.java.js",
-"lineCount":96,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAiCa,c;;CAAA,W;EAAAA,Q;EAAAA;OAEW,iDAFXA,C;EAAAA;OAG0C,gDAH1CA,C;EAAAA;OAIU,sDAJVA,C;;;QAMC,oC,cAAqBC,K;EAArBC,yB;EAAAA,qC;EAAAA,mG;EAAAA,iB;;;CAAA,iF,cAAqBD,K;EAC3BE,6kB;EACAA,+D;EACAA;GACIA,kMADJA;G;EAGAA,0jB;;;CAIkB,+C;EAClBC,Y;;;CASkB,8F,mBAAeC,U;EACjCC,wI;EACAA,yE;EACAA;GACIA,wMADJA;G;EAGAA,uI;EACAA,8D;;;CAGwC,kD;EACxCC,6D;;;CAGc,+D;EACdC,mE;;;CAKC,2C;EACDC;GACIA,mDADJA;SAEOA;GACHA,qDADGA;G;;;CAKN,2C;EACDC,mI;EACAA,+H;;;CAGC,6C;EACDC,kI;EACAA,gI;;;;CA7DK,uC;EAAAP,8D;;;QAAA,O;EAAAQ,iC;EAAAA,8B;EAAAA;",
-"sources":["OldPageSidebar.java"],
-"names":["org.patternfly.component.OldPageSidebar.<synthetic: ctor_js>","theme","org.patternfly.component.OldPageSidebar.<synthetic: ctor_create>","org.patternfly.component.OldPageSidebar.<init>","org.patternfly.component.OldPageSidebar.that","navigation","org.patternfly.component.OldPageSidebar.add","org.patternfly.component.OldPageSidebar.getBody","org.patternfly.component.OldPageSidebar.getNavigation","org.patternfly.component.OldPageSidebar.toggle","org.patternfly.component.OldPageSidebar.expand","org.patternfly.component.OldPageSidebar.collapse","org.patternfly.component.OldPageSidebar.<clinit>"]
-}

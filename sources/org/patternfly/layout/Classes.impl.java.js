@@ -142,6 +142,8 @@ Classes.f_chip__org_patternfly_layout_Classes = 'chip';
 /**@const {string} @nodts*/
 Classes.f_chipGroup__org_patternfly_layout_Classes = 'chip-group';
 /**@const {string} @nodts*/
+Classes.f_clickable__org_patternfly_layout_Classes = 'clickable';
+/**@const {string} @nodts*/
 Classes.f_clipper__org_patternfly_layout_Classes = 'clipper';
 /**@const {string} @nodts*/
 Classes.f_close__org_patternfly_layout_Classes = 'close';
@@ -190,6 +192,10 @@ Classes.f_divider__org_patternfly_layout_Classes = 'divider';
 /**@const {string} @nodts*/
 Classes.f_dropdown__org_patternfly_layout_Classes = 'dropdown';
 /**@const {string} @nodts*/
+Classes.f_editable__org_patternfly_layout_Classes = 'editable';
+/**@const {string} @nodts*/
+Classes.f_editableActive__org_patternfly_layout_Classes = 'editable-active';
+/**@const {string} @nodts*/
 Classes.f_emptyState__org_patternfly_layout_Classes = 'empty-state';
 /**@const {string} @nodts*/
 Classes.f_end__org_patternfly_layout_Classes = 'end';
@@ -220,6 +226,8 @@ Classes.f_fill__org_patternfly_layout_Classes = 'fill';
 /**@const {string} @nodts*/
 Classes.f_filterGroup__org_patternfly_layout_Classes = 'filter-group';
 /**@const {string} @nodts*/
+Classes.f_flat__org_patternfly_layout_Classes = 'flat';
+/**@const {string} @nodts*/
 Classes.f_flex__org_patternfly_layout_Classes = 'flex';
 /**@const {string} @nodts*/
 Classes.f_floatLeft__org_patternfly_layout_Classes = 'float-left';
@@ -235,6 +243,8 @@ Classes.f_footer__org_patternfly_layout_Classes = 'footer';
 Classes.f_form__org_patternfly_layout_Classes = 'form';
 /**@const {string} @nodts*/
 Classes.f_formControl__org_patternfly_layout_Classes = 'form-control';
+/**@const {string} @nodts*/
+Classes.f_fullHeight__org_patternfly_layout_Classes = 'full-height';
 /**@const {string} @nodts*/
 Classes.f_gallery__org_patternfly_layout_Classes = 'gallery';
 /**@const {string} @nodts*/
@@ -296,6 +306,8 @@ Classes.f_keyboard__org_patternfly_layout_Classes = 'keyboard';
 /**@const {string} @nodts*/
 Classes.f_label__org_patternfly_layout_Classes = 'label';
 /**@const {string} @nodts*/
+Classes.f_labelGroup__org_patternfly_layout_Classes = 'label-group';
+/**@const {string} @nodts*/
 Classes.f_labelledBy__org_patternfly_layout_Classes = 'labelledby';
 /**@const {string} @nodts*/
 Classes.f_leadBall__org_patternfly_layout_Classes = 'lead-ball';
@@ -330,6 +342,8 @@ Classes.f_noBorderRows__org_patternfly_layout_Classes = 'no-border-rows';
 /**@const {string} @nodts*/
 Classes.f_noFill__org_patternfly_layout_Classes = 'no-fill';
 /**@const {string} @nodts*/
+Classes.f_noOffset__org_patternfly_layout_Classes = 'no-offset';
+/**@const {string} @nodts*/
 Classes.f_none__org_patternfly_layout_Classes = 'none';
 /**@const {string} @nodts*/
 Classes.f_noPadding__org_patternfly_layout_Classes = 'no-padding';
@@ -337,6 +351,8 @@ Classes.f_noPadding__org_patternfly_layout_Classes = 'no-padding';
 Classes.f_option__org_patternfly_layout_Classes = 'option';
 /**@const {string} @nodts*/
 Classes.f_optionsMenu__org_patternfly_layout_Classes = 'options-menu';
+/**@const {string} @nodts*/
+Classes.f_outline__org_patternfly_layout_Classes = 'outline';
 /**@const {string} @nodts*/
 Classes.f_overflow__org_patternfly_layout_Classes = 'overflow';
 /**@const {string} @nodts*/
@@ -366,6 +382,8 @@ Classes.f_progress__org_patternfly_layout_Classes = 'progress';
 /**@const {string} @nodts*/
 Classes.f_progressbar__org_patternfly_layout_Classes = 'progressbar';
 /**@const {string} @nodts*/
+Classes.f_radio__org_patternfly_layout_Classes = 'radio';
+/**@const {string} @nodts*/
 Classes.f_read__org_patternfly_layout_Classes = 'read';
 /**@const {string} @nodts*/
 Classes.f_readOnly__org_patternfly_layout_Classes = 'read-only';
@@ -375,6 +393,8 @@ Classes.f_readonly__org_patternfly_layout_Classes = 'readonly';
 Classes.f_required__org_patternfly_layout_Classes = 'required';
 /**@const {string} @nodts*/
 Classes.f_right__org_patternfly_layout_Classes = 'right';
+/**@const {string} @nodts*/
+Classes.f_rounded__org_patternfly_layout_Classes = 'rounded';
 /**@const {string} @nodts*/
 Classes.f_scope__org_patternfly_layout_Classes = 'scope';
 /**@const {string} @nodts*/
@@ -393,6 +413,8 @@ Classes.f_secondary__org_patternfly_layout_Classes = 'secondary';
 Classes.f_section__org_patternfly_layout_Classes = 'section';
 /**@const {string} @nodts*/
 Classes.f_select__org_patternfly_layout_Classes = 'select';
+/**@const {string} @nodts*/
+Classes.f_selectable__org_patternfly_layout_Classes = 'selectable';
 /**@const {string} @nodts*/
 Classes.f_selected__org_patternfly_layout_Classes = 'selected';
 /**@const {string} @nodts*/
@@ -466,6 +488,8 @@ Classes.f_toggleGroup__org_patternfly_layout_Classes = 'toggle-group';
 /**@const {string} @nodts*/
 Classes.f_toggleGroupContainer__org_patternfly_layout_Classes = 'toggle-group-container';
 /**@const {string} @nodts*/
+Classes.f_toggleRight__org_patternfly_layout_Classes = 'toggle-right';
+/**@const {string} @nodts*/
 Classes.f_toolbar__org_patternfly_layout_Classes = 'toolbar';
 /**@const {string} @nodts*/
 Classes.f_tools__org_patternfly_layout_Classes = 'tools';
@@ -487,6 +511,8 @@ Classes.f_unread__org_patternfly_layout_Classes = 'unread';
 Classes.f_utilities__org_patternfly_layout_Classes = 'utilities';
 /**@const {string} @nodts*/
 Classes.f_valueText__org_patternfly_layout_Classes = 'value-text';
+/**@const {string} @nodts*/
+Classes.f_vertical__org_patternfly_layout_Classes = 'vertical';
 /**@const {string} @nodts*/
 Classes.f_warning__org_patternfly_layout_Classes = 'warning';
 /**@const {string} @nodts*/

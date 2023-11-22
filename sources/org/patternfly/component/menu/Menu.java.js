@@ -37,6 +37,7 @@ goog.require('org.patternfly.handler.MultiSelectHandler');
 goog.require('org.patternfly.handler.SelectHandler');
 goog.require('org.patternfly.layout.Classes');
 goog.require('org.patternfly.layout.Variable');
+goog.require('org.patternfly.layout.Variables');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

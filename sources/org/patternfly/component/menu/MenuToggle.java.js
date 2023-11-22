@@ -18,6 +18,7 @@ goog.require('org.patternfly.component.menu.MenuToggleAction');
 goog.require('org.patternfly.component.menu.MenuToggleCheckbox');
 goog.require('org.patternfly.component.menu.MenuToggleType');
 goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.Logger');
 goog.require('org.patternfly.core.Modifiers.Disabled');
 goog.require('org.patternfly.layout.Classes');
 goog.require('org.patternfly.layout.PredefinedIcon');
