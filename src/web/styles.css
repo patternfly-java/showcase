@@ -17,6 +17,15 @@
     --pf-v5-c-content--FontSize: var(--pf-v5-global--FontSize--lg);
 }
 
+.layouts .pf-v5-l-gallery {
+    padding: 1rem;
+}
+.layouts .pf-v5-l-gallery > div {
+    padding: 1rem;
+    border-width: 2px;
+    border-style: dashed;
+}
+
 .popover-box, .tooltip-box {
     height: 450px;
     position: relative;

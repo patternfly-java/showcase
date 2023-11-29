@@ -15,12 +15,15 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.brand.Brand.brand;
 import static org.patternfly.showcase.Code.code;
 
-public class BrandComponent extends ComponentPage {
+public class BrandComponent extends SnippetPage {
 
     public BrandComponent() {
         super("Brand",

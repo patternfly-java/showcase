@@ -15,12 +15,16 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
+import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.showcase.Code.code;
 
-public class BadgeComponent extends ComponentPage {
+public class BadgeComponent extends SnippetPage {
 
     public BadgeComponent() {
         super("Badge",
@@ -34,13 +38,17 @@ public class BadgeComponent extends ComponentPage {
                 code.get("badge-read"), () ->
                 // @code-start:badge-read
                 div()
-                        .add(badge(7).read())
-                        .add(" ")
-                        .add(badge(24).read())
-                        .add(" ")
-                        .add(badge(423).read())
-                        .add(" ")
+                        .add(badge(7).read()).add(" ")
+                        .add(badge(24).read()).add(" ")
+                        .add(badge(423).read()).add(" ")
                         .add(badge(1000).limit(999).read())
+                        .add(br())
+                        .add(badge(7).read().display(v -> v + " apples")).add(" ")
+                        .add(badge(24).read().display(v -> v + " apples")).add(" ")
+                        .add(badge(423).read().display(v -> v + " apples")).add(" ")
+                        .add(badge(1000).limit(999).read()
+                                .display(v -> v + " apples")
+                                .maxDisplay(v -> "More apples than you can ever eat"))
                         .element()
         // @code-end:badge-read
         ));
@@ -49,13 +57,17 @@ public class BadgeComponent extends ComponentPage {
                 code.get("badge-unread"), () ->
                 // @code-start:badge-unread
                 div()
-                        .add(badge(7).unread())
-                        .add(" ")
-                        .add(badge(24).unread())
-                        .add(" ")
-                        .add(badge(423).unread())
-                        .add(" ")
+                        .add(badge(7).unread()).add(" ")
+                        .add(badge(24).unread()).add(" ")
+                        .add(badge(423).unread()).add(" ")
                         .add(badge(1000).limit(999).unread())
+                        .add(br())
+                        .add(badge(7).unread().display(v -> v + " apples")).add(" ")
+                        .add(badge(24).unread().display(v -> v + " apples")).add(" ")
+                        .add(badge(423).unread().display(v -> v + " apples")).add(" ")
+                        .add(badge(1000).limit(999).unread()
+                                .display(v -> v + " apples")
+                                .maxDisplay(v -> "More apples than you can ever eat"))
                         .element()
         // @code-end:badge-unread
         ));

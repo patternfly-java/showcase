@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -23,7 +26,7 @@ import static org.patternfly.component.chip.Chip.chip;
 import static org.patternfly.component.chip.ChipGroup.chipGroup;
 import static org.patternfly.showcase.Code.code;
 
-public class ChipComponent extends ComponentPage {
+public class ChipComponent extends SnippetPage {
 
     public ChipComponent() {
         super("Chip",

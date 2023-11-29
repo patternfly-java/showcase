@@ -16,6 +16,8 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -33,7 +35,7 @@ import static org.patternfly.layout.PredefinedIcon.download;
 import static org.patternfly.layout.PredefinedIcon.upload;
 import static org.patternfly.showcase.Code.code;
 
-public class CodeEditorComponent extends ComponentPage {
+public class CodeEditorComponent extends SnippetPage {
 
     private static final String CODE = "expandableSection()\n" +
             "      .indented()\n" +
@@ -75,7 +77,7 @@ public class CodeEditorComponent extends ComponentPage {
                                         .addActions(codeEditorActions()
                                                 .addAction(codeEditorCopyToClipboardAction())
                                                 .addAction(codeEditorAction(download))
-                                                .addAction(codeEditorAction(button(upload).control().disabled())))
+                                                .addAction(codeEditorAction(button().icon(upload).control().disabled())))
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
                         .element()
@@ -103,7 +105,7 @@ public class CodeEditorComponent extends ComponentPage {
                                         .addActions(codeEditorActions()
                                                 .addAction(codeEditorCopyToClipboardAction())
                                                 .addAction(codeEditorAction(download))
-                                                .addAction(codeEditorAction(button(upload).control().disabled()))))
+                                                .addAction(codeEditorAction(button().icon(upload).control().disabled()))))
                                 .code(CODE))
                         .element()
         // @code-end:code-editor-no-tab

@@ -17,6 +17,8 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.icon.Icon;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
@@ -48,7 +50,7 @@ import static org.patternfly.layout.Size.sm;
 import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.Code.code;
 
-public class IconComponent extends ComponentPage {
+public class IconComponent extends SnippetPage {
 
     public IconComponent() {
         super("Icon",

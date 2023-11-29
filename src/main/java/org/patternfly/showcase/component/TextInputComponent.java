@@ -17,16 +17,19 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.TextInput;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.TextInput.textInput;
+import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.layout.Classes.util;
 import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.Code.code;
 
-public class TextInputComponent extends ComponentPage {
+public class TextInputComponent extends SnippetPage {
 
     public TextInputComponent() {
         super("Text input",
@@ -57,10 +60,10 @@ public class TextInputComponent extends ComponentPage {
         addSnippet(new Snippet("text-input-readonly", "Read only",
                 code.get("text-input-readonly"), () -> {
                     // @code-start:text-input-readonly
+                    Checkbox plainToggle = checkbox("plain-toggle", "Plain read only variant");
                     TextInput readOnlyTextInput = textInput("readonly-text-input-0")
                             .value("read only text input example")
                             .readonly();
-                    Checkbox plainToggle = checkbox("plain-toggle", "Plain read only variant");
                     return div()
                             .add(div().css(util("mb-sm"))
                                     .add(plainToggle.onChange((component, value) -> readOnlyTextInput.plain(value))))
@@ -73,8 +76,7 @@ public class TextInputComponent extends ComponentPage {
                 code.get("text-input-invalid"), () ->
                 // @code-start:text-input-invalid
                 div()
-                        .add(textInput("invalid-text-input-0")
-                                .invalid())
+                        .add(textInput("invalid-text-input-0").validated(error))
                         .element()
         // @code-end:text-input-invalid
         ));
@@ -84,9 +86,9 @@ public class TextInputComponent extends ComponentPage {
                 // @code-start:text-input-custom-icon
                 div()
                         .add(textInput("custom-icon-text-input-0").css(util("mb-sm"))
-                                .addIcon(fas("calendar")))
+                                .icon(fas("calendar")))
                         .add(textInput("custom-icon-text-input-1")
-                                .addIcon(fas("clock")))
+                                .icon(fas("clock")))
                         .element()
         // @code-end:text-input-custom-icon
         ));
@@ -96,8 +98,8 @@ public class TextInputComponent extends ComponentPage {
                 // @code-start:text-input-custom-icon-and-invalid
                 div()
                         .add(textInput("custom-icon-and-invalid-text-input-0")
-                                .addIcon(fas("calendar"))
-                                .invalid())
+                                .validated(error)
+                                .icon(fas("calendar")))
                         .element()
         // @code-end:text-input-custom-icon-and-invalid
         ));

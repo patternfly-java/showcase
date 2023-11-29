@@ -18,6 +18,8 @@ package org.patternfly.showcase.component;
 import org.patternfly.component.card.Card;
 import org.patternfly.component.card.CardActions;
 import org.patternfly.component.menu.Dropdown;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.br;
@@ -49,7 +51,7 @@ import static org.patternfly.layout.Classes.util;
 import static org.patternfly.layout.PredefinedIcon.ellipsisV;
 import static org.patternfly.showcase.Code.code;
 
-public class CardComponent extends ComponentPage {
+public class CardComponent extends SnippetPage {
 
     public CardComponent() {
         super("Card",

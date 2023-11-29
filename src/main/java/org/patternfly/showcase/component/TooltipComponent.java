@@ -19,6 +19,8 @@ import org.jboss.elemento.By;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.tooltip.Tooltip;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import elemental2.dom.ScrollIntoViewOptions;
 
@@ -27,11 +29,12 @@ import static org.jboss.elemento.Elements.onAttach;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
+import static org.patternfly.core.Aria.label;
 import static org.patternfly.layout.PredefinedIcon.copy;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 
-public class TooltipComponent extends ComponentPage {
+public class TooltipComponent extends SnippetPage {
 
     public TooltipComponent() {
         super("Tooltip",
@@ -60,7 +63,8 @@ public class TooltipComponent extends ComponentPage {
                             .onClose((e, t) -> t.text("Copy to clipboard"))
                             .appendToBody();
                     return div().style("margin", "100px")
-                            .add(button(copy, "Copy").plain()
+                            .add(button().icon(copy).plain()
+                                    .aria(label, "Copy")
                                     .id("tooltip-dynamic-button")
                                     .onClick((e, b) -> tooltip.text("Successfully copied to clipboard!")))
                             .element();

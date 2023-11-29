@@ -16,6 +16,8 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
@@ -29,7 +31,7 @@ import static org.patternfly.layout.Size.sm;
 import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.Code.code;
 
-public class SpinnerComponent extends ComponentPage {
+public class SpinnerComponent extends SnippetPage {
 
     public SpinnerComponent() {
         super("Spinner",

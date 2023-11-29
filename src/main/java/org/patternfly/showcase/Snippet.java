@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.patternfly.showcase.component;
+package org.patternfly.showcase;
 
 import java.util.function.Supplier;
 
@@ -49,17 +49,16 @@ import static org.patternfly.layout.Classes.flex;
 import static org.patternfly.layout.Classes.layout;
 import static org.patternfly.layout.Classes.main;
 import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.tooltip;
 import static org.patternfly.layout.PredefinedIcon.undo;
 import static org.patternfly.layout.Size.lg;
 
-class Snippet implements IsElement<HTMLElement> {
+public class Snippet implements IsElement<HTMLElement> {
 
     private final Supplier<HTMLElement> demoSupplier;
     private final HTMLElement root;
     private final HTMLElement preview;
 
-    Snippet(String id, String header, String code, Supplier<HTMLElement> demo) {
+    public Snippet(String id, String header, String code, Supplier<HTMLElement> demo) {
         demoSupplier = demo;
 
         CodeEditor codeEditor;
@@ -72,7 +71,7 @@ class Snippet implements IsElement<HTMLElement> {
         root = div().css("ws-example")
                 .add(div().css("ws-example-header")
                         .add(div().css(layout(flex), modifier("space-items-none"), modifier("align-items-center"))
-                                .add(title(3, header, lg).css("ws-heading", "ws-example-heading")
+                                .add(title(3, lg, header).css("ws-heading", "ws-example-heading")
                                         .id(id)
                                         .attr(tabindex, -1)
                                         .add(a("#" + id).css("ws-heading-anchor")
@@ -88,7 +87,7 @@ class Snippet implements IsElement<HTMLElement> {
                                                 .id(codeId)
                                                 .css("ws-code-editor-control")
                                                 .control()
-                                                .addIconAndText(PredefinedIcon.code, "Java"))
+                                                .iconAndText(PredefinedIcon.code, "Java"))
                                                 .onClick((event, codeEditorAction) -> {
                                                     HTMLElement mainElement = codeEditorAction.mainComponent().find(
                                                             By.classname(component(Classes.codeEditor, main)));

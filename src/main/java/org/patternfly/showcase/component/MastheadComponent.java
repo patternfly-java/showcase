@@ -15,12 +15,15 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.masthead.Masthead.masthead;
 import static org.patternfly.showcase.Code.code;
 
-public class MastheadComponent extends ComponentPage {
+public class MastheadComponent extends SnippetPage {
 
     public MastheadComponent() {
         super("Icon",

@@ -13,19 +13,18 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.patternfly.showcase.component;
+package org.patternfly.showcase;
 
 import java.util.List;
 
 import org.jboss.elemento.By;
-import org.patternfly.showcase.Page;
 
 import elemental2.dom.HTMLElement;
 
 import static java.util.Arrays.asList;
+import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.component.button.ButtonElement.link;
 import static org.patternfly.component.page.PageMainBody.pageMainBody;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.title.Title.title;
@@ -40,37 +39,37 @@ import static org.patternfly.layout.PredefinedIcon.pfIcon;
 import static org.patternfly.layout.Size._4xl;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 
-public class ComponentPage implements Page {
+public class SnippetPage implements Page {
 
     private final List<HTMLElement> elements;
     final HTMLElement snippets;
 
-    ComponentPage(String title, String javadocLink, String designLink, HTMLElement description) {
+    public SnippetPage(String title, String javadocLink, String designLink, HTMLElement description) {
         elements = asList(
                 pageMainSection()
                         .light()
                         .limitWidth()
                         .addBody(pageMainBody()
                                 .add(div().css(util(floatRight))
-                                        .add(button(link)
+                                        .add(button(a())
                                                 .id("design-guidelines")
                                                 .plain()
                                                 .href(designLink)
                                                 .target("patternfly")
-                                                .addIcon(fas("swatchbook")))
+                                                .icon(fas("swatchbook")))
                                         .add(tooltip(By.id("design-guidelines"), "Design guidelines")
                                                 .placement(auto)))
                                 .add(div().css(util(floatRight))
-                                        .add(button(link)
+                                        .add(button(a())
                                                 .id("api-documentation")
                                                 .plain()
                                                 .href(javadocLink)
                                                 .target("javadoc")
-                                                .addIcon(pfIcon("catalog")))
+                                                .icon(pfIcon("catalog")))
                                         .add(tooltip(By.id("api-documentation"), "API documentation")
                                                 .placement(auto)))
                                 .add(div().css(component(content))
-                                        .add(title(1, title, _4xl))
+                                        .add(title(1, _4xl, title))
                                         .add(description)))
                         .element(),
                 pageMainSection().css(modifier("light-100"))
@@ -79,7 +78,7 @@ public class ComponentPage implements Page {
                         .element());
     }
 
-    void addSnippet(Snippet snippet) {
+    public void addSnippet(Snippet snippet) {
         snippets.appendChild(snippet.element());
     }
 

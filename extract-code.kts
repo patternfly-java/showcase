@@ -17,7 +17,10 @@ fun CodeBlock.writeToFile() {
 val startComment = "// @code-start:"
 val endComment = "// @code-end:"
 val targetPath = Path("./target/code")
-val sourcePath = Path("./src/main/java/org/patternfly/showcase/component")
+val sourcePaths = mapOf(
+        "*Component.java" to Path("./src/main/java/org/patternfly/showcase/component"),
+        "*Layout.java" to Path("./src/main/java/org/patternfly/showcase/layout")
+)
 
 var name = ""
 var collectCode = false
@@ -30,21 +33,23 @@ if (!targetPath.exists()) {
 }
 
 val timeTaken = measureTime {
-    sourcePath.forEachDirectoryEntry("*Component.java") { path ->
-        if (!path.isDirectory() && path.isReadable()) {
-            path.forEachLine { line ->
-                if (line.contains(startComment)) {
-                    leadingWhitespace = line.indexOf(startComment)
-                    name = line.substringAfter(startComment)
-                    collectCode = true
-                } else {
-                    if (collectCode) {
-                        if (line.contains(endComment + name)) {
-                            CodeBlock(name, code).writeToFile()
-                            counter++
-                            reset()
-                        } else {
-                            code.add(if (line.length < leadingWhitespace) line else line.substring(leadingWhitespace))
+    for ((suffix, sourcePath) in sourcePaths) {
+        sourcePath.forEachDirectoryEntry(suffix) { path ->
+            if (!path.isDirectory() && path.isReadable()) {
+                path.forEachLine { line ->
+                    if (line.contains(startComment)) {
+                        leadingWhitespace = line.indexOf(startComment)
+                        name = line.substringAfter(startComment)
+                        collectCode = true
+                    } else {
+                        if (collectCode) {
+                            if (line.contains(endComment + name)) {
+                                CodeBlock(name, code).writeToFile()
+                                counter++
+                                reset()
+                            } else {
+                                code.add(if (line.length < leadingWhitespace) line else line.substring(leadingWhitespace))
+                            }
                         }
                     }
                 }

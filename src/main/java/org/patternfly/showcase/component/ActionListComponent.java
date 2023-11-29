@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -27,7 +30,7 @@ import static org.patternfly.layout.PredefinedIcon.ellipsisV;
 import static org.patternfly.layout.PredefinedIcon.times;
 import static org.patternfly.showcase.Code.code;
 
-public class ActionListComponent extends ComponentPage {
+public class ActionListComponent extends SnippetPage {
 
     public ActionListComponent() {
         super("Action list",
@@ -54,7 +57,7 @@ public class ActionListComponent extends ComponentPage {
                                 .addItem(actionListItem()
                                         .add(button("Back").secondary()))
                                 .addItem(actionListItem()
-                                        .add(button(ellipsisV).plain()))) // TODO Add dropdown
+                                        .add(button().icon(ellipsisV).plain()))) // TODO Add dropdown
                         .element()
         // @code-end:action-list-single-group
         ));
@@ -65,9 +68,9 @@ public class ActionListComponent extends ComponentPage {
                 div()
                         .add(actionList().icons()
                                 .addItem(actionListItem()
-                                        .add(button(times).plain()))
+                                        .add(button().icon(times).plain()))
                                 .addItem(actionListItem()
-                                        .add(button(check).plain())))
+                                        .add(button().icon(check).plain())))
                         .element()
         // @code-end:action-list-icons
         ));

@@ -20,6 +20,8 @@ import org.patternfly.component.chip.Chip;
 import org.patternfly.component.chip.ChipGroup;
 import org.patternfly.component.textinputgroup.TextInputGroup;
 import org.patternfly.handler.CloseHandler;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import elemental2.dom.HTMLInputElement;
 
@@ -40,7 +42,7 @@ import static org.patternfly.layout.PredefinedIcon.search;
 import static org.patternfly.layout.PredefinedIcon.times;
 import static org.patternfly.showcase.Code.code;
 
-public class TextInputGroupComponent extends ComponentPage {
+public class TextInputGroupComponent extends SnippetPage {
 
     public TextInputGroupComponent() {
         super("Text input group",
@@ -86,7 +88,7 @@ public class TextInputGroupComponent extends ComponentPage {
                                     })))
                             .addUtilities(textInputGroupUtilities()
                                     .apply(e -> setVisible(e, false))
-                                    .add(button(times).plain()
+                                    .add(button().icon(times).plain()
                                             .on(click, e -> {
                                                 textInputGroup.clear();
                                                 textInputGroup.showUtilities(false);
@@ -127,7 +129,7 @@ public class TextInputGroupComponent extends ComponentPage {
                                         }
                                     })))
                             .addUtilities(textInputGroupUtilities()
-                                    .add(button(times).plain()
+                                    .add(button().icon(times).plain()
                                             .on(click, e -> {
                                                 chipGroup.clear();
                                                 failSafeRemoveFromParent(chipGroup);

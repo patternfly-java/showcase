@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -35,7 +38,7 @@ import static org.patternfly.layout.PredefinedIcon.ellipsisV;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
 
-public class DropdownComponent extends ComponentPage {
+public class DropdownComponent extends SnippetPage {
 
     public DropdownComponent() {
         super("Dropdown",
@@ -118,7 +121,7 @@ public class DropdownComponent extends ComponentPage {
                 div()
                         .add(dropdown()
                                 .addToggle(menuToggle("Icon")
-                                        .addIcon(cog))
+                                        .icon(cog))
                                 .addMenu(menu()
                                         .addContent(menuContent()
                                                 .addList(menuList()

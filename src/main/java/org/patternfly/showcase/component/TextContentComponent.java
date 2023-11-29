@@ -16,6 +16,8 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.blockquote;
@@ -34,7 +36,7 @@ import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.Classes.plain;
 import static org.patternfly.showcase.Code.code;
 
-public class TextContentComponent extends ComponentPage {
+public class TextContentComponent extends SnippetPage {
 
     public TextContentComponent() {
         super("Text",

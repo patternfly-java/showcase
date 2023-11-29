@@ -19,6 +19,8 @@ import org.jboss.elemento.By;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.popover.Popover;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import elemental2.dom.ScrollIntoViewOptions;
 
@@ -41,7 +43,7 @@ import static org.patternfly.showcase.Code.code;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 import static org.patternfly.thirdparty.popper.TriggerAction.mouseenter;
 
-public class PopoverComponent extends ComponentPage {
+public class PopoverComponent extends SnippetPage {
 
     public PopoverComponent() {
         super("Popover",
@@ -71,7 +73,7 @@ public class PopoverComponent extends ComponentPage {
                     // @code-start:popover-hoverable
                     popover(By.id("popover-hoverable-button"))
                             .ariaLabel("Hoverable popover")
-                            .trigger(mouseenter)
+                            .triggerActions(mouseenter)
                             .addHeader("Popover header")
                             .addBody("This popover opens on hover.")
                             .addFooter("Popover footer")
@@ -172,9 +174,9 @@ public class PopoverComponent extends ComponentPage {
                 code.get("popover-icon"), () -> {
                     // @code-start:popover-icon
                     popover(By.id("popover-icon-button"))
+                            .icon(bullhorn)
                             .ariaLabel("Popover with icon in the title example.")
                             .addHeader("Popover with icon")
-                            .addIcon(bullhorn)
                             .addBody(LoremIpsum.words(20))
                             .addFooter("Popover footer")
                             .appendToBody();

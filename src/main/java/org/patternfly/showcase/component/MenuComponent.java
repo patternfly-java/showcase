@@ -17,6 +17,8 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.core.Aria;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static elemental2.dom.DomGlobal.console;
 import static java.util.stream.Collectors.joining;
@@ -39,7 +41,7 @@ import static org.patternfly.layout.PredefinedIcon.bell;
 import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.Code.code;
 
-public class MenuComponent extends ComponentPage {
+public class MenuComponent extends SnippetPage {
 
     public MenuComponent() {
         super("Menu",

@@ -15,10 +15,6 @@
  */
 package org.patternfly.showcase;
 
-import org.patternfly.component.navigation.Navigation;
-import org.patternfly.thirdparty.ThirdParty;
-import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
-
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
@@ -37,6 +33,10 @@ import static org.patternfly.component.sidebar.Sidebar.sidebar;
 import static org.patternfly.component.sidebar.SidebarBody.sidebarBody;
 import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.Assets.pfLogo;
+
+import org.patternfly.component.navigation.Navigation;
+import org.patternfly.thirdparty.ThirdParty;
+import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
 @SuppressWarnings("unused")
 public class Main {
@@ -59,19 +59,20 @@ public class Main {
                         .addItem(navigationItem("c-chip", "Chip", "#c-chip"))
                         .addItem(navigationItem("c-code-block", "Code block", "#c-code-block"))
                         .addItem(navigationItem("c-code-editor", "Code editor", "#c-code-editor"))
-                        // .addItem(navigationItem("c-context-selector", "Context selector", "#c-context-selector"))
                         // .addItem(navigationItem("c-data-list", "Data list", "#c-data-list"))
-                        // .addItem(navigationItem("c-dropdown", "Dropdown", "#c-dropdown"))
                         // .addItem(navigationItem("c-empty-state", "Empty state", "#c-empty-state"))
                         .addItem(navigationItem("c-expandable-section", "Expandable section", "#c-expandable-section"))
-                        .addGroup(expandableNavigationGroup("c-forms", "Forms")
+                        .addGroup(expandableNavigationGroup("forms", "Forms")
                                 .addItem(navigationItem("c-checkbox", "Checkbox", "#c-checkbox"))
                                 .addItem(navigationItem("c-radio", "Radio", "#c-radio"))
+                                .addItem(navigationItem("c-form-select", "Form select", "#c-form-select"))
+                                .addItem(navigationItem("c-text-area", "Text area", "#c-text-area"))
                                 .addItem(navigationItem("c-text-input", "Text input", "#c-text-input")))
+                        .addItem(navigationItem("c-helper-text", "Helper text", "#c-helper-text"))
                         .addItem(navigationItem("c-icon", "Icon", "#c-icon"))
                         .addItem(navigationItem("c-label", "Label", "#c-label"))
                         .addItem(navigationItem("c-masthead", "Masthead", "#c-masthead"))
-                        .addGroup(expandableNavigationGroup("c-menus", "Menus")
+                        .addGroup(expandableNavigationGroup("menus", "Menus")
                                 .addItem(navigationItem("c-dropdown", "Dropdown", "#c-dropdown"))
                                 .addItem(navigationItem("c-menu", "Menu", "#c-menu"))
                                 .addItem(navigationItem("c-menu-toggle", "Menu toggle", "#c-menu-toggle")))
@@ -83,10 +84,13 @@ public class Main {
                         // .addItem(navigationItem("c-tabs", "Tabs", "#c-tabs"))
                         .addItem(navigationItem("c-text-content", "Text content", "#c-text-content"))
                         .addItem(navigationItem("c-text-input-group", "Text input group", "#c-text-input-group"))
+                        .addItem(navigationItem("c-title", "Title", "#c-title"))
                         .addItem(navigationItem("c-tooltip", "Tooltip", "#c-tooltip"))
                 // .addItem(navigationItem("c-title", "Title", "#c-title"))
                 // .addItem(navigationItem("c-toolbar", "Toolbar", "#c-toolbar"))
                 )
+                .addGroup(expandableNavigationGroup("layouts", "Layouts")
+                        .addItem(navigationItem("l-gallery", "Gallery", "#l-gallery")))
                 // .addGroup(expandableNavigationGroup("demos", "Demos")
                 // .addItem(navigationItem("d-server", "Server", "#d-server"))
                 // .addItem(navigationItem("d-user", "User", "#d-user")))

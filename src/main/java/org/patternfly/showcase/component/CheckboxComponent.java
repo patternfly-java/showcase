@@ -16,6 +16,8 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -24,7 +26,7 @@ import static org.patternfly.component.form.CheckboxBody.checkboxBody;
 import static org.patternfly.component.form.CheckboxDescription.checkboxDescription;
 import static org.patternfly.showcase.Code.code;
 
-public class CheckboxComponent extends ComponentPage {
+public class CheckboxComponent extends SnippetPage {
 
     public CheckboxComponent() {
         super("Checkbox",

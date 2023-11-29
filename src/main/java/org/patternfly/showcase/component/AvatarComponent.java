@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -29,7 +32,7 @@ import static org.patternfly.showcase.Assets.avatarDark;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
 
-public class AvatarComponent extends ComponentPage {
+public class AvatarComponent extends SnippetPage {
 
     public AvatarComponent() {
         super("Avatar",
