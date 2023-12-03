@@ -50,8 +50,7 @@ public class TextInputComponent extends SnippetPage {
                 code.get("text-input-disabled"), () ->
                 // @code-start:text-input-disabled
                 div()
-                        .add(textInput("disabled-text-input-0")
-                                .value("disabled text input example")
+                        .add(textInput("disabled-text-input-0", "disabled text input example")
                                 .disabled())
                         .element()
         // @code-end:text-input-disabled
@@ -61,8 +60,7 @@ public class TextInputComponent extends SnippetPage {
                 code.get("text-input-readonly"), () -> {
                     // @code-start:text-input-readonly
                     Checkbox plainToggle = checkbox("plain-toggle", "Plain read only variant");
-                    TextInput readOnlyTextInput = textInput("readonly-text-input-0")
-                            .value("read only text input example")
+                    TextInput readOnlyTextInput = textInput("readonly-text-input-0", "read only text input example")
                             .readonly();
                     return div()
                             .add(div().css(util("mb-sm"))

@@ -15,6 +15,10 @@
  */
 package org.patternfly.showcase;
 
+import org.patternfly.component.navigation.Navigation;
+import org.patternfly.thirdparty.ThirdParty;
+import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
+
 import static elemental2.dom.DomGlobal.location;
 import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
@@ -33,10 +37,6 @@ import static org.patternfly.component.sidebar.Sidebar.sidebar;
 import static org.patternfly.component.sidebar.SidebarBody.sidebarBody;
 import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.Assets.pfLogo;
-
-import org.patternfly.component.navigation.Navigation;
-import org.patternfly.thirdparty.ThirdParty;
-import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
 @SuppressWarnings("unused")
 public class Main {
@@ -64,8 +64,10 @@ public class Main {
                         .addItem(navigationItem("c-expandable-section", "Expandable section", "#c-expandable-section"))
                         .addGroup(expandableNavigationGroup("forms", "Forms")
                                 .addItem(navigationItem("c-checkbox", "Checkbox", "#c-checkbox"))
-                                .addItem(navigationItem("c-radio", "Radio", "#c-radio"))
+                                .addItem(navigationItem("c-form", "Form", "#c-form"))
+                                .addItem(navigationItem("c-form-control", "Form control", "#c-form-control"))
                                 .addItem(navigationItem("c-form-select", "Form select", "#c-form-select"))
+                                .addItem(navigationItem("c-radio", "Radio", "#c-radio"))
                                 .addItem(navigationItem("c-text-area", "Text area", "#c-text-area"))
                                 .addItem(navigationItem("c-text-input", "Text input", "#c-text-input")))
                         .addItem(navigationItem("c-helper-text", "Helper text", "#c-helper-text"))

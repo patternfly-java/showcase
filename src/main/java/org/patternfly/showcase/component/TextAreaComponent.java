@@ -15,6 +15,12 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.form.Checkbox;
+import org.patternfly.component.form.TextArea;
+import org.patternfly.component.help.HelperText;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static elemental2.dom.DomGlobal.clearTimeout;
 import static elemental2.dom.DomGlobal.setTimeout;
 import static org.jboss.elemento.Elements.div;
@@ -35,12 +41,6 @@ import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
 import static org.patternfly.layout.Classes.util;
 import static org.patternfly.showcase.Code.code;
-
-import org.patternfly.component.form.Checkbox;
-import org.patternfly.component.form.TextArea;
-import org.patternfly.component.help.HelperText;
-import org.patternfly.showcase.Snippet;
-import org.patternfly.showcase.SnippetPage;
 
 public class TextAreaComponent extends SnippetPage {
 
@@ -75,26 +75,26 @@ public class TextAreaComponent extends SnippetPage {
                     final double[] handle = { 0 };
                     HelperText helperText = helperText("Share your thoughts.");
                     TextArea textArea = textArea("validated-text-area-0")
-                            .onInput((t, value) -> {
+                            .onInput((ta, value) -> {
                                 clearTimeout(handle[0]);
-                                t.validated(default_);
+                                ta.validated(default_);
                                 helperText.firstItem()
                                         .status(default_)
                                         .text("Validating...");
                                 handle[0] = setTimeout(__ -> {
                                     if (value.isEmpty()) {
-                                        t.validated(warning);
+                                        ta.validated(warning);
                                         helperText.firstItem()
                                                 .status(warning)
                                                 .text("You must have something to say");
                                     } else {
                                         if (value.length() < 10) {
-                                            t.validated(error);
+                                            ta.validated(error);
                                             helperText.firstItem()
                                                     .status(error)
                                                     .text("You're being too brief, please enter at least 10 characters.");
                                         } else {
-                                            t.validated(success);
+                                            ta.validated(success);
                                             helperText.firstItem()
                                                     .status(success)
                                                     .text("Thanks for your comments!");
@@ -153,8 +153,7 @@ public class TextAreaComponent extends SnippetPage {
                 code.get("text-area-readonly"), () -> {
                     // @code-start:text-area-readonly
                     Checkbox plainToggle = checkbox("plain-toggle", "Plain read only variant");
-                    TextArea readOnlyTextArea = textArea("readonly-text-area-0")
-                            .value("read only text area example")
+                    TextArea readOnlyTextArea = textArea("readonly-text-area-0", "read only text area example")
                             .readonly();
                     return div()
                             .add(div().css(util("mb-sm"))

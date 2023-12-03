@@ -40,9 +40,9 @@ public class CheckboxComponent extends SnippetPage {
                 code.get("checkbox-basic"), () ->
                 // @code-start:checkbox-basic
                 div()
-                        .add(checkbox("basic-checkbox-0", "Checkbox 1")
+                        .add(checkbox("basic-checkbox-0", "basic-checkbox", "Checkbox 1")
                                 .value(true))
-                        .add(checkbox("basic-checkbox-1", "Checkbox 2"))
+                        .add(checkbox("basic-checkbox-1", "basic-checkbox", "Checkbox 2"))
                         .element()
         // @code-end:checkbox-basic
         ));
@@ -51,10 +51,10 @@ public class CheckboxComponent extends SnippetPage {
                 code.get("checkbox-disabled"), () ->
                 // @code-start:checkbox-disabled
                 div()
-                        .add(checkbox("disabled-checkbox-0", "Disabled checkbox 1")
+                        .add(checkbox("disabled-checkbox-0", "disabled-checkbox", "Disabled checkbox 1")
                                 .value(true)
                                 .disabled())
-                        .add(checkbox("disabled-checkbox-1", "Disabled checkbox 2")
+                        .add(checkbox("disabled-checkbox-1", "disabled-checkbox", "Disabled checkbox 2")
                                 .disabled())
                         .element()
         // @code-end:checkbox-disabled
@@ -64,7 +64,7 @@ public class CheckboxComponent extends SnippetPage {
                 code.get("checkbox-description"), () ->
                 // @code-start:checkbox-description
                 div()
-                        .add(checkbox("cwd-0", "Checkbox with description")
+                        .add(checkbox("cwd-0", "cwd", "Checkbox with description")
                                 .addDescription(checkboxDescription(LoremIpsum.words(50))))
                         .element()
         // @code-end:checkbox-description
@@ -74,7 +74,7 @@ public class CheckboxComponent extends SnippetPage {
                 code.get("checkbox-body"), () ->
                 // @code-start:checkbox-body
                 div()
-                        .add(checkbox("cwb-0", "Checkbox with body")
+                        .add(checkbox("cwb-0", "cwb", "Checkbox with body")
                                 .addBody(checkboxBody("This is where custom content goes.")))
                         .element()
         // @code-end:checkbox-body
@@ -84,7 +84,7 @@ public class CheckboxComponent extends SnippetPage {
                 code.get("checkbox-description-body"), () ->
                 // @code-start:checkbox-description-body
                 div()
-                        .add(checkbox("cdb-0", "Checkbox with description and body")
+                        .add(checkbox("cdb-0", "cdb", "Checkbox with description and body")
                                 .addDescription(checkboxDescription(LoremIpsum.words(50)))
                                 .addBody(checkboxBody("This is where custom content goes.")))
                         .element()
@@ -95,7 +95,7 @@ public class CheckboxComponent extends SnippetPage {
                 code.get("checkbox-standalone"), () ->
                 // @code-start:checkbox-standalone
                 div()
-                        .add(checkbox("standalone-checkbox-0")
+                        .add(checkbox("standalone-checkbox-0", "standalone-checkbox")
                                 .standalone())
                         .element()
         // @code-end:checkbox-standalone
@@ -105,7 +105,7 @@ public class CheckboxComponent extends SnippetPage {
                 code.get("checkbox-required"), () ->
                 // @code-start:checkbox-required
                 div()
-                        .add(checkbox("required-checkbox-0", "Required checkbox")
+                        .add(checkbox("required-checkbox-0", "required-checkbox", "Required checkbox")
                                 .required())
                         .element()
         // @code-end:checkbox-required

@@ -88,9 +88,9 @@ public class Snippet implements IsElement<HTMLElement> {
                                                 .css("ws-code-editor-control")
                                                 .control()
                                                 .iconAndText(PredefinedIcon.code, "Java"))
-                                                .onClick((event, codeEditorAction) -> {
-                                                    HTMLElement mainElement = codeEditorAction.mainComponent().find(
-                                                            By.classname(component(Classes.codeEditor, main)));
+                                                .onClick((event, ce) -> {
+                                                    HTMLElement mainElement = ce
+                                                            .find(By.classname(component(Classes.codeEditor, main)));
                                                     setVisible(mainElement, !isVisible(mainElement));
                                                 }))
                                         .add(tooltip(By.id(codeId), "Toggle Java code"))

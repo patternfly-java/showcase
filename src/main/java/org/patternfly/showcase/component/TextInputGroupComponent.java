@@ -105,7 +105,7 @@ public class TextInputGroupComponent extends SnippetPage {
                     TextInputGroup textInputGroup = textInputGroup();
                     ChipGroup chipGroup = chipGroup();
                     CloseHandler<Chip> closeHandler = (event, chip) -> {
-                        if (chip.mainComponent().values().isEmpty()) {
+                        if (chipGroup.values().isEmpty()) {
                             failSafeRemoveFromParent(chipGroup);
                             textInputGroup.showUtilities(!textInputGroup.inputElement().element().value.isEmpty());
                         }
