@@ -15,25 +15,11 @@
  */
 package org.patternfly.showcase;
 
-import java.util.function.Supplier;
-
-import org.jboss.elemento.By;
-import org.jboss.elemento.Id;
-import org.jboss.elemento.IsElement;
-import org.patternfly.component.code.CodeEditor;
-import org.patternfly.component.code.CodeEditorAction;
-import org.patternfly.component.tooltip.Tooltip;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
-
-import elemental2.dom.HTMLElement;
-
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.isVisible;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.setVisible;
-import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.code.CodeEditor.codeEditor;
 import static org.patternfly.component.code.CodeEditorAction.codeEditorAction;
@@ -52,6 +38,17 @@ import static org.patternfly.layout.Classes.modifier;
 import static org.patternfly.layout.PredefinedIcon.undo;
 import static org.patternfly.layout.Size.lg;
 
+import java.util.function.Supplier;
+
+import org.jboss.elemento.By;
+import org.jboss.elemento.Id;
+import org.jboss.elemento.IsElement;
+import org.patternfly.component.code.CodeEditor;
+import org.patternfly.layout.Classes;
+import org.patternfly.layout.PredefinedIcon;
+
+import elemental2.dom.HTMLElement;
+
 public class Snippet implements IsElement<HTMLElement> {
 
     private final Supplier<HTMLElement> demoSupplier;
@@ -63,10 +60,7 @@ public class Snippet implements IsElement<HTMLElement> {
 
         CodeEditor codeEditor;
         String codeId = Id.build(id, "code");
-        String copyId = Id.build(id, "copy");
         String undoId = Id.build(id, "undo");
-        CodeEditorAction copyAction = codeEditorCopyToClipboardAction().id(copyId);
-        Tooltip copyTooltip = tooltip(By.id(copyId), "Copy code to clipboard");
 
         root = div().css("ws-example")
                 .add(div().css("ws-example-header")
@@ -94,11 +88,8 @@ public class Snippet implements IsElement<HTMLElement> {
                                                     setVisible(mainElement, !isVisible(mainElement));
                                                 }))
                                         .add(tooltip(By.id(codeId), "Toggle Java code"))
-                                        .addAction(copyAction
-                                                .css("ws-code-editor-control")
-                                                .on(click, e -> copyTooltip.text("Code copied")))
-                                        .add(copyTooltip
-                                                .onClose((e, t) -> t.text("Copy code to clipboard")))
+                                        .addAction(codeEditorCopyToClipboardAction("Copy code to clipboard", "Code copied")
+                                                .css("ws-code-editor-control"))
                                         .addAction(codeEditorAction(undo)
                                                 .id(undoId)
                                                 .css("ws-code-editor-control")

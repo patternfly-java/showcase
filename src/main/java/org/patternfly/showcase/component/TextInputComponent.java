@@ -59,7 +59,7 @@ public class TextInputComponent extends SnippetPage {
         addSnippet(new Snippet("text-input-readonly", "Read only",
                 code.get("text-input-readonly"), () -> {
                     // @code-start:text-input-readonly
-                    Checkbox plainToggle = checkbox("plain-toggle", "Plain read only variant");
+                    Checkbox plainToggle = checkbox("plain-toggle","plain-toggle", "Plain read only variant");
                     TextInput readOnlyTextInput = textInput("readonly-text-input-0", "read only text input example")
                             .readonly();
                     return div()

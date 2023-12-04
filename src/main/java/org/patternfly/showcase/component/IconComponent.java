@@ -15,11 +15,6 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.icon.Icon;
-import org.patternfly.showcase.LoremIpsum;
-import org.patternfly.showcase.Snippet;
-import org.patternfly.showcase.SnippetPage;
-
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
@@ -49,6 +44,11 @@ import static org.patternfly.layout.Size.md;
 import static org.patternfly.layout.Size.sm;
 import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.Code.code;
+
+import org.patternfly.component.icon.Icon;
+import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 public class IconComponent extends SnippetPage {
 
@@ -165,7 +165,7 @@ public class IconComponent extends SnippetPage {
                     Icon icon = icon(checkCircle);
                     return div()
                             .add(div().css(util("mb-md"))
-                                    .add(checkbox("in-progress-cb", "Toggle in progress state")
+                                    .add(checkbox("in-progress-cb", "in-progress-cb", "Toggle in progress state")
                                             .onChange((checkBox, value) -> icon.progress(value))))
                             .add(icon)
                             .element();
@@ -178,7 +178,7 @@ public class IconComponent extends SnippetPage {
                     Icon icon = icon(checkCircle);
                     return div()
                             .add(div().css(util("mb-md"))
-                                    .add(checkbox("in-progress-custom-cb", "Toggle in progress state")
+                                    .add(checkbox("in-progress-custom-cb", "in-progress-custom-cb", "Toggle in progress state")
                                             .onChange((checkBox, value) -> icon.progress(value,
                                                     spinner -> spinner.diameter("2em")))))
                             .add(icon)

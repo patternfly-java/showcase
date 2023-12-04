@@ -307,7 +307,7 @@ public class CardComponent extends SnippetPage {
                                         .addTitle(cardTitle("First card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
-                                .addBody(cardBody().textContent("This card is performs an action on click.")))
+                                .addBody(cardBody().textContent("This card performs an action on click.")))
                         .add(card().name("clickable-card")
                                 .clickable("#c-card")
                                 .addHeader(cardHeader()

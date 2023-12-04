@@ -152,7 +152,7 @@ public class TextAreaComponent extends SnippetPage {
         addSnippet(new Snippet("text-area-readonly", "Read only",
                 code.get("text-area-readonly"), () -> {
                     // @code-start:text-area-readonly
-                    Checkbox plainToggle = checkbox("plain-toggle", "Plain read only variant");
+                    Checkbox plainToggle = checkbox("plain-toggle","plain-toggle", "Plain read only variant");
                     TextArea readOnlyTextArea = textArea("readonly-text-area-0", "read only text area example")
                             .readonly();
                     return div()
