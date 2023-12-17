@@ -15,41 +15,38 @@
  */
 package org.patternfly.component.textinputgroup;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.utilities;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.utilities;
 
-public class TextInputGroupUtilities extends SubComponent<HTMLDivElement, TextInputGroupUtilities>
-        implements ComponentReference<TextInputGroup> {
+public class TextInputGroupUtilities extends TextInputGroupSubComponent<HTMLDivElement, TextInputGroupUtilities> {
 
     // ------------------------------------------------------ factory
 
+    /** Same as {@linkplain #textInputGroupUtilities(boolean) textInputGroupUtilities(true)} */
     public static TextInputGroupUtilities textInputGroupUtilities() {
-        return new TextInputGroupUtilities();
+        return new TextInputGroupUtilities(true);
+    }
+
+    public static TextInputGroupUtilities textInputGroupUtilities(boolean hidden) {
+        return new TextInputGroupUtilities(hidden);
     }
 
     private TextInputGroup textInputGroup;
 
     // ------------------------------------------------------ instance
 
-    TextInputGroupUtilities() {
-        super(div().css(component(Classes.textInputGroup, utilities)).element());
-    }
+    static final String SUB_COMPONENT_NAME = "tigu";
 
-    @Override
-    public void passComponent(TextInputGroup textInputGroup) {
-        this.textInputGroup = textInputGroup;
-    }
-
-    @Override
-    public TextInputGroup mainComponent() {
-        return textInputGroup;
+    TextInputGroupUtilities(boolean hidden) {
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.textInputGroup, utilities)).element());
+        if (hidden) {
+            style("display", "none");
+        }
     }
 
     // ------------------------------------------------------ builder

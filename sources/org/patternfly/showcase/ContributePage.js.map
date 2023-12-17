@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"ContributePage.impl.java.js",
-"lineCount":65,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;MA0BM,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,yB;EAAAA,qC;EAAAA,gE;EAAAA,iB;;;CAAA,mD;EAAAC,qC;;;CAG2B,8B;EACzBC,s5D;;;;CAJF,4C;EAAAC,gG;;;;CAAA,8B;EAAAC,yF;;;;CAAA,oC;EAAAC,iI;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;EAAAA;",
+"lineCount":66,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;MA2BM,c;;CAAA,W;EAAAA,Q;;;QAAA,S;EAAAC,yB;EAAAA,qC;EAAAA,gE;EAAAA,iB;;;CAAA,mD;EAAAC,qC;;;CAG2B,8B;EACzBC,++D;;;;CAJF,4C;EAAAC,gG;;;;CAAA,8B;EAAAC,yF;;;;CAAA,oC;EAAAC,iI;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA,qB;EAAAA;",
 "sources":["ContributePage.java"],
 "names":["org.patternfly.showcase.ContributePage.<synthetic: ctor_js>","org.patternfly.showcase.ContributePage.<synthetic: ctor_create>","org.patternfly.showcase.ContributePage.<init>","org.patternfly.showcase.ContributePage.elements","org.patternfly.showcase.ContributePage.forEach","org.patternfly.showcase.ContributePage.iterator","org.patternfly.showcase.ContributePage.spliterator","org.patternfly.showcase.ContributePage.<clinit>"]
 }

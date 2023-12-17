@@ -15,18 +15,16 @@
  */
 package org.patternfly.component.card;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.core.Modifiers.toggleModifier;
-import static org.patternfly.layout.Classes.actions;
-import static org.patternfly.layout.Classes.component;
+import static org.patternfly.style.Classes.actions;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Modifiers.toggleModifier;
 
-public class CardActions extends SubComponent<HTMLDivElement, CardActions> implements ComponentReference<Card> {
+public class CardActions extends CardSubComponent<HTMLDivElement, CardActions> {
 
     // ------------------------------------------------------ factory
 
@@ -36,24 +34,13 @@ public class CardActions extends SubComponent<HTMLDivElement, CardActions> imple
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "ca";
+
     CardSelectableActions selectableActions;
     private Card card;
 
     CardActions() {
-        super(div().css(component(Classes.card, actions)).element());
-    }
-
-    @Override
-    public void passComponent(Card card) {
-        this.card = card;
-        if (selectableActions != null) {
-            selectableActions.passComponent(card);
-        }
-    }
-
-    @Override
-    public Card mainComponent() {
-        return card;
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.card, actions)).element());
     }
 
     // ------------------------------------------------------ add

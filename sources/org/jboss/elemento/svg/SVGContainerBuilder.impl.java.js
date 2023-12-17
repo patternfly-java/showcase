@@ -13,6 +13,7 @@ let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
 let SafeHtml = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeHtml$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
+let ClassList = goog.forwardDeclare('org.jboss.elemento.ClassList$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let IsElement = goog.forwardDeclare('org.jboss.elemento.IsElement$impl');
 let $Overlay = goog.forwardDeclare('org.jboss.elemento.svg.SVGElement.$Overlay$impl');
@@ -102,6 +103,16 @@ class SVGContainerBuilder extends j_l_Object {
  m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_attr__$default__org_jboss_elemento_HasElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
  }
+ //Default method forwarding stub.
+ /** @override @nodts @return {ClassList<E>} */
+ m_classList__org_jboss_elemento_ClassList() {
+  return /**@type {ClassList<E>}*/ (HasElement.m_classList__$default__org_jboss_elemento_HasElement__org_jboss_elemento_ClassList(this));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<ClassList<E>> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
  //Bridge method.
  /** @final @override @nodts @return {SVGContainerBuilder<E>} */
  m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/** Array<?string> */ arg0) {
@@ -161,6 +172,31 @@ class SVGContainerBuilder extends j_l_Object {
  /** @final @override @nodts @return {SVGContainerBuilder<E>} */
  m_style__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** boolean */ arg1) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__int__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** number */ arg1) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__int__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__int__boolean__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** number */ arg1, /** boolean */ arg2) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__int__boolean__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1, /** boolean */ arg2) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), SVGContainerBuilder));
  }
  //Default method forwarding stub.
  /** @override @nodts @template F @return {F} */
@@ -254,6 +290,11 @@ class SVGContainerBuilder extends j_l_Object {
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGContainerBuilder<E>} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_svg_SVGContainerBuilder(/** Consumer<ClassList<E>> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
  m_css__arrayOf_java_lang_String__org_jboss_elemento_svg_SVGContainerBuilder(/** Array<?string> */ arg0) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
@@ -311,6 +352,31 @@ class SVGContainerBuilder extends j_l_Object {
  /** @nodts @return {SVGContainerBuilder<E>} */
  m_style__java_lang_String__org_jboss_elemento_svg_SVGContainerBuilder(/** ?string */ arg0) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__boolean__org_jboss_elemento_svg_SVGContainerBuilder(/** ?string */ arg0, /** boolean */ arg1) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__int__org_jboss_elemento_svg_SVGContainerBuilder(/** ?string */ arg0, /** number */ arg1) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__int__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__java_lang_String__org_jboss_elemento_svg_SVGContainerBuilder(/** ?string */ arg0, /** ?string */ arg1) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__int__boolean__org_jboss_elemento_svg_SVGContainerBuilder(/** ?string */ arg0, /** number */ arg1, /** boolean */ arg2) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__int__boolean__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_style__java_lang_String__java_lang_String__boolean__org_jboss_elemento_svg_SVGContainerBuilder(/** ?string */ arg0, /** ?string */ arg1, /** boolean */ arg2) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasSVGElement.m_style__$default__org_jboss_elemento_svg_HasSVGElement__java_lang_String__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), SVGContainerBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGContainerBuilder<E>} */

@@ -15,17 +15,16 @@
  */
 package org.patternfly.component.expandable;
 
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.span;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.expandableSection;
-import static org.patternfly.layout.Classes.toggle;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.expandableSection;
+import static org.patternfly.style.Classes.toggle;
 
-public class ExpandableSectionToggleText extends SubComponent<HTMLElement, ExpandableSectionToggleText> {
+public class ExpandableSectionToggleText extends ExpandableSectionSubComponent<HTMLElement, ExpandableSectionToggleText> {
 
     // ------------------------------------------------------ factory
 
@@ -43,12 +42,13 @@ public class ExpandableSectionToggleText extends SubComponent<HTMLElement, Expan
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "estt";
+
     private final String moreText;
     private final String lessText;
 
     ExpandableSectionToggleText(String moreText, String lessText) {
-        super(span().css(component(expandableSection, toggle, Classes.text))
-                .element());
+        super(SUB_COMPONENT_NAME, span().css(component(expandableSection, toggle, Classes.text)).element());
         this.moreText = moreText;
         this.lessText = lessText;
 

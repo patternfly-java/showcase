@@ -16,7 +16,7 @@ goog.require('org.patternfly.component.alert.Alert');
 goog.require('org.patternfly.component.alert.AlertGroupType');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.Attributes');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

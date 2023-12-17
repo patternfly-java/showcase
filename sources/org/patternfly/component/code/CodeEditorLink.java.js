@@ -7,13 +7,12 @@ goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('nativebootstrap.Equality');
 goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.EventType');
-goog.require('org.patternfly.component.ComponentReference');
-goog.require('org.patternfly.component.SubComponent');
 goog.require('org.patternfly.component.button.Button');
 goog.require('org.patternfly.component.code.CodeEditor');
+goog.require('org.patternfly.component.code.CodeEditorSubComponent');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.handler.ComponentHandler');
-goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Casts');
 
 const CodeEditorLink = goog.require('org.patternfly.component.code.CodeEditorLink$impl');

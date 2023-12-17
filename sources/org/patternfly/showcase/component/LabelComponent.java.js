@@ -11,10 +11,10 @@ goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.patternfly.component.label.Label');
 goog.require('org.patternfly.component.label.LabelGroup');
 goog.require('org.patternfly.handler.ComponentHandler');
-goog.require('org.patternfly.layout.Color');
-goog.require('org.patternfly.layout.PredefinedIcon');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.Color');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Casts');
 
 const LabelComponent = goog.require('org.patternfly.showcase.component.LabelComponent$impl');

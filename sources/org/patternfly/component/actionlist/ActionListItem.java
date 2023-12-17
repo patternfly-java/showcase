@@ -15,16 +15,14 @@
  */
 package org.patternfly.component.actionlist;
 
-import org.patternfly.component.SubComponent;
-
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.actionList;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.item;
+import static org.patternfly.style.Classes.actionList;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.item;
 
-public class ActionListItem extends SubComponent<HTMLDivElement, ActionListItem> {
+public class ActionListItem extends ActionListSubComponent<HTMLDivElement, ActionListItem> {
 
     // ------------------------------------------------------ factory
 
@@ -34,8 +32,10 @@ public class ActionListItem extends SubComponent<HTMLDivElement, ActionListItem>
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "ali";
+
     ActionListItem() {
-        super(div().css(component(actionList, item)).element());
+        super(SUB_COMPONENT_NAME, div().css(component(actionList, item)).element());
     }
 
     // ------------------------------------------------------ builder

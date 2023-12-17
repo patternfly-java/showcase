@@ -3,8 +3,8 @@ goog.module('org.patternfly.component.form.Radio$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
 const HasValue = goog.require('org.patternfly.core.HasValue$impl');
-const Disabled = goog.require('org.patternfly.core.Modifiers.Disabled$impl');
-const Required = goog.require('org.patternfly.core.Modifiers.Required$impl');
+const Disabled = goog.require('org.patternfly.style.Modifiers.Disabled$impl');
+const Required = goog.require('org.patternfly.style.Modifiers.Required$impl');
 
 let EventListener_$Overlay = goog.forwardDeclare('elemental2.dom.EventListener.$Overlay$impl');
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
@@ -22,7 +22,7 @@ let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$
 let RadioBody = goog.forwardDeclare('org.patternfly.component.form.RadioBody$impl');
 let RadioDescription = goog.forwardDeclare('org.patternfly.component.form.RadioDescription$impl');
 let ChangeHandler = goog.forwardDeclare('org.patternfly.handler.ChangeHandler$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -40,6 +40,8 @@ class Radio extends BaseComponent {
   this.f_inputElement__org_patternfly_component_form_Radio_;
   /**@type {HTMLLabelElement} @nodts*/
   this.f_labelElement__org_patternfly_component_form_Radio_;
+  /**@type {ChangeHandler<Radio, ?boolean>} @nodts*/
+  this.f_changeHandler__org_patternfly_component_form_Radio_;
  }
  /** @nodts @return {Radio} */
  static m_radio__java_lang_String__java_lang_String__org_patternfly_component_form_Radio(/** ?string */ id, /** ?string */ name) {
@@ -70,9 +72,9 @@ class Radio extends BaseComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_form_Radio__java_lang_String__java_lang_String__java_lang_String__boolean__void(/** ?string */ id, /** ?string */ name, /** ?string */ label, /** boolean */ checked) {
-  this.$ctor__org_patternfly_component_BaseComponent__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_radio__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(Elements.m_input__org_jboss_elemento_InputType__org_jboss_elemento_InputElementBuilder(InputType.f_radio__org_jboss_elemento_InputType).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_radio__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_input__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), InputElementBuilder)).m_id__java_lang_String__org_jboss_elemento_TypedBuilder(id), InputElementBuilder)).m_name__java_lang_String__org_jboss_elemento_TypedBuilder(name), InputElementBuilder)).m_checked__boolean__org_jboss_elemento_TypedBuilder(checked), InputElementBuilder))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), ComponentType.f_Radio__org_patternfly_component_ComponentType);
+  this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Radio__org_patternfly_component_ComponentType, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_radio__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(Elements.m_input__org_jboss_elemento_InputType__org_jboss_elemento_InputElementBuilder(InputType.f_radio__org_jboss_elemento_InputType).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_radio__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_input__org_patternfly_style_Classes], j_l_String)))], j_l_String))), InputElementBuilder)).m_id__java_lang_String__org_jboss_elemento_TypedBuilder(id), InputElementBuilder)).m_name__java_lang_String__org_jboss_elemento_TypedBuilder(name), InputElementBuilder)).m_checked__boolean__org_jboss_elemento_TypedBuilder(checked), InputElementBuilder))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
   this.f_inputElement__org_patternfly_component_form_Radio_ = /**@type {HTMLInputElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement().firstElementChild, $Overlay));
-  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_labelElement__org_patternfly_component_form_Radio_ = /**@type {HTMLLabelElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLLabelElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLLabelElement>}*/ ($Casts.$to(Elements.m_label__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_radio__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_label__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_apply__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(Consumer.$adapt((l) =>{
+  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_labelElement__org_patternfly_component_form_Radio_ = /**@type {HTMLLabelElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLLabelElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLLabelElement>}*/ ($Casts.$to(Elements.m_label__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_radio__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_label__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_apply__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(Consumer.$adapt((l) =>{
    let l_1 = /**@type {HTMLLabelElement}*/ ($Casts.$to(l, HTMLLabelElement_$Overlay));
    l_1.htmlFor = id;
   })), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLLabelElement_$Overlay)));
@@ -93,9 +95,9 @@ class Radio extends BaseComponent {
   this.f_inputElement__org_patternfly_component_form_Radio_.disabled = disabled;
   if (!$Equality.$same(this.f_labelElement__org_patternfly_component_form_Radio_, null)) {
    if (disabled) {
-    this.f_labelElement__org_patternfly_component_form_Radio_.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_disabled__org_patternfly_layout_Classes));
+    this.f_labelElement__org_patternfly_component_form_Radio_.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_disabled__org_patternfly_style_Classes));
    } else {
-    this.f_labelElement__org_patternfly_component_form_Radio_.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_disabled__org_patternfly_layout_Classes));
+    this.f_labelElement__org_patternfly_component_form_Radio_.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_disabled__org_patternfly_style_Classes));
    }
   }
   return this;
@@ -116,7 +118,7 @@ class Radio extends BaseComponent {
  }
  /** @nodts @return {Radio} */
  m_standalone__boolean__org_patternfly_component_form_Radio(/** boolean */ removeLabel) {
-  this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_standalone__org_patternfly_layout_Classes)], j_l_String)));
+  this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_standalone__org_patternfly_style_Classes)], j_l_String)));
   if (removeLabel) {
    Elements.m_failSafeRemoveFromParent__elemental2_dom_Element__boolean(this.f_labelElement__org_patternfly_component_form_Radio_);
    this.f_labelElement__org_patternfly_component_form_Radio_ = null;
@@ -125,7 +127,20 @@ class Radio extends BaseComponent {
  }
  /** @nodts @return {Radio} */
  m_value__boolean__org_patternfly_component_form_Radio(/** boolean */ checked) {
+  return this.m_value__boolean__boolean__org_patternfly_component_form_Radio(checked, false);
+ }
+ /** @nodts @return {Radio} */
+ m_value__boolean__boolean__org_patternfly_component_form_Radio(/** boolean */ checked, /** boolean */ fireEvent) {
+  let changed = this.f_inputElement__org_patternfly_component_form_Radio_.checked != checked;
   this.f_inputElement__org_patternfly_component_form_Radio_.checked = checked;
+  if (fireEvent && changed && !$Equality.$same(this.f_changeHandler__org_patternfly_component_form_Radio_, null)) {
+   this.f_changeHandler__org_patternfly_component_form_Radio_.m_onChange__elemental2_dom_Event__java_lang_Object__java_lang_Object__void(new Event(''), this, this.f_inputElement__org_patternfly_component_form_Radio_.checked);
+  }
+  return this;
+ }
+ /** @nodts @return {Radio} */
+ m_applyTo__java_util_function_Consumer__org_patternfly_component_form_Radio(/** Consumer<InputElementBuilder<HTMLInputElement>> */ consumer) {
+  consumer.m_accept__java_lang_Object__void(this.m_inputElement__org_jboss_elemento_InputElementBuilder());
   return this;
  }
  /** @nodts @return {Radio} */
@@ -133,9 +148,10 @@ class Radio extends BaseComponent {
   return this;
  }
  /** @nodts @return {Radio} */
- m_onChange__org_patternfly_handler_ChangeHandler__org_patternfly_component_form_Radio(/** ChangeHandler<Radio, ?boolean> */ handler) {
+ m_onChange__org_patternfly_handler_ChangeHandler__org_patternfly_component_form_Radio(/** ChangeHandler<Radio, ?boolean> */ changeHandler) {
+  this.f_changeHandler__org_patternfly_component_form_Radio_ = changeHandler;
   this.f_inputElement__org_patternfly_component_form_Radio_.addEventListener(EventType.f_change__org_jboss_elemento_EventType.f_name__org_jboss_elemento_EventType, EventListener_$Overlay.$adapt__elemental2_dom_EventListener_$JsFunction__elemental2_dom_EventListener((/** Event */ e) =>{
-   handler.m_onChange__java_lang_Object__java_lang_Object__void(this, this.f_inputElement__org_patternfly_component_form_Radio_.checked);
+   changeHandler.m_onChange__elemental2_dom_Event__java_lang_Object__java_lang_Object__void(e, this, this.f_inputElement__org_patternfly_component_form_Radio_.checked);
   }));
   return this;
  }
@@ -143,9 +159,9 @@ class Radio extends BaseComponent {
  m_value__java_lang_Boolean() {
   return this.f_inputElement__org_patternfly_component_form_Radio_.checked;
  }
- /** @nodts @return {HTMLInputElement} */
- m_inputElement__elemental2_dom_HTMLInputElement() {
-  return this.f_inputElement__org_patternfly_component_form_Radio_;
+ /** @nodts @return {InputElementBuilder<HTMLInputElement>} */
+ m_inputElement__org_jboss_elemento_InputElementBuilder() {
+  return /**@type {InputElementBuilder<HTMLInputElement>}*/ (Elements.m_wrapInputElement__elemental2_dom_HTMLInputElement__org_jboss_elemento_InputElementBuilder(this.f_inputElement__org_patternfly_component_form_Radio_));
  }
  //Bridge method.
  /** @final @override @nodts @return {?boolean} */
@@ -160,7 +176,7 @@ class Radio extends BaseComponent {
  //Bridge method.
  /** @final @override @nodts @return {Radio} */
  m_disabled__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Radio}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_core_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Radio));
+  return /**@type {Radio}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Radio));
  }
  //Bridge method.
  /** @final @override @nodts @return {Radio} */
@@ -170,27 +186,27 @@ class Radio extends BaseComponent {
  //Bridge method.
  /** @final @override @nodts @return {Radio} */
  m_required__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_core_Modifiers_Required__org_jboss_elemento_TypedBuilder(this), Radio));
+  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_style_Modifiers_Required__org_jboss_elemento_TypedBuilder(this), Radio));
  }
  //Bridge method.
  /** @final @override @nodts @return {Radio} */
  m_required__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
-  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_core_Modifiers_Required__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Radio));
+  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_style_Modifiers_Required__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Radio));
  }
  //Default method forwarding stub.
  /** @nodts @return {Radio} */
  m_disabled__org_patternfly_component_form_Radio() {
-  return /**@type {Radio}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_core_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Radio));
+  return /**@type {Radio}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Radio));
  }
  //Default method forwarding stub.
  /** @nodts @return {Radio} */
  m_required__org_patternfly_component_form_Radio() {
-  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_core_Modifiers_Required__org_jboss_elemento_TypedBuilder(this), Radio));
+  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_style_Modifiers_Required__org_jboss_elemento_TypedBuilder(this), Radio));
  }
  //Default method forwarding stub.
  /** @nodts @return {Radio} */
  m_required__boolean__org_patternfly_component_form_Radio(/** boolean */ arg0) {
-  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_core_Modifiers_Required__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Radio));
+  return /**@type {Radio}*/ ($Casts.$to(Required.m_required__$default__org_patternfly_style_Modifiers_Required__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Radio));
  }
  /** @nodts */
  static $clinit() {
@@ -220,7 +236,7 @@ class Radio extends BaseComponent {
   InputElementBuilder = goog.module.get('org.jboss.elemento.InputElementBuilder$impl');
   InputType = goog.module.get('org.jboss.elemento.InputType$impl');
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

@@ -15,19 +15,17 @@
  */
 package org.patternfly.component.card;
 
+import org.jboss.elemento.Attachable;
 import org.jboss.elemento.Id;
-import org.jboss.elemento.IsElement;
-import org.patternfly.component.ComponentReference;
 import org.patternfly.component.ComponentType;
-import org.patternfly.component.SubComponent;
 import org.patternfly.component.button.Button;
 import org.patternfly.core.Aria;
-import org.patternfly.layout.Classes;
+import org.patternfly.core.ElementDelegate;
+import org.patternfly.style.Classes;
 
-import elemental2.dom.Element;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.Node;
+import elemental2.dom.MutationRecord;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.insertFirst;
@@ -36,16 +34,18 @@ import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.core.Aria.expanded;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.header;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.main;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.toggle;
-import static org.patternfly.layout.Classes.toggleRight;
-import static org.patternfly.layout.PredefinedIcon.angleRight;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.header;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.main;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.toggle;
+import static org.patternfly.style.Classes.toggleRight;
+import static org.patternfly.style.PredefinedIcon.angleRight;
 
-public class CardHeader extends SubComponent<HTMLDivElement, CardHeader> implements ComponentReference<Card> {
+public class CardHeader extends CardSubComponent<HTMLDivElement, CardHeader> implements
+        ElementDelegate<HTMLDivElement, CardHeader>,
+        Attachable {
 
     // ------------------------------------------------------ factory
 
@@ -55,6 +55,8 @@ public class CardHeader extends SubComponent<HTMLDivElement, CardHeader> impleme
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "ch";
+
     Button toggleButton;
     CardActions actions;
     private final HTMLElement mainElement;
@@ -62,13 +64,14 @@ public class CardHeader extends SubComponent<HTMLDivElement, CardHeader> impleme
     private CardTitle title;
 
     CardHeader() {
-        super(div().css(component(Classes.card, header)).element());
-        super.add(mainElement = div().css(component(Classes.card, header, main)).element());
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.card, header)).element());
+        element().appendChild(mainElement = div().css(component(Classes.card, header, main)).element());
+        Attachable.register(this, this);
     }
 
     @Override
-    public void passComponent(Card card) {
-        this.card = card;
+    public void attach(MutationRecord mutationRecord) {
+        Card card = lookupComponent();
         if (card.expandable) {
             final String labelledBy;
             if (title != null) {
@@ -100,14 +103,11 @@ public class CardHeader extends SubComponent<HTMLDivElement, CardHeader> impleme
                 insertFirst(element(), toggleElement);
             }
         }
-        if (actions != null) {
-            actions.passComponent(card);
-        }
     }
 
     @Override
-    public Card mainComponent() {
-        return card;
+    public HTMLElement delegate() {
+        return mainElement;
     }
 
     // ------------------------------------------------------ add
@@ -130,67 +130,7 @@ public class CardHeader extends SubComponent<HTMLDivElement, CardHeader> impleme
     // override to assure internal wiring
     public CardHeader add(CardTitle title) {
         this.title = title;
-        addToMain(title.element());
-        return this;
-    }
-
-    @Override
-    public CardHeader add(Node node) {
-        addToMain(node);
-        return this;
-    }
-
-    @Override
-    public CardHeader add(IsElement<?> element) {
-        addToMain(element.element());
-        return this;
-    }
-
-    @Override
-    public CardHeader addAll(Node... nodes) {
-        for (Node node : nodes) {
-            addToMain(node);
-        }
-        return this;
-    }
-
-    @Override
-    public CardHeader addAll(Element... elements) {
-        for (Element element : elements) {
-            addToMain(element);
-        }
-        return this;
-    }
-
-    @Override
-    public CardHeader addAll(HTMLElement... elements) {
-        for (HTMLElement element : elements) {
-            addToMain(element);
-        }
-        return this;
-    }
-
-    @Override
-    public CardHeader addAll(IsElement<?>... elements) {
-        for (IsElement<?> element : elements) {
-            if (element != null) {
-                addToMain(element.element());
-            }
-        }
-        return this;
-    }
-
-    @Override
-    public CardHeader addAll(Iterable<?> elements) {
-        for (Object element : elements) {
-            if (element instanceof Node) {
-                addToMain(((Node) element));
-            } else if (element instanceof IsElement) {
-                // noinspection rawtypes
-                addToMain(((IsElement) element).element());
-            }
-        }
-        return this;
+        return add(title.element());
     }
 
     // ------------------------------------------------------ builder
@@ -206,9 +146,5 @@ public class CardHeader extends SubComponent<HTMLDivElement, CardHeader> impleme
         if (actions != null) {
             actions.disabled(disabled);
         }
-    }
-
-    private void addToMain(Node node) {
-        mainElement.appendChild(node);
     }
 }

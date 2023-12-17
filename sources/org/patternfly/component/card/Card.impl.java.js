@@ -1,12 +1,11 @@
 goog.module('org.patternfly.component.card.Card$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
 const Expandable = goog.require('org.patternfly.core.Expandable$impl');
-const Compact = goog.require('org.patternfly.core.Modifiers.Compact$impl');
-const Disabled = goog.require('org.patternfly.core.Modifiers.Disabled$impl');
-const Plain = goog.require('org.patternfly.core.Modifiers.Plain$impl');
+const Compact = goog.require('org.patternfly.style.Modifiers.Compact$impl');
+const Disabled = goog.require('org.patternfly.style.Modifiers.Disabled$impl');
+const Plain = goog.require('org.patternfly.style.Modifiers.Plain$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
 let Window_$Overlay = goog.forwardDeclare('elemental2.dom.Window.$Overlay$impl');
@@ -22,13 +21,13 @@ let CardHeader = goog.forwardDeclare('org.patternfly.component.card.CardHeader$i
 let CardTitle = goog.forwardDeclare('org.patternfly.component.card.CardTitle$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
-let Modifiers = goog.forwardDeclare('org.patternfly.core.Modifiers$impl');
 let SelectionMode = goog.forwardDeclare('org.patternfly.core.SelectionMode$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
 let SelectHandler = goog.forwardDeclare('org.patternfly.handler.SelectHandler$impl');
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
-let Size = goog.forwardDeclare('org.patternfly.layout.Size$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let Modifiers = goog.forwardDeclare('org.patternfly.style.Modifiers$impl');
+let Size = goog.forwardDeclare('org.patternfly.style.Size$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -38,7 +37,6 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
  * @implements {Disabled<HTMLDivElement, Card>}
  * @implements {Plain<HTMLDivElement, Card>}
  * @implements {Expandable<HTMLDivElement, Card>}
- * @implements {Attachable}
  */
 class Card extends BaseComponent {
  /** @protected @nodts */
@@ -81,14 +79,8 @@ class Card extends BaseComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_card_Card__void() {
-  this.$ctor__org_patternfly_component_BaseComponent__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_card__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)), ComponentType.f_Card__org_patternfly_component_ComponentType);
-  Attachable.m_register__org_jboss_elemento_IsElement__org_jboss_elemento_Attachable__void(this, this);
- }
- /** @override @nodts */
- m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
-  if (!$Equality.$same(this.f_header__org_patternfly_component_card_Card_, null)) {
-   this.f_header__org_patternfly_component_card_Card_.m_passComponent__org_patternfly_component_card_Card__void(this);
-  }
+  this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Card__org_patternfly_component_ComponentType, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_card__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.m_storeComponent__void();
  }
  /** @nodts @return {Card} */
  m_addHeader__org_patternfly_component_card_CardHeader__org_patternfly_component_card_Card(/** CardHeader */ header) {
@@ -101,27 +93,15 @@ class Card extends BaseComponent {
  }
  /** @nodts @return {Card} */
  m_addTitle__org_patternfly_component_card_CardTitle__org_patternfly_component_card_Card(/** CardTitle */ title) {
-  return this.m_add__org_patternfly_component_card_CardTitle__org_patternfly_component_card_Card(title);
- }
- /** @nodts @return {Card} */
- m_add__org_patternfly_component_card_CardTitle__org_patternfly_component_card_Card(/** CardTitle */ title) {
-  return /**@type {Card}*/ ($Casts.$to(this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(/**@type {HTMLDivElement}*/ ($Casts.$to(title.m_element__elemental2_dom_HTMLElement(), $Overlay))), Card));
+  return /**@type {Card}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(title), Card));
  }
  /** @nodts @return {Card} */
  m_addBody__org_patternfly_component_card_CardBody__org_patternfly_component_card_Card(/** CardBody */ body) {
-  return this.m_add__org_patternfly_component_card_CardBody__org_patternfly_component_card_Card(body);
- }
- /** @nodts @return {Card} */
- m_add__org_patternfly_component_card_CardBody__org_patternfly_component_card_Card(/** CardBody */ body) {
-  return /**@type {Card}*/ ($Casts.$to(this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(/**@type {HTMLDivElement}*/ ($Casts.$to(body.m_element__elemental2_dom_HTMLElement(), $Overlay))), Card));
+  return /**@type {Card}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(body), Card));
  }
  /** @nodts @return {Card} */
  m_addFooter__org_patternfly_component_card_CardFooter__org_patternfly_component_card_Card(/** CardFooter */ footer) {
-  return this.m_add__org_patternfly_component_card_CardFooter__org_patternfly_component_card_Card(footer);
- }
- /** @nodts @return {Card} */
- m_add__org_patternfly_component_card_CardFooter__org_patternfly_component_card_Card(/** CardFooter */ footer) {
-  return /**@type {Card}*/ ($Casts.$to(this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(/**@type {HTMLDivElement}*/ ($Casts.$to(footer.m_element__elemental2_dom_HTMLElement(), $Overlay))), Card));
+  return /**@type {Card}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(footer), Card));
  }
  /** @nodts @return {Card} */
  m_addExpandableContent__org_patternfly_component_card_CardExpandableContent__org_patternfly_component_card_Card(/** CardExpandableContent */ expandableContent) {
@@ -138,7 +118,7 @@ class Card extends BaseComponent {
  }
  /** @nodts @return {Card} */
  m_flat__boolean__org_patternfly_component_card_Card(/** boolean */ flat) {
-  return /**@type {Card}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_flat__org_patternfly_layout_Classes, flat), Card));
+  return /**@type {Card}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_flat__org_patternfly_style_Classes, flat), Card));
  }
  /** @nodts @return {Card} */
  m_rounded__org_patternfly_component_card_Card() {
@@ -146,7 +126,7 @@ class Card extends BaseComponent {
  }
  /** @nodts @return {Card} */
  m_rounded__boolean__org_patternfly_component_card_Card(/** boolean */ rounded) {
-  return /**@type {Card}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_rounded__org_patternfly_layout_Classes, rounded), Card));
+  return /**@type {Card}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_rounded__org_patternfly_style_Classes, rounded), Card));
  }
  /** @nodts @return {Card} */
  m_large__org_patternfly_component_card_Card() {
@@ -155,9 +135,9 @@ class Card extends BaseComponent {
  /** @nodts @return {Card} */
  m_large__boolean__org_patternfly_component_card_Card(/** boolean */ large) {
   if (large) {
-   /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.add(Classes.m_modifier__java_lang_String__org_patternfly_layout_Size__java_lang_String(Classes.f_display__org_patternfly_layout_Classes, Size.f_lg__org_patternfly_layout_Size));
+   /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.add(Classes.m_modifier__java_lang_String__org_patternfly_style_Size__java_lang_String(Classes.f_display__org_patternfly_style_Classes, Size.f_lg__org_patternfly_style_Size));
   } else {
-   /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.remove(Classes.m_modifier__java_lang_String__org_patternfly_layout_Size__java_lang_String(Classes.f_display__org_patternfly_layout_Classes, Size.f_lg__org_patternfly_layout_Size));
+   /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.remove(Classes.m_modifier__java_lang_String__org_patternfly_style_Size__java_lang_String(Classes.f_display__org_patternfly_style_Classes, Size.f_lg__org_patternfly_style_Size));
   }
   return this;
  }
@@ -167,7 +147,7 @@ class Card extends BaseComponent {
  }
  /** @nodts @return {Card} */
  m_fullHeight__boolean__org_patternfly_component_card_Card(/** boolean */ fullHeight) {
-  return /**@type {Card}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_fullHeight__org_patternfly_layout_Classes, fullHeight), Card));
+  return /**@type {Card}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_fullHeight__org_patternfly_style_Classes, fullHeight), Card));
  }
  /** @nodts @return {Card} */
  m_selectable__org_patternfly_component_card_Card() {
@@ -184,12 +164,12 @@ class Card extends BaseComponent {
  /** @nodts @return {Card} */
  m_selectable__org_patternfly_core_SelectionMode__org_patternfly_handler_SelectHandler__org_patternfly_component_card_Card(/** SelectionMode */ selectionMode, /** SelectHandler<Card> */ onSelect) {
   if ($Equality.$same(selectionMode, SelectionMode.f_click__org_patternfly_core_SelectionMode)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Selection mode \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(SelectionMode.f_click__org_patternfly_core_SelectionMode.name()) + '\' is not supported');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), 'Selection mode \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(SelectionMode.f_click__org_patternfly_core_SelectionMode.name()) + '\' is not supported');
    return this;
   }
   this.f_selectionMode__org_patternfly_component_card_Card = selectionMode;
   this.f_selectHandler__org_patternfly_component_card_Card_ = onSelect;
-  return /**@type {Card}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_selectable__org_patternfly_layout_Classes)], j_l_String))), Card));
+  return /**@type {Card}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_selectable__org_patternfly_style_Classes)], j_l_String))), Card));
  }
  /** @nodts @return {Card} */
  m_clickable__org_patternfly_component_card_Card() {
@@ -198,7 +178,7 @@ class Card extends BaseComponent {
  /** @nodts @return {Card} */
  m_clickable__org_patternfly_handler_ComponentHandler__org_patternfly_component_card_Card(/** ComponentHandler<Card> */ onClick) {
   this.f_clickHandler__org_patternfly_component_card_Card_ = onClick;
-  return /**@type {Card}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_clickable__org_patternfly_layout_Classes)], j_l_String))), Card));
+  return /**@type {Card}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_clickable__org_patternfly_style_Classes)], j_l_String))), Card));
  }
  /** @nodts @return {Card} */
  m_clickable__java_lang_String__org_patternfly_component_card_Card(/** ?string */ to) {
@@ -208,14 +188,14 @@ class Card extends BaseComponent {
  m_clickable__java_lang_String__boolean__org_patternfly_component_card_Card(/** ?string */ to, /** boolean */ external) {
   this.f_to__org_patternfly_component_card_Card_ = to;
   this.f_external__org_patternfly_component_card_Card_ = external;
-  return /**@type {Card}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_clickable__org_patternfly_layout_Classes)], j_l_String))), Card));
+  return /**@type {Card}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_clickable__org_patternfly_style_Classes)], j_l_String))), Card));
  }
  /** @nodts @return {Card} */
  m_disabled__boolean__org_patternfly_component_card_Card(/** boolean */ disabled) {
   if (!$Equality.$same(this.f_header__org_patternfly_component_card_Card_, null)) {
    this.f_header__org_patternfly_component_card_Card_.m_disabled__boolean__void_$pp_org_patternfly_component_card(disabled);
   }
-  return /**@type {Card}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_core_Modifiers_Disabled__boolean__org_jboss_elemento_TypedBuilder(this, disabled), Card));
+  return /**@type {Card}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__boolean__org_jboss_elemento_TypedBuilder(this, disabled), Card));
  }
  /** @nodts @return {Card} */
  m_expandable__org_patternfly_component_card_Card() {
@@ -260,7 +240,7 @@ class Card extends BaseComponent {
  /** @nodts */
  m_select__boolean__boolean__void(/** boolean */ selected, /** boolean */ fireEvent) {
   if ($Equality.$same(this.f_selectionMode__org_patternfly_component_card_Card, null)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Card \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).id) + '\' is not selectable.\n' + 'Please add a call to \'Card.selectable(SelectionMode)\', before calling \'Card.select()\'.');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), 'Card \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).id) + '\' is not selectable.\n' + 'Please add a call to \'Card.selectable(SelectionMode)\', before calling \'Card.select()\'.');
    return;
   }
   if (!$Equality.$same(this.f_header__org_patternfly_component_card_Card_, null) && !$Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader, null) && !$Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions, null)) {
@@ -271,12 +251,12 @@ class Card extends BaseComponent {
  /** @nodts @return {boolean} */
  m_selected__boolean() {
   if (this.m_isClickable__boolean_$pp_org_patternfly_component_card() && this.m_isSelectable__boolean_$pp_org_patternfly_component_card()) {
-   return /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes));
+   return /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes));
   } else if (!$Equality.$same(this.f_header__org_patternfly_component_card_Card_, null) && !$Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader, null) && !$Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions, null)) {
    if (!$Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions.f_checkbox__org_patternfly_component_card_CardSelectableActions, null)) {
-    return this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions.f_checkbox__org_patternfly_component_card_CardSelectableActions.m_inputElement__elemental2_dom_HTMLInputElement().checked;
+    return this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions.f_checkbox__org_patternfly_component_card_CardSelectableActions.m_inputElement__org_jboss_elemento_InputElementBuilder().m_element__elemental2_dom_HTMLInputElement().checked;
    } else if (!$Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions.f_radio__org_patternfly_component_card_CardSelectableActions, null)) {
-    return this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions.f_radio__org_patternfly_component_card_CardSelectableActions.m_inputElement__elemental2_dom_HTMLInputElement().checked;
+    return this.f_header__org_patternfly_component_card_Card_.f_actions__org_patternfly_component_card_CardHeader.f_selectableActions__org_patternfly_component_card_CardActions.f_radio__org_patternfly_component_card_CardSelectableActions.m_inputElement__org_jboss_elemento_InputElementBuilder().m_element__elemental2_dom_HTMLInputElement().checked;
    } else {
     return false;
    }
@@ -287,32 +267,32 @@ class Card extends BaseComponent {
  /** @override @nodts */
  m_collapse__boolean__void(/** boolean */ fireEvent) {
   if (!this.f_expandable__org_patternfly_component_card_Card || $Equality.$same(this.f_expandableContent__org_patternfly_component_card_Card_, null) || $Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_toggleButton__org_patternfly_component_card_CardHeader, null)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Card \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).id) + '\' is not expandable.\n' + 'Please add a call to \'Card.expandable()\', before calling \'Card.collapse()\'.');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), 'Card \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).id) + '\' is not expandable.\n' + 'Please use Card.expandable() to make this an expandable card.');
    return;
   }
   Expandable.m_collapse__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), this.f_header__org_patternfly_component_card_Card_.f_toggleButton__org_patternfly_component_card_CardHeader.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_expandableContent__org_patternfly_component_card_Card_.m_element__elemental2_dom_HTMLElement(), $Overlay)));
-  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_card_Card_, null)) {
-   this.f_toggleHandler__org_patternfly_component_card_Card_.m_onToggle__java_lang_Object__boolean__void(this, false);
+  if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_card_Card_, null)) {
+   this.f_toggleHandler__org_patternfly_component_card_Card_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, false);
   }
  }
  /** @override @nodts */
  m_expand__boolean__void(/** boolean */ fireEvent) {
   if (!this.f_expandable__org_patternfly_component_card_Card || $Equality.$same(this.f_expandableContent__org_patternfly_component_card_Card_, null) || $Equality.$same(this.f_header__org_patternfly_component_card_Card_.f_toggleButton__org_patternfly_component_card_CardHeader, null)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Card \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).id) + '\' is not expandable.\n' + 'Please add a call to \'Card.expandable()\', before calling \'Card.expand()\'.');
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), 'Card \'' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).id) + '\' is not expandable.\n' + 'Please use Card.expandable() to make this an expandable card.');
    return;
   }
   Expandable.m_expand__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), this.f_header__org_patternfly_component_card_Card_.f_toggleButton__org_patternfly_component_card_CardHeader.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_expandableContent__org_patternfly_component_card_Card_.m_element__elemental2_dom_HTMLElement(), $Overlay)));
-  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_card_Card_, null)) {
-   this.f_toggleHandler__org_patternfly_component_card_Card_.m_onToggle__java_lang_Object__boolean__void(this, true);
+  if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_card_Card_, null)) {
+   this.f_toggleHandler__org_patternfly_component_card_Card_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, true);
   }
  }
  /** @nodts @return {boolean} */
  m_isSelectable__boolean_$pp_org_patternfly_component_card() {
-  return /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_selectable__org_patternfly_layout_Classes));
+  return /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_selectable__org_patternfly_style_Classes));
  }
  /** @nodts @return {boolean} */
  m_isClickable__boolean_$pp_org_patternfly_component_card() {
-  return /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_clickable__org_patternfly_layout_Classes));
+  return /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_clickable__org_patternfly_style_Classes));
  }
  /** @nodts */
  m_click__elemental2_dom_Event__void_$pp_org_patternfly_component_card(/** Event */ event) {
@@ -326,13 +306,13 @@ class Card extends BaseComponent {
  m_internalSelect__boolean__boolean__void_$pp_org_patternfly_component_card(/** boolean */ selected, /** boolean */ fireEvent) {
   if (this.m_isClickable__boolean_$pp_org_patternfly_component_card() && this.m_isSelectable__boolean_$pp_org_patternfly_component_card()) {
    if (selected) {
-    /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes));
+    /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes));
    } else {
-    /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes));
+    /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes));
    }
   }
   if (fireEvent && !$Equality.$same(this.f_selectHandler__org_patternfly_component_card_Card_, null)) {
-   this.f_selectHandler__org_patternfly_component_card_Card_.m_onSelect__java_lang_Object__boolean__void(this, selected);
+   this.f_selectHandler__org_patternfly_component_card_Card_.m_onSelect__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, selected);
   }
  }
  //Bridge method.
@@ -343,17 +323,17 @@ class Card extends BaseComponent {
  //Bridge method.
  /** @final @override @nodts @return {Card} */
  m_compact__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Card));
+  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Card));
  }
  //Bridge method.
  /** @final @override @nodts @return {Card} */
  m_compact__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
-  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
+  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
  }
  //Bridge method.
  /** @final @override @nodts @return {Card} */
  m_disabled__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Card}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_core_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Card));
+  return /**@type {Card}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Card));
  }
  //Bridge method.
  /** @final @override @nodts @return {Card} */
@@ -363,12 +343,12 @@ class Card extends BaseComponent {
  //Bridge method.
  /** @final @override @nodts @return {Card} */
  m_plain__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Card));
+  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Card));
  }
  //Bridge method.
  /** @final @override @nodts @return {Card} */
  m_plain__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
-  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
+  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
  }
  //Default method forwarding stub.
  /** @override @nodts */
@@ -396,34 +376,29 @@ class Card extends BaseComponent {
   Expandable.m_toggle__$default__org_patternfly_core_Expandable__boolean__void(this, arg0);
  }
  //Default method forwarding stub.
- /** @override @nodts */
- m_detach__elemental2_dom_MutationRecord__void(/** MutationRecord */ arg0) {
-  Attachable.m_detach__$default__org_jboss_elemento_Attachable__elemental2_dom_MutationRecord__void(this, arg0);
- }
- //Default method forwarding stub.
  /** @nodts @return {Card} */
  m_compact__org_patternfly_component_card_Card() {
-  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Card));
+  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Card));
  }
  //Default method forwarding stub.
  /** @nodts @return {Card} */
  m_compact__boolean__org_patternfly_component_card_Card(/** boolean */ arg0) {
-  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
+  return /**@type {Card}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
  }
  //Default method forwarding stub.
  /** @nodts @return {Card} */
  m_disabled__org_patternfly_component_card_Card() {
-  return /**@type {Card}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_core_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Card));
+  return /**@type {Card}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Card));
  }
  //Default method forwarding stub.
  /** @nodts @return {Card} */
  m_plain__org_patternfly_component_card_Card() {
-  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Card));
+  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Card));
  }
  //Default method forwarding stub.
  /** @nodts @return {Card} */
  m_plain__boolean__org_patternfly_component_card_Card(/** boolean */ arg0) {
-  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
+  return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
  }
  /** @nodts */
  static $clinit() {
@@ -434,7 +409,6 @@ class Card extends BaseComponent {
   Disabled.$clinit();
   Plain.$clinit();
   Expandable.$clinit();
-  Attachable.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -452,10 +426,10 @@ class Card extends BaseComponent {
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Logger = goog.module.get('org.patternfly.core.Logger$impl');
-  Modifiers = goog.module.get('org.patternfly.core.Modifiers$impl');
   SelectionMode = goog.module.get('org.patternfly.core.SelectionMode$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
-  Size = goog.module.get('org.patternfly.layout.Size$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  Modifiers = goog.module.get('org.patternfly.style.Modifiers$impl');
+  Size = goog.module.get('org.patternfly.style.Size$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
@@ -464,7 +438,6 @@ Compact.$markImplementor(Card);
 Disabled.$markImplementor(Card);
 Plain.$markImplementor(Card);
 Expandable.$markImplementor(Card);
-Attachable.$markImplementor(Card);
 $Util.$setClassMetadata(Card, 'org.patternfly.component.card.Card');
 
 exports = Card;

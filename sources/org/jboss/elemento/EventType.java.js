@@ -16,7 +16,6 @@ goog.require('elemental2.dom.MouseEvent.$Overlay');
 goog.require('elemental2.dom.PageTransitionEvent.$Overlay');
 goog.require('elemental2.dom.PopStateEvent.$Overlay');
 goog.require('elemental2.dom.TouchEvent.$Overlay');
-goog.require('elemental2.dom.UIEvent.$Overlay');
 goog.require('elemental2.dom.WheelEvent.$Overlay');
 goog.require('elemental2.dom.Window.$Overlay');
 goog.require('elemental2.webstorage.StorageEvent.$Overlay');

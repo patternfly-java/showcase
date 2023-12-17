@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"ComponentReference.impl.java.js",
-"lineCount":20,
-"mappings":"A;;;;;;;;;;;MA0BiB,kB;;CAER,6D,UAAgBA,S;;CAEnB,uD;;QAJW,O;EAAAC,qC;EAAAA;",
-"sources":["ComponentReference.java"],
-"names":["component","org.patternfly.component.ComponentReference.<clinit>"]
-}

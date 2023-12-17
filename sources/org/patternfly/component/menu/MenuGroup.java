@@ -15,19 +15,17 @@
  */
 package org.patternfly.component.menu;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.section;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.group;
-import static org.patternfly.layout.Classes.title;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.group;
+import static org.patternfly.style.Classes.title;
 
-public class MenuGroup extends SubComponent<HTMLElement, MenuGroup> implements ComponentReference<Menu> {
+public class MenuGroup extends MenuSubComponent<HTMLElement, MenuGroup> {
 
     // ------------------------------------------------------ factory
 
@@ -41,27 +39,15 @@ public class MenuGroup extends SubComponent<HTMLElement, MenuGroup> implements C
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "mg";
+
     MenuList list;
-    private Menu menu;
 
     MenuGroup(String text) {
-        super(section().css(component(Classes.menu, group)).element());
+        super(SUB_COMPONENT_NAME, section().css(component(Classes.menu, group)).element());
         if (text != null) {
             add(h(3, text).css(component(Classes.menu, group, title)));
         }
-    }
-
-    @Override
-    public void passComponent(Menu menu) {
-        this.menu = menu;
-        if (list != null) {
-            list.passComponent(menu);
-        }
-    }
-
-    @Override
-    public Menu mainComponent() {
-        return menu;
     }
 
     // ------------------------------------------------------ add

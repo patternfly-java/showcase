@@ -17,11 +17,11 @@ package org.patternfly.component.menu;
 
 import org.jboss.elemento.By;
 import org.jboss.elemento.Id;
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
+import org.patternfly.component.icon.InlineIcon;
+import org.patternfly.core.Aria;
 import org.patternfly.handler.ComponentHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Classes;
+import org.patternfly.style.PredefinedIcon;
 
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
@@ -32,69 +32,74 @@ import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.core.Attributes.tabindex;
-import static org.patternfly.layout.Classes.action;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.item;
+import static org.patternfly.style.Classes.action;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.favorite;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.item;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.PredefinedIcon.star;
 
-public class MenuItemAction extends SubComponent<HTMLButtonElement, MenuItemAction> implements
-        ComponentReference<Menu> {
+public class MenuItemAction extends MenuSubComponent<HTMLButtonElement, MenuItemAction> {
 
     // ------------------------------------------------------ factory
 
     public static MenuItemAction menuItemAction(String id) {
-        return new MenuItemAction(id, null);
-    }
-
-    public static MenuItemAction menuItemAction(String id, PredefinedIcon predefinedIcon) {
-        return new MenuItemAction(id, predefinedIcon.className);
+        return new MenuItemAction(id, null, false);
     }
 
     public static MenuItemAction menuItemAction(String id, String iconClass) {
-        return new MenuItemAction(id, iconClass);
+        return new MenuItemAction(id, inlineIcon(iconClass), false);
+    }
+
+    public static MenuItemAction menuItemAction(String id, PredefinedIcon predefinedIcon) {
+        return new MenuItemAction(id, inlineIcon(predefinedIcon), false);
+    }
+
+    static MenuItemAction favoriteMenuItemAction(String id) {
+        return new MenuItemAction(id, inlineIcon(star), true)
+                .css(modifier(favorite))
+                .aria(Aria.label, "not starred");
     }
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "mia";
+
     public final String id;
     private final HTMLElement iconContainer;
-    public MenuItem menuItem;
     ComponentHandler<MenuItemAction> handler;
-    private Menu menu;
+    public MenuItem menuItem;
 
-    MenuItemAction(String id, String iconClass) {
-        super(button()
+    MenuItemAction(String id, InlineIcon icon, boolean favorite) {
+        super(SUB_COMPONENT_NAME, button()
                 .css(component(Classes.menu, item, action))
                 .attr(tabindex, -1)
-                .add(span().css(component(Classes.menu, item, action, icon))
-                        .add(inlineIcon(iconClass)))
+                .add(span().css(component(Classes.menu, item, action, Classes.icon))
+                        .add(icon))
                 .element());
         this.id = id;
-        this.iconContainer = find(By.classname(component(Classes.menu, item, action, icon)));
+        this.iconContainer = find(By.classname(component(Classes.menu, item, action, Classes.icon)));
+        if (!favorite) {
+            on(click, e -> {
+                Menu menu = lookupComponent();
+                if (menu.actionHandler != null) {
+                    menu.actionHandler.onAction(menu, menuItem, this);
+                }
+            });
+        }
     }
 
     // constructor must only be used to clone an item action of a favorite item!
     MenuItemAction(Menu menu, MenuItem favoriteItem, MenuItemAction sourceItemAction,
             HTMLButtonElement itemActionElement) {
-        super(itemActionElement);
+        super(SUB_COMPONENT_NAME, itemActionElement);
         this.id = Id.build("fav", sourceItemAction.id);
         this.iconContainer = find(By.classname(component(Classes.menu, Classes.item, action, icon)));
         this.menuItem = favoriteItem;
         if (sourceItemAction.handler != null) {
             onClick(sourceItemAction.handler);
         }
-        // Don't call passMenu(menu) here. It's called by MenuItem(Menu, MenuItem, MenuItemType) constructor!
-    }
-
-    @Override
-    public void passComponent(Menu menu) {
-        this.menu = menu;
-        on(click, e -> menu.handleItemAction(this));
-    }
-
-    @Override
-    public Menu mainComponent() {
-        return menu;
     }
 
     // ------------------------------------------------------ builder

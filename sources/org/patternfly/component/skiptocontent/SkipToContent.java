@@ -17,13 +17,15 @@ package org.patternfly.component.skiptocontent;
 
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
-import org.patternfly.layout.Classes;
+import org.patternfly.component.button.Button;
+import org.patternfly.core.WithText;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.layout.Classes.component;
+import static org.patternfly.style.Classes.component;
 
 /**
  * A skip to content component allows screen reader and keyboard users to bypass navigation rather than tabbing through it.
@@ -31,7 +33,8 @@ import static org.patternfly.layout.Classes.component;
  * @see <a href=
  *      "https://www.patternfly.org/components/skip-to-content/html">https://www.patternfly.org/components/skip-to-content/html</a>
  */
-public class SkipToContent extends BaseComponent<HTMLDivElement, SkipToContent> {
+public class SkipToContent extends BaseComponent<HTMLDivElement, SkipToContent> implements
+        WithText<HTMLDivElement, SkipToContent> {
 
     // ------------------------------------------------------ factory
 
@@ -51,12 +54,20 @@ public class SkipToContent extends BaseComponent<HTMLDivElement, SkipToContent> 
 
     // ------------------------------------------------------ instance
 
+    private final Button button;
+
     SkipToContent(String mainId, String text) {
-        super(div().css(component(Classes.skipToContent))
-                .add(button(text, "#" + mainId).primary()).element(), ComponentType.SkipToContent);
+        super(ComponentType.SkipToContent, div().css(component(Classes.skipToContent)).element());
+        add(button = button(text, "#" + mainId).primary());
     }
 
     // ------------------------------------------------------ builder
+
+    @Override
+    public SkipToContent text(String text) {
+        button.text(text);
+        return this;
+    }
 
     @Override
     public SkipToContent that() {

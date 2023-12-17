@@ -15,16 +15,14 @@
  */
 package org.patternfly.component.popover;
 
-import org.patternfly.component.SubComponent;
-
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.footer;
-import static org.patternfly.layout.Classes.popover;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.footer;
+import static org.patternfly.style.Classes.popover;
 
-public class PopoverFooter extends SubComponent<HTMLDivElement, PopoverFooter> {
+public class PopoverFooter extends PopoverSubComponent<HTMLDivElement, PopoverFooter> {
 
     // ------------------------------------------------------ factory
 
@@ -34,8 +32,10 @@ public class PopoverFooter extends SubComponent<HTMLDivElement, PopoverFooter> {
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "pf";
+
     PopoverFooter() {
-        super(div().css(component(popover, footer)).element());
+        super(SUB_COMPONENT_NAME, div().css(component(popover, footer)).element());
     }
 
     // ------------------------------------------------------ builder

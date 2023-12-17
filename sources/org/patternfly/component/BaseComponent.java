@@ -29,19 +29,18 @@ import static java.util.Objects.requireNonNull;
 public abstract class BaseComponent<E extends HTMLElement, B extends TypedBuilder<E, B>>
         implements Component, HasElement<E, B>, HasHTMLElement<E, B>, Finder<E>, Container<E, B> {
 
-    private final E element;
     private final ComponentType componentType;
+    private final E element;
 
-    // TODO Remove, once all components have been migrated to PF 5
-    protected BaseComponent(E element, String component) {
+    protected BaseComponent(ComponentType componentType, E element) {
+        this.componentType = requireNonNull(componentType, "component type required");
         this.element = requireNonNull(element, "element required");
-        this.componentType = ComponentType.Unknown;
+        Ouia.component(element, componentType);
     }
 
-    protected BaseComponent(E element, ComponentType componentType) {
-        this.element = requireNonNull(element, "element required");
-        this.componentType = requireNonNull(componentType, "component type required");
-        Ouia.component(element, componentType);
+    @Override
+    public ComponentType componentType() {
+        return componentType;
     }
 
     @Override
@@ -49,8 +48,19 @@ public abstract class BaseComponent<E extends HTMLElement, B extends TypedBuilde
         return element;
     }
 
-    @Override
-    public ComponentType componentType() {
-        return componentType;
+    // ------------------------------------------------------ component store
+
+    protected void storeComponent() {
+        ComponentStore.store(this);
+    }
+
+    protected <C extends BaseComponent<E1, B1>, E1 extends HTMLElement, B1 extends TypedBuilder<E1, B1>> C lookupComponent(
+            ComponentType componentType) {
+        return lookupComponent(componentType, false);
+    }
+
+    protected <C extends BaseComponent<E1, B1>, E1 extends HTMLElement, B1 extends TypedBuilder<E1, B1>> C lookupComponent(
+            ComponentType componentType, boolean lenient) {
+        return ComponentStore.lookup(componentType, element(), lenient);
     }
 }

@@ -15,15 +15,13 @@
  */
 package org.patternfly.component.page;
 
-import org.patternfly.component.SubComponent;
-
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.body;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.main;
-import static org.patternfly.layout.Classes.page;
+import static org.patternfly.style.Classes.body;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.main;
+import static org.patternfly.style.Classes.page;
 
 /**
  * Container for the body of a {@link PageSection} container. Required if the {@link PageSection} has a
@@ -34,7 +32,7 @@ import static org.patternfly.layout.Classes.page;
  * @see <a href=
  *      "https://www.patternfly.org/components/page/html#usage">https://www.patternfly.org/components/page/html#usage</a>
  */
-public class PageMainBody extends SubComponent<HTMLDivElement, PageMainBody> {
+public class PageMainBody extends PageSubComponent<HTMLDivElement, PageMainBody> {
 
     // ------------------------------------------------------ factory
 
@@ -47,9 +45,10 @@ public class PageMainBody extends SubComponent<HTMLDivElement, PageMainBody> {
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "pmb";
+
     PageMainBody() {
-        super(div().css(component(page, main, body))
-                .element());
+        super(SUB_COMPONENT_NAME, div().css(component(page, main, body)).element());
     }
 
     // ------------------------------------------------------ builder

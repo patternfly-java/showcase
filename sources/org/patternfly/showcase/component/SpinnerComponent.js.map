@@ -2,7 +2,7 @@
 "version":3,
 "file":"SpinnerComponent.impl.java.js",
 "lineCount":51,
-"mappings":"A;;;;;;;;;;;;;;;;;;MA+Ba,gB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,2B;EAAAA,uC;EAAAA,4E;EAAAA,iB;;;CAAA,+D;EACHC,ywB;EAOAA;GAGQC,sYAHRD;O;EASAA;GAGQC,otDAHRD;O;EAeAA;GAGQC,qdAHRD;O;EASAA;GAGQC,g2HAHRD;O;;;QA3CK,O;EAAAE,mC;EAAAA,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;;MAiCa,gB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,2B;EAAAA,uC;EAAAA,4E;EAAAA,iB;;;CAAA,+D;EACHC,6vB;EAOAA;GAGQC,sYAHRD;O;EASAA;GAGQC,4sDAHRD;O;EAeAA;GAGQC,qdAHRD;O;EASAA;GAGQC,g2HAHRD;O;;;QA3CK,O;EAAAE,mC;EAAAA,gC;EAAAA;",
 "sources":["SpinnerComponent.java"],
 "names":["org.patternfly.showcase.component.SpinnerComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.SpinnerComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.SpinnerComponent.<init>","org.patternfly.showcase.component.SpinnerComponent.<lambda in <init>>","org.patternfly.showcase.component.SpinnerComponent.<clinit>"]
 }

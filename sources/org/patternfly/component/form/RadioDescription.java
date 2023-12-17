@@ -15,16 +15,15 @@
  */
 package org.patternfly.component.form;
 
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.span;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.radio;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.radio;
 
-public class RadioDescription extends SubComponent<HTMLElement, RadioDescription> {
+public class RadioDescription extends RadioSubComponent<HTMLElement, RadioDescription> {
 
     // ------------------------------------------------------ factory
 
@@ -38,9 +37,10 @@ public class RadioDescription extends SubComponent<HTMLElement, RadioDescription
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "rd";
+
     RadioDescription(String description) {
-        super(span().css(component(radio, Classes.description))
-                .element());
+        super(SUB_COMPONENT_NAME, span().css(component(radio, Classes.description)).element());
         if (description != null) {
             element().textContent = description;
         }

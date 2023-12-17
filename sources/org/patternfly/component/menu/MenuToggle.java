@@ -22,32 +22,36 @@ import org.patternfly.component.avatar.Avatar;
 import org.patternfly.component.badge.Badge;
 import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.core.Aria;
+import org.patternfly.core.IconPosition;
 import org.patternfly.core.Logger;
-import org.patternfly.core.Modifiers.Disabled;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.core.WithIcon;
+import org.patternfly.core.WithIconAndText;
+import org.patternfly.core.WithText;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Disabled;
+import org.patternfly.style.PredefinedIcon;
 
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.button;
 import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.insertBefore;
 import static org.jboss.elemento.Elements.insertFirst;
 import static org.jboss.elemento.Elements.span;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
-import static org.patternfly.layout.Classes.button;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.controls;
-import static org.patternfly.layout.Classes.count;
-import static org.patternfly.layout.Classes.expanded;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.menuToggle;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.primary;
-import static org.patternfly.layout.Classes.secondary;
-import static org.patternfly.layout.Classes.toggle;
-import static org.patternfly.layout.PredefinedIcon.caretDown;
+import static org.patternfly.style.Classes.button;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.controls;
+import static org.patternfly.style.Classes.count;
+import static org.patternfly.style.Classes.expanded;
+import static org.patternfly.style.Classes.menuToggle;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.primary;
+import static org.patternfly.style.Classes.secondary;
+import static org.patternfly.style.Classes.toggle;
+import static org.patternfly.style.PredefinedIcon.caretDown;
 
 /**
  * The menu toggle component pairs with the menu OR the panel component to create more customizable dropdown and select
@@ -57,7 +61,11 @@ import static org.patternfly.layout.PredefinedIcon.caretDown;
  * @see <a href= *
  *      "https://www.patternfly.org/components/menus/menu-toggle/html">https://www.patternfly.org/components/menus/menu-toggle/html</a>
  */
-public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implements Disabled<HTMLElement, MenuToggle> {
+public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implements
+        WithIcon<HTMLElement, MenuToggle>,
+        WithText<HTMLElement, MenuToggle>,
+        WithIconAndText<HTMLElement, MenuToggle>,
+        Disabled<HTMLElement, MenuToggle> {
 
     // ------------------------------------------------------ factory
 
@@ -70,19 +78,19 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
     }
 
     public static MenuToggle menuToggle(PredefinedIcon icon) {
-        return menuToggle(MenuToggleType.plain).addIcon(icon);
+        return menuToggle(MenuToggleType.plain).icon(icon);
     }
 
     public static MenuToggle menuToggle(PredefinedIcon icon, String label) {
-        return menuToggle(MenuToggleType.plain).addIcon(icon).ariaLabel(label);
+        return menuToggle(MenuToggleType.plain).icon(icon).ariaLabel(label);
     }
 
     public static MenuToggle menuToggle(InlineIcon icon) {
-        return menuToggle(MenuToggleType.plain).addIcon(icon);
+        return menuToggle(MenuToggleType.plain).icon(icon);
     }
 
     public static MenuToggle menuToggle(InlineIcon icon, String label) {
-        return menuToggle(MenuToggleType.plain).addIcon(icon).ariaLabel(label);
+        return menuToggle(MenuToggleType.plain).icon(icon).ariaLabel(label);
     }
 
     public static MenuToggle menuToggle(MenuToggleType type) {
@@ -95,7 +103,7 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
             case typeahead:
                 return new MenuToggle(div(), type);
             default:
-                Logger.unknown(ComponentType.MenuToggle, "Unknown menu toggle type '" + type.name() + "'. " +
+                Logger.unknown(ComponentType.MenuToggle, null, "Unknown menu toggle type '" + type.name() + "'. " +
                         "Fallback to '" + MenuToggleType.default_.name() + "'.");
                 return new MenuToggle(button(), type);
         }
@@ -111,9 +119,11 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
     private Badge badge;
     private MenuToggleAction action;
     private MenuToggleCheckbox checkbox;
+    private InlineIcon icon;
+    private HTMLElement iconContainer;
 
     <E extends HTMLElement> MenuToggle(HTMLContainerBuilder<E> builder, MenuToggleType type) {
-        super(builder.css(component(menuToggle)).element(), ComponentType.MenuToggle);
+        super(ComponentType.MenuToggle, builder.css(component(menuToggle)).element());
         this.type = type;
         if (!this.type.modifier.isEmpty()) {
             css(type.modifier);
@@ -126,7 +136,7 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
         } else if (type == MenuToggleType.default_ || type == MenuToggleType.plainText) {
             aria(expanded, false);
             add(controlElement = span().css(component(menuToggle, controls))
-                    .add(span().css(component(menuToggle, toggle, icon))
+                    .add(span().css(component(menuToggle, toggle, Classes.icon))
                             .add(inlineIcon(caretDown)))
                     .element());
             toggleElement = element();
@@ -134,42 +144,18 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
             add(toggleElement = button().css(component(menuToggle, button))
                     .aria(expanded, false)
                     .add(span().css(component(menuToggle, controls))
-                            .add(span().css(component(menuToggle, toggle, icon))
+                            .add(span().css(component(menuToggle, toggle, Classes.icon))
                                     .add(inlineIcon(caretDown))))
                     .element());
             controlElement = toggleElement;
         } else {
             toggleElement = div().element();
             controlElement = div().element();
-            Logger.unknown(componentType(), "Unknown menu toggle type '" + type.name() + "'");
+            Logger.unknown(componentType(), element(), "Unknown menu toggle type '" + type.name() + "'");
         }
     }
 
     // ------------------------------------------------------ add
-
-    public MenuToggle addIcon(String iconClass) {
-        return add(inlineIcon(iconClass));
-    }
-
-    public MenuToggle addIcon(PredefinedIcon icon) {
-        return add(inlineIcon(icon));
-    }
-
-    public MenuToggle addIcon(InlineIcon icon) {
-        return add(icon);
-    }
-
-    // override to append to the right container!
-    public MenuToggle add(InlineIcon icon) {
-        if (type == MenuToggleType.plain) {
-            add(icon.element());
-        } else if (type == MenuToggleType.default_ || type == MenuToggleType.plainText) {
-            insertFirst(element(), span().css(component(menuToggle, Classes.icon)).add(icon).element());
-        } else {
-            Logger.unsupported(componentType(), "Icon is not supported for menu toggles with type '" + type.name() + "'");
-        }
-        return this;
-    }
 
     public MenuToggle addAvatar(Avatar avatar) {
         return add(avatar);
@@ -180,7 +166,8 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
         if (type == MenuToggleType.default_ || type == MenuToggleType.plainText) {
             insertFirst(element(), span().css(component(menuToggle, Classes.icon)).add(avatar).element());
         } else {
-            Logger.unsupported(componentType(), "Avatar is not supported for menu toggles with type '" + type.name() + "'");
+            Logger.unsupported(componentType(), element(),
+                    "Avatar is not supported for menu toggles with type '" + type.name() + "'");
         }
         return this;
     }
@@ -195,7 +182,8 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
             this.badge = badge;
             insertBefore(span().css(component(menuToggle, count)).add(badge), controlElement);
         } else {
-            Logger.unsupported(componentType(), "Badge is not supported for menu toggles with type '" + type.name() + "'");
+            Logger.unsupported(componentType(), element(),
+                    "Badge is not supported for menu toggles with type '" + type.name() + "'");
         }
         return this;
     }
@@ -239,6 +227,28 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
         return this;
     }
 
+    @Override
+    public MenuToggle icon(InlineIcon icon) {
+        removeIcon();
+        this.icon = icon;
+        if (type == MenuToggleType.plain) {
+            add(icon.element());
+        } else if (type == MenuToggleType.default_ || type == MenuToggleType.plainText) {
+            insertFirst(element(), iconContainer = span().css(component(menuToggle, Classes.icon)).add(icon).element());
+        } else {
+            Logger.unsupported(componentType(), element(),
+                    "Icon is not supported for menu toggles with type '" + type.name() + "'");
+        }
+        return this;
+    }
+
+    @Override
+    public MenuToggle removeIcon() {
+        failSafeRemoveFromParent(icon);
+        failSafeRemoveFromParent(iconContainer);
+        return this;
+    }
+
     public MenuToggle primary() {
         return css(modifier(primary));
     }
@@ -247,6 +257,7 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
         return css(modifier(secondary));
     }
 
+    @Override
     public MenuToggle text(String text) {
         if (type == MenuToggleType.default_ || type == MenuToggleType.plainText) {
             if (textElement == null) {
@@ -262,6 +273,12 @@ public class MenuToggle extends BaseComponent<HTMLElement, MenuToggle> implement
             }
         }
         return this;
+    }
+
+    @Override
+    public MenuToggle iconAndText(InlineIcon icon, String text, IconPosition iconPosition) {
+        icon(icon);
+        return text(text);
     }
 
     @Override

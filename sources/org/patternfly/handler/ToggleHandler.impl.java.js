@@ -10,9 +10,9 @@ let $LambdaAdaptor = goog.forwardDeclare('org.patternfly.handler.ToggleHandler.$
  */
 class ToggleHandler {
  /** @abstract @nodts */
- m_onToggle__java_lang_Object__boolean__void(/** C */ component, /** boolean */ expanded) {}
+ m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(/** Event */ event, /** C */ component, /** boolean */ expanded) {}
  /** @nodts @template C @return {ToggleHandler<C>} */
- static $adapt(/** ?function(C, boolean):void */ fn) {
+ static $adapt(/** ?function(Event, C, boolean):void */ fn) {
   ToggleHandler.$clinit();
   return /**@type {!$LambdaAdaptor<C>}*/ (new $LambdaAdaptor(fn));
  }

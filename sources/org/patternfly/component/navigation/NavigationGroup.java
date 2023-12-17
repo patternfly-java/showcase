@@ -19,9 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import org.patternfly.component.SubComponent;
 import org.patternfly.component.divider.Divider;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLUListElement;
@@ -31,12 +30,12 @@ import static org.jboss.elemento.Elements.section;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.core.Dataset.navigationGroup;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.list;
-import static org.patternfly.layout.Classes.nav;
-import static org.patternfly.layout.Classes.title;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.list;
+import static org.patternfly.style.Classes.nav;
+import static org.patternfly.style.Classes.title;
 
-public class NavigationGroup extends SubComponent<HTMLElement, NavigationGroup> {
+public class NavigationGroup extends NavigationSubComponent<HTMLElement, NavigationGroup> {
 
     // ------------------------------------------------------ factory
 
@@ -46,12 +45,14 @@ public class NavigationGroup extends SubComponent<HTMLElement, NavigationGroup> 
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "ng";
+
     public final String id;
     private final Map<String, NavigationItem> items;
     private final HTMLUListElement ul;
 
     NavigationGroup(String id, String text) {
-        super(section().css(component(nav, Classes.section))
+        super(SUB_COMPONENT_NAME, section().css(component(nav, Classes.section))
                 .data(navigationGroup, id)
                 .element());
         this.id = id;

@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"CodeEditorTabIcon.impl.java.js",
-"lineCount":65,
-"mappings":"A;;;;;;;;;;;;;;;;;MA6Ba,iB;;CAAA,W;EAAAA,Q;;;QAIuB,oE;EAAoBC,4B;EAChDA,mE;;;QAG4B,0G,uBAAiCC,I;EAAMD,4B;EACnEA,sa;;;QAG4B,sF,gBAAyBE,S;EAAWF,4B;EAChEA,yX;;;QAKJ,mC,oBAA8BC,I;EAA9BE,4B;EAAAA,wC;EAAAA,yG;EAAAA,iB;;;CAAA,wF,oBAA8BF,I;EAC1BG,yqB;EACAA;GACIA,uEADJA;G;;;CAQqB,uD;EACrBC,Y;;;;CA7BK,uC;EAAAA,sE;;;QAAA,O;EAAAC,oC;EAAAA,iC;EAAAA;",
+"lineCount":84,
+"mappings":"A;;;;;;;;;;;;;;;;;MA4Ba,iB;;CAAA,W;EAAAA,Q;;;QAIuB,oE;EAAoBC,4B;EAChDA,mE;;;QAG4B,yG,uBAAiCC,I;EAAMD,4B;EACnEA,qa;;;QAG4B,sF,gBAAyBE,S;EAAWF,4B;EAChEA,yX;;;QAOJ,mC,oBAA8BC,I;EAA9BE,4B;EAAAA,wC;EAAAA,yG;EAAAA,iB;;;CAAA,wF,oBAA8BF,I;EAC1BG,gyB;EACAA;GACIA,uEADJA;G;;;CAQqB,uD;EACrBC,Y;;;;CA/BK,uC;EAAAA,sE;;;QAAA,O;EAAAC,oC;EAAAA,iC;EAAAA,iC;;;;;;;;;;;;;;;;;;AAkBT;kBAAoB,qEAApB;",
 "sources":["CodeEditorTabIcon.java"],
 "names":["org.patternfly.component.code.CodeEditorTabIcon.<synthetic: ctor_js>","org.patternfly.component.code.CodeEditorTabIcon.codeEditorTabIcon","icon","iconClass","org.patternfly.component.code.CodeEditorTabIcon.<synthetic: ctor_create>","org.patternfly.component.code.CodeEditorTabIcon.<init>","org.patternfly.component.code.CodeEditorTabIcon.that","org.patternfly.component.code.CodeEditorTabIcon.<clinit>"]
 }

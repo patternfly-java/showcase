@@ -8,13 +8,16 @@ const HasHTMLElement = goog.require('org.jboss.elemento.HasHTMLElement$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLElement.$Overlay$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
+let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Objects = goog.forwardDeclare('java.util.Objects$impl');
 let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
 let SafeHtml = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeHtml$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
+let ClassList = goog.forwardDeclare('org.jboss.elemento.ClassList$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let TypedBuilder = goog.forwardDeclare('org.jboss.elemento.TypedBuilder$impl');
+let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
@@ -28,12 +31,18 @@ class SubComponentFlat extends j_l_Object {
  /** @protected @nodts */
  constructor() {
   super();
+  /**@type {ComponentType} @nodts*/
+  this.f_componentType__org_patternfly_component_SubComponentFlat;
+  /**@type {?string} @nodts*/
+  this.f_name__org_patternfly_component_SubComponentFlat;
   /**@type {E} @nodts*/
   this.f_element__org_patternfly_component_SubComponentFlat_;
  }
  /** @nodts */
- $ctor__org_patternfly_component_SubComponentFlat__elemental2_dom_HTMLElement__void(/** E */ element) {
+ $ctor__org_patternfly_component_SubComponentFlat__org_patternfly_component_ComponentType__java_lang_String__elemental2_dom_HTMLElement__void(/** ComponentType */ componentType, /** ?string */ name, /** E */ element) {
   this.$ctor__java_lang_Object__void();
+  this.f_componentType__org_patternfly_component_SubComponentFlat = /**@type {ComponentType}*/ ($Casts.$to(Objects.m_requireNonNull__java_lang_Object__java_lang_String__java_lang_Object(componentType, 'component type required'), ComponentType));
+  this.f_name__org_patternfly_component_SubComponentFlat = /**@type {?string}*/ ($Casts.$to(Objects.m_requireNonNull__java_lang_Object__java_lang_String__java_lang_Object(name, 'name required'), j_l_String));
   this.f_element__org_patternfly_component_SubComponentFlat_ = /**@type {E}*/ ($Casts.$to(Objects.m_requireNonNull__java_lang_Object__java_lang_String__java_lang_Object(element, 'element required'), $Overlay));
  }
  /** @nodts @return {E} */
@@ -84,6 +93,16 @@ class SubComponentFlat extends j_l_Object {
  /** @override @nodts @return {B} */
  m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1) {
   return HasElement.m_attr__$default__org_jboss_elemento_HasElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1);
+ }
+ //Default method forwarding stub.
+ /** @override @nodts @return {ClassList<E>} */
+ m_classList__org_jboss_elemento_ClassList() {
+  return /**@type {ClassList<E>}*/ (HasElement.m_classList__$default__org_jboss_elemento_HasElement__org_jboss_elemento_ClassList(this));
+ }
+ //Default method forwarding stub.
+ /** @override @nodts @return {B} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<ClassList<E>> */ arg0) {
+  return HasElement.m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0);
  }
  //Default method forwarding stub.
  /** @override @nodts @return {B} */
@@ -214,7 +233,9 @@ class SubComponentFlat extends j_l_Object {
  /** @nodts */
  static $loadModules() {
   $Overlay = goog.module.get('elemental2.dom.HTMLElement.$Overlay$impl');
+  j_l_String = goog.module.get('java.lang.String$impl');
   Objects = goog.module.get('java.util.Objects$impl');
+  ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }

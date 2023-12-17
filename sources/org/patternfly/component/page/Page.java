@@ -15,21 +15,34 @@
  */
 package org.patternfly.component.page;
 
+import java.util.function.Function;
+
+import org.jboss.elemento.Attachable;
+import org.jboss.elemento.Callback;
+import org.jboss.elemento.ResizeObserverCleanup;
+import org.jboss.elemento.Scheduler;
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
-import org.patternfly.component.masthead.Masthead;
-import org.patternfly.component.sidebar.Sidebar;
 import org.patternfly.component.skiptocontent.SkipToContent;
+import org.patternfly.core.ObservableValue;
+import org.patternfly.handler.ResizeHandler;
+import org.patternfly.style.Breakpoint;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Rect;
 
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.MutationRecord;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.insertAfter;
 import static org.jboss.elemento.Elements.insertBefore;
 import static org.jboss.elemento.Elements.insertFirst;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.page;
+import static org.jboss.elemento.Elements.resizeObserver;
+import static org.patternfly.core.ObservableValue.ov;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.page;
 
 /**
  * The page component is used to define the basic layout of a page with either vertical or horizontal navigation.
@@ -38,7 +51,7 @@ import static org.patternfly.layout.Classes.page;
  *
  * @see <a href="https://www.patternfly.org/components/page/html">https://www.patternfly.org/components/page/html</a>
  */
-public class Page extends BaseComponent<HTMLDivElement, Page> {
+public class Page extends BaseComponent<HTMLDivElement, Page> implements Attachable {
 
     // ------------------------------------------------------ factory
 
@@ -54,19 +67,50 @@ public class Page extends BaseComponent<HTMLDivElement, Page> {
 
     // ------------------------------------------------------ instance
 
+    private final ObservableValue<Rect> rect;
     private SkipToContent skipToContent;
     private Masthead masthead;
-    private Sidebar sidebar;
+    private PageSidebar sidebar;
     private PageMain main;
+    private ResizeObserverCleanup cleanup;
+    private Function<Integer, Breakpoint> breakpointFn;
+    private Function<Integer, Breakpoint> verticalBreakpointFn;
+    private ResizeHandler<Page> resizeHandler;
 
     protected Page() {
-        super(div().css(component(page)).element(), ComponentType.Page);
+        super(ComponentType.Page, div().css(component(page)).element());
+        this.rect = ov(new Rect()).subscribe(this::onChangedRect);
+        Attachable.register(this, this);
+    }
+
+    @Override
+    public void attach(MutationRecord mutationRecord) {
+        Callback resizeCallback = Scheduler.debounce(250, this::onResize);
+        cleanup = resizeObserver(element(), () -> {
+            if (resizeHandler != null) {
+                resizeHandler.onResize(this);
+            }
+            resizeCallback.call();
+        });
+        onResize();
+    }
+
+    @Override
+    public void detach(MutationRecord mutationRecord) {
+        if (cleanup != null) {
+            cleanup.cleanup();
+        }
     }
 
     // ------------------------------------------------------ add
 
     /** Adds the {@link SkipToContent} component as first element and removes the previous one (if any). */
     public Page addSkipToContent(SkipToContent skipToContent) {
+        return add(skipToContent);
+    }
+
+    /** Adds the {@link SkipToContent} component as first element and removes the previous one (if any). */
+    public Page add(SkipToContent skipToContent) {
         failSafeRemoveFromParent(this.skipToContent);
         this.skipToContent = skipToContent;
         insertFirst(element(), this.skipToContent);
@@ -75,6 +119,11 @@ public class Page extends BaseComponent<HTMLDivElement, Page> {
 
     /** Adds the {@link Masthead} component and removes the previous one (if any). */
     public Page addMasthead(Masthead masthead) {
+        return add(masthead);
+    }
+
+    /** Adds the {@link Masthead} component and removes the previous one (if any). */
+    public Page add(Masthead masthead) {
         failSafeRemoveFromParent(this.masthead);
         this.masthead = masthead;
         if (skipToContent != null) {
@@ -85,20 +134,30 @@ public class Page extends BaseComponent<HTMLDivElement, Page> {
         return this;
     }
 
-    /** Adds the {@link Sidebar} component and removes the previous one (if any). */
-    public Page addSidebar(Sidebar sidebar) {
+    /** Adds the {@link PageSidebar} component and removes the previous one (if any). */
+    public Page addSidebar(PageSidebar sidebar) {
+        return add(sidebar);
+    }
+
+    /** Adds the {@link PageSidebar} component and removes the previous one (if any). */
+    public Page add(PageSidebar sidebar) {
         failSafeRemoveFromParent(this.sidebar);
         this.sidebar = sidebar;
         if (main != null) {
             insertBefore(this.sidebar, main.element());
         } else {
-            add(this.sidebar.element());
+            add(sidebar.element());
         }
         return this;
     }
 
     /** Adds the {@link PageMain} component and removes the previous one (if any). */
     public Page addMain(PageMain main) {
+        return add(main);
+    }
+
+    /** Adds the {@link PageMain} component and removes the previous one (if any). */
+    public Page add(PageMain main) {
         failSafeRemoveFromParent(this.main);
         this.main = main;
         return add(main.element());
@@ -106,8 +165,35 @@ public class Page extends BaseComponent<HTMLDivElement, Page> {
 
     // ------------------------------------------------------ builder
 
+    /**
+     * The page resize observer uses the breakpoints returned from this function when adding the
+     * {@code pf-m-breakpoint-[default|sm|md|lg|xl|2xl]} class. You can override the default function
+     * {@link Breakpoint#breakpoint(int)} to return breakpoints at different sizes than the default.
+     */
+    public Page breakpoint(Function<Integer, Breakpoint> breakpointFn) {
+        this.breakpointFn = breakpointFn;
+        return this;
+    }
+
+    /**
+     * The page resize observer uses the breakpoints returned from this function when adding the
+     * {@code pf-m-height-breakpoint-[default|sm|md|lg|xl|2xl]} class. You can override the default function
+     * {@link Breakpoint#verticalBreakpoint(int)} to return breakpoints at different sizes than the default.
+     */
+    public Page verticalBreakpoint(Function<Integer, Breakpoint> verticalBreakpointFn) {
+        this.verticalBreakpointFn = verticalBreakpointFn;
+        return this;
+    }
+
     @Override
     public Page that() {
+        return this;
+    }
+
+    // ------------------------------------------------------ events
+
+    public Page onResize(ResizeHandler<Page> resizeHandler) {
+        this.resizeHandler = resizeHandler;
         return this;
     }
 
@@ -121,9 +207,9 @@ public class Page extends BaseComponent<HTMLDivElement, Page> {
     }
 
     /**
-     * Returns the current {@link Sidebar} or {@code null} if no sidebar has been defined yet.
+     * Returns the current {@link PageSidebar} or {@code null} if no sidebar has been defined yet.
      */
-    public Sidebar sidebar() {
+    public PageSidebar sidebar() {
         return sidebar;
     }
 
@@ -133,5 +219,48 @@ public class Page extends BaseComponent<HTMLDivElement, Page> {
     @SuppressWarnings("ConfusingMainMethod")
     public PageMain main() {
         return main;
+    }
+
+    // ------------------------------------------------------ internal
+
+    boolean underXl() {
+        return element().clientWidth < Breakpoint.xl.widthValue;
+    }
+
+    private void onResize() {
+        int width = element().clientWidth;
+        int height = element().clientHeight;
+        rect.set(new Rect(width, height));
+    }
+
+    private void onChangedRect(Rect current, Rect previous) {
+        // if it's already present, it won't be added again
+        css(modifier(Classes.resizeObserver));
+
+        Breakpoint previousBreakpoint = breakpointFn != null ? breakpointFn.apply(previous.width)
+                : Breakpoint.breakpoint(previous.width);
+        Breakpoint currentBreakpoint = breakpointFn != null ? breakpointFn.apply(current.width)
+                : Breakpoint.breakpoint(current.width);
+        if (previousBreakpoint != currentBreakpoint) {
+            classList().remove(modifier("breakpoint-" + previousBreakpoint.value));
+            classList().add(modifier("breakpoint-" + currentBreakpoint.value));
+        }
+
+        Breakpoint previousVerticalBreakpoint = breakpointFn != null ? verticalBreakpointFn.apply(previous.height)
+                : Breakpoint.verticalBreakpoint(previous.height);
+        Breakpoint currentVerticalBreakpoint = breakpointFn != null ? verticalBreakpointFn.apply(current.height)
+                : Breakpoint.verticalBreakpoint(current.height);
+        if (previousVerticalBreakpoint != currentVerticalBreakpoint) {
+            classList().remove(modifier("height-breakpoint-" + previousVerticalBreakpoint.value));
+            classList().add(modifier("height-breakpoint-" + currentVerticalBreakpoint.value));
+        }
+
+        // resize (sub) components
+        if (masthead != null) {
+            masthead.onPageResize(current, previous);
+        }
+        if (sidebar != null) {
+            sidebar.onPageResize(current, previous);
+        }
     }
 }

@@ -8,8 +8,9 @@ goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.patternfly.component.BaseComponent');
 goog.require('org.patternfly.component.ComponentType');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.Size');
+goog.require('org.patternfly.core.WithText');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Size');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

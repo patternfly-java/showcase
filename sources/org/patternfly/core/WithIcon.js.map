@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"WithIcon.impl.java.js",
+"lineCount":38,
+"mappings":"A;;;;;;;;;;;;;;;MA0BiB,Q;;CAGH,yD,gBAAYA,S;;CAIZ,4E,uBAAoBC,c;;CAI5B,iF,mBAAgBC,I;;CAEhB,6C;;QAVQ,iG,iDAAYF,S;EAAZG,mB;EACNA,kM;;;QAGM,oH,wDAAoBF,c;EAApBE,mB;EACNA,0N;;;QARS,O;EAAAC,2B;EAAAA;",
+"sources":["WithIcon.java"],
+"names":["iconClass","predefinedIcon","icon","org.patternfly.core.WithIcon.icon__$default","org.patternfly.core.WithIcon.<clinit>"]
+}

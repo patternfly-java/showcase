@@ -7,7 +7,7 @@ goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.IsElement');
 goog.require('org.jboss.elemento.TypedBuilder');
 goog.require('org.patternfly.core.Aria');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
 
 const Expandable = goog.require('org.patternfly.core.Expandable$impl');
 exports = Expandable;

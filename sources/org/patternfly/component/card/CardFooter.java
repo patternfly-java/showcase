@@ -15,16 +15,14 @@
  */
 package org.patternfly.component.card;
 
-import org.patternfly.component.SubComponent;
-
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.card;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.footer;
+import static org.patternfly.style.Classes.card;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.footer;
 
-public class CardFooter extends SubComponent<HTMLDivElement, CardFooter> {
+public class CardFooter extends CardSubComponent<HTMLDivElement, CardFooter> {
 
     // ------------------------------------------------------ factory
 
@@ -34,8 +32,10 @@ public class CardFooter extends SubComponent<HTMLDivElement, CardFooter> {
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "cf";
+
     CardFooter() {
-        super(div().css(component(card, footer)).element());
+        super(SUB_COMPONENT_NAME, div().css(component(card, footer)).element());
     }
 
     // ------------------------------------------------------ builder

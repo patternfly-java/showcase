@@ -11,11 +11,12 @@ goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.EventType');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
-goog.require('org.patternfly.component.SubComponent');
+goog.require('org.patternfly.component.navigation.NavigationSubComponent');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.Dataset');
+goog.require('org.patternfly.core.WithText');
 goog.require('org.patternfly.handler.ComponentHandler');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

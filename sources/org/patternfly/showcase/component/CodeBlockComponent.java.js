@@ -11,9 +11,9 @@ goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.patternfly.component.code.CodeBlock');
 goog.require('org.patternfly.component.code.CodeBlockAction');
 goog.require('org.patternfly.handler.ComponentHandler');
-goog.require('org.patternfly.layout.PredefinedIcon');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Casts');
 
 const CodeBlockComponent = goog.require('org.patternfly.showcase.component.CodeBlockComponent$impl');

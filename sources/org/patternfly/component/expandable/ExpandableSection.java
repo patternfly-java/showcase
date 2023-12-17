@@ -24,8 +24,9 @@ import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Expandable;
 import org.patternfly.handler.ToggleHandler;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.MutationRecord;
@@ -37,15 +38,15 @@ import static org.patternfly.core.Aria.controls;
 import static org.patternfly.core.Aria.labelledBy;
 import static org.patternfly.core.Dataset.expandableSectionId;
 import static org.patternfly.core.Dataset.expandableSectionTarget;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.detached;
-import static org.patternfly.layout.Classes.expandableSection;
-import static org.patternfly.layout.Classes.expanded;
-import static org.patternfly.layout.Classes.limitWidth;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Size.lg;
-import static org.patternfly.layout.Variable.componentVar;
-import static org.patternfly.layout.Variables.LineClamp;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.detached;
+import static org.patternfly.style.Classes.expandableSection;
+import static org.patternfly.style.Classes.expanded;
+import static org.patternfly.style.Classes.limitWidth;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Size.lg;
+import static org.patternfly.style.Variable.componentVar;
+import static org.patternfly.style.Variables.LineClamp;
 
 /**
  * An expandable section component is used to support progressive disclosure in a form or page by hiding additional content when
@@ -81,16 +82,14 @@ public class ExpandableSection extends BaseComponent<HTMLDivElement, ExpandableS
     private HTMLElement detachedContentElement;
 
     ExpandableSection(String id) {
-        super(div().css(component(expandableSection)).element(), ComponentType.ExpandableSection);
+        super(ComponentType.ExpandableSection, div().css(component(expandableSection)).element());
         this.id = id == null ? Id.unique(componentType().id) : id;
+        storeComponent();
         Attachable.register(this, this);
     }
 
     @Override
     public void attach(MutationRecord mutationRecord) {
-        if (toggle != null) {
-            toggle.passComponent(this);
-        }
         if (toggle != null && content != null) {
             toggle.aria(controls, content.id);
             content.aria(labelledBy, toggle.id);
@@ -227,7 +226,7 @@ public class ExpandableSection extends BaseComponent<HTMLDivElement, ExpandableS
             detachedContentElement.hidden = true;
         }
         if (fireEvent && toggleHandler != null) {
-            toggleHandler.onToggle(this, false);
+            toggleHandler.onToggle(new Event(""), this, false);
         }
     }
 
@@ -243,7 +242,7 @@ public class ExpandableSection extends BaseComponent<HTMLDivElement, ExpandableS
             detachedContentElement.hidden = false;
         }
         if (fireEvent && toggleHandler != null) {
-            toggleHandler.onToggle(this, true);
+            toggleHandler.onToggle(new Event(""), this, true);
         }
     }
 

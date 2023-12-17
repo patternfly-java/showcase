@@ -15,9 +15,9 @@
  */
 package org.patternfly.thirdparty.popper;
 
+import org.jboss.elemento.Callback;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Logger;
-import org.patternfly.handler.Callback;
 
 import elemental2.promise.Promise;
 
@@ -35,22 +35,22 @@ public class PopperError implements Popper {
 
     @Override
     public Promise<State> update() {
-        Logger.undefined(componentType, ERROR_MESSAGE);
+        Logger.undefined(componentType, null, ERROR_MESSAGE);
         return null;
     }
 
     @Override
     public void show(Callback visible) {
-        Logger.undefined(componentType, ERROR_MESSAGE);
+        Logger.undefined(componentType, null, ERROR_MESSAGE);
     }
 
     @Override
     public void hide(Callback hidden) {
-        Logger.undefined(componentType, ERROR_MESSAGE);
+        Logger.undefined(componentType, null, ERROR_MESSAGE);
     }
 
     @Override
     public void cleanup() {
-        Logger.undefined(componentType, ERROR_MESSAGE);
+        Logger.undefined(componentType, null, ERROR_MESSAGE);
     }
 }

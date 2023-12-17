@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"VariableScope.impl.java.js",
-"lineCount":71,
-"mappings":"A;;;;;;;;;;;;;MAiBY,a;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,oC;EAAAA,mG;EAAAA,iB;;;CAAA,uE;EAAAC,qC;EAAAA,2C;EAAAA,yE;;;QAAA,gE;EAAAC,wB;EAAAA;GAAAA,uNAAAA;G;EAAAA,gJ;;;QAAA,qD;EAAAC,wB;EAAAA,wM;;;QAAA,O;EAAAC,gC;EAAAA,6B;EAAAA,e;;;;;;;;;;;;;;AAER;uE;AAEA;0E;AAFA;cAAA,6CAAA,2K;AAEA;cAAA,gDAAA,iL;AAJQ;;",
-"sources":["VariableScope.java"],
-"names":["org.patternfly.layout.VariableScope.<synthetic: ctor_js>","org.patternfly.layout.VariableScope.<synthetic: ctor_create>","org.patternfly.layout.VariableScope.<init>","org.patternfly.layout.VariableScope.valueOf","org.patternfly.layout.VariableScope.values","org.patternfly.layout.VariableScope.<clinit>"]
-}

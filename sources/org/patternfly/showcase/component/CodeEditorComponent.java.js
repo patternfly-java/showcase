@@ -16,9 +16,9 @@ goog.require('org.patternfly.component.code.CodeEditorHeaderMain');
 goog.require('org.patternfly.component.code.CodeEditorLink');
 goog.require('org.patternfly.component.code.CodeEditorLinks');
 goog.require('org.patternfly.component.code.CodeEditorTab');
-goog.require('org.patternfly.layout.PredefinedIcon');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Casts');
 
 const CodeEditorComponent = goog.require('org.patternfly.showcase.component.CodeEditorComponent$impl');

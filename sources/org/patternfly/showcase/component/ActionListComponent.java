@@ -15,6 +15,10 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.menu.Dropdown;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -22,12 +26,19 @@ import static org.patternfly.component.actionlist.ActionList.actionList;
 import static org.patternfly.component.actionlist.ActionListGroup.actionListGroup;
 import static org.patternfly.component.actionlist.ActionListItem.actionListItem;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.layout.PredefinedIcon.check;
-import static org.patternfly.layout.PredefinedIcon.ellipsisV;
-import static org.patternfly.layout.PredefinedIcon.times;
+import static org.patternfly.component.menu.Dropdown.dropdown;
+import static org.patternfly.component.menu.Menu.menu;
+import static org.patternfly.component.menu.MenuContent.menuContent;
+import static org.patternfly.component.menu.MenuItem.actionMenuItem;
+import static org.patternfly.component.menu.MenuItem.linkMenuItem;
+import static org.patternfly.component.menu.MenuList.menuList;
+import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.check;
+import static org.patternfly.style.PredefinedIcon.ellipsisV;
+import static org.patternfly.style.PredefinedIcon.times;
 
-public class ActionListComponent extends ComponentPage {
+public class ActionListComponent extends SnippetPage {
 
     public ActionListComponent() {
         super("Action list",
@@ -38,26 +49,40 @@ public class ActionListComponent extends ComponentPage {
                         .element());
 
         addSnippet(new Snippet("action-list-single-group", "Action list single group",
-                code.get("action-list-single-group"), () ->
-                // @code-start:action-list-single-group
-                div()
-                        .add(actionList()
-                                .addItem(actionListItem()
-                                        .add(button("Next").primary()))
-                                .addItem(actionListItem()
-                                        .add(button("Back").secondary())))
-                        .add(br())
-                        .add("With kebab")
-                        .add(actionList()
-                                .addItem(actionListItem()
-                                        .add(button("Next").primary()))
-                                .addItem(actionListItem()
-                                        .add(button("Back").secondary()))
-                                .addItem(actionListItem()
-                                        .add(button(ellipsisV).plain()))) // TODO Add dropdown
-                        .element()
-        // @code-end:action-list-single-group
-        ));
+                code.get("action-list-single-group"), () -> {
+                    // @code-start:action-list-single-group
+                    Dropdown dropdown = dropdown()
+                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                            .addMenu(menu()
+                                    .addContent(menuContent()
+                                            .addList(menuList()
+                                                    .addItem(actionMenuItem("item-0", "Action"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(actionMenuItem("item-2", "Disabled action")
+                                                            .disabled())
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                            .disabled())
+                                                    .addDivider()
+                                                    .addItem(actionMenuItem("item-4", "Separated action"))
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+                    return div()
+                            .add(actionList()
+                                    .addItem(actionListItem()
+                                            .add(button("Next").primary()))
+                                    .addItem(actionListItem()
+                                            .add(button("Back").secondary())))
+                            .add(br())
+                            .add("With kebab")
+                            .add(actionList()
+                                    .addItem(actionListItem()
+                                            .add(button("Next").primary()))
+                                    .addItem(actionListItem()
+                                            .add(button("Back").secondary()))
+                                    .addItem(actionListItem()
+                                            .add(dropdown)))
+                            .element();
+                    // @code-end:action-list-single-group
+                }));
 
         addSnippet(new Snippet("action-list-icons", "Action list with icons",
                 code.get("action-list-icons"), () ->
@@ -65,9 +90,9 @@ public class ActionListComponent extends ComponentPage {
                 div()
                         .add(actionList().icons()
                                 .addItem(actionListItem()
-                                        .add(button(times).plain()))
+                                        .add(button().icon(times).plain()))
                                 .addItem(actionListItem()
-                                        .add(button(check).plain())))
+                                        .add(button().icon(check).plain())))
                         .element()
         // @code-end:action-list-icons
         ));

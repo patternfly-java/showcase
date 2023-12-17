@@ -15,19 +15,18 @@
  */
 package org.patternfly.component.code;
 
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.PredefinedIcon;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.component.code.CodeEditorTabIcon.codeEditorTabIcon;
 import static org.patternfly.component.code.CodeEditorTabText.codeEditorTabText;
-import static org.patternfly.layout.Classes.codeEditor;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.tab;
+import static org.patternfly.style.Classes.codeEditor;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.tab;
 
-public class CodeEditorTab extends SubComponent<HTMLDivElement, CodeEditorTab> {
+public class CodeEditorTab extends CodeEditorSubComponent<HTMLDivElement, CodeEditorTab> {
 
     // ------------------------------------------------------ factory
 
@@ -49,8 +48,10 @@ public class CodeEditorTab extends SubComponent<HTMLDivElement, CodeEditorTab> {
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "cet";
+
     CodeEditorTab() {
-        super(div().css(component(codeEditor, tab)).element());
+        super(SUB_COMPONENT_NAME, div().css(component(codeEditor, tab)).element());
     }
 
     // ------------------------------------------------------ add

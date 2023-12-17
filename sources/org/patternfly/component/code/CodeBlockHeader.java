@@ -15,18 +15,15 @@
  */
 package org.patternfly.component.code;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.header;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.header;
 
-public class CodeBlockHeader extends SubComponent<HTMLDivElement, CodeBlockHeader>
-        implements ComponentReference<CodeBlock> {
+public class CodeBlockHeader extends CodeBlockSubComponent<HTMLDivElement, CodeBlockHeader> {
 
     // ------------------------------------------------------ factory
 
@@ -36,24 +33,12 @@ public class CodeBlockHeader extends SubComponent<HTMLDivElement, CodeBlockHeade
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "cbh";
+
     CodeBlockActions actions;
-    private CodeBlock codeBlock;
 
     CodeBlockHeader() {
-        super(div().css(component(Classes.codeBlock, header)).element());
-    }
-
-    @Override
-    public void passComponent(CodeBlock codeBlock) {
-        this.codeBlock = codeBlock;
-        if (actions != null) {
-            actions.passComponent(codeBlock);
-        }
-    }
-
-    @Override
-    public CodeBlock mainComponent() {
-        return codeBlock;
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.codeBlock, header)).element());
     }
 
     // ------------------------------------------------------ add

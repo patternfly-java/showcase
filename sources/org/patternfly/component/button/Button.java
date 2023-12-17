@@ -26,15 +26,18 @@ import org.patternfly.component.badge.Badge;
 import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.component.spinner.Spinner;
 import org.patternfly.core.Aria;
+import org.patternfly.core.IconPosition;
 import org.patternfly.core.Logger;
-import org.patternfly.core.Modifiers.Disabled;
-import org.patternfly.core.Modifiers.Inline;
-import org.patternfly.core.Modifiers.NoPadding;
-import org.patternfly.core.Modifiers.Plain;
+import org.patternfly.core.WithIcon;
+import org.patternfly.core.WithIconAndText;
 import org.patternfly.core.WithProgress;
+import org.patternfly.core.WithText;
 import org.patternfly.handler.ComponentHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Disabled;
+import org.patternfly.style.Modifiers.Inline;
+import org.patternfly.style.Modifiers.NoPadding;
+import org.patternfly.style.Modifiers.Plain;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLButtonElement;
@@ -44,27 +47,25 @@ import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.insertFirst;
 import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.EventType.click;
-import static org.patternfly.component.button.IconPosition.start;
-import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.component.spinner.Spinner.spinner;
-import static org.patternfly.layout.Classes.block;
-import static org.patternfly.layout.Classes.button;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.control;
-import static org.patternfly.layout.Classes.count;
-import static org.patternfly.layout.Classes.danger;
-import static org.patternfly.layout.Classes.display;
-import static org.patternfly.layout.Classes.link;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.plain;
-import static org.patternfly.layout.Classes.primary;
-import static org.patternfly.layout.Classes.progress;
-import static org.patternfly.layout.Classes.secondary;
-import static org.patternfly.layout.Classes.small;
-import static org.patternfly.layout.Classes.tertiary;
-import static org.patternfly.layout.Classes.warning;
-import static org.patternfly.layout.Size.lg;
-import static org.patternfly.layout.Size.md;
+import static org.patternfly.style.Classes.block;
+import static org.patternfly.style.Classes.button;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.control;
+import static org.patternfly.style.Classes.count;
+import static org.patternfly.style.Classes.danger;
+import static org.patternfly.style.Classes.display;
+import static org.patternfly.style.Classes.link;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.plain;
+import static org.patternfly.style.Classes.primary;
+import static org.patternfly.style.Classes.progress;
+import static org.patternfly.style.Classes.secondary;
+import static org.patternfly.style.Classes.small;
+import static org.patternfly.style.Classes.tertiary;
+import static org.patternfly.style.Classes.warning;
+import static org.patternfly.style.Size.lg;
+import static org.patternfly.style.Size.md;
 
 /**
  * A button is a box area or text that communicates and triggers user actions when clicked or selected. Buttons can be used to
@@ -74,71 +75,54 @@ import static org.patternfly.layout.Size.md;
  *
  * @see <a href= "https://www.patternfly.org/components/button/html">https://www.patternfly.org/components/button/html</a>
  */
-public class Button extends BaseComponent<HTMLElement, Button>
-        implements Disabled<HTMLElement, Button>, Inline<HTMLElement, Button>, Plain<HTMLElement, Button>,
-        NoPadding<HTMLElement, Button>, WithProgress<HTMLElement, Button> {
+public class Button extends BaseComponent<HTMLElement, Button> implements
+        Disabled<HTMLElement, Button>,
+        Inline<HTMLElement, Button>,
+        Plain<HTMLElement, Button>,
+        NoPadding<HTMLElement, Button>,
+        WithIcon<HTMLElement, Button>,
+        WithText<HTMLElement, Button>,
+        WithIconAndText<HTMLElement, Button>,
+        WithProgress<HTMLElement, Button> {
 
     // ------------------------------------------------------ factory
 
     public static Button button() {
-        return button(ButtonElement.button);
+        return button(Elements.button());
     }
 
     public static Button button(String text) {
-        return button(ButtonElement.button).text(text);
-    }
-
-    public static Button button(PredefinedIcon icon) {
-        return button(ButtonElement.button).addIcon(icon);
-    }
-
-    public static Button button(PredefinedIcon icon, String label) {
-        return button(ButtonElement.button).addIcon(icon).aria(Aria.label, label);
-    }
-
-    public static Button button(InlineIcon icon) {
-        return button(ButtonElement.button).addIcon(icon);
-    }
-
-    public static Button button(InlineIcon icon, String label) {
-        return button(ButtonElement.button).addIcon(icon).aria(Aria.label, label);
+        return button(Elements.button()).text(text);
     }
 
     /**
      * Creates a button with an {@code <a/>} tag.
      */
     public static Button button(String text, String href) {
-        return button(ButtonElement.link).text(text).href(href);
+        return button(Elements.a()).text(text).href(href);
     }
 
     /**
      * Creates a button with an {@code <a/>} tag.
      */
     public static Button button(String text, String href, String target) {
-        return button(ButtonElement.link).text(text).href(href).target(target);
+        return button(Elements.a()).text(text).href(href).target(target);
     }
 
-    public static Button button(ButtonElement element) {
-        switch (element) {
-            case button:
-                return new Button(Elements.button());
-            case link:
-                return new Button(Elements.a());
-            default:
-                Logger.unknown(ComponentType.Button, "Unknown button element '" + element.name() + "'. " +
-                        "Fallback to '" + ButtonElement.button.name() + "'.");
-                return new Button(Elements.button());
-        }
+    public static <E extends HTMLElement> Button button(HTMLContainerBuilder<E> builder) {
+        return new Button(builder);
     }
 
     // ------------------------------------------------------ instance
 
     private final HTMLButtonElement buttonElement;
     private final HTMLAnchorElement anchorElement;
+    private InlineIcon icon;
+    private HTMLElement iconContainer;
     private Spinner spinner;
 
     <E extends HTMLElement> Button(HTMLContainerBuilder<E> builder) {
-        super(builder.css(component(button)).element(), ComponentType.Button);
+        super(ComponentType.Button, builder.css(component(button)).element());
 
         if (element().tagName.equalsIgnoreCase("button")) {
             anchorElement = null;
@@ -151,60 +135,81 @@ public class Button extends BaseComponent<HTMLElement, Button>
 
     // ------------------------------------------------------ add
 
-    public Button addIcon(String iconClass) {
-        return add(inlineIcon(iconClass));
-    }
-
-    public Button addIcon(PredefinedIcon icon) {
-        return add(inlineIcon(icon));
-    }
-
-    public Button addIcon(InlineIcon icon) {
-        return add(icon);
-    }
-
-    public Button addIconAndText(String iconClass, String text) {
-        return addIconAndText(inlineIcon(iconClass), text, start);
-    }
-
-    public Button addIconAndText(PredefinedIcon icon, String text) {
-        return addIconAndText(inlineIcon(icon), text, start);
-    }
-
-    public Button addIconAndText(InlineIcon icon, String text) {
-        return addIconAndText(icon, text, start);
-    }
-
-    public Button addIconAndText(String iconClass, String text, IconPosition position) {
-        return addIconAndText(inlineIcon(iconClass), text, position);
-    }
-
-    public Button addIconAndText(PredefinedIcon icon, String text, IconPosition position) {
-        return addIconAndText(inlineIcon(icon), text, position);
-    }
-
-    public Button addIconAndText(InlineIcon icon, String text, IconPosition position) {
-        switch (position) {
-            case start:
-                add(span().css(component(button, Classes.icon), modifier(Classes.start))
-                        .add(icon));
-                add(text);
-                break;
-            case end:
-                add(text);
-                add(span().css(component(button, Classes.icon), modifier(Classes.end))
-                        .add(icon));
-                break;
-        }
-        return this;
-    }
-
     public Button addBadge(Badge badge) {
+        return add(badge);
+    }
+
+    public Button add(Badge badge) {
         return add(span().css(component(button, count))
                 .add(badge));
     }
 
     // ------------------------------------------------------ builder
+
+    @Override
+    public Button icon(InlineIcon icon) {
+        removeIcon();
+        this.icon = icon;
+        return add(icon);
+    }
+
+    @Override
+    public Button removeIcon() {
+        failSafeRemoveFromParent(icon);
+        failSafeRemoveFromParent(iconContainer);
+        this.icon = null;
+        this.iconContainer = null;
+        return this;
+    }
+
+    @Override
+    public Button iconAndText(InlineIcon icon, String text, IconPosition position) {
+        removeIcon();
+        this.icon = icon;
+        switch (position) {
+            case start:
+                insertFirst(element(), iconContainer = span().css(component(button, Classes.icon), modifier(Classes.start))
+                        .add(icon)
+                        .element());
+                text(text);
+                break;
+            case end:
+                text(text);
+                add(iconContainer = span().css(component(button, Classes.icon), modifier(Classes.end))
+                        .add(icon)
+                        .element());
+                break;
+        }
+        return this;
+    }
+
+    /**
+     * Changes the text of this button. Prefer this method over {@link org.jboss.elemento.HasElement#textContent(String)}, since
+     * this method doesn't remove a possible progress spinner.
+     */
+    @Override
+    public Button text(String text) {
+        // using textContent(text) would remove a possible progress spinner
+        return textNode(text);
+    }
+
+    public Button href(String href) {
+        if (anchorElement != null) {
+            anchorElement.href = href;
+        } else {
+            Logger.undefined(componentType(), element(), "Unable to set href: This button is no <a/> button. ");
+        }
+        return this;
+    }
+
+    public Button target(String target) {
+        if (anchorElement != null) {
+            anchorElement.target = target;
+        } else {
+            Logger.undefined(componentType(), element(), "Unable to set target: This button is no <a/> button. ");
+        }
+        return this;
+    }
 
     public Button primary() {
         return css(modifier(primary));
@@ -252,29 +257,6 @@ public class Button extends BaseComponent<HTMLElement, Button>
         aria(Aria.disabled, disabled);
         if (buttonElement != null) {
             buttonElement.disabled = disabled;
-        }
-        return this;
-    }
-
-    /**
-     * Changes the text of this button. Prefer this method over {@link org.jboss.elemento.HasElement#textContent(String)}, since
-     * this method doesn't remove a possible progress spinner.
-     */
-    public Button text(String text) {
-        // using textContent(text) would remove a possible progress spinner
-        return textNode(text);
-    }
-
-    public Button href(String href) {
-        if (anchorElement != null) {
-            anchorElement.href = href;
-        }
-        return this;
-    }
-
-    public Button target(String target) {
-        if (anchorElement != null) {
-            anchorElement.target = target;
         }
         return this;
     }

@@ -2,7 +2,7 @@
 "version":3,
 "file":"ActionList.impl.java.js",
 "lineCount":66,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAkCa,U;;CAAA,W;EAAAA,Q;;;QAIgB,4D;EAAaC,qB;EAClCA,8B;;;QAKJ,S;EAAAC,qB;EAAAA,iC;EAAAA,wE;EAAAA,iB;;;CAAA,2D;EACIC,ivB;;;CAKc,+G,wBAAyBC,K;EACvCC,0I;;;CAGc,6G,uBAAuBC,I;EACrCC,yI;;;CAKc,uD;EACdC,mS;;;CAIc,sD;EACdC,Y;;;;CAhCK,uC;EAAAA,qE;;;QAAA,O;EAAAC,6B;EAAAA,0B;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;MAkCa,U;;CAAA,W;EAAAA,Q;;;QAIgB,4D;EAAaC,qB;EAClCA,8B;;;QAKJ,S;EAAAC,qB;EAAAA,iC;EAAAA,wE;EAAAA,iB;;;CAAA,2D;EACIC,gvB;;;CAKc,+G,wBAAyBC,K;EACvCC,0I;;;CAGc,6G,uBAAuBC,I;EACrCC,yI;;;CAKc,uD;EACdC,kS;;;CAIc,sD;EACdC,Y;;;;CAhCK,uC;EAAAA,qE;;;QAAA,O;EAAAC,6B;EAAAA,0B;EAAAA;",
 "sources":["ActionList.java"],
 "names":["org.patternfly.component.actionlist.ActionList.<synthetic: ctor_js>","org.patternfly.component.actionlist.ActionList.actionList","org.patternfly.component.actionlist.ActionList.<synthetic: ctor_create>","org.patternfly.component.actionlist.ActionList.<init>","group","org.patternfly.component.actionlist.ActionList.addGroup","item","org.patternfly.component.actionlist.ActionList.addItem","org.patternfly.component.actionlist.ActionList.icons","org.patternfly.component.actionlist.ActionList.that","org.patternfly.component.actionlist.ActionList.<clinit>"]
 }

@@ -15,75 +15,92 @@
  */
 package org.patternfly.component.code;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
+import org.jboss.elemento.By;
+import org.jboss.elemento.Id;
+import org.patternfly.component.ComponentType;
+import org.patternfly.component.button.Button;
+import org.patternfly.component.icon.InlineIcon;
+import org.patternfly.component.tooltip.Tooltip;
 import org.patternfly.core.Aria;
+import org.patternfly.core.WithIcon;
 import org.patternfly.handler.ComponentHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Classes;
+import org.patternfly.style.PredefinedIcon;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLElement;
 
+import static org.jboss.elemento.DomGlobal.navigator;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.dom.DomGlobal.navigator;
-import static org.patternfly.layout.Classes.actions;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.item;
-import static org.patternfly.layout.PredefinedIcon.copy;
+import static org.patternfly.component.icon.InlineIcon.inlineIcon;
+import static org.patternfly.component.tooltip.Tooltip.tooltip;
+import static org.patternfly.style.Classes.actions;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.item;
+import static org.patternfly.style.PredefinedIcon.copy;
 
-public class CodeBlockAction extends SubComponent<HTMLDivElement, CodeBlockAction> implements
-        ComponentReference<CodeBlock> {
+public class CodeBlockAction extends CodeBlockSubComponent<HTMLDivElement, CodeBlockAction> implements
+        WithIcon<HTMLDivElement, CodeBlockAction> {
 
     // ------------------------------------------------------ factory
 
-    public static CodeBlockAction codeBlockAction() {
-        return new CodeBlockAction(null);
-    }
-
-    public static CodeBlockAction codeBlockAction(PredefinedIcon icon) {
-        return new CodeBlockAction(icon.className);
-    }
-
     public static CodeBlockAction codeBlockAction(String iconClass) {
-        return new CodeBlockAction(iconClass);
+        return new CodeBlockAction(inlineIcon(iconClass));
+    }
+
+    public static CodeBlockAction codeBlockAction(PredefinedIcon predefinedIcon) {
+        return new CodeBlockAction(inlineIcon(predefinedIcon));
+    }
+
+    public static CodeBlockAction codeBlockAction(InlineIcon icon) {
+        return new CodeBlockAction(icon);
     }
 
     public static CodeBlockAction codeBlockCopyToClipboardAction() {
-        return new CodeBlockAction(copy.className)
-                .ariaLabel("Copy to clipboard")
-                .onClick((event, action) -> navigator.clipboard.writeText(action.mainComponent().code()));
+        return codeBlockCopyToClipboardAction("Copy to clipboard", "Successfully copied to clipboard!");
+    }
+
+    public static CodeBlockAction codeBlockCopyToClipboardAction(String copyText, String copiedText) {
+        String copyId = Id.unique(ComponentType.CodeBlock.id, "copy");
+        Tooltip copyTooltip = tooltip(By.id(copyId), copyText)
+                .onClose((e, t) -> t.text(copyText)) // restore text
+                .appendToBody();
+        return new CodeBlockAction(inlineIcon(copy))
+                .id(copyId)
+                .ariaLabel(copyText)
+                .onClick((event, codeBlock) -> {
+                    copyTooltip.text(copiedText);
+                    navigator.clipboard.writeText(codeBlock.code());
+                });
     }
 
     // ------------------------------------------------------ instance
 
-    private HTMLElement buttonElement;
+    static final String SUB_COMPONENT_NAME = "cba";
+
+    private final Button button;
     private ComponentHandler<CodeBlockAction> handler;
     private CodeBlock codeBlock;
 
-    CodeBlockAction(String iconClass) {
-        super(div().css(component(Classes.codeBlock, actions, item)).element());
-        if (iconClass != null) {
-            add(buttonElement = button().plain().addIcon(iconClass).element());
-        }
-    }
-
-    @Override
-    public void passComponent(CodeBlock codeBlock) {
-        this.codeBlock = codeBlock;
-        if (handler != null && buttonElement != null) {
-            buttonElement.addEventListener(click.name, e -> handler.handle(e, this));
-        }
-    }
-
-    @Override
-    public CodeBlock mainComponent() {
-        return codeBlock;
+    CodeBlockAction(InlineIcon icon) {
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.codeBlock, actions, item)).element());
+        add(button = button().plain().icon(icon));
     }
 
     // ------------------------------------------------------ builder
+
+    @Override
+    public CodeBlockAction icon(InlineIcon icon) {
+        button.icon(icon);
+        return this;
+    }
+
+    @Override
+    public CodeBlockAction removeIcon() {
+        button.removeIcon();
+        return this;
+    }
 
     @Override
     public CodeBlockAction that() {
@@ -93,16 +110,14 @@ public class CodeBlockAction extends SubComponent<HTMLDivElement, CodeBlockActio
     // ------------------------------------------------------ aria
 
     public CodeBlockAction ariaLabel(String label) {
-        if (buttonElement != null) {
-            buttonElement.setAttribute(Aria.label, label);
-        }
+        button.aria(Aria.label, label);
         return this;
     }
 
     // ------------------------------------------------------ events
 
-    public CodeBlockAction onClick(ComponentHandler<CodeBlockAction> handler) {
-        this.handler = handler;
+    public CodeBlockAction onClick(ComponentHandler<CodeBlock> handler) {
+        button.on(click, e -> handler.handle(e, lookupComponent()));
         return this;
     }
 }

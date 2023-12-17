@@ -10,9 +10,12 @@ let HTMLUListElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLUListEle
 let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
+let EnumSet = goog.forwardDeclare('java.util.EnumSet$impl');
 let HashMap = goog.forwardDeclare('java.util.HashMap$impl');
 let Map = goog.forwardDeclare('java.util.Map$impl');
 let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
+let Collectors = goog.forwardDeclare('java.util.stream.Collectors$impl');
+let Stream = goog.forwardDeclare('java.util.stream.Stream$impl');
 let JsPropertyMap_$Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
@@ -35,8 +38,9 @@ let Dataset = goog.forwardDeclare('org.patternfly.core.Dataset$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let SelectHandler = goog.forwardDeclare('org.patternfly.handler.SelectHandler$impl');
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
+let Brightness = goog.forwardDeclare('org.patternfly.style.Brightness$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -76,7 +80,7 @@ class Navigation extends BaseComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_navigation_Navigation__org_patternfly_component_navigation_NavigationType__void(/** NavigationType */ type) {
-  this.$ctor__org_patternfly_component_BaseComponent__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_nav__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), ComponentType.f_Navigation__org_patternfly_component_ComponentType);
+  this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Navigation__org_patternfly_component_ComponentType, /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_nav__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   this.f_type__org_patternfly_component_navigation_Navigation_ = type;
   this.f_items__org_patternfly_component_navigation_Navigation_ = /**@type {!HashMap<?string, NavigationItem>}*/ (HashMap.$create__());
   this.f_groups__org_patternfly_component_navigation_Navigation_ = /**@type {!HashMap<?string, NavigationGroup>}*/ (HashMap.$create__());
@@ -88,47 +92,47 @@ class Navigation extends BaseComponent {
   }
   if (Horizontal.$isInstance(type)) {
    if ($Equality.$same(type, Horizontal.f_primary__org_patternfly_component_navigation_NavigationType_Horizontal)) {
-    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_horizontal__org_patternfly_layout_Classes)], j_l_String)));
+    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_horizontal__org_patternfly_style_Classes)], j_l_String)));
    } else if ($Equality.$same(type, Horizontal.f_secondary__org_patternfly_component_navigation_NavigationType_Horizontal)) {
-    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_horizontalSubnav__org_patternfly_layout_Classes)], j_l_String)));
+    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_horizontalSubnav__org_patternfly_style_Classes)], j_l_String)));
    }
-   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_layout_Classes, Classes.f_button__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll left'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
+   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_style_Classes, Classes.f_button__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll left'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
     let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
     this.m_scrollLeft__void_$p_org_patternfly_component_navigation_Navigation();
-   }), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleLeft__org_patternfly_layout_PredefinedIcon)), HTMLContainerBuilder)));
-   this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_horizontal__org_patternfly_layout_Classes, Classes.f_list__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)));
-   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_layout_Classes, Classes.f_button__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll right'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e_2) =>{
+   }), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleLeft__org_patternfly_style_PredefinedIcon)), HTMLContainerBuilder)));
+   this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_horizontal__org_patternfly_style_Classes, Classes.f_list__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)));
+   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_style_Classes, Classes.f_button__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll right'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e_2) =>{
     let e_3 = /**@type {MouseEvent}*/ ($Casts.$to(e_2, MouseEvent_$Overlay));
     this.m_scrollRight__void_$p_org_patternfly_component_navigation_Navigation();
-   }), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleRight__org_patternfly_layout_PredefinedIcon)), HTMLContainerBuilder)));
+   }), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleRight__org_patternfly_style_PredefinedIcon)), HTMLContainerBuilder)));
   } else if (Vertical.$isInstance(type)) {
    let vt = /**@type {Vertical}*/ (type);
    switch (vt.ordinal()) {
     case Vertical.$ordinal_flat__org_patternfly_component_navigation_NavigationType_Vertical: 
     case Vertical.$ordinal_expandable__org_patternfly_component_navigation_NavigationType_Vertical: 
-     this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_list__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'list'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)));
+     this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_list__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'list'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)));
      break;
     case Vertical.$ordinal_grouped__org_patternfly_component_navigation_NavigationType_Vertical: 
      this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = this.m_element__elemental2_dom_HTMLElement();
      break;
     case Vertical.$ordinal_drillDown__org_patternfly_component_navigation_NavigationType_Vertical: 
     case Vertical.$ordinal_flyout__org_patternfly_component_navigation_NavigationType_Vertical: 
-     Logger.m_nyi__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Drill-down and fly-out not yet implemented');
+     Logger.m_nyi__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Drill-down and fly-out not yet implemented');
      this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
      break;
     default: 
-     Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
+     Logger.m_unknown__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
      this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
    }
   } else {
-   Logger.m_unknown__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
+   Logger.m_unknown__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
    this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   }
  }
  /** @nodts @template T @return {Navigation} */
  m_addItems__java_lang_Iterable__java_util_function_Function__org_patternfly_component_navigation_Navigation(/** Iterable<T> */ items, /** j_u_function_Function<T, NavigationItem> */ display) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   for (let $iterator = items.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
@@ -143,7 +147,7 @@ class Navigation extends BaseComponent {
  /** @nodts @return {Navigation} */
  m_addItem__org_patternfly_component_navigation_NavigationItem__org_patternfly_component_navigation_Navigation(/** NavigationItem */ item) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   this.f_items__org_patternfly_component_navigation_Navigation_.put(item.f_id__org_patternfly_component_navigation_NavigationItem, item);
@@ -153,7 +157,7 @@ class Navigation extends BaseComponent {
  /** @nodts @return {Navigation} */
  m_addGroup__org_patternfly_component_navigation_NavigationGroup__org_patternfly_component_navigation_Navigation(/** NavigationGroup */ group) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_flat__org_patternfly_component_navigation_NavigationType_Vertical) || $Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_expandable__org_patternfly_component_navigation_NavigationType_Vertical) || Horizontal.$isInstance(this.f_type__org_patternfly_component_navigation_Navigation_)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addGroup(NavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'addGroup(NavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   this.f_groups__org_patternfly_component_navigation_Navigation_.put(group.f_id__org_patternfly_component_navigation_NavigationGroup, group);
@@ -163,7 +167,7 @@ class Navigation extends BaseComponent {
  /** @nodts @return {Navigation} */
  m_addGroup__org_patternfly_component_navigation_ExpandableNavigationGroup__org_patternfly_component_navigation_Navigation(/** ExpandableNavigationGroup */ group) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_flat__org_patternfly_component_navigation_NavigationType_Vertical) || $Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical) || Horizontal.$isInstance(this.f_type__org_patternfly_component_navigation_Navigation_)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'addGroup(ExpandableNavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'addGroup(ExpandableNavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
   group.m_collapse__void_$pp_org_patternfly_component_navigation();
@@ -178,6 +182,17 @@ class Navigation extends BaseComponent {
  m_addDivider__org_patternfly_component_navigation_Navigation() {
   this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(Divider.m_divider__org_patternfly_component_divider_DividerType__org_patternfly_component_divider_Divider(DividerType.f_li__org_patternfly_component_divider_DividerType).m_element__elemental2_dom_HTMLElement());
   return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_theme__org_patternfly_style_Brightness__org_patternfly_component_navigation_Navigation(/** Brightness */ theme) {
+  if (!/**@type {EnumSet<Brightness>}*/ (EnumSet.m_of__java_lang_Enum__arrayOf_java_lang_Enum__java_util_EnumSet(Brightness.f_dark__org_patternfly_style_Brightness, /**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_light__org_patternfly_style_Brightness], Brightness)))).contains(theme)) {
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Theme ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(theme) + ' not supported. Valid values: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {?string}*/ ($Casts.$to(/**@type {Stream<?string>}*/ (/**@type {Stream<Brightness>}*/ (Stream.m_of__arrayOf_java_lang_Object__java_util_stream_Stream(/**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_dark__org_patternfly_style_Brightness, Brightness.f_light__org_patternfly_style_Brightness], Brightness)))).m_map__java_util_function_Function__java_util_stream_Stream(j_u_function_Function.$adapt((arg0) =>{
+    let arg0_1 = /**@type {Brightness}*/ ($Casts.$to(arg0, Brightness));
+    return arg0_1.name();
+   }))).m_collect__java_util_stream_Collector__java_lang_Object(Collectors.m_joining__java_lang_CharSequence__java_util_stream_Collector(' ')), j_l_String))));
+   return this;
+  }
+  return /**@type {Navigation}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([theme.m_modifier__java_lang_String()], j_l_String))), Navigation));
  }
  /** @nodts @return {Navigation} */
  m_that__org_patternfly_component_navigation_Navigation() {
@@ -211,7 +226,7 @@ class Navigation extends BaseComponent {
    this.m_unselectAllItems__void_$p_org_patternfly_component_navigation_Navigation();
    item.m_select__void_$pp_org_patternfly_component_navigation();
    if (fireEvent && !$Equality.$same(this.f_onSelect__org_patternfly_component_navigation_Navigation_, null)) {
-    this.f_onSelect__org_patternfly_component_navigation_Navigation_.m_onSelect__java_lang_Object__boolean__void(item, true);
+    this.f_onSelect__org_patternfly_component_navigation_Navigation_.m_onSelect__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), item, true);
    }
    if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_expandable__org_patternfly_component_navigation_NavigationType_Vertical)) {
     this.m_unselectAllExpandableGroups__void_$p_org_patternfly_component_navigation_Navigation();
@@ -227,17 +242,17 @@ class Navigation extends BaseComponent {
   for (let $iterator = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Navigation.f_A_NAV_LINK_CURRENT__org_patternfly_component_navigation_Navigation_).m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
    let element = /**@type {HTMLElement}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), $Overlay));
    {
-    element.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes));
+    element.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes));
     element.removeAttribute(Aria.f_current__org_patternfly_core_Aria);
    }
   }
  }
  /** @nodts */
  m_unselectAllExpandableGroups__void_$p_org_patternfly_component_navigation_Navigation() {
-  for (let $iterator = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Navigation.f_LI_NAV_ITEM_EXPANDABLE__org_patternfly_component_navigation_Navigation_.m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes)))).m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
+  for (let $iterator = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Navigation.f_LI_NAV_ITEM_EXPANDABLE__org_patternfly_component_navigation_Navigation_.m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes)))).m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
    let element = /**@type {HTMLElement}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), $Overlay));
    {
-    element.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes));
+    element.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes));
    }
   }
  }
@@ -245,13 +260,13 @@ class Navigation extends BaseComponent {
  m_selectGroup__elemental2_dom_HTMLElement__boolean__void_$p_org_patternfly_component_navigation_Navigation(/** HTMLElement */ element, /** boolean */ fireEvent) {
   let li = Elements.m_closest__elemental2_dom_Element__org_jboss_elemento_By__elemental2_dom_HTMLElement(element, Navigation.f_LI_NAV_ITEM_EXPANDABLE__org_patternfly_component_navigation_Navigation_);
   if (!$Equality.$same(li, null)) {
-   li.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes));
+   li.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes));
    let groupId = /**@type {?string}*/ ($Casts.$to(JsPropertyMap_$Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(li.dataset, Dataset.f_navigationGroup__org_patternfly_core_Dataset), j_l_String));
    let group = this.m_findGroup__java_lang_String__org_patternfly_component_navigation_ExpandableNavigationGroup_$p_org_patternfly_component_navigation_Navigation(groupId);
    if (!$Equality.$same(group, null)) {
     group.m_expand__void_$pp_org_patternfly_component_navigation();
     if (fireEvent && !$Equality.$same(this.f_onToggle__org_patternfly_component_navigation_Navigation_, null)) {
-     this.f_onToggle__org_patternfly_component_navigation_Navigation_.m_onToggle__java_lang_Object__boolean__void(group, true);
+     this.f_onToggle__org_patternfly_component_navigation_Navigation_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), group, true);
     }
    }
    let parent = li.parentElement;
@@ -318,8 +333,8 @@ class Navigation extends BaseComponent {
   Navigation.$clinit = () =>{};
   Navigation.$loadModules();
   BaseComponent.$clinit();
-  Navigation.f_A_NAV_LINK_CURRENT__org_patternfly_component_navigation_Navigation_ = By.m_element__java_lang_String__org_jboss_elemento_By('a').m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classnames__java_lang_String__java_lang_String__arrayOf_java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_link__org_patternfly_layout_Classes], j_l_String))), Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes), /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))));
-  Navigation.f_LI_NAV_ITEM_EXPANDABLE__org_patternfly_component_navigation_Navigation_ = By.m_element__java_lang_String__org_jboss_elemento_By('li').m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classnames__java_lang_String__java_lang_String__arrayOf_java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes], j_l_String))), Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expandable__org_patternfly_layout_Classes), /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))));
+  Navigation.f_A_NAV_LINK_CURRENT__org_patternfly_component_navigation_Navigation_ = By.m_element__java_lang_String__org_jboss_elemento_By('a').m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classnames__java_lang_String__java_lang_String__arrayOf_java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_link__org_patternfly_style_Classes], j_l_String))), Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes), /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))));
+  Navigation.f_LI_NAV_ITEM_EXPANDABLE__org_patternfly_component_navigation_Navigation_ = By.m_element__java_lang_String__org_jboss_elemento_By('li').m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classnames__java_lang_String__java_lang_String__arrayOf_java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_style_Classes], j_l_String))), Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expandable__org_patternfly_style_Classes), /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))));
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -334,7 +349,11 @@ class Navigation extends BaseComponent {
   HTMLUListElement_$Overlay = goog.module.get('elemental2.dom.HTMLUListElement.$Overlay$impl');
   MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
+  EnumSet = goog.module.get('java.util.EnumSet$impl');
   HashMap = goog.module.get('java.util.HashMap$impl');
+  j_u_function_Function = goog.module.get('java.util.function.Function$impl');
+  Collectors = goog.module.get('java.util.stream.Collectors$impl');
+  Stream = goog.module.get('java.util.stream.Stream$impl');
   JsPropertyMap_$Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   By = goog.module.get('org.jboss.elemento.By$impl');
@@ -354,8 +373,9 @@ class Navigation extends BaseComponent {
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
   Dataset = goog.module.get('org.patternfly.core.Dataset$impl');
   Logger = goog.module.get('org.patternfly.core.Logger$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
-  PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
+  Brightness = goog.module.get('org.patternfly.style.Brightness$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

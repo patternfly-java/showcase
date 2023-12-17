@@ -4,7 +4,7 @@ const Enum = goog.require('java.lang.Enum$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Enums = goog.forwardDeclare('vmbootstrap.Enums$impl');
 
@@ -84,7 +84,7 @@ class Status extends Enum {
  /** @nodts */
  static $loadModules() {
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Enums = goog.module.get('vmbootstrap.Enums$impl');
  }

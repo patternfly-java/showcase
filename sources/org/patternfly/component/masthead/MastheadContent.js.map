@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"MastheadContent.impl.java.js",
-"lineCount":51,
-"mappings":"A;;;;;;;;;;;;;;;;MAmCa,e;;CAAA,W;EAAAA,Q;;;QAOqB,oE;EAAkBC,0B;EAC5CA,mC;;;QAKJ,S;EAAAC,0B;EAAAA,sC;EAAAA,2E;EAAAA,iB;;;CAAA,8D;EACIC,krB;;;CAMmB,yD;EACnBC,Y;;;;CArBK,uC;EAAAA,wE;;;QAAA,O;EAAAC,kC;EAAAA,+B;EAAAA;",
-"sources":["MastheadContent.java"],
-"names":["org.patternfly.component.masthead.MastheadContent.<synthetic: ctor_js>","org.patternfly.component.masthead.MastheadContent.mastheadContent","org.patternfly.component.masthead.MastheadContent.<synthetic: ctor_create>","org.patternfly.component.masthead.MastheadContent.<init>","org.patternfly.component.masthead.MastheadContent.that","org.patternfly.component.masthead.MastheadContent.<clinit>"]
-}

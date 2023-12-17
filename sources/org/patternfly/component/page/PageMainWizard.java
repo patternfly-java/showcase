@@ -15,15 +15,13 @@
  */
 package org.patternfly.component.page;
 
-import org.patternfly.layout.Brightness;
-
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.section;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.main;
-import static org.patternfly.layout.Classes.page;
-import static org.patternfly.layout.Classes.wizard;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.main;
+import static org.patternfly.style.Classes.page;
+import static org.patternfly.style.Classes.wizard;
 
 /**
  * Container to nest a {@link org.patternfly.component.wizard.Wizard} in a {@link PageMainGroup} or {@link PageMain} container.
@@ -41,19 +39,13 @@ public class PageMainWizard extends PageSectionBuilder<HTMLElement, PageMainWiza
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "pmw";
+
     PageMainWizard() {
-        super(section().css(component(page, main, wizard))
-                .element());
+        super(SUB_COMPONENT_NAME, section().css(component(page, main, wizard)).element());
     }
 
     // ------------------------------------------------------ builder
-
-    /**
-     * Modifies the wizard to have a light 200 theme.
-     */
-    public PageMainWizard light() {
-        return css(Brightness.light.opacity(200));
-    }
 
     @Override
     public PageMainWizard that() {

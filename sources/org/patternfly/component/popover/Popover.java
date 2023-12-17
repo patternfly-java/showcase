@@ -29,11 +29,11 @@ import org.patternfly.component.button.Button;
 import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.core.Aria;
 import org.patternfly.core.Closeable;
-import org.patternfly.core.Modifiers.NoPadding;
+import org.patternfly.core.Logger;
 import org.patternfly.core.Severity;
+import org.patternfly.core.WithIcon;
 import org.patternfly.handler.CloseHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Modifiers.NoPadding;
 import org.patternfly.thirdparty.popper.Modifiers;
 import org.patternfly.thirdparty.popper.Placement;
 import org.patternfly.thirdparty.popper.Popper;
@@ -50,35 +50,33 @@ import static elemental2.dom.DomGlobal.document;
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
-import static org.jboss.elemento.Elements.h;
-import static org.jboss.elemento.Elements.header;
 import static org.jboss.elemento.Elements.insertBefore;
 import static org.jboss.elemento.Elements.insertFirst;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.component.popover.PopoverBody.popoverBody;
 import static org.patternfly.component.popover.PopoverFooter.popoverFooter;
+import static org.patternfly.component.popover.PopoverHeader.popoverHeader;
 import static org.patternfly.core.Aria.describedBy;
+import static org.patternfly.core.Aria.label;
 import static org.patternfly.core.Aria.labelledBy;
 import static org.patternfly.core.Aria.modal;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.handler.CloseHandler.fireEvent;
 import static org.patternfly.handler.CloseHandler.shouldClose;
-import static org.patternfly.layout.Classes.arrow;
-import static org.patternfly.layout.Classes.close;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.content;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.popover;
-import static org.patternfly.layout.Classes.screenReader;
-import static org.patternfly.layout.Classes.text;
-import static org.patternfly.layout.Classes.title;
-import static org.patternfly.layout.Classes.widthAuto;
-import static org.patternfly.layout.PredefinedIcon.times;
+import static org.patternfly.style.Classes.arrow;
+import static org.patternfly.style.Classes.close;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.content;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.popover;
+import static org.patternfly.style.Classes.screenReader;
+import static org.patternfly.style.Classes.title;
+import static org.patternfly.style.Classes.widthAuto;
+import static org.patternfly.style.PredefinedIcon.times;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 import static org.patternfly.thirdparty.popper.Placement.top;
 
@@ -88,10 +86,17 @@ import static org.patternfly.thirdparty.popper.Placement.top;
  *
  * @see <a href= "https://www.patternfly.org/components/popover/html">https://www.patternfly.org/components/popover/html</a>
  */
-public class Popover extends BaseComponent<HTMLDivElement, Popover> implements Closeable<HTMLDivElement, Popover>,
-        NoPadding<HTMLDivElement, Popover>, Attachable {
+public class Popover extends BaseComponent<HTMLDivElement, Popover> implements
+        Closeable<HTMLDivElement, Popover>,
+        NoPadding<HTMLDivElement, Popover>,
+        WithIcon<HTMLDivElement, Popover>,
+        Attachable {
 
     // ------------------------------------------------------ factory
+
+    public static Popover popover() {
+        return new Popover(null);
+    }
 
     public static Popover popover(By trigger) {
         return new Popover(() -> Elements.find(document.body, trigger));
@@ -114,8 +119,8 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
     public static final int Z_INDEX = 9999;
 
     private final HTMLElement contentElement;
-    private final Supplier<HTMLElement> trigger;
     private final Set<TriggerAction> triggerActions;
+    private Supplier<HTMLElement> trigger;
     private boolean flip;
     private boolean showClose;
     private int distance;
@@ -125,17 +130,17 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
     private Placement placement;
     private Button closeButton;
     private Severity severity;
-    private HTMLElement headerElement;
+    private PopoverHeader header;
     private HTMLElement screenReaderElement;
     private HTMLElement iconContainer;
     private CloseHandler<Popover> closeHandler;
 
     Popover(Supplier<HTMLElement> trigger) {
-        super(div().css(component(popover))
+        super(ComponentType.Popover, div().css(component(popover))
                 .style("display", "none")
                 .attr(role, "dialog")
                 .aria(modal, true)
-                .element(), ComponentType.Popover);
+                .element());
 
         this.trigger = trigger;
         this.triggerActions = EnumSet.of(TriggerAction.click);
@@ -163,21 +168,27 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
             failSafeRemoveFromParent(closeButton);
         }
 
-        HTMLElement triggerElement = trigger.get();
-        if (triggerElement != null) {
-            popper = new PopperBuilder(componentType(), triggerElement, element())
-                    .animationDuration(animationDuration)
-                    .zIndex(zIndex)
-                    .placement(placement)
-                    .addModifier(Modifiers.offset(distance),
-                            Modifiers.noOverflow(),
-                            Modifiers.hide(),
-                            Modifiers.flip(placement == auto || flip),
-                            Modifiers.placement(),
-                            Modifiers.eventListeners(false))
-                    .registerHandler(triggerActions, this::show, this::close)
-                    .removePopperOnTriggerDetach()
-                    .build();
+        if (trigger != null) {
+            HTMLElement triggerElement = trigger.get();
+            if (triggerElement != null) {
+                popper = new PopperBuilder(componentType(), triggerElement, element())
+                        .animationDuration(animationDuration)
+                        .zIndex(zIndex)
+                        .placement(placement)
+                        .addModifier(Modifiers.offset(distance),
+                                Modifiers.noOverflow(),
+                                Modifiers.hide(),
+                                Modifiers.flip(placement == auto || flip),
+                                Modifiers.placement(),
+                                Modifiers.eventListeners(false))
+                        .registerHandler(triggerActions, this::show, this::close)
+                        .removePopperOnTriggerDetach()
+                        .build();
+            } else {
+                Logger.undefined(componentType(), element(), "Unable to get trigger element");
+            }
+        } else {
+            Logger.undefined(componentType(), element(), "No trigger element defined");
         }
     }
 
@@ -189,20 +200,18 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
     // ------------------------------------------------------ add
 
     public Popover addHeader(String header) {
-        failSafeHeaderElement().textContent = header;
-        return this;
+        return add(popoverHeader().textContent(header));
     }
 
-    public Popover addIcon(String iconClass) {
-        return addIcon(inlineIcon(iconClass));
+    public Popover addHeader(PopoverHeader header) {
+        return add(header);
     }
 
-    public Popover addIcon(PredefinedIcon icon) {
-        return addIcon(inlineIcon(icon));
-    }
-
-    public Popover addIcon(InlineIcon icon) {
-        failSafeIconContainer().appendChild(icon.element());
+    // override to append to the right container!
+    public Popover add(PopoverHeader header) {
+        this.header = header;
+        contentElement.appendChild(header.element());
+        aria(labelledBy, header.headerId);
         return this;
     }
 
@@ -263,8 +272,10 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
     public Popover closable(CloseHandler<Popover> closeHandler) {
         if (closeButton == null) {
             insertFirst(contentElement, div().css(component(popover, close))
-                    .add(closeButton = button(times, "Close")
+                    .add(closeButton = button()
                             .plain()
+                            .icon(times)
+                            .aria(label, "Close")
                             .on(click, event -> close(event, true)))
                     .element());
         }
@@ -278,6 +289,19 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
 
     public Popover flip(boolean flip) {
         this.flip = flip;
+        return this;
+    }
+
+    @Override
+    public Popover icon(InlineIcon icon) {
+        removeIcon();
+        failSafeIconContainer().appendChild(icon.element());
+        return this;
+    }
+
+    @Override
+    public Popover removeIcon() {
+        failSafeRemoveFromParent(iconContainer);
         return this;
     }
 
@@ -305,15 +329,28 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
         this.severity = severity;
         css(severity.status.modifier);
         removeChildrenFrom(failSafeIconContainer());
-        addIcon(severity.icon);
+        icon(severity.icon);
         failSafeScreenReaderElement().textContent = screenReaderText;
         return this;
     }
 
-    public Popover trigger(TriggerAction... trigger) {
-        if (trigger != null) {
-            triggerActions.clear();
-            triggerActions.addAll(asList(trigger));
+    public Popover trigger(By trigger) {
+        return trigger(() -> Elements.find(document.body, trigger));
+    }
+
+    public Popover trigger(HTMLElement trigger) {
+        return trigger(() -> trigger);
+    }
+
+    public Popover trigger(Supplier<HTMLElement> trigger) {
+        this.trigger = trigger;
+        return this;
+    }
+
+    public Popover triggerActions(TriggerAction... triggerActions) {
+        if (triggerActions != null) {
+            this.triggerActions.clear();
+            this.triggerActions.addAll(asList(triggerActions));
         }
         return this;
     }
@@ -375,17 +412,10 @@ public class Popover extends BaseComponent<HTMLDivElement, Popover> implements C
     // ------------------------------------------------------ internal
 
     private HTMLElement failSafeHeaderElement() {
-        if (headerElement == null) {
-            String headerId = Id.unique(componentType().id, "header");
-            contentElement.appendChild(header().css(component(popover, Classes.header))
-                    .add(div().css(component(popover, title))
-                            .id(headerId)
-                            .add(headerElement = h(6).css(component(popover, title, text))
-                                    .element()))
-                    .element());
-            aria(labelledBy, headerId);
+        if (header == null) {
+            add(popoverHeader());
         }
-        return headerElement;
+        return header.element();
     }
 
     private HTMLElement failSafeIconContainer() {

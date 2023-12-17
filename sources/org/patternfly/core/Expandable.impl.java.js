@@ -7,7 +7,7 @@ const TypedBuilder = goog.require('org.jboss.elemento.TypedBuilder$impl');
 let $Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 
 /**
  * @interface
@@ -20,7 +20,7 @@ class Expandable {
  static m_collapse__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/** HTMLElement */ root, /** HTMLElement */ toggle, /** HTMLElement */ menu) {
   Expandable.$clinit();
   if (Expandable.m_expanded__elemental2_dom_Element__boolean(root)) {
-   root.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_layout_Classes));
+   root.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes));
    if (!$Equality.$same(toggle, null)) {
     $Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(toggle, Aria.f_expanded__org_patternfly_core_Aria, false);
    }
@@ -33,7 +33,7 @@ class Expandable {
  static m_expand__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/** HTMLElement */ root, /** HTMLElement */ toggle, /** HTMLElement */ menu) {
   Expandable.$clinit();
   if (!Expandable.m_expanded__elemental2_dom_Element__boolean(root)) {
-   root.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_layout_Classes));
+   root.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes));
    if (!$Equality.$same(toggle, null)) {
     $Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(toggle, Aria.f_expanded__org_patternfly_core_Aria, true);
    }
@@ -45,7 +45,7 @@ class Expandable {
  /** @nodts @return {boolean} */
  static m_expanded__elemental2_dom_Element__boolean(/** Element */ root) {
   Expandable.$clinit();
-  return !$Equality.$same(root, null) && root.classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_layout_Classes));
+  return !$Equality.$same(root, null) && root.classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes));
  }
  /** @abstract @nodts */
  m_toggle__void() {}
@@ -111,7 +111,7 @@ class Expandable {
   $Overlay = goog.module.get('elemental2.dom.Element.$Overlay$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
  }
 }
 Expandable.$markImplementor(/**@type {Function}*/ (Expandable));

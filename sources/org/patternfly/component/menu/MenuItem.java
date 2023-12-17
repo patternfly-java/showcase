@@ -15,24 +15,29 @@
  */
 package org.patternfly.component.menu;
 
+import org.jboss.elemento.Attachable;
 import org.jboss.elemento.By;
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.Id;
-import org.patternfly.component.ComponentReference;
 import org.patternfly.component.ComponentType;
-import org.patternfly.component.SubComponent;
 import org.patternfly.component.form.Checkbox;
+import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.core.Aria;
+import org.patternfly.core.IconPosition;
 import org.patternfly.core.Logger;
-import org.patternfly.core.Modifiers.Disabled;
 import org.patternfly.core.SelectionMode;
+import org.patternfly.core.WithIcon;
+import org.patternfly.core.WithIconAndText;
+import org.patternfly.core.WithText;
 import org.patternfly.handler.ComponentHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Disabled;
+import org.patternfly.style.PredefinedIcon;
 
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
+import elemental2.dom.MutationRecord;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.button;
@@ -46,31 +51,34 @@ import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
-import static org.patternfly.component.menu.MenuItemAction.menuItemAction;
+import static org.patternfly.component.menu.MenuItemAction.favoriteMenuItemAction;
 import static org.patternfly.component.menu.MenuItemType.checkbox;
 import static org.patternfly.component.menu.MenuItemType.link;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.core.Attributes.tabindex;
 import static org.patternfly.core.SelectionMode.multi;
 import static org.patternfly.core.SelectionMode.single;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.danger;
-import static org.patternfly.layout.Classes.description;
-import static org.patternfly.layout.Classes.disabled;
-import static org.patternfly.layout.Classes.externalIcon;
-import static org.patternfly.layout.Classes.favorite;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.item;
-import static org.patternfly.layout.Classes.list;
-import static org.patternfly.layout.Classes.main;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.screenReader;
-import static org.patternfly.layout.Classes.select;
-import static org.patternfly.layout.PredefinedIcon.externalLinkAlt;
-import static org.patternfly.layout.PredefinedIcon.star;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.danger;
+import static org.patternfly.style.Classes.description;
+import static org.patternfly.style.Classes.disabled;
+import static org.patternfly.style.Classes.externalIcon;
+import static org.patternfly.style.Classes.favorite;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.item;
+import static org.patternfly.style.Classes.list;
+import static org.patternfly.style.Classes.main;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.screenReader;
+import static org.patternfly.style.Classes.select;
+import static org.patternfly.style.PredefinedIcon.externalLinkAlt;
 
-public class MenuItem extends SubComponent<HTMLElement, MenuItem>
-        implements Disabled<HTMLElement, MenuItem>, ComponentReference<Menu> {
+public class MenuItem extends MenuSubComponent<HTMLElement, MenuItem> implements
+        Disabled<HTMLElement, MenuItem>,
+        WithText<HTMLElement, MenuItem>,
+        WithIcon<HTMLElement, MenuItem>,
+        WithIconAndText<HTMLElement, MenuItem>,
+        Attachable {
 
     // ------------------------------------------------------ factory
 
@@ -104,6 +112,8 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "";
+
     public final String id;
     final MenuItemType itemType;
     private final HTMLElement itemElement;
@@ -115,14 +125,13 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
     private boolean initialSelection;
     private Checkbox checkboxComponent;
     private MenuItemAction itemAction;
-    private HTMLElement iconElement;
+    private HTMLElement iconContainer;
     private HTMLElement descriptionElement;
     private HTMLElement selectIcon;
     private ComponentHandler<MenuItem> handler;
-    private Menu menu;
 
     MenuItem(String id, String text, MenuItemType itemType) {
-        super(li().css(component(Classes.menu, list, item))
+        super(SUB_COMPONENT_NAME, li().css(component(Classes.menu, list, item))
                 .attr(role, "none")
                 .element());
         this.id = id;
@@ -142,7 +151,7 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
                     .apply(l -> l.htmlFor = checkboxId);
             itemBuilder.add(mainElement = span().css(component(Classes.menu, item, main))
                     .add(span().css(component(Classes.menu, item, Classes.check))
-                            .add(checkboxComponent = checkbox(checkboxId)))
+                            .add(checkboxComponent = checkbox(checkboxId, checkboxId)))
                     .add(textElement = span().css(component(Classes.menu, item, Classes.text))
                             .element())
                     .element());
@@ -153,18 +162,19 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
                     .add(mainElement = div()
                             .add(textElement = div().element())
                             .element());
-            Logger.unknown(ComponentType.Menu, "Unknown menu item type " + itemType);
+            Logger.unknown(ComponentType.Menu, element(), "Unknown menu item type " + itemType);
         }
 
         add(itemElement = itemBuilder.css(component(Classes.menu, item)).element());
         if (text != null) {
             textElement.textContent = text;
         }
+        Attachable.register(this, this);
     }
 
     // constructor must only be used to clone an item as favorite item!
     MenuItem(Menu menu, MenuItem item, MenuItemType itemType) {
-        super(((HTMLElement) item.element().cloneNode(true)));
+        super(SUB_COMPONENT_NAME, ((HTMLElement) item.element().cloneNode(true)));
 
         this.id = Id.build("fav", item.id);
         this.itemType = itemType;
@@ -173,7 +183,7 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
         this.itemElement = find(By.classname(component(Classes.menu, Classes.item)));
         this.mainElement = find(By.classname(component(Classes.menu, Classes.item, main)));
         this.textElement = find(By.classname(component(Classes.menu, Classes.item, Classes.text)));
-        this.iconElement = find(By.classname(component(Classes.menu, Classes.item, icon)));
+        this.iconContainer = find(By.classname(component(Classes.menu, Classes.item, icon)));
         this.descriptionElement = find(By.classname(component(Classes.menu, Classes.item, Classes.description)));
         // checkbox must not be used for cloned favorite items!
 
@@ -195,15 +205,12 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
         if (favoriteItemActionElement != null) {
             favoriteItemActionElement.addEventListener(click.name, e -> menu.removeFavorite(this));
         }
-
-        passComponent(menu);
     }
 
     @Override
-    public void passComponent(Menu menu) {
-        this.menu = menu;
+    public void attach(MutationRecord mutationRecord) {
+        Menu menu = lookupComponent();
         if (itemAction != null) {
-            itemAction.passComponent(menu);
             // redo initial disabled call for item action
             if (element().classList.contains(modifier(disabled))) {
                 itemAction.element().disabled = true;
@@ -217,6 +224,9 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
             case select:
                 itemElement.setAttribute(role, "option");
                 break;
+        }
+        if (checkboxComponent != null) {
+            checkboxComponent.inputElement().name(menu.menuName);
         }
         if (menu.selectionMode == single || menu.selectionMode == SelectionMode.click) {
             itemElement.addEventListener(click.name, e -> menu.select(this, true, true));
@@ -233,16 +243,11 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
                     menu.select(this, !isSelected(), true);
                 }
             }, itemType == checkbox); // useCapture is true for checkbox!
-            // see also : https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#usecapture
+            // see also: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#usecapture
         }
         if (initialSelection) {
             menu.select(this, true, false);
         }
-    }
-
-    @Override
-    public Menu mainComponent() {
-        return menu;
     }
 
     // ------------------------------------------------------ add
@@ -289,6 +294,7 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
         return Disabled.super.disabled(disabled);
     }
 
+    @Override
     public MenuItem text(String text) {
         textElement.textContent = text;
         return this;
@@ -304,7 +310,7 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
         if (itemType == link) {
             ((HTMLAnchorElement) itemElement).href = href;
         } else {
-            Logger.unsupported(ComponentType.Menu,
+            Logger.unsupported(ComponentType.Menu, element(),
                     "Ignore href on menu item '" + id + "' with type '" + itemType.name() + "'");
         }
         return this;
@@ -320,7 +326,7 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
                     .textContent("(opens a new window)")
                     .element());
         } else {
-            Logger.unsupported(ComponentType.Menu,
+            Logger.unsupported(ComponentType.Menu, element(),
                     "Ignore external flag on menu item '" + id + "' with type '" + itemType.name() + "'");
         }
         return this;
@@ -349,32 +355,29 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
         return this;
     }
 
-    public MenuItem icon(PredefinedIcon predefinedIcon) {
-        return icon(predefinedIcon.className);
-    }
-
-    public MenuItem icon(String iconClass) {
-        if (iconElement != null) {
-            removeChildrenFrom(iconElement);
-            iconElement.appendChild(inlineIcon(iconClass).element());
+    @Override
+    public MenuItem icon(InlineIcon icon) {
+        if (iconContainer != null) {
+            removeChildrenFrom(iconContainer);
+            iconContainer.appendChild(icon.element());
         } else {
-            insertFirst(mainElement, iconElement = span().css(component(Classes.menu, item, icon))
-                    .add(inlineIcon(iconClass))
+            insertFirst(mainElement, iconContainer = span().css(component(Classes.menu, item, Classes.icon))
+                    .add(icon)
                     .element());
         }
         return this;
     }
 
-    public MenuItem icon(HTMLElement element) {
-        if (iconElement != null) {
-            removeChildrenFrom(iconElement);
-            iconElement.appendChild(element);
-        } else {
-            insertFirst(mainElement, iconElement = span().css(component(Classes.menu, item, icon))
-                    .add(element)
-                    .element());
-        }
+    @Override
+    public MenuItem removeIcon() {
+        failSafeRemoveFromParent(iconContainer);
         return this;
+    }
+
+    @Override
+    public MenuItem iconAndText(InlineIcon icon, String text, IconPosition iconPosition) {
+        icon(icon);
+        return text(text);
     }
 
     @Override
@@ -394,10 +397,7 @@ public class MenuItem extends SubComponent<HTMLElement, MenuItem>
 
     MenuItemAction addFavoriteItemAction() {
         String actionId = Id.build(id, "mark-as-favorite");
-        favoriteItemAction = menuItemAction(actionId, star.className)
-                .css(modifier(favorite))
-                .aria(Aria.label, "not starred");
-        // Don't use add(markAsFavorite); !!
+        favoriteItemAction = favoriteMenuItemAction(actionId);
         element().appendChild(favoriteItemAction.element());
         return favoriteItemAction;
     }

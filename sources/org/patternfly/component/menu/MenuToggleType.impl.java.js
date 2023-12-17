@@ -5,7 +5,7 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Enums = goog.forwardDeclare('vmbootstrap.Enums$impl');
 
@@ -72,10 +72,10 @@ class MenuToggleType extends Enum {
   MenuToggleType.$loadModules();
   Enum.$clinit();
   MenuToggleType.$static_default___org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('default_'), MenuToggleType.$ordinal_default___org_patternfly_component_menu_MenuToggleType, '');
-  MenuToggleType.$static_plain__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('plain'), MenuToggleType.$ordinal_plain__org_patternfly_component_menu_MenuToggleType, Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_plain__org_patternfly_layout_Classes));
-  MenuToggleType.$static_plainText__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('plainText'), MenuToggleType.$ordinal_plainText__org_patternfly_component_menu_MenuToggleType, j_l_String.m_valueOf__java_lang_Object__java_lang_String(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_plain__org_patternfly_layout_Classes)) + ' ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_text__org_patternfly_layout_Classes)));
-  MenuToggleType.$static_split__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('split'), MenuToggleType.$ordinal_split__org_patternfly_component_menu_MenuToggleType, Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_splitButton__org_patternfly_layout_Classes));
-  MenuToggleType.$static_typeahead__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('typeahead'), MenuToggleType.$ordinal_typeahead__org_patternfly_component_menu_MenuToggleType, Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_typeahead__org_patternfly_layout_Classes));
+  MenuToggleType.$static_plain__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('plain'), MenuToggleType.$ordinal_plain__org_patternfly_component_menu_MenuToggleType, Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_plain__org_patternfly_style_Classes));
+  MenuToggleType.$static_plainText__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('plainText'), MenuToggleType.$ordinal_plainText__org_patternfly_component_menu_MenuToggleType, j_l_String.m_valueOf__java_lang_Object__java_lang_String(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_plain__org_patternfly_style_Classes)) + ' ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_text__org_patternfly_style_Classes)));
+  MenuToggleType.$static_split__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('split'), MenuToggleType.$ordinal_split__org_patternfly_component_menu_MenuToggleType, Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_splitButton__org_patternfly_style_Classes));
+  MenuToggleType.$static_typeahead__org_patternfly_component_menu_MenuToggleType = MenuToggleType.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('typeahead'), MenuToggleType.$ordinal_typeahead__org_patternfly_component_menu_MenuToggleType, Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_typeahead__org_patternfly_style_Classes));
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -86,7 +86,7 @@ class MenuToggleType extends Enum {
  static $loadModules() {
   j_l_String = goog.module.get('java.lang.String$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Enums = goog.module.get('vmbootstrap.Enums$impl');
  }

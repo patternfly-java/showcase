@@ -17,20 +17,20 @@ package org.patternfly.component.alert;
 
 import org.jboss.elemento.Attachable;
 import org.patternfly.component.BaseComponent;
-import org.patternfly.component.ComponentReference;
 import org.patternfly.component.ComponentType;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.core.Aria;
 import org.patternfly.core.Closeable;
 import org.patternfly.core.Expandable;
-import org.patternfly.core.Modifiers.Inline;
-import org.patternfly.core.Modifiers.Plain;
+import org.patternfly.core.Logger;
 import org.patternfly.core.Severity;
+import org.patternfly.core.WithIcon;
 import org.patternfly.handler.CloseHandler;
 import org.patternfly.handler.ToggleHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Inline;
+import org.patternfly.style.Modifiers.Plain;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
@@ -59,26 +59,28 @@ import static org.patternfly.core.Aria.label;
 import static org.patternfly.core.Aria.live;
 import static org.patternfly.handler.CloseHandler.fireEvent;
 import static org.patternfly.handler.CloseHandler.shouldClose;
-import static org.patternfly.layout.Classes.alert;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.expandable;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.screenReader;
-import static org.patternfly.layout.Classes.toggle;
-import static org.patternfly.layout.Classes.truncate;
-import static org.patternfly.layout.PredefinedIcon.angleRight;
-import static org.patternfly.layout.PredefinedIcon.times;
-import static org.patternfly.layout.Variable.componentVar;
+import static org.patternfly.style.Classes.alert;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.screenReader;
+import static org.patternfly.style.Classes.toggle;
+import static org.patternfly.style.Classes.truncate;
+import static org.patternfly.style.PredefinedIcon.angleRight;
+import static org.patternfly.style.PredefinedIcon.times;
+import static org.patternfly.style.Variable.componentVar;
 
 /**
  * An alert is a notification that provides brief information to the user without blocking their workflow.
  *
  * @see <a href= "https://www.patternfly.org/components/alert/html">https://www.patternfly.org/components/alert/html</a>
  */
-public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inline<HTMLDivElement, Alert>,
-        Plain<HTMLDivElement, Alert>, Closeable<HTMLDivElement, Alert>, Expandable<HTMLDivElement, Alert>, Attachable,
-        ComponentReference<AlertGroup> {
+public class Alert extends BaseComponent<HTMLDivElement, Alert> implements
+        Inline<HTMLDivElement, Alert>,
+        Plain<HTMLDivElement, Alert>,
+        Closeable<HTMLDivElement, Alert>,
+        Expandable<HTMLDivElement, Alert>, Attachable,
+        WithIcon<HTMLDivElement, Alert> {
 
     // ------------------------------------------------------ factory
 
@@ -93,6 +95,7 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
     static final int MIN_TIMEOUT = 1_000; // ms
 
     int timeout;
+    boolean expandable;
     Button closeButton;
     CloseHandler<Alert> closeHandler;
     private final Severity severity;
@@ -101,19 +104,17 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
     private final HTMLParagraphElement titleElement;
     private double timeoutHandle;
     private Button toggleButton;
-    private AlertGroup alertGroup;
     private AlertDescription description;
-    private AlertActionGroup actionGroup;
     private ToggleHandler<Alert> toggleHandler;
 
     Alert(Severity severity, String title) {
-        super(div().css(component(alert), severity.status.modifier)
+        super(ComponentType.Alert, div().css(component(alert), severity.status.modifier)
                 .aria(label, severity.aria)
-                .element(),
-                ComponentType.Alert);
+                .element());
         this.severity = severity;
         this.title = title;
         this.timeout = NO_TIMEOUT;
+        this.expandable = false;
         this.timeoutHandle = 0;
 
         add(iconContainer = div().css(component(alert, icon))
@@ -134,9 +135,6 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
             on(mouseover, e -> stopTimeout());
             on(mouseout, e -> startTimeout());
         }
-        if (actionGroup != null) {
-            actionGroup.passComponent(this);
-        }
     }
 
     @Override
@@ -144,30 +142,10 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
         clearTimeout(timeoutHandle);
     }
 
-    @Override
-    public void passComponent(AlertGroup alertGroup) {
-        this.alertGroup = alertGroup;
-    }
-
-    /**
-     * If this alert is <strong>not</strong> part of an {@link AlertGroup}, this method will return {@code null}!
-     */
-    @Override
-    public AlertGroup mainComponent() {
-        return alertGroup;
-    }
-
     // ------------------------------------------------------ add
 
     public Alert addActionGroup(AlertActionGroup actionGroup) {
         return add(actionGroup);
-    }
-
-    // override to assure internal wiring
-    public Alert add(AlertActionGroup actionGroup) {
-        this.actionGroup = actionGroup;
-        add(actionGroup.element());
-        return this;
     }
 
     /**
@@ -185,7 +163,7 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
     // override to assure internal wiring
     public Alert add(AlertDescription description) {
         this.description = description;
-        this.description.element().hidden = element().classList.contains(modifier(expandable)) && !expanded();
+        this.description.element().hidden = element().classList.contains(modifier(Classes.expandable)) && !expanded();
         add(description.element());
         return this;
     }
@@ -198,24 +176,23 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
 
     public Alert closable(CloseHandler<Alert> closeHandler) {
         insertAfter(div().css(component(alert, Classes.action))
-                .add(closeButton = button(times, "Close " + severity.aria + ": " + title)
-                        .plain()
+                .add(closeButton = button().icon(times).plain()
+                        .aria(label, "Close " + severity.aria + ": " + title)
                         .on(click, event -> close(event, true)))
                 .element(), titleElement);
         return onClose(closeHandler);
     }
 
-    public Alert customIcon(String iconClass) {
-        return customIcon(inlineIcon(iconClass));
-    }
-
-    public Alert customIcon(PredefinedIcon icon) {
-        return customIcon(inlineIcon(icon));
-    }
-
-    public Alert customIcon(InlineIcon icon) {
+    @Override
+    public Alert icon(InlineIcon icon) {
         removeChildrenFrom(iconContainer);
         iconContainer.appendChild(icon.element());
+        return this;
+    }
+
+    @Override
+    public Alert removeIcon() {
+        Logger.unsupported(componentType(), element(), "Removing the icon is not supported for this component.");
         return this;
     }
 
@@ -224,7 +201,7 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
     }
 
     public Alert expandable(ToggleHandler<Alert> toggleHandler) {
-        css(modifier(expandable));
+        css(modifier(Classes.expandable));
         insertFirst(element(), div().css(component(alert, toggle))
                 .add(toggleButton = button().plain()
                         .on(click, e -> toggle())
@@ -233,6 +210,7 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
                         .add(span().css(component(alert, toggle, icon))
                                 .add(inlineIcon(angleRight))))
                 .element());
+        this.expandable = true;
         this.toggleHandler = toggleHandler;
         return this;
     }
@@ -311,6 +289,7 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
     public void close(Event event, boolean fireEvent) {
         if (shouldClose(this, closeHandler, event, fireEvent)) {
             stopTimeout();
+            AlertGroup alertGroup = lookupComponent(ComponentType.AlertGroup, true);
             if (alertGroup != null) {
                 alertGroup.closeAlert(this);
             } else {
@@ -322,17 +301,27 @@ public class Alert extends BaseComponent<HTMLDivElement, Alert> implements Inlin
 
     @Override
     public void collapse(boolean fireEvent) {
+        if (!expandable) {
+            Logger.unsupported(ComponentType.Alert, element(), "Alert is not expandable.\n" +
+                    "Please use Alert.expandable() to make this an expandable alert.");
+            return;
+        }
         Expandable.collapse(element(), toggleButton.element(), description.element());
-        if (toggleHandler != null) {
-            toggleHandler.onToggle(this, false);
+        if (fireEvent && toggleHandler != null) {
+            toggleHandler.onToggle(new Event(""), this, false);
         }
     }
 
     @Override
     public void expand(boolean fireEvent) {
+        if (!expandable) {
+            Logger.unsupported(ComponentType.Alert, element(), "Alert is not expandable.\n" +
+                    "Please use Alert.expandable() to make this an expandable alert.");
+            return;
+        }
         Expandable.expand(element(), toggleButton.element(), description.element());
-        if (toggleHandler != null) {
-            toggleHandler.onToggle(this, true);
+        if (fireEvent && toggleHandler != null) {
+            toggleHandler.onToggle(new Event(""), this, true);
         }
     }
 

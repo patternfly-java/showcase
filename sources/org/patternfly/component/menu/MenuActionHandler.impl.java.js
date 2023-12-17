@@ -2,7 +2,9 @@ goog.module('org.patternfly.component.menu.MenuActionHandler$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 
+let Menu = goog.forwardDeclare('org.patternfly.component.menu.Menu$impl');
 let $LambdaAdaptor = goog.forwardDeclare('org.patternfly.component.menu.MenuActionHandler.$LambdaAdaptor$impl');
+let MenuItem = goog.forwardDeclare('org.patternfly.component.menu.MenuItem$impl');
 let MenuItemAction = goog.forwardDeclare('org.patternfly.component.menu.MenuItemAction$impl');
 
 /**
@@ -10,9 +12,9 @@ let MenuItemAction = goog.forwardDeclare('org.patternfly.component.menu.MenuItem
  */
 class MenuActionHandler {
  /** @abstract @nodts */
- m_onAction__org_patternfly_component_menu_MenuItemAction__void(/** MenuItemAction */ itemAction) {}
+ m_onAction__org_patternfly_component_menu_Menu__org_patternfly_component_menu_MenuItem__org_patternfly_component_menu_MenuItemAction__void(/** Menu */ menu, /** MenuItem */ item, /** MenuItemAction */ itemAction) {}
  /** @nodts @return {MenuActionHandler} */
- static $adapt(/** ?function(MenuItemAction):void */ fn) {
+ static $adapt(/** ?function(Menu, MenuItem, MenuItemAction):void */ fn) {
   MenuActionHandler.$clinit();
   return new $LambdaAdaptor(fn);
  }

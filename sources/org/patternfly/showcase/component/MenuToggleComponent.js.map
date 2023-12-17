@@ -2,7 +2,7 @@
 "version":3,
 "file":"MenuToggleComponent.impl.java.js",
 "lineCount":69,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;MA+Ba,mB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,8B;EAAAA,0C;EAAAA,+E;EAAAA,iB;;;CAAA,kE;EACHC,25B;EAOAA;GAGQC,8xDAHRD;O;EAeAA;GAGQC,8jFAHRD;O;EAmBAA;GAGQC,0jFAHRD;O;EAuBAA;GAGQC,83FAHRD;O;EAuBAA;GAGQC,inCAHRD;O;EAYAA;GAGQC,suCAHRD;O;EAYAA;GAGQC,kxGAHRD;O;EAuBAA;GAGQC,y8GAHRD;O;EAwBAA;GAGQC,09FAHRD;O;;;QAjKK,O;EAAAE,sC;EAAAA,mC;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;MAkCa,mB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,8B;EAAAA,0C;EAAAA,+E;EAAAA,iB;;;CAAA,kE;EACHC,+4B;EAOAA;GAGQC,8xDAHRD;O;EAeAA;GAGQC,8jFAHRD;O;EAmBAA;GAGQC,gqFAHRD;O;EAsBAA;GAGQC,83FAHRD;O;EAuBAA;GAGQC,6mCAHRD;O;EAYAA;GAGQC,suCAHRD;O;EAYAA;GAGQC,kxGAHRD;O;EAuBAA;GAGQC,y8GAHRD;O;EAwBAA;GAGQC,09FAHRD;O;;;QAhKK,O;EAAAE,sC;EAAAA,mC;EAAAA;",
 "sources":["MenuToggleComponent.java"],
 "names":["org.patternfly.showcase.component.MenuToggleComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.MenuToggleComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.MenuToggleComponent.<init>","org.patternfly.showcase.component.MenuToggleComponent.<lambda in <init>>","org.patternfly.showcase.component.MenuToggleComponent.<clinit>"]
 }

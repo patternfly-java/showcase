@@ -18,6 +18,8 @@ package org.patternfly.showcase.component;
 import org.patternfly.component.card.Card;
 import org.patternfly.component.card.CardActions;
 import org.patternfly.component.menu.Dropdown;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.br;
@@ -43,13 +45,13 @@ import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.core.SelectionMode.single;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.noFill;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.ellipsisV;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.noFill;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
-public class CardComponent extends ComponentPage {
+public class CardComponent extends SnippetPage {
 
     public CardComponent() {
         super("Card",
@@ -77,18 +79,18 @@ public class CardComponent extends ComponentPage {
                     Card card = card();
                     return div()
                             .add(div().css(util("mb-md"))
-                                    .add(checkbox("card-modifiers-compact", "compact")
-                                            .onChange((c, value) -> card.compact(value)))
-                                    .add(checkbox("card-modifiers-flat", "flat")
-                                            .onChange((c, value) -> card.flat(value)))
-                                    .add(checkbox("card-modifiers-rounded", "rounded")
-                                            .onChange((c, value) -> card.rounded(value)))
-                                    .add(checkbox("card-modifiers-large", "large")
-                                            .onChange((c, value) -> card.large(value)))
-                                    .add(checkbox("card-modifiers-fullHeight", "fullHeight")
-                                            .onChange((c, value) -> card.fullHeight(value)))
-                                    .add(checkbox("card-modifiers-plain", "plain")
-                                            .onChange((c, value) -> card.plain(value))))
+                                    .add(checkbox("card-modifiers-compact", "card-modifiers", "compact")
+                                            .onChange((e, c, value) -> card.compact(value)))
+                                    .add(checkbox("card-modifiers-flat", "card-modifiers", "flat")
+                                            .onChange((e, c, value) -> card.flat(value)))
+                                    .add(checkbox("card-modifiers-rounded", "card-modifiers", "rounded")
+                                            .onChange((e, c, value) -> card.rounded(value)))
+                                    .add(checkbox("card-modifiers-large", "card-modifiers", "large")
+                                            .onChange((e, c, value) -> card.large(value)))
+                                    .add(checkbox("card-modifiers-fullHeight", "card-modifiers", "fullHeight")
+                                            .onChange((e, c, value) -> card.fullHeight(value)))
+                                    .add(checkbox("card-modifiers-plain", "card-modifiers", "plain")
+                                            .onChange((e, c, value) -> card.plain(value))))
                             .add(div().style("height", "15rem")
                                     .add(card
                                             .addTitle(cardTitle("Title"))
@@ -121,15 +123,15 @@ public class CardComponent extends ComponentPage {
                                     .addHeader(cardHeader()
                                             .addActions(cardActions
                                                     .add(dropdown)
-                                                    .add(checkbox("card-header-image-check")))
-                                            .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg")
+                                                    .add(checkbox("card-header-image-check", "card-header-image-check")))
+                                            .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg", "PatternFly")
                                                     .style("width", "300px")))
                                     .addTitle(cardTitle("Title"))
                                     .addBody(cardBody().textContent("Body"))
                                     .addFooter(cardFooter().textContent("Footer")))
                             .add(div().css(util("mt-md"))
-                                    .add(checkbox("card-header-image-no-offset", "no offset")
-                                            .onChange((c, value) -> cardActions.noOffset(value))))
+                                    .add(checkbox("card-header-image-no-offset", "card-header-image-no-offset", "no offset")
+                                            .onChange((e, c, value) -> cardActions.noOffset(value))))
                             .element();
                     // @code-end:card-header-image
                 }));
@@ -158,7 +160,7 @@ public class CardComponent extends ComponentPage {
                                                     "This is a really really really really really really really really really really long header"))
                                             .addActions(cardActions()
                                                     .add(dropdown)
-                                                    .add(checkbox("card-title-inline-check"))))
+                                                    .add(checkbox("card-title-inline-check", "card-title-inline-check"))))
                                     .addBody(cardBody().textContent("Body"))
                                     .addFooter(cardFooter().textContent("Footer")))
                             .element();
@@ -187,7 +189,7 @@ public class CardComponent extends ComponentPage {
                                     .addHeader(cardHeader()
                                             .addActions(cardActions()
                                                     .add(dropdown)
-                                                    .add(checkbox("card-header-no-title-check"))))
+                                                    .add(checkbox("card-header-no-title-check", "card-header-no-title-check"))))
                                     .addBody(cardBody()
                                             .textContent("This is the card body. There are only actions in the card head.")))
                             .element();
@@ -238,22 +240,25 @@ public class CardComponent extends ComponentPage {
                 code.get("card-selectable"), () ->
                 // @code-start:card-selectable
                 div()
-                        .add(card()
-                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                        .add(card().name("selectable-card")
+                                .selectable(
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("First card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
                                 .addBody(cardBody().textContent("This card is selectable.")))
-                        .add(card()
-                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                        .add(card().name("selectable-card")
+                                .selectable(
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Second card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
                                 .addBody(cardBody().textContent("This card is selectable.")))
-                        .add(card().disabled()
-                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                        .add(card().name("selectable-card").disabled()
+                                .selectable(
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Third card"))
                                         .addActions(cardActions().noOffset()
@@ -267,28 +272,25 @@ public class CardComponent extends ComponentPage {
                 code.get("card-single-selectable"), () ->
                 // @code-start:card-single-selectable
                 div()
-                        .add(card()
+                        .add(card().name("single-selectable-card")
                                 .selectable(single,
-                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
-                                .name("card-single-selection")
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("First card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
                                 .addBody(cardBody().textContent("This card is single selectable.")))
-                        .add(card()
+                        .add(card().name("single-selectable-card")
                                 .selectable(single,
-                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
-                                .name("card-single-selection")
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Second card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
                                 .addBody(cardBody().textContent("This card is single selectable.")))
-                        .add(card().disabled()
+                        .add(card().name("single-selectable-card").disabled()
                                 .selectable(single,
-                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
-                                .name("card-single-selection")
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Third card"))
                                         .addActions(cardActions().noOffset()
@@ -302,22 +304,22 @@ public class CardComponent extends ComponentPage {
                 code.get("card-clickable"), () ->
                 // @code-start:card-clickable
                 div()
-                        .add(card().clickable((e, c) -> console.log("Card clicked: " + c.element().id))
-                                .name("card-click")
+                        .add(card().name("clickable-card")
+                                .clickable((e, c) -> console.log("Card clicked: " + c.element().id))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("First card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
-                                .addBody(cardBody().textContent("This card is performs an action on click.")))
-                        .add(card().clickable("#c-card")
-                                .name("card-click")
+                                .addBody(cardBody().textContent("This card performs an action on click.")))
+                        .add(card().name("clickable-card")
+                                .clickable("#c-card")
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Second card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
                                 .addBody(cardBody().textContent("This card can navigate to a link on click.")))
-                        .add(card().disabled().clickable((e, c) -> console.log("Selected card: " + c.element().id))
-                                .name("card-click")
+                        .add(card().name("clickable-card").disabled()
+                                .clickable((e, c) -> console.log("Selected card: " + c.element().id))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Third card"))
                                         .addActions(cardActions().noOffset()
@@ -332,7 +334,7 @@ public class CardComponent extends ComponentPage {
                     // @code-start:card-clickable-selectable
                     Card card = card();
                     return div()
-                            .add(card
+                            .add(card.name("clickable-selectable-card")
                                     .clickable()
                                     .selectable()
                                     .addHeader(cardHeader()
@@ -345,7 +347,7 @@ public class CardComponent extends ComponentPage {
                                                     .addSelectableActions(cardSelectableActions())))
                                     .addBody(cardBody().textContent(
                                             "This card performs an action upon clicking the card title and is selectable.")))
-                            .add(card()
+                            .add(card().name("clickable-selectable-card")
                                     .clickable()
                                     .selectable()
                                     .addHeader(cardHeader()
@@ -358,7 +360,7 @@ public class CardComponent extends ComponentPage {
                                                     .link()
                                                     .inline())
                                             .add(".")))
-                            .add(card().disabled()
+                            .add(card().name("clickable-selectable-card").disabled()
                                     .clickable()
                                     .selectable()
                                     .addHeader(cardHeader()
@@ -408,7 +410,7 @@ public class CardComponent extends ComponentPage {
                                     .addHeader(cardHeader()
                                             .addActions(cardActions()
                                                     .add(dropdown1)
-                                                    .add(checkbox("card-expandable-check-1")))
+                                                    .add(checkbox("card-expandable-check-1", "card-expandable-check")))
                                             .addTitle(cardTitle("Title")))
                                     .addExpandableContent(cardExpandableContent()
                                             .addBody(cardBody().textContent("Body"))
@@ -418,7 +420,7 @@ public class CardComponent extends ComponentPage {
                                     .addHeader(cardHeader()
                                             .addActions(cardActions()
                                                     .add(dropdown2)
-                                                    .add(checkbox("card-expandable-check-2")))
+                                                    .add(checkbox("card-expandable-check-2", "card-expandable-check")))
                                             .addTitle(cardTitle("Title")))
                                     .addExpandableContent(cardExpandableContent()
                                             .addBody(cardBody().textContent("Body"))
@@ -450,7 +452,8 @@ public class CardComponent extends ComponentPage {
                                     .addHeader(cardHeader()
                                             .addActions(cardActions()
                                                     .add(dropdown)
-                                                    .add(checkbox("card-expandable-image-check")))
+                                                    .add(checkbox("card-expandable-image-check",
+                                                            "card-expandable-image-check")))
                                             .add(img("https://www.patternfly.org/assets/images/pf-logo-small.svg")
                                                     .apply(i -> {
                                                         i.alt = "PatternFly logo";

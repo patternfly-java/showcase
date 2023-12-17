@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"DomGlobal$$Overlay.impl.java.js",
-"lineCount":26,
-"mappings":"A;;;;;MAsBa,Q;;QAET,sD;EAAAA,+F;;;QAFS,O;EAAAC,2B;EAAAA,wB;EAETA,0F;;;;;;;;;;AAFS;;",
-"sources":["DomGlobal.java"],
-"names":["org.patternfly.dom.DomGlobal$$Overlay.<synthetic: getter>","org.patternfly.dom.DomGlobal$$Overlay.<clinit>"]
-}

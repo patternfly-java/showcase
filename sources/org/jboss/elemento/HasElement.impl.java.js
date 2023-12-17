@@ -9,14 +9,11 @@ let $Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
 let Node_$Overlay = goog.forwardDeclare('elemental2.dom.Node.$Overlay$impl');
 let Boolean = goog.forwardDeclare('java.lang.Boolean$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
-let ArrayList = goog.forwardDeclare('java.util.ArrayList$impl');
-let Arrays = goog.forwardDeclare('java.util.Arrays$impl');
-let List = goog.forwardDeclare('java.util.List$impl');
 let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
 let JsArrayLike_$Overlay = goog.forwardDeclare('jsinterop.base.JsArrayLike.$Overlay$impl');
-let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let SafeHtml = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeHtml$impl');
+let ClassList = goog.forwardDeclare('org.jboss.elemento.ClassList$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -48,6 +45,10 @@ class HasElement {
  m_toggle__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** ?string */ className, /** boolean */ force) {}
  /** @abstract @nodts @return {B} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** ?string */ className, /** Supplier<?boolean> */ force) {}
+ /** @abstract @nodts @return {B} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<ClassList<E>> */ classList) {}
+ /** @abstract @nodts @return {ClassList<E>} */
+ m_classList__org_jboss_elemento_ClassList() {}
  /** @abstract @nodts @return {B} */
  m_attr__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** ?string */ name, /** boolean */ value) {}
  /** @abstract @nodts @return {B} */
@@ -113,46 +114,37 @@ class HasElement {
  /** @nodts @template E, B @return {B} */
  static m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** Array<?string> */ classes) {
   HasElement.$clinit();
-  if (!$Equality.$same(classes, null)) {
-   let failSafeClasses = /**@type {!ArrayList<?string>}*/ (ArrayList.$create__());
-   for (let $array = classes, $index = 0; $index < $array.length; $index++) {
-    let c = $array[$index];
-    {
-     if (!$Equality.$same(c, null)) {
-      if (j_l_String.m_contains__java_lang_String__java_lang_CharSequence__boolean(c, ' ')) {
-       failSafeClasses.addAll(/**@type {List<?string>}*/ (Arrays.m_asList__arrayOf_java_lang_Object__java_util_List(j_l_String.m_split__java_lang_String__java_lang_String__arrayOf_java_lang_String(c, ' '))));
-      } else {
-       failSafeClasses.add(c);
-      }
-     }
-    }
-   }
-   for (let $iterator = failSafeClasses.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
-    let failSafeClass = /**@type {?string}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), j_l_String));
-    {
-     /**@type {!Element}*/ ($thisArg.m_element__elemental2_dom_Element()).classList.add(failSafeClass);
-    }
-   }
-  }
+  $thisArg.m_classList__org_jboss_elemento_ClassList().m_add__arrayOf_java_lang_String__void(classes);
   return $thisArg.m_that__org_jboss_elemento_TypedBuilder();
  }
  /** @nodts @template E, B @return {B} */
  static m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** ?string */ className) {
   HasElement.$clinit();
-  /**@type {!Element}*/ ($thisArg.m_element__elemental2_dom_Element()).classList.toggle(className);
+  $thisArg.m_classList__org_jboss_elemento_ClassList().m_toggle__java_lang_String__void(className);
   return $thisArg.m_that__org_jboss_elemento_TypedBuilder();
  }
  /** @nodts @template E, B @return {B} */
  static m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** ?string */ className, /** boolean */ force) {
   HasElement.$clinit();
-  /**@type {!Element}*/ ($thisArg.m_element__elemental2_dom_Element()).classList.toggle(className, force);
+  $thisArg.m_classList__org_jboss_elemento_ClassList().m_toggle__java_lang_String__boolean__void(className, force);
   return $thisArg.m_that__org_jboss_elemento_TypedBuilder();
  }
  /** @nodts @template E, B @return {B} */
  static m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** ?string */ className, /** Supplier<?boolean> */ force) {
   HasElement.$clinit();
-  /**@type {!Element}*/ ($thisArg.m_element__elemental2_dom_Element()).classList.toggle(className, Boolean.m_booleanValue__java_lang_Boolean__boolean(/**@type {?boolean}*/ ($Casts.$to(force.m_get__java_lang_Object(), Boolean))));
+  $thisArg.m_classList__org_jboss_elemento_ClassList().m_toggle__java_lang_String__boolean__void(className, Boolean.m_booleanValue__java_lang_Boolean__boolean(/**@type {?boolean}*/ ($Casts.$to(force.m_get__java_lang_Object(), Boolean))));
   return $thisArg.m_that__org_jboss_elemento_TypedBuilder();
+ }
+ /** @nodts @template E, B @return {B} */
+ static m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** Consumer<ClassList<E>> */ classList) {
+  HasElement.$clinit();
+  classList.m_accept__java_lang_Object__void(/**@type {ClassList<E>}*/ (ClassList.m_classList__elemental2_dom_Element__org_jboss_elemento_ClassList($thisArg.m_element__elemental2_dom_Element())));
+  return $thisArg.m_that__org_jboss_elemento_TypedBuilder();
+ }
+ /** @nodts @template E, B @return {ClassList<E>} */
+ static m_classList__$default__org_jboss_elemento_HasElement__org_jboss_elemento_ClassList(/** !HasElement<E, B> */ $thisArg) {
+  HasElement.$clinit();
+  return /**@type {ClassList<E>}*/ (ClassList.m_classList__elemental2_dom_Element__org_jboss_elemento_ClassList($thisArg.m_element__elemental2_dom_Element()));
  }
  /** @nodts @template E, B @return {B} */
  static m_attr__$default__org_jboss_elemento_HasElement__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** ?string */ name, /** boolean */ value) {
@@ -225,10 +217,8 @@ class HasElement {
   Node_$Overlay = goog.module.get('elemental2.dom.Node.$Overlay$impl');
   Boolean = goog.module.get('java.lang.Boolean$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
-  ArrayList = goog.module.get('java.util.ArrayList$impl');
-  Arrays = goog.module.get('java.util.Arrays$impl');
   JsArrayLike_$Overlay = goog.module.get('jsinterop.base.JsArrayLike.$Overlay$impl');
-  $Equality = goog.module.get('nativebootstrap.Equality$impl');
+  ClassList = goog.module.get('org.jboss.elemento.ClassList$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   Id = goog.module.get('org.jboss.elemento.Id$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');

@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"Title.impl.java.js",
-"lineCount":62,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAiCa,K;;CAAA,W;EAAAA,Q;;;QAIW,oE,eAAUC,K,iBAAcC,I;EAAMC,gB;EAC9CA,2F;;;QAGgB,gG,eAAUF,K,iBAAcC,I,cAAWE,I;EAAMD,gB;EACzDA,2F;;;QAKJ,0D,eAAUF,K,iBAAcC,I,cAAWE,I;EAAnCC,gB;EAAAA,4B;EAAAA,kI;EAAAA,iB;;;CAAA,oG,eAAUJ,K,iBAAcC,I,cAAWE,I;EAC/BE,+wB;EACAA;GACIA,+KADJA;G;;;CAQS,4C;EACTC,Y;;;;CAzBK,uC;EAAAA,2D;;;QAAA,O;EAAAC,wB;EAAAA,qB;EAAAA;",
+"lineCount":74,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;MAkCa,K;;CAAA,W;EAAAA,Q;;;QAIW,oE,eAAUC,K,iBAAcC,I;EAAMC,gB;EAC9CA,0F;;;QAGgB,+F,eAAUF,K,cAAYG,I,iBAAaF,I;EAAMC,gB;EACzDA,0F;;;QAKJ,yD,eAAUF,K,cAAYG,I,iBAAaF,I;EAAnCG,gB;EAAAA,4B;EAAAA,iI;EAAAA,iB;;;CAAA,mG,eAAUJ,K,cAAYG,I,iBAAaF,I;EAC/BI,8wB;EACAA;GACIA,uKADJA;G;;;CAQS,8D,gBAAYJ,I;EACrBK,wH;EACAA,Y;;;CAIS,4C;EACTC,Y;;;;CA/BK,uC;EAAAA,2D;;;;CAAA,yD;EAAAD,iF;;;QAAA,O;EAAAE,wB;EAAAA,qB;EAAAA;",
 "sources":["Title.java"],
-"names":["org.patternfly.component.title.Title.<synthetic: ctor_js>","level","text","org.patternfly.component.title.Title.title","size","org.patternfly.component.title.Title.<synthetic: ctor_create>","org.patternfly.component.title.Title.<init>","org.patternfly.component.title.Title.that","org.patternfly.component.title.Title.<clinit>"]
+"names":["org.patternfly.component.title.Title.<synthetic: ctor_js>","level","text","org.patternfly.component.title.Title.title","size","org.patternfly.component.title.Title.<synthetic: ctor_create>","org.patternfly.component.title.Title.<init>","org.patternfly.component.title.Title.text","org.patternfly.component.title.Title.that","org.patternfly.component.title.Title.<clinit>"]
 }

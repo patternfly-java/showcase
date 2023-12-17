@@ -13,6 +13,7 @@ let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
 let SafeHtml = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeHtml$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
+let ClassList = goog.forwardDeclare('org.jboss.elemento.ClassList$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -98,6 +99,16 @@ class HTMLElementBuilder extends j_l_Object {
  /** @final @override @nodts @return {HTMLElementBuilder<E>} */
  m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1) {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_attr__$default__org_jboss_elemento_HasElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLElementBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {HTMLElementBuilder<E>} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<ClassList<E>> */ arg0) {
+  return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), HTMLElementBuilder));
+ }
+ //Default method forwarding stub.
+ /** @override @nodts @return {ClassList<E>} */
+ m_classList__org_jboss_elemento_ClassList() {
+  return /**@type {ClassList<E>}*/ (HasElement.m_classList__$default__org_jboss_elemento_HasElement__org_jboss_elemento_ClassList(this));
  }
  //Bridge method.
  /** @final @override @nodts @return {HTMLElementBuilder<E>} */
@@ -248,6 +259,11 @@ class HTMLElementBuilder extends j_l_Object {
  /** @nodts @return {HTMLElementBuilder<E>} */
  m_attr__java_lang_String__java_lang_String__org_jboss_elemento_HTMLElementBuilder(/** ?string */ arg0, /** ?string */ arg1) {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_attr__$default__org_jboss_elemento_HasElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLElementBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {HTMLElementBuilder<E>} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_HTMLElementBuilder(/** Consumer<ClassList<E>> */ arg0) {
+  return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), HTMLElementBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {HTMLElementBuilder<E>} */

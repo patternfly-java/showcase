@@ -17,17 +17,16 @@ package org.patternfly.component.expandable;
 
 import org.jboss.elemento.Id;
 import org.patternfly.component.ComponentType;
-import org.patternfly.component.SubComponent;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.core.Attributes.role;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.content;
-import static org.patternfly.layout.Classes.expandableSection;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.content;
+import static org.patternfly.style.Classes.expandableSection;
 
-public class ExpandableSectionContent extends SubComponent<HTMLDivElement, ExpandableSectionContent> {
+public class ExpandableSectionContent extends ExpandableSectionSubComponent<HTMLDivElement, ExpandableSectionContent> {
 
     // ------------------------------------------------------ factory
 
@@ -37,10 +36,12 @@ public class ExpandableSectionContent extends SubComponent<HTMLDivElement, Expan
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "esc";
+
     final String id;
 
     ExpandableSectionContent() {
-        super(div().css(component(expandableSection, content))
+        super(SUB_COMPONENT_NAME, div().css(component(expandableSection, content))
                 .apply(e -> e.hidden = true)
                 .attr(role, "region")
                 .element());

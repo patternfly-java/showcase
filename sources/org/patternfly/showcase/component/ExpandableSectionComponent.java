@@ -17,6 +17,8 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.badge.Badge;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -27,12 +29,12 @@ import static org.patternfly.component.expandable.ExpandableSectionContent.expan
 import static org.patternfly.component.expandable.ExpandableSectionToggle.expandableSectionToggle;
 import static org.patternfly.component.expandable.ExpandableSectionToggleText.expandableSectionToggleText;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
-import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.fas;
 
-public class ExpandableSectionComponent extends ComponentPage {
+public class ExpandableSectionComponent extends SnippetPage {
 
     public ExpandableSectionComponent() {
         super("Expandable section",
@@ -118,7 +120,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                     Badge badge = badge(4).read();
                     return div()
                             .add(expandableSection()
-                                    .onToggle((component, expanded) -> badge.count(badge.count() + 1))
+                                    .onToggle((e, c, expanded) -> badge.count(badge.count() + 1))
                                     .addToggle(expandableSectionToggle()
                                             .addText(expandableSectionToggleText()
                                                     .add(div()
@@ -139,7 +141,7 @@ public class ExpandableSectionComponent extends ComponentPage {
                 // @code-start:expandable-section-truncate
                 div()
                         .add(expandableSection()
-                                .truncate(2)
+                                .truncate(2) // lines
                                 .addContent(expandableSectionContent()
                                         .textContent(LoremIpsum.paragraphs(20)))
                                 .addToggle(expandableSectionToggle("Show more", "Show less")))

@@ -15,26 +15,34 @@
  */
 package org.patternfly.component.badge;
 
+import java.util.Objects;
+import java.util.function.Function;
+
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
+import org.patternfly.core.HasValue;
+import org.patternfly.core.ObservableValue;
+import org.patternfly.core.WithObservableValue;
 import org.patternfly.handler.ChangeHandler;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.span;
-import static org.patternfly.layout.Classes.badge;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.read;
-import static org.patternfly.layout.Classes.unread;
+import static org.patternfly.style.Classes.badge;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.read;
+import static org.patternfly.style.Classes.unread;
 
 /**
  * A badge is used to annotate other information like a label or an object name.
  *
  * @see <a href= "https://www.patternfly.org/components/badge/html">https://www.patternfly.org/components/badge/html</a>
  */
-public class Badge extends BaseComponent<HTMLElement, Badge> {
+public class Badge extends BaseComponent<HTMLElement, Badge>
+        implements HasValue<Integer>, WithObservableValue<HTMLElement, Badge, Integer> {
 
     // ------------------------------------------------------ factory
 
@@ -52,14 +60,17 @@ public class Badge extends BaseComponent<HTMLElement, Badge> {
     private int value;
     private int limit;
     private HTMLElement screenReader;
-    private ChangeHandler<Badge, Integer> onChange;
+    private ChangeHandler<Badge, Integer> changeHandler;
+    private Function<Integer, String> display;
+    private Function<Integer, String> maxDisplay;
+    private ObservableValue<Integer> ov;
 
     Badge(int count) {
         this(count, Integer.MAX_VALUE);
     }
 
     Badge(int count, int limit) {
-        super(span().css(component(badge)).element(), ComponentType.Badge);
+        super(ComponentType.Badge, span().css(component(badge)).element());
         this.valueElement = add(span()).element();
         this.limit = limit;
         count(count);
@@ -81,19 +92,46 @@ public class Badge extends BaseComponent<HTMLElement, Badge> {
         return this;
     }
 
-    /** Sets the count of this badge. */
+    /** Same as {@linkplain #count(int, boolean) count(count, false)} */
     public Badge count(int count) {
+        return count(count, false);
+    }
+
+    /** Sets the count of this badge. */
+    public Badge count(int count, boolean fireEvent) {
+        boolean changed = value != count;
         value = count;
-        valueElement.textContent = count > limit ? count + "+" : String.valueOf(count);
-        if (onChange != null) {
-            onChange.onChange(this, value);
+        updateValue(this.value);
+        if (fireEvent && changed && changeHandler != null) {
+            changeHandler.onChange(new Event(""), this, value);
         }
+        return this;
+    }
+
+    /**
+     * Use a function to render the text for the value of {@link #count()}. If not set {@code String.valueOf(count)} is used
+     * implicitly.
+     */
+    public Badge display(Function<Integer, String> display) {
+        this.display = display;
+        updateValue(ov != null ? ov.get() : this.value);
+        return this;
+    }
+
+    /**
+     * Use a function to render the text if {@link #count()} &gt; {@link #limit(int)}. If not set {@code count + "+"} is used
+     * implicitly.
+     */
+    public Badge maxDisplay(Function<Integer, String> maxDisplay) {
+        this.maxDisplay = maxDisplay;
+        updateValue(ov != null ? ov.get() : this.value);
         return this;
     }
 
     /** Sets the limit of this badge */
     public Badge limit(int limit) {
         this.limit = limit;
+        updateValue(ov != null ? ov.get() : this.value);
         return this;
     }
 
@@ -105,6 +143,23 @@ public class Badge extends BaseComponent<HTMLElement, Badge> {
         return this;
     }
 
+    /**
+     * Binds an observable value to this component. If you're using an observable value, you must not use {@link #count(int)} or
+     * {@link #count(int, boolean)} to set the value. Use {@link ObservableValue#set(Object)} instead.
+     */
+    @Override
+    public Badge bind(ObservableValue<Integer> ov) {
+        this.ov = ov;
+        this.ov.subscribe((current, previous) -> {
+            updateValue(current);
+            if (!Objects.equals(current, previous) && changeHandler != null) {
+                changeHandler.onChange(new Event(""), this, current);
+            }
+        });
+        updateValue(ov.get());
+        return this;
+    }
+
     @Override
     public Badge that() {
         return this;
@@ -112,14 +167,40 @@ public class Badge extends BaseComponent<HTMLElement, Badge> {
 
     // ------------------------------------------------------ events
 
-    public Badge onChange(ChangeHandler<Badge, Integer> onChange) {
-        this.onChange = onChange;
+    /**
+     * Defines a change handler that is called when the {@link #value()} of this badge changes.
+     */
+    public Badge onChange(ChangeHandler<Badge, Integer> changeHandler) {
+        this.changeHandler = changeHandler;
         return this;
     }
 
     // ------------------------------------------------------ api
 
     public int count() {
-        return value;
+        return ov != null ? ov.get() : this.value;
+    }
+
+    @Override
+    public Integer value() {
+        return ov != null ? ov.get() : this.value;
+    }
+
+    // ------------------------------------------------------ internal
+
+    private void updateValue(int value) {
+        if (value > limit) {
+            if (maxDisplay != null) {
+                valueElement.textContent = maxDisplay.apply(value);
+            } else {
+                valueElement.textContent = limit + "+";
+            }
+        } else {
+            if (display != null) {
+                valueElement.textContent = display.apply(value);
+            } else {
+                valueElement.textContent = String.valueOf(value);
+            }
+        }
     }
 }

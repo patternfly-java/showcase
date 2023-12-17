@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"ToolbarContent.impl.java.js",
-"lineCount":51,
-"mappings":"A;;;;;;;;;;;;;;;;MAgCa,c;;CAAA,W;EAAAA,Q;;;QAOoB,iE;EAAiBC,yB;EAC1CA,kC;;;QAKJ,S;EAAAC,yB;EAAAA,qC;EAAAA,yE;EAAAA,iB;;;CAAA,4D;EACIC,mrB;;;CAMkB,uD;EAClBC,Y;;;;CArBK,uC;EAAAA,sE;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"lineCount":70,
+"mappings":"A;;;;;;;;;;;;;;;;MA8Ba,c;;CAAA,W;EAAAA,Q;;;QAOoB,iE;EAAiBC,yB;EAC1CA,kC;;;QAOJ,S;EAAAC,yB;EAAAA,qC;EAAAA,yE;EAAAA,iB;;;CAAA,4D;EACIC,wyB;;;CAMkB,uD;EAClBC,Y;;;;CAvBK,uC;EAAAA,sE;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA,8B;;;;;;;;;;;;;;;;;;AAaT;eAAoB,qEAApB;",
 "sources":["ToolbarContent.java"],
 "names":["org.patternfly.component.toolbar.ToolbarContent.<synthetic: ctor_js>","org.patternfly.component.toolbar.ToolbarContent.toolbarContent","org.patternfly.component.toolbar.ToolbarContent.<synthetic: ctor_create>","org.patternfly.component.toolbar.ToolbarContent.<init>","org.patternfly.component.toolbar.ToolbarContent.that","org.patternfly.component.toolbar.ToolbarContent.<clinit>"]
 }

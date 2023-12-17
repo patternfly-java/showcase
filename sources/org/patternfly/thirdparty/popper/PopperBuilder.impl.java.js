@@ -189,7 +189,7 @@ class PopperBuilder extends j_l_Object {
  /** @nodts @return {org_patternfly_thirdparty_popper_Popper} */
  m_build__org_patternfly_thirdparty_popper_Popper() {
   let createPopperFn = JsPropertyMap_$Overlay.m_nestedGetAsAny__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__jsinterop_base_Any(goog.global, 'Popper.createPopper');
-  if (Js.isTripleEqual(createPopperFn, undefined)) {
+  if ($Equality.$same(createPopperFn, null) || Js.isTripleEqual(createPopperFn, undefined)) {
    return PopperError.$create__org_patternfly_component_ComponentType(this.f_componentType__org_patternfly_thirdparty_popper_PopperBuilder_);
   } else {
    let options = new Object();

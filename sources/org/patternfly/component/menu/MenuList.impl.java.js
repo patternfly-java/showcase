@@ -1,8 +1,8 @@
 goog.module('org.patternfly.component.menu.MenuList$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
+const MenuSubComponent = goog.require('org.patternfly.component.menu.MenuSubComponent$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLUListElement.$Overlay$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
@@ -22,22 +22,20 @@ let MenuType = goog.forwardDeclare('org.patternfly.component.menu.MenuType$impl'
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let SelectionMode = goog.forwardDeclare('org.patternfly.core.SelectionMode$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLUListElement, MenuList>}
- * @implements {ComponentReference<Menu>}
+ * @extends {MenuSubComponent<HTMLUListElement, MenuList>}
+ * @implements {Attachable}
  */
-class MenuList extends SubComponent {
+class MenuList extends MenuSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
   /**@type {Map<?string, MenuItem>} @nodts*/
   this.f_items__org_patternfly_component_menu_MenuList;
-  /**@type {Menu} @nodts*/
-  this.f_menu__org_patternfly_component_menu_MenuList_;
  }
  /** @nodts @return {MenuList} */
  static m_menuList__org_patternfly_component_menu_MenuList() {
@@ -53,12 +51,13 @@ class MenuList extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_menu_MenuList__void() {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(/**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_list__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'menu'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_component_menu_MenuSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(MenuList.f_SUB_COMPONENT_NAME__org_patternfly_component_menu_MenuList, /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_list__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'menu'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
   this.f_items__org_patternfly_component_menu_MenuList = /**@type {!HashMap<?string, MenuItem>}*/ (HashMap.$create__());
+  Attachable.m_register__org_jboss_elemento_IsElement__org_jboss_elemento_Attachable__void(this, this);
  }
- /** @nodts */
- m_passComponent__org_patternfly_component_menu_Menu__void(/** Menu */ menu) {
-  this.f_menu__org_patternfly_component_menu_MenuList_ = menu;
+ /** @override @nodts */
+ m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
+  let menu = /**@type {Menu}*/ ($Casts.$to(this.m_lookupComponent__org_patternfly_component_BaseComponent(), Menu));
   switch (menu.f_menuType__org_patternfly_component_menu_Menu.ordinal()) {
    case MenuType.$ordinal_menu__org_patternfly_component_menu_MenuType: 
    case MenuType.$ordinal_dropdown__org_patternfly_component_menu_MenuType: 
@@ -73,16 +72,6 @@ class MenuList extends SubComponent {
   } else if ($Equality.$same(menu.f_selectionMode__org_patternfly_component_menu_Menu, SelectionMode.f_multi__org_patternfly_core_SelectionMode)) {
    this.m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_multiSelectable__org_patternfly_core_Aria, true);
   }
-  for (let $iterator = this.f_items__org_patternfly_component_menu_MenuList.values().m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
-   let menuItem = /**@type {MenuItem}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), MenuItem));
-   {
-    menuItem.m_passComponent__org_patternfly_component_menu_Menu__void(menu);
-   }
-  }
- }
- /** @nodts @return {Menu} */
- m_mainComponent__org_patternfly_component_menu_Menu() {
-  return this.f_menu__org_patternfly_component_menu_MenuList_;
  }
  /** @nodts @template T @return {MenuList} */
  m_addItems__java_lang_Iterable__java_util_function_Function__org_patternfly_component_menu_MenuList(/** Iterable<T> */ items, /** j_u_function_Function<T, MenuItem> */ display) {
@@ -111,9 +100,6 @@ class MenuList extends SubComponent {
  /** @nodts @return {MenuList} */
  m_add__org_patternfly_component_menu_MenuItem__org_patternfly_component_menu_MenuList(/** MenuItem */ item) {
   this.f_items__org_patternfly_component_menu_MenuList.put(item.f_id__org_patternfly_component_menu_MenuItem, item);
-  if (/**@type {HTMLUListElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).isConnected) {
-   item.m_passComponent__org_patternfly_component_menu_Menu__void(this.f_menu__org_patternfly_component_menu_MenuList_);
-  }
   return /**@type {MenuList}*/ ($Casts.$to(this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(item.m_element__elemental2_dom_HTMLElement()), MenuList));
  }
  /** @nodts @return {MenuList} */
@@ -129,15 +115,10 @@ class MenuList extends SubComponent {
   this.f_items__org_patternfly_component_menu_MenuList.remove(favoriteItem.f_id__org_patternfly_component_menu_MenuItem);
   Elements.m_failSafeRemoveFromParent__org_jboss_elemento_IsElement__boolean(favoriteItem);
  }
- //Bridge method.
- /** @final @override @nodts @return {Menu} */
- m_mainComponent__org_patternfly_component_BaseComponent() {
-  return this.m_mainComponent__org_patternfly_component_menu_Menu();
- }
- //Bridge method.
- /** @final @override @nodts */
- m_passComponent__org_patternfly_component_BaseComponent__void(/** Menu */ arg0) {
-  this.m_passComponent__org_patternfly_component_menu_Menu__void(/**@type {Menu}*/ ($Casts.$to(arg0, Menu)));
+ //Default method forwarding stub.
+ /** @override @nodts */
+ m_detach__elemental2_dom_MutationRecord__void(/** MutationRecord */ arg0) {
+  Attachable.m_detach__$default__org_jboss_elemento_Attachable__elemental2_dom_MutationRecord__void(this, arg0);
  }
  //Bridge method.
  /** @final @override @nodts @return {MenuList} */
@@ -148,7 +129,8 @@ class MenuList extends SubComponent {
  static $clinit() {
   MenuList.$clinit = () =>{};
   MenuList.$loadModules();
-  SubComponent.$clinit();
+  MenuSubComponent.$clinit();
+  Attachable.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -172,12 +154,14 @@ class MenuList extends SubComponent {
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
   SelectionMode = goog.module.get('org.patternfly.core.SelectionMode$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
-ComponentReference.$markImplementor(MenuList);
+/**@const {string} @nodts*/
+MenuList.f_SUB_COMPONENT_NAME__org_patternfly_component_menu_MenuList = 'ml';
+Attachable.$markImplementor(MenuList);
 $Util.$setClassMetadata(MenuList, 'org.patternfly.component.menu.MenuList');
 
 exports = MenuList;

@@ -32,8 +32,8 @@ import org.patternfly.core.Aria;
 import org.patternfly.core.Closeable;
 import org.patternfly.core.HasValues;
 import org.patternfly.handler.CloseHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.Color;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Color;
 
 import elemental2.dom.Element;
 import elemental2.dom.Event;
@@ -58,17 +58,17 @@ import static org.patternfly.core.Aria.labelledBy;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.handler.CloseHandler.fireEvent;
 import static org.patternfly.handler.CloseHandler.shouldClose;
-import static org.patternfly.layout.Classes.chipGroup;
-import static org.patternfly.layout.Classes.close;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.item;
-import static org.patternfly.layout.Classes.labelGroup;
-import static org.patternfly.layout.Classes.list;
-import static org.patternfly.layout.Classes.main;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.overflow;
-import static org.patternfly.layout.Classes.vertical;
-import static org.patternfly.layout.PredefinedIcon.timesCircle;
+import static org.patternfly.style.Classes.chipGroup;
+import static org.patternfly.style.Classes.close;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.item;
+import static org.patternfly.style.Classes.labelGroup;
+import static org.patternfly.style.Classes.list;
+import static org.patternfly.style.Classes.main;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.overflow;
+import static org.patternfly.style.Classes.vertical;
+import static org.patternfly.style.PredefinedIcon.timesCircle;
 
 public class LabelGroup extends BaseComponent<HTMLDivElement, LabelGroup>
         implements HasValues<Label>, Attachable, Closeable<HTMLDivElement, LabelGroup> {
@@ -102,7 +102,7 @@ public class LabelGroup extends BaseComponent<HTMLDivElement, LabelGroup>
     private CloseHandler<LabelGroup> closeHandler;
 
     LabelGroup(String category) {
-        super(div().css(component(labelGroup)).element(), ComponentType.ChipGroup);
+        super(ComponentType.ChipGroup, div().css(component(labelGroup)).element());
         this.labels = new LinkedHashMap<>();
         this.expanded = false;
         this.numLabels = DEFAULT_NUM_CHIPS;
@@ -118,6 +118,7 @@ public class LabelGroup extends BaseComponent<HTMLDivElement, LabelGroup>
         } else {
             listElement.setAttribute(label, "Label group category");
         }
+        storeComponent();
         Attachable.register(this, this);
     }
 
@@ -125,9 +126,6 @@ public class LabelGroup extends BaseComponent<HTMLDivElement, LabelGroup>
     public void attach(MutationRecord mutationRecord) {
         if (tooltipToggle != null) {
             tooltipToggle.eval();
-        }
-        for (Label label : labels.values()) {
-            label.passComponent(this);
         }
     }
 
@@ -148,11 +146,6 @@ public class LabelGroup extends BaseComponent<HTMLDivElement, LabelGroup>
     // override to assure internal wiring
     public LabelGroup add(Label label) {
         labels.put(label.id, label);
-        // If this component is already attached, call passComponent() manually (normally this takes place
-        // automatically initiated by the base component's attach handler).
-        if (element().isConnected) {
-            label.passComponent(this);
-        }
 
         HTMLLIElement itemElement = li().css(component(labelGroup, list, item))
                 .add(label)
@@ -206,9 +199,11 @@ public class LabelGroup extends BaseComponent<HTMLDivElement, LabelGroup>
         }
 
         add(div().css(component(labelGroup, close))
-                .add(closeButton = button(timesCircle, "Close label group")
+                .add(closeButton = button()
                         .plain()
+                        .icon(timesCircle)
                         .id(closeId)
+                        .aria(Aria.label, "Close label group")
                         .aria(Aria.labelledBy, labelledBy)
                         .on(click, event -> close(event, true))));
         return this;

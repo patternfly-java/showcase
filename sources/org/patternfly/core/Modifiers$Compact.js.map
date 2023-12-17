@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Modifiers$Compact.impl.java.js",
-"lineCount":34,
-"mappings":"A;;;;;;;;;;;;;;;MA2Bc,O;;CAGI,0C;;CAKA,mD,gBAAgBA,O;;QALhB,2F;EAAAC,kB;EACNA,0E;;;QAIM,oG,gDAAgBD,O;EAAhBC,kB;EACNA,oT;;;QATE,O;EAAAC,0B;EAAAA;",
-"sources":["Modifiers.java"],
-"names":["compact","org.patternfly.core.Modifiers$Compact.compact__$default","org.patternfly.core.Modifiers$Compact.<clinit>"]
-}

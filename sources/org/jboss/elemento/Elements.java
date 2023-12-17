@@ -23,6 +23,7 @@ import java.util.function.Supplier;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
+import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 import elemental2.core.JsArray;
@@ -59,6 +60,7 @@ import elemental2.dom.HTMLOptionElement;
 import elemental2.dom.HTMLOutputElement;
 import elemental2.dom.HTMLParagraphElement;
 import elemental2.dom.HTMLParamElement;
+import elemental2.dom.HTMLPictureElement;
 import elemental2.dom.HTMLPreElement;
 import elemental2.dom.HTMLProgressElement;
 import elemental2.dom.HTMLQuoteElement;
@@ -81,11 +83,16 @@ import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 
 import static elemental2.dom.DomGlobal.document;
+import static elemental2.dom.DomGlobal.window;
 import static java.util.Collections.emptyIterator;
 import static java.util.Collections.emptyList;
 import static java.util.Spliterators.spliteratorUnknownSize;
 import static jsinterop.base.Js.cast;
+import static jsinterop.base.Js.isTripleEqual;
+import static jsinterop.base.Js.undefined;
 import static org.jboss.elemento.BodyObserver.addAttachObserver;
+import static org.jboss.elemento.EventType.bind;
+import static org.jboss.elemento.EventType.resize;
 
 /**
  * Builder and helper methods for working with {@link elemental2.dom.HTMLElement}s and/or {@link IsElement}.
@@ -578,6 +585,14 @@ public final class Elements {
     }
 
     public static HTMLContainerBuilder<HTMLMapElement> map(Element element) {
+        return wrapHtmlContainer(cast(element));
+    }
+
+    public static HTMLContainerBuilder<HTMLPictureElement> picture() {
+        return htmlContainer("picture", HTMLPictureElement.class);
+    }
+
+    public static HTMLContainerBuilder<HTMLPictureElement> picture(Element element) {
         return wrapHtmlContainer(cast(element));
     }
 
@@ -1459,6 +1474,53 @@ public final class Elements {
         }
     }
 
+    // ------------------------------------------------------ resize
+
+    /**
+     * Register a resize observer for the given element. The observer will call the provided callback whenever the size of the
+     * element changes.
+     * <p>
+     * Uses the native {@link ResizeObserver} if available. Falls back to {@code window.addEventListener("resize", callback)},
+     * otherwise.
+     *
+     * @param element The element to observe for size changes.
+     * @param callback The callback function to be called when the size of the element changes.
+     * @param <E> The type of element being observed, which must extend from HTMLElement.
+     * @return A cleanup function that can be used to unregister the observer.
+     */
+    public static <E extends HTMLElement> ResizeObserverCleanup resizeObserver(IsElement<E> element, ResizeCallback callback) {
+        return resizeObserver(element.element(), callback);
+    }
+
+    /**
+     * Register a resize observer for the given element. The observer will call the provided callback whenever the size of the
+     * element changes.
+     * <p>
+     * Uses the native {@link ResizeObserver} if available. Falls back to {@code window.addEventListener("resize", callback)},
+     * otherwise.
+     *
+     * @param element The element to observe for size changes.
+     * @param callback The callback function to be called when the size of the element changes.
+     * @param <E> The type of element being observed, which must extend from HTMLElement.
+     * @return A cleanup function that can be used to unregister the observer.
+     */
+    public static <E extends HTMLElement> ResizeObserverCleanup resizeObserver(E element, ResizeCallback callback) {
+        ResizeObserverCleanup cleanup;
+        if (isTripleEqual(Js.global().getAsAny("ResizeObserver"), undefined())) {
+            HandlerRegistration registration = bind(window, resize, e -> callback.onResize());
+            cleanup = registration::removeHandler;
+        } else {
+            ResizeObserver observer = new ResizeObserver((entries, obs) -> {
+                if (entries != null && entries.length != 0) {
+                    callback.onResize();
+                }
+            });
+            observer.observe(element);
+            cleanup = () -> observer.unobserve(element);
+        }
+        return cleanup;
+    }
+
     // ------------------------------------------------------ CSS
 
     /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
@@ -1503,6 +1565,43 @@ public final class Elements {
         if (element != null) {
             innerHtml(element.element(), html);
         }
+    }
+
+    // ------------------------------------------------------ debug
+
+    public static <E extends Element> String toString(IsElement<E> element) {
+        if (element != null) {
+            return toString(element.element());
+        }
+        return "";
+    }
+
+    public static String toString(Element element) {
+        if (element != null) {
+            String tag = element.tagName.toLowerCase();
+            StringBuilder builder = new StringBuilder("<").append(tag);
+            JsArray<String> names = element.getAttributeNames();
+            if (names != null) {
+                for (int i = 0; i < names.length; i++) {
+                    String name = names.getAt(i);
+                    String value = element.getAttribute(name);
+                    builder.append(" ").append(name).append("='").append(value).append("'");
+                }
+            }
+            if (element.childElementCount == 0) {
+                builder.append("/>");
+            } else {
+                builder.append(">[")
+                        .append(element.childElementCount)
+                        .append(" child element");
+                if (element.childElementCount > 1) {
+                    builder.append("s");
+                }
+                builder.append("]></").append(tag).append(">");
+            }
+            return builder.toString();
+        }
+        return "";
     }
 
     // ------------------------------------------------------ deprecated

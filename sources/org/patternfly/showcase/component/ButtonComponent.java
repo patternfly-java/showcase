@@ -15,21 +15,24 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.component.button.IconPosition.end;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.arrowRight;
-import static org.patternfly.layout.PredefinedIcon.copy;
-import static org.patternfly.layout.PredefinedIcon.externalLinkSquareAlt;
-import static org.patternfly.layout.PredefinedIcon.plusCircle;
-import static org.patternfly.layout.PredefinedIcon.times;
-import static org.patternfly.layout.PredefinedIcon.upload;
+import static org.patternfly.core.IconPosition.end;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.arrowRight;
+import static org.patternfly.style.PredefinedIcon.copy;
+import static org.patternfly.style.PredefinedIcon.externalLinkSquareAlt;
+import static org.patternfly.style.PredefinedIcon.plusCircle;
+import static org.patternfly.style.PredefinedIcon.times;
+import static org.patternfly.style.PredefinedIcon.upload;
 
-public class ButtonComponent extends ComponentPage {
+public class ButtonComponent extends SnippetPage {
 
     public ButtonComponent() {
         super("Button",
@@ -55,19 +58,19 @@ public class ButtonComponent extends ComponentPage {
                                 .add(" ")
                                 .add(button("Warning").warning()))
                         .add(div().css(util("mt-lg"))
-                                .add(button().addIconAndText(plusCircle, "Link").link())
+                                .add(button().iconAndText(plusCircle, "Link").link())
                                 .add(" ")
-                                .add(button().addIconAndText(externalLinkSquareAlt, "Link", end).link())
+                                .add(button().iconAndText(externalLinkSquareAlt, "Link", end).link())
                                 .add(" ")
                                 .add(button("Inline link").inline().link())
                                 .add(" ")
                                 .add(button("Danger link").link().danger()))
                         .add(div().css(util("mt-lg"))
-                                .add(button(times).plain()))
+                                .add(button().icon(times).plain()))
                         .add(div().css(util("mt-lg"))
                                 .add(button("Control").control())
                                 .add(" ")
-                                .add(button(copy).control()))
+                                .add(button().icon(copy).control()))
                         .element()
         // @code-end:button-variant-examples
         ));
@@ -89,17 +92,17 @@ public class ButtonComponent extends ComponentPage {
                                 .add(" ")
                                 .add(button("Warning disabled").warning().disabled()))
                         .add(div().css(util("mt-lg"))
-                                .add(button().addIconAndText(plusCircle, "Link disabled").link().disabled())
+                                .add(button().iconAndText(plusCircle, "Link disabled").link().disabled())
                                 .add(" ")
                                 .add(button("Inline link disabled").inline().link().disabled())
                                 .add(" ")
                                 .add(button("Danger link disabled").link().danger().disabled()))
                         .add(div().css(util("mt-lg"))
-                                .add(button(times).plain().disabled()))
+                                .add(button().icon(times).plain().disabled()))
                         .add(div().css(util("mt-lg"))
                                 .add(button("Control disabled").control().disabled())
                                 .add(" ")
-                                .add(button(copy).control().disabled()))
+                                .add(button().icon(copy).control().disabled()))
                         .element()
         // @code-end:button-disabled
         ));
@@ -133,7 +136,7 @@ public class ButtonComponent extends ComponentPage {
                         .add(" ")
                         .add(button("Call to action").tertiary().callToAction())
                         .add(" ")
-                        .add(button().addIconAndText(arrowRight, "Call to action", end).link().callToAction())
+                        .add(button().iconAndText(arrowRight, "Call to action", end).link().callToAction())
                         .element()
         // @code-end:button-cta
         ));
@@ -172,7 +175,7 @@ public class ButtonComponent extends ComponentPage {
                                             }
                                         })))
                         .add(div().css(util("mt-lg"))
-                                .add(button(upload).plain()
+                                .add(button().icon(upload).plain()
                                         .onClick((event, button) -> button.toggleProgress())))
                         .add(div().css(util("mt-lg"))
                                 .add(button("Pause loading logs").link().inline().progress(true)

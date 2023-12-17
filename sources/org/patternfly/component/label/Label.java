@@ -20,14 +20,12 @@ import java.util.Objects;
 
 import org.gwtproject.event.shared.HandlerRegistration;
 import org.jboss.elemento.Attachable;
-import org.jboss.elemento.Elements;
 import org.jboss.elemento.EventType;
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.Id;
 import org.jboss.elemento.InputType;
 import org.jboss.elemento.Key;
 import org.patternfly.component.BaseComponentFlat;
-import org.patternfly.component.ComponentReference;
 import org.patternfly.component.ComponentType;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.icon.InlineIcon;
@@ -36,12 +34,15 @@ import org.patternfly.component.tooltip.TooltipToggle;
 import org.patternfly.core.Aria;
 import org.patternfly.core.Closeable;
 import org.patternfly.core.HasValue;
-import org.patternfly.core.Modifiers.Compact;
+import org.patternfly.core.IconPosition;
+import org.patternfly.core.WithIcon;
+import org.patternfly.core.WithIconAndText;
+import org.patternfly.core.WithText;
 import org.patternfly.handler.CloseHandler;
 import org.patternfly.handler.ComponentHandler;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.Color;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Color;
+import org.patternfly.style.Modifiers.Compact;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
@@ -57,26 +58,26 @@ import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.input;
 import static org.jboss.elemento.Elements.insertAfter;
 import static org.jboss.elemento.Elements.insertBefore;
+import static org.jboss.elemento.Elements.iterator;
+import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.setVisible;
 import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.click;
 import static org.jboss.elemento.EventType.keydown;
-import static org.patternfly.component.icon.InlineIcon.inlineIcon;
-import static org.patternfly.core.Modifiers.toggleModifier;
 import static org.patternfly.handler.CloseHandler.fireEvent;
 import static org.patternfly.handler.CloseHandler.shouldClose;
-import static org.patternfly.layout.Classes.actions;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.content;
-import static org.patternfly.layout.Classes.editable;
-import static org.patternfly.layout.Classes.editableActive;
-import static org.patternfly.layout.Classes.label;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Color.grey;
-import static org.patternfly.layout.PredefinedIcon.times;
-import static org.patternfly.layout.Variable.componentVar;
-import static org.patternfly.layout.Variables.MaxWidth;
+import static org.patternfly.style.Classes.actions;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.content;
+import static org.patternfly.style.Classes.editable;
+import static org.patternfly.style.Classes.editableActive;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Color.grey;
+import static org.patternfly.style.Modifiers.toggleModifier;
+import static org.patternfly.style.PredefinedIcon.times;
+import static org.patternfly.style.Variable.componentVar;
+import static org.patternfly.style.Variables.MaxWidth;
 
 /**
  * The label component allows users to add specific element captions for user clarity and convenience.
@@ -84,9 +85,11 @@ import static org.patternfly.layout.Variables.MaxWidth;
  * @see <a href= "https://www.patternfly.org/components/label/html">https://www.patternfly.org/components/label/html</a>
  */
 public class Label extends BaseComponentFlat<HTMLElement, Label> implements
-        ComponentReference<LabelGroup>,
         Closeable<HTMLElement, Label>,
         Compact<HTMLElement, Label>,
+        WithText<HTMLElement, Label>,
+        WithIcon<HTMLElement, Label>,
+        WithIconAndText<HTMLElement, Label>,
         HasValue<String>,
         Attachable {
 
@@ -107,10 +110,10 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     private final TooltipToggle tooltipToggle;
     private HTMLElement contentElement;
     private HTMLElement actionsElement;
+    private HTMLElement iconContainer;
     private HTMLInputElement inputElement;
     private Tooltip tooltip;
     private Button closeButton;
-    private LabelGroup labelGroup;
     private CloseHandler<Label> closeHandler;
     private ComponentHandler<Label> clickHandler;
     private LabelEditCancelHandler editCancelHandler;
@@ -118,10 +121,10 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     private HandlerRegistration cancelEditModeOnDocumentClick;
 
     <E extends HTMLElement> Label(HTMLContainerBuilder<E> builder, String text, Color color) {
-        super(builder.css(component(label), color.modifier).element(), ComponentType.Label);
+        super(ComponentType.Label, builder.css(component(Classes.label), color.modifier).element());
         this.id = Id.unique(componentType().id);
-        element().appendChild(contentElement = span().css(component(label, content))
-                .add(textElement = span().css(component(label, Classes.text))
+        element().appendChild(contentElement = span().css(component(Classes.label, content))
+                .add(textElement = span().css(component(Classes.label, Classes.text))
                         .textContent(text)
                         .element())
                 .element());
@@ -132,16 +135,6 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     @Override
     public void attach(MutationRecord mutationRecord) {
         tooltipToggle.eval();
-    }
-
-    @Override
-    public void passComponent(LabelGroup labelGroup) {
-        this.labelGroup = labelGroup;
-    }
-
-    @Override
-    public LabelGroup mainComponent() {
-        return labelGroup;
     }
 
     @Override
@@ -159,21 +152,6 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    // ------------------------------------------------------ add
-
-    public Label addIcon(String iconClass) {
-        return addIcon(inlineIcon(iconClass));
-    }
-
-    public Label addIcon(PredefinedIcon icon) {
-        return addIcon(inlineIcon(icon));
-    }
-
-    public Label addIcon(InlineIcon icon) {
-        insertBefore(span().css(component(label, Classes.icon)).add(icon).element(), textElement);
-        return this;
     }
 
     // ------------------------------------------------------ builder
@@ -194,9 +172,11 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
 
     public Label closable(CloseHandler<Label> closeHandler) {
         onClose(closeHandler);
-        insertAfter(actionsElement = span().css(component(label, actions))
-                .add(closeButton = Button.button(times, "Close " + textElement.textContent)
+        insertAfter(actionsElement = span().css(component(Classes.label, actions))
+                .add(closeButton = Button.button()
+                        .icon(times)
                         .plain()
+                        .aria(Aria.label, "Close " + textElement.textContent)
                         .on(click, event -> close(event, true)))
                 .element(), contentElement);
         return this;
@@ -209,7 +189,7 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     public Label clickable(ComponentHandler<Label> clickHandler) {
         onClick(clickHandler);
         replaceContent(button()
-                .css(component(label, content))
+                .css(component(Classes.label, content))
                 .on(click, e -> {
                     if (this.clickHandler != null) {
                         this.clickHandler.handle(e, this);
@@ -226,7 +206,7 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     public Label editable(LabelEditCancelHandler cancelHandler, LabelEditCompleteHandler completeHandler) {
         onEditCancel(cancelHandler);
         onEditComplete(completeHandler);
-        replaceContent(button().css(component(label, content))
+        replaceContent(button().css(component(Classes.label, content))
                 .aria(Aria.label, "Editable label with text " + textElement.textContent)
                 .on(click, e -> enterEdit())
                 .on(keydown, e -> {
@@ -238,11 +218,34 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
         return css(modifier(editable));
     }
 
-    public Label href(String href) {
-        replaceContent(a(href).css(component(label, content)).element());
+    @Override
+    public Label icon(InlineIcon icon) {
+        if (iconContainer == null) {
+            insertBefore(iconContainer = span().css(component(Classes.label, Classes.icon)).element(), textElement);
+        }
+        removeChildrenFrom(iconContainer);
+        iconContainer.appendChild(icon.element());
         return this;
     }
 
+    @Override
+    public Label removeIcon() {
+        failSafeRemoveFromParent(iconContainer);
+        return this;
+    }
+
+    @Override
+    public Label iconAndText(InlineIcon icon, String text, IconPosition iconPosition) {
+        icon(icon);
+        return text(text);
+    }
+
+    public Label href(String href) {
+        replaceContent(a(href).css(component(Classes.label, content)).element());
+        return this;
+    }
+
+    @Override
     public Label text(String text) {
         textElement.textContent = text;
         tooltipToggle.eval();
@@ -251,7 +254,7 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
 
     public Label textMaxWidth(String maxWidth) {
         // --pf-v5-c-label__text--MaxWidth: <maxWidth>
-        componentVar(component(label, Classes.text), MaxWidth).applyTo(textElement, maxWidth);
+        componentVar(component(Classes.label, Classes.text), MaxWidth).applyTo(textElement, maxWidth);
         tooltipToggle.eval();
         return this;
     }
@@ -303,6 +306,7 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     @Override
     public void close(Event event, boolean fireEvent) {
         if (shouldClose(this, closeHandler, event, fireEvent)) {
+            LabelGroup labelGroup = lookupComponent(ComponentType.LabelGroup, true);
             if (labelGroup != null) {
                 labelGroup.close(this);
             } else {
@@ -315,7 +319,7 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     // ------------------------------------------------------ internal
 
     private void replaceContent(HTMLElement newContent) {
-        for (Iterator<HTMLElement> iterator = Elements.iterator(contentElement); iterator.hasNext();) {
+        for (Iterator<HTMLElement> iterator = iterator(contentElement); iterator.hasNext();) {
             HTMLElement element = iterator.next();
             newContent.appendChild(element);
         }
@@ -371,7 +375,7 @@ public class Label extends BaseComponentFlat<HTMLElement, Label> implements
     private HTMLInputElement failSafeInputElement() {
         if (inputElement == null) {
             element().appendChild(inputElement = input(InputType.text)
-                    .css(component(label, content))
+                    .css(component(Classes.label, content))
                     .on(keydown, e -> {
                         if (Key.Enter.match(e)) {
                             completeEdit(e, ((HTMLInputElement) e.target).value);

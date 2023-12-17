@@ -2,7 +2,7 @@
 "version":3,
 "file":"Toolbar.impl.java.js",
 "lineCount":52,
-"mappings":"A;;;;;;;;;;;;;;;;;MAmCa,O;;CAAA,W;EAAAA,Q;;;QAOa,mD;EAAUC,kB;EAC5BA,2B;;;QAKJ,S;EAAAC,kB;EAAAA,8B;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EACIC,2uB;;;CAMW,gD;EACXC,Y;;;;CArBK,uC;EAAAA,+D;;;QAAA,O;EAAAC,0B;EAAAA,uB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;MAmCa,O;;CAAA,W;EAAAA,Q;;;QAOa,mD;EAAUC,kB;EAC5BA,2B;;;QAKJ,S;EAAAC,kB;EAAAA,8B;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EACIC,0uB;;;CAMW,gD;EACXC,Y;;;;CArBK,uC;EAAAA,+D;;;QAAA,O;EAAAC,0B;EAAAA,uB;EAAAA;",
 "sources":["Toolbar.java"],
 "names":["org.patternfly.component.toolbar.Toolbar.<synthetic: ctor_js>","org.patternfly.component.toolbar.Toolbar.toolbar","org.patternfly.component.toolbar.Toolbar.<synthetic: ctor_create>","org.patternfly.component.toolbar.Toolbar.<init>","org.patternfly.component.toolbar.Toolbar.that","org.patternfly.component.toolbar.Toolbar.<clinit>"]
 }

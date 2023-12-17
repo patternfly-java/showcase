@@ -2,7 +2,7 @@
 "version":3,
 "file":"StackItem.impl.java.js",
 "lineCount":74,
-"mappings":"A;;;;;;;;;;;;;;;;;;MA2Ba,S;;CAAA,W;EAAAA,Q;;;QAIe,kD;EAAYC,oB;EAChCA,6B;;;QAKJ,S;EAAAC,oB;EAAAA,gC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EACIC,oqB;;;CAIa,6C;EACbC,Y;;;;CAhBK,uC;EAAAA,4D;;;;CAAA,uC;EAAAC,wJ;;;;CAAA,gD;EAAAA,uK;;;;CAAA,6C;EAAAA,wJ;;;;CAAA,sD;EAAAA,uK;;;QAAA,O;EAAAC,4B;EAAAA,yB;EAAAA,qB;EAAAA;",
+"mappings":"A;;;;;;;;;;;;;;;;;;MA2Ba,S;;CAAA,W;EAAAA,Q;;;QAIe,kD;EAAYC,oB;EAChCA,6B;;;QAKJ,S;EAAAC,oB;EAAAA,gC;EAAAA,+D;EAAAA,iB;;;CAAA,kD;EACIC,kqB;;;CAMa,6C;EACbC,Y;;;;CAlBK,uC;EAAAA,4D;;;;CAAA,uC;EAAAC,yJ;;;;CAAA,gD;EAAAA,wK;;;;CAAA,6C;EAAAA,yJ;;;;CAAA,sD;EAAAA,wK;;;QAAA,O;EAAAC,4B;EAAAA,yB;EAAAA,qB;EAAAA;",
 "sources":["StackItem.java"],
 "names":["org.patternfly.layout.stack.StackItem.<synthetic: ctor_js>","org.patternfly.layout.stack.StackItem.stackItem","org.patternfly.layout.stack.StackItem.<synthetic: ctor_create>","org.patternfly.layout.stack.StackItem.<init>","org.patternfly.layout.stack.StackItem.that","org.patternfly.layout.stack.StackItem.fill","org.patternfly.layout.stack.StackItem.<clinit>"]
 }

@@ -32,6 +32,10 @@ import org.patternfly.showcase.component.CodeBlockComponent;
 import org.patternfly.showcase.component.CodeEditorComponent;
 import org.patternfly.showcase.component.DropdownComponent;
 import org.patternfly.showcase.component.ExpandableSectionComponent;
+import org.patternfly.showcase.component.FormComponent;
+import org.patternfly.showcase.component.FormControlComponent;
+import org.patternfly.showcase.component.FormSelectComponent;
+import org.patternfly.showcase.component.HelperTextComponent;
 import org.patternfly.showcase.component.IconComponent;
 import org.patternfly.showcase.component.LabelComponent;
 import org.patternfly.showcase.component.MastheadComponent;
@@ -40,10 +44,13 @@ import org.patternfly.showcase.component.MenuToggleComponent;
 import org.patternfly.showcase.component.PopoverComponent;
 import org.patternfly.showcase.component.RadioComponent;
 import org.patternfly.showcase.component.SpinnerComponent;
+import org.patternfly.showcase.component.TextAreaComponent;
 import org.patternfly.showcase.component.TextContentComponent;
 import org.patternfly.showcase.component.TextInputComponent;
 import org.patternfly.showcase.component.TextInputGroupComponent;
+import org.patternfly.showcase.component.TitleComponent;
 import org.patternfly.showcase.component.TooltipComponent;
+import org.patternfly.showcase.layout.GalleryLayout;
 
 import elemental2.dom.HTMLElement;
 
@@ -52,6 +59,7 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.style.Brightness.light;
 
 @SuppressWarnings("Convert2MethodRef")
 final class Placemanager {
@@ -80,6 +88,10 @@ final class Placemanager {
         places.put("c-dropdown", () -> new DropdownComponent());
         // places.put("c-empty-state", () -> new EmptyStateComponent());
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());
+        places.put("c-form", () -> new FormComponent());
+        places.put("c-form-control", () -> new FormControlComponent());
+        places.put("c-form-select", () -> new FormSelectComponent());
+        places.put("c-helper-text", () -> new HelperTextComponent());
         places.put("c-icon", () -> new IconComponent());
         places.put("c-label", () -> new LabelComponent());
         places.put("c-masthead", () -> new MastheadComponent());
@@ -93,11 +105,14 @@ final class Placemanager {
         // places.put("c-table", () -> new TableComponent());
         // places.put("c-tabs", () -> new TabsComponent());
         places.put("c-text-content", () -> new TextContentComponent());
-        // places.put("c-title", () -> new TitleComponent());
+        places.put("c-text-area", () -> new TextAreaComponent());
         places.put("c-text-input", () -> new TextInputComponent());
         places.put("c-text-input-group", () -> new TextInputGroupComponent());
+        places.put("c-title", () -> new TitleComponent());
         places.put("c-tooltip", () -> new TooltipComponent());
         // places.put("c-toolbar", () -> new ToolbarComponent());
+
+        places.put("l-gallery", () -> new GalleryLayout());
 
         // places.put("d-server", () -> new ServerDemo());
         // places.put("d-user", () -> new UserDemo());
@@ -122,7 +137,7 @@ final class Placemanager {
         @Override
         public Iterable<HTMLElement> elements() {
             return singletonList(pageMainSection()
-                    .light()
+                    .background(light)
                     .css("sc-page")
                     .add(textContent()
                             .add(title(1, "Not Found"))

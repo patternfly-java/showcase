@@ -12,6 +12,7 @@ goog.require('java.util.function.Supplier');
 goog.require('nativebootstrap.Util');
 goog.require('org.gwtproject.safehtml.shared.SafeHtml');
 goog.require('org.jboss.elemento.By');
+goog.require('org.jboss.elemento.ClassList');
 goog.require('org.jboss.elemento.EventType');
 goog.require('org.jboss.elemento.Finder');
 goog.require('org.jboss.elemento.HasElement');

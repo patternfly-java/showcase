@@ -27,9 +27,13 @@ import static java.util.Objects.requireNonNull;
 public abstract class SubComponentFlat<E extends HTMLElement, B extends TypedBuilder<E, B>>
         implements HasElement<E, B>, HasHTMLElement<E, B>, Finder<E> {
 
+    final ComponentType componentType;
+    final String name;
     private final E element;
 
-    protected SubComponentFlat(E element) {
+    protected SubComponentFlat(ComponentType componentType, String name, E element) {
+        this.componentType = requireNonNull(componentType, "component type required");
+        this.name = requireNonNull(name, "name required");
         this.element = requireNonNull(element, "element required");
     }
 

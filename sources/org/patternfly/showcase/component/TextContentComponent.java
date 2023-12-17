@@ -16,6 +16,8 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.blockquote;
@@ -30,11 +32,11 @@ import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.small;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.text.TextContent.textContent;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.plain;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.plain;
 
-public class TextContentComponent extends ComponentPage {
+public class TextContentComponent extends SnippetPage {
 
     public TextContentComponent() {
         super("Text",

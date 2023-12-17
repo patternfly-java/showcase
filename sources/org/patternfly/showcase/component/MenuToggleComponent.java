@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.avatar.Avatar.avatar;
@@ -24,12 +27,12 @@ import static org.patternfly.component.menu.MenuToggleAction.menuToggleAction;
 import static org.patternfly.component.menu.MenuToggleCheckbox.menuToggleCheckbox;
 import static org.patternfly.component.menu.MenuToggleType.plainText;
 import static org.patternfly.component.menu.MenuToggleType.split;
-import static org.patternfly.layout.PredefinedIcon.cog;
-import static org.patternfly.layout.PredefinedIcon.ellipsisV;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.cog;
+import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
-public class MenuToggleComponent extends ComponentPage {
+public class MenuToggleComponent extends SnippetPage {
 
     public MenuToggleComponent() {
         super("Menu toggle",
@@ -78,20 +81,19 @@ public class MenuToggleComponent extends ComponentPage {
                 // @code-start:menu-toggle-icons
                 div()
                         .add(menuToggle()
-                                .addIcon(cog)
+                                .icon(cog)
                                 .text("Icon"))
                         .add(" ")
                         .add(menuToggle().primary()
-                                .addIcon(cog)
+                                .icon(cog)
                                 .text("Icon"))
                         .add(" ")
                         .add(menuToggle().secondary()
-                                .addIcon(cog)
+                                .icon(cog)
                                 .text("Icon"))
                         .add(" ")
                         .add(menuToggle().disabled()
-                                .addIcon(cog)
-                                .text("Icon"))
+                                .iconAndText(cog, "Icon")) // same as above
                         .element()
         // @code-end:menu-toggle-icons
         ));

@@ -26,6 +26,10 @@ let CodeBlockComponent = goog.forwardDeclare('org.patternfly.showcase.component.
 let CodeEditorComponent = goog.forwardDeclare('org.patternfly.showcase.component.CodeEditorComponent$impl');
 let DropdownComponent = goog.forwardDeclare('org.patternfly.showcase.component.DropdownComponent$impl');
 let ExpandableSectionComponent = goog.forwardDeclare('org.patternfly.showcase.component.ExpandableSectionComponent$impl');
+let FormComponent = goog.forwardDeclare('org.patternfly.showcase.component.FormComponent$impl');
+let FormControlComponent = goog.forwardDeclare('org.patternfly.showcase.component.FormControlComponent$impl');
+let FormSelectComponent = goog.forwardDeclare('org.patternfly.showcase.component.FormSelectComponent$impl');
+let HelperTextComponent = goog.forwardDeclare('org.patternfly.showcase.component.HelperTextComponent$impl');
 let IconComponent = goog.forwardDeclare('org.patternfly.showcase.component.IconComponent$impl');
 let LabelComponent = goog.forwardDeclare('org.patternfly.showcase.component.LabelComponent$impl');
 let MastheadComponent = goog.forwardDeclare('org.patternfly.showcase.component.MastheadComponent$impl');
@@ -34,10 +38,13 @@ let MenuToggleComponent = goog.forwardDeclare('org.patternfly.showcase.component
 let PopoverComponent = goog.forwardDeclare('org.patternfly.showcase.component.PopoverComponent$impl');
 let RadioComponent = goog.forwardDeclare('org.patternfly.showcase.component.RadioComponent$impl');
 let SpinnerComponent = goog.forwardDeclare('org.patternfly.showcase.component.SpinnerComponent$impl');
+let TextAreaComponent = goog.forwardDeclare('org.patternfly.showcase.component.TextAreaComponent$impl');
 let TextContentComponent = goog.forwardDeclare('org.patternfly.showcase.component.TextContentComponent$impl');
 let TextInputComponent = goog.forwardDeclare('org.patternfly.showcase.component.TextInputComponent$impl');
 let TextInputGroupComponent = goog.forwardDeclare('org.patternfly.showcase.component.TextInputGroupComponent$impl');
+let TitleComponent = goog.forwardDeclare('org.patternfly.showcase.component.TitleComponent$impl');
 let TooltipComponent = goog.forwardDeclare('org.patternfly.showcase.component.TooltipComponent$impl');
+let GalleryLayout = goog.forwardDeclare('org.patternfly.showcase.layout.GalleryLayout$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
@@ -128,6 +135,18 @@ class Placemanager extends j_l_Object {
   Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-expandable-section', Supplier.$adapt(() =>{
    return ExpandableSectionComponent.$create__();
   }));
+  Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-form', Supplier.$adapt(() =>{
+   return FormComponent.$create__();
+  }));
+  Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-form-control', Supplier.$adapt(() =>{
+   return FormControlComponent.$create__();
+  }));
+  Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-form-select', Supplier.$adapt(() =>{
+   return FormSelectComponent.$create__();
+  }));
+  Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-helper-text', Supplier.$adapt(() =>{
+   return HelperTextComponent.$create__();
+  }));
   Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-icon', Supplier.$adapt(() =>{
    return IconComponent.$create__();
   }));
@@ -155,14 +174,23 @@ class Placemanager extends j_l_Object {
   Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-text-content', Supplier.$adapt(() =>{
    return TextContentComponent.$create__();
   }));
+  Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-text-area', Supplier.$adapt(() =>{
+   return TextAreaComponent.$create__();
+  }));
   Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-text-input', Supplier.$adapt(() =>{
    return TextInputComponent.$create__();
   }));
   Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-text-input-group', Supplier.$adapt(() =>{
    return TextInputGroupComponent.$create__();
   }));
+  Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-title', Supplier.$adapt(() =>{
+   return TitleComponent.$create__();
+  }));
   Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('c-tooltip', Supplier.$adapt(() =>{
    return TooltipComponent.$create__();
+  }));
+  Placemanager.f_places__org_patternfly_showcase_Placemanager_.put('l-gallery', Supplier.$adapt(() =>{
+   return GalleryLayout.$create__();
   }));
  }
  /** @nodts @return {boolean} */
@@ -193,6 +221,10 @@ class Placemanager extends j_l_Object {
   CodeEditorComponent = goog.module.get('org.patternfly.showcase.component.CodeEditorComponent$impl');
   DropdownComponent = goog.module.get('org.patternfly.showcase.component.DropdownComponent$impl');
   ExpandableSectionComponent = goog.module.get('org.patternfly.showcase.component.ExpandableSectionComponent$impl');
+  FormComponent = goog.module.get('org.patternfly.showcase.component.FormComponent$impl');
+  FormControlComponent = goog.module.get('org.patternfly.showcase.component.FormControlComponent$impl');
+  FormSelectComponent = goog.module.get('org.patternfly.showcase.component.FormSelectComponent$impl');
+  HelperTextComponent = goog.module.get('org.patternfly.showcase.component.HelperTextComponent$impl');
   IconComponent = goog.module.get('org.patternfly.showcase.component.IconComponent$impl');
   LabelComponent = goog.module.get('org.patternfly.showcase.component.LabelComponent$impl');
   MastheadComponent = goog.module.get('org.patternfly.showcase.component.MastheadComponent$impl');
@@ -201,10 +233,13 @@ class Placemanager extends j_l_Object {
   PopoverComponent = goog.module.get('org.patternfly.showcase.component.PopoverComponent$impl');
   RadioComponent = goog.module.get('org.patternfly.showcase.component.RadioComponent$impl');
   SpinnerComponent = goog.module.get('org.patternfly.showcase.component.SpinnerComponent$impl');
+  TextAreaComponent = goog.module.get('org.patternfly.showcase.component.TextAreaComponent$impl');
   TextContentComponent = goog.module.get('org.patternfly.showcase.component.TextContentComponent$impl');
   TextInputComponent = goog.module.get('org.patternfly.showcase.component.TextInputComponent$impl');
   TextInputGroupComponent = goog.module.get('org.patternfly.showcase.component.TextInputGroupComponent$impl');
+  TitleComponent = goog.module.get('org.patternfly.showcase.component.TitleComponent$impl');
   TooltipComponent = goog.module.get('org.patternfly.showcase.component.TooltipComponent$impl');
+  GalleryLayout = goog.module.get('org.patternfly.showcase.layout.GalleryLayout$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }

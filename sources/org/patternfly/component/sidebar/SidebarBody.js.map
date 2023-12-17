@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"SidebarBody.impl.java.js",
-"lineCount":110,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;MAwCa,W;;CAAA,W;EAAAA,Q;;;QAQiB,2D;EAAcC,sB;EACpCA,+B;;;QAKJ,S;EAAAC,sB;EAAAA,kC;EAAAA,sE;EAAAA,iB;;;CAAA,yD;EACIC,6tB;;;CASe,6G,mBAAyBC,U;EACxCC,iJ;;;CAQe,qD;EACfC,0S;;;CAMe,uD;EACfC,yS;;;CAIe,oD;EACfC,Y;;;;CA9CK,uC;EAAAA,mE;;;;CAAA,uC;EAAAC,4J;;;;CAAA,gD;EAAAA,2K;;;;CAAA,yC;EAAAC,kK;;;;CAAA,kD;EAAAA,iL;;;;CAAA,oD;EAAAD,4J;;;;CAAA,6D;EAAAA,2K;;;;CAAA,sD;EAAAC,kK;;;;CAAA,+D;EAAAA,iL;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA,uB;EAAAA,e;EAAAA;",
-"sources":["SidebarBody.java"],
-"names":["org.patternfly.component.sidebar.SidebarBody.<synthetic: ctor_js>","org.patternfly.component.sidebar.SidebarBody.sidebarBody","org.patternfly.component.sidebar.SidebarBody.<synthetic: ctor_create>","org.patternfly.component.sidebar.SidebarBody.<init>","navigation","org.patternfly.component.sidebar.SidebarBody.addNavigation","org.patternfly.component.sidebar.SidebarBody.inset","org.patternfly.component.sidebar.SidebarBody.noInset","org.patternfly.component.sidebar.SidebarBody.that","org.patternfly.component.sidebar.SidebarBody.fill","org.patternfly.component.sidebar.SidebarBody.noFill","org.patternfly.component.sidebar.SidebarBody.<clinit>"]
-}

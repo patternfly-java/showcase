@@ -15,8 +15,6 @@
  */
 package org.patternfly.component.code;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
 import org.patternfly.component.button.Button;
 import org.patternfly.core.Aria;
 import org.patternfly.handler.ComponentHandler;
@@ -25,10 +23,9 @@ import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.layout.PredefinedIcon.help;
+import static org.patternfly.style.PredefinedIcon.help;
 
-public class CodeEditorLink extends SubComponent<HTMLElement, CodeEditorLink> implements
-        ComponentReference<CodeEditor> {
+public class CodeEditorLink extends CodeEditorSubComponent<HTMLElement, CodeEditorLink> {
 
     // ------------------------------------------------------ factory
 
@@ -40,32 +37,19 @@ public class CodeEditorLink extends SubComponent<HTMLElement, CodeEditorLink> im
     }
 
     public static CodeEditorLink codeEditorViewShortcutsLink() {
-        return new CodeEditorLink(button().link().addIconAndText(help, "View shortcuts"))
+        return new CodeEditorLink(button().link().iconAndText(help, "View shortcuts"))
                 .ariaLabel("View shortcuts");
     }
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "cel";
+
     private final HTMLElement buttonElement;
-    private ComponentHandler<CodeEditorLink> handler;
-    private CodeEditor codeEditor;
 
     CodeEditorLink(Button button) {
-        super(button.element());
+        super(SUB_COMPONENT_NAME, button.element());
         buttonElement = element();
-    }
-
-    @Override
-    public void passComponent(CodeEditor codeEditor) {
-        this.codeEditor = codeEditor;
-        if (handler != null && buttonElement != null) {
-            buttonElement.addEventListener(click.name, e -> handler.handle(e, this));
-        }
-    }
-
-    @Override
-    public CodeEditor mainComponent() {
-        return codeEditor;
     }
 
     // ------------------------------------------------------ builder
@@ -84,8 +68,8 @@ public class CodeEditorLink extends SubComponent<HTMLElement, CodeEditorLink> im
 
     // ------------------------------------------------------ events
 
-    public CodeEditorLink onClick(ComponentHandler<CodeEditorLink> handler) {
-        this.handler = handler;
+    public CodeEditorLink onClick(ComponentHandler<CodeEditor> handler) {
+        buttonElement.addEventListener(click.name, e -> handler.handle(e, lookupComponent()));
         return this;
     }
 }

@@ -16,7 +16,7 @@ let Alert = goog.forwardDeclare('org.patternfly.component.alert.Alert$impl');
 let AlertGroupType = goog.forwardDeclare('org.patternfly.component.alert.AlertGroupType$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -59,14 +59,15 @@ class AlertGroup extends BaseComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_alert_AlertGroup__org_patternfly_component_alert_AlertGroupType__int__void(/** AlertGroupType */ type, /** number */ timeout) {
-  this.$ctor__org_patternfly_component_BaseComponent__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alertGroup__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'list'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)), ComponentType.f_AlertGroup__org_patternfly_component_ComponentType);
+  this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_AlertGroup__org_patternfly_component_ComponentType, /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alertGroup__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'list'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)));
   this.f_type__org_patternfly_component_alert_AlertGroup_ = type;
   this.f_timeout__org_patternfly_component_alert_AlertGroup_ = timeout;
+  this.m_storeComponent__void();
   if ($Equality.$same(type, AlertGroupType.f_dynamic__org_patternfly_component_alert_AlertGroupType) || $Equality.$same(type, AlertGroupType.f_toast__org_patternfly_component_alert_AlertGroupType)) {
    this.m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_live__org_patternfly_core_Aria, 'polite');
    this.m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_atomic__org_patternfly_core_Aria, false);
    if ($Equality.$same(type, AlertGroupType.f_toast__org_patternfly_component_alert_AlertGroupType)) {
-    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_toast__org_patternfly_layout_Classes)], j_l_String)));
+    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_toast__org_patternfly_style_Classes)], j_l_String)));
    }
   }
  }
@@ -87,7 +88,6 @@ class AlertGroup extends BaseComponent {
  }
  /** @nodts @return {AlertGroup} */
  m_add__org_patternfly_component_alert_Alert__org_patternfly_component_alert_AlertGroup(/** Alert */ alert) {
-  alert.m_passComponent__org_patternfly_component_alert_AlertGroup__void(this);
   if ($Equality.$same(this.f_type__org_patternfly_component_alert_AlertGroup_, AlertGroupType.f_toast__org_patternfly_component_alert_AlertGroupType)) {
    if (this.f_timeout__org_patternfly_component_alert_AlertGroup_ != Alert.f_NO_TIMEOUT__org_patternfly_component_alert_Alert && alert.f_timeout__org_patternfly_component_alert_Alert == Alert.f_NO_TIMEOUT__org_patternfly_component_alert_Alert) {
     alert.m_timeout__int__org_patternfly_component_alert_Alert(this.f_timeout__org_patternfly_component_alert_AlertGroup_);
@@ -98,7 +98,7 @@ class AlertGroup extends BaseComponent {
    Elements.m_insertFirst__elemental2_dom_Element__org_jboss_elemento_IsElement__void(/**@type {HTMLUListElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)), /**@type {HTMLContainerBuilder<HTMLLIElement>}*/ ($Casts.$to(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(alert), HTMLContainerBuilder)));
   } else {
    if ($Equality.$same(this.f_type__org_patternfly_component_alert_AlertGroup_, AlertGroupType.f_staticInline__org_patternfly_component_alert_AlertGroupType)) {
-    if (!/**@type {HTMLDivElement}*/ ($Casts.$to(alert.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inline__org_patternfly_layout_Classes))) {
+    if (!/**@type {HTMLDivElement}*/ ($Casts.$to(alert.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inline__org_patternfly_style_Classes))) {
      alert.m_inline__org_jboss_elemento_TypedBuilder();
     }
    }
@@ -148,7 +148,7 @@ class AlertGroup extends BaseComponent {
   AlertGroupType = goog.module.get('org.patternfly.component.alert.AlertGroupType$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

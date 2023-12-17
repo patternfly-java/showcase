@@ -1,8 +1,7 @@
 goog.module('org.patternfly.component.code.CodeEditorLink$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const CodeEditorSubComponent = goog.require('org.patternfly.component.code.CodeEditorSubComponent$impl');
 
 let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
 let EventListener_$Overlay = goog.forwardDeclare('elemental2.dom.EventListener.$Overlay$impl');
@@ -12,23 +11,18 @@ let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
 let CodeEditor = goog.forwardDeclare('org.patternfly.component.code.CodeEditor$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLElement, CodeEditorLink>}
- * @implements {ComponentReference<CodeEditor>}
+ * @extends {CodeEditorSubComponent<HTMLElement, CodeEditorLink>}
  */
-class CodeEditorLink extends SubComponent {
+class CodeEditorLink extends CodeEditorSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
   /**@type {HTMLElement} @nodts*/
   this.f_buttonElement__org_patternfly_component_code_CodeEditorLink_;
-  /**@type {ComponentHandler<CodeEditorLink>} @nodts*/
-  this.f_handler__org_patternfly_component_code_CodeEditorLink_;
-  /**@type {CodeEditor} @nodts*/
-  this.f_codeEditor__org_patternfly_component_code_CodeEditorLink_;
  }
  /** @nodts @return {CodeEditorLink} */
  static m_codeEditorLink__org_patternfly_component_button_Button__org_patternfly_component_code_CodeEditorLink(/** Button */ button) {
@@ -38,7 +32,7 @@ class CodeEditorLink extends SubComponent {
  /** @nodts @return {CodeEditorLink} */
  static m_codeEditorViewShortcutsLink__org_patternfly_component_code_CodeEditorLink() {
   CodeEditorLink.$clinit();
-  return CodeEditorLink.$create__org_patternfly_component_button_Button(Button.m_button__org_patternfly_component_button_Button().m_link__org_patternfly_component_button_Button().m_addIconAndText__org_patternfly_layout_PredefinedIcon__java_lang_String__org_patternfly_component_button_Button(PredefinedIcon.f_help__org_patternfly_layout_PredefinedIcon, 'View shortcuts')).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeEditorLink('View shortcuts');
+  return CodeEditorLink.$create__org_patternfly_component_button_Button(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_link__org_patternfly_component_button_Button().m_iconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_jboss_elemento_TypedBuilder(PredefinedIcon.f_help__org_patternfly_style_PredefinedIcon, 'View shortcuts'), Button))).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeEditorLink('View shortcuts');
  }
  /** @nodts @return {!CodeEditorLink} */
  static $create__org_patternfly_component_button_Button(/** Button */ button) {
@@ -49,21 +43,8 @@ class CodeEditorLink extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_code_CodeEditorLink__org_patternfly_component_button_Button__void(/** Button */ button) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(button.m_element__elemental2_dom_HTMLElement());
+  this.$ctor__org_patternfly_component_code_CodeEditorSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(CodeEditorLink.f_SUB_COMPONENT_NAME__org_patternfly_component_code_CodeEditorLink, button.m_element__elemental2_dom_HTMLElement());
   this.f_buttonElement__org_patternfly_component_code_CodeEditorLink_ = this.m_element__elemental2_dom_HTMLElement();
- }
- /** @nodts */
- m_passComponent__org_patternfly_component_code_CodeEditor__void(/** CodeEditor */ codeEditor) {
-  this.f_codeEditor__org_patternfly_component_code_CodeEditorLink_ = codeEditor;
-  if (!$Equality.$same(this.f_handler__org_patternfly_component_code_CodeEditorLink_, null) && !$Equality.$same(this.f_buttonElement__org_patternfly_component_code_CodeEditorLink_, null)) {
-   this.f_buttonElement__org_patternfly_component_code_CodeEditorLink_.addEventListener(EventType.f_click__org_jboss_elemento_EventType.f_name__org_jboss_elemento_EventType, EventListener_$Overlay.$adapt__elemental2_dom_EventListener_$JsFunction__elemental2_dom_EventListener((/** Event */ e) =>{
-    this.f_handler__org_patternfly_component_code_CodeEditorLink_.m_handle__elemental2_dom_Event__java_lang_Object__void(e, this);
-   }));
-  }
- }
- /** @nodts @return {CodeEditor} */
- m_mainComponent__org_patternfly_component_code_CodeEditor() {
-  return this.f_codeEditor__org_patternfly_component_code_CodeEditorLink_;
  }
  /** @nodts @return {CodeEditorLink} */
  m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeEditorLink(/** ?string */ label) {
@@ -77,19 +58,11 @@ class CodeEditorLink extends SubComponent {
   return this;
  }
  /** @nodts @return {CodeEditorLink} */
- m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeEditorLink(/** ComponentHandler<CodeEditorLink> */ handler) {
-  this.f_handler__org_patternfly_component_code_CodeEditorLink_ = handler;
+ m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeEditorLink(/** ComponentHandler<CodeEditor> */ handler) {
+  this.f_buttonElement__org_patternfly_component_code_CodeEditorLink_.addEventListener(EventType.f_click__org_jboss_elemento_EventType.f_name__org_jboss_elemento_EventType, EventListener_$Overlay.$adapt__elemental2_dom_EventListener_$JsFunction__elemental2_dom_EventListener((/** Event */ e) =>{
+   handler.m_handle__elemental2_dom_Event__java_lang_Object__void(e, /**@type {CodeEditor}*/ ($Casts.$to(this.m_lookupComponent__org_patternfly_component_BaseComponent(), CodeEditor)));
+  }));
   return this;
- }
- //Bridge method.
- /** @final @override @nodts @return {CodeEditor} */
- m_mainComponent__org_patternfly_component_BaseComponent() {
-  return this.m_mainComponent__org_patternfly_component_code_CodeEditor();
- }
- //Bridge method.
- /** @final @override @nodts */
- m_passComponent__org_patternfly_component_BaseComponent__void(/** CodeEditor */ arg0) {
-  this.m_passComponent__org_patternfly_component_code_CodeEditor__void(/**@type {CodeEditor}*/ ($Casts.$to(arg0, CodeEditor)));
  }
  //Bridge method.
  /** @final @override @nodts @return {CodeEditorLink} */
@@ -100,7 +73,7 @@ class CodeEditorLink extends SubComponent {
  static $clinit() {
   CodeEditorLink.$clinit = () =>{};
   CodeEditorLink.$loadModules();
-  SubComponent.$clinit();
+  CodeEditorSubComponent.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -116,11 +89,12 @@ class CodeEditorLink extends SubComponent {
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
   CodeEditor = goog.module.get('org.patternfly.component.code.CodeEditor$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
-  PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
+  PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
-ComponentReference.$markImplementor(CodeEditorLink);
+/**@const {string} @nodts*/
+CodeEditorLink.f_SUB_COMPONENT_NAME__org_patternfly_component_code_CodeEditorLink = 'cel';
 $Util.$setClassMetadata(CodeEditorLink, 'org.patternfly.component.code.CodeEditorLink');
 
 exports = CodeEditorLink;

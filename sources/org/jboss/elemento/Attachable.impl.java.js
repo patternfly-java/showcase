@@ -22,7 +22,7 @@ class Attachable {
     attachable.m_attach__elemental2_dom_MutationRecord__void(arg0);
    }));
    BodyObserver.m_addDetachObserver__elemental2_dom_HTMLElement__org_jboss_elemento_ObserverCallback__void(element, ObserverCallback.$adapt((/** MutationRecord */ arg0_1) =>{
-    attachable.m_attach__elemental2_dom_MutationRecord__void(arg0_1);
+    attachable.m_detach__elemental2_dom_MutationRecord__void(arg0_1);
    }));
   }
  }

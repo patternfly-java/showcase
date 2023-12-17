@@ -15,8 +15,8 @@
  */
 package org.patternfly.component.navigation;
 
-import org.patternfly.component.SubComponent;
 import org.patternfly.core.Aria;
+import org.patternfly.core.WithText;
 import org.patternfly.handler.ComponentHandler;
 
 import elemental2.dom.HTMLAnchorElement;
@@ -26,32 +26,35 @@ import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.core.Dataset.navigationItem;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.current;
-import static org.patternfly.layout.Classes.item;
-import static org.patternfly.layout.Classes.link;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.nav;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.current;
+import static org.patternfly.style.Classes.item;
+import static org.patternfly.style.Classes.link;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.nav;
 
-public class NavigationItem extends SubComponent<HTMLLIElement, NavigationItem> {
+public class NavigationItem extends NavigationSubComponent<HTMLLIElement, NavigationItem> implements
+        WithText<HTMLLIElement, NavigationItem> {
 
     // ------------------------------------------------------ factory
 
-    public static NavigationItem navigationItem(String id, String title) {
-        return new NavigationItem(id, title, null);
+    public static NavigationItem navigationItem(String id, String text) {
+        return new NavigationItem(id, text, null);
     }
 
-    public static NavigationItem navigationItem(String id, String title, String href) {
-        return new NavigationItem(id, title, href);
+    public static NavigationItem navigationItem(String id, String text, String href) {
+        return new NavigationItem(id, text, href);
     }
 
     // ------------------------------------------------------ instance
+
+    static final String SUB_COMPONENT_NAME = "ni";
 
     public final String id;
     final HTMLAnchorElement a;
 
     NavigationItem(String id, String text, String href) {
-        super(li().css(component(nav, item)).element());
+        super(SUB_COMPONENT_NAME, li().css(component(nav, item)).element());
         this.id = id;
 
         add(a = a().css(component(nav, link))
@@ -64,6 +67,12 @@ public class NavigationItem extends SubComponent<HTMLLIElement, NavigationItem> 
     }
 
     // ------------------------------------------------------ builder
+
+    @Override
+    public NavigationItem text(String text) {
+        a.textContent = text;
+        return this;
+    }
 
     @Override
     public NavigationItem that() {

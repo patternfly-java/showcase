@@ -34,8 +34,8 @@ import static org.jboss.elemento.Elements.i;
 import static org.jboss.elemento.Elements.img;
 import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.ul;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.fas;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.fas;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "Object")
 public class User {

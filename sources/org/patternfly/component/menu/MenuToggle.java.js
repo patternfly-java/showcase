@@ -18,10 +18,14 @@ goog.require('org.patternfly.component.menu.MenuToggleAction');
 goog.require('org.patternfly.component.menu.MenuToggleCheckbox');
 goog.require('org.patternfly.component.menu.MenuToggleType');
 goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.IconPosition');
 goog.require('org.patternfly.core.Logger');
-goog.require('org.patternfly.core.Modifiers.Disabled');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('org.patternfly.core.WithIcon');
+goog.require('org.patternfly.core.WithIconAndText');
+goog.require('org.patternfly.core.WithText');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Modifiers.Disabled');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

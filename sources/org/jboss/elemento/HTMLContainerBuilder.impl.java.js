@@ -14,6 +14,7 @@ let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
 let SafeHtml = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeHtml$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
+let ClassList = goog.forwardDeclare('org.jboss.elemento.ClassList$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let IsElement = goog.forwardDeclare('org.jboss.elemento.IsElement$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -101,6 +102,16 @@ class HTMLContainerBuilder extends j_l_Object {
  /** @final @override @nodts @return {HTMLContainerBuilder<E>} */
  m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1) {
   return /**@type {HTMLContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_attr__$default__org_jboss_elemento_HasElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {HTMLContainerBuilder<E>} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<ClassList<E>> */ arg0) {
+  return /**@type {HTMLContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), HTMLContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @override @nodts @return {ClassList<E>} */
+ m_classList__org_jboss_elemento_ClassList() {
+  return /**@type {ClassList<E>}*/ (HasElement.m_classList__$default__org_jboss_elemento_HasElement__org_jboss_elemento_ClassList(this));
  }
  //Bridge method.
  /** @final @override @nodts @return {HTMLContainerBuilder<E>} */
@@ -286,6 +297,11 @@ class HTMLContainerBuilder extends j_l_Object {
  /** @nodts @return {HTMLContainerBuilder<E>} */
  m_attr__java_lang_String__java_lang_String__org_jboss_elemento_HTMLContainerBuilder(/** ?string */ arg0, /** ?string */ arg1) {
   return /**@type {HTMLContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_attr__$default__org_jboss_elemento_HasElement__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {HTMLContainerBuilder<E>} */
+ m_classList__java_util_function_Consumer__org_jboss_elemento_HTMLContainerBuilder(/** Consumer<ClassList<E>> */ arg0) {
+  return /**@type {HTMLContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_classList__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), HTMLContainerBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {HTMLContainerBuilder<E>} */

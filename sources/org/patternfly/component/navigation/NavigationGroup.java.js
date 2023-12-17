@@ -12,12 +12,12 @@ goog.require('java.util.function.Function');
 goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
-goog.require('org.patternfly.component.SubComponent');
 goog.require('org.patternfly.component.divider.Divider');
 goog.require('org.patternfly.component.navigation.NavigationItem');
+goog.require('org.patternfly.component.navigation.NavigationSubComponent');
 goog.require('org.patternfly.core.Attributes');
 goog.require('org.patternfly.core.Dataset');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

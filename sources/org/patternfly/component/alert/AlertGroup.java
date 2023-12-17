@@ -19,7 +19,7 @@ import java.util.function.Function;
 
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.Element;
 import elemental2.dom.HTMLUListElement;
@@ -34,10 +34,10 @@ import static org.patternfly.component.alert.Alert.NO_TIMEOUT;
 import static org.patternfly.core.Aria.atomic;
 import static org.patternfly.core.Aria.live;
 import static org.patternfly.core.Attributes.role;
-import static org.patternfly.layout.Classes.alertGroup;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.inline;
-import static org.patternfly.layout.Classes.modifier;
+import static org.patternfly.style.Classes.alertGroup;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.inline;
+import static org.patternfly.style.Classes.modifier;
 
 /**
  * An alert group stacks and positions 2 or more alerts in a live region, either in a layer over the main content of a page or
@@ -87,11 +87,12 @@ public class AlertGroup extends BaseComponent<HTMLUListElement, AlertGroup> {
     private final int timeout;
 
     AlertGroup(AlertGroupType type, int timeout) {
-        super(ul().css(component(alertGroup))
+        super(ComponentType.AlertGroup, ul().css(component(alertGroup))
                 .attr(role, "list")
-                .element(), ComponentType.AlertGroup);
+                .element());
         this.type = type;
         this.timeout = timeout;
+        storeComponent();
 
         if (type == AlertGroupType.dynamic || type == AlertGroupType.toast) {
             aria(live, "polite");
@@ -118,7 +119,6 @@ public class AlertGroup extends BaseComponent<HTMLUListElement, AlertGroup> {
 
     // override to assure internal wiring
     public AlertGroup add(Alert alert) {
-        alert.passComponent(this);
         if (type == AlertGroupType.toast) {
             if (timeout != NO_TIMEOUT && alert.timeout == NO_TIMEOUT) {
                 alert.timeout(timeout);

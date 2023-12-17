@@ -18,6 +18,7 @@ goog.require('org.patternfly.component.page.PageMainSection');
 goog.require('org.patternfly.component.text.TextContent');
 goog.require('org.patternfly.component.title.Title');
 goog.require('org.patternfly.showcase.Page');
+goog.require('org.patternfly.style.Brightness');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

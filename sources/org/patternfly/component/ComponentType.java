@@ -23,7 +23,7 @@ public enum ComponentType {
 
     Alert("at", "PF5/Alert"),
 
-    AlertGroup("ag", null),
+    AlertGroup("ag", "PF5/AlertGroup"),
 
     Avatar("av", "PF5/Avatar"),
 
@@ -59,13 +59,17 @@ public enum ComponentType {
 
     Drawer("dw", null),
 
-    Dropdown("dd", null),
+    Dropdown("dd", "PF5/Dropdown"),
 
     EmptyState("es", null),
 
     ExpandableSection("exs", "PF5/ExpandableSection"),
 
-    Form("frm", null),
+    Form("frm", "PF5/Form"),
+
+    FormSelect("frs", "PF5/FormSelect"),
+
+    HelperText("ht", "PF5/HelperText"),
 
     Icon("icn", "PF5/Icon"),
 
@@ -85,8 +89,6 @@ public enum ComponentType {
 
     Navigation("nav", "PF5/Nav"),
 
-    NavigationItem("ni", null),
-
     NotificationBadge("nb", null),
 
     OptionsMenu("opt", null),
@@ -101,11 +103,11 @@ public enum ComponentType {
 
     Select("sel", null),
 
-    Sidebar("sb", null),
+    Sidebar("sb", "PF5/Sidebar"),
 
     Skeleton("sk", null),
 
-    SkipToContent("stc", null),
+    SkipToContent("stc", "PF5/SkipToContent"),
 
     Slider("sld", null),
 
@@ -131,10 +133,7 @@ public enum ComponentType {
 
     TreeView("tv", null),
 
-    Wizard("wzd", "PF5/Wizard"),
-
-    // TODO Remove, once all components have been migrated to PF 5
-    Unknown("ukn", null);
+    Wizard("wzd", "PF5/Wizard");
 
     public final String id;
     public final String componentName;

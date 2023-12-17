@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Variable.impl.java.js",
-"lineCount":100,
-"mappings":"A;;;;;;;;;;;;;;;;MA+Ba,Q;;CAAA,W;EAAAA,Q;EAAAA;OAmCkB,uCAnClBA,C;EAAAA;OAoCW,sCApCXA,C;;;QAIc,uF,gBAAiBC,Y,wBAAwBC,a;EAAeC,mB;EAC3EA,IAAcC,OAAdD,6B;EACAA,kT;EACAA;GACIA,kEADJA;GAEIA,SAASE,CAATF;IACIA,8EADJA;IAEIA;KACIA,kEADJA;KAFJA;IAFJA;G;EASAA,gK;;;QAGmB,0F,gBAAoBG,S,wBAAqBC,Q;EAAUC,mB;EACtEA,IAAcJ,OAAdI,gH;EACAA;GACIA,kEADJA;GAEIA,SAASH,CAATG;IACIA,yEADJA;IAEIA;KACIA,kEADJA;KAFJA;IAFJA;G;EASAA,mK;;;QAQJ,8D,sBAAuBC,K,iBAAcC,I;EAArCC,mB;EAAAA,+B;EAAAA,0H;EAAAA,iB;;;CAAA,kG,sBAAuBF,K,iBAAcC,I;EAAME,qC;EACvCA,qD;EACAA,mD;;;CAK2D,kF,6BAA6BC,O,gBAAaC,K;EACrGC,mI;;;CAG2D,+F,6BAA6BF,O,iBAAgBC,K;EACxGC,gJ;;;CAG0D,qF,4BAA4BF,O,gBAAaC,K;EACnGC,2N;EACAA,yD;;;CAG0D,kG,4BAA4BF,O,iBAAgBC,K;EACtGC,8K;EACAA,yD;;;CAGQ,gD,oBAAoBF,O,gBAAaC,K;EACzCC,gI;;;CAGQ,6D,oBAAoBF,O,iBAAgBC,K;EAC5CC,8E;;;QApEK,O;EAAAC,2B;EAAAA,wB;EAAAA;",
-"sources":["Variable.java"],
-"names":["org.patternfly.layout.Variable.<synthetic: ctor_js>","firstElement","otherElements","org.patternfly.layout.Variable.globalVar","builder","i","component","elements","org.patternfly.layout.Variable.componentVar","scope","name","org.patternfly.layout.Variable.<synthetic: ctor_create>","org.patternfly.layout.Variable.<init>","element","value","org.patternfly.layout.Variable.applyTo","org.patternfly.layout.Variable.<clinit>"]
-}

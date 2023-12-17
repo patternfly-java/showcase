@@ -16,18 +16,20 @@
 package org.patternfly.component.page;
 
 import org.jboss.elemento.IsElement;
-import org.patternfly.component.SubComponent;
 
 import elemental2.dom.Element;
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.main;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
+import static org.jboss.elemento.EventType.mousedown;
+import static org.jboss.elemento.EventType.touchstart;
+import static org.patternfly.component.page.Page.page;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.core.Attributes.tabindex;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.main;
-import static org.patternfly.layout.Classes.page;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.main;
+import static org.patternfly.style.Classes.page;
 
 /**
  * Container for the main page area. The page main container typically contains multiple {@link PageMainGroup}s and/or
@@ -38,7 +40,7 @@ import static org.patternfly.layout.Classes.page;
  * @see <a href=
  *      "https://www.patternfly.org/components/page/html#usage">https://www.patternfly.org/components/page/html#usage</a>
  */
-public class PageMain extends SubComponent<HTMLElement, PageMain> {
+public class PageMain extends PageSubComponent<HTMLElement, PageMain> {
 
     // ------------------------------------------------------ factory
 
@@ -51,11 +53,15 @@ public class PageMain extends SubComponent<HTMLElement, PageMain> {
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "pm";
+
     PageMain(String id) {
-        super(main().css(component(page, main))
+        super(SUB_COMPONENT_NAME, main().css(component(page, main))
                 .attr(role, main)
                 .attr(tabindex, -1)
                 .element());
+        on(mousedown, e -> onMainClick());
+        on(touchstart, e -> onMainClick());
     }
 
     // ------------------------------------------------------ add
@@ -123,6 +129,14 @@ public class PageMain extends SubComponent<HTMLElement, PageMain> {
                 // noinspection rawtypes
                 add(((IsElement) element).element());
             }
+        }
+    }
+
+    // ------------------------------------------------------ internal
+
+    private void onMainClick() {
+        if (page().underXl() && page().sidebar().expanded()) {
+            page().sidebar().collapse();
         }
     }
 }

@@ -155,11 +155,11 @@ class EventType extends j_l_Object {
  static get f_fullscreenerror__org_jboss_elemento_EventType() {
   return (EventType.$clinit(), EventType.$static_fullscreenerror__org_jboss_elemento_EventType);
  }
- /** @nodts @return {EventType<UIEvent, Window>} */
+ /** @nodts @return {EventType<Event, Window>} */
  static get f_resize__org_jboss_elemento_EventType() {
   return (EventType.$clinit(), EventType.$static_resize__org_jboss_elemento_EventType);
  }
- /** @nodts @return {EventType<UIEvent, EventTarget>} */
+ /** @nodts @return {EventType<Event, EventTarget>} */
  static get f_scroll__org_jboss_elemento_EventType() {
   return (EventType.$clinit(), EventType.$static_scroll__org_jboss_elemento_EventType);
  }
@@ -352,8 +352,8 @@ class EventType extends j_l_Object {
   EventType.$static_compositionend__org_jboss_elemento_EventType = /**@type {EventType<TouchEvent, Element>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('compositionend'));
   EventType.$static_fullscreenchange__org_jboss_elemento_EventType = /**@type {EventType<Event, Document>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('fullscreenchange'));
   EventType.$static_fullscreenerror__org_jboss_elemento_EventType = /**@type {EventType<Event, Document>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('fullscreenerror'));
-  EventType.$static_resize__org_jboss_elemento_EventType = /**@type {EventType<UIEvent, Window>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('resize'));
-  EventType.$static_scroll__org_jboss_elemento_EventType = /**@type {EventType<UIEvent, EventTarget>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('scroll'));
+  EventType.$static_resize__org_jboss_elemento_EventType = /**@type {EventType<Event, Window>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('resize'));
+  EventType.$static_scroll__org_jboss_elemento_EventType = /**@type {EventType<Event, EventTarget>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('scroll'));
   EventType.$static_cut__org_jboss_elemento_EventType = /**@type {EventType<ClipboardEvent, EventTarget>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('cut'));
   EventType.$static_copy__org_jboss_elemento_EventType = /**@type {EventType<ClipboardEvent, EventTarget>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('copy'));
   EventType.$static_paste__org_jboss_elemento_EventType = /**@type {EventType<ClipboardEvent, EventTarget>}*/ (EventType.m_of__java_lang_String__org_jboss_elemento_EventType('paste'));
@@ -444,9 +444,9 @@ EventType.$static_compositionend__org_jboss_elemento_EventType;
 EventType.$static_fullscreenchange__org_jboss_elemento_EventType;
 /**@private {EventType<Event, Document>} @nodts*/
 EventType.$static_fullscreenerror__org_jboss_elemento_EventType;
-/**@private {EventType<UIEvent, Window>} @nodts*/
+/**@private {EventType<Event, Window>} @nodts*/
 EventType.$static_resize__org_jboss_elemento_EventType;
-/**@private {EventType<UIEvent, EventTarget>} @nodts*/
+/**@private {EventType<Event, EventTarget>} @nodts*/
 EventType.$static_scroll__org_jboss_elemento_EventType;
 /**@private {EventType<ClipboardEvent, EventTarget>} @nodts*/
 EventType.$static_cut__org_jboss_elemento_EventType;

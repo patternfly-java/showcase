@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"AlertActionGroup$ButtonActionHandlerTuple.impl.java.js",
-"lineCount":36,
-"mappings":"A;;;;;;;;;MA+FyB,wB;;CAAA,W;EAAAA,Q;EAAAA;OACJ,kFADIA,C;EAAAA;OAEa,mFAFbA,C;;;QAIjB,wF,eAAgCC,M,iCAAgCC,O;EAAhEC,mC;EAAAA,+C;EAAAA,kM;EAAAA,iB;;;CAAA,sK,eAAgCF,M,iCAAgCC,O;EAASE,qC;EACrEA,iG;EACAA,mG;;;QANa,O;EAAAC,2C;EAAAA,wC;EAAAA;",
-"sources":["AlertActionGroup.java"],
-"names":["org.patternfly.component.alert.AlertActionGroup$ButtonActionHandlerTuple.<synthetic: ctor_js>","button","handler","org.patternfly.component.alert.AlertActionGroup$ButtonActionHandlerTuple.<synthetic: ctor_create>","org.patternfly.component.alert.AlertActionGroup$ButtonActionHandlerTuple.<init>","org.patternfly.component.alert.AlertActionGroup$ButtonActionHandlerTuple.<clinit>"]
-}

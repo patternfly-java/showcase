@@ -15,18 +15,16 @@
  */
 package org.patternfly.component.code;
 
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.span;
-import static org.patternfly.layout.Classes.codeEditor;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.tab;
-import static org.patternfly.layout.Classes.text;
+import static org.patternfly.style.Classes.codeEditor;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.tab;
 
-public class CodeEditorTabText extends SubComponent<HTMLElement, CodeEditorTabText> {
+public class CodeEditorTabText extends CodeEditorSubComponent<HTMLElement, CodeEditorTabText> {
 
     // ------------------------------------------------------ factory
 
@@ -40,8 +38,10 @@ public class CodeEditorTabText extends SubComponent<HTMLElement, CodeEditorTabTe
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "cett";
+
     CodeEditorTabText(String text) {
-        super(span().css(component(codeEditor, tab, Classes.text)).element());
+        super(SUB_COMPONENT_NAME, span().css(component(codeEditor, tab, Classes.text)).element());
         if (text != null) {
             textContent(text);
         }

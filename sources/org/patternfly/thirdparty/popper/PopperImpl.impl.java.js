@@ -12,9 +12,9 @@ let List = goog.forwardDeclare('java.util.List$impl');
 let JsArrayLike_$Overlay = goog.forwardDeclare('jsinterop.base.JsArrayLike.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let HandlerRegistration = goog.forwardDeclare('org.gwtproject.event.shared.HandlerRegistration$impl');
+let Callback = goog.forwardDeclare('org.jboss.elemento.Callback$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
-let Callback = goog.forwardDeclare('org.patternfly.handler.Callback$impl');
 let Modifier_$Overlay = goog.forwardDeclare('org.patternfly.thirdparty.popper.Modifier.$Overlay$impl');
 let State_$Overlay = goog.forwardDeclare('org.patternfly.thirdparty.popper.State.$Overlay$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -64,7 +64,7 @@ class PopperImpl extends j_l_Object {
   return this.f_popper__org_patternfly_thirdparty_popper_PopperImpl_.update();
  }
  /** @override @nodts */
- m_show__org_patternfly_handler_Callback__void(/** Callback */ visible) {
+ m_show__org_jboss_elemento_Callback__void(/** Callback */ visible) {
   if (this.f_animationDuration__org_patternfly_thirdparty_popper_PopperImpl_ != org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
    goog.global.clearTimeout(this.f_transitionTimer__org_patternfly_thirdparty_popper_PopperImpl_);
   }
@@ -72,34 +72,34 @@ class PopperImpl extends j_l_Object {
    goog.global.clearTimeout(this.f_exitTimer__org_patternfly_thirdparty_popper_PopperImpl_);
   }
   if (this.f_entryDelay__org_patternfly_thirdparty_popper_PopperImpl_ == org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
-   this.m_internalShow__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(visible);
+   this.m_internalShow__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(visible);
   } else {
    this.f_entryTimer__org_patternfly_thirdparty_popper_PopperImpl_ = DomGlobal_$Overlay.m_setTimeout__elemental2_dom_DomGlobal_SetTimeoutCallbackFn__double__arrayOf_java_lang_Object__double((.../** ...* */ __) =>{
-    this.m_internalShow__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(visible);
+    this.m_internalShow__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(visible);
    }, this.f_entryDelay__org_patternfly_thirdparty_popper_PopperImpl_, []);
   }
  }
  /** @override @nodts */
- m_hide__org_patternfly_handler_Callback__void(/** Callback */ hidden) {
+ m_hide__org_jboss_elemento_Callback__void(/** Callback */ hidden) {
   if (this.f_entryDelay__org_patternfly_thirdparty_popper_PopperImpl_ != org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
    goog.global.clearTimeout(this.f_entryTimer__org_patternfly_thirdparty_popper_PopperImpl_);
   }
   if (this.f_exitDelay__org_patternfly_thirdparty_popper_PopperImpl_ == org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
    if (this.f_animationDuration__org_patternfly_thirdparty_popper_PopperImpl_ == org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
-    this.m_internalHide__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
+    this.m_internalHide__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
    } else {
     this.f_popper__org_patternfly_thirdparty_popper_PopperImpl_.state.elements.popper.style.opacity = OpacityUnionType_$Overlay.m_of__java_lang_Object__elemental2_dom_CSSProperties_OpacityUnionType(Integer.m_valueOf__int__java_lang_Integer(0));
     this.f_transitionTimer__org_patternfly_thirdparty_popper_PopperImpl_ = DomGlobal_$Overlay.m_setTimeout__elemental2_dom_DomGlobal_SetTimeoutCallbackFn__double__arrayOf_java_lang_Object__double((.../** ...* */ __) =>{
-     this.m_internalHide__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
+     this.m_internalHide__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
     }, this.f_animationDuration__org_patternfly_thirdparty_popper_PopperImpl_, []);
    }
   } else {
    this.f_exitTimer__org_patternfly_thirdparty_popper_PopperImpl_ = DomGlobal_$Overlay.m_setTimeout__elemental2_dom_DomGlobal_SetTimeoutCallbackFn__double__arrayOf_java_lang_Object__double((.../** ...* */ t0) =>{
     if (this.f_animationDuration__org_patternfly_thirdparty_popper_PopperImpl_ == org_patternfly_thirdparty_popper_Popper.f_UNDEFINED__org_patternfly_thirdparty_popper_Popper) {
-     this.m_internalHide__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
+     this.m_internalHide__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
     } else {
      this.f_transitionTimer__org_patternfly_thirdparty_popper_PopperImpl_ = DomGlobal_$Overlay.m_setTimeout__elemental2_dom_DomGlobal_SetTimeoutCallbackFn__double__arrayOf_java_lang_Object__double((.../** ...* */ t1) =>{
-      this.m_internalHide__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
+      this.m_internalHide__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(hidden);
      }, this.f_animationDuration__org_patternfly_thirdparty_popper_PopperImpl_, []);
     }
    }, this.f_exitDelay__org_patternfly_thirdparty_popper_PopperImpl_, []);
@@ -116,7 +116,7 @@ class PopperImpl extends j_l_Object {
   this.f_popper__org_patternfly_thirdparty_popper_PopperImpl_.destroy();
  }
  /** @nodts */
- m_internalShow__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(/** Callback */ visible) {
+ m_internalShow__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(/** Callback */ visible) {
   Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(this.f_popper__org_patternfly_thirdparty_popper_PopperImpl_.state.elements.popper, true);
   this.m_toggleEvenListeners__boolean__void_$p_org_patternfly_thirdparty_popper_PopperImpl(true);
   this.f_popper__org_patternfly_thirdparty_popper_PopperImpl_.update().then((__) =>{
@@ -131,7 +131,7 @@ class PopperImpl extends j_l_Object {
   });
  }
  /** @nodts */
- m_internalHide__org_patternfly_handler_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(/** Callback */ hidden) {
+ m_internalHide__org_jboss_elemento_Callback__void_$p_org_patternfly_thirdparty_popper_PopperImpl(/** Callback */ hidden) {
   Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(this.f_popper__org_patternfly_thirdparty_popper_PopperImpl_.state.elements.popper, false);
   this.m_toggleEvenListeners__boolean__void_$p_org_patternfly_thirdparty_popper_PopperImpl(false);
   if (!$Equality.$same(hidden, null)) {

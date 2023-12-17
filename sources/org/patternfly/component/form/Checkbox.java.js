@@ -22,10 +22,10 @@ goog.require('org.patternfly.component.form.CheckboxBody');
 goog.require('org.patternfly.component.form.CheckboxDescription');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.HasValue');
-goog.require('org.patternfly.core.Modifiers.Disabled');
-goog.require('org.patternfly.core.Modifiers.Required');
 goog.require('org.patternfly.handler.ChangeHandler');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Modifiers.Disabled');
+goog.require('org.patternfly.style.Modifiers.Required');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

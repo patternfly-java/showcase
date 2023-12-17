@@ -15,14 +15,15 @@
  */
 package org.patternfly.component.menu;
 
+import org.patternfly.component.ComponentType;
 import org.patternfly.component.SubComponent;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.footer;
-import static org.patternfly.layout.Classes.menu;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.footer;
+import static org.patternfly.style.Classes.menu;
 
 public class MenuFooter extends SubComponent<HTMLDivElement, MenuFooter> {
 
@@ -38,8 +39,10 @@ public class MenuFooter extends SubComponent<HTMLDivElement, MenuFooter> {
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "mf";
+
     MenuFooter(String text) {
-        super(div().css(component(menu, footer)).element());
+        super(ComponentType.Menu, SUB_COMPONENT_NAME, div().css(component(menu, footer)).element());
         if (text != null) {
             textContent(text);
         }

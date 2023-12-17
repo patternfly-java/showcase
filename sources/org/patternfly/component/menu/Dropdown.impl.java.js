@@ -11,6 +11,7 @@ let EnumSet = goog.forwardDeclare('java.util.EnumSet$impl');
 let Set = goog.forwardDeclare('java.util.Set$impl');
 let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
+let Callback = goog.forwardDeclare('org.jboss.elemento.Callback$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Menu = goog.forwardDeclare('org.patternfly.component.menu.Menu$impl');
@@ -18,7 +19,6 @@ let MenuToggle = goog.forwardDeclare('org.patternfly.component.menu.MenuToggle$i
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Expandable = goog.forwardDeclare('org.patternfly.core.Expandable$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
-let Callback = goog.forwardDeclare('org.patternfly.handler.Callback$impl');
 let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
 let Modifiers = goog.forwardDeclare('org.patternfly.thirdparty.popper.Modifiers$impl');
 let Placement = goog.forwardDeclare('org.patternfly.thirdparty.popper.Placement$impl');
@@ -86,7 +86,7 @@ class Dropdown extends ComponentDelegate {
     this.m_close__elemental2_dom_Event__void(arg0_3);
    })).m_build__org_patternfly_thirdparty_popper_Popper();
   } else {
-   Logger.m_undefined__org_patternfly_component_ComponentType__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), 'No toggle and/or menu defined for dropdown');
+   Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'No toggle and/or menu defined for dropdown');
   }
  }
  /** @override @nodts */
@@ -151,14 +151,14 @@ class Dropdown extends ComponentDelegate {
  }
  /** @nodts */
  m_show__elemental2_dom_Event__void(/** Event */ event) {
-  this.f_popper__org_patternfly_component_menu_Dropdown_.m_show__org_patternfly_handler_Callback__void(Callback.$adapt(() =>{
+  this.f_popper__org_patternfly_component_menu_Dropdown_.m_show__org_jboss_elemento_Callback__void(Callback.$adapt(() =>{
    Expandable.m_expand__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(this.m_element__elemental2_dom_HTMLElement(), this.m_element__elemental2_dom_HTMLElement(), null);
   }));
  }
  /** @override @nodts */
  m_close__elemental2_dom_Event__boolean__void(/** Event */ event, /** boolean */ fireEvent) {
   if (CloseHandler.m_shouldClose__java_lang_Object__org_patternfly_handler_CloseHandler__elemental2_dom_Event__boolean__boolean(this, this.f_closeHandler__org_patternfly_component_menu_Dropdown_, event, fireEvent)) {
-   this.f_popper__org_patternfly_component_menu_Dropdown_.m_hide__org_patternfly_handler_Callback__void(Callback.$adapt(() =>{
+   this.f_popper__org_patternfly_component_menu_Dropdown_.m_hide__org_jboss_elemento_Callback__void(Callback.$adapt(() =>{
     Expandable.m_collapse__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(this.m_element__elemental2_dom_HTMLElement(), this.m_element__elemental2_dom_HTMLElement(), null);
     CloseHandler.m_fireEvent__java_lang_Object__org_patternfly_handler_CloseHandler__elemental2_dom_Event__boolean__void(this, this.f_closeHandler__org_patternfly_component_menu_Dropdown_, event, fireEvent);
    }));
@@ -214,12 +214,12 @@ class Dropdown extends ComponentDelegate {
   EnumSet = goog.module.get('java.util.EnumSet$impl');
   Consumer = goog.module.get('java.util.function.Consumer$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
+  Callback = goog.module.get('org.jboss.elemento.Callback$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Expandable = goog.module.get('org.patternfly.core.Expandable$impl');
   Logger = goog.module.get('org.patternfly.core.Logger$impl');
-  Callback = goog.module.get('org.patternfly.handler.Callback$impl');
   CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');
   Modifiers = goog.module.get('org.patternfly.thirdparty.popper.Modifiers$impl');
   Placement = goog.module.get('org.patternfly.thirdparty.popper.Placement$impl');

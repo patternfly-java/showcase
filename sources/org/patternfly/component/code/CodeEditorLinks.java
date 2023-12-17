@@ -15,22 +15,16 @@
  */
 package org.patternfly.component.code;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.keyboard;
-import static org.patternfly.layout.Classes.shortcuts;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.keyboard;
+import static org.patternfly.style.Classes.shortcuts;
 
-public class CodeEditorLinks extends SubComponent<HTMLDivElement, CodeEditorLinks>
-        implements ComponentReference<CodeEditor> {
+public class CodeEditorLinks extends CodeEditorSubComponent<HTMLDivElement, CodeEditorLinks> {
 
     // ------------------------------------------------------ factory
 
@@ -40,38 +34,16 @@ public class CodeEditorLinks extends SubComponent<HTMLDivElement, CodeEditorLink
 
     // ------------------------------------------------------ instance
 
-    private final List<CodeEditorLink> links;
-    private CodeEditor codeEditor;
+    static final String SUB_COMPONENT_NAME = "cels";
 
     CodeEditorLinks() {
-        super(div().css(component(Classes.codeEditor, keyboard, shortcuts)).element());
-        this.links = new ArrayList<>();
-    }
-
-    @Override
-    public void passComponent(CodeEditor codeEditor) {
-        this.codeEditor = codeEditor;
-        for (CodeEditorLink link : links) {
-            link.passComponent(codeEditor);
-        }
-    }
-
-    @Override
-    public CodeEditor mainComponent() {
-        return codeEditor;
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.codeEditor, keyboard, shortcuts)).element());
     }
 
     // ------------------------------------------------------ add
 
     public CodeEditorLinks addLink(CodeEditorLink link) {
         return add(link);
-    }
-
-    // override to assure internal wiring
-    public CodeEditorLinks add(CodeEditorLink link) {
-        links.add(link);
-        add(link.element());
-        return this;
     }
 
     // ------------------------------------------------------ builder

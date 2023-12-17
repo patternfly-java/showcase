@@ -15,17 +15,16 @@
  */
 package org.patternfly.component.card;
 
-import org.patternfly.component.SubComponent;
-import org.patternfly.core.Modifiers.NoFill;
+import org.patternfly.style.Modifiers.NoFill;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.card;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.expandableContent;
+import static org.patternfly.style.Classes.card;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.expandableContent;
 
-public class CardExpandableContent extends SubComponent<HTMLDivElement, CardExpandableContent> implements
+public class CardExpandableContent extends CardSubComponent<HTMLDivElement, CardExpandableContent> implements
         NoFill<HTMLDivElement, CardExpandableContent> {
 
     // ------------------------------------------------------ factory
@@ -36,8 +35,10 @@ public class CardExpandableContent extends SubComponent<HTMLDivElement, CardExpa
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "cec";
+
     CardExpandableContent() {
-        super(div().css(component(card, expandableContent))
+        super(SUB_COMPONENT_NAME, div().css(component(card, expandableContent))
                 .apply(e -> e.hidden = true)
                 .element());
     }
@@ -48,18 +49,8 @@ public class CardExpandableContent extends SubComponent<HTMLDivElement, CardExpa
         return add(body);
     }
 
-    // override to assure internal wiring
-    public CardExpandableContent add(CardBody body) {
-        return add(body.element());
-    }
-
     public CardExpandableContent addFooter(CardFooter footer) {
         return add(footer);
-    }
-
-    // override to assure internal wiring
-    public CardExpandableContent add(CardFooter footer) {
-        return add(footer.element());
     }
 
     // ------------------------------------------------------ builder

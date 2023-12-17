@@ -12,12 +12,12 @@ goog.require('org.patternfly.component.BaseComponent');
 goog.require('org.patternfly.component.ComponentType');
 goog.require('org.patternfly.component.icon.InlineIcon');
 goog.require('org.patternfly.component.spinner.Spinner');
-goog.require('org.patternfly.core.Modifiers.Inline');
 goog.require('org.patternfly.core.Status');
 goog.require('org.patternfly.core.WithProgress');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.PredefinedIcon');
-goog.require('org.patternfly.layout.Size');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Modifiers.Inline');
+goog.require('org.patternfly.style.PredefinedIcon');
+goog.require('org.patternfly.style.Size');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

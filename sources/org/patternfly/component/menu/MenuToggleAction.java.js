@@ -8,11 +8,11 @@ goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.EventType');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
-goog.require('org.patternfly.component.SubComponent');
+goog.require('org.patternfly.component.menu.MenuToggleSubComponent');
 goog.require('org.patternfly.core.Aria');
-goog.require('org.patternfly.core.Modifiers.Disabled');
 goog.require('org.patternfly.handler.ComponentHandler');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Modifiers.Disabled');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

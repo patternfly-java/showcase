@@ -29,6 +29,8 @@ Attributes.f_hidden__org_patternfly_core_Attributes = 'hidden';
 Attributes.f_tabindex__org_patternfly_core_Attributes = 'tabindex';
 /**@const {string} @nodts*/
 Attributes.f_role__org_patternfly_core_Attributes = 'role';
+/**@const {string} @nodts*/
+Attributes.f_required__org_patternfly_core_Attributes = 'required';
 Attributes.$markImplementor(/**@type {Function}*/ (Attributes));
 $Util.$setClassMetadataForInterface(Attributes, 'org.patternfly.core.Attributes');
 

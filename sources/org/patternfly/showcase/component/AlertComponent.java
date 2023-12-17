@@ -17,6 +17,8 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.core.Aria;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import elemental2.dom.DomGlobal;
 import elemental2.dom.HTMLElement;
@@ -49,17 +51,17 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.Severity.info;
 import static org.patternfly.core.Severity.success;
 import static org.patternfly.core.Severity.warning;
-import static org.patternfly.layout.Classes.alertGroup;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.box;
-import static org.patternfly.layout.PredefinedIcon.database;
-import static org.patternfly.layout.PredefinedIcon.laptop;
-import static org.patternfly.layout.PredefinedIcon.server;
-import static org.patternfly.layout.PredefinedIcon.users;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.alertGroup;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.box;
+import static org.patternfly.style.PredefinedIcon.database;
+import static org.patternfly.style.PredefinedIcon.laptop;
+import static org.patternfly.style.PredefinedIcon.server;
+import static org.patternfly.style.PredefinedIcon.users;
 
-public class AlertComponent extends ComponentPage {
+public class AlertComponent extends SnippetPage {
 
     public AlertComponent() {
         super("Alert",
@@ -192,15 +194,15 @@ public class AlertComponent extends ComponentPage {
                 code.get("alert-custom-icons"), () ->
                 // @code-start:alert-custom-icons
                 div()
-                        .add(alert(custom, "Default alert title").customIcon(users))
+                        .add(alert(custom, "Default alert title").icon(users))
                         .add(br())
-                        .add(alert(info, "Info alert title").customIcon(box))
+                        .add(alert(info, "Info alert title").icon(box))
                         .add(br())
-                        .add(alert(success, "Success alert title").customIcon(database))
+                        .add(alert(success, "Success alert title").icon(database))
                         .add(br())
-                        .add(alert(warning, "Warning alert title").customIcon(server))
+                        .add(alert(warning, "Warning alert title").icon(server))
                         .add(br())
-                        .add(alert(danger, "Danger alert title").customIcon(laptop))
+                        .add(alert(danger, "Danger alert title").icon(laptop))
                         .element()
         // @code-end:alert-custom-icons
         ));

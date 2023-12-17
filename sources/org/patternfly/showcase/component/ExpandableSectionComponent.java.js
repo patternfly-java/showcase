@@ -1,5 +1,6 @@
 goog.module('org.patternfly.showcase.component.ExpandableSectionComponent');
 
+goog.require('elemental2.dom.Event.$Overlay');
 goog.require('elemental2.dom.HTMLDivElement.$Overlay');
 goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('elemental2.dom.HTMLParagraphElement.$Overlay');
@@ -15,12 +16,12 @@ goog.require('org.patternfly.component.expandable.ExpandableSectionToggle');
 goog.require('org.patternfly.component.expandable.ExpandableSectionToggleText');
 goog.require('org.patternfly.component.icon.InlineIcon');
 goog.require('org.patternfly.handler.ToggleHandler');
-goog.require('org.patternfly.layout.PredefinedIcon');
 goog.require('org.patternfly.layout.stack.Stack');
 goog.require('org.patternfly.layout.stack.StackItem');
 goog.require('org.patternfly.showcase.LoremIpsum');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Casts');
 
 const ExpandableSectionComponent = goog.require('org.patternfly.showcase.component.ExpandableSectionComponent$impl');

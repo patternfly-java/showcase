@@ -1,5 +1,6 @@
 goog.module('org.patternfly.showcase.component.IconComponent');
 
+goog.require('elemental2.dom.Event.$Overlay');
 goog.require('elemental2.dom.HTMLDivElement.$Overlay');
 goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('elemental2.dom.HTMLHeadingElement.$Overlay');
@@ -17,12 +18,12 @@ goog.require('org.patternfly.component.spinner.Spinner');
 goog.require('org.patternfly.component.text.TextContent');
 goog.require('org.patternfly.core.Status');
 goog.require('org.patternfly.handler.ChangeHandler');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.PredefinedIcon');
-goog.require('org.patternfly.layout.Size');
 goog.require('org.patternfly.showcase.LoremIpsum');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.PredefinedIcon');
+goog.require('org.patternfly.style.Size');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

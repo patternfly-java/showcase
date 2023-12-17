@@ -15,14 +15,12 @@
  */
 package org.patternfly.component.toolbar;
 
-import org.patternfly.component.SubComponent;
-
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.alert;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.description;
+import static org.patternfly.style.Classes.alert;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.description;
 
 /**
  * Container for a expandable content section in a toolbar.
@@ -30,7 +28,7 @@ import static org.patternfly.layout.Classes.description;
  * @see <a href=
  *      "https://www.patternfly.org/components/toolbar/html#usage-0">https://www.patternfly.org/components/toolbar/html#usage-0</a>
  */
-public class ToolbarExpandableContent extends SubComponent<HTMLDivElement, ToolbarExpandableContent> {
+public class ToolbarExpandableContent extends ToolbarSubComponent<HTMLDivElement, ToolbarExpandableContent> {
 
     // ------------------------------------------------------ factory
 
@@ -43,8 +41,10 @@ public class ToolbarExpandableContent extends SubComponent<HTMLDivElement, Toolb
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "tec";
+
     ToolbarExpandableContent() {
-        super(div().css(component(alert, description)).element());
+        super(SUB_COMPONENT_NAME, div().css(component(alert, description)).element());
     }
 
     // ------------------------------------------------------ builder

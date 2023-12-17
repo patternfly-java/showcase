@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Color.impl.java.js",
-"lineCount":140,
-"mappings":"A;;;;;;;;;;;;;;MAiBY,K;;CAAA,W;EAAAA,Q;EAAAA;OAkBY,uCAlBZA,C;;;QAoBR,gD,8DAAaC,K;EAAbC,4B;EAAAA,oH;EAAAA,iB;;;CAAA,iF,8DAAaD,K;EAAbE,qC;EAAAA,2C;EAAoBA,yE;EAChBA,mJ;;;QArBI,wD;EAAAC,gB;EAAAA;GAAAA,+KAAAA;G;EAAAA,wH;;;QAAA,6C;EAAAC,gB;EAAAA,uc;;;QAER,uC;EAAAC,0E;;;QAEA,uC;EAAAA,0E;;;QAEA,wC;EAAAA,2E;;;QAEA,yC;EAAAA,4E;;;QAEA,sC;EAAAA,yE;;;QAEA,yC;EAAAA,4E;;;QAEA,uC;EAAAA,0E;;;QAEA,uC;EAAAA,0E;;;QAhBQ,O;EAAAC,wB;EAAAA,qB;EAAAA,e;EAERA,8L;EAEAA,gM;EAEAA,oM;EAEAA,wM;EAEAA,4L;EAEAA,wM;EAEAA,gM;EAEAA,gM;;;;;;;;;;;;;;;AAdA;qD;AAEA;qD;AAEA;sD;AAEA;uD;AAEA;oD;AAEA;uD;AAEA;qD;AAEA;qD;AAhBQ;gD;AAAA;gD;AAAA;iD;AAAA;kD;AAAA;+C;AAAA;kD;AAAA;gD;AAAA;gD;AAAA;;",
-"sources":["Color.java"],
-"names":["org.patternfly.layout.Color.<synthetic: ctor_js>","color","org.patternfly.layout.Color.<synthetic: ctor_create>","org.patternfly.layout.Color.<init>","org.patternfly.layout.Color.valueOf","org.patternfly.layout.Color.values","org.patternfly.layout.Color.<synthetic: getter>","org.patternfly.layout.Color.<clinit>"]
-}

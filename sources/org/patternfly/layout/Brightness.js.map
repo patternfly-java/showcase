@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Brightness.impl.java.js",
-"lineCount":92,
-"mappings":"A;;;;;;;;;;;;;;;MAiBY,U;;CAAA,W;EAAAA,Q;EAAAA;OAMY,4CANZA,C;;;QAQR,gD,8DAAkBC,O;EAAlBC,iC;EAAAA,2H;EAAAA,iB;;;CAAA,sF,8DAAkBD,O;EAAlBE,qC;EAAAA,2C;EAA2BA,yE;EACvBA,oH;;;CAGU,gC,eAAYC,O;EACtBC,mI;;;QAbI,6D;EAAAC,qB;EAAAA;GAAAA,wMAAAA;G;EAAAA,uI;;;QAAA,kD;EAAAC,qB;EAAAA,4L;;;QAER,6C;EAAAC,0F;;;QAEA,4C;EAAAA,yF;;;QAJQ,O;EAAAC,6B;EAAAA,0B;EAAAA,e;EAERA,6N;EAEAA,yN;;;;;;;;;;;;;;;;AAFA;gE;AAEA;+D;AAJQ;2D;AAAA;0D;AAAA;;",
-"sources":["Brightness.java"],
-"names":["org.patternfly.layout.Brightness.<synthetic: ctor_js>","variant","org.patternfly.layout.Brightness.<synthetic: ctor_create>","org.patternfly.layout.Brightness.<init>","opacity","org.patternfly.layout.Brightness.opacity","org.patternfly.layout.Brightness.valueOf","org.patternfly.layout.Brightness.values","org.patternfly.layout.Brightness.<synthetic: getter>","org.patternfly.layout.Brightness.<clinit>"]
-}

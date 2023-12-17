@@ -15,31 +15,40 @@
  */
 package org.patternfly.component.code;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
+import org.jboss.elemento.By;
+import org.jboss.elemento.Id;
+import org.patternfly.component.ComponentType;
 import org.patternfly.component.button.Button;
+import org.patternfly.component.icon.InlineIcon;
+import org.patternfly.component.tooltip.Tooltip;
 import org.patternfly.core.Aria;
+import org.patternfly.core.WithIcon;
 import org.patternfly.handler.ComponentHandler;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.PredefinedIcon;
 
 import elemental2.dom.HTMLElement;
 
+import static org.jboss.elemento.DomGlobal.navigator;
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.dom.DomGlobal.navigator;
-import static org.patternfly.layout.PredefinedIcon.copy;
+import static org.patternfly.component.tooltip.Tooltip.tooltip;
+import static org.patternfly.style.PredefinedIcon.copy;
 
-public class CodeEditorAction extends SubComponent<HTMLElement, CodeEditorAction> implements
-        ComponentReference<CodeEditor> {
+public class CodeEditorAction extends CodeEditorSubComponent<HTMLElement, CodeEditorAction> implements
+        WithIcon<HTMLElement, CodeEditorAction> {
 
     // ------------------------------------------------------ factory
 
-    public static CodeEditorAction codeEditorAction(PredefinedIcon icon) {
-        return new CodeEditorAction(button(icon).control());
+    public static CodeEditorAction codeEditorAction(String iconClass) {
+        return new CodeEditorAction(button().icon(iconClass).control());
     }
 
-    public static CodeEditorAction codeEditorAction(String iconClass) {
-        return new CodeEditorAction(button().addIcon(iconClass).control());
+    public static CodeEditorAction codeEditorAction(PredefinedIcon predefinedIcon) {
+        return new CodeEditorAction(button().icon(predefinedIcon).control());
+    }
+
+    public static CodeEditorAction codeEditorAction(InlineIcon icon) {
+        return new CodeEditorAction(button().icon(icon).control());
     }
 
     /**
@@ -50,36 +59,48 @@ public class CodeEditorAction extends SubComponent<HTMLElement, CodeEditorAction
     }
 
     public static CodeEditorAction codeEditorCopyToClipboardAction() {
-        return new CodeEditorAction(button(copy).control())
-                .ariaLabel("Copy to clipboard")
-                .onClick((event, action) -> navigator.clipboard.writeText(action.mainComponent().code()));
+        return codeEditorCopyToClipboardAction("Copy to clipboard", "Successfully copied to clipboard!");
+    }
+
+    public static CodeEditorAction codeEditorCopyToClipboardAction(String copyText, String copiedText) {
+        String copyId = Id.unique(ComponentType.CodeEditor.id, "copy");
+        Tooltip copyTooltip = tooltip(By.id(copyId), copyText)
+                .onClose((e, t) -> t.text(copyText)) // restore text
+                .appendToBody();
+        return new CodeEditorAction(button().icon(copy).control())
+                .id(copyId)
+                .ariaLabel(copyText)
+                .onClick((event, codeBlock) -> {
+                    copyTooltip.text(copiedText);
+                    navigator.clipboard.writeText(codeBlock.code());
+                });
     }
 
     // ------------------------------------------------------ instance
 
-    private final HTMLElement buttonElement;
+    static final String SUB_COMPONENT_NAME = "cea";
+
+    private final Button button;
     private ComponentHandler<CodeEditorAction> handler;
-    private CodeEditor codeEditor;
 
     CodeEditorAction(Button button) {
-        super(button.element());
-        buttonElement = element();
-    }
-
-    @Override
-    public void passComponent(CodeEditor codeEditor) {
-        this.codeEditor = codeEditor;
-        if (handler != null && buttonElement != null) {
-            buttonElement.addEventListener(click.name, e -> handler.handle(e, this));
-        }
-    }
-
-    @Override
-    public CodeEditor mainComponent() {
-        return codeEditor;
+        super(SUB_COMPONENT_NAME, button.element());
+        this.button = button;
     }
 
     // ------------------------------------------------------ builder
+
+    @Override
+    public CodeEditorAction icon(InlineIcon icon) {
+        button.icon(icon);
+        return this;
+    }
+
+    @Override
+    public CodeEditorAction removeIcon() {
+        button.removeIcon();
+        return this;
+    }
 
     @Override
     public CodeEditorAction that() {
@@ -89,16 +110,16 @@ public class CodeEditorAction extends SubComponent<HTMLElement, CodeEditorAction
     // ------------------------------------------------------ aria
 
     public CodeEditorAction ariaLabel(String label) {
-        if (buttonElement != null) {
-            buttonElement.setAttribute(Aria.label, label);
+        if (button != null) {
+            button.aria(Aria.label, label);
         }
         return this;
     }
 
     // ------------------------------------------------------ events
 
-    public CodeEditorAction onClick(ComponentHandler<CodeEditorAction> handler) {
-        this.handler = handler;
+    public CodeEditorAction onClick(ComponentHandler<CodeEditor> handler) {
+        button.on(click, e -> handler.handle(e, lookupComponent()));
         return this;
     }
 }

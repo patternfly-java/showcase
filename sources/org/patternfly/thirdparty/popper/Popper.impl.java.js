@@ -2,7 +2,7 @@ goog.module('org.patternfly.thirdparty.popper.Popper$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 
-let Callback = goog.forwardDeclare('org.patternfly.handler.Callback$impl');
+let Callback = goog.forwardDeclare('org.jboss.elemento.Callback$impl');
 
 /**
  * @interface
@@ -11,9 +11,9 @@ class Popper {
  /** @abstract @nodts @return {Promise<Object>} */
  m_update__elemental2_promise_Promise() {}
  /** @abstract @nodts */
- m_show__org_patternfly_handler_Callback__void(/** Callback */ visible) {}
+ m_show__org_jboss_elemento_Callback__void(/** Callback */ visible) {}
  /** @abstract @nodts */
- m_hide__org_patternfly_handler_Callback__void(/** Callback */ hidden) {}
+ m_hide__org_jboss_elemento_Callback__void(/** Callback */ hidden) {}
  /** @abstract @nodts */
  m_cleanup__void() {}
  /** @nodts */

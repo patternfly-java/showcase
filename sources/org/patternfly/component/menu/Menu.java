@@ -18,20 +18,20 @@ package org.patternfly.component.menu;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jboss.elemento.Attachable;
 import org.jboss.elemento.By;
+import org.jboss.elemento.Id;
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Aria;
-import org.patternfly.core.Modifiers.Plain;
 import org.patternfly.core.SelectionMode;
 import org.patternfly.handler.MultiSelectHandler;
 import org.patternfly.handler.SelectHandler;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Plain;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
-import elemental2.dom.MutationRecord;
 
 import static java.util.stream.Collectors.toList;
 import static org.jboss.elemento.Elements.div;
@@ -42,17 +42,17 @@ import static org.patternfly.component.menu.MenuFooter.menuFooter;
 import static org.patternfly.component.menu.MenuHeader.menuHeader;
 import static org.patternfly.core.SelectionMode.click;
 import static org.patternfly.core.SelectionMode.single;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.favorited;
-import static org.patternfly.layout.Classes.flyout;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.item;
-import static org.patternfly.layout.Classes.menu;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.scrollable;
-import static org.patternfly.layout.Classes.select;
-import static org.patternfly.layout.Variable.componentVar;
-import static org.patternfly.layout.Variables.MaxHeight;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.favorited;
+import static org.patternfly.style.Classes.flyout;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.item;
+import static org.patternfly.style.Classes.menu;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.scrollable;
+import static org.patternfly.style.Classes.select;
+import static org.patternfly.style.Variable.componentVar;
+import static org.patternfly.style.Variables.MaxHeight;
 
 /**
  * A menu is a list of options or actions that users can choose from. It can be used in a variety of contexts whenever the user
@@ -63,8 +63,7 @@ import static org.patternfly.layout.Variables.MaxHeight;
  *
  * @see <a href="https://www.patternfly.org/components/menu/html">https://www.patternfly.org/components/menu/html</a>
  */
-public class Menu extends BaseComponent<HTMLDivElement, Menu> implements Attachable,
-        Plain<HTMLDivElement, Menu> {
+public class Menu extends BaseComponent<HTMLDivElement, Menu> implements Plain<HTMLDivElement, Menu> {
 
     // ------------------------------------------------------ factory
 
@@ -81,30 +80,21 @@ public class Menu extends BaseComponent<HTMLDivElement, Menu> implements Attacha
     private static final By MENU_ITEMS = By.classname(component(menu, item));
     private static final By SELECT_ICONS = By.classname(component(menu, item, select, icon));
 
+    final String menuName;
     final MenuType menuType;
     final SelectionMode selectionMode;
     boolean favorites;
-    private SelectHandler<MenuItem> selectHandler;
-    private MultiSelectHandler<MenuItem> multiSelectHandler;
-    private MenuActionHandler actionHandler;
+    MenuActionHandler actionHandler;
     private MenuContent content;
-    private MenuSearchInput searchInput;
+    private SelectHandler<MenuItem> selectHandler;
+    private MultiSelectHandler<Menu, MenuItem> multiSelectHandler;
 
     Menu(MenuType menuType, SelectionMode selectionMode) {
-        super(div().css(component(menu)).element(), ComponentType.Menu);
+        super(ComponentType.Menu, div().css(component(menu)).element());
         this.menuType = menuType;
         this.selectionMode = selectionMode;
-        Attachable.register(this, this);
-    }
-
-    @Override
-    public void attach(MutationRecord mutationRecord) {
-        if (content != null) {
-            content.passComponent(this);
-        }
-        if (searchInput != null) {
-            searchInput.passComponent(this);
-        }
+        this.menuName = Id.unique(componentType().id, "name"); // a common name for the checkboxes
+        storeComponent();
     }
 
     // ------------------------------------------------------ add
@@ -154,13 +144,6 @@ public class Menu extends BaseComponent<HTMLDivElement, Menu> implements Attacha
         return this;
     }
 
-    // override to assure internal wiring
-    public Menu add(MenuSearchInput searchInput) {
-        this.searchInput = searchInput;
-        add(searchInput.element());
-        return this;
-    }
-
     public Menu addDivider() {
         return add(divider(hr));
     }
@@ -197,7 +180,7 @@ public class Menu extends BaseComponent<HTMLDivElement, Menu> implements Attacha
         return this;
     }
 
-    public Menu onMultiSelect(MultiSelectHandler<MenuItem> selectHandler) {
+    public Menu onMultiSelect(MultiSelectHandler<Menu, MenuItem> selectHandler) {
         this.multiSelectHandler = selectHandler;
         return this;
     }
@@ -241,14 +224,14 @@ public class Menu extends BaseComponent<HTMLDivElement, Menu> implements Attacha
             }
             if (fireEvent) {
                 if (selectHandler != null) {
-                    selectHandler.onSelect(item, selected);
+                    selectHandler.onSelect(new Event(""), item, selected);
                 }
                 if (multiSelectHandler != null) {
                     List<MenuItem> selection = items()
                             .stream()
                             .filter(MenuItem::isSelected)
                             .collect(toList());
-                    multiSelectHandler.onSelect(selection);
+                    multiSelectHandler.onSelect(new Event(""), this, selection);
                 }
             }
         }
@@ -302,12 +285,6 @@ public class Menu extends BaseComponent<HTMLDivElement, Menu> implements Attacha
             }
         }
         return items;
-    }
-
-    void handleItemAction(MenuItemAction itemAction) {
-        if (actionHandler != null && itemAction != null) {
-            actionHandler.onAction(itemAction);
-        }
     }
 
     // called by regular menu items

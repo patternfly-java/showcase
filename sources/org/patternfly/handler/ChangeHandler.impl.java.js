@@ -10,9 +10,9 @@ let $LambdaAdaptor = goog.forwardDeclare('org.patternfly.handler.ChangeHandler.$
  */
 class ChangeHandler {
  /** @abstract @nodts */
- m_onChange__java_lang_Object__java_lang_Object__void(/** C */ component, /** T */ value) {}
+ m_onChange__elemental2_dom_Event__java_lang_Object__java_lang_Object__void(/** Event */ event, /** C */ component, /** T */ value) {}
  /** @nodts @template C, T @return {ChangeHandler<C, T>} */
- static $adapt(/** ?function(C, T):void */ fn) {
+ static $adapt(/** ?function(Event, C, T):void */ fn) {
   ChangeHandler.$clinit();
   return /**@type {!$LambdaAdaptor<C, T>}*/ (new $LambdaAdaptor(fn));
  }

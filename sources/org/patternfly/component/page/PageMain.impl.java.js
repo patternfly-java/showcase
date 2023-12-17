@@ -1,25 +1,29 @@
 goog.module('org.patternfly.component.page.PageMain$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const PageSubComponent = goog.require('org.patternfly.component.page.PageSubComponent$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLElement.$Overlay$impl');
+let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
+let TouchEvent_$Overlay = goog.forwardDeclare('elemental2.dom.TouchEvent.$Overlay$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
+let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let IsElement = goog.forwardDeclare('org.jboss.elemento.IsElement$impl');
+let Page = goog.forwardDeclare('org.patternfly.component.page.Page$impl');
 let PageMainGroup = goog.forwardDeclare('org.patternfly.component.page.PageMainGroup$impl');
 let PageSection = goog.forwardDeclare('org.patternfly.component.page.PageSection$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLElement, PageMain>}
+ * @extends {PageSubComponent<HTMLElement, PageMain>}
  */
-class PageMain extends SubComponent {
+class PageMain extends PageSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
@@ -38,7 +42,15 @@ class PageMain extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_page_PageMain__java_lang_String__void(/** ?string */ id) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_main__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_page__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_main__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, Classes.f_main__org_patternfly_layout_Classes), HTMLContainerBuilder)).m_attr__java_lang_String__int__org_jboss_elemento_TypedBuilder(Attributes.f_tabindex__org_patternfly_core_Attributes, - 1 | 0), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
+  this.$ctor__org_patternfly_component_page_PageSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(PageMain.f_SUB_COMPONENT_NAME__org_patternfly_component_page_PageMain, /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_main__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_page__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_main__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, Classes.f_main__org_patternfly_style_Classes), HTMLContainerBuilder)).m_attr__java_lang_String__int__org_jboss_elemento_TypedBuilder(Attributes.f_tabindex__org_patternfly_core_Attributes, - 1 | 0), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
+  this.m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_mousedown__org_jboss_elemento_EventType, (e) =>{
+   let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
+   this.m_onMainClick__void_$p_org_patternfly_component_page_PageMain();
+  });
+  this.m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_touchstart__org_jboss_elemento_EventType, (e_2) =>{
+   let e_3 = /**@type {TouchEvent}*/ ($Casts.$to(e_2, TouchEvent_$Overlay));
+   this.m_onMainClick__void_$p_org_patternfly_component_page_PageMain();
+  });
  }
  /** @nodts @return {PageMain} */
  m_addGroup__org_patternfly_component_page_PageMainGroup__org_patternfly_component_page_PageMain(/** PageMainGroup */ group) {
@@ -106,6 +118,12 @@ class PageMain extends SubComponent {
    }
   }
  }
+ /** @nodts */
+ m_onMainClick__void_$p_org_patternfly_component_page_PageMain() {
+  if (Page.m_page__org_patternfly_component_page_Page().m_underXl__boolean_$pp_org_patternfly_component_page() && Page.m_page__org_patternfly_component_page_Page().m_sidebar__org_patternfly_component_page_PageSidebar().m_expanded__boolean()) {
+   Page.m_page__org_patternfly_component_page_Page().m_sidebar__org_patternfly_component_page_PageSidebar().m_collapse__void();
+  }
+ }
  //Bridge method.
  /** @final @override @nodts @return {PageMain} */
  m_that__org_jboss_elemento_TypedBuilder() {
@@ -115,7 +133,7 @@ class PageMain extends SubComponent {
  static $clinit() {
   PageMain.$clinit = () =>{};
   PageMain.$loadModules();
-  SubComponent.$clinit();
+  PageSubComponent.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -125,16 +143,22 @@ class PageMain extends SubComponent {
  /** @nodts */
  static $loadModules() {
   $Overlay = goog.module.get('elemental2.dom.HTMLElement.$Overlay$impl');
+  MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
+  TouchEvent_$Overlay = goog.module.get('elemental2.dom.TouchEvent.$Overlay$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
+  EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   IsElement = goog.module.get('org.jboss.elemento.IsElement$impl');
+  Page = goog.module.get('org.patternfly.component.page.Page$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
+/**@const {string} @nodts*/
+PageMain.f_SUB_COMPONENT_NAME__org_patternfly_component_page_PageMain = 'pm';
 $Util.$setClassMetadata(PageMain, 'org.patternfly.component.page.PageMain');
 
 exports = PageMain;

@@ -21,7 +21,7 @@ goog.require('org.patternfly.component.code.CodeBlockHeader');
 goog.require('org.patternfly.component.expandable.ExpandableSection');
 goog.require('org.patternfly.component.expandable.ExpandableSectionContent');
 goog.require('org.patternfly.component.expandable.ExpandableSectionToggle');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

@@ -39,7 +39,7 @@ class DividerType extends Enum {
  /** @nodts @return {!Array<!DividerType>} */
  static m_values__arrayOf_org_patternfly_component_divider_DividerType() {
   DividerType.$clinit();
-  return /**@type {!Array<DividerType>}*/ ($Arrays.$init([DividerType.f_li__org_patternfly_component_divider_DividerType, DividerType.f_hr__org_patternfly_component_divider_DividerType], DividerType));
+  return /**@type {!Array<DividerType>}*/ ($Arrays.$init([DividerType.f_li__org_patternfly_component_divider_DividerType, DividerType.f_hr__org_patternfly_component_divider_DividerType, DividerType.f_div__org_patternfly_component_divider_DividerType], DividerType));
  }
  /** @nodts */
  static $clinit() {
@@ -63,10 +63,14 @@ class DividerType extends Enum {
 DividerType.$ordinal_li__org_patternfly_component_divider_DividerType = 0;
 /**@const {number} @nodts*/
 DividerType.$ordinal_hr__org_patternfly_component_divider_DividerType = 1;
+/**@const {number} @nodts*/
+DividerType.$ordinal_div__org_patternfly_component_divider_DividerType = 2;
 /**@const {!DividerType} @nodts*/
 DividerType.f_li__org_patternfly_component_divider_DividerType = /**@pureOrBreakMyCode*/ DividerType.$create__java_lang_String__int($Util.$makeEnumName('li'), DividerType.$ordinal_li__org_patternfly_component_divider_DividerType);
 /**@const {!DividerType} @nodts*/
 DividerType.f_hr__org_patternfly_component_divider_DividerType = /**@pureOrBreakMyCode*/ DividerType.$create__java_lang_String__int($Util.$makeEnumName('hr'), DividerType.$ordinal_hr__org_patternfly_component_divider_DividerType);
+/**@const {!DividerType} @nodts*/
+DividerType.f_div__org_patternfly_component_divider_DividerType = /**@pureOrBreakMyCode*/ DividerType.$create__java_lang_String__int($Util.$makeEnumName('div'), DividerType.$ordinal_div__org_patternfly_component_divider_DividerType);
 /**@type {Map<?string, !DividerType>} @nodts*/
 DividerType.f_namesToValuesMap__org_patternfly_component_divider_DividerType_;
 $Util.$setClassMetadataForEnum(DividerType, 'org.patternfly.component.divider.DividerType');

@@ -26,6 +26,8 @@ import org.jboss.elemento.Id;
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Closeable;
+import org.patternfly.core.Logger;
+import org.patternfly.core.WithText;
 import org.patternfly.handler.CloseHandler;
 import org.patternfly.thirdparty.popper.Modifiers;
 import org.patternfly.thirdparty.popper.Placement;
@@ -50,12 +52,12 @@ import static org.patternfly.core.Aria.live;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.handler.CloseHandler.fireEvent;
 import static org.patternfly.handler.CloseHandler.shouldClose;
-import static org.patternfly.layout.Classes.arrow;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.content;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.textAlignLeft;
-import static org.patternfly.layout.Classes.tooltip;
+import static org.patternfly.style.Classes.arrow;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.content;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.textAlignLeft;
+import static org.patternfly.style.Classes.tooltip;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 import static org.patternfly.thirdparty.popper.Placement.top;
 import static org.patternfly.thirdparty.popper.TriggerAction.focus;
@@ -66,32 +68,43 @@ import static org.patternfly.thirdparty.popper.TriggerAction.mouseenter;
  *
  * @see <a href="https://www.patternfly.org/components/tooltip/html">https://www.patternfly.org/components/tooltip/html</a>
  */
-public class Tooltip extends BaseComponent<HTMLDivElement, Tooltip> implements Closeable<HTMLDivElement, Tooltip>, Attachable {
+public class Tooltip extends BaseComponent<HTMLDivElement, Tooltip> implements
+        Closeable<HTMLDivElement, Tooltip>,
+        WithText<HTMLDivElement, Tooltip>,
+        Attachable {
 
     // ------------------------------------------------------ factory
 
+    public static Tooltip tooltip() {
+        return new Tooltip(null, null, null);
+    }
+
+    public static Tooltip tooltip(String text) {
+        return new Tooltip(null, text, null);
+    }
+
     public static Tooltip tooltip(By trigger) {
-        return new Tooltip(() -> Elements.find(document.body, trigger), null);
+        return new Tooltip(() -> Elements.find(document.body, trigger), null, trigger);
     }
 
     public static Tooltip tooltip(By trigger, String text) {
-        return new Tooltip(() -> Elements.find(document.body, trigger), text);
+        return new Tooltip(() -> Elements.find(document.body, trigger), text, trigger);
     }
 
     public static Tooltip tooltip(HTMLElement trigger) {
-        return new Tooltip(() -> trigger, null);
+        return new Tooltip(() -> trigger, null, null);
     }
 
     public static Tooltip tooltip(HTMLElement trigger, String text) {
-        return new Tooltip(() -> trigger, text);
+        return new Tooltip(() -> trigger, text, null);
     }
 
     public static Tooltip tooltip(Supplier<HTMLElement> trigger) {
-        return new Tooltip(trigger, null);
+        return new Tooltip(trigger, null, null);
     }
 
     public static Tooltip tooltip(Supplier<HTMLElement> trigger, String text) {
-        return new Tooltip(trigger, text);
+        return new Tooltip(trigger, text, null);
     }
 
     // ------------------------------------------------------ instance
@@ -104,8 +117,9 @@ public class Tooltip extends BaseComponent<HTMLDivElement, Tooltip> implements C
 
     private final String id;
     private final HTMLElement contentElement;
-    private final Supplier<HTMLElement> trigger;
     private final Set<TriggerAction> triggerActions;
+    private final By selector;
+    private Supplier<HTMLElement> trigger;
     private boolean flip;
     private int distance;
     private int animationDuration;
@@ -117,17 +131,17 @@ public class Tooltip extends BaseComponent<HTMLDivElement, Tooltip> implements C
     private Placement placement;
     private CloseHandler<Tooltip> closeHandler;
 
-    Tooltip(Supplier<HTMLElement> trigger, String text) {
-        super(div().css(component(tooltip))
+    Tooltip(Supplier<HTMLElement> trigger, String text, By selector) {
+        super(ComponentType.Tooltip, div().css(component(tooltip))
                 .style("display", "none")
                 .attr(role, "tooltip")
                 .aria(live, "polite")
-                .element(),
-                ComponentType.Tooltip);
+                .element());
 
         this.id = Id.unique(componentType().id);
         this.trigger = trigger;
         this.triggerActions = EnumSet.of(mouseenter, focus);
+        this.selector = selector;
         this.flip = true;
         this.placement = top;
         this.aria = describedBy;
@@ -149,23 +163,34 @@ public class Tooltip extends BaseComponent<HTMLDivElement, Tooltip> implements C
 
     @Override
     public void attach(MutationRecord mutationRecord) {
-        HTMLElement triggerElement = trigger.get();
-        if (triggerElement != null) {
-            popper = new PopperBuilder(componentType(), triggerElement, element())
-                    .animationDuration(animationDuration)
-                    .entryDelay(entryDelay)
-                    .exitDelay(exitDelay)
-                    .zIndex(zIndex)
-                    .placement(placement)
-                    .addModifier(Modifiers.offset(distance),
-                            Modifiers.noOverflow(),
-                            Modifiers.hide(),
-                            Modifiers.flip(placement == auto || flip),
-                            Modifiers.placement(),
-                            Modifiers.eventListeners(false))
-                    .registerHandler(triggerActions, this::show, this::close)
-                    .removePopperOnTriggerDetach()
-                    .build();
+        if (trigger != null) {
+            HTMLElement triggerElement = trigger.get();
+            if (triggerElement != null) {
+                popper = new PopperBuilder(componentType(), triggerElement, element())
+                        .animationDuration(animationDuration)
+                        .entryDelay(entryDelay)
+                        .exitDelay(exitDelay)
+                        .zIndex(zIndex)
+                        .placement(placement)
+                        .addModifier(Modifiers.offset(distance),
+                                Modifiers.noOverflow(),
+                                Modifiers.hide(),
+                                Modifiers.flip(placement == auto || flip),
+                                Modifiers.placement(),
+                                Modifiers.eventListeners(false))
+                        .registerHandler(triggerActions, this::show, this::close)
+                        .removePopperOnTriggerDetach()
+                        .build();
+            } else {
+                if (selector != null) {
+                    Logger.undefined(componentType(), element(),
+                            "Unable to get trigger element using selector '" + selector + "'");
+                } else {
+                    Logger.undefined(componentType(), element(), "Unable to get trigger element");
+                }
+            }
+        } else {
+            Logger.undefined(componentType(), element(), "No trigger element defined");
         }
     }
 
@@ -225,6 +250,7 @@ public class Tooltip extends BaseComponent<HTMLDivElement, Tooltip> implements C
         return this;
     }
 
+    @Override
     public Tooltip text(String text) {
         contentElement.textContent = text;
         if (isAttached(this) && isVisible(this)) {
@@ -233,10 +259,23 @@ public class Tooltip extends BaseComponent<HTMLDivElement, Tooltip> implements C
         return this;
     }
 
-    public Tooltip trigger(TriggerAction... trigger) {
-        if (trigger != null) {
-            triggerActions.clear();
-            triggerActions.addAll(asList(trigger));
+    public Tooltip trigger(By trigger) {
+        return trigger(() -> Elements.find(document.body, trigger));
+    }
+
+    public Tooltip trigger(HTMLElement trigger) {
+        return trigger(() -> trigger);
+    }
+
+    public Tooltip trigger(Supplier<HTMLElement> trigger) {
+        this.trigger = trigger;
+        return this;
+    }
+
+    public Tooltip triggerActions(TriggerAction... triggerActions) {
+        if (triggerActions != null) {
+            this.triggerActions.clear();
+            this.triggerActions.addAll(asList(triggerActions));
         }
         return this;
     }

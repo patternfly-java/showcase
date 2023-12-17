@@ -1,7 +1,7 @@
 goog.module('org.patternfly.showcase.component.CodeBlockComponent$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const ComponentPage = goog.require('org.patternfly.showcase.component.ComponentPage$impl');
+const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
@@ -12,11 +12,11 @@ let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainer
 let CodeBlock = goog.forwardDeclare('org.patternfly.component.code.CodeBlock$impl');
 let CodeBlockAction = goog.forwardDeclare('org.patternfly.component.code.CodeBlockAction$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
-let Snippet = goog.forwardDeclare('org.patternfly.showcase.component.Snippet$impl');
+let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
-class CodeBlockComponent extends ComponentPage {
+class CodeBlockComponent extends SnippetPage {
  /** @protected @nodts */
  constructor() {
   super();
@@ -30,16 +30,16 @@ class CodeBlockComponent extends ComponentPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_CodeBlockComponent__void() {
-  this.$ctor__org_patternfly_showcase_component_ComponentPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Code block', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeBlock.html', 'https://www.patternfly.org/components/code-block/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('A code block is a component that contains 2 or more lines of read-only code. The code in a code block can be copied to the clipboard.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
-  this.m_addSnippet__org_patternfly_showcase_component_Snippet__void_$pp_org_patternfly_showcase_component(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('code-block-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('code-block-basic'), j_l_String)), Supplier.$adapt(() =>{
-   return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(CodeBlock.m_codeBlock__org_patternfly_component_code_CodeBlock().m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockCopyToClipboardAction__org_patternfly_component_code_CodeBlockAction()).m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockAction__org_patternfly_layout_PredefinedIcon__org_patternfly_component_code_CodeBlockAction(PredefinedIcon.f_play__org_patternfly_layout_PredefinedIcon).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeBlockAction('Play').m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeBlockAction(ComponentHandler.$adapt((/** Event */ action, codeBlock) =>{
-    let codeBlock_1 = /**@type {CodeBlockAction}*/ ($Casts.$to(codeBlock, CodeBlockAction));
+  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Code block', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeBlock.html', 'https://www.patternfly.org/components/code-block/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('A code block is a component that contains 2 or more lines of read-only code. The code in a code block can be copied to the clipboard.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('code-block-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('code-block-basic'), j_l_String)), Supplier.$adapt(() =>{
+   return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(CodeBlock.m_codeBlock__org_patternfly_component_code_CodeBlock().m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockCopyToClipboardAction__org_patternfly_component_code_CodeBlockAction()).m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockAction__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeBlockAction(PredefinedIcon.f_play__org_patternfly_style_PredefinedIcon).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeBlockAction('Play').m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeBlockAction(ComponentHandler.$adapt((/** Event */ action, codeBlock) =>{
+    let codeBlock_1 = /**@type {CodeBlock}*/ ($Casts.$to(codeBlock, CodeBlock));
     goog.global.console.log('Play not yet implemented');
    }))).m_code__java_lang_String__org_patternfly_component_code_CodeBlock(CodeBlockComponent.f_CODE__org_patternfly_showcase_component_CodeBlockComponent_)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
-  this.m_addSnippet__org_patternfly_showcase_component_Snippet__void_$pp_org_patternfly_showcase_component(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('code-block-expandable', 'Expandable', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('code-block-expandable'), j_l_String)), Supplier.$adapt(() =>{
-   return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(CodeBlock.m_codeBlock__org_patternfly_component_code_CodeBlock().m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockCopyToClipboardAction__org_patternfly_component_code_CodeBlockAction()).m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockAction__org_patternfly_layout_PredefinedIcon__org_patternfly_component_code_CodeBlockAction(PredefinedIcon.f_play__org_patternfly_layout_PredefinedIcon).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeBlockAction('Play').m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeBlockAction(ComponentHandler.$adapt((/** Event */ action_1, codeBlock_2) =>{
-    let codeBlock_3 = /**@type {CodeBlockAction}*/ ($Casts.$to(codeBlock_2, CodeBlockAction));
+  this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('code-block-expandable', 'Expandable', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('code-block-expandable'), j_l_String)), Supplier.$adapt(() =>{
+   return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(CodeBlock.m_codeBlock__org_patternfly_component_code_CodeBlock().m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockCopyToClipboardAction__org_patternfly_component_code_CodeBlockAction()).m_addAction__org_patternfly_component_code_CodeBlockAction__org_patternfly_component_code_CodeBlock(CodeBlockAction.m_codeBlockAction__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeBlockAction(PredefinedIcon.f_play__org_patternfly_style_PredefinedIcon).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeBlockAction('Play').m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeBlockAction(ComponentHandler.$adapt((/** Event */ action_1, codeBlock_2) =>{
+    let codeBlock_3 = /**@type {CodeBlock}*/ ($Casts.$to(codeBlock_2, CodeBlock));
     goog.global.console.log('Play not yet implemented');
    }))).m_truncate__org_patternfly_component_code_CodeBlock().m_code__java_lang_String__org_patternfly_component_code_CodeBlock(CodeBlockComponent.f_CODE__org_patternfly_showcase_component_CodeBlockComponent_)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
@@ -48,7 +48,7 @@ class CodeBlockComponent extends ComponentPage {
  static $clinit() {
   CodeBlockComponent.$clinit = () =>{};
   CodeBlockComponent.$loadModules();
-  ComponentPage.$clinit();
+  SnippetPage.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -66,8 +66,8 @@ class CodeBlockComponent extends ComponentPage {
   CodeBlock = goog.module.get('org.patternfly.component.code.CodeBlock$impl');
   CodeBlockAction = goog.module.get('org.patternfly.component.code.CodeBlockAction$impl');
   ComponentHandler = goog.module.get('org.patternfly.handler.ComponentHandler$impl');
-  PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
-  Snippet = goog.module.get('org.patternfly.showcase.component.Snippet$impl');
+  Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }

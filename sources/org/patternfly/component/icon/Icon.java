@@ -21,12 +21,12 @@ import org.jboss.elemento.By;
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
 import org.patternfly.component.spinner.Spinner;
-import org.patternfly.core.Modifiers.Inline;
 import org.patternfly.core.Status;
 import org.patternfly.core.WithProgress;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
-import org.patternfly.layout.Size;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Inline;
+import org.patternfly.style.PredefinedIcon;
+import org.patternfly.style.Size;
 
 import elemental2.dom.HTMLElement;
 
@@ -34,11 +34,11 @@ import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.span;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.component.spinner.Spinner.spinner;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.progress;
-import static org.patternfly.layout.Size.md;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.progress;
+import static org.patternfly.style.Size.md;
 
 /**
  * An icon component is a container that allows for icons of varying dimensions, as well as spinners, to seamlessly replace each
@@ -48,23 +48,31 @@ import static org.patternfly.layout.Size.md;
  *
  * @see <a href="https://www.patternfly.org/components/icon/html">https://www.patternfly.org/components/icon/html</a>
  */
-public class Icon extends BaseComponent<HTMLElement, Icon>
-        implements Inline<HTMLElement, Icon>, WithProgress<HTMLElement, Icon> {
+public class Icon extends BaseComponent<HTMLElement, Icon> implements
+        Inline<HTMLElement, Icon>,
+        WithProgress<HTMLElement, Icon> {
 
     // ------------------------------------------------------ factory
 
     /**
      * Factory method to create a new instance of this component.
      */
-    public static Icon icon(PredefinedIcon predefinedIcon) {
-        return new Icon(predefinedIcon.className);
+    public static Icon icon(String iconClass) {
+        return new Icon(inlineIcon(iconClass));
     }
 
     /**
      * Factory method to create a new instance of this component.
      */
-    public static Icon icon(String iconClass) {
-        return new Icon(iconClass);
+    public static Icon icon(PredefinedIcon predefinedIcon) {
+        return new Icon(inlineIcon(predefinedIcon));
+    }
+
+    /**
+     * Factory method to create a new instance of this component.
+     */
+    public static Icon icon(InlineIcon icon) {
+        return new Icon(icon);
     }
 
     // ------------------------------------------------------ instance
@@ -74,13 +82,12 @@ public class Icon extends BaseComponent<HTMLElement, Icon>
     private Size iconSize;
     private Spinner spinner;
 
-    Icon(String iconClass) {
-        super(span().css(component(icon))
-                .add(span().css(component(icon, Classes.content))
-                        .add(inlineIcon(iconClass)))
-                .element(),
-                ComponentType.Icon);
-        this.content = find(By.classname(component(icon, Classes.content)));
+    Icon(InlineIcon icon) {
+        super(ComponentType.Icon, span().css(component(Classes.icon))
+                .add(span().css(component(Classes.icon, Classes.content))
+                        .add(icon))
+                .element());
+        this.content = find(By.classname(component(Classes.icon, Classes.content)));
     }
 
     // ------------------------------------------------------ builder
@@ -90,12 +97,12 @@ public class Icon extends BaseComponent<HTMLElement, Icon>
      */
     public Icon size(Size size) {
         this.size = size;
-        return css(size.modifier);
+        return css(size.modifier());
     }
 
     public Icon iconSize(Size size) {
         iconSize = size;
-        content.classList.add(iconSize.modifier);
+        content.classList.add(iconSize.modifier());
         return this;
     }
 

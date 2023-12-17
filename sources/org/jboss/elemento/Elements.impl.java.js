@@ -36,6 +36,7 @@ let HTMLOptionElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLOptionE
 let HTMLOutputElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLOutputElement.$Overlay$impl');
 let HTMLParagraphElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
 let HTMLParamElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLParamElement.$Overlay$impl');
+let HTMLPictureElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLPictureElement.$Overlay$impl');
 let HTMLPreElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLPreElement.$Overlay$impl');
 let HTMLProgressElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLProgressElement.$Overlay$impl');
 let HTMLQuoteElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLQuoteElement.$Overlay$impl');
@@ -56,6 +57,7 @@ let Boolean = goog.forwardDeclare('java.lang.Boolean$impl');
 let Class = goog.forwardDeclare('java.lang.Class$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
+let StringBuilder = goog.forwardDeclare('java.lang.StringBuilder$impl');
 let Collections = goog.forwardDeclare('java.util.Collections$impl');
 let Iterator = goog.forwardDeclare('java.util.Iterator$impl');
 let List = goog.forwardDeclare('java.util.List$impl');
@@ -68,6 +70,7 @@ let Stream = goog.forwardDeclare('java.util.stream.Stream$impl');
 let StreamSupport = goog.forwardDeclare('java.util.stream.StreamSupport$impl');
 let Js = goog.forwardDeclare('jsinterop.base.Js$impl');
 let JsArrayLike_$Overlay = goog.forwardDeclare('jsinterop.base.JsArrayLike.$Overlay$impl');
+let JsPropertyMap_$Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let SafeHtml = goog.forwardDeclare('org.gwtproject.safehtml.shared.SafeHtml$impl');
 let BodyObserver = goog.forwardDeclare('org.jboss.elemento.BodyObserver$impl');
@@ -78,6 +81,7 @@ let JsArrayElementIterator = goog.forwardDeclare('org.jboss.elemento.Elements.Js
 let JsArrayLikeIterator = goog.forwardDeclare('org.jboss.elemento.Elements.JsArrayLikeIterator$impl');
 let JsArrayNodeIterator = goog.forwardDeclare('org.jboss.elemento.Elements.JsArrayNodeIterator$impl');
 let ElementsBag = goog.forwardDeclare('org.jboss.elemento.ElementsBag$impl');
+let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let HTMLElementBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLElementBuilder$impl');
 let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
@@ -85,6 +89,7 @@ let InputElementBuilder = goog.forwardDeclare('org.jboss.elemento.InputElementBu
 let InputType = goog.forwardDeclare('org.jboss.elemento.InputType$impl');
 let IsElement = goog.forwardDeclare('org.jboss.elemento.IsElement$impl');
 let ObserverCallback = goog.forwardDeclare('org.jboss.elemento.ObserverCallback$impl');
+let ResizeObserver_$Overlay = goog.forwardDeclare('org.jboss.elemento.ResizeObserver.$Overlay$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 let $JavaScriptObject = goog.forwardDeclare('vmbootstrap.JavaScriptObject$impl');
 
@@ -685,6 +690,16 @@ class Elements extends j_l_Object {
  static m_map__elemental2_dom_Element__org_jboss_elemento_HTMLContainerBuilder(/** Element */ element) {
   Elements.$clinit();
   return /**@type {HTMLContainerBuilder<HTMLMapElement>}*/ (Elements.m_wrapHtmlContainer__elemental2_dom_HTMLElement__org_jboss_elemento_HTMLContainerBuilder(/**@type {HTMLMapElement}*/ ($Casts.$to(Js.m_cast__java_lang_Object__java_lang_Object(element), HTMLMapElement_$Overlay))));
+ }
+ /** @nodts @return {HTMLContainerBuilder<HTMLPictureElement>} */
+ static m_picture__org_jboss_elemento_HTMLContainerBuilder() {
+  Elements.$clinit();
+  return /**@type {HTMLContainerBuilder<HTMLPictureElement>}*/ (Elements.m_htmlContainer__java_lang_String__java_lang_Class__org_jboss_elemento_HTMLContainerBuilder('picture', Class.$get($JavaScriptObject)));
+ }
+ /** @nodts @return {HTMLContainerBuilder<HTMLPictureElement>} */
+ static m_picture__elemental2_dom_Element__org_jboss_elemento_HTMLContainerBuilder(/** Element */ element) {
+  Elements.$clinit();
+  return /**@type {HTMLContainerBuilder<HTMLPictureElement>}*/ (Elements.m_wrapHtmlContainer__elemental2_dom_HTMLElement__org_jboss_elemento_HTMLContainerBuilder(/**@type {HTMLPictureElement}*/ ($Casts.$to(Js.m_cast__java_lang_Object__java_lang_Object(element), HTMLPictureElement_$Overlay))));
  }
  /** @nodts @return {HTMLElementBuilder<HTMLTrackElement>} */
  static m_track__org_jboss_elemento_HTMLElementBuilder() {
@@ -1496,6 +1511,35 @@ class Elements extends j_l_Object {
    Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(/**@type {HTMLElement}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), visible);
   }
  }
+ /** @nodts @template E @return {?function():void} */
+ static m_resizeObserver__org_jboss_elemento_IsElement__org_jboss_elemento_ResizeCallback__org_jboss_elemento_ResizeObserverCleanup(/** IsElement<E> */ element, /** ?function():void */ callback) {
+  Elements.$clinit();
+  return Elements.m_resizeObserver__elemental2_dom_HTMLElement__org_jboss_elemento_ResizeCallback__org_jboss_elemento_ResizeObserverCleanup(/**@type {E}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), callback);
+ }
+ /** @nodts @template E @return {?function():void} */
+ static m_resizeObserver__elemental2_dom_HTMLElement__org_jboss_elemento_ResizeCallback__org_jboss_elemento_ResizeObserverCleanup(/** E */ element, /** ?function():void */ callback) {
+  Elements.$clinit();
+  let /** ?function():void */ cleanup;
+  if (Js.isTripleEqual(JsPropertyMap_$Overlay.m_getAsAny__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__jsinterop_base_Any(goog.global, 'ResizeObserver'), undefined)) {
+   let registration = EventType.m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_gwtproject_event_shared_HandlerRegistration(goog.global.window, EventType.f_resize__org_jboss_elemento_EventType, (/** Event */ e) =>{
+    callback();
+   });
+   cleanup = () =>{
+    registration.m_removeHandler__void();
+   };
+  } else {
+   let observer = new ResizeObserver((/** Array<Object> */ entries, /** ResizeObserver */ obs) =>{
+    if (!$Equality.$same(entries, null) && entries.length != 0) {
+     callback();
+    }
+   });
+   ResizeObserver_$Overlay.m_observe__$devirt__org_jboss_elemento_ResizeObserver__elemental2_dom_Element__void(observer, /**@type {Element}*/ (element));
+   cleanup = () =>{
+    observer.unobserve(/**@type {Element}*/ (element));
+   };
+  }
+  return cleanup;
+ }
  /** @nodts */
  static m_toggle__elemental2_dom_HTMLElement__java_lang_String__boolean__void(/** HTMLElement */ element, /** ?string */ css, /** boolean */ condition) {
   Elements.$clinit();
@@ -1537,6 +1581,41 @@ class Elements extends j_l_Object {
   if (!$Equality.$same(element, null)) {
    Elements.m_innerHtml__elemental2_dom_HTMLElement__org_gwtproject_safehtml_shared_SafeHtml__void(/**@type {HTMLElement}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), html);
   }
+ }
+ /** @nodts @template E @return {?string} */
+ static m_toString__org_jboss_elemento_IsElement__java_lang_String(/** IsElement<E> */ element) {
+  Elements.$clinit();
+  if (!$Equality.$same(element, null)) {
+   return Elements.m_toString__elemental2_dom_Element__java_lang_String(/**@type {Element}*/ (element.m_element__elemental2_dom_Element()));
+  }
+  return '';
+ }
+ /** @nodts @return {?string} */
+ static m_toString__elemental2_dom_Element__java_lang_String(/** Element */ element) {
+  Elements.$clinit();
+  if (!$Equality.$same(element, null)) {
+   let tag = j_l_String.m_toLowerCase__java_lang_String__java_lang_String(element.tagName);
+   let builder = StringBuilder.$create__java_lang_String('<').m_append__java_lang_String__java_lang_StringBuilder(tag);
+   let names = element.getAttributeNames();
+   if (!$Equality.$same(names, null)) {
+    for (let i = 0; i < names.length; i = i + 1 | 0) {
+     let name = /**@type {?string}*/ ($Casts.$to(JsArrayLike_$Overlay.m_getAt__$devirt__jsinterop_base_JsArrayLike__int__java_lang_Object(names, i), j_l_String));
+     let value = element.getAttribute(name);
+     builder.m_append__java_lang_String__java_lang_StringBuilder(' ').m_append__java_lang_String__java_lang_StringBuilder(name).m_append__java_lang_String__java_lang_StringBuilder('=\'').m_append__java_lang_String__java_lang_StringBuilder(value).m_append__java_lang_String__java_lang_StringBuilder('\'');
+    }
+   }
+   if (element.childElementCount == 0) {
+    builder.m_append__java_lang_String__java_lang_StringBuilder('/>');
+   } else {
+    builder.m_append__java_lang_String__java_lang_StringBuilder('>[').m_append__int__java_lang_StringBuilder(element.childElementCount).m_append__java_lang_String__java_lang_StringBuilder(' child element');
+    if (element.childElementCount > 1) {
+     builder.m_append__java_lang_String__java_lang_StringBuilder('s');
+    }
+    builder.m_append__java_lang_String__java_lang_StringBuilder(']></').m_append__java_lang_String__java_lang_StringBuilder(tag).m_append__java_lang_String__java_lang_StringBuilder('>');
+   }
+   return builder.toString();
+  }
+  return '';
  }
  /** @nodts @return {?string} @deprecated */
  static m_uniqueId__java_lang_String() {
@@ -1609,6 +1688,7 @@ class Elements extends j_l_Object {
   HTMLOutputElement_$Overlay = goog.module.get('elemental2.dom.HTMLOutputElement.$Overlay$impl');
   HTMLParagraphElement_$Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
   HTMLParamElement_$Overlay = goog.module.get('elemental2.dom.HTMLParamElement.$Overlay$impl');
+  HTMLPictureElement_$Overlay = goog.module.get('elemental2.dom.HTMLPictureElement.$Overlay$impl');
   HTMLPreElement_$Overlay = goog.module.get('elemental2.dom.HTMLPreElement.$Overlay$impl');
   HTMLProgressElement_$Overlay = goog.module.get('elemental2.dom.HTMLProgressElement.$Overlay$impl');
   HTMLQuoteElement_$Overlay = goog.module.get('elemental2.dom.HTMLQuoteElement.$Overlay$impl');
@@ -1629,12 +1709,14 @@ class Elements extends j_l_Object {
   Class = goog.module.get('java.lang.Class$impl');
   Iterable = goog.module.get('java.lang.Iterable$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
+  StringBuilder = goog.module.get('java.lang.StringBuilder$impl');
   Collections = goog.module.get('java.util.Collections$impl');
   Spliterators = goog.module.get('java.util.Spliterators$impl');
   Stream = goog.module.get('java.util.stream.Stream$impl');
   StreamSupport = goog.module.get('java.util.stream.StreamSupport$impl');
   Js = goog.module.get('jsinterop.base.Js$impl');
   JsArrayLike_$Overlay = goog.module.get('jsinterop.base.JsArrayLike.$Overlay$impl');
+  JsPropertyMap_$Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   BodyObserver = goog.module.get('org.jboss.elemento.BodyObserver$impl');
   AsHTMLElement = goog.module.get('org.jboss.elemento.Elements.AsHTMLElement$impl');
@@ -1643,10 +1725,12 @@ class Elements extends j_l_Object {
   JsArrayLikeIterator = goog.module.get('org.jboss.elemento.Elements.JsArrayLikeIterator$impl');
   JsArrayNodeIterator = goog.module.get('org.jboss.elemento.Elements.JsArrayNodeIterator$impl');
   ElementsBag = goog.module.get('org.jboss.elemento.ElementsBag$impl');
+  EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   HTMLElementBuilder = goog.module.get('org.jboss.elemento.HTMLElementBuilder$impl');
   Id = goog.module.get('org.jboss.elemento.Id$impl');
   InputElementBuilder = goog.module.get('org.jboss.elemento.InputElementBuilder$impl');
+  ResizeObserver_$Overlay = goog.module.get('org.jboss.elemento.ResizeObserver.$Overlay$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
   $JavaScriptObject = goog.module.get('vmbootstrap.JavaScriptObject$impl');
  }

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Sidebar.impl.java.js",
-"lineCount":84,
-"mappings":"A;;;;;;;;;;;;;;;;;;;MAsCa,O;;CAAA,W;EAAAA,Q;;;QAOa,mD;EAAUC,kB;EAC5BA,2B;;;QAKJ,S;EAAAC,kB;EAAAA,8B;EAAAA,kE;EAAAA,iB;;;CAAA,qD;EACIC,ohC;;;CAWW,iG,oBAAoBC,I;EAC/BC,mI;;;CAQW,oD;EACXC,0K;EACAA,sK;EACAA,wH;EACAA,Y;;;CAMW,qD;EACXC,yK;EACAA,uK;EACAA,uH;EACAA,Y;;;CAOW,iD;EACXC,wR;;;CAIW,gD;EACXC,Y;;;CAQQ,c;EACRC;GACIA,4DADJA;SAEOA;GACHA,6DADGA;G;;;;CAxEF,uC;EAAAD,+D;;;QAAA,O;EAAAE,0B;EAAAA,uB;EAAAA;",
-"sources":["Sidebar.java"],
-"names":["org.patternfly.component.sidebar.Sidebar.<synthetic: ctor_js>","org.patternfly.component.sidebar.Sidebar.sidebar","org.patternfly.component.sidebar.Sidebar.<synthetic: ctor_create>","org.patternfly.component.sidebar.Sidebar.<init>","body","org.patternfly.component.sidebar.Sidebar.addBody","org.patternfly.component.sidebar.Sidebar.expanded","org.patternfly.component.sidebar.Sidebar.collapsed","org.patternfly.component.sidebar.Sidebar.light","org.patternfly.component.sidebar.Sidebar.that","org.patternfly.component.sidebar.Sidebar.toggle","org.patternfly.component.sidebar.Sidebar.<clinit>"]
-}

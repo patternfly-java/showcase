@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"PageMainWizard.impl.java.js",
-"lineCount":55,
-"mappings":"A;;;;;;;;;;;;;;;;MAiCa,c;;CAAA,W;EAAAA,Q;;;QAIoB,8D;EAAiBC,yB;EAC1CA,kC;;;QAKJ,S;EAAAC,yB;EAAAA,qC;EAAAA,sE;EAAAA,iB;;;CAAA,yD;EACIC,orB;;;CASkB,qD;EAClBC,+R;;;CAIkB,oD;EAClBC,Y;;;;CA1BK,uC;EAAAA,mE;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA;",
+"lineCount":68,
+"mappings":"A;;;;;;;;;;;;;;;MA+Ba,c;;CAAA,W;EAAAA,Q;;;QAIoB,8D;EAAiBC,yB;EAC1CA,kC;;;QAOJ,S;EAAAC,yB;EAAAA,qC;EAAAA,sE;EAAAA,iB;;;CAAA,yD;EACIC,sxB;;;CAMkB,oD;EAClBC,Y;;;;CApBK,uC;EAAAA,mE;;;QAAA,O;EAAAC,iC;EAAAA,8B;EAAAA,6B;;;;;;;;;;;;;;;;;AAUT;eAAoB,kEAApB;",
 "sources":["PageMainWizard.java"],
-"names":["org.patternfly.component.page.PageMainWizard.<synthetic: ctor_js>","org.patternfly.component.page.PageMainWizard.pageMainWizard","org.patternfly.component.page.PageMainWizard.<synthetic: ctor_create>","org.patternfly.component.page.PageMainWizard.<init>","org.patternfly.component.page.PageMainWizard.light","org.patternfly.component.page.PageMainWizard.that","org.patternfly.component.page.PageMainWizard.<clinit>"]
+"names":["org.patternfly.component.page.PageMainWizard.<synthetic: ctor_js>","org.patternfly.component.page.PageMainWizard.pageMainWizard","org.patternfly.component.page.PageMainWizard.<synthetic: ctor_create>","org.patternfly.component.page.PageMainWizard.<init>","org.patternfly.component.page.PageMainWizard.that","org.patternfly.component.page.PageMainWizard.<clinit>"]
 }

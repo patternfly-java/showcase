@@ -7,15 +7,15 @@ let $LambdaAdaptor = goog.forwardDeclare('org.patternfly.handler.MultiSelectHand
 
 /**
  * @interface
- * @template C
+ * @template C, T
  */
 class MultiSelectHandler {
  /** @abstract @nodts */
- m_onSelect__java_util_List__void(/** List<C> */ components) {}
- /** @nodts @template C @return {MultiSelectHandler<C>} */
- static $adapt(/** ?function(List<C>):void */ fn) {
+ m_onSelect__elemental2_dom_Event__java_lang_Object__java_util_List__void(/** Event */ event, /** C */ component, /** List<T> */ values) {}
+ /** @nodts @template C, T @return {MultiSelectHandler<C, T>} */
+ static $adapt(/** ?function(Event, C, List<T>):void */ fn) {
   MultiSelectHandler.$clinit();
-  return /**@type {!$LambdaAdaptor<C>}*/ (new $LambdaAdaptor(fn));
+  return /**@type {!$LambdaAdaptor<C, T>}*/ (new $LambdaAdaptor(fn));
  }
  /** @nodts */
  static $clinit() {

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Breakpoint.impl.java.js",
-"lineCount":90,
-"mappings":"A;;;;;;;;;;;;;MAiBY,U;;CAAA,W;EAAAA,Q;EAAAA;OAcY,yCAdZA,C;;;QAgBR,gD,8DAAkBC,K;EAAlBC,iC;EAAAA,yH;EAAAA,iB;;;CAAA,sF,8DAAkBD,K;EAAlBE,qC;EAAAA,2C;EAAyBA,yE;EACrBA,uD;;;QAjBI,6D;EAAAC,qB;EAAAA;GAAAA,wMAAAA;G;EAAAA,uI;;;QAAA,kD;EAAAC,qB;EAAAA,+X;;;QAAA,O;EAAAC,6B;EAAAA,0B;EAAAA,e;;;;;;;;;;;;;;AAER;mE;AAEA;6D;AAEA;6D;AAEA;6D;AAEA;6D;AAEA;+D;AAVA;WAAA,4CAAA,mM;AAEA;WAAA,sCAAA,kL;AAEA;WAAA,sCAAA,kL;AAEA;WAAA,sCAAA,kL;AAEA;WAAA,sCAAA,kL;AAEA;WAAA,wCAAA,uL;AAZQ;;",
-"sources":["Breakpoint.java"],
-"names":["org.patternfly.layout.Breakpoint.<synthetic: ctor_js>","value","org.patternfly.layout.Breakpoint.<synthetic: ctor_create>","org.patternfly.layout.Breakpoint.<init>","org.patternfly.layout.Breakpoint.valueOf","org.patternfly.layout.Breakpoint.values","org.patternfly.layout.Breakpoint.<clinit>"]
-}

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Orientation.impl.java.js",
-"lineCount":71,
-"mappings":"A;;;;;;;;;;;;;MAiBY,W;;CAAA,W;EAAAA,Q;;;QAAA,8B;EAAAC,kC;EAAAA,iG;EAAAA,iB;;;CAAA,qE;EAAAC,qC;EAAAA,2C;EAAAA,yE;;;QAAA,8D;EAAAC,sB;EAAAA;GAAAA,6MAAAA;G;EAAAA,0I;;;QAAA,mD;EAAAC,sB;EAAAA,+L;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA,e;;;;;;;;;;;;;;AAER;uE;AAEA;qE;AAFA;YAAA,+CAAA,6K;AAEA;YAAA,6CAAA,yK;AAJQ;;",
-"sources":["Orientation.java"],
-"names":["org.patternfly.layout.Orientation.<synthetic: ctor_js>","org.patternfly.layout.Orientation.<synthetic: ctor_create>","org.patternfly.layout.Orientation.<init>","org.patternfly.layout.Orientation.valueOf","org.patternfly.layout.Orientation.values","org.patternfly.layout.Orientation.<clinit>"]
-}

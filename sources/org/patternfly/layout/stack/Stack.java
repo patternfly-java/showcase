@@ -16,15 +16,15 @@
 package org.patternfly.layout.stack;
 
 import org.patternfly.layout.BaseLayout;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.gutter;
-import static org.patternfly.layout.Classes.layout;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.stack;
+import static org.patternfly.style.Classes.gutter;
+import static org.patternfly.style.Classes.layout;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.stack;
 
 public class Stack extends BaseLayout<HTMLDivElement, Stack> {
 
@@ -40,11 +40,6 @@ public class Stack extends BaseLayout<HTMLDivElement, Stack> {
         super(div().css(layout(stack)).element());
     }
 
-    @Override
-    public Stack that() {
-        return this;
-    }
-
     // ------------------------------------------------------ add
 
     public Stack addItem(StackItem item) {
@@ -56,5 +51,10 @@ public class Stack extends BaseLayout<HTMLDivElement, Stack> {
     /** Adds {@linkplain Classes#modifier(String) modifier(gutter)} */
     public Stack gutter() {
         return css(modifier(gutter));
+    }
+
+    @Override
+    public Stack that() {
+        return this;
     }
 }

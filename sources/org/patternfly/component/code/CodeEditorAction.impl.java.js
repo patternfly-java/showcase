@@ -1,45 +1,55 @@
 goog.module('org.patternfly.component.code.CodeEditorAction$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const CodeEditorSubComponent = goog.require('org.patternfly.component.code.CodeEditorSubComponent$impl');
+const WithIcon = goog.require('org.patternfly.core.WithIcon$impl');
 
-let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
-let EventListener_$Overlay = goog.forwardDeclare('elemental2.dom.EventListener.$Overlay$impl');
+let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
+let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
+let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
+let DomGlobal_$Overlay = goog.forwardDeclare('org.jboss.elemento.DomGlobal.$Overlay$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
+let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
+let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
 let CodeEditor = goog.forwardDeclare('org.patternfly.component.code.CodeEditor$impl');
+let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
+let Tooltip = goog.forwardDeclare('org.patternfly.component.tooltip.Tooltip$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
-let DomGlobal_$Overlay = goog.forwardDeclare('org.patternfly.dom.DomGlobal.$Overlay$impl');
+let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
+let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLElement, CodeEditorAction>}
- * @implements {ComponentReference<CodeEditor>}
+ * @extends {CodeEditorSubComponent<HTMLElement, CodeEditorAction>}
+ * @implements {WithIcon<HTMLElement, CodeEditorAction>}
  */
-class CodeEditorAction extends SubComponent {
+class CodeEditorAction extends CodeEditorSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
-  /**@type {HTMLElement} @nodts*/
-  this.f_buttonElement__org_patternfly_component_code_CodeEditorAction_;
+  /**@type {Button} @nodts*/
+  this.f_button__org_patternfly_component_code_CodeEditorAction_;
   /**@type {ComponentHandler<CodeEditorAction>} @nodts*/
   this.f_handler__org_patternfly_component_code_CodeEditorAction_;
-  /**@type {CodeEditor} @nodts*/
-  this.f_codeEditor__org_patternfly_component_code_CodeEditorAction_;
- }
- /** @nodts @return {CodeEditorAction} */
- static m_codeEditorAction__org_patternfly_layout_PredefinedIcon__org_patternfly_component_code_CodeEditorAction(/** PredefinedIcon */ icon) {
-  CodeEditorAction.$clinit();
-  return CodeEditorAction.$create__org_patternfly_component_button_Button(Button.m_button__org_patternfly_layout_PredefinedIcon__org_patternfly_component_button_Button(icon).m_control__org_patternfly_component_button_Button());
  }
  /** @nodts @return {CodeEditorAction} */
  static m_codeEditorAction__java_lang_String__org_patternfly_component_code_CodeEditorAction(/** ?string */ iconClass) {
   CodeEditorAction.$clinit();
-  return CodeEditorAction.$create__org_patternfly_component_button_Button(Button.m_button__org_patternfly_component_button_Button().m_addIcon__java_lang_String__org_patternfly_component_button_Button(iconClass).m_control__org_patternfly_component_button_Button());
+  return CodeEditorAction.$create__org_patternfly_component_button_Button(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_icon__java_lang_String__org_jboss_elemento_TypedBuilder(iconClass), Button)).m_control__org_patternfly_component_button_Button());
+ }
+ /** @nodts @return {CodeEditorAction} */
+ static m_codeEditorAction__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeEditorAction(/** PredefinedIcon */ predefinedIcon) {
+  CodeEditorAction.$clinit();
+  return CodeEditorAction.$create__org_patternfly_component_button_Button(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(predefinedIcon), Button)).m_control__org_patternfly_component_button_Button());
+ }
+ /** @nodts @return {CodeEditorAction} */
+ static m_codeEditorAction__org_patternfly_component_icon_InlineIcon__org_patternfly_component_code_CodeEditorAction(/** InlineIcon */ icon) {
+  CodeEditorAction.$clinit();
+  return CodeEditorAction.$create__org_patternfly_component_button_Button(Button.m_button__org_patternfly_component_button_Button().m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_button_Button(icon).m_control__org_patternfly_component_button_Button());
  }
  /** @nodts @return {CodeEditorAction} */
  static m_codeEditorAction__org_patternfly_component_button_Button__org_patternfly_component_code_CodeEditorAction(/** Button */ button) {
@@ -49,9 +59,20 @@ class CodeEditorAction extends SubComponent {
  /** @nodts @return {CodeEditorAction} */
  static m_codeEditorCopyToClipboardAction__org_patternfly_component_code_CodeEditorAction() {
   CodeEditorAction.$clinit();
-  return CodeEditorAction.$create__org_patternfly_component_button_Button(Button.m_button__org_patternfly_layout_PredefinedIcon__org_patternfly_component_button_Button(PredefinedIcon.f_copy__org_patternfly_layout_PredefinedIcon).m_control__org_patternfly_component_button_Button()).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeEditorAction('Copy to clipboard').m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeEditorAction(ComponentHandler.$adapt((/** Event */ event, action) =>{
-   let action_1 = /**@type {CodeEditorAction}*/ ($Casts.$to(action, CodeEditorAction));
-   DomGlobal_$Overlay.f_navigator__org_patternfly_dom_DomGlobal_$Overlay.clipboard.writeText(action_1.m_mainComponent__org_patternfly_component_code_CodeEditor().m_code__java_lang_String());
+  return CodeEditorAction.m_codeEditorCopyToClipboardAction__java_lang_String__java_lang_String__org_patternfly_component_code_CodeEditorAction('Copy to clipboard', 'Successfully copied to clipboard!');
+ }
+ /** @nodts @return {CodeEditorAction} */
+ static m_codeEditorCopyToClipboardAction__java_lang_String__java_lang_String__org_patternfly_component_code_CodeEditorAction(/** ?string */ copyText, /** ?string */ copiedText) {
+  CodeEditorAction.$clinit();
+  let copyId = Id.m_unique__java_lang_String__arrayOf_java_lang_String__java_lang_String(ComponentType.f_CodeEditor__org_patternfly_component_ComponentType.f_id__org_patternfly_component_ComponentType, /**@type {!Array<?string>}*/ ($Arrays.$init(['copy'], j_l_String)));
+  let copyTooltip = Tooltip.m_tooltip__org_jboss_elemento_By__java_lang_String__org_patternfly_component_tooltip_Tooltip(By.m_id__java_lang_String__org_jboss_elemento_By(copyId), copyText).m_onClose__org_patternfly_handler_CloseHandler__org_patternfly_component_tooltip_Tooltip(CloseHandler.$adapt((/** Event */ e, t) =>{
+   let t_1 = /**@type {Tooltip}*/ ($Casts.$to(t, Tooltip));
+   t_1.m_text__java_lang_String__org_patternfly_component_tooltip_Tooltip(copyText);
+  })).m_appendToBody__org_patternfly_component_tooltip_Tooltip();
+  return /**@type {CodeEditorAction}*/ ($Casts.$to(CodeEditorAction.$create__org_patternfly_component_button_Button(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(PredefinedIcon.f_copy__org_patternfly_style_PredefinedIcon), Button)).m_control__org_patternfly_component_button_Button()).m_id__java_lang_String__org_jboss_elemento_TypedBuilder(copyId), CodeEditorAction)).m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeEditorAction(copyText).m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeEditorAction(ComponentHandler.$adapt((/** Event */ event, codeBlock) =>{
+   let codeBlock_1 = /**@type {CodeEditor}*/ ($Casts.$to(codeBlock, CodeEditor));
+   copyTooltip.m_text__java_lang_String__org_patternfly_component_tooltip_Tooltip(copiedText);
+   DomGlobal_$Overlay.f_navigator__org_jboss_elemento_DomGlobal_$Overlay.clipboard.writeText(codeBlock_1.m_code__java_lang_String());
   }));
  }
  /** @nodts @return {!CodeEditorAction} */
@@ -63,21 +84,18 @@ class CodeEditorAction extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_code_CodeEditorAction__org_patternfly_component_button_Button__void(/** Button */ button) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(button.m_element__elemental2_dom_HTMLElement());
-  this.f_buttonElement__org_patternfly_component_code_CodeEditorAction_ = this.m_element__elemental2_dom_HTMLElement();
+  this.$ctor__org_patternfly_component_code_CodeEditorSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(CodeEditorAction.f_SUB_COMPONENT_NAME__org_patternfly_component_code_CodeEditorAction, button.m_element__elemental2_dom_HTMLElement());
+  this.f_button__org_patternfly_component_code_CodeEditorAction_ = button;
  }
- /** @nodts */
- m_passComponent__org_patternfly_component_code_CodeEditor__void(/** CodeEditor */ codeEditor) {
-  this.f_codeEditor__org_patternfly_component_code_CodeEditorAction_ = codeEditor;
-  if (!$Equality.$same(this.f_handler__org_patternfly_component_code_CodeEditorAction_, null) && !$Equality.$same(this.f_buttonElement__org_patternfly_component_code_CodeEditorAction_, null)) {
-   this.f_buttonElement__org_patternfly_component_code_CodeEditorAction_.addEventListener(EventType.f_click__org_jboss_elemento_EventType.f_name__org_jboss_elemento_EventType, EventListener_$Overlay.$adapt__elemental2_dom_EventListener_$JsFunction__elemental2_dom_EventListener((/** Event */ e) =>{
-    this.f_handler__org_patternfly_component_code_CodeEditorAction_.m_handle__elemental2_dom_Event__java_lang_Object__void(e, this);
-   }));
-  }
+ /** @nodts @return {CodeEditorAction} */
+ m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_code_CodeEditorAction(/** InlineIcon */ icon) {
+  this.f_button__org_patternfly_component_code_CodeEditorAction_.m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_button_Button(icon);
+  return this;
  }
- /** @nodts @return {CodeEditor} */
- m_mainComponent__org_patternfly_component_code_CodeEditor() {
-  return this.f_codeEditor__org_patternfly_component_code_CodeEditorAction_;
+ /** @nodts @return {CodeEditorAction} */
+ m_removeIcon__org_patternfly_component_code_CodeEditorAction() {
+  this.f_button__org_patternfly_component_code_CodeEditorAction_.m_removeIcon__org_patternfly_component_button_Button();
+  return this;
  }
  /** @nodts @return {CodeEditorAction} */
  m_that__org_patternfly_component_code_CodeEditorAction() {
@@ -85,36 +103,60 @@ class CodeEditorAction extends SubComponent {
  }
  /** @nodts @return {CodeEditorAction} */
  m_ariaLabel__java_lang_String__org_patternfly_component_code_CodeEditorAction(/** ?string */ label) {
-  if (!$Equality.$same(this.f_buttonElement__org_patternfly_component_code_CodeEditorAction_, null)) {
-   Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__java_lang_String__void(this.f_buttonElement__org_patternfly_component_code_CodeEditorAction_, Aria.f_label__org_patternfly_core_Aria, label);
+  if (!$Equality.$same(this.f_button__org_patternfly_component_code_CodeEditorAction_, null)) {
+   this.f_button__org_patternfly_component_code_CodeEditorAction_.m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, label);
   }
   return this;
  }
  /** @nodts @return {CodeEditorAction} */
- m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeEditorAction(/** ComponentHandler<CodeEditorAction> */ handler) {
-  this.f_handler__org_patternfly_component_code_CodeEditorAction_ = handler;
+ m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_code_CodeEditorAction(/** ComponentHandler<CodeEditor> */ handler) {
+  this.f_button__org_patternfly_component_code_CodeEditorAction_.m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
+   let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
+   handler.m_handle__elemental2_dom_Event__java_lang_Object__void(e_1, /**@type {CodeEditor}*/ ($Casts.$to(this.m_lookupComponent__org_patternfly_component_BaseComponent(), CodeEditor)));
+  });
   return this;
- }
- //Bridge method.
- /** @final @override @nodts @return {CodeEditor} */
- m_mainComponent__org_patternfly_component_BaseComponent() {
-  return this.m_mainComponent__org_patternfly_component_code_CodeEditor();
- }
- //Bridge method.
- /** @final @override @nodts */
- m_passComponent__org_patternfly_component_BaseComponent__void(/** CodeEditor */ arg0) {
-  this.m_passComponent__org_patternfly_component_code_CodeEditor__void(/**@type {CodeEditor}*/ ($Casts.$to(arg0, CodeEditor)));
  }
  //Bridge method.
  /** @final @override @nodts @return {CodeEditorAction} */
  m_that__org_jboss_elemento_TypedBuilder() {
   return this.m_that__org_patternfly_component_code_CodeEditorAction();
  }
+ //Bridge method.
+ /** @final @override @nodts @return {CodeEditorAction} */
+ m_icon__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0) {
+  return /**@type {CodeEditorAction}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), CodeEditorAction));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {CodeEditorAction} */
+ m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(/** PredefinedIcon */ arg0) {
+  return /**@type {CodeEditorAction}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(this, arg0), CodeEditorAction));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {CodeEditorAction} */
+ m_icon__org_patternfly_component_icon_InlineIcon__org_jboss_elemento_TypedBuilder(/** InlineIcon */ arg0) {
+  return this.m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_code_CodeEditorAction(arg0);
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {CodeEditorAction} */
+ m_removeIcon__org_jboss_elemento_TypedBuilder() {
+  return this.m_removeIcon__org_patternfly_component_code_CodeEditorAction();
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {CodeEditorAction} */
+ m_icon__java_lang_String__org_patternfly_component_code_CodeEditorAction(/** ?string */ arg0) {
+  return /**@type {CodeEditorAction}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), CodeEditorAction));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {CodeEditorAction} */
+ m_icon__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeEditorAction(/** PredefinedIcon */ arg0) {
+  return /**@type {CodeEditorAction}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(this, arg0), CodeEditorAction));
+ }
  /** @nodts */
  static $clinit() {
   CodeEditorAction.$clinit = () =>{};
   CodeEditorAction.$loadModules();
-  SubComponent.$clinit();
+  CodeEditorSubComponent.$clinit();
+  WithIcon.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -123,20 +165,28 @@ class CodeEditorAction extends SubComponent {
  
  /** @nodts */
  static $loadModules() {
-  Element_$Overlay = goog.module.get('elemental2.dom.Element.$Overlay$impl');
-  EventListener_$Overlay = goog.module.get('elemental2.dom.EventListener.$Overlay$impl');
+  MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
+  j_l_String = goog.module.get('java.lang.String$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
+  By = goog.module.get('org.jboss.elemento.By$impl');
+  DomGlobal_$Overlay = goog.module.get('org.jboss.elemento.DomGlobal.$Overlay$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
+  Id = goog.module.get('org.jboss.elemento.Id$impl');
+  ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
   CodeEditor = goog.module.get('org.patternfly.component.code.CodeEditor$impl');
+  Tooltip = goog.module.get('org.patternfly.component.tooltip.Tooltip$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
-  DomGlobal_$Overlay = goog.module.get('org.patternfly.dom.DomGlobal.$Overlay$impl');
+  CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');
   ComponentHandler = goog.module.get('org.patternfly.handler.ComponentHandler$impl');
-  PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
+  PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
+  $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
-ComponentReference.$markImplementor(CodeEditorAction);
+/**@const {string} @nodts*/
+CodeEditorAction.f_SUB_COMPONENT_NAME__org_patternfly_component_code_CodeEditorAction = 'cea';
+WithIcon.$markImplementor(CodeEditorAction);
 $Util.$setClassMetadata(CodeEditorAction, 'org.patternfly.component.code.CodeEditorAction');
 
 exports = CodeEditorAction;

@@ -11,8 +11,8 @@ goog.require('org.patternfly.component.form.Checkbox');
 goog.require('org.patternfly.component.form.CheckboxBody');
 goog.require('org.patternfly.component.form.CheckboxDescription');
 goog.require('org.patternfly.showcase.LoremIpsum');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
 goog.require('vmbootstrap.Casts');
 
 const CheckboxComponent = goog.require('org.patternfly.showcase.component.CheckboxComponent$impl');

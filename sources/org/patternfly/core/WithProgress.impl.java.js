@@ -6,7 +6,7 @@ const TypedBuilder = goog.require('org.jboss.elemento.TypedBuilder$impl');
 
 let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let Spinner = goog.forwardDeclare('org.patternfly.component.spinner.Spinner$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 
 /**
  * @interface
@@ -70,7 +70,7 @@ class WithProgress {
  /** @nodts @template E, B @return {boolean} */
  static m_inProgress__$default__org_patternfly_core_WithProgress__boolean(/** !WithProgress<E, B> */ $thisArg) {
   WithProgress.$clinit();
-  return /**@type {!Element}*/ ($thisArg.m_element__elemental2_dom_Element()).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inProgress__org_patternfly_layout_Classes));
+  return /**@type {!Element}*/ ($thisArg.m_element__elemental2_dom_Element()).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inProgress__org_patternfly_style_Classes));
  }
  /** @nodts */
  static $clinit() {
@@ -90,7 +90,7 @@ class WithProgress {
  
  /** @nodts */
  static $loadModules() {
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
  }
 }
 WithProgress.$markImplementor(/**@type {Function}*/ (WithProgress));

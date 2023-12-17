@@ -16,7 +16,9 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.HTMLContainerBuilder;
-import org.patternfly.layout.Color;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+import org.patternfly.style.Color;
 
 import elemental2.dom.HTMLDivElement;
 
@@ -26,15 +28,15 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.label.Label.label;
 import static org.patternfly.component.label.LabelGroup.labelGroup;
-import static org.patternfly.layout.Color.blue;
-import static org.patternfly.layout.Color.green;
-import static org.patternfly.layout.Color.orange;
-import static org.patternfly.layout.Color.purple;
-import static org.patternfly.layout.Color.red;
-import static org.patternfly.layout.PredefinedIcon.infoCircle;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Color.blue;
+import static org.patternfly.style.Color.green;
+import static org.patternfly.style.Color.orange;
+import static org.patternfly.style.Color.purple;
+import static org.patternfly.style.Color.red;
+import static org.patternfly.style.PredefinedIcon.infoCircle;
 
-public class LabelComponent extends ComponentPage {
+public class LabelComponent extends SnippetPage {
 
     public LabelComponent() {
         super("Label",
@@ -52,9 +54,9 @@ public class LabelComponent extends ComponentPage {
                     for (Color color : values) {
                         String name = color.name().substring(0, 1).toUpperCase() + color.name().substring(1);
                         div.add(label(name, color)).add(" ");
-                        div.add(label(name + " icon", color).addIcon(infoCircle)).add(" ");
+                        div.add(label(name + " icon", color).icon(infoCircle)).add(" ");
                         div.add(label(name + " removable", color).closable()).add(" ");
-                        div.add(label(name + " icon removable", color).addIcon(infoCircle).closable()).add(" ");
+                        div.add(label(name + " icon removable", color).icon(infoCircle).closable()).add(" ");
                         div.add(label(name + " link", color).href("#c-label")).add(" ");
                         div.add(label(name + " link removable", color).href("#c-label").closable()).add(" ");
                         div.add(label(name + " clickable", color).id()
@@ -82,9 +84,9 @@ public class LabelComponent extends ComponentPage {
                         Color color = values[i];
                         String name = color.name().substring(0, 1).toUpperCase() + color.name().substring(1);
                         div.add(label(name, color).outline()).add(" ");
-                        div.add(label(name + " icon", color).outline().addIcon(infoCircle)).add(" ");
+                        div.add(label(name + " icon", color).outline().icon(infoCircle)).add(" ");
                         div.add(label(name + " removable", color).outline().closable()).add(" ");
-                        div.add(label(name + " icon removable", color).outline().addIcon(infoCircle).closable()).add(" ");
+                        div.add(label(name + " icon removable", color).outline().icon(infoCircle).closable()).add(" ");
                         div.add(label(name + " link", color).outline().href("#c-label")).add(" ");
                         div.add(label(name + " link removable", color).outline().href("#c-label").closable()).add(" ");
                         div.add(label(name + " clickable", color).outline().id()
@@ -108,9 +110,9 @@ public class LabelComponent extends ComponentPage {
                 // @code-start:label-compact
                 div()
                         .add(label("Grey").compact()).add(" ")
-                        .add(label("Grey icon").compact().addIcon(infoCircle)).add(" ")
+                        .add(label("Grey icon").compact().icon(infoCircle)).add(" ")
                         .add(label("Grey removable").compact().closable()).add(" ")
-                        .add(label("Grey icon removable").compact().addIcon(infoCircle).closable()).add(" ")
+                        .add(label("Grey icon removable").compact().icon(infoCircle).closable()).add(" ")
                         .add(label("Grey link").compact().href("#c-label")).add(" ")
                         .add(label("Grey link removable").compact().href("#c-label").closable()).add(" ")
                         .add(label("Grey clickable").compact().id()
@@ -146,9 +148,9 @@ public class LabelComponent extends ComponentPage {
                 // @code-start:label-group-basic
                 div()
                         .add(labelGroup()
-                                .addLabel(label("Label 1").addIcon(infoCircle))
-                                .addLabel(label("Label 2", blue).addIcon(infoCircle))
-                                .addLabel(label("Label 3", green).addIcon(infoCircle)))
+                                .addLabel(label("Label 1").icon(infoCircle))
+                                .addLabel(label("Label 2", blue).icon(infoCircle))
+                                .addLabel(label("Label 3", green).icon(infoCircle)))
                         .element()
         // @code-end:label-group-basic
         ));
@@ -158,12 +160,12 @@ public class LabelComponent extends ComponentPage {
                 // @code-start:label-group-overflow
                 div()
                         .add(labelGroup()
-                                .addLabel(label("Label 1").addIcon(infoCircle))
-                                .addLabel(label("Label 2", blue).addIcon(infoCircle))
-                                .addLabel(label("Label 3", green).addIcon(infoCircle))
-                                .addLabel(label("Label 4", orange).addIcon(infoCircle))
-                                .addLabel(label("Label 5", red).addIcon(infoCircle))
-                                .addLabel(label("Label 6", purple).addIcon(infoCircle)))
+                                .addLabel(label("Label 1").icon(infoCircle))
+                                .addLabel(label("Label 2", blue).icon(infoCircle))
+                                .addLabel(label("Label 3", green).icon(infoCircle))
+                                .addLabel(label("Label 4", orange).icon(infoCircle))
+                                .addLabel(label("Label 5", red).icon(infoCircle))
+                                .addLabel(label("Label 6", purple).icon(infoCircle)))
                         .element()
         // @code-end:label-group-overflow
         ));
@@ -173,9 +175,9 @@ public class LabelComponent extends ComponentPage {
                 // @code-start:label-group-category
                 div()
                         .add(labelGroup("Group label")
-                                .addLabel(label("Label 1").addIcon(infoCircle))
-                                .addLabel(label("Label 2", blue).addIcon(infoCircle))
-                                .addLabel(label("Label 3", green).addIcon(infoCircle)))
+                                .addLabel(label("Label 1").icon(infoCircle))
+                                .addLabel(label("Label 2", blue).icon(infoCircle))
+                                .addLabel(label("Label 3", green).icon(infoCircle)))
                         .element()
         // @code-end:label-group-category
         ));
@@ -185,11 +187,11 @@ public class LabelComponent extends ComponentPage {
                 // @code-start:label-group-category-removable
                 div()
                         .add(labelGroup("Group label").closable()
-                                .addLabel(label("Label 1").addIcon(infoCircle))
-                                .addLabel(label("Label 2", blue).addIcon(infoCircle))
-                                .addLabel(label("Label 3", green).addIcon(infoCircle))
-                                .addLabel(label("Label 4", orange).addIcon(infoCircle))
-                                .addLabel(label("Label 5", red).addIcon(infoCircle)))
+                                .addLabel(label("Label 1").icon(infoCircle))
+                                .addLabel(label("Label 2", blue).icon(infoCircle))
+                                .addLabel(label("Label 3", green).icon(infoCircle))
+                                .addLabel(label("Label 4", orange).icon(infoCircle))
+                                .addLabel(label("Label 5", red).icon(infoCircle)))
                         .element()
         // @code-end:label-group-category-removable
         ));
@@ -199,11 +201,11 @@ public class LabelComponent extends ComponentPage {
                 // @code-start:label-group-vertical
                 div()
                         .add(labelGroup("Group label with a very long name").vertical().closable()
-                                .addLabel(label("Label 1").addIcon(infoCircle))
-                                .addLabel(label("Label 2", blue).addIcon(infoCircle))
-                                .addLabel(label("Label 3", green).addIcon(infoCircle))
-                                .addLabel(label("Label 4", orange).addIcon(infoCircle))
-                                .addLabel(label("Label 5", red).addIcon(infoCircle)))
+                                .addLabel(label("Label 1").icon(infoCircle))
+                                .addLabel(label("Label 2", blue).icon(infoCircle))
+                                .addLabel(label("Label 3", green).icon(infoCircle))
+                                .addLabel(label("Label 4", orange).icon(infoCircle))
+                                .addLabel(label("Label 5", red).icon(infoCircle)))
                         .element()
         // @code-end:label-group-vertical
         ));

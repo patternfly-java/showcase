@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"MastheadToggle.impl.java.js",
-"lineCount":72,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;MAwCa,c;;CAAA,W;EAAAA,Q;EAAAA;OAaY,iEAbZA,C;;;QAOoB,kE;EAAiBC,yB;EAC1CA,kC;;;QAOJ,S;EAAAC,yB;EAAAA,qC;EAAAA,0E;EAAAA,iB;;;CAAA,6D;EACIC,irB;EACAA,ysBAEkBC,CAFlBD,EAEqBE,CAFrBF;GAEiBG,IAAID,GAAJC,+CAFjBH;GAE2BG,0EAF3BH;O;;;CAQkB,wD;EAClBI,Y;;;CAKS,kE;EACTC,IAAQC,OAARD,6N;EACAA,+L;EACAA;GACIA,yHADJA;G;;;;CAlCK,uC;EAAAD,uE;;;QAAA,O;EAAAG,iC;EAAAA,8B;EAAAA;",
-"sources":["MastheadToggle.java"],
-"names":["org.patternfly.component.masthead.MastheadToggle.<synthetic: ctor_js>","org.patternfly.component.masthead.MastheadToggle.mastheadToggle","org.patternfly.component.masthead.MastheadToggle.<synthetic: ctor_create>","org.patternfly.component.masthead.MastheadToggle.<init>","e","b","org.patternfly.component.masthead.MastheadToggle.<lambda in <init>>","org.patternfly.component.masthead.MastheadToggle.that","org.patternfly.component.masthead.MastheadToggle.toggle","current","org.patternfly.component.masthead.MastheadToggle.<clinit>"]
-}

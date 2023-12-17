@@ -17,13 +17,14 @@ package org.patternfly.component.title;
 
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
-import org.patternfly.layout.Size;
+import org.patternfly.core.WithText;
+import org.patternfly.style.Size;
 
 import elemental2.dom.HTMLHeadingElement;
 
 import static org.jboss.elemento.Elements.h;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.title;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.title;
 
 /**
  * A title component applies top and bottom margins, font-weight, font-size, and line-height to titles. The most common usage
@@ -31,28 +32,34 @@ import static org.patternfly.layout.Classes.title;
  *
  * @see <a href= "https://www.patternfly.org/components/title/html">https://www.patternfly.org/components/title/html</a>
  */
-public class Title extends BaseComponent<HTMLHeadingElement, Title> {
+public class Title extends BaseComponent<HTMLHeadingElement, Title> implements WithText<HTMLHeadingElement, Title> {
 
     // ------------------------------------------------------ factory
 
     public static Title title(int level, String text) {
-        return new Title(level, text, null);
+        return new Title(level, null, text);
     }
 
-    public static Title title(int level, String text, Size size) {
-        return new Title(level, text, size);
+    public static Title title(int level, Size size, String text) {
+        return new Title(level, size, text);
     }
 
     // ------------------------------------------------------ instance
 
-    Title(int level, String text, Size size) {
-        super(h(level, text).css(component(title)).element(), ComponentType.Title);
+    Title(int level, Size size, String text) {
+        super(ComponentType.Title, h(level, text).css(component(title)).element());
         if (size != null) {
-            css(size.modifier);
+            css(size.modifier());
         }
     }
 
     // ------------------------------------------------------ builder
+
+    @Override
+    public Title text(String text) {
+        element().textContent = text;
+        return this;
+    }
 
     @Override
     public Title that() {

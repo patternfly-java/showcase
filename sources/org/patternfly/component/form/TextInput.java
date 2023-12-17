@@ -15,39 +15,41 @@
  */
 package org.patternfly.component.form;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 import org.jboss.elemento.InputElementBuilder;
-import org.patternfly.component.BaseComponent;
+import org.jboss.elemento.InputType;
 import org.patternfly.component.ComponentType;
+import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.core.Aria;
 import org.patternfly.core.HasValue;
-import org.patternfly.core.Modifiers.Disabled;
-import org.patternfly.core.Modifiers.Invalid;
-import org.patternfly.core.Modifiers.Plain;
-import org.patternfly.core.Modifiers.Readonly;
-import org.patternfly.core.Modifiers.Required;
+import org.patternfly.core.WithIcon;
+import org.patternfly.core.WithText;
 import org.patternfly.handler.ChangeHandler;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Plain;
+import org.patternfly.style.Modifiers.Readonly;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLInputElement;
 
 import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.input;
+import static org.jboss.elemento.Elements.insertFirst;
+import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.span;
 import static org.jboss.elemento.Elements.wrapInputElement;
-import static org.jboss.elemento.EventType.change;
-import static org.jboss.elemento.InputType.text;
-import static org.patternfly.component.icon.InlineIcon.inlineIcon;
+import static org.jboss.elemento.EventType.keyup;
 import static org.patternfly.core.Aria.invalid;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.formControl;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.status;
-import static org.patternfly.layout.Classes.utilities;
-import static org.patternfly.layout.PredefinedIcon.exclamationCircle;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.formControl;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Modifiers.toggleModifier;
 
 /**
  * A text input is used to gather free-form text from a user.
@@ -55,63 +57,81 @@ import static org.patternfly.layout.PredefinedIcon.exclamationCircle;
  * @see <a href=
  *      "https://www.patternfly.org/components/forms/text-input">https://www.patternfly.org/components/forms/text-input</a>
  */
-public class TextInput extends BaseComponent<HTMLElement, TextInput> implements
+public class TextInput extends FormControl<HTMLElement, TextInput> implements
         HasValue<String>,
-        Disabled<HTMLElement, TextInput>,
-        Invalid<HTMLElement, TextInput>,
         Plain<HTMLElement, TextInput>,
         Readonly<HTMLElement, TextInput>,
-        Required<HTMLElement, TextInput> {
+        WithIcon<HTMLElement, TextInput>,
+        WithText<HTMLElement, TextInput> {
 
     // ------------------------------------------------------ factory
 
     public static TextInput textInput(String id) {
-        return new TextInput(id);
+        return new TextInput(TextInputType.text, id, null);
+    }
+
+    public static TextInput textInput(String id, String value) {
+        return new TextInput(TextInputType.text, id, value);
+    }
+
+    public static TextInput textInput(TextInputType type, String id) {
+        return new TextInput(type, id, null);
+    }
+
+    public static TextInput textInput(TextInputType type, String id, String value) {
+        return new TextInput(type, id, value);
     }
 
     // ------------------------------------------------------ instance
 
-    private final HTMLInputElement inputElement;
-    private boolean leftTruncatedApplied;
-    private HTMLElement iconContainer;
-    private HTMLElement invalidIcon;
+    private static final Map<TextInputType, InputType> typeMapping = new HashMap<>();
 
-    TextInput(String id) {
-        super(span().css(component(formControl))
-                .add(input(text)
+    static {
+        typeMapping.put(TextInputType.date, InputType.date);
+        typeMapping.put(TextInputType.email, InputType.email);
+        typeMapping.put(TextInputType.month, InputType.month);
+        typeMapping.put(TextInputType.number, InputType.number);
+        typeMapping.put(TextInputType.search, InputType.search);
+        typeMapping.put(TextInputType.tel, InputType.tel);
+        typeMapping.put(TextInputType.text, InputType.text);
+        typeMapping.put(TextInputType.time, InputType.time);
+    }
+
+    private final HTMLInputElement inputElement;
+    private HTMLElement iconContainer;
+    private ChangeHandler<TextInput, String> changeHandler;
+
+    TextInput(TextInputType type, String id, String value) {
+        super(id, formControlContainer()
+                .add(input(typeMapping.getOrDefault(type, InputType.text))
                         .id(id)
                         .name(id)
                         .aria(invalid, false))
                 .element(),
                 ComponentType.TextInput);
         inputElement = (HTMLInputElement) element().firstElementChild;
-    }
-
-    // ------------------------------------------------------ add
-
-    public TextInput addIcon(PredefinedIcon predefinedIcon) {
-        return addIcon(predefinedIcon.className);
-    }
-
-    public TextInput addIcon(String iconClass) {
-        failSafeIconContainer().appendChild(span().css(component(formControl, icon))
-                .add(inlineIcon(iconClass))
-                .element());
-        return this;
+        if (value != null) {
+            value(value);
+        }
     }
 
     // ------------------------------------------------------ builder
 
     @Override
-    public TextInput disabled(boolean disabled) {
-        inputElement.disabled = disabled;
-        return Disabled.super.disabled(disabled);
-    }
-
-    @Override
     public TextInput readonly(boolean readonly) {
         inputElement.readOnly = readonly;
         return Readonly.super.readonly(readonly);
+    }
+
+    /** Same as {@linkplain #expanded(boolean) expanded(true)} */
+    public TextInput expanded() {
+        return expanded(true);
+    }
+
+    /** Adds/removes {@linkplain Classes#modifier(String) modifier(expanded)} */
+    public TextInput expanded(boolean expanded) {
+        aria(Aria.expanded, expanded);
+        return toggleModifier(that(), element(), Classes.expanded, expanded);
     }
 
     @Override
@@ -124,24 +144,28 @@ public class TextInput extends BaseComponent<HTMLElement, TextInput> implements
     }
 
     @Override
-    public TextInput invalid(boolean invalid) {
-        if (invalid) {
-            failSafeIconContainer().appendChild(failSafeInvalidIcon());
-        } else {
-            failSafeRemoveFromParent(failSafeInvalidIcon());
-        }
-        inputElement.setAttribute(Aria.invalid, !invalid);
-        return Invalid.super.invalid(invalid);
-    }
-
-    @Override
     public TextInput required(boolean required) {
         inputElement.required = required;
         return this;
     }
 
+    /** Same as {@link #value(String)} */
+    @Override
+    public TextInput text(String text) {
+        return value(text);
+    }
+
+    /** Same as {@linkplain #value(String, boolean) value(value, false)} */
     public TextInput value(String value) {
+        return value(value, false);
+    }
+
+    public TextInput value(String value, boolean fireEvent) {
+        boolean changed = !Objects.equals(inputElement.value, value);
         inputElement.value = value;
+        if (fireEvent && changed && changeHandler != null) {
+            changeHandler.onChange(new Event(""), this, value);
+        }
         return this;
     }
 
@@ -151,8 +175,30 @@ public class TextInput extends BaseComponent<HTMLElement, TextInput> implements
     }
 
     /** Provides access to the underlying input element using a fluent API style */
-    public TextInput applyTo(Consumer<InputElementBuilder<HTMLInputElement>> inputElementConsumer) {
-        inputElementConsumer.accept(inputElement());
+    public TextInput applyTo(Consumer<InputElementBuilder<HTMLInputElement>> consumer) {
+        consumer.accept(inputElement());
+        return this;
+    }
+
+    @Override
+    public TextInput icon(InlineIcon icon) {
+        css(modifier(Classes.icon));
+        if (iconContainer == null) {
+            insertFirst(failSafeUtilitiesContainer(), iconContainer = span().css(component(formControl, Classes.icon))
+                    .element());
+        }
+        removeChildrenFrom(iconContainer);
+        iconContainer.appendChild(icon.element());
+        return this;
+    }
+
+    @Override
+    public TextInput removeIcon() {
+        failSafeRemoveFromParent(iconContainer);
+        if (utilitiesContainer != null && utilitiesContainer.childElementCount == 0) {
+            failSafeRemoveFromParent(utilitiesContainer);
+        }
+        element().classList.remove(modifier(icon));
         return this;
     }
 
@@ -163,8 +209,13 @@ public class TextInput extends BaseComponent<HTMLElement, TextInput> implements
 
     // ------------------------------------------------------ events
 
-    public TextInput onChange(ChangeHandler<TextInput, String> handler) {
-        inputElement.addEventListener(change.name, e -> handler.onChange(this, inputElement.value));
+    /**
+     * Defines a change handler that is called when the {@link #value()} of this text input changes. Changes are detected by
+     * adding an event listener for the keyup event to the text input element.
+     */
+    public TextInput onChange(ChangeHandler<TextInput, String> changeHandler) {
+        this.changeHandler = changeHandler;
+        inputElement.addEventListener(keyup.name, e -> changeHandler.onChange(e, this, inputElement.value));
         return this;
     }
 
@@ -182,19 +233,8 @@ public class TextInput extends BaseComponent<HTMLElement, TextInput> implements
 
     // ------------------------------------------------------ internal
 
-    private HTMLElement failSafeIconContainer() {
-        if (iconContainer == null) {
-            add(iconContainer = span().css(component(formControl, utilities)).element());
-        }
-        return iconContainer;
-    }
-
-    private HTMLElement failSafeInvalidIcon() {
-        if (invalidIcon == null) {
-            invalidIcon = span().css(component(formControl, icon), modifier(status))
-                    .add(inlineIcon(exclamationCircle))
-                    .element();
-        }
-        return invalidIcon;
+    @Override
+    void disableInputElement(boolean disabled) {
+        inputElement.disabled = disabled;
     }
 }

@@ -15,38 +15,36 @@
  */
 package org.patternfly.component.card;
 
-import org.jboss.elemento.Attachable;
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Aria;
 import org.patternfly.core.Expandable;
 import org.patternfly.core.Logger;
-import org.patternfly.core.Modifiers.Compact;
-import org.patternfly.core.Modifiers.Disabled;
-import org.patternfly.core.Modifiers.Plain;
 import org.patternfly.core.SelectionMode;
 import org.patternfly.handler.ComponentHandler;
 import org.patternfly.handler.SelectHandler;
 import org.patternfly.handler.ToggleHandler;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Compact;
+import org.patternfly.style.Modifiers.Disabled;
+import org.patternfly.style.Modifiers.Plain;
 
 import elemental2.dom.Event;
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.MutationRecord;
 
 import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.core.Modifiers.toggleModifier;
 import static org.patternfly.core.SelectionMode.click;
 import static org.patternfly.core.SelectionMode.multi;
-import static org.patternfly.layout.Classes.card;
-import static org.patternfly.layout.Classes.clickable;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.current;
-import static org.patternfly.layout.Classes.display;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.selectable;
-import static org.patternfly.layout.Size.lg;
+import static org.patternfly.style.Classes.card;
+import static org.patternfly.style.Classes.clickable;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.current;
+import static org.patternfly.style.Classes.display;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.selectable;
+import static org.patternfly.style.Modifiers.toggleModifier;
+import static org.patternfly.style.Size.lg;
 
 /**
  * A card is a square or rectangular container that can contain any kind of content. Cards symbolize units of information, and
@@ -60,8 +58,7 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
         Compact<HTMLDivElement, Card>,
         Disabled<HTMLDivElement, Card>,
         Plain<HTMLDivElement, Card>,
-        Expandable<HTMLDivElement, Card>,
-        Attachable {
+        Expandable<HTMLDivElement, Card> {
 
     // ------------------------------------------------------ factory
 
@@ -85,15 +82,8 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
     private ToggleHandler<Card> toggleHandler;
 
     Card() {
-        super(div().css(component(card)).element(), ComponentType.Card);
-        Attachable.register(this, this);
-    }
-
-    @Override
-    public void attach(MutationRecord mutationRecord) {
-        if (header != null) {
-            header.passComponent(this);
-        }
+        super(ComponentType.Card, div().css(component(card)).element());
+        storeComponent();
     }
 
     // ------------------------------------------------------ add
@@ -112,27 +102,12 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
         return add(title);
     }
 
-    // override to assure internal wiring
-    public Card add(CardTitle title) {
-        return add(title.element());
-    }
-
     public Card addBody(CardBody body) {
         return add(body);
     }
 
-    // override to assure internal wiring
-    public Card add(CardBody body) {
-        return add(body.element());
-    }
-
     public Card addFooter(CardFooter footer) {
         return add(footer);
-    }
-
-    // override to assure internal wiring
-    public Card add(CardFooter footer) {
-        return add(footer.element());
     }
 
     public Card addExpandableContent(CardExpandableContent expandableContent) {
@@ -209,7 +184,7 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
 
     public Card selectable(SelectionMode selectionMode, SelectHandler<Card> onSelect) {
         if (selectionMode == click) {
-            Logger.unsupported(componentType(), "Selection mode '" + click.name() + "' is not supported");
+            Logger.unsupported(componentType(), element(), "Selection mode '" + click.name() + "' is not supported");
             return this;
         }
         this.selectionMode = selectionMode;
@@ -298,7 +273,7 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
 
     public void select(boolean selected, boolean fireEvent) {
         if (selectionMode == null) {
-            Logger.unsupported(componentType(),
+            Logger.unsupported(componentType(), element(),
                     "Card '" + element().id + "' is not selectable.\n" +
                             "Please add a call to 'Card.selectable(SelectionMode)', before calling 'Card.select()'.");
             return;
@@ -314,9 +289,9 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
             return element().classList.contains(modifier(current));
         } else if (header != null && header.actions != null && header.actions.selectableActions != null) {
             if (header.actions.selectableActions.checkbox != null) {
-                return header.actions.selectableActions.checkbox.inputElement().checked;
+                return header.actions.selectableActions.checkbox.inputElement().element().checked;
             } else if (header.actions.selectableActions.radio != null) {
-                return header.actions.selectableActions.radio.inputElement().checked;
+                return header.actions.selectableActions.radio.inputElement().element().checked;
             } else {
                 return false;
             }
@@ -328,14 +303,14 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
     @Override
     public void collapse(boolean fireEvent) {
         if (!expandable || expandableContent == null || header.toggleButton == null) {
-            Logger.unsupported(componentType(),
+            Logger.unsupported(componentType(), element(),
                     "Card '" + element().id + "' is not expandable.\n" +
-                            "Please add a call to 'Card.expandable()', before calling 'Card.collapse()'.");
+                            "Please use Card.expandable() to make this an expandable card.");
             return;
         }
         Expandable.collapse(element(), header.toggleButton.element(), expandableContent.element());
-        if (toggleHandler != null) {
-            toggleHandler.onToggle(this, false);
+        if (fireEvent && toggleHandler != null) {
+            toggleHandler.onToggle(new Event(""), this, false);
         }
 
     }
@@ -343,14 +318,14 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
     @Override
     public void expand(boolean fireEvent) {
         if (!expandable || expandableContent == null || header.toggleButton == null) {
-            Logger.unsupported(componentType(),
+            Logger.unsupported(componentType(), element(),
                     "Card '" + element().id + "' is not expandable.\n" +
-                            "Please add a call to 'Card.expandable()', before calling 'Card.expand()'.");
+                            "Please use Card.expandable() to make this an expandable card.");
             return;
         }
         Expandable.expand(element(), header.toggleButton.element(), expandableContent.element());
-        if (toggleHandler != null) {
-            toggleHandler.onToggle(this, true);
+        if (fireEvent && toggleHandler != null) {
+            toggleHandler.onToggle(new Event(""), this, true);
         }
     }
 
@@ -381,7 +356,7 @@ public class Card extends BaseComponent<HTMLDivElement, Card> implements
             }
         }
         if (fireEvent && selectHandler != null) {
-            selectHandler.onSelect(this, selected);
+            selectHandler.onSelect(new Event(""), this, selected);
         }
     }
 }

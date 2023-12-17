@@ -1,5 +1,6 @@
 goog.module('org.patternfly.showcase.component.TextInputComponent');
 
+goog.require('elemental2.dom.Event.$Overlay');
 goog.require('elemental2.dom.HTMLDivElement.$Overlay');
 goog.require('elemental2.dom.HTMLParagraphElement.$Overlay');
 goog.require('java.lang.Boolean');
@@ -10,11 +11,12 @@ goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.patternfly.component.form.Checkbox');
 goog.require('org.patternfly.component.form.TextInput');
+goog.require('org.patternfly.core.ValidationStatus');
 goog.require('org.patternfly.handler.ChangeHandler');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.PredefinedIcon');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

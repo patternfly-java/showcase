@@ -3,10 +3,12 @@ goog.module('org.patternfly.component.label.Label$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
 const BaseComponentFlat = goog.require('org.patternfly.component.BaseComponentFlat$impl');
-const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
 const Closeable = goog.require('org.patternfly.core.Closeable$impl');
 const HasValue = goog.require('org.patternfly.core.HasValue$impl');
-const Compact = goog.require('org.patternfly.core.Modifiers.Compact$impl');
+const WithIcon = goog.require('org.patternfly.core.WithIcon$impl');
+const WithIconAndText = goog.require('org.patternfly.core.WithIconAndText$impl');
+const WithText = goog.require('org.patternfly.core.WithText$impl');
+const Compact = goog.require('org.patternfly.style.Modifiers.Compact$impl');
 
 let DomGlobal_$Overlay = goog.forwardDeclare('elemental2.dom.DomGlobal.$Overlay$impl');
 let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
@@ -37,23 +39,26 @@ let LabelGroup = goog.forwardDeclare('org.patternfly.component.label.LabelGroup$
 let Tooltip = goog.forwardDeclare('org.patternfly.component.tooltip.Tooltip$impl');
 let TooltipToggle = goog.forwardDeclare('org.patternfly.component.tooltip.TooltipToggle$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
-let Modifiers = goog.forwardDeclare('org.patternfly.core.Modifiers$impl');
+let IconPosition = goog.forwardDeclare('org.patternfly.core.IconPosition$impl');
 let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
-let Color = goog.forwardDeclare('org.patternfly.layout.Color$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
-let Variable = goog.forwardDeclare('org.patternfly.layout.Variable$impl');
-let Variables = goog.forwardDeclare('org.patternfly.layout.Variables$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let Color = goog.forwardDeclare('org.patternfly.style.Color$impl');
+let Modifiers = goog.forwardDeclare('org.patternfly.style.Modifiers$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
+let Variable = goog.forwardDeclare('org.patternfly.style.Variable$impl');
+let Variables = goog.forwardDeclare('org.patternfly.style.Variables$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 let $Objects = goog.forwardDeclare('vmbootstrap.Objects$impl');
 
 /**
  * @extends {BaseComponentFlat<HTMLElement, Label>}
- * @implements {ComponentReference<LabelGroup>}
  * @implements {Closeable<HTMLElement, Label>}
  * @implements {Compact<HTMLElement, Label>}
+ * @implements {WithText<HTMLElement, Label>}
+ * @implements {WithIcon<HTMLElement, Label>}
+ * @implements {WithIconAndText<HTMLElement, Label>}
  * @implements {HasValue<?string>}
  * @implements {Attachable}
  */
@@ -71,14 +76,14 @@ class Label extends BaseComponentFlat {
   this.f_contentElement__org_patternfly_component_label_Label_;
   /**@type {HTMLElement} @nodts*/
   this.f_actionsElement__org_patternfly_component_label_Label_;
+  /**@type {HTMLElement} @nodts*/
+  this.f_iconContainer__org_patternfly_component_label_Label_;
   /**@type {HTMLInputElement} @nodts*/
   this.f_inputElement__org_patternfly_component_label_Label_;
   /**@type {Tooltip} @nodts*/
   this.f_tooltip__org_patternfly_component_label_Label_;
   /**@type {Button} @nodts*/
   this.f_closeButton__org_patternfly_component_label_Label_;
-  /**@type {LabelGroup} @nodts*/
-  this.f_labelGroup__org_patternfly_component_label_Label_;
   /**@type {CloseHandler<Label>} @nodts*/
   this.f_closeHandler__org_patternfly_component_label_Label_;
   /**@type {ComponentHandler<Label>} @nodts*/
@@ -93,39 +98,31 @@ class Label extends BaseComponentFlat {
  /** @nodts @return {Label} */
  static m_label__java_lang_String__org_patternfly_component_label_Label(/** ?string */ text) {
   Label.$clinit();
-  return Label.$create__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_layout_Color(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), text, Color.f_grey__org_patternfly_layout_Color);
+  return Label.$create__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_style_Color(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), text, Color.f_grey__org_patternfly_style_Color);
  }
  /** @nodts @return {Label} */
- static m_label__java_lang_String__org_patternfly_layout_Color__org_patternfly_component_label_Label(/** ?string */ text, /** Color */ color) {
+ static m_label__java_lang_String__org_patternfly_style_Color__org_patternfly_component_label_Label(/** ?string */ text, /** Color */ color) {
   Label.$clinit();
-  return Label.$create__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_layout_Color(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), text, color);
+  return Label.$create__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_style_Color(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), text, color);
  }
  /** @nodts @template E @return {!Label} */
- static $create__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_layout_Color(/** HTMLContainerBuilder<E> */ builder, /** ?string */ text, /** Color */ color) {
+ static $create__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_style_Color(/** HTMLContainerBuilder<E> */ builder, /** ?string */ text, /** Color */ color) {
   Label.$clinit();
   let $instance = new Label();
-  $instance.$ctor__org_patternfly_component_label_Label__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_layout_Color__void(builder, text, color);
+  $instance.$ctor__org_patternfly_component_label_Label__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_style_Color__void(builder, text, color);
   return $instance;
  }
  /** @nodts @template E */
- $ctor__org_patternfly_component_label_Label__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_layout_Color__void(/** HTMLContainerBuilder<E> */ builder, /** ?string */ text, /** Color */ color) {
-  this.$ctor__org_patternfly_component_BaseComponentFlat__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLElement}*/ (/**@type {HTMLContainerBuilder<E>}*/ ($Casts.$to(builder.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), color.f_modifier__org_patternfly_layout_Color], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement()), ComponentType.f_Label__org_patternfly_component_ComponentType);
+ $ctor__org_patternfly_component_label_Label__org_jboss_elemento_HTMLContainerBuilder__java_lang_String__org_patternfly_style_Color__void(/** HTMLContainerBuilder<E> */ builder, /** ?string */ text, /** Color */ color) {
+  this.$ctor__org_patternfly_component_BaseComponentFlat__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Label__org_patternfly_component_ComponentType, /**@type {HTMLElement}*/ (/**@type {HTMLContainerBuilder<E>}*/ ($Casts.$to(builder.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), color.f_modifier__org_patternfly_style_Color], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement()));
   this.f_id__org_patternfly_component_label_Label = Id.m_unique__java_lang_String__arrayOf_java_lang_String__java_lang_String(this.m_componentType__org_patternfly_component_ComponentType().f_id__org_patternfly_component_ComponentType, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)));
-  this.m_element__elemental2_dom_HTMLElement().appendChild(this.f_contentElement__org_patternfly_component_label_Label_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_textElement__org_patternfly_component_label_Label = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_text__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(text), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement()), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
+  this.m_element__elemental2_dom_HTMLElement().appendChild(this.f_contentElement__org_patternfly_component_label_Label_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_textElement__org_patternfly_component_label_Label = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_text__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(text), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement()), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   this.f_tooltipToggle__org_patternfly_component_label_Label_ = TooltipToggle.$create__elemental2_dom_HTMLElement(this.f_textElement__org_patternfly_component_label_Label);
   Attachable.m_register__org_jboss_elemento_IsElement__org_jboss_elemento_Attachable__void(this, this);
  }
  /** @override @nodts */
  m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
   this.f_tooltipToggle__org_patternfly_component_label_Label_.m_eval__void();
- }
- /** @nodts */
- m_passComponent__org_patternfly_component_label_LabelGroup__void(/** LabelGroup */ labelGroup) {
-  this.f_labelGroup__org_patternfly_component_label_Label_ = labelGroup;
- }
- /** @nodts @return {LabelGroup} */
- m_mainComponent__org_patternfly_component_label_LabelGroup() {
-  return this.f_labelGroup__org_patternfly_component_label_Label_;
  }
  /** @override @return {boolean} */
  equals(/** * */ o) {
@@ -143,25 +140,12 @@ class Label extends BaseComponentFlat {
   return Objects.m_hash__arrayOf_java_lang_Object__int([this.f_id__org_patternfly_component_label_Label]);
  }
  /** @nodts @return {Label} */
- m_addIcon__java_lang_String__org_patternfly_component_label_Label(/** ?string */ iconClass) {
-  return this.m_addIcon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_label_Label(InlineIcon.m_inlineIcon__java_lang_String__org_patternfly_component_icon_InlineIcon(iconClass));
- }
- /** @nodts @return {Label} */
- m_addIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_label_Label(/** PredefinedIcon */ icon) {
-  return this.m_addIcon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_label_Label(InlineIcon.m_inlineIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_InlineIcon(icon));
- }
- /** @nodts @return {Label} */
- m_addIcon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_label_Label(/** InlineIcon */ icon) {
-  Elements.m_insertBefore__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(icon), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), this.f_textElement__org_patternfly_component_label_Label);
-  return this;
- }
- /** @nodts @return {Label} */
  m_outline__org_patternfly_component_label_Label() {
   return this.m_outline__boolean__org_patternfly_component_label_Label(true);
  }
  /** @nodts @return {Label} */
  m_outline__boolean__org_patternfly_component_label_Label(/** boolean */ outline) {
-  return /**@type {Label}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this.m_that__org_patternfly_component_label_Label(), this.m_element__elemental2_dom_HTMLElement(), Classes.f_outline__org_patternfly_layout_Classes, outline), Label));
+  return /**@type {Label}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this.m_that__org_patternfly_component_label_Label(), this.m_element__elemental2_dom_HTMLElement(), Classes.f_outline__org_patternfly_style_Classes, outline), Label));
  }
  /** @nodts @return {Label} */
  m_closable__org_patternfly_component_label_Label() {
@@ -170,7 +154,7 @@ class Label extends BaseComponentFlat {
  /** @nodts @return {Label} */
  m_closable__org_patternfly_handler_CloseHandler__org_patternfly_component_label_Label(/** CloseHandler<Label> */ closeHandler) {
   this.m_onClose__org_patternfly_handler_CloseHandler__org_patternfly_component_label_Label(closeHandler);
-  Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(this.f_actionsElement__org_patternfly_component_label_Label_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_actions__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_closeButton__org_patternfly_component_label_Label_ = /**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_layout_PredefinedIcon__java_lang_String__org_patternfly_component_button_Button(PredefinedIcon.f_times__org_patternfly_layout_PredefinedIcon, 'Close ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_textElement__org_patternfly_component_label_Label.textContent)).m_plain__org_jboss_elemento_TypedBuilder(), Button)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (event) =>{
+  Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(this.f_actionsElement__org_patternfly_component_label_Label_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_actions__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_closeButton__org_patternfly_component_label_Label_ = /**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(PredefinedIcon.f_times__org_patternfly_style_PredefinedIcon), Button)).m_plain__org_jboss_elemento_TypedBuilder(), Button)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Close ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_textElement__org_patternfly_component_label_Label.textContent)), Button)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (event) =>{
    let event_1 = /**@type {MouseEvent}*/ ($Casts.$to(event, MouseEvent_$Overlay));
    this.m_close__elemental2_dom_Event__boolean__void(event_1, true);
   }), Button))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), this.f_contentElement__org_patternfly_component_label_Label_);
@@ -183,7 +167,7 @@ class Label extends BaseComponentFlat {
  /** @nodts @return {Label} */
  m_clickable__org_patternfly_handler_ComponentHandler__org_patternfly_component_label_Label(/** ComponentHandler<Label> */ clickHandler) {
   this.m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_label_Label(clickHandler);
-  this.m_replaceContent__elemental2_dom_HTMLElement__void_$p_org_patternfly_component_label_Label(/**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
+  this.m_replaceContent__elemental2_dom_HTMLElement__void_$p_org_patternfly_component_label_Label(/**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
    let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
    if (!$Equality.$same(this.f_clickHandler__org_patternfly_component_label_Label_, null)) {
     this.f_clickHandler__org_patternfly_component_label_Label_.m_handle__elemental2_dom_Event__java_lang_Object__void(e_1, this);
@@ -199,7 +183,7 @@ class Label extends BaseComponentFlat {
  m_editable__org_patternfly_component_label_LabelEditCancelHandler__org_patternfly_component_label_LabelEditCompleteHandler__org_patternfly_component_label_Label(/** LabelEditCancelHandler */ cancelHandler, /** LabelEditCompleteHandler */ completeHandler) {
   this.m_onEditCancel__org_patternfly_component_label_LabelEditCancelHandler__org_patternfly_component_label_Label(cancelHandler);
   this.m_onEditComplete__org_patternfly_component_label_LabelEditCompleteHandler__org_patternfly_component_label_Label(completeHandler);
-  this.m_replaceContent__elemental2_dom_HTMLElement__void_$p_org_patternfly_component_label_Label(/**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Editable label with text ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_textElement__org_patternfly_component_label_Label.textContent)), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
+  this.m_replaceContent__elemental2_dom_HTMLElement__void_$p_org_patternfly_component_label_Label(/**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Editable label with text ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_textElement__org_patternfly_component_label_Label.textContent)), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
    let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
    this.m_enterEdit__void_$p_org_patternfly_component_label_Label();
   }), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_keydown__org_jboss_elemento_EventType, (e_2) =>{
@@ -208,11 +192,30 @@ class Label extends BaseComponentFlat {
     this.m_enterEdit__void_$p_org_patternfly_component_label_Label();
    }
   }), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay)));
-  return /**@type {Label}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_editable__org_patternfly_layout_Classes)], j_l_String))), Label));
+  return /**@type {Label}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_editable__org_patternfly_style_Classes)], j_l_String))), Label));
+ }
+ /** @nodts @return {Label} */
+ m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_label_Label(/** InlineIcon */ icon) {
+  if ($Equality.$same(this.f_iconContainer__org_patternfly_component_label_Label_, null)) {
+   Elements.m_insertBefore__elemental2_dom_Element__elemental2_dom_Element__void(this.f_iconContainer__org_patternfly_component_label_Label_ = /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_icon__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), this.f_textElement__org_patternfly_component_label_Label);
+  }
+  Elements.m_removeChildrenFrom__elemental2_dom_Element__void(this.f_iconContainer__org_patternfly_component_label_Label_);
+  this.f_iconContainer__org_patternfly_component_label_Label_.appendChild(icon.m_element__elemental2_dom_HTMLElement());
+  return this;
+ }
+ /** @nodts @return {Label} */
+ m_removeIcon__org_patternfly_component_label_Label() {
+  Elements.m_failSafeRemoveFromParent__elemental2_dom_Element__boolean(this.f_iconContainer__org_patternfly_component_label_Label_);
+  return this;
+ }
+ /** @nodts @return {Label} */
+ m_iconAndText__org_patternfly_component_icon_InlineIcon__java_lang_String__org_patternfly_core_IconPosition__org_patternfly_component_label_Label(/** InlineIcon */ icon, /** ?string */ text, /** IconPosition */ iconPosition) {
+  this.m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_label_Label(icon);
+  return this.m_text__java_lang_String__org_patternfly_component_label_Label(text);
  }
  /** @nodts @return {Label} */
  m_href__java_lang_String__org_patternfly_component_label_Label(/** ?string */ href) {
-  this.m_replaceContent__elemental2_dom_HTMLElement__void_$p_org_patternfly_component_label_Label(/**@type {HTMLAnchorElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(Elements.m_a__java_lang_String__org_jboss_elemento_HTMLContainerBuilder(href).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLAnchorElement_$Overlay)));
+  this.m_replaceContent__elemental2_dom_HTMLElement__void_$p_org_patternfly_component_label_Label(/**@type {HTMLAnchorElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(Elements.m_a__java_lang_String__org_jboss_elemento_HTMLContainerBuilder(href).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLAnchorElement_$Overlay)));
   return this;
  }
  /** @nodts @return {Label} */
@@ -223,7 +226,7 @@ class Label extends BaseComponentFlat {
  }
  /** @nodts @return {Label} */
  m_textMaxWidth__java_lang_String__org_patternfly_component_label_Label(/** ?string */ maxWidth) {
-  Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_text__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_MaxWidth__org_patternfly_layout_Variables], j_l_String))).m_applyTo__elemental2_dom_HTMLElement__java_lang_String__void(this.f_textElement__org_patternfly_component_label_Label, maxWidth);
+  Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_style_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_text__org_patternfly_style_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_MaxWidth__org_patternfly_style_Variables], j_l_String))).m_applyTo__elemental2_dom_HTMLElement__java_lang_String__void(this.f_textElement__org_patternfly_component_label_Label, maxWidth);
   this.f_tooltipToggle__org_patternfly_component_label_Label_.m_eval__void();
   return this;
  }
@@ -265,8 +268,9 @@ class Label extends BaseComponentFlat {
  /** @override @nodts */
  m_close__elemental2_dom_Event__boolean__void(/** Event */ event, /** boolean */ fireEvent) {
   if (CloseHandler.m_shouldClose__java_lang_Object__org_patternfly_handler_CloseHandler__elemental2_dom_Event__boolean__boolean(this, this.f_closeHandler__org_patternfly_component_label_Label_, event, fireEvent)) {
-   if (!$Equality.$same(this.f_labelGroup__org_patternfly_component_label_Label_, null)) {
-    this.f_labelGroup__org_patternfly_component_label_Label_.m_close__org_patternfly_component_label_Label__void_$pp_org_patternfly_component_label(this);
+   let labelGroup = /**@type {LabelGroup}*/ ($Casts.$to(this.m_lookupComponent__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponent(ComponentType.f_LabelGroup__org_patternfly_component_ComponentType, true), LabelGroup));
+   if (!$Equality.$same(labelGroup, null)) {
+    labelGroup.m_close__org_patternfly_component_label_Label__void_$pp_org_patternfly_component_label(this);
    } else {
     Elements.m_failSafeRemoveFromParent__org_jboss_elemento_IsElement__boolean(this);
    }
@@ -295,7 +299,7 @@ class Label extends BaseComponentFlat {
     this.m_completeEdit__elemental2_dom_Event__java_lang_String__void_$p_org_patternfly_component_label_Label(e_1, this.m_failSafeInputElement__elemental2_dom_HTMLInputElement_$p_org_patternfly_component_label_Label().value);
    }
   });
-  this.m_element__elemental2_dom_HTMLElement().classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_editableActive__org_patternfly_layout_Classes));
+  this.m_element__elemental2_dom_HTMLElement().classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_editableActive__org_patternfly_style_Classes));
   Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(this.m_failSafeInputElement__elemental2_dom_HTMLInputElement_$p_org_patternfly_component_label_Label(), true);
   this.m_failSafeInputElement__elemental2_dom_HTMLInputElement_$p_org_patternfly_component_label_Label().focus();
  }
@@ -323,7 +327,7 @@ class Label extends BaseComponentFlat {
    this.f_cancelEditModeOnDocumentClick__org_patternfly_component_label_Label_.m_removeHandler__void();
   }
   Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(this.m_failSafeInputElement__elemental2_dom_HTMLInputElement_$p_org_patternfly_component_label_Label(), false);
-  this.m_element__elemental2_dom_HTMLElement().classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_editableActive__org_patternfly_layout_Classes));
+  this.m_element__elemental2_dom_HTMLElement().classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_editableActive__org_patternfly_style_Classes));
   Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(this.f_contentElement__org_patternfly_component_label_Label_, true);
   Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(this.f_actionsElement__org_patternfly_component_label_Label_, true);
   this.f_tooltipToggle__org_patternfly_component_label_Label_.m_eval__void();
@@ -331,7 +335,7 @@ class Label extends BaseComponentFlat {
  /** @nodts @return {HTMLInputElement} */
  m_failSafeInputElement__elemental2_dom_HTMLInputElement_$p_org_patternfly_component_label_Label() {
   if ($Equality.$same(this.f_inputElement__org_patternfly_component_label_Label_, null)) {
-   this.m_element__elemental2_dom_HTMLElement().appendChild(this.f_inputElement__org_patternfly_component_label_Label_ = /**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(Elements.m_input__org_jboss_elemento_InputType__org_jboss_elemento_InputElementBuilder(InputType.f_text__org_jboss_elemento_InputType).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), InputElementBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_keydown__org_jboss_elemento_EventType, (e) =>{
+   this.m_element__elemental2_dom_HTMLElement().appendChild(this.f_inputElement__org_patternfly_component_label_Label_ = /**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(/**@type {InputElementBuilder<HTMLInputElement>}*/ ($Casts.$to(Elements.m_input__org_jboss_elemento_InputType__org_jboss_elemento_InputElementBuilder(InputType.f_text__org_jboss_elemento_InputType).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_label__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_style_Classes], j_l_String)))], j_l_String))), InputElementBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_keydown__org_jboss_elemento_EventType, (e) =>{
     let e_1 = /**@type {KeyboardEvent}*/ ($Casts.$to(e, KeyboardEvent_$Overlay));
     if (Key.f_Enter__org_jboss_elemento_Key.m_match__elemental2_dom_KeyboardEvent__boolean(e_1)) {
      this.m_completeEdit__elemental2_dom_Event__java_lang_String__void_$p_org_patternfly_component_label_Label(e_1, /**@type {HTMLInputElement}*/ ($Casts.$to(e_1.target, HTMLInputElement_$Overlay)).value);
@@ -341,16 +345,6 @@ class Label extends BaseComponentFlat {
    }), InputElementBuilder)).m_element__elemental2_dom_HTMLInputElement());
   }
   return this.f_inputElement__org_patternfly_component_label_Label_;
- }
- //Bridge method.
- /** @final @override @nodts @return {LabelGroup} */
- m_mainComponent__org_patternfly_component_BaseComponent() {
-  return this.m_mainComponent__org_patternfly_component_label_LabelGroup();
- }
- //Bridge method.
- /** @final @override @nodts */
- m_passComponent__org_patternfly_component_BaseComponent__void(/** LabelGroup */ arg0) {
-  this.m_passComponent__org_patternfly_component_label_LabelGroup__void(/**@type {LabelGroup}*/ ($Casts.$to(arg0, LabelGroup)));
  }
  //Bridge method.
  /** @final @override @nodts @return {Label} */
@@ -375,12 +369,67 @@ class Label extends BaseComponentFlat {
  //Bridge method.
  /** @final @override @nodts @return {Label} */
  m_compact__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Label));
+  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Label));
  }
  //Bridge method.
  /** @final @override @nodts @return {Label} */
  m_compact__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
-  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_text__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0) {
+  return this.m_text__java_lang_String__org_patternfly_component_label_Label(arg0);
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_icon__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0) {
+  return /**@type {Label}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(/** PredefinedIcon */ arg0) {
+  return /**@type {Label}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_icon__org_patternfly_component_icon_InlineIcon__org_jboss_elemento_TypedBuilder(/** InlineIcon */ arg0) {
+  return this.m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_label_Label(arg0);
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_removeIcon__org_jboss_elemento_TypedBuilder() {
+  return this.m_removeIcon__org_patternfly_component_label_Label();
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_iconAndText__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_iconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_jboss_elemento_TypedBuilder(/** PredefinedIcon */ arg0, /** ?string */ arg1) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_iconAndText__org_patternfly_component_icon_InlineIcon__java_lang_String__org_jboss_elemento_TypedBuilder(/** InlineIcon */ arg0, /** ?string */ arg1) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__org_patternfly_component_icon_InlineIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_iconAndText__java_lang_String__java_lang_String__org_patternfly_core_IconPosition__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** ?string */ arg1, /** IconPosition */ arg2) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__java_lang_String__java_lang_String__org_patternfly_core_IconPosition__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_iconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_patternfly_core_IconPosition__org_jboss_elemento_TypedBuilder(/** PredefinedIcon */ arg0, /** ?string */ arg1, /** IconPosition */ arg2) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_patternfly_core_IconPosition__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), Label));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Label} */
+ m_iconAndText__org_patternfly_component_icon_InlineIcon__java_lang_String__org_patternfly_core_IconPosition__org_jboss_elemento_TypedBuilder(/** InlineIcon */ arg0, /** ?string */ arg1, /** IconPosition */ arg2) {
+  return this.m_iconAndText__org_patternfly_component_icon_InlineIcon__java_lang_String__org_patternfly_core_IconPosition__org_patternfly_component_label_Label(arg0, arg1, arg2);
  }
  //Bridge method.
  /** @final @override @nodts @return {?string} */
@@ -395,12 +444,47 @@ class Label extends BaseComponentFlat {
  //Default method forwarding stub.
  /** @nodts @return {Label} */
  m_compact__org_patternfly_component_label_Label() {
-  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Label));
+  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__org_jboss_elemento_TypedBuilder(this), Label));
  }
  //Default method forwarding stub.
  /** @nodts @return {Label} */
  m_compact__boolean__org_patternfly_component_label_Label(/** boolean */ arg0) {
-  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_core_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+  return /**@type {Label}*/ ($Casts.$to(Compact.m_compact__$default__org_patternfly_style_Modifiers_Compact__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Label} */
+ m_icon__java_lang_String__org_patternfly_component_label_Label(/** ?string */ arg0) {
+  return /**@type {Label}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Label} */
+ m_icon__org_patternfly_style_PredefinedIcon__org_patternfly_component_label_Label(/** PredefinedIcon */ arg0) {
+  return /**@type {Label}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(this, arg0), Label));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Label} */
+ m_iconAndText__java_lang_String__java_lang_String__org_patternfly_component_label_Label(/** ?string */ arg0, /** ?string */ arg1) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), Label));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Label} */
+ m_iconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_patternfly_component_label_Label(/** PredefinedIcon */ arg0, /** ?string */ arg1) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), Label));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Label} */
+ m_iconAndText__org_patternfly_component_icon_InlineIcon__java_lang_String__org_patternfly_component_label_Label(/** InlineIcon */ arg0, /** ?string */ arg1) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__org_patternfly_component_icon_InlineIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0, arg1), Label));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Label} */
+ m_iconAndText__java_lang_String__java_lang_String__org_patternfly_core_IconPosition__org_patternfly_component_label_Label(/** ?string */ arg0, /** ?string */ arg1, /** IconPosition */ arg2) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__java_lang_String__java_lang_String__org_patternfly_core_IconPosition__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), Label));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Label} */
+ m_iconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_patternfly_core_IconPosition__org_patternfly_component_label_Label(/** PredefinedIcon */ arg0, /** ?string */ arg1, /** IconPosition */ arg2) {
+  return /**@type {Label}*/ ($Casts.$to(WithIconAndText.m_iconAndText__$default__org_patternfly_core_WithIconAndText__org_patternfly_style_PredefinedIcon__java_lang_String__org_patternfly_core_IconPosition__org_jboss_elemento_TypedBuilder(this, arg0, arg1, arg2), Label));
  }
  /** @nodts */
  static $clinit() {
@@ -409,6 +493,8 @@ class Label extends BaseComponentFlat {
   BaseComponentFlat.$clinit();
   Closeable.$clinit();
   Compact.$clinit();
+  WithIcon.$clinit();
+  WithIconAndText.$clinit();
   Attachable.$clinit();
  }
  /** @nodts @return {boolean} */
@@ -439,25 +525,26 @@ class Label extends BaseComponentFlat {
   Key = goog.module.get('org.jboss.elemento.Key$impl');
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
-  InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
   LabelGroup = goog.module.get('org.patternfly.component.label.LabelGroup$impl');
   TooltipToggle = goog.module.get('org.patternfly.component.tooltip.TooltipToggle$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
-  Modifiers = goog.module.get('org.patternfly.core.Modifiers$impl');
   CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
-  Color = goog.module.get('org.patternfly.layout.Color$impl');
-  PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
-  Variable = goog.module.get('org.patternfly.layout.Variable$impl');
-  Variables = goog.module.get('org.patternfly.layout.Variables$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  Color = goog.module.get('org.patternfly.style.Color$impl');
+  Modifiers = goog.module.get('org.patternfly.style.Modifiers$impl');
+  PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
+  Variable = goog.module.get('org.patternfly.style.Variable$impl');
+  Variables = goog.module.get('org.patternfly.style.Variables$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
   $Objects = goog.module.get('vmbootstrap.Objects$impl');
  }
 }
-ComponentReference.$markImplementor(Label);
 Closeable.$markImplementor(Label);
 Compact.$markImplementor(Label);
+WithText.$markImplementor(Label);
+WithIcon.$markImplementor(Label);
+WithIconAndText.$markImplementor(Label);
 HasValue.$markImplementor(Label);
 Attachable.$markImplementor(Label);
 $Util.$setClassMetadata(Label, 'org.patternfly.component.label.Label');

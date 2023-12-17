@@ -10,9 +10,9 @@ let $LambdaAdaptor = goog.forwardDeclare('org.patternfly.handler.SelectHandler.$
  */
 class SelectHandler {
  /** @abstract @nodts */
- m_onSelect__java_lang_Object__boolean__void(/** C */ component, /** boolean */ selected) {}
+ m_onSelect__elemental2_dom_Event__java_lang_Object__boolean__void(/** Event */ event, /** C */ component, /** boolean */ selected) {}
  /** @nodts @template C @return {SelectHandler<C>} */
- static $adapt(/** ?function(C, boolean):void */ fn) {
+ static $adapt(/** ?function(Event, C, boolean):void */ fn) {
   SelectHandler.$clinit();
   return /**@type {!$LambdaAdaptor<C>}*/ (new $LambdaAdaptor(fn));
  }

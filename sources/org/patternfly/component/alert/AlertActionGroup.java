@@ -15,24 +15,19 @@
  */
 package org.patternfly.component.alert;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
 import org.patternfly.component.button.Button;
 import org.patternfly.handler.ComponentHandler;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.EventType.click;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.layout.Classes.actionGroup;
-import static org.patternfly.layout.Classes.component;
+import static org.patternfly.style.Classes.actionGroup;
+import static org.patternfly.style.Classes.component;
 
-public class AlertActionGroup extends SubComponent<HTMLDivElement, AlertActionGroup> implements ComponentReference<Alert> {
+public class AlertActionGroup extends AlertSubComponent<HTMLDivElement, AlertActionGroup> {
 
     // ------------------------------------------------------ factory
 
@@ -42,25 +37,12 @@ public class AlertActionGroup extends SubComponent<HTMLDivElement, AlertActionGr
 
     // ------------------------------------------------------ instance
 
-    private final List<ButtonActionHandlerTuple> tuples;
+    static final String SUB_COMPONENT_NAME = "aag";
+
     private Alert alert;
 
     AlertActionGroup() {
-        super(div().css(component(Classes.alert, actionGroup)).element());
-        this.tuples = new ArrayList<>();
-    }
-
-    @Override
-    public void passComponent(Alert alert) {
-        this.alert = alert;
-        for (ButtonActionHandlerTuple tuple : tuples) {
-            tuple.button.on(click, e -> tuple.handler.handle(e, alert));
-        }
-    }
-
-    @Override
-    public Alert mainComponent() {
-        return alert;
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.alert, actionGroup)).element());
     }
 
     // ------------------------------------------------------ add
@@ -79,7 +61,7 @@ public class AlertActionGroup extends SubComponent<HTMLDivElement, AlertActionGr
 
     public AlertActionGroup addAction(Button action, ComponentHandler<Alert> handler) {
         if (handler != null) {
-            tuples.add(new ButtonActionHandlerTuple(action, handler));
+            action.on(click, e -> handler.handle(e, lookupComponent()));
         }
         return add(action);
     }
@@ -89,17 +71,5 @@ public class AlertActionGroup extends SubComponent<HTMLDivElement, AlertActionGr
     @Override
     public AlertActionGroup that() {
         return this;
-    }
-
-    // ------------------------------------------------------ internal
-
-    private static class ButtonActionHandlerTuple {
-        final Button button;
-        final ComponentHandler<Alert> handler;
-
-        ButtonActionHandlerTuple(Button button, ComponentHandler<Alert> handler) {
-            this.button = button;
-            this.handler = handler;
-        }
     }
 }

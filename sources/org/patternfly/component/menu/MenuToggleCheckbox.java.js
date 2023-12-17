@@ -16,12 +16,12 @@ goog.require('org.jboss.elemento.Id');
 goog.require('org.jboss.elemento.InputElementBuilder');
 goog.require('org.jboss.elemento.InputType');
 goog.require('org.patternfly.component.ComponentType');
-goog.require('org.patternfly.component.SubComponent');
+goog.require('org.patternfly.component.menu.MenuToggleSubComponent');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.HasValue');
-goog.require('org.patternfly.core.Modifiers.Disabled');
 goog.require('org.patternfly.handler.ChangeHandler');
-goog.require('org.patternfly.layout.Classes');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Modifiers.Disabled');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

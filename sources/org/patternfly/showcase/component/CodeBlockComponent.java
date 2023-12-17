@@ -15,16 +15,19 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.code.CodeBlock.codeBlock;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockAction;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockCopyToClipboardAction;
-import static org.patternfly.layout.PredefinedIcon.play;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.play;
 
-public class CodeBlockComponent extends ComponentPage {
+public class CodeBlockComponent extends SnippetPage {
 
     private static final String CODE = "apiVersion: helm.openshift.io/v1beta1/\n" +
             "kind: HelmChartRepository\n" +

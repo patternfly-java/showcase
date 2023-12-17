@@ -1,8 +1,7 @@
 goog.module('org.patternfly.component.menu.MenuItemAction$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const MenuSubComponent = goog.require('org.patternfly.component.menu.MenuSubComponent$impl');
 
 let HTMLButtonElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLButtonElement.$Overlay$impl');
 let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
@@ -16,18 +15,18 @@ let Id = goog.forwardDeclare('org.jboss.elemento.Id$impl');
 let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
 let Menu = goog.forwardDeclare('org.patternfly.component.menu.Menu$impl');
 let MenuItem = goog.forwardDeclare('org.patternfly.component.menu.MenuItem$impl');
+let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLButtonElement, MenuItemAction>}
- * @implements {ComponentReference<Menu>}
+ * @extends {MenuSubComponent<HTMLButtonElement, MenuItemAction>}
  */
-class MenuItemAction extends SubComponent {
+class MenuItemAction extends MenuSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
@@ -35,42 +34,54 @@ class MenuItemAction extends SubComponent {
   this.f_id__org_patternfly_component_menu_MenuItemAction;
   /**@type {HTMLElement} @nodts*/
   this.f_iconContainer__org_patternfly_component_menu_MenuItemAction_;
-  /**@type {MenuItem} @nodts*/
-  this.f_menuItem__org_patternfly_component_menu_MenuItemAction;
   /**@type {ComponentHandler<MenuItemAction>} @nodts*/
   this.f_handler__org_patternfly_component_menu_MenuItemAction;
-  /**@type {Menu} @nodts*/
-  this.f_menu__org_patternfly_component_menu_MenuItemAction_;
+  /**@type {MenuItem} @nodts*/
+  this.f_menuItem__org_patternfly_component_menu_MenuItemAction;
  }
  /** @nodts @return {MenuItemAction} */
  static m_menuItemAction__java_lang_String__org_patternfly_component_menu_MenuItemAction(/** ?string */ id) {
   MenuItemAction.$clinit();
-  return MenuItemAction.$create__java_lang_String__java_lang_String(id, null);
- }
- /** @nodts @return {MenuItemAction} */
- static m_menuItemAction__java_lang_String__org_patternfly_layout_PredefinedIcon__org_patternfly_component_menu_MenuItemAction(/** ?string */ id, /** PredefinedIcon */ predefinedIcon) {
-  MenuItemAction.$clinit();
-  return MenuItemAction.$create__java_lang_String__java_lang_String(id, predefinedIcon.f_className__org_patternfly_layout_PredefinedIcon);
+  return MenuItemAction.$create__java_lang_String__org_patternfly_component_icon_InlineIcon__boolean(id, null, false);
  }
  /** @nodts @return {MenuItemAction} */
  static m_menuItemAction__java_lang_String__java_lang_String__org_patternfly_component_menu_MenuItemAction(/** ?string */ id, /** ?string */ iconClass) {
   MenuItemAction.$clinit();
-  return MenuItemAction.$create__java_lang_String__java_lang_String(id, iconClass);
+  return MenuItemAction.$create__java_lang_String__org_patternfly_component_icon_InlineIcon__boolean(id, InlineIcon.m_inlineIcon__java_lang_String__org_patternfly_component_icon_InlineIcon(iconClass), false);
  }
- //Factory method corresponding to constructor 'MenuItemAction(String, String)'.
+ /** @nodts @return {MenuItemAction} */
+ static m_menuItemAction__java_lang_String__org_patternfly_style_PredefinedIcon__org_patternfly_component_menu_MenuItemAction(/** ?string */ id, /** PredefinedIcon */ predefinedIcon) {
+  MenuItemAction.$clinit();
+  return MenuItemAction.$create__java_lang_String__org_patternfly_component_icon_InlineIcon__boolean(id, InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(predefinedIcon), false);
+ }
+ /** @nodts @return {MenuItemAction} */
+ static m_favoriteMenuItemAction__java_lang_String__org_patternfly_component_menu_MenuItemAction(/** ?string */ id) {
+  MenuItemAction.$clinit();
+  return /**@type {MenuItemAction}*/ ($Casts.$to(/**@type {MenuItemAction}*/ ($Casts.$to(MenuItemAction.$create__java_lang_String__org_patternfly_component_icon_InlineIcon__boolean(id, InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_star__org_patternfly_style_PredefinedIcon), true).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_favorite__org_patternfly_style_Classes)], j_l_String))), MenuItemAction)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'not starred'), MenuItemAction));
+ }
+ //Factory method corresponding to constructor 'MenuItemAction(String, InlineIcon, boolean)'.
  /** @nodts @return {!MenuItemAction} */
- static $create__java_lang_String__java_lang_String(/** ?string */ id, /** ?string */ iconClass) {
+ static $create__java_lang_String__org_patternfly_component_icon_InlineIcon__boolean(/** ?string */ id, /** InlineIcon */ icon, /** boolean */ favorite) {
   MenuItemAction.$clinit();
   let $instance = new MenuItemAction();
-  $instance.$ctor__org_patternfly_component_menu_MenuItemAction__java_lang_String__java_lang_String__void(id, iconClass);
+  $instance.$ctor__org_patternfly_component_menu_MenuItemAction__java_lang_String__org_patternfly_component_icon_InlineIcon__boolean__void(id, icon, favorite);
   return $instance;
  }
- //Initialization from constructor 'MenuItemAction(String, String)'.
+ //Initialization from constructor 'MenuItemAction(String, InlineIcon, boolean)'.
  /** @nodts */
- $ctor__org_patternfly_component_menu_MenuItemAction__java_lang_String__java_lang_String__void(/** ?string */ id, /** ?string */ iconClass) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(/**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_action__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__int__org_jboss_elemento_TypedBuilder(Attributes.f_tabindex__org_patternfly_core_Attributes, - 1 | 0), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_action__org_patternfly_layout_Classes, Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__java_lang_String__org_patternfly_component_icon_InlineIcon(iconClass)), HTMLContainerBuilder))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay)));
+ $ctor__org_patternfly_component_menu_MenuItemAction__java_lang_String__org_patternfly_component_icon_InlineIcon__boolean__void(/** ?string */ id, /** InlineIcon */ icon, /** boolean */ favorite) {
+  this.$ctor__org_patternfly_component_menu_MenuSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(MenuItemAction.f_SUB_COMPONENT_NAME__org_patternfly_component_menu_MenuItemAction, /**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_style_Classes, Classes.f_action__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__int__org_jboss_elemento_TypedBuilder(Attributes.f_tabindex__org_patternfly_core_Attributes, - 1 | 0), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_style_Classes, Classes.f_action__org_patternfly_style_Classes, Classes.f_icon__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(icon), HTMLContainerBuilder))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay)));
   this.f_id__org_patternfly_component_menu_MenuItemAction = id;
-  this.f_iconContainer__org_patternfly_component_menu_MenuItemAction_ = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_action__org_patternfly_layout_Classes, Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))));
+  this.f_iconContainer__org_patternfly_component_menu_MenuItemAction_ = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_style_Classes, Classes.f_action__org_patternfly_style_Classes, Classes.f_icon__org_patternfly_style_Classes], j_l_String)))));
+  if (!favorite) {
+   this.m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
+    let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
+    let menu = /**@type {Menu}*/ ($Casts.$to(this.m_lookupComponent__org_patternfly_component_BaseComponent(), Menu));
+    if (!$Equality.$same(menu.f_actionHandler__org_patternfly_component_menu_Menu, null)) {
+     menu.f_actionHandler__org_patternfly_component_menu_Menu.m_onAction__org_patternfly_component_menu_Menu__org_patternfly_component_menu_MenuItem__org_patternfly_component_menu_MenuItemAction__void(menu, this.f_menuItem__org_patternfly_component_menu_MenuItemAction, this);
+    }
+   });
+  }
  }
  //Factory method corresponding to constructor 'MenuItemAction(Menu, MenuItem, MenuItemAction, HTMLButtonElement)'.
  /** @nodts @return {!MenuItemAction} */
@@ -83,29 +94,17 @@ class MenuItemAction extends SubComponent {
  //Initialization from constructor 'MenuItemAction(Menu, MenuItem, MenuItemAction, HTMLButtonElement)'.
  /** @nodts */
  $ctor__org_patternfly_component_menu_MenuItemAction__org_patternfly_component_menu_Menu__org_patternfly_component_menu_MenuItem__org_patternfly_component_menu_MenuItemAction__elemental2_dom_HTMLButtonElement__void(/** Menu */ menu, /** MenuItem */ favoriteItem, /** MenuItemAction */ sourceItemAction, /** HTMLButtonElement */ itemActionElement) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(itemActionElement);
+  this.$ctor__org_patternfly_component_menu_MenuSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(MenuItemAction.f_SUB_COMPONENT_NAME__org_patternfly_component_menu_MenuItemAction, itemActionElement);
   this.f_id__org_patternfly_component_menu_MenuItemAction = Id.m_build__java_lang_String__arrayOf_java_lang_String__java_lang_String('fav', /**@type {!Array<?string>}*/ ($Arrays.$init([sourceItemAction.f_id__org_patternfly_component_menu_MenuItemAction], j_l_String)));
-  this.f_iconContainer__org_patternfly_component_menu_MenuItemAction_ = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes, Classes.f_action__org_patternfly_layout_Classes, Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))));
+  this.f_iconContainer__org_patternfly_component_menu_MenuItemAction_ = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_menu__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_style_Classes, Classes.f_action__org_patternfly_style_Classes, Classes.f_icon__org_patternfly_style_Classes], j_l_String)))));
   this.f_menuItem__org_patternfly_component_menu_MenuItemAction = favoriteItem;
   if (!$Equality.$same(sourceItemAction.f_handler__org_patternfly_component_menu_MenuItemAction, null)) {
    this.m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_menu_MenuItemAction(sourceItemAction.f_handler__org_patternfly_component_menu_MenuItemAction);
   }
  }
- /** @nodts */
- m_passComponent__org_patternfly_component_menu_Menu__void(/** Menu */ menu) {
-  this.f_menu__org_patternfly_component_menu_MenuItemAction_ = menu;
-  this.m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
-   let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
-   menu.m_handleItemAction__org_patternfly_component_menu_MenuItemAction__void_$pp_org_patternfly_component_menu(this);
-  });
- }
- /** @nodts @return {Menu} */
- m_mainComponent__org_patternfly_component_menu_Menu() {
-  return this.f_menu__org_patternfly_component_menu_MenuItemAction_;
- }
  /** @nodts @return {MenuItemAction} */
- m_icon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_menu_MenuItemAction(/** PredefinedIcon */ predefinedIcon) {
-  return this.m_icon__java_lang_String__org_patternfly_component_menu_MenuItemAction(predefinedIcon.f_className__org_patternfly_layout_PredefinedIcon);
+ m_icon__org_patternfly_style_PredefinedIcon__org_patternfly_component_menu_MenuItemAction(/** PredefinedIcon */ predefinedIcon) {
+  return this.m_icon__java_lang_String__org_patternfly_component_menu_MenuItemAction(predefinedIcon.f_className__org_patternfly_style_PredefinedIcon);
  }
  /** @nodts @return {MenuItemAction} */
  m_icon__java_lang_String__org_patternfly_component_menu_MenuItemAction(/** ?string */ iconClass) {
@@ -132,16 +131,6 @@ class MenuItemAction extends SubComponent {
   }), MenuItemAction));
  }
  //Bridge method.
- /** @final @override @nodts @return {Menu} */
- m_mainComponent__org_patternfly_component_BaseComponent() {
-  return this.m_mainComponent__org_patternfly_component_menu_Menu();
- }
- //Bridge method.
- /** @final @override @nodts */
- m_passComponent__org_patternfly_component_BaseComponent__void(/** Menu */ arg0) {
-  this.m_passComponent__org_patternfly_component_menu_Menu__void(/**@type {Menu}*/ ($Casts.$to(arg0, Menu)));
- }
- //Bridge method.
  /** @final @override @nodts @return {MenuItemAction} */
  m_that__org_jboss_elemento_TypedBuilder() {
   return this.m_that__org_patternfly_component_menu_MenuItemAction();
@@ -150,7 +139,7 @@ class MenuItemAction extends SubComponent {
  static $clinit() {
   MenuItemAction.$clinit = () =>{};
   MenuItemAction.$loadModules();
-  SubComponent.$clinit();
+  MenuSubComponent.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -170,13 +159,16 @@ class MenuItemAction extends SubComponent {
   Id = goog.module.get('org.jboss.elemento.Id$impl');
   InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
   Menu = goog.module.get('org.patternfly.component.menu.Menu$impl');
+  Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
-ComponentReference.$markImplementor(MenuItemAction);
+/**@const {string} @nodts*/
+MenuItemAction.f_SUB_COMPONENT_NAME__org_patternfly_component_menu_MenuItemAction = 'mia';
 $Util.$setClassMetadata(MenuItemAction, 'org.patternfly.component.menu.MenuItemAction');
 
 exports = MenuItemAction;

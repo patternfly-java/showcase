@@ -15,15 +15,14 @@
  */
 package org.patternfly.component.icon;
 
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.PredefinedIcon;
+import org.patternfly.style.PredefinedIcon;
 
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.i;
 import static org.patternfly.core.Aria.hidden;
 
-public class InlineIcon extends SubComponent<HTMLElement, InlineIcon> {
+public class InlineIcon extends IconSubComponent<HTMLElement, InlineIcon> {
 
     // ------------------------------------------------------ factory
 
@@ -37,8 +36,10 @@ public class InlineIcon extends SubComponent<HTMLElement, InlineIcon> {
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "ii";
+
     InlineIcon(String iconClass) {
-        super(i().css(iconClass).aria(hidden, true).element());
+        super(SUB_COMPONENT_NAME, i().css(iconClass).aria(hidden, true).element());
     }
 
     // ------------------------------------------------------ builder

@@ -16,24 +16,16 @@
 package org.patternfly.component.textinputgroup;
 
 import org.jboss.elemento.Attachable;
-import org.jboss.elemento.InputElementBuilder;
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
-import org.patternfly.component.chip.ChipGroup;
-import org.patternfly.core.HasValue;
-import org.patternfly.core.Modifiers.Disabled;
-import org.patternfly.handler.ChangeHandler;
+import org.patternfly.style.Modifiers.Disabled;
 
 import elemental2.dom.HTMLDivElement;
-import elemental2.dom.HTMLInputElement;
 import elemental2.dom.MutationRecord;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.setVisible;
-import static org.jboss.elemento.Elements.wrapInputElement;
-import static org.jboss.elemento.EventType.change;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.textInputGroup;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.textInputGroup;
 
 /**
  * A text input group is a more flexible composable version of a text input. It enables consumers of PatternFly to build custom
@@ -43,7 +35,7 @@ import static org.patternfly.layout.Classes.textInputGroup;
  *      "https://www.patternfly.org/components/text-input-group/html">https://www.patternfly.org/components/text-input-group/html</a>
  */
 public class TextInputGroup extends BaseComponent<HTMLDivElement, TextInputGroup> implements
-        Attachable, HasValue<String>, Disabled<HTMLDivElement, TextInputGroup> {
+        Disabled<HTMLDivElement, TextInputGroup>, Attachable {
 
     // ------------------------------------------------------ factory
 
@@ -54,21 +46,19 @@ public class TextInputGroup extends BaseComponent<HTMLDivElement, TextInputGroup
     // ------------------------------------------------------ instance
 
     boolean initialDisabled;
-    ChangeHandler<TextInputGroup, String> initialChangeHandler;
     private TextInputGroupMain main;
     private TextInputGroupUtilities utilities;
 
     TextInputGroup() {
-        super(div().css(component(textInputGroup)).element(), ComponentType.TextInputGroup);
+        super(ComponentType.TextInputGroup, div().css(component(textInputGroup)).element());
+        storeComponent();
+        Attachable.register(this, this);
     }
 
     @Override
     public void attach(MutationRecord mutationRecord) {
-        if (main != null) {
-            main.passComponent(this);
-        }
-        if (utilities != null) {
-            utilities.passComponent(this);
+        if (initialDisabled && main != null) {
+            main.disabled(true);
         }
     }
 
@@ -114,51 +104,7 @@ public class TextInputGroup extends BaseComponent<HTMLDivElement, TextInputGroup
         return this;
     }
 
-    // ------------------------------------------------------ events
-
-    public TextInputGroup onChange(ChangeHandler<TextInputGroup, String> handler) {
-        if (main == null) {
-            initialChangeHandler = handler;
-        } else {
-            main.inputElement.addEventListener(change.name, e -> handler.onChange(this, main.inputElement.value));
-        }
-        return this;
-    }
-
     // ------------------------------------------------------ api
-
-    @Override
-    public String value() {
-        return main != null ? main.inputElement.value : null;
-    }
-
-    public void clear() {
-        if (main != null) {
-            main.inputElement.value = "";
-        }
-    }
-
-    public void showUtilities(boolean show) {
-        if (utilities != null) {
-            setVisible(utilities, show);
-        }
-    }
-
-    /** Returns the underlying input element */
-    public InputElementBuilder<HTMLInputElement> inputElement() {
-        if (main != null) {
-            return wrapInputElement(main.inputElement);
-        }
-        return null;
-    }
-
-    /** Returns the underlying chip group (if any) */
-    public ChipGroup chipGroup() {
-        if (main != null) {
-            return main.chipGroup;
-        }
-        return null;
-    }
 
     @SuppressWarnings("ConfusingMainMethod")
     public TextInputGroupMain main() {

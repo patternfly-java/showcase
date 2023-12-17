@@ -15,21 +15,15 @@
  */
 package org.patternfly.component.code;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.controls;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.controls;
 
-public class CodeEditorActions extends SubComponent<HTMLDivElement, CodeEditorActions> implements
-        ComponentReference<CodeEditor> {
+public class CodeEditorActions extends CodeEditorSubComponent<HTMLDivElement, CodeEditorActions> {
 
     // ------------------------------------------------------ factory
 
@@ -39,38 +33,16 @@ public class CodeEditorActions extends SubComponent<HTMLDivElement, CodeEditorAc
 
     // ------------------------------------------------------ instance
 
-    private final List<CodeEditorAction> actions;
-    private CodeEditor codeEditor;
+    static final String SUB_COMPONENT_NAME = "ceas";
 
     CodeEditorActions() {
-        super(div().css(component(Classes.codeEditor, controls)).element());
-        this.actions = new ArrayList<>();
-    }
-
-    @Override
-    public void passComponent(CodeEditor codeEditor) {
-        this.codeEditor = codeEditor;
-        for (CodeEditorAction action : actions) {
-            action.passComponent(codeEditor);
-        }
-    }
-
-    @Override
-    public CodeEditor mainComponent() {
-        return codeEditor;
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.codeEditor, controls)).element());
     }
 
     // ------------------------------------------------------ add
 
     public CodeEditorActions addAction(CodeEditorAction action) {
         return add(action);
-    }
-
-    // override to assure internal wiring
-    public CodeEditorActions add(CodeEditorAction action) {
-        actions.add(action);
-        add(action.element());
-        return this;
     }
 
     // ------------------------------------------------------ builder

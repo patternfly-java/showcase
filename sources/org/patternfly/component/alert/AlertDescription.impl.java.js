@@ -1,21 +1,21 @@
 goog.module('org.patternfly.component.alert.AlertDescription$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const AlertSubComponent = goog.require('org.patternfly.component.alert.AlertSubComponent$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLDivElement, AlertDescription>}
+ * @extends {AlertSubComponent<HTMLDivElement, AlertDescription>}
  */
-class AlertDescription extends SubComponent {
+class AlertDescription extends AlertSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
@@ -39,7 +39,7 @@ class AlertDescription extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_alert_AlertDescription__java_lang_String__void(/** ?string */ text) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(/**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_description__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_component_alert_AlertSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(AlertDescription.f_SUB_COMPONENT_NAME__org_patternfly_component_alert_AlertDescription, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_description__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
   if (!$Equality.$same(text, null)) {
    this.m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(text);
   }
@@ -57,7 +57,7 @@ class AlertDescription extends SubComponent {
  static $clinit() {
   AlertDescription.$clinit = () =>{};
   AlertDescription.$loadModules();
-  SubComponent.$clinit();
+  AlertSubComponent.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -71,11 +71,13 @@ class AlertDescription extends SubComponent {
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
+/**@const {string} @nodts*/
+AlertDescription.f_SUB_COMPONENT_NAME__org_patternfly_component_alert_AlertDescription = 'ad';
 $Util.$setClassMetadata(AlertDescription, 'org.patternfly.component.alert.AlertDescription');
 
 exports = AlertDescription;

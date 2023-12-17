@@ -1,7 +1,8 @@
 goog.module('org.patternfly.component.navigation.NavigationItem$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const NavigationSubComponent = goog.require('org.patternfly.component.navigation.NavigationSubComponent$impl');
+const WithText = goog.require('org.patternfly.core.WithText$impl');
 
 let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLAnchorElement.$Overlay$impl');
@@ -15,14 +16,15 @@ let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainer
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Dataset = goog.forwardDeclare('org.patternfly.core.Dataset$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLLIElement, NavigationItem>}
+ * @extends {NavigationSubComponent<HTMLLIElement, NavigationItem>}
+ * @implements {WithText<HTMLLIElement, NavigationItem>}
  */
-class NavigationItem extends SubComponent {
+class NavigationItem extends NavigationSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
@@ -32,14 +34,14 @@ class NavigationItem extends SubComponent {
   this.f_a__org_patternfly_component_navigation_NavigationItem;
  }
  /** @nodts @return {NavigationItem} */
- static m_navigationItem__java_lang_String__java_lang_String__org_patternfly_component_navigation_NavigationItem(/** ?string */ id, /** ?string */ title) {
+ static m_navigationItem__java_lang_String__java_lang_String__org_patternfly_component_navigation_NavigationItem(/** ?string */ id, /** ?string */ text) {
   NavigationItem.$clinit();
-  return NavigationItem.$create__java_lang_String__java_lang_String__java_lang_String(id, title, null);
+  return NavigationItem.$create__java_lang_String__java_lang_String__java_lang_String(id, text, null);
  }
  /** @nodts @return {NavigationItem} */
- static m_navigationItem__java_lang_String__java_lang_String__java_lang_String__org_patternfly_component_navigation_NavigationItem(/** ?string */ id, /** ?string */ title, /** ?string */ href) {
+ static m_navigationItem__java_lang_String__java_lang_String__java_lang_String__org_patternfly_component_navigation_NavigationItem(/** ?string */ id, /** ?string */ text, /** ?string */ href) {
   NavigationItem.$clinit();
-  return NavigationItem.$create__java_lang_String__java_lang_String__java_lang_String(id, title, href);
+  return NavigationItem.$create__java_lang_String__java_lang_String__java_lang_String(id, text, href);
  }
  /** @nodts @return {!NavigationItem} */
  static $create__java_lang_String__java_lang_String__java_lang_String(/** ?string */ id, /** ?string */ text, /** ?string */ href) {
@@ -50,12 +52,17 @@ class NavigationItem extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_navigation_NavigationItem__java_lang_String__java_lang_String__java_lang_String__void(/** ?string */ id, /** ?string */ text, /** ?string */ href) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(/**@type {HTMLLIElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLLIElement>}*/ ($Casts.$to(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)));
+  this.$ctor__org_patternfly_component_navigation_NavigationSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(NavigationItem.f_SUB_COMPONENT_NAME__org_patternfly_component_navigation_NavigationItem, /**@type {HTMLLIElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLLIElement>}*/ ($Casts.$to(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)));
   this.f_id__org_patternfly_component_navigation_NavigationItem = id;
-  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_a__org_patternfly_component_navigation_NavigationItem = /**@type {HTMLAnchorElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(Elements.m_a__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_link__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_data__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Dataset.f_navigationItem__org_patternfly_core_Dataset, id), HTMLContainerBuilder)).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(text), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_a__org_patternfly_component_navigation_NavigationItem = /**@type {HTMLAnchorElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(Elements.m_a__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_link__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_data__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Dataset.f_navigationItem__org_patternfly_core_Dataset, id), HTMLContainerBuilder)).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(text), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
   if (!$Equality.$same(href, null)) {
    this.f_a__org_patternfly_component_navigation_NavigationItem.href = href;
   }
+ }
+ /** @nodts @return {NavigationItem} */
+ m_text__java_lang_String__org_patternfly_component_navigation_NavigationItem(/** ?string */ text) {
+  this.f_a__org_patternfly_component_navigation_NavigationItem.textContent = text;
+  return this;
  }
  /** @nodts @return {NavigationItem} */
  m_that__org_patternfly_component_navigation_NavigationItem() {
@@ -71,7 +78,7 @@ class NavigationItem extends SubComponent {
  }
  /** @nodts */
  m_select__void_$pp_org_patternfly_component_navigation() {
-  this.f_a__org_patternfly_component_navigation_NavigationItem.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_layout_Classes));
+  this.f_a__org_patternfly_component_navigation_NavigationItem.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes));
   Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__java_lang_String__void(this.f_a__org_patternfly_component_navigation_NavigationItem, Aria.f_current__org_patternfly_core_Aria, 'page');
   Element_$Overlay.m_scrollIntoView__$devirt__elemental2_dom_Element__boolean__void(this.f_a__org_patternfly_component_navigation_NavigationItem, false);
  }
@@ -80,11 +87,16 @@ class NavigationItem extends SubComponent {
  m_that__org_jboss_elemento_TypedBuilder() {
   return this.m_that__org_patternfly_component_navigation_NavigationItem();
  }
+ //Bridge method.
+ /** @final @override @nodts @return {NavigationItem} */
+ m_text__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0) {
+  return this.m_text__java_lang_String__org_patternfly_component_navigation_NavigationItem(arg0);
+ }
  /** @nodts */
  static $clinit() {
   NavigationItem.$clinit = () =>{};
   NavigationItem.$loadModules();
-  SubComponent.$clinit();
+  NavigationSubComponent.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -104,11 +116,14 @@ class NavigationItem extends SubComponent {
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Dataset = goog.module.get('org.patternfly.core.Dataset$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
+/**@const {string} @nodts*/
+NavigationItem.f_SUB_COMPONENT_NAME__org_patternfly_component_navigation_NavigationItem = 'ni';
+WithText.$markImplementor(NavigationItem);
 $Util.$setClassMetadata(NavigationItem, 'org.patternfly.component.navigation.NavigationItem');
 
 exports = NavigationItem;

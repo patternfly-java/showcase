@@ -12,15 +12,14 @@ goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.EventType');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.jboss.elemento.Id');
-goog.require('org.patternfly.component.ComponentReference');
 goog.require('org.patternfly.component.ComponentType');
-goog.require('org.patternfly.component.SubComponent');
 goog.require('org.patternfly.component.expandable.ExpandableSection');
+goog.require('org.patternfly.component.expandable.ExpandableSectionSubComponent');
 goog.require('org.patternfly.component.expandable.ExpandableSectionToggleText');
 goog.require('org.patternfly.component.icon.InlineIcon');
 goog.require('org.patternfly.core.Aria');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

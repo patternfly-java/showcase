@@ -20,11 +20,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 import org.jboss.elemento.Id;
-import org.patternfly.component.SubComponent;
 import org.patternfly.core.Aria;
 import org.patternfly.handler.ToggleHandler;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
+import elemental2.dom.Event;
 import elemental2.dom.HTMLButtonElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
@@ -43,20 +43,20 @@ import static org.patternfly.core.Aria.labelledBy;
 import static org.patternfly.core.Attributes.hidden;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.core.Dataset.navigationGroup;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.expandable;
-import static org.patternfly.layout.Classes.expanded;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.item;
-import static org.patternfly.layout.Classes.link;
-import static org.patternfly.layout.Classes.list;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.nav;
-import static org.patternfly.layout.Classes.subnav;
-import static org.patternfly.layout.Classes.toggle;
-import static org.patternfly.layout.PredefinedIcon.angleRight;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.expandable;
+import static org.patternfly.style.Classes.expanded;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.item;
+import static org.patternfly.style.Classes.link;
+import static org.patternfly.style.Classes.list;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.nav;
+import static org.patternfly.style.Classes.subnav;
+import static org.patternfly.style.Classes.toggle;
+import static org.patternfly.style.PredefinedIcon.angleRight;
 
-public class ExpandableNavigationGroup extends SubComponent<HTMLLIElement, ExpandableNavigationGroup> {
+public class ExpandableNavigationGroup extends NavigationSubComponent<HTMLLIElement, ExpandableNavigationGroup> {
 
     // ------------------------------------------------------ factory
 
@@ -65,6 +65,8 @@ public class ExpandableNavigationGroup extends SubComponent<HTMLLIElement, Expan
     }
 
     // ------------------------------------------------------ instance
+
+    static final String SUB_COMPONENT_NAME = "eng";
 
     public final String id;
     private final Map<String, NavigationItem> items;
@@ -75,7 +77,7 @@ public class ExpandableNavigationGroup extends SubComponent<HTMLLIElement, Expan
     ToggleHandler<ExpandableNavigationGroup> onToggle;
 
     ExpandableNavigationGroup(String id, String text) {
-        super(li().css(component(nav, item), modifier(expandable))
+        super(SUB_COMPONENT_NAME, li().css(component(nav, item), modifier(expandable))
                 .data(navigationGroup, id)
                 .element());
         this.id = id;
@@ -173,7 +175,7 @@ public class ExpandableNavigationGroup extends SubComponent<HTMLLIElement, Expan
         }
         if (onToggle != null) {
             // !expanded -> state has been toggled!
-            onToggle.onToggle(this, !expanded);
+            onToggle.onToggle(new Event(""), this, !expanded);
         }
     }
 

@@ -1,8 +1,0 @@
-{
-"version":3,
-"file":"Variables.impl.java.js",
-"lineCount":33,
-"mappings":"A;;;;;;;MAiBiB,S;;QAAA,O;EAAAA,4B;EAAAA,yB;;;;;;;;;;;;;;AACb;UAAO,sDAAP,yB;AACA;UAAO,4CAAP,e;AACA;UAAO,2CAAP,c;AACA;UAAO,4CAAP;",
-"sources":["Variables.java"],
-"names":["org.patternfly.layout.Variables.<clinit>"]
-}

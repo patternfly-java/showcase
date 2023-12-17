@@ -15,32 +15,31 @@
  */
 package org.patternfly.component.card;
 
+import org.jboss.elemento.Attachable;
+import org.jboss.elemento.EventType;
 import org.jboss.elemento.Id;
-import org.patternfly.component.ComponentReference;
 import org.patternfly.component.ComponentType;
-import org.patternfly.component.SubComponent;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.Radio;
 import org.patternfly.core.Logger;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLDivElement;
+import elemental2.dom.MutationRecord;
 
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.Radio.radio;
 import static org.patternfly.core.Aria.labelledBy;
-import static org.patternfly.core.SelectionMode.click;
 import static org.patternfly.core.SelectionMode.single;
-import static org.patternfly.layout.Classes.actions;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.disabled;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.screenReader;
-import static org.patternfly.layout.Classes.selectable;
+import static org.patternfly.style.Classes.actions;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.disabled;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.screenReader;
+import static org.patternfly.style.Classes.selectable;
 
-public class CardSelectableActions extends SubComponent<HTMLDivElement, CardSelectableActions> implements
-        ComponentReference<Card> {
+public class CardSelectableActions extends CardSubComponent<HTMLDivElement, CardSelectableActions> implements Attachable {
 
     // ------------------------------------------------------ factory
 
@@ -50,17 +49,19 @@ public class CardSelectableActions extends SubComponent<HTMLDivElement, CardSele
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "csa";
+
     Checkbox checkbox;
     Radio radio;
-    private Card card;
 
     CardSelectableActions() {
-        super(div().css(component(Classes.card, selectable, actions)).element());
+        super(SUB_COMPONENT_NAME, div().css(component(Classes.card, selectable, actions)).element());
+        Attachable.register(this, this);
     }
 
     @Override
-    public void passComponent(Card card) {
-        this.card = card;
+    public void attach(MutationRecord mutationRecord) {
+        Card card = lookupComponent();
         if (card.isSelectable() || card.isClickable()) {
             // we need a card id!
             if (card.element().id == null || card.element().id.isEmpty()) {
@@ -74,15 +75,15 @@ public class CardSelectableActions extends SubComponent<HTMLDivElement, CardSele
             String radioName = card.name;
             if (radioName == null) {
                 radioName = Id.unique(ComponentType.Card.id, "name", "fallback");
-                Logger.undefined(ComponentType.Card,
+                Logger.undefined(ComponentType.Card, card.element(),
                         "Name is undefined for clickable card '" + cardId + "'.\n" +
                                 "You should provide a common name for all clickable cards using 'Card.name(String)'.\n" +
                                 "Fallback to generated name '" + radioName + "', which will cause selection issues!");
             }
             add(radio = radio(selectId, radioName).standalone(false));
-            radio.inputElement().classList.add(screenReader);
-            radio.inputElement().setAttribute(labelledBy, cardId);
-            radio.inputElement().addEventListener(click.name(), card::click);
+            radio.inputElement().css(screenReader);
+            radio.inputElement().aria(labelledBy, cardId);
+            radio.inputElement().on(EventType.click, card::click);
             if (card.element().classList.contains(modifier(disabled))) {
                 radio.disabled(true);
             }
@@ -94,7 +95,7 @@ public class CardSelectableActions extends SubComponent<HTMLDivElement, CardSele
                 String radioName = card.name;
                 if (radioName == null) {
                     radioName = Id.unique(ComponentType.Card.id, "name", "fallback");
-                    Logger.undefined(ComponentType.Card,
+                    Logger.undefined(ComponentType.Card, card.element(),
                             "Name is undefined for single selectable card '" + cardId + "'.\n" +
                                     "You must provide a common name for all single selectable cards using 'Card.name(String)'.\n"
                                     +
@@ -102,26 +103,30 @@ public class CardSelectableActions extends SubComponent<HTMLDivElement, CardSele
                 }
                 add(radio = radio(selectId, radioName)
                         .standalone(false)
-                        .onChange((r, selected) -> card.internalSelect(selected, true)));
-                radio.inputElement().setAttribute(labelledBy, cardId);
+                        .onChange((e, r, selected) -> card.internalSelect(selected, true)));
+                radio.inputElement().aria(labelledBy, cardId);
                 if (card.element().classList.contains(modifier(disabled))) {
                     radio.disabled(true);
                 }
             } else { // multi
-                add(checkbox = checkbox(selectId)
+                String checkboxName = card.name;
+                if (checkboxName == null) {
+                    checkboxName = Id.unique(ComponentType.Card.id, "name", "fallback");
+                    Logger.undefined(ComponentType.Card, card.element(),
+                            "Name is undefined for multi-select card '" + cardId + "'.\n" +
+                                    "You must provide a common name for all selectable cards using 'Card.name(String)'.\n"
+                                    +
+                                    "Fallback to generated name '" + checkboxName + "', which will cause selection issues!");
+                }
+                add(checkbox = checkbox(selectId, checkboxName)
                         .standalone(false)
-                        .onChange((c, selected) -> card.internalSelect(selected, true)));
-                checkbox.inputElement().setAttribute(labelledBy, cardId);
+                        .onChange((e, c, selected) -> card.internalSelect(selected, true)));
+                checkbox.inputElement().aria(labelledBy, cardId);
                 if (card.element().classList.contains(modifier(disabled))) {
                     checkbox.disabled(true);
                 }
             }
         }
-    }
-
-    @Override
-    public Card mainComponent() {
-        return card;
     }
 
     // ------------------------------------------------------ builder
@@ -144,10 +149,10 @@ public class CardSelectableActions extends SubComponent<HTMLDivElement, CardSele
 
     void markSelected(boolean selected) {
         if (checkbox != null) {
-            checkbox.inputElement().checked = selected;
+            checkbox.inputElement().element().checked = selected;
         }
         if (radio != null) {
-            radio.inputElement().checked = selected;
+            radio.inputElement().element().checked = selected;
         }
     }
 }

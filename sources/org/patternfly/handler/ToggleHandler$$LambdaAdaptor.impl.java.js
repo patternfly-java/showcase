@@ -10,23 +10,23 @@ const ToggleHandler = goog.require('org.patternfly.handler.ToggleHandler$impl');
  */
 class $LambdaAdaptor extends j_l_Object {
  /** @nodts */
- constructor(/** ?function(C, boolean):void */ fn) {
+ constructor(/** ?function(Event, C, boolean):void */ fn) {
   $LambdaAdaptor.$clinit();
   super();
-  /**@type {?function(C, boolean):void} @nodts*/
+  /**@type {?function(Event, C, boolean):void} @nodts*/
   this.f_fn__org_patternfly_handler_ToggleHandler_$LambdaAdaptor;
   this.$ctor__org_patternfly_handler_ToggleHandler_$LambdaAdaptor__org_patternfly_handler_ToggleHandler_$JsFunction__void(fn);
  }
  /** @nodts */
- $ctor__org_patternfly_handler_ToggleHandler_$LambdaAdaptor__org_patternfly_handler_ToggleHandler_$JsFunction__void(/** ?function(C, boolean):void */ fn) {
+ $ctor__org_patternfly_handler_ToggleHandler_$LambdaAdaptor__org_patternfly_handler_ToggleHandler_$JsFunction__void(/** ?function(Event, C, boolean):void */ fn) {
   this.$ctor__java_lang_Object__void();
   this.f_fn__org_patternfly_handler_ToggleHandler_$LambdaAdaptor = fn;
  }
  /** @override @nodts */
- m_onToggle__java_lang_Object__boolean__void(/** C */ arg0, /** boolean */ arg1) {
+ m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(/** Event */ arg0, /** C */ arg1, /** boolean */ arg2) {
   {
    let $function = this.f_fn__org_patternfly_handler_ToggleHandler_$LambdaAdaptor;
-   $function(arg0, arg1);
+   $function(arg0, arg1, arg2);
   }
  }
  /** @nodts */

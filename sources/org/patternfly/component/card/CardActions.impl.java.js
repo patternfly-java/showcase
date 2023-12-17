@@ -1,8 +1,7 @@
 goog.module('org.patternfly.component.card.CardActions$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const CardSubComponent = goog.require('org.patternfly.component.card.CardSubComponent$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
@@ -11,16 +10,15 @@ let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Card = goog.forwardDeclare('org.patternfly.component.card.Card$impl');
 let CardSelectableActions = goog.forwardDeclare('org.patternfly.component.card.CardSelectableActions$impl');
-let Modifiers = goog.forwardDeclare('org.patternfly.core.Modifiers$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let Modifiers = goog.forwardDeclare('org.patternfly.style.Modifiers$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLDivElement, CardActions>}
- * @implements {ComponentReference<Card>}
+ * @extends {CardSubComponent<HTMLDivElement, CardActions>}
  */
-class CardActions extends SubComponent {
+class CardActions extends CardSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
@@ -43,18 +41,7 @@ class CardActions extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_card_CardActions__void() {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(/**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_card__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_actions__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
- }
- /** @nodts */
- m_passComponent__org_patternfly_component_card_Card__void(/** Card */ card) {
-  this.f_card__org_patternfly_component_card_CardActions_ = card;
-  if (!$Equality.$same(this.f_selectableActions__org_patternfly_component_card_CardActions, null)) {
-   this.f_selectableActions__org_patternfly_component_card_CardActions.m_passComponent__org_patternfly_component_card_Card__void(card);
-  }
- }
- /** @nodts @return {Card} */
- m_mainComponent__org_patternfly_component_card_Card() {
-  return this.f_card__org_patternfly_component_card_CardActions_;
+  this.$ctor__org_patternfly_component_card_CardSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(CardActions.f_SUB_COMPONENT_NAME__org_patternfly_component_card_CardActions, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_card__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_actions__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
  }
  /** @nodts @return {CardActions} */
  m_addSelectableActions__org_patternfly_component_card_CardSelectableActions__org_patternfly_component_card_CardActions(/** CardSelectableActions */ selectableActions) {
@@ -71,7 +58,7 @@ class CardActions extends SubComponent {
  }
  /** @nodts @return {CardActions} */
  m_noOffset__boolean__org_patternfly_component_card_CardActions(/** boolean */ noOffset) {
-  return /**@type {CardActions}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_noOffset__org_patternfly_layout_Classes, noOffset), CardActions));
+  return /**@type {CardActions}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_noOffset__org_patternfly_style_Classes, noOffset), CardActions));
  }
  /** @nodts @return {CardActions} */
  m_that__org_patternfly_component_card_CardActions() {
@@ -84,16 +71,6 @@ class CardActions extends SubComponent {
   }
  }
  //Bridge method.
- /** @final @override @nodts @return {Card} */
- m_mainComponent__org_patternfly_component_BaseComponent() {
-  return this.m_mainComponent__org_patternfly_component_card_Card();
- }
- //Bridge method.
- /** @final @override @nodts */
- m_passComponent__org_patternfly_component_BaseComponent__void(/** Card */ arg0) {
-  this.m_passComponent__org_patternfly_component_card_Card__void(/**@type {Card}*/ ($Casts.$to(arg0, Card)));
- }
- //Bridge method.
  /** @final @override @nodts @return {CardActions} */
  m_that__org_jboss_elemento_TypedBuilder() {
   return this.m_that__org_patternfly_component_card_CardActions();
@@ -102,7 +79,7 @@ class CardActions extends SubComponent {
  static $clinit() {
   CardActions.$clinit = () =>{};
   CardActions.$loadModules();
-  SubComponent.$clinit();
+  CardSubComponent.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -116,14 +93,14 @@ class CardActions extends SubComponent {
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
-  Card = goog.module.get('org.patternfly.component.card.Card$impl');
-  Modifiers = goog.module.get('org.patternfly.core.Modifiers$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  Modifiers = goog.module.get('org.patternfly.style.Modifiers$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
-ComponentReference.$markImplementor(CardActions);
+/**@const {string} @nodts*/
+CardActions.f_SUB_COMPONENT_NAME__org_patternfly_component_card_CardActions = 'ca';
 $Util.$setClassMetadata(CardActions, 'org.patternfly.component.card.CardActions');
 
 exports = CardActions;

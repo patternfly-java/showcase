@@ -1,20 +1,20 @@
 goog.module('org.patternfly.component.code.CodeEditorTabText$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
-const SubComponent = goog.require('org.patternfly.component.SubComponent$impl');
+const CodeEditorSubComponent = goog.require('org.patternfly.component.code.CodeEditorSubComponent$impl');
 
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
- * @extends {SubComponent<HTMLElement, CodeEditorTabText>}
+ * @extends {CodeEditorSubComponent<HTMLElement, CodeEditorTabText>}
  */
-class CodeEditorTabText extends SubComponent {
+class CodeEditorTabText extends CodeEditorSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
@@ -38,7 +38,7 @@ class CodeEditorTabText extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_code_CodeEditorTabText__java_lang_String__void(/** ?string */ text) {
-  this.$ctor__org_patternfly_component_SubComponent__elemental2_dom_HTMLElement__void(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_codeEditor__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_tab__org_patternfly_layout_Classes, Classes.f_text__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
+  this.$ctor__org_patternfly_component_code_CodeEditorSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(CodeEditorTabText.f_SUB_COMPONENT_NAME__org_patternfly_component_code_CodeEditorTabText, /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_codeEditor__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_tab__org_patternfly_style_Classes, Classes.f_text__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   if (!$Equality.$same(text, null)) {
    this.m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(text);
   }
@@ -56,7 +56,7 @@ class CodeEditorTabText extends SubComponent {
  static $clinit() {
   CodeEditorTabText.$clinit = () =>{};
   CodeEditorTabText.$loadModules();
-  SubComponent.$clinit();
+  CodeEditorSubComponent.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -69,11 +69,13 @@ class CodeEditorTabText extends SubComponent {
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
+/**@const {string} @nodts*/
+CodeEditorTabText.f_SUB_COMPONENT_NAME__org_patternfly_component_code_CodeEditorTabText = 'cett';
 $Util.$setClassMetadata(CodeEditorTabText, 'org.patternfly.component.code.CodeEditorTabText');
 
 exports = CodeEditorTabText;

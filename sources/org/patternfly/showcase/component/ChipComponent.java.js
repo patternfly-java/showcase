@@ -10,8 +10,8 @@ goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.patternfly.component.badge.Badge');
 goog.require('org.patternfly.component.chip.Chip');
 goog.require('org.patternfly.component.chip.ChipGroup');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
 goog.require('vmbootstrap.Casts');
 
 const ChipComponent = goog.require('org.patternfly.showcase.component.ChipComponent$impl');

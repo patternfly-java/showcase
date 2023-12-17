@@ -34,7 +34,7 @@ class Tabs extends BaseComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_tabs_Tabs__void() {
-  this.$ctor__org_patternfly_component_BaseComponent__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), $Overlay)), /**@type {ComponentType}*/ (null));
+  this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(/**@type {ComponentType}*/ (null), /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), $Overlay)));
  }
  /** @nodts @return {Tabs} */
  m_addFoo__org_patternfly_component_tabs_Tabs() {

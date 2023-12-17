@@ -15,20 +15,19 @@
  */
 package org.patternfly.component.menu;
 
-import org.patternfly.component.SubComponent;
 import org.patternfly.core.Aria;
-import org.patternfly.core.Modifiers.Disabled;
 import org.patternfly.handler.ComponentHandler;
+import org.patternfly.style.Modifiers.Disabled;
 
 import elemental2.dom.HTMLButtonElement;
 
 import static org.jboss.elemento.Elements.button;
 import static org.jboss.elemento.EventType.click;
-import static org.patternfly.layout.Classes.button;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.menuToggle;
+import static org.patternfly.style.Classes.button;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.menuToggle;
 
-public class MenuToggleAction extends SubComponent<HTMLButtonElement, MenuToggleAction>
+public class MenuToggleAction extends MenuToggleSubComponent<HTMLButtonElement, MenuToggleAction>
         implements Disabled<HTMLButtonElement, MenuToggleAction> {
 
     // ------------------------------------------------------ factory
@@ -39,8 +38,10 @@ public class MenuToggleAction extends SubComponent<HTMLButtonElement, MenuToggle
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "mta";
+
     MenuToggleAction(String text) {
-        super(button().css(component(menuToggle, button))
+        super(SUB_COMPONENT_NAME, button().css(component(menuToggle, button))
                 .textContent(text)
                 .element());
     }

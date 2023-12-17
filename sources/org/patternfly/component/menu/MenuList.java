@@ -19,12 +19,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import org.patternfly.component.ComponentReference;
-import org.patternfly.component.SubComponent;
+import org.jboss.elemento.Attachable;
 import org.patternfly.core.Aria;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLUListElement;
+import elemental2.dom.MutationRecord;
 
 import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.ul;
@@ -36,10 +36,10 @@ import static org.patternfly.component.menu.MenuItemType.link;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.core.SelectionMode.multi;
 import static org.patternfly.core.SelectionMode.single;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.list;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.list;
 
-public class MenuList extends SubComponent<HTMLUListElement, MenuList> implements ComponentReference<Menu> {
+public class MenuList extends MenuSubComponent<HTMLUListElement, MenuList> implements Attachable {
 
     // ------------------------------------------------------ factory
 
@@ -52,17 +52,19 @@ public class MenuList extends SubComponent<HTMLUListElement, MenuList> implement
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "ml";
+
     final Map<String, MenuItem> items;
-    private Menu menu;
 
     MenuList() {
-        super(ul().css(component(Classes.menu, list)).attr(role, "menu").element());
+        super(SUB_COMPONENT_NAME, ul().css(component(Classes.menu, list)).attr(role, "menu").element());
         this.items = new HashMap<>();
+        Attachable.register(this, this);
     }
 
     @Override
-    public void passComponent(Menu menu) {
-        this.menu = menu;
+    public void attach(MutationRecord mutationRecord) {
+        Menu menu = lookupComponent();
         switch (menu.menuType) {
             case menu:
             case dropdown:
@@ -77,14 +79,6 @@ public class MenuList extends SubComponent<HTMLUListElement, MenuList> implement
         } else if (menu.selectionMode == multi) {
             aria(Aria.multiSelectable, true);
         }
-        for (MenuItem menuItem : items.values()) {
-            menuItem.passComponent(menu);
-        }
-    }
-
-    @Override
-    public Menu mainComponent() {
-        return menu;
     }
 
     // ------------------------------------------------------ add
@@ -116,11 +110,6 @@ public class MenuList extends SubComponent<HTMLUListElement, MenuList> implement
     // override to assure internal wiring
     public MenuList add(MenuItem item) {
         items.put(item.id, item);
-        // If this component is already attached, call passComponent() manually (normally this takes place
-        // automatically initiated by the base component's attach handler).
-        if (element().isConnected) {
-            item.passComponent(menu);
-        }
         return add(item.element());
     }
 

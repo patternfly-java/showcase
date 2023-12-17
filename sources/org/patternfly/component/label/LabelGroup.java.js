@@ -32,9 +32,9 @@ goog.require('org.patternfly.core.Attributes');
 goog.require('org.patternfly.core.Closeable');
 goog.require('org.patternfly.core.HasValues');
 goog.require('org.patternfly.handler.CloseHandler');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.Color');
-goog.require('org.patternfly.layout.PredefinedIcon');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Color');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

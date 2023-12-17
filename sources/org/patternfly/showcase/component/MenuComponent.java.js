@@ -26,10 +26,10 @@ goog.require('org.patternfly.core.SelectionMode');
 goog.require('org.patternfly.handler.ComponentHandler');
 goog.require('org.patternfly.handler.MultiSelectHandler');
 goog.require('org.patternfly.handler.SelectHandler');
-goog.require('org.patternfly.layout.PredefinedIcon');
 goog.require('org.patternfly.showcase.LoremIpsum');
-goog.require('org.patternfly.showcase.component.ComponentPage');
-goog.require('org.patternfly.showcase.component.Snippet');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Casts');
 
 const MenuComponent = goog.require('org.patternfly.showcase.component.MenuComponent$impl');

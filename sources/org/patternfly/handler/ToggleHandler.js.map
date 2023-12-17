@@ -2,7 +2,7 @@
 "version":3,
 "file":"ToggleHandler.impl.java.js",
 "lineCount":22,
-"mappings":"A;;;;;;;;;;MAkBiB,a;;CAER,2C,UAAWA,S,iBAAmBC,Q;;QAFtB,M;EAAAC,wB;EAAAA,gE;;;QAAA,O;EAAAC,gC;EAAAA;",
+"mappings":"A;;;;;;;;;;MAoBiB,a;;CAER,iE,cAAeA,K,WAASC,S,iBAAmBC,Q;;QAFnC,M;EAAAC,wB;EAAAA,gE;;;QAAA,O;EAAAC,gC;EAAAA;",
 "sources":["ToggleHandler.java"],
-"names":["component","expanded","org.patternfly.handler.ToggleHandler.<synthetic: adapt_lambda>","org.patternfly.handler.ToggleHandler.<clinit>"]
+"names":["event","component","expanded","org.patternfly.handler.ToggleHandler.<synthetic: adapt_lambda>","org.patternfly.handler.ToggleHandler.<clinit>"]
 }

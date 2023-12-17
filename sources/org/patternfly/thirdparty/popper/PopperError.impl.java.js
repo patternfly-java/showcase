@@ -4,9 +4,9 @@ const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 const Popper = goog.require('org.patternfly.thirdparty.popper.Popper$impl');
 
+let Callback = goog.forwardDeclare('org.jboss.elemento.Callback$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
-let Callback = goog.forwardDeclare('org.patternfly.handler.Callback$impl');
 
 /**
  * @implements {Popper}
@@ -32,20 +32,20 @@ class PopperError extends j_l_Object {
  }
  /** @override @nodts @return {Promise<Object>} */
  m_update__elemental2_promise_Promise() {
-  Logger.m_undefined__org_patternfly_component_ComponentType__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
+  Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, null, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
   return null;
  }
  /** @override @nodts */
- m_show__org_patternfly_handler_Callback__void(/** Callback */ visible) {
-  Logger.m_undefined__org_patternfly_component_ComponentType__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
+ m_show__org_jboss_elemento_Callback__void(/** Callback */ visible) {
+  Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, null, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
  }
  /** @override @nodts */
- m_hide__org_patternfly_handler_Callback__void(/** Callback */ hidden) {
-  Logger.m_undefined__org_patternfly_component_ComponentType__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
+ m_hide__org_jboss_elemento_Callback__void(/** Callback */ hidden) {
+  Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, null, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
  }
  /** @override @nodts */
  m_cleanup__void() {
-  Logger.m_undefined__org_patternfly_component_ComponentType__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
+  Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.f_componentType__org_patternfly_thirdparty_popper_PopperError_, null, PopperError.f_ERROR_MESSAGE__org_patternfly_thirdparty_popper_PopperError_);
  }
  /** @nodts */
  static $clinit() {

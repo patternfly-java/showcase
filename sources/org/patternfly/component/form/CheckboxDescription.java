@@ -15,16 +15,15 @@
  */
 package org.patternfly.component.form;
 
-import org.patternfly.component.SubComponent;
-import org.patternfly.layout.Classes;
+import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.span;
-import static org.patternfly.layout.Classes.check;
-import static org.patternfly.layout.Classes.component;
+import static org.patternfly.style.Classes.check;
+import static org.patternfly.style.Classes.component;
 
-public class CheckboxDescription extends SubComponent<HTMLElement, CheckboxDescription> {
+public class CheckboxDescription extends CheckboxSubComponent<HTMLElement, CheckboxDescription> {
 
     // ------------------------------------------------------ factory
 
@@ -38,9 +37,10 @@ public class CheckboxDescription extends SubComponent<HTMLElement, CheckboxDescr
 
     // ------------------------------------------------------ instance
 
+    static final String SUB_COMPONENT_NAME = "cbd";
+
     CheckboxDescription(String description) {
-        super(span().css(component(check, Classes.description))
-                .element());
+        super(SUB_COMPONENT_NAME, span().css(component(check, Classes.description)).element());
         if (description != null) {
             element().textContent = description;
         }

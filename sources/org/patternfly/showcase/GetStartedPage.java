@@ -23,13 +23,14 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.style.Brightness.light;
 
 class GetStartedPage implements Page {
 
     @Override
     public Iterable<HTMLElement> elements() {
         return singletonList(pageMainSection()
-                .light()
+                .background(light)
                 .css("sc-page")
                 .add(textContent()
                         .add(title(1, "Get started"))

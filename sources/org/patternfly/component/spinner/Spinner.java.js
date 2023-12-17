@@ -11,10 +11,10 @@ goog.require('org.patternfly.component.BaseComponentSVG');
 goog.require('org.patternfly.component.ComponentType');
 goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.Attributes');
-goog.require('org.patternfly.core.Modifiers.Inline');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.Size');
-goog.require('org.patternfly.layout.Variable');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Modifiers.Inline');
+goog.require('org.patternfly.style.Size');
+goog.require('org.patternfly.style.Variable');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

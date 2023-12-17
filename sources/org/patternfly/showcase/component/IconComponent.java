@@ -17,6 +17,8 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.icon.Icon;
 import org.patternfly.showcase.LoremIpsum;
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
@@ -31,24 +33,24 @@ import static org.patternfly.core.Status.danger;
 import static org.patternfly.core.Status.info;
 import static org.patternfly.core.Status.success;
 import static org.patternfly.core.Status.warning;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.angleDown;
-import static org.patternfly.layout.PredefinedIcon.angleRight;
-import static org.patternfly.layout.PredefinedIcon.bell;
-import static org.patternfly.layout.PredefinedIcon.check;
-import static org.patternfly.layout.PredefinedIcon.checkCircle;
-import static org.patternfly.layout.PredefinedIcon.exclamationCircle;
-import static org.patternfly.layout.PredefinedIcon.exclamationTriangle;
-import static org.patternfly.layout.PredefinedIcon.fas;
-import static org.patternfly.layout.PredefinedIcon.infoCircle;
-import static org.patternfly.layout.PredefinedIcon.plusCircle;
-import static org.patternfly.layout.Size.lg;
-import static org.patternfly.layout.Size.md;
-import static org.patternfly.layout.Size.sm;
-import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.angleDown;
+import static org.patternfly.style.PredefinedIcon.angleRight;
+import static org.patternfly.style.PredefinedIcon.bell;
+import static org.patternfly.style.PredefinedIcon.check;
+import static org.patternfly.style.PredefinedIcon.checkCircle;
+import static org.patternfly.style.PredefinedIcon.exclamationCircle;
+import static org.patternfly.style.PredefinedIcon.exclamationTriangle;
+import static org.patternfly.style.PredefinedIcon.fas;
+import static org.patternfly.style.PredefinedIcon.infoCircle;
+import static org.patternfly.style.PredefinedIcon.plusCircle;
+import static org.patternfly.style.Size.lg;
+import static org.patternfly.style.Size.md;
+import static org.patternfly.style.Size.sm;
+import static org.patternfly.style.Size.xl;
 
-public class IconComponent extends ComponentPage {
+public class IconComponent extends SnippetPage {
 
     public IconComponent() {
         super("Icon",
@@ -163,8 +165,8 @@ public class IconComponent extends ComponentPage {
                     Icon icon = icon(checkCircle);
                     return div()
                             .add(div().css(util("mb-md"))
-                                    .add(checkbox("in-progress-cb", "Toggle in progress state")
-                                            .onChange((checkBox, value) -> icon.progress(value))))
+                                    .add(checkbox("in-progress-cb", "in-progress-cb", "Toggle in progress state")
+                                            .onChange((e, c, value) -> icon.progress(value))))
                             .add(icon)
                             .element();
                     // @code-end:icon-in-progress
@@ -176,8 +178,8 @@ public class IconComponent extends ComponentPage {
                     Icon icon = icon(checkCircle);
                     return div()
                             .add(div().css(util("mb-md"))
-                                    .add(checkbox("in-progress-custom-cb", "Toggle in progress state")
-                                            .onChange((checkBox, value) -> icon.progress(value,
+                                    .add(checkbox("in-progress-custom-cb", "in-progress-custom-cb", "Toggle in progress state")
+                                            .onChange((e, c, value) -> icon.progress(value,
                                                     spinner -> spinner.diameter("2em")))))
                             .add(icon)
                             .element();

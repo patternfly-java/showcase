@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"ToolbarGroup.impl.java.js",
-"lineCount":51,
-"mappings":"A;;;;;;;;;;;;;;;;MAgCa,Y;;CAAA,W;EAAAA,Q;;;QAOkB,6D;EAAeC,uB;EACtCA,gC;;;QAKJ,S;EAAAC,uB;EAAAA,mC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EACIC,mrB;;;CAMgB,qD;EAChBC,Y;;;;CArBK,uC;EAAAA,oE;;;QAAA,O;EAAAC,+B;EAAAA,4B;EAAAA;",
+"lineCount":70,
+"mappings":"A;;;;;;;;;;;;;;;;MA8Ba,Y;;CAAA,W;EAAAA,Q;;;QAOkB,6D;EAAeC,uB;EACtCA,gC;;;QAOJ,S;EAAAC,uB;EAAAA,mC;EAAAA,uE;EAAAA,iB;;;CAAA,0D;EACIC,oyB;;;CAMgB,qD;EAChBC,Y;;;;CAvBK,uC;EAAAA,oE;;;QAAA,O;EAAAC,+B;EAAAA,4B;EAAAA,8B;;;;;;;;;;;;;;;;;;AAaT;aAAoB,mEAApB;",
 "sources":["ToolbarGroup.java"],
 "names":["org.patternfly.component.toolbar.ToolbarGroup.<synthetic: ctor_js>","org.patternfly.component.toolbar.ToolbarGroup.toolbarGroup","org.patternfly.component.toolbar.ToolbarGroup.<synthetic: ctor_create>","org.patternfly.component.toolbar.ToolbarGroup.<init>","org.patternfly.component.toolbar.ToolbarGroup.that","org.patternfly.component.toolbar.ToolbarGroup.<clinit>"]
 }

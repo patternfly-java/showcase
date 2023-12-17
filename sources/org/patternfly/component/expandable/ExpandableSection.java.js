@@ -22,10 +22,10 @@ goog.require('org.patternfly.core.Aria');
 goog.require('org.patternfly.core.Dataset');
 goog.require('org.patternfly.core.Expandable');
 goog.require('org.patternfly.handler.ToggleHandler');
-goog.require('org.patternfly.layout.Classes');
-goog.require('org.patternfly.layout.Size');
-goog.require('org.patternfly.layout.Variable');
-goog.require('org.patternfly.layout.Variables');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Size');
+goog.require('org.patternfly.style.Variable');
+goog.require('org.patternfly.style.Variables');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

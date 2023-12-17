@@ -19,16 +19,16 @@ import org.jboss.elemento.svg.SVGElement;
 import org.patternfly.component.BaseComponentSVG;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Aria;
-import org.patternfly.core.Modifiers.Inline;
-import org.patternfly.layout.Size;
+import org.patternfly.style.Modifiers.Inline;
+import org.patternfly.style.Size;
 
 import static org.jboss.elemento.svg.SVG.circle;
 import static org.jboss.elemento.svg.SVG.svg;
 import static org.patternfly.core.Attributes.role;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.path;
-import static org.patternfly.layout.Classes.spinner;
-import static org.patternfly.layout.Variable.componentVar;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.path;
+import static org.patternfly.style.Classes.spinner;
+import static org.patternfly.style.Variable.componentVar;
 
 /**
  * A spinner is used to indicate to users that an action is in progress. For actions that may take a long time, use a progress
@@ -59,7 +59,7 @@ public class Spinner extends BaseComponentSVG<SVGElement, Spinner> implements In
     // ------------------------------------------------------ instance
 
     protected Spinner(Size size, String label) {
-        super(svg().css(component(spinner))
+        super(ComponentType.Spinner, svg().css(component(spinner))
                 .attr(role, "progressbar")
                 .attr("viewBox", "0 0 100 100")
                 .aria(Aria.label, label)
@@ -68,17 +68,16 @@ public class Spinner extends BaseComponentSVG<SVGElement, Spinner> implements In
                         .attr("cy", 50)
                         .attr("r", 45)
                         .attr("fill", "none"))
-                .element(),
-                ComponentType.Spinner);
+                .element());
         if (size != null) {
-            css(size.modifier);
+            css(size.modifier());
         }
     }
 
     // ------------------------------------------------------ builder
 
     public Spinner size(Size size) {
-        return css(size.modifier);
+        return css(size.modifier());
     }
 
     public Spinner diameter(String diameter) {

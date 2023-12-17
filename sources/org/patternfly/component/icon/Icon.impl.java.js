@@ -2,8 +2,8 @@ goog.module('org.patternfly.component.icon.Icon$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
-const Inline = goog.require('org.patternfly.core.Modifiers.Inline$impl');
 const WithProgress = goog.require('org.patternfly.core.WithProgress$impl');
+const Inline = goog.require('org.patternfly.style.Modifiers.Inline$impl');
 
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
@@ -15,9 +15,9 @@ let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$
 let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
 let Spinner = goog.forwardDeclare('org.patternfly.component.spinner.Spinner$impl');
 let Status = goog.forwardDeclare('org.patternfly.core.Status$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
-let Size = goog.forwardDeclare('org.patternfly.layout.Size$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
+let Size = goog.forwardDeclare('org.patternfly.style.Size$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -40,36 +40,41 @@ class Icon extends BaseComponent {
   this.f_spinner__org_patternfly_component_icon_Icon_;
  }
  /** @nodts @return {Icon} */
- static m_icon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_Icon(/** PredefinedIcon */ predefinedIcon) {
-  Icon.$clinit();
-  return Icon.$create__java_lang_String(predefinedIcon.f_className__org_patternfly_layout_PredefinedIcon);
- }
- /** @nodts @return {Icon} */
  static m_icon__java_lang_String__org_patternfly_component_icon_Icon(/** ?string */ iconClass) {
   Icon.$clinit();
-  return Icon.$create__java_lang_String(iconClass);
+  return Icon.$create__org_patternfly_component_icon_InlineIcon(InlineIcon.m_inlineIcon__java_lang_String__org_patternfly_component_icon_InlineIcon(iconClass));
+ }
+ /** @nodts @return {Icon} */
+ static m_icon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_Icon(/** PredefinedIcon */ predefinedIcon) {
+  Icon.$clinit();
+  return Icon.$create__org_patternfly_component_icon_InlineIcon(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(predefinedIcon));
+ }
+ /** @nodts @return {Icon} */
+ static m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_icon_Icon(/** InlineIcon */ icon) {
+  Icon.$clinit();
+  return Icon.$create__org_patternfly_component_icon_InlineIcon(icon);
  }
  /** @nodts @return {!Icon} */
- static $create__java_lang_String(/** ?string */ iconClass) {
+ static $create__org_patternfly_component_icon_InlineIcon(/** InlineIcon */ icon) {
   Icon.$clinit();
   let $instance = new Icon();
-  $instance.$ctor__org_patternfly_component_icon_Icon__java_lang_String__void(iconClass);
+  $instance.$ctor__org_patternfly_component_icon_Icon__org_patternfly_component_icon_InlineIcon__void(icon);
   return $instance;
  }
  /** @nodts */
- $ctor__org_patternfly_component_icon_Icon__java_lang_String__void(/** ?string */ iconClass) {
-  this.$ctor__org_patternfly_component_BaseComponent__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__java_lang_String__org_patternfly_component_icon_InlineIcon(iconClass)), HTMLContainerBuilder))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), ComponentType.f_Icon__org_patternfly_component_ComponentType);
-  this.f_content__org_patternfly_component_icon_Icon_ = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_layout_Classes], j_l_String)))));
+ $ctor__org_patternfly_component_icon_Icon__org_patternfly_component_icon_InlineIcon__void(/** InlineIcon */ icon) {
+  this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Icon__org_patternfly_component_ComponentType, /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(icon), HTMLContainerBuilder))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
+  this.f_content__org_patternfly_component_icon_Icon_ = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_content__org_patternfly_style_Classes], j_l_String)))));
  }
  /** @nodts @return {Icon} */
- m_size__org_patternfly_layout_Size__org_patternfly_component_icon_Icon(/** Size */ size) {
+ m_size__org_patternfly_style_Size__org_patternfly_component_icon_Icon(/** Size */ size) {
   this.f_size__org_patternfly_component_icon_Icon_ = size;
-  return /**@type {Icon}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([size.f_modifier__org_patternfly_layout_Size], j_l_String))), Icon));
+  return /**@type {Icon}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([size.m_modifier__java_lang_String()], j_l_String))), Icon));
  }
  /** @nodts @return {Icon} */
- m_iconSize__org_patternfly_layout_Size__org_patternfly_component_icon_Icon(/** Size */ size) {
+ m_iconSize__org_patternfly_style_Size__org_patternfly_component_icon_Icon(/** Size */ size) {
   this.f_iconSize__org_patternfly_component_icon_Icon_ = size;
-  this.f_content__org_patternfly_component_icon_Icon_.classList.add(this.f_iconSize__org_patternfly_component_icon_Icon_.f_modifier__org_patternfly_layout_Size);
+  this.f_content__org_patternfly_component_icon_Icon_.classList.add(this.f_iconSize__org_patternfly_component_icon_Icon_.m_modifier__java_lang_String());
   return this;
  }
  /** @nodts @return {Icon} */
@@ -79,26 +84,26 @@ class Icon extends BaseComponent {
  }
  /** @nodts @return {Icon} */
  m_progress__boolean__java_lang_String__java_util_function_Consumer__org_patternfly_component_icon_Icon(/** boolean */ inProgress, /** ?string */ label, /** Consumer<Spinner> */ spinnerConsumer) {
-  let element = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_progress__org_patternfly_layout_Classes], j_l_String)))));
+  let element = this.m_find__org_jboss_elemento_By__elemental2_dom_HTMLElement(By.m_classname__java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_progress__org_patternfly_style_Classes], j_l_String)))));
   Elements.m_failSafeRemoveFromParent__elemental2_dom_Element__boolean(element);
   if (inProgress) {
-   this.m_element__elemental2_dom_HTMLElement().classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inProgress__org_patternfly_layout_Classes));
+   this.m_element__elemental2_dom_HTMLElement().classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inProgress__org_patternfly_style_Classes));
    if ($Equality.$same(this.f_spinner__org_patternfly_component_icon_Icon_, null)) {
     this.f_spinner__org_patternfly_component_icon_Icon_ = Spinner.m_spinner__java_lang_String__org_patternfly_component_spinner_Spinner(label);
     if (!$Equality.$same(this.f_size__org_patternfly_component_icon_Icon_, null)) {
-     this.f_spinner__org_patternfly_component_icon_Icon_.m_size__org_patternfly_layout_Size__org_patternfly_component_spinner_Spinner(this.f_size__org_patternfly_component_icon_Icon_);
+     this.f_spinner__org_patternfly_component_icon_Icon_.m_size__org_patternfly_style_Size__org_patternfly_component_spinner_Spinner(this.f_size__org_patternfly_component_icon_Icon_);
     } else if (!$Equality.$same(this.f_iconSize__org_patternfly_component_icon_Icon_, null)) {
-     this.f_spinner__org_patternfly_component_icon_Icon_.m_size__org_patternfly_layout_Size__org_patternfly_component_spinner_Spinner(this.f_iconSize__org_patternfly_component_icon_Icon_);
+     this.f_spinner__org_patternfly_component_icon_Icon_.m_size__org_patternfly_style_Size__org_patternfly_component_spinner_Spinner(this.f_iconSize__org_patternfly_component_icon_Icon_);
     } else {
-     this.f_spinner__org_patternfly_component_icon_Icon_.m_size__org_patternfly_layout_Size__org_patternfly_component_spinner_Spinner(Size.f_md__org_patternfly_layout_Size);
+     this.f_spinner__org_patternfly_component_icon_Icon_.m_size__org_patternfly_style_Size__org_patternfly_component_spinner_Spinner(Size.f_md__org_patternfly_style_Size);
     }
    }
    if (!$Equality.$same(spinnerConsumer, null)) {
     spinnerConsumer.m_accept__java_lang_Object__void(this.f_spinner__org_patternfly_component_icon_Icon_);
    }
-   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_progress__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_spinner__org_patternfly_component_icon_Icon_), HTMLContainerBuilder)));
+   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_icon__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_progress__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_spinner__org_patternfly_component_icon_Icon_), HTMLContainerBuilder)));
   } else {
-   this.m_element__elemental2_dom_HTMLElement().classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inProgress__org_patternfly_layout_Classes));
+   this.m_element__elemental2_dom_HTMLElement().classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_inProgress__org_patternfly_style_Classes));
   }
   return this;
  }
@@ -114,12 +119,12 @@ class Icon extends BaseComponent {
  //Bridge method.
  /** @final @override @nodts @return {Icon} */
  m_inline__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Icon));
+  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Icon));
  }
  //Bridge method.
  /** @final @override @nodts @return {Icon} */
  m_inline__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
-  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Icon));
+  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Icon));
  }
  //Default method forwarding stub.
  /** @override @nodts @return {boolean} */
@@ -164,12 +169,12 @@ class Icon extends BaseComponent {
  //Default method forwarding stub.
  /** @nodts @return {Icon} */
  m_inline__org_patternfly_component_icon_Icon() {
-  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Icon));
+  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Icon));
  }
  //Default method forwarding stub.
  /** @nodts @return {Icon} */
  m_inline__boolean__org_patternfly_component_icon_Icon(/** boolean */ arg0) {
-  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Icon));
+  return /**@type {Icon}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Icon));
  }
  //Default method forwarding stub.
  /** @nodts @return {Icon} */
@@ -224,8 +229,8 @@ class Icon extends BaseComponent {
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
   Spinner = goog.module.get('org.patternfly.component.spinner.Spinner$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
-  Size = goog.module.get('org.patternfly.layout.Size$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  Size = goog.module.get('org.patternfly.style.Size$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

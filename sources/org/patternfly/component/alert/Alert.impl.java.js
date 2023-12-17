@@ -3,11 +3,11 @@ goog.module('org.patternfly.component.alert.Alert$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
-const ComponentReference = goog.require('org.patternfly.component.ComponentReference$impl');
 const Closeable = goog.require('org.patternfly.core.Closeable$impl');
 const Expandable = goog.require('org.patternfly.core.Expandable$impl');
-const Inline = goog.require('org.patternfly.core.Modifiers.Inline$impl');
-const Plain = goog.require('org.patternfly.core.Modifiers.Plain$impl');
+const WithIcon = goog.require('org.patternfly.core.WithIcon$impl');
+const Inline = goog.require('org.patternfly.style.Modifiers.Inline$impl');
+const Plain = goog.require('org.patternfly.style.Modifiers.Plain$impl');
 
 let DomGlobal_$Overlay = goog.forwardDeclare('elemental2.dom.DomGlobal.$Overlay$impl');
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
@@ -25,12 +25,13 @@ let AlertGroup = goog.forwardDeclare('org.patternfly.component.alert.AlertGroup$
 let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
 let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
+let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let Severity = goog.forwardDeclare('org.patternfly.core.Severity$impl');
 let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
-let Classes = goog.forwardDeclare('org.patternfly.layout.Classes$impl');
-let PredefinedIcon = goog.forwardDeclare('org.patternfly.layout.PredefinedIcon$impl');
-let Variable = goog.forwardDeclare('org.patternfly.layout.Variable$impl');
+let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
+let Variable = goog.forwardDeclare('org.patternfly.style.Variable$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -41,7 +42,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
  * @implements {Closeable<HTMLDivElement, Alert>}
  * @implements {Expandable<HTMLDivElement, Alert>}
  * @implements {Attachable}
- * @implements {ComponentReference<AlertGroup>}
+ * @implements {WithIcon<HTMLDivElement, Alert>}
  */
 class Alert extends BaseComponent {
  /** @protected @nodts */
@@ -49,6 +50,8 @@ class Alert extends BaseComponent {
   super();
   /**@type {number} @nodts*/
   this.f_timeout__org_patternfly_component_alert_Alert = 0;
+  /**@type {boolean} @nodts*/
+  this.f_expandable__org_patternfly_component_alert_Alert = false;
   /**@type {Button} @nodts*/
   this.f_closeButton__org_patternfly_component_alert_Alert;
   /**@type {CloseHandler<Alert>} @nodts*/
@@ -65,12 +68,8 @@ class Alert extends BaseComponent {
   this.f_timeoutHandle__org_patternfly_component_alert_Alert_ = 0;
   /**@type {Button} @nodts*/
   this.f_toggleButton__org_patternfly_component_alert_Alert_;
-  /**@type {AlertGroup} @nodts*/
-  this.f_alertGroup__org_patternfly_component_alert_Alert_;
   /**@type {AlertDescription} @nodts*/
   this.f_description__org_patternfly_component_alert_Alert_;
-  /**@type {AlertActionGroup} @nodts*/
-  this.f_actionGroup__org_patternfly_component_alert_Alert_;
   /**@type {ToggleHandler<Alert>} @nodts*/
   this.f_toggleHandler__org_patternfly_component_alert_Alert_;
  }
@@ -88,13 +87,14 @@ class Alert extends BaseComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_alert_Alert__org_patternfly_core_Severity__java_lang_String__void(/** Severity */ severity, /** ?string */ title) {
-  this.$ctor__org_patternfly_component_BaseComponent__elemental2_dom_HTMLElement__org_patternfly_component_ComponentType__void(/**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), severity.f_status__org_patternfly_core_Severity.f_modifier__org_patternfly_core_Status], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, severity.f_aria__org_patternfly_core_Severity), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), ComponentType.f_Alert__org_patternfly_component_ComponentType);
+  this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Alert__org_patternfly_component_ComponentType, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), severity.f_status__org_patternfly_core_Severity.f_modifier__org_patternfly_core_Status], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, severity.f_aria__org_patternfly_core_Severity), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
   this.f_severity__org_patternfly_component_alert_Alert_ = severity;
   this.f_title__org_patternfly_component_alert_Alert_ = title;
   this.f_timeout__org_patternfly_component_alert_Alert = Alert.f_NO_TIMEOUT__org_patternfly_component_alert_Alert;
+  this.f_expandable__org_patternfly_component_alert_Alert = false;
   this.f_timeoutHandle__org_patternfly_component_alert_Alert_ = 0;
-  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_iconContainer__org_patternfly_component_alert_Alert_ = /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_InlineIcon(severity.f_icon__org_patternfly_core_Severity)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
-  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_titleElement__org_patternfly_component_alert_Alert_ = /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_title__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_screenReader__org_patternfly_layout_Classes], j_l_String))), HTMLContainerBuilder)).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(j_l_String.m_valueOf__java_lang_Object__java_lang_String(severity.f_aria__org_patternfly_core_Severity) + ':'), HTMLContainerBuilder))), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(title), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLParagraphElement_$Overlay)));
+  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_iconContainer__org_patternfly_component_alert_Alert_ = /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_icon__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(severity.f_icon__org_patternfly_core_Severity)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
+  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_titleElement__org_patternfly_component_alert_Alert_ = /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_title__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_screenReader__org_patternfly_style_Classes], j_l_String))), HTMLContainerBuilder)).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(j_l_String.m_valueOf__java_lang_Object__java_lang_String(severity.f_aria__org_patternfly_core_Severity) + ':'), HTMLContainerBuilder))), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(title), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLParagraphElement_$Overlay)));
   Attachable.m_register__org_jboss_elemento_IsElement__org_jboss_elemento_Attachable__void(this, this);
  }
  /** @override @nodts */
@@ -110,31 +110,14 @@ class Alert extends BaseComponent {
     this.m_startTimeout__void_$p_org_patternfly_component_alert_Alert();
    });
   }
-  if (!$Equality.$same(this.f_actionGroup__org_patternfly_component_alert_Alert_, null)) {
-   this.f_actionGroup__org_patternfly_component_alert_Alert_.m_passComponent__org_patternfly_component_alert_Alert__void(this);
-  }
  }
  /** @override @nodts */
  m_detach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
   goog.global.clearTimeout(this.f_timeoutHandle__org_patternfly_component_alert_Alert_);
  }
- /** @nodts */
- m_passComponent__org_patternfly_component_alert_AlertGroup__void(/** AlertGroup */ alertGroup) {
-  this.f_alertGroup__org_patternfly_component_alert_Alert_ = alertGroup;
- }
- /** @nodts @return {AlertGroup} */
- m_mainComponent__org_patternfly_component_alert_AlertGroup() {
-  return this.f_alertGroup__org_patternfly_component_alert_Alert_;
- }
  /** @nodts @return {Alert} */
  m_addActionGroup__org_patternfly_component_alert_AlertActionGroup__org_patternfly_component_alert_Alert(/** AlertActionGroup */ actionGroup) {
-  return this.m_add__org_patternfly_component_alert_AlertActionGroup__org_patternfly_component_alert_Alert(actionGroup);
- }
- /** @nodts @return {Alert} */
- m_add__org_patternfly_component_alert_AlertActionGroup__org_patternfly_component_alert_Alert(/** AlertActionGroup */ actionGroup) {
-  this.f_actionGroup__org_patternfly_component_alert_Alert_ = actionGroup;
-  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(/**@type {HTMLDivElement}*/ ($Casts.$to(actionGroup.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
-  return this;
+  return /**@type {Alert}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(actionGroup), Alert));
  }
  /** @nodts @return {Alert} */
  m_addDescription__java_lang_String__org_patternfly_component_alert_Alert(/** ?string */ description) {
@@ -147,7 +130,7 @@ class Alert extends BaseComponent {
  /** @nodts @return {Alert} */
  m_add__org_patternfly_component_alert_AlertDescription__org_patternfly_component_alert_Alert(/** AlertDescription */ description) {
   this.f_description__org_patternfly_component_alert_Alert_ = description;
-  /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_description__org_patternfly_component_alert_Alert_.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)).hidden = /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expandable__org_patternfly_layout_Classes)) && !this.m_expanded__boolean();
+  /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_description__org_patternfly_component_alert_Alert_.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)).hidden = /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)).classList.contains(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expandable__org_patternfly_style_Classes)) && !this.m_expanded__boolean();
   this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(/**@type {HTMLDivElement}*/ ($Casts.$to(description.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
   return this;
  }
@@ -157,24 +140,21 @@ class Alert extends BaseComponent {
  }
  /** @nodts @return {Alert} */
  m_closable__org_patternfly_handler_CloseHandler__org_patternfly_component_alert_Alert(/** CloseHandler<Alert> */ closeHandler) {
-  Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_action__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_closeButton__org_patternfly_component_alert_Alert = /**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_layout_PredefinedIcon__java_lang_String__org_patternfly_component_button_Button(PredefinedIcon.f_times__org_patternfly_layout_PredefinedIcon, 'Close ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_severity__org_patternfly_component_alert_Alert_.f_aria__org_patternfly_core_Severity) + ': ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_title__org_patternfly_component_alert_Alert_)).m_plain__org_jboss_elemento_TypedBuilder(), Button)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (event) =>{
+  Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_action__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_closeButton__org_patternfly_component_alert_Alert = /**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(PredefinedIcon.f_times__org_patternfly_style_PredefinedIcon), Button)).m_plain__org_jboss_elemento_TypedBuilder(), Button)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Close ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_severity__org_patternfly_component_alert_Alert_.f_aria__org_patternfly_core_Severity) + ': ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_title__org_patternfly_component_alert_Alert_)), Button)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (event) =>{
    let event_1 = /**@type {MouseEvent}*/ ($Casts.$to(event, MouseEvent_$Overlay));
    this.m_close__elemental2_dom_Event__boolean__void(event_1, true);
   }), Button))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), this.f_titleElement__org_patternfly_component_alert_Alert_);
   return this.m_onClose__org_patternfly_handler_CloseHandler__org_patternfly_component_alert_Alert(closeHandler);
  }
  /** @nodts @return {Alert} */
- m_customIcon__java_lang_String__org_patternfly_component_alert_Alert(/** ?string */ iconClass) {
-  return this.m_customIcon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_alert_Alert(InlineIcon.m_inlineIcon__java_lang_String__org_patternfly_component_icon_InlineIcon(iconClass));
- }
- /** @nodts @return {Alert} */
- m_customIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_alert_Alert(/** PredefinedIcon */ icon) {
-  return this.m_customIcon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_alert_Alert(InlineIcon.m_inlineIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_InlineIcon(icon));
- }
- /** @nodts @return {Alert} */
- m_customIcon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_alert_Alert(/** InlineIcon */ icon) {
+ m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_alert_Alert(/** InlineIcon */ icon) {
   Elements.m_removeChildrenFrom__elemental2_dom_Element__void(this.f_iconContainer__org_patternfly_component_alert_Alert_);
   this.f_iconContainer__org_patternfly_component_alert_Alert_.appendChild(icon.m_element__elemental2_dom_HTMLElement());
+  return this;
+ }
+ /** @nodts @return {Alert} */
+ m_removeIcon__org_patternfly_component_alert_Alert() {
+  Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), 'Removing the icon is not supported for this component.');
   return this;
  }
  /** @nodts @return {Alert} */
@@ -183,11 +163,12 @@ class Alert extends BaseComponent {
  }
  /** @nodts @return {Alert} */
  m_expandable__org_patternfly_handler_ToggleHandler__org_patternfly_component_alert_Alert(/** ToggleHandler<Alert> */ toggleHandler) {
-  this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expandable__org_patternfly_layout_Classes)], j_l_String)));
-  Elements.m_insertFirst__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_toggle__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_toggleButton__org_patternfly_component_alert_Alert_ = /**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_plain__org_jboss_elemento_TypedBuilder(), Button)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
+  this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expandable__org_patternfly_style_Classes)], j_l_String)));
+  Elements.m_insertFirst__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_toggle__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_toggleButton__org_patternfly_component_alert_Alert_ = /**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(/**@type {Button}*/ ($Casts.$to(Button.m_button__org_patternfly_component_button_Button().m_plain__org_jboss_elemento_TypedBuilder(), Button)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
    let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
    this.m_toggle__void();
-  }), Button)).m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_expanded__org_patternfly_core_Aria, false), Button)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_severity__org_patternfly_component_alert_Alert_.f_aria__org_patternfly_core_Severity) + ': ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_title__org_patternfly_component_alert_Alert_) + ' details'), Button)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_toggle__org_patternfly_layout_Classes, Classes.f_icon__org_patternfly_layout_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_layout_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleRight__org_patternfly_layout_PredefinedIcon)), HTMLContainerBuilder))), Button))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
+  }), Button)).m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_expanded__org_patternfly_core_Aria, false), Button)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_severity__org_patternfly_component_alert_Alert_.f_aria__org_patternfly_core_Severity) + ': ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_title__org_patternfly_component_alert_Alert_) + ' details'), Button)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_toggle__org_patternfly_style_Classes, Classes.f_icon__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleRight__org_patternfly_style_PredefinedIcon)), HTMLContainerBuilder))), Button))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
+  this.f_expandable__org_patternfly_component_alert_Alert = true;
   this.f_toggleHandler__org_patternfly_component_alert_Alert_ = toggleHandler;
   return this;
  }
@@ -212,9 +193,9 @@ class Alert extends BaseComponent {
  }
  /** @nodts @return {Alert} */
  m_truncate__int__org_patternfly_component_alert_Alert(/** number */ lines) {
-  this.f_titleElement__org_patternfly_component_alert_Alert_.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_truncate__org_patternfly_layout_Classes));
+  this.f_titleElement__org_patternfly_component_alert_Alert_.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_truncate__org_patternfly_style_Classes));
   if (lines != 1) {
-   Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_layout_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_layout_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_title__org_patternfly_layout_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['max-lines'], j_l_String))).m_applyTo__elemental2_dom_HTMLElement__int__void(this.f_titleElement__org_patternfly_component_alert_Alert_, lines);
+   Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_style_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_title__org_patternfly_style_Classes], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init(['max-lines'], j_l_String))).m_applyTo__elemental2_dom_HTMLElement__int__void(this.f_titleElement__org_patternfly_component_alert_Alert_, lines);
   }
   return this;
  }
@@ -242,8 +223,9 @@ class Alert extends BaseComponent {
  m_close__elemental2_dom_Event__boolean__void(/** Event */ event, /** boolean */ fireEvent) {
   if (CloseHandler.m_shouldClose__java_lang_Object__org_patternfly_handler_CloseHandler__elemental2_dom_Event__boolean__boolean(this, this.f_closeHandler__org_patternfly_component_alert_Alert, event, fireEvent)) {
    this.m_stopTimeout__void_$p_org_patternfly_component_alert_Alert();
-   if (!$Equality.$same(this.f_alertGroup__org_patternfly_component_alert_Alert_, null)) {
-    this.f_alertGroup__org_patternfly_component_alert_Alert_.m_closeAlert__org_patternfly_component_alert_Alert__void_$pp_org_patternfly_component_alert(this);
+   let alertGroup = /**@type {AlertGroup}*/ ($Casts.$to(this.m_lookupComponent__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponent(ComponentType.f_AlertGroup__org_patternfly_component_ComponentType, true), AlertGroup));
+   if (!$Equality.$same(alertGroup, null)) {
+    alertGroup.m_closeAlert__org_patternfly_component_alert_Alert__void_$pp_org_patternfly_component_alert(this);
    } else {
     Elements.m_failSafeRemoveFromParent__org_jboss_elemento_IsElement__boolean(this);
    }
@@ -252,16 +234,24 @@ class Alert extends BaseComponent {
  }
  /** @override @nodts */
  m_collapse__boolean__void(/** boolean */ fireEvent) {
+  if (!this.f_expandable__org_patternfly_component_alert_Alert) {
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(ComponentType.f_Alert__org_patternfly_component_ComponentType, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), 'Alert is not expandable.\n' + 'Please use Alert.expandable() to make this an expandable alert.');
+   return;
+  }
   Expandable.m_collapse__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), this.f_toggleButton__org_patternfly_component_alert_Alert_.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_description__org_patternfly_component_alert_Alert_.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
-  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_alert_Alert_, null)) {
-   this.f_toggleHandler__org_patternfly_component_alert_Alert_.m_onToggle__java_lang_Object__boolean__void(this, false);
+  if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_alert_Alert_, null)) {
+   this.f_toggleHandler__org_patternfly_component_alert_Alert_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, false);
   }
  }
  /** @override @nodts */
  m_expand__boolean__void(/** boolean */ fireEvent) {
+  if (!this.f_expandable__org_patternfly_component_alert_Alert) {
+   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(ComponentType.f_Alert__org_patternfly_component_ComponentType, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), 'Alert is not expandable.\n' + 'Please use Alert.expandable() to make this an expandable alert.');
+   return;
+  }
   Expandable.m_expand__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)), this.f_toggleButton__org_patternfly_component_alert_Alert_.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_description__org_patternfly_component_alert_Alert_.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)));
-  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_alert_Alert_, null)) {
-   this.f_toggleHandler__org_patternfly_component_alert_Alert_.m_onToggle__java_lang_Object__boolean__void(this, true);
+  if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_alert_Alert_, null)) {
+   this.f_toggleHandler__org_patternfly_component_alert_Alert_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, true);
   }
  }
  /** @nodts */
@@ -282,22 +272,22 @@ class Alert extends BaseComponent {
  //Bridge method.
  /** @final @override @nodts @return {Alert} */
  m_inline__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Alert));
  }
  //Bridge method.
  /** @final @override @nodts @return {Alert} */
  m_inline__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
-  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
  }
  //Bridge method.
  /** @final @override @nodts @return {Alert} */
  m_plain__org_jboss_elemento_TypedBuilder() {
-  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Alert));
  }
  //Bridge method.
  /** @final @override @nodts @return {Alert} */
  m_plain__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
-  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
  }
  //Default method forwarding stub.
  /** @override @nodts */
@@ -340,34 +330,54 @@ class Alert extends BaseComponent {
   Expandable.m_toggle__$default__org_patternfly_core_Expandable__boolean__void(this, arg0);
  }
  //Bridge method.
- /** @final @override @nodts @return {AlertGroup} */
- m_mainComponent__org_patternfly_component_BaseComponent() {
-  return this.m_mainComponent__org_patternfly_component_alert_AlertGroup();
+ /** @final @override @nodts @return {Alert} */
+ m_icon__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0) {
+  return /**@type {Alert}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
  }
  //Bridge method.
- /** @final @override @nodts */
- m_passComponent__org_patternfly_component_BaseComponent__void(/** AlertGroup */ arg0) {
-  this.m_passComponent__org_patternfly_component_alert_AlertGroup__void(/**@type {AlertGroup}*/ ($Casts.$to(arg0, AlertGroup)));
+ /** @final @override @nodts @return {Alert} */
+ m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(/** PredefinedIcon */ arg0) {
+  return /**@type {Alert}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Alert} */
+ m_icon__org_patternfly_component_icon_InlineIcon__org_jboss_elemento_TypedBuilder(/** InlineIcon */ arg0) {
+  return this.m_icon__org_patternfly_component_icon_InlineIcon__org_patternfly_component_alert_Alert(arg0);
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Alert} */
+ m_removeIcon__org_jboss_elemento_TypedBuilder() {
+  return this.m_removeIcon__org_patternfly_component_alert_Alert();
  }
  //Default method forwarding stub.
  /** @nodts @return {Alert} */
  m_inline__org_patternfly_component_alert_Alert() {
-  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__org_jboss_elemento_TypedBuilder(this), Alert));
  }
  //Default method forwarding stub.
  /** @nodts @return {Alert} */
  m_inline__boolean__org_patternfly_component_alert_Alert(/** boolean */ arg0) {
-  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_core_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Inline.m_inline__$default__org_patternfly_style_Modifiers_Inline__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
  }
  //Default method forwarding stub.
  /** @nodts @return {Alert} */
  m_plain__org_patternfly_component_alert_Alert() {
-  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Alert));
  }
  //Default method forwarding stub.
  /** @nodts @return {Alert} */
  m_plain__boolean__org_patternfly_component_alert_Alert(/** boolean */ arg0) {
-  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_core_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
+  return /**@type {Alert}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Alert} */
+ m_icon__java_lang_String__org_patternfly_component_alert_Alert(/** ?string */ arg0) {
+  return /**@type {Alert}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Alert} */
+ m_icon__org_patternfly_style_PredefinedIcon__org_patternfly_component_alert_Alert(/** PredefinedIcon */ arg0) {
+  return /**@type {Alert}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(this, arg0), Alert));
  }
  /** @nodts */
  static $clinit() {
@@ -379,6 +389,7 @@ class Alert extends BaseComponent {
   Closeable.$clinit();
   Expandable.$clinit();
   Attachable.$clinit();
+  WithIcon.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -402,10 +413,11 @@ class Alert extends BaseComponent {
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
   InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
+  Logger = goog.module.get('org.patternfly.core.Logger$impl');
   CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');
-  Classes = goog.module.get('org.patternfly.layout.Classes$impl');
-  PredefinedIcon = goog.module.get('org.patternfly.layout.PredefinedIcon$impl');
-  Variable = goog.module.get('org.patternfly.layout.Variable$impl');
+  Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
+  Variable = goog.module.get('org.patternfly.style.Variable$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
@@ -421,7 +433,7 @@ Plain.$markImplementor(Alert);
 Closeable.$markImplementor(Alert);
 Expandable.$markImplementor(Alert);
 Attachable.$markImplementor(Alert);
-ComponentReference.$markImplementor(Alert);
+WithIcon.$markImplementor(Alert);
 $Util.$setClassMetadata(Alert, 'org.patternfly.component.alert.Alert');
 
 exports = Alert;
