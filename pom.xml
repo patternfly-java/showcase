@@ -68,13 +68,14 @@
         <!-- Dependency versions -->
         <version.checkstyle.config>1.0.8.Final</version.checkstyle.config>
         <version.elemental2>1.2.1</version.elemental2>
-        <version.elemento>1.2.9</version.elemento>
+        <version.elemento>1.2.11</version.elemento>
         <version.gwt.event>1.0.0-RC1</version.gwt.event>
         <version.gwt.safehtml>1.0.0-RC1</version.gwt.safehtml>
         <version.junit>5.10.0</version.junit>
-        <version.node>v20.8.1</version.node>
-        <version.patternfly.java>0.1.2-SNAPSHOT</version.patternfly.java>
+        <version.node>v21.4.0</version.node>
+        <version.patternfly.java>0.1.2</version.patternfly.java>
         <version.treblereel.j2cl.processors>0.6.4</version.treblereel.j2cl.processors>
+        <version.yarn>v1.22.21</version.yarn>
 
         <!-- Plugin versions -->
         <version.checkstyle.plugin>3.3.0</version.checkstyle.plugin>
@@ -191,6 +192,7 @@
                                 <excludes>
                                     <exclude>LICENSE</exclude>
                                     <exclude>README.md</exclude>
+                                    <exclude>yarn.lock</exclude>
                                     <exclude>**/.parcel-cache/**</exclude>
                                     <exclude>*.kts</exclude>
                                     <exclude>**/*license*.txt</exclude>
@@ -358,30 +360,31 @@
                 <artifactId>frontend-maven-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>install-node-and-npm</id>
+                        <id>install-node-and-yarn</id>
                         <phase>prepare-package</phase>
                         <goals>
-                            <goal>install-node-and-npm</goal>
+                            <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
                             <nodeVersion>${version.node}</nodeVersion>
+                            <yarnVersion>${version.yarn}</yarnVersion>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>npm-install</id>
+                        <id>yarn-install</id>
                         <phase>prepare-package</phase>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>yarn</goal>
                         </goals>
                         <configuration>
                             <arguments>install</arguments>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>npm-parcel</id>
+                        <id>yarn-parcel</id>
                         <phase>prepare-package</phase>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>yarn</goal>
                         </goals>
                         <configuration>
                             <arguments>run build</arguments>

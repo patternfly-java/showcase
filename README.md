@@ -9,7 +9,7 @@ The showcase is a [J2CL](https://github.com/google/j2cl/) web app built with the
 ### Development Mode
 
 - run `mvn j2cl:watch` in one terminal
-- run `npm run watch` in another terminal
+- run `yarn run watch` in another terminal
 
 ### Production mode
 

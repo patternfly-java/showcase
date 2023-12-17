@@ -27,10 +27,10 @@ import static org.patternfly.component.menu.MenuToggleAction.menuToggleAction;
 import static org.patternfly.component.menu.MenuToggleCheckbox.menuToggleCheckbox;
 import static org.patternfly.component.menu.MenuToggleType.plainText;
 import static org.patternfly.component.menu.MenuToggleType.split;
-import static org.patternfly.layout.PredefinedIcon.cog;
-import static org.patternfly.layout.PredefinedIcon.ellipsisV;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.cog;
+import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
 public class MenuToggleComponent extends SnippetPage {
 

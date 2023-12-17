@@ -23,6 +23,7 @@ import org.patternfly.showcase.SnippetPage;
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.h;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.alert.Alert.alert;
 import static org.patternfly.component.button.Button.button;
@@ -30,11 +31,15 @@ import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.Form.form;
 import static org.patternfly.component.form.FormActionGroup.formActionGroup;
 import static org.patternfly.component.form.FormAlert.formAlert;
+import static org.patternfly.component.form.FormFieldGroup.formFieldGroup;
+import static org.patternfly.component.form.FormFieldGroupBody.formFieldGroupBody;
+import static org.patternfly.component.form.FormFieldGroupHeader.formFieldGroupHeader;
 import static org.patternfly.component.form.FormGroup.formGroup;
 import static org.patternfly.component.form.FormGroupControl.formGroupControl;
 import static org.patternfly.component.form.FormGroupLabel.formGroupLabel;
 import static org.patternfly.component.form.FormGroupRole.group;
 import static org.patternfly.component.form.FormGroupRole.radiogroup;
+import static org.patternfly.component.form.FormSection.formSection;
 import static org.patternfly.component.form.FormSelect.formSelect;
 import static org.patternfly.component.form.FormSelectOption.formSelectOption;
 import static org.patternfly.component.form.Radio.radio;
@@ -48,8 +53,13 @@ import static org.patternfly.component.popover.Popover.popover;
 import static org.patternfly.component.popover.PopoverBody.popoverBody;
 import static org.patternfly.component.popover.PopoverHeader.popoverHeader;
 import static org.patternfly.core.Severity.danger;
+import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.core.ValidationStatus.error;
+import static org.patternfly.layout.grid.Grid.grid;
+import static org.patternfly.layout.grid.GridItem.gridItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Breakpoint.md;
+import static org.patternfly.style.PredefinedIcon.trash;
 
 public class FormComponent extends SnippetPage {
 
@@ -160,10 +170,9 @@ public class FormComponent extends SnippetPage {
                                                     .addRadio(radio("form-hz-tz-0", "form-hz-tz", "Eastern"))
                                                     .addRadio(radio("form-hz-tz-1", "form-hz-tz", "Central"))
                                                     .addRadio(radio("form-hz-tz-2", "form-hz-tz", "Pacific"))))
-                    // .addActionGroup(formActionGroup()
-                    // .addButton(button("Submit").primary())
-                    // .addButton(button("Cancel").link()))
-                    )
+                                    .addActionGroup(formActionGroup()
+                                            .addButton(button("Submit").primary())
+                                            .addButton(button("Cancel").link())))
                             .element();
                     // @code-end:form-horizontal
                 }));
@@ -222,10 +231,10 @@ public class FormComponent extends SnippetPage {
                                             .addControl(formGroupControl()
                                                     .addCheckbox(checkbox("form-lw-updates", "form-lw-updates",
                                                             "I'd like updates via email."))))
-                    // .addActionGroup(formActionGroup()
-                    // .addButton(button("Submit").primary())
-                    // .addButton(button("Cancel").link()))
-                    )
+                                    .addActionGroup(formActionGroup()
+                                            .addButton(button("Submit").primary())
+                                            .addButton(button("Cancel")
+                                                    .link())))
                             .element();
                     // @code-end:form-lw
                 }));
@@ -297,6 +306,182 @@ public class FormComponent extends SnippetPage {
                                                                 "Option 2")))))
                         .element()
         // @code-end:form-hzs-hot
+        ));
+
+        addSnippet(new Snippet("form-section", "Form sections",
+                code.get("form-section"), () ->
+                // @code-start:form-section
+                div()
+                        .add(form()
+                                .addSection(formSection()
+                                        .addGroup(formGroup().fieldId("form-section-1-input").required()
+                                                .addLabel(formGroupLabel("Form section 1 input"))
+                                                .addControl(formGroupControl()
+                                                        .addControl(textInput("form-section-1-input")))))
+                                .addSection(formSection("Form section 2 (optional title)", h(2))
+                                        .addGroup(formGroup().fieldId("form-section-2-input").required()
+                                                .addLabel(formGroupLabel("Form section 2 input"))
+                                                .addControl(formGroupControl()
+                                                        .addControl(textInput("form-section-2-input"))))))
+                        .element()
+        // @code-end:form-section
+        ));
+
+        addSnippet(new Snippet("form-grid", "Form grid",
+                code.get("form-grid"), () ->
+                // @code-start:form-grid
+                div()
+                        .add(form()
+                                .add(grid().gutter().cols(tuples(md, 6))
+                                        .addItem(gridItem().span(12)
+                                                .add(formGroup().fieldId("form-grid-name").required()
+                                                        .addLabel(formGroupLabel("Full name"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("form-grid-name"))
+                                                                .addHelperText(helperText(
+                                                                        "Include your middle name if you have one.")))))
+                                        .add(formGroup().fieldId("form-grid-email").required()
+                                                .addLabel(formGroupLabel("Email"))
+                                                .addControl(formGroupControl()
+                                                        .addControl(textInput(email, "form-grid-email"))))
+                                        .add(formGroup().fieldId("form-grid-phone").required()
+                                                .addLabel(formGroupLabel("Phone number"))
+                                                .addControl(formGroupControl()
+                                                        .addControl(textInput(tel, "form-grid-phone")
+                                                                .placeholder("555-555-555"))))))
+                        .element()
+        // @code-end:form-grid
+        ));
+
+        addSnippet(new Snippet("form-field-group", "Field groups",
+                code.get("form-field-group"), () ->
+                // @code-start:form-field-group
+                div()
+                        .add(form()
+                                .addGroup(formGroup().fieldId("fg0-label0").required()
+                                        .addLabel(formGroupLabel("Label 1"))
+                                        .addControl(formGroupControl()
+                                                .addControl(textInput("fg0-label0"))))
+                                .addGroup(formGroup().fieldId("fg0-label1").required()
+                                        .addLabel(formGroupLabel("Label 2"))
+                                        .addControl(formGroupControl()
+                                                .addControl(textInput("fg0-label1"))))
+                                .addFieldGroup(formFieldGroup()
+                                        .expandable()
+                                        .addHeader(formFieldGroupHeader()
+                                                .title("Field group 1")
+                                                .description("Field group 1 description text.")
+                                                .addAction(button().link().text("Delete all"))
+                                                .addAction(button().secondary().text("Add parameter")))
+                                        .addBody(formFieldGroupBody()
+                                                .addFieldGroup(formFieldGroup()
+                                                        .expandable()
+                                                        .addHeader(formFieldGroupHeader()
+                                                                .title("Nested field group 1")
+                                                                .description("Nested field group 1 description text.")
+                                                                .addAction(button().plain().icon(trash)))
+                                                        .addBody(formFieldGroupBody()
+                                                                .addGroup(formGroup().fieldId("fg1-label0").required()
+                                                                        .addLabel(formGroupLabel("Label 1"))
+                                                                        .addControl(formGroupControl()
+                                                                                .addControl(textInput("fg1-label0"))))
+                                                                .addGroup(formGroup().fieldId("fg1-label1").required()
+                                                                        .addLabel(formGroupLabel("Label 2"))
+                                                                        .addControl(formGroupControl()
+                                                                                .addControl(textInput("fg1-label1"))))))
+                                                .addFieldGroup(formFieldGroup()
+                                                        .expandable()
+                                                        .addHeader(formFieldGroupHeader()
+                                                                .title("Nested field group 2")
+                                                                .description("Nested field group 2 description text.")
+                                                                .addAction(button().plain().icon(trash)))
+                                                        .addBody(formFieldGroupBody()
+                                                                .addGroup(formGroup().fieldId("fg2-label0").required()
+                                                                        .addLabel(formGroupLabel("Label 1"))
+                                                                        .addControl(formGroupControl()
+                                                                                .addControl(textInput("fg2-label0"))))
+                                                                .addGroup(formGroup().fieldId("fg2-label1").required()
+                                                                        .addLabel(formGroupLabel("Label 2"))
+                                                                        .addControl(formGroupControl()
+                                                                                .addControl(textInput("fg2-label1"))))))
+                                                .addFieldGroup(formFieldGroup()
+                                                        .expandable()
+                                                        .addHeader(formFieldGroupHeader()
+                                                                .title("Nested field group 3")
+                                                                .description("Nested field group 3 description text.")
+                                                                .addAction(button().plain().icon(trash)))
+                                                        .addBody(formFieldGroupBody()
+                                                                .addGroup(formGroup().fieldId("fg3-label0").required()
+                                                                        .addLabel(formGroupLabel("Label 1"))
+                                                                        .addControl(formGroupControl()
+                                                                                .addControl(textInput("fg3-label0"))))
+                                                                .addGroup(formGroup().fieldId("fg3-label1").required()
+                                                                        .addLabel(formGroupLabel("Label 2"))
+                                                                        .addControl(formGroupControl()
+                                                                                .addControl(textInput("fg3-label1"))))))
+                                                .addGroup(formGroup().fieldId("fg4-label0").required()
+                                                        .addLabel(formGroupLabel("Label 1"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg4-label0"))))
+                                                .addGroup(formGroup().fieldId("fg5-label0").required()
+                                                        .addLabel(formGroupLabel("Label 1"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg5-label0"))))))
+                                .addFieldGroup(formFieldGroup()
+                                        .expandable()
+                                        .addHeader(formFieldGroupHeader()
+                                                .title("Field group 2")
+                                                .description("Field group 2 description text.")
+                                                .addAction(button().link().text("Delete all"))
+                                                .addAction(button().secondary().text("Add parameter")))
+                                        .addBody(formFieldGroupBody()
+                                                .addGroup(formGroup().fieldId("fg6-label0").required()
+                                                        .addLabel(formGroupLabel("Label 1"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg6-label0"))))
+                                                .addGroup(formGroup().fieldId("fg7-label1").required()
+                                                        .addLabel(formGroupLabel("Label 2"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg7-label1"))))))
+                                .addFieldGroup(formFieldGroup()
+                                        .expandable()
+                                        .addHeader(formFieldGroupHeader()
+                                                .title("Field group 3")
+                                                .description("Field group 3 description text."))
+                                        .addBody(formFieldGroupBody()
+                                                .addGroup(formGroup().fieldId("fg8-label0").required()
+                                                        .addLabel(formGroupLabel("Label 1"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg8-label0"))))
+                                                .addGroup(formGroup().fieldId("fg9-label1").required()
+                                                        .addLabel(formGroupLabel("Label 2"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg9-label1"))))))
+                                .addFieldGroup(formFieldGroup()
+                                        .addHeader(formFieldGroupHeader()
+                                                .title("Field group 4 (non-expandable)")
+                                                .description("Field group 4 description text.")
+                                                .addAction(button().link().text("Delete all"))
+                                                .addAction(button().secondary().text("Add parameter")))
+                                        .addBody(formFieldGroupBody()
+                                                .addGroup(formGroup().fieldId("fg10-label0").required()
+                                                        .addLabel(formGroupLabel("Label 1"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg10-label0"))))
+                                                .addGroup(formGroup().fieldId("fg11-label1").required()
+                                                        .addLabel(formGroupLabel("Label 2"))
+                                                        .addControl(formGroupControl()
+                                                                .addControl(textInput("fg11-label1"))))))
+                                .addGroup(formGroup().fieldId("fg12-label0").required()
+                                        .addLabel(formGroupLabel("Label 1"))
+                                        .addControl(formGroupControl()
+                                                .addControl(textInput("fg12-label0"))))
+                                .addGroup(formGroup().fieldId("fg13-label0").required()
+                                        .addLabel(formGroupLabel("Label 1"))
+                                        .addControl(formGroupControl()
+                                                .addControl(textInput("fg13-label0")))))
+                        .element()
+        // @code-end:form-field-group
         ));
     }
 }

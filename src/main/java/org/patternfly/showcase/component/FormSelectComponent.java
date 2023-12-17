@@ -69,7 +69,7 @@ public class FormSelectComponent extends SnippetPage {
                     final double[] handle = { 0 };
                     HelperText helperText = helperText("");
                     FormSelect formSelect = formSelect("validated-form-select-0")
-                            .onChange((fs, value) -> {
+                            .onChange((e, fs, value) -> {
                                 clearTimeout(handle[0]);
                                 fs.validated(default_);
                                 helperText.firstItem()

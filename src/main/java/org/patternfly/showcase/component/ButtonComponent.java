@@ -20,17 +20,17 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.IconPosition.end;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.button.Button.button;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.arrowRight;
-import static org.patternfly.layout.PredefinedIcon.copy;
-import static org.patternfly.layout.PredefinedIcon.externalLinkSquareAlt;
-import static org.patternfly.layout.PredefinedIcon.plusCircle;
-import static org.patternfly.layout.PredefinedIcon.times;
-import static org.patternfly.layout.PredefinedIcon.upload;
+import static org.patternfly.core.IconPosition.end;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.arrowRight;
+import static org.patternfly.style.PredefinedIcon.copy;
+import static org.patternfly.style.PredefinedIcon.externalLinkSquareAlt;
+import static org.patternfly.style.PredefinedIcon.plusCircle;
+import static org.patternfly.style.PredefinedIcon.times;
+import static org.patternfly.style.PredefinedIcon.upload;
 
 public class ButtonComponent extends SnippetPage {
 

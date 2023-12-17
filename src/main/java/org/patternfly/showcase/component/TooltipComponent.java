@@ -30,8 +30,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.core.Aria.label;
-import static org.patternfly.layout.PredefinedIcon.copy;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.copy;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 
 public class TooltipComponent extends SnippetPage {

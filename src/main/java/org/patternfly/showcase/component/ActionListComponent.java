@@ -33,10 +33,10 @@ import static org.patternfly.component.menu.MenuItem.actionMenuItem;
 import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
-import static org.patternfly.layout.PredefinedIcon.check;
-import static org.patternfly.layout.PredefinedIcon.ellipsisV;
-import static org.patternfly.layout.PredefinedIcon.times;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.check;
+import static org.patternfly.style.PredefinedIcon.ellipsisV;
+import static org.patternfly.style.PredefinedIcon.times;
 
 public class ActionListComponent extends SnippetPage {
 

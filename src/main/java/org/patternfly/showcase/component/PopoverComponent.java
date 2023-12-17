@@ -38,8 +38,8 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.Severity.info;
 import static org.patternfly.core.Severity.success;
 import static org.patternfly.core.Severity.warning;
-import static org.patternfly.layout.PredefinedIcon.bullhorn;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.bullhorn;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 import static org.patternfly.thirdparty.popper.TriggerAction.mouseenter;
 

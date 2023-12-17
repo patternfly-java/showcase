@@ -25,9 +25,9 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.TextInput.textInput;
 import static org.patternfly.core.ValidationStatus.error;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.fas;
 
 public class TextInputComponent extends SnippetPage {
 
@@ -59,12 +59,12 @@ public class TextInputComponent extends SnippetPage {
         addSnippet(new Snippet("text-input-readonly", "Read only",
                 code.get("text-input-readonly"), () -> {
                     // @code-start:text-input-readonly
-                    Checkbox plainToggle = checkbox("plain-toggle","plain-toggle", "Plain read only variant");
+                    Checkbox plainToggle = checkbox("plain-toggle", "plain-toggle", "Plain read only variant");
                     TextInput readOnlyTextInput = textInput("readonly-text-input-0", "read only text input example")
                             .readonly();
                     return div()
                             .add(div().css(util("mb-sm"))
-                                    .add(plainToggle.onChange((component, value) -> readOnlyTextInput.plain(value))))
+                                    .add(plainToggle.onChange((e, c, value) -> readOnlyTextInput.plain(value))))
                             .add(readOnlyTextInput)
                             .element();
                     // @code-end:text-input-readonly

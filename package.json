@@ -13,7 +13,8 @@
     "build": "parcel build --dist-dir target/showcase --public-url \"./\""
   },
   "devDependencies": {
-    "@parcel/reporter-cli": "^2.10.2",
+    "@parcel/core": "^2.10.3",
+    "@parcel/reporter-cli": "^2.10.3",
     "@parcel/resolver-glob": "^2.10.3",
     "@parcel/transformer-inline-string": "^2.10.3",
     "parcel": "^2.10.3",

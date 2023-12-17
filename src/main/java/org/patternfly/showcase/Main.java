@@ -25,16 +25,16 @@ import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.hashchange;
 import static org.patternfly.component.brand.Brand.brand;
-import static org.patternfly.component.masthead.Masthead.masthead;
-import static org.patternfly.component.masthead.MastheadToggle.mastheadToggle;
 import static org.patternfly.component.navigation.ExpandableNavigationGroup.expandableNavigationGroup;
 import static org.patternfly.component.navigation.Navigation.navigation;
 import static org.patternfly.component.navigation.NavigationItem.navigationItem;
 import static org.patternfly.component.navigation.NavigationType.Vertical.expandable;
+import static org.patternfly.component.page.Masthead.masthead;
+import static org.patternfly.component.page.MastheadToggle.mastheadToggle;
 import static org.patternfly.component.page.Page.page;
 import static org.patternfly.component.page.PageMain.pageMain;
-import static org.patternfly.component.sidebar.Sidebar.sidebar;
-import static org.patternfly.component.sidebar.SidebarBody.sidebarBody;
+import static org.patternfly.component.page.PageSidebar.pageSidebar;
+import static org.patternfly.component.page.PageSidebarBody.pageSidebarBody;
 import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.Assets.pfLogo;
 
@@ -104,10 +104,9 @@ public class Main {
                 .addSkipToContent(skipToContent(mainId))
                 .addMasthead(masthead().css("ws-masthead")
                         .addToggle(mastheadToggle())
-                        .addBrand(brand(pfLogo).style("--pf-v5-c-brand--Height:36px"), "#home"))
-                .addSidebar(sidebar()
-                        .style("z-index", "auto")
-                        .addBody(sidebarBody()
+                        .addBrand(brand(pfLogo, "PatternFly").style("--pf-v5-c-brand--Height:36px"), "#home"))
+                .addSidebar(pageSidebar()
+                        .addBody(pageSidebarBody()
                                 .addNavigation(navigation)))
                 .addMain(pageMain(mainId)));
 

@@ -28,10 +28,10 @@ import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.indeterminate;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
-import static org.patternfly.layout.PredefinedIcon.check;
-import static org.patternfly.layout.PredefinedIcon.fas;
-import static org.patternfly.layout.PredefinedIcon.times;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.check;
+import static org.patternfly.style.PredefinedIcon.fas;
+import static org.patternfly.style.PredefinedIcon.times;
 
 public class HelperTextComponent extends SnippetPage {
 

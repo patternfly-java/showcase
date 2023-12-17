@@ -21,14 +21,14 @@ import org.patternfly.showcase.SnippetPage;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.core.Tuple.tuple;
-import static org.patternfly.layout.Breakpoint._2xl;
-import static org.patternfly.layout.Breakpoint.default_;
-import static org.patternfly.layout.Breakpoint.lg;
-import static org.patternfly.layout.Breakpoint.md;
-import static org.patternfly.layout.Breakpoint.xl;
 import static org.patternfly.layout.gallery.Gallery.gallery;
 import static org.patternfly.layout.gallery.GalleryItem.galleryItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Breakpoint._2xl;
+import static org.patternfly.style.Breakpoint.default_;
+import static org.patternfly.style.Breakpoint.lg;
+import static org.patternfly.style.Breakpoint.md;
+import static org.patternfly.style.Breakpoint.xl;
 
 public class GalleryLayout extends SnippetPage {
 

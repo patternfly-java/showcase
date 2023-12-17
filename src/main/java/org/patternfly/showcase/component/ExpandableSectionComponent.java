@@ -29,10 +29,10 @@ import static org.patternfly.component.expandable.ExpandableSectionContent.expan
 import static org.patternfly.component.expandable.ExpandableSectionToggle.expandableSectionToggle;
 import static org.patternfly.component.expandable.ExpandableSectionToggleText.expandableSectionToggleText;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
-import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.fas;
 
 public class ExpandableSectionComponent extends SnippetPage {
 
@@ -120,7 +120,7 @@ public class ExpandableSectionComponent extends SnippetPage {
                     Badge badge = badge(4).read();
                     return div()
                             .add(expandableSection()
-                                    .onToggle((component, expanded) -> badge.count(badge.count() + 1))
+                                    .onToggle((e, c, expanded) -> badge.count(badge.count() + 1))
                                     .addToggle(expandableSectionToggle()
                                             .addText(expandableSectionToggleText()
                                                     .add(div()

@@ -29,14 +29,15 @@ import static org.patternfly.component.page.PageMainBody.pageMainBody;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.content;
-import static org.patternfly.layout.Classes.floatRight;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.fas;
-import static org.patternfly.layout.PredefinedIcon.pfIcon;
-import static org.patternfly.layout.Size._4xl;
+import static org.patternfly.style.Brightness.light;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.content;
+import static org.patternfly.style.Classes.floatRight;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.fas;
+import static org.patternfly.style.PredefinedIcon.pfIcon;
+import static org.patternfly.style.Size._4xl;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 
 public class SnippetPage implements Page {
@@ -47,7 +48,7 @@ public class SnippetPage implements Page {
     public SnippetPage(String title, String javadocLink, String designLink, HTMLElement description) {
         elements = asList(
                 pageMainSection()
-                        .light()
+                        .background(light)
                         .limitWidth()
                         .addBody(pageMainBody()
                                 .add(div().css(util(floatRight))

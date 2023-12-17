@@ -36,10 +36,10 @@ import static org.patternfly.component.menu.MenuItemAction.menuItemAction;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.core.SelectionMode.click;
 import static org.patternfly.core.SelectionMode.multi;
-import static org.patternfly.layout.PredefinedIcon.bars;
-import static org.patternfly.layout.PredefinedIcon.bell;
-import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.bars;
+import static org.patternfly.style.PredefinedIcon.bell;
+import static org.patternfly.style.PredefinedIcon.fas;
 
 public class MenuComponent extends SnippetPage {
 
@@ -56,7 +56,7 @@ public class MenuComponent extends SnippetPage {
                 // @code-start:menu-basic
                 div()
                         .add(menu(click)
-                                .onSingleSelect((item, selected) -> console.log("Item " + item.id + " selected"))
+                                .onSingleSelect((e, item, selected) -> console.log("Item " + item.id + " selected"))
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Action")
@@ -110,8 +110,8 @@ public class MenuComponent extends SnippetPage {
                 // @code-start:menu-actions
                 div()
                         .add(menu(multi)
-                                .onAction(itemAction -> console.log(
-                                        "Action " + itemAction.id + " on item " + itemAction.menuItem.id + " clicked"))
+                                .onAction((menu, item, itemAction) -> console.log(
+                                        "Action " + itemAction.id + " on item " + item.id + " clicked"))
                                 .addContent(menuContent()
                                         .addGroup(menuGroup("Actions")
                                                 .addList(menuList()
@@ -176,7 +176,7 @@ public class MenuComponent extends SnippetPage {
                 // @code-start:menu-checkbox
                 div()
                         .add(menu(multi)
-                                .onMultiSelect(menuItems -> console.log("### Selected items: " + menuItems.stream()
+                                .onMultiSelect((e, menu, menuItems) -> console.log("### Selected items: " + menuItems.stream()
                                         .map(mi -> mi.id)
                                         .collect(joining(", "))))
                                 .addContent(menuContent()
@@ -254,9 +254,9 @@ public class MenuComponent extends SnippetPage {
                 // @code-start:menu-favorites
                 div()
                         .add(menu(click)
-                                .onSingleSelect((item, selected) -> console.log("Item " + item.id + " selected"))
-                                .onAction(itemAction -> console.log(
-                                        "Action " + itemAction.id + " on item " + itemAction.menuItem.id + " clicked"))
+                                .onSingleSelect((e, item, selected) -> console.log("Item " + item.id + " selected"))
+                                .onAction((menu, item, itemAction) -> console.log(
+                                        "Action " + itemAction.id + " on item " + item.id + " clicked"))
                                 .favorites()
                                 .addContent(menuContent()
                                         .addGroup(menuGroup("All actions")

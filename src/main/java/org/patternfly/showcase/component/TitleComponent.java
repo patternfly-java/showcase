@@ -22,13 +22,13 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
-import static org.patternfly.layout.Size._2xl;
-import static org.patternfly.layout.Size._3xl;
-import static org.patternfly.layout.Size._4xl;
-import static org.patternfly.layout.Size.lg;
-import static org.patternfly.layout.Size.md;
-import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Size._2xl;
+import static org.patternfly.style.Size._3xl;
+import static org.patternfly.style.Size._4xl;
+import static org.patternfly.style.Size.lg;
+import static org.patternfly.style.Size.md;
+import static org.patternfly.style.Size.xl;
 
 public class TitleComponent extends SnippetPage {
 

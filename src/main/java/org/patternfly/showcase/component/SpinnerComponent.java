@@ -25,11 +25,11 @@ import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.small;
 import static org.patternfly.component.spinner.Spinner.spinner;
 import static org.patternfly.component.text.TextContent.textContent;
-import static org.patternfly.layout.Size.lg;
-import static org.patternfly.layout.Size.md;
-import static org.patternfly.layout.Size.sm;
-import static org.patternfly.layout.Size.xl;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Size.lg;
+import static org.patternfly.style.Size.md;
+import static org.patternfly.style.Size.sm;
+import static org.patternfly.style.Size.xl;
 
 public class SpinnerComponent extends SnippetPage {
 

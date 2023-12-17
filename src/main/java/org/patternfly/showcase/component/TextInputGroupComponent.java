@@ -19,28 +19,26 @@ import org.jboss.elemento.Key;
 import org.patternfly.component.chip.Chip;
 import org.patternfly.component.chip.ChipGroup;
 import org.patternfly.component.textinputgroup.TextInputGroup;
+import org.patternfly.core.ObservableValue;
 import org.patternfly.handler.CloseHandler;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
-import elemental2.dom.HTMLInputElement;
-
 import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.failSafeRemoveFromParent;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.setVisible;
 import static org.jboss.elemento.EventType.click;
-import static org.jboss.elemento.EventType.keyup;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.chip.Chip.chip;
 import static org.patternfly.component.chip.ChipGroup.chipGroup;
 import static org.patternfly.component.textinputgroup.TextInputGroup.textInputGroup;
 import static org.patternfly.component.textinputgroup.TextInputGroupMain.textInputGroupMain;
 import static org.patternfly.component.textinputgroup.TextInputGroupUtilities.textInputGroupUtilities;
-import static org.patternfly.layout.PredefinedIcon.search;
-import static org.patternfly.layout.PredefinedIcon.times;
+import static org.patternfly.core.ObservableValue.ov;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.search;
+import static org.patternfly.style.PredefinedIcon.times;
 
 public class TextInputGroupComponent extends SnippetPage {
 
@@ -80,19 +78,12 @@ public class TextInputGroupComponent extends SnippetPage {
                     TextInputGroup textInputGroup = textInputGroup();
                     textInputGroup
                             .addMain(textInputGroupMain("tig-utilities-and-icon-0")
-                                    .addIcon(search)
+                                    .icon(search)
                                     .placeholder("Placeholder")
-                                    .withInputElement(inputElement -> inputElement.on(keyup, e -> {
-                                        String value = ((HTMLInputElement) e.target).value;
-                                        textInputGroup.showUtilities(!value.isEmpty());
-                                    })))
+                                    .onChange((e, tig, value) -> setVisible(tig.utilities(), !value.isEmpty())))
                             .addUtilities(textInputGroupUtilities()
-                                    .apply(e -> setVisible(e, false))
                                     .add(button().icon(times).plain()
-                                            .on(click, e -> {
-                                                textInputGroup.clear();
-                                                textInputGroup.showUtilities(false);
-                                            })));
+                                            .on(click, e -> textInputGroup.main().value("", true))));
                     return div()
                             .add(textInputGroup)
                             .element();
@@ -102,14 +93,12 @@ public class TextInputGroupComponent extends SnippetPage {
         addSnippet(new Snippet("tig-filters", "Filters",
                 code.get("tig-filters"), () -> {
                     // @code-start:tig-filters
+                    ObservableValue<Boolean> chipsPresent = ov(true);
+                    ObservableValue<Boolean> textEntered = ov(false);
+
                     TextInputGroup textInputGroup = textInputGroup();
                     ChipGroup chipGroup = chipGroup();
-                    CloseHandler<Chip> closeHandler = (event, chip) -> {
-                        if (chipGroup.values().isEmpty()) {
-                            failSafeRemoveFromParent(chipGroup);
-                            textInputGroup.showUtilities(!textInputGroup.inputElement().element().value.isEmpty());
-                        }
-                    };
+                    CloseHandler<Chip> closeHandler = (event, chip) -> chipsPresent.set(!chipGroup.values().isEmpty());
                     chipGroup.addChips(asList("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
                             "eleven", "twelve"), text -> chip(text).onClose(closeHandler));
 
@@ -117,25 +106,41 @@ public class TextInputGroupComponent extends SnippetPage {
                             .addMain(textInputGroupMain("tig-filters-0")
                                     .addChipGroup(chipGroup)
                                     .placeholder("Placeholder")
-                                    .withInputElement(inputElement -> inputElement.on(keyup, e -> {
-                                        String value = ((HTMLInputElement) e.target).value;
-                                        textInputGroup.showUtilities(!value.isEmpty() || !chipGroup.values().isEmpty());
+                                    .onChange((e, tig, value) -> {
+                                        textEntered.set(!value.isEmpty());
                                         if (Key.Enter.match(e) && !value.isEmpty()) {
-                                            if (!chipGroup.element().isConnected) {
-                                                textInputGroup.main().addChipGroup(chipGroup);
-                                            }
                                             chipGroup.addChip(chip(value).onClose(closeHandler));
-                                            inputElement.value("");
+                                            tig.main().value("");
+                                            chipsPresent.set(true);
+                                            textEntered.set(false);
                                         }
-                                    })))
-                            .addUtilities(textInputGroupUtilities()
+                                    }))
+                            .addUtilities(textInputGroupUtilities(false)
                                     .add(button().icon(times).plain()
                                             .on(click, e -> {
                                                 chipGroup.clear();
-                                                failSafeRemoveFromParent(chipGroup);
-                                                textInputGroup.clear();
-                                                textInputGroup.showUtilities(false);
+                                                textInputGroup.main().value("");
+                                                chipsPresent.set(false);
+                                                textEntered.change(false);
                                             })));
+
+                    chipsPresent.subscribe((current, previous) -> {
+                        setVisible(chipGroup, current);
+                        if (current) {
+                            textInputGroup.main().removeIcon();
+                        } else {
+                            textInputGroup.main().icon(search);
+                            setVisible(textInputGroup.utilities(), textEntered.get());
+                        }
+                    });
+                    textEntered.subscribe((current, previous) -> {
+                        if (current) {
+                            setVisible(textInputGroup.utilities(), true);
+                        } else {
+                            setVisible(textInputGroup.utilities(), chipsPresent.get());
+                        }
+                    });
+
                     return div()
                             .add(textInputGroup)
                             .element();

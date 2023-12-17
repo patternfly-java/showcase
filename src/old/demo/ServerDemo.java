@@ -31,7 +31,7 @@ import static org.patternfly.component.title.Title.title;
 import static org.patternfly.deprecated.DataTable.checkboxColumn;
 import static org.patternfly.deprecated.DataTable.column;
 import static org.patternfly.deprecated.DataTable.dataTable;
-import static org.patternfly.layout.Size._4xl;
+import static org.patternfly.style.Size._4xl;
 
 public class ServerDemo implements Page {
 

@@ -50,13 +50,13 @@ import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
-import static org.patternfly.layout.Classes.flex;
-import static org.patternfly.layout.Classes.icon;
-import static org.patternfly.layout.Classes.layout;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.fas;
-import static org.patternfly.layout.Size._4xl;
+import static org.patternfly.style.Classes.flex;
+import static org.patternfly.style.Classes.icon;
+import static org.patternfly.style.Classes.layout;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.fas;
+import static org.patternfly.style.Size._4xl;
 
 public class UserDemo implements Page {
 

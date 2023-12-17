@@ -24,8 +24,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.code.CodeBlock.codeBlock;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockAction;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockCopyToClipboardAction;
-import static org.patternfly.layout.PredefinedIcon.play;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.play;
 
 public class CodeBlockComponent extends SnippetPage {
 

@@ -45,11 +45,11 @@ import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.core.SelectionMode.single;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.Classes.noFill;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.ellipsisV;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Classes.noFill;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
 public class CardComponent extends SnippetPage {
 
@@ -80,17 +80,17 @@ public class CardComponent extends SnippetPage {
                     return div()
                             .add(div().css(util("mb-md"))
                                     .add(checkbox("card-modifiers-compact", "card-modifiers", "compact")
-                                            .onChange((c, value) -> card.compact(value)))
+                                            .onChange((e, c, value) -> card.compact(value)))
                                     .add(checkbox("card-modifiers-flat", "card-modifiers", "flat")
-                                            .onChange((c, value) -> card.flat(value)))
+                                            .onChange((e, c, value) -> card.flat(value)))
                                     .add(checkbox("card-modifiers-rounded", "card-modifiers", "rounded")
-                                            .onChange((c, value) -> card.rounded(value)))
+                                            .onChange((e, c, value) -> card.rounded(value)))
                                     .add(checkbox("card-modifiers-large", "card-modifiers", "large")
-                                            .onChange((c, value) -> card.large(value)))
+                                            .onChange((e, c, value) -> card.large(value)))
                                     .add(checkbox("card-modifiers-fullHeight", "card-modifiers", "fullHeight")
-                                            .onChange((c, value) -> card.fullHeight(value)))
+                                            .onChange((e, c, value) -> card.fullHeight(value)))
                                     .add(checkbox("card-modifiers-plain", "card-modifiers", "plain")
-                                            .onChange((c, value) -> card.plain(value))))
+                                            .onChange((e, c, value) -> card.plain(value))))
                             .add(div().style("height", "15rem")
                                     .add(card
                                             .addTitle(cardTitle("Title"))
@@ -124,14 +124,14 @@ public class CardComponent extends SnippetPage {
                                             .addActions(cardActions
                                                     .add(dropdown)
                                                     .add(checkbox("card-header-image-check", "card-header-image-check")))
-                                            .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg")
+                                            .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg", "PatternFly")
                                                     .style("width", "300px")))
                                     .addTitle(cardTitle("Title"))
                                     .addBody(cardBody().textContent("Body"))
                                     .addFooter(cardFooter().textContent("Footer")))
                             .add(div().css(util("mt-md"))
                                     .add(checkbox("card-header-image-no-offset", "card-header-image-no-offset", "no offset")
-                                            .onChange((c, value) -> cardActions.noOffset(value))))
+                                            .onChange((e, c, value) -> cardActions.noOffset(value))))
                             .element();
                     // @code-end:card-header-image
                 }));
@@ -241,21 +241,24 @@ public class CardComponent extends SnippetPage {
                 // @code-start:card-selectable
                 div()
                         .add(card().name("selectable-card")
-                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .selectable(
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("First card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
                                 .addBody(cardBody().textContent("This card is selectable.")))
                         .add(card().name("selectable-card")
-                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .selectable(
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Second card"))
                                         .addActions(cardActions().noOffset()
                                                 .addSelectableActions(cardSelectableActions())))
                                 .addBody(cardBody().textContent("This card is selectable.")))
                         .add(card().name("selectable-card").disabled()
-                                .selectable((c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                .selectable(
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Third card"))
                                         .addActions(cardActions().noOffset()
@@ -271,7 +274,7 @@ public class CardComponent extends SnippetPage {
                 div()
                         .add(card().name("single-selectable-card")
                                 .selectable(single,
-                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("First card"))
                                         .addActions(cardActions().noOffset()
@@ -279,7 +282,7 @@ public class CardComponent extends SnippetPage {
                                 .addBody(cardBody().textContent("This card is single selectable.")))
                         .add(card().name("single-selectable-card")
                                 .selectable(single,
-                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Second card"))
                                         .addActions(cardActions().noOffset()
@@ -287,7 +290,7 @@ public class CardComponent extends SnippetPage {
                                 .addBody(cardBody().textContent("This card is single selectable.")))
                         .add(card().name("single-selectable-card").disabled()
                                 .selectable(single,
-                                        (c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
+                                        (e, c, selected) -> console.log("card(" + c.element().id + ") selected: " + selected))
                                 .addHeader(cardHeader()
                                         .addTitle(cardTitle("Third card"))
                                         .addActions(cardActions().noOffset()

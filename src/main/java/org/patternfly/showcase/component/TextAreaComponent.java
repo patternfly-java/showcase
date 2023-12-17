@@ -39,8 +39,8 @@ import static org.patternfly.core.ValidationStatus.default_;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
-import static org.patternfly.layout.Classes.util;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.util;
 
 public class TextAreaComponent extends SnippetPage {
 
@@ -75,7 +75,7 @@ public class TextAreaComponent extends SnippetPage {
                     final double[] handle = { 0 };
                     HelperText helperText = helperText("Share your thoughts.");
                     TextArea textArea = textArea("validated-text-area-0")
-                            .onInput((ta, value) -> {
+                            .onChange((e, ta, value) -> {
                                 clearTimeout(handle[0]);
                                 ta.validated(default_);
                                 helperText.firstItem()
@@ -152,12 +152,12 @@ public class TextAreaComponent extends SnippetPage {
         addSnippet(new Snippet("text-area-readonly", "Read only",
                 code.get("text-area-readonly"), () -> {
                     // @code-start:text-area-readonly
-                    Checkbox plainToggle = checkbox("plain-toggle","plain-toggle", "Plain read only variant");
+                    Checkbox plainToggle = checkbox("plain-toggle", "plain-toggle", "Plain read only variant");
                     TextArea readOnlyTextArea = textArea("readonly-text-area-0", "read only text area example")
                             .readonly();
                     return div()
                             .add(div().css(util("mb-sm"))
-                                    .add(plainToggle.onChange((component, value) -> readOnlyTextArea.plain(value))))
+                                    .add(plainToggle.onChange((e, c, value) -> readOnlyTextArea.plain(value))))
                             .add(readOnlyTextArea)
                             .element();
                     // @code-end:text-area-readonly

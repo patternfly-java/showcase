@@ -16,9 +16,9 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.HTMLContainerBuilder;
-import org.patternfly.layout.Color;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
+import org.patternfly.style.Color;
 
 import elemental2.dom.HTMLDivElement;
 
@@ -28,13 +28,13 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.label.Label.label;
 import static org.patternfly.component.label.LabelGroup.labelGroup;
-import static org.patternfly.layout.Color.blue;
-import static org.patternfly.layout.Color.green;
-import static org.patternfly.layout.Color.orange;
-import static org.patternfly.layout.Color.purple;
-import static org.patternfly.layout.Color.red;
-import static org.patternfly.layout.PredefinedIcon.infoCircle;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Color.blue;
+import static org.patternfly.style.Color.green;
+import static org.patternfly.style.Color.orange;
+import static org.patternfly.style.Color.purple;
+import static org.patternfly.style.Color.red;
+import static org.patternfly.style.PredefinedIcon.infoCircle;
 
 public class LabelComponent extends SnippetPage {
 

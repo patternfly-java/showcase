@@ -51,15 +51,15 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.Severity.info;
 import static org.patternfly.core.Severity.success;
 import static org.patternfly.core.Severity.warning;
-import static org.patternfly.layout.Classes.alertGroup;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.util;
-import static org.patternfly.layout.PredefinedIcon.box;
-import static org.patternfly.layout.PredefinedIcon.database;
-import static org.patternfly.layout.PredefinedIcon.laptop;
-import static org.patternfly.layout.PredefinedIcon.server;
-import static org.patternfly.layout.PredefinedIcon.users;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.Classes.alertGroup;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.PredefinedIcon.box;
+import static org.patternfly.style.PredefinedIcon.database;
+import static org.patternfly.style.PredefinedIcon.laptop;
+import static org.patternfly.style.PredefinedIcon.server;
+import static org.patternfly.style.PredefinedIcon.users;
 
 public class AlertComponent extends SnippetPage {
 

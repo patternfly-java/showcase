@@ -15,9 +15,11 @@
  */
 package org.patternfly.showcase.component;
 
+import java.util.List;
+
 import org.jboss.elemento.Id;
 import org.patternfly.component.form.FormSelectOption;
-import org.patternfly.core.Tuple;
+import org.patternfly.core.Tuples;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -33,13 +35,13 @@ import static org.patternfly.component.form.TextAreaResize.both;
 import static org.patternfly.component.form.TextAreaResize.horizontal;
 import static org.patternfly.component.form.TextAreaResize.vertical;
 import static org.patternfly.component.form.TextInput.textInput;
-import static org.patternfly.core.Tuple.tuple;
+import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
-import static org.patternfly.layout.PredefinedIcon.bell;
-import static org.patternfly.layout.PredefinedIcon.fas;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.style.PredefinedIcon.bell;
+import static org.patternfly.style.PredefinedIcon.fas;
 
 public class FormControlComponent extends SnippetPage {
 
@@ -89,21 +91,17 @@ public class FormControlComponent extends SnippetPage {
                     // @code-start:form-control-select
                     String[] values0 = { "Mr", "Miss", "Mrs", "Ms", "Dr", "Other" };
 
-                    Tuple<String, Tuple<String, Boolean>[]>[] groups0 = new Tuple[] {
-                            tuple("Group 1", new Tuple[] {
-                                    tuple("The first option", false),
-                                    tuple("Option groups (second option selected)", false),
-                            }),
-                            tuple("Group 2", new Tuple[] {
-                                    tuple("The third option", false),
-                                    tuple("The fourth option", true),
-                            }),
-                    };
+                    Tuples<String, Tuples<String, Boolean>> groups0 = tuples(
+                            "Group 1", tuples(
+                                    "The first option", false,
+                                    "Option groups (second option selected)", false),
+                            "Group 2", tuples(
+                                    "The third option", false,
+                                    "The fourth option", true));
 
-                    Tuple<String, String[]>[] groups1 = new Tuple[] {
-                            tuple("Group 1", new String[] { "The first option", "The second option", }),
-                            tuple("Group 2", new String[] { "The third option", "The fourth option", }),
-                    };
+                    Tuples<String, List<String>> groups1 = tuples(
+                            "Group 1", asList("The first option", "The second option"),
+                            "Group 2", asList("The third option", "The fourth option"));
 
                     return div()
                             .add(formSelect("form-select-0")
@@ -117,23 +115,23 @@ public class FormControlComponent extends SnippetPage {
                                     .addOptions(asList(values0), FormSelectOption::formSelectOption))
                             .add(br())
                             .add(formSelect("form-select-2", Id.build("Option groups (second option selected)"))
-                                    .addGroups(asList(groups0), g -> formSelectOptionGroup(g._1)
-                                            .addOptions(asList(g._2), v -> formSelectOption(v._1).disabled(v._2))))
+                                    .addGroups(groups0, g -> formSelectOptionGroup(g.key)
+                                            .addOptions(g.value, v -> formSelectOption(v.key).disabled(v.value))))
                             .add(br())
                             .add(formSelect("form-select-3", Id.build("Valid option")).validated(success)
                                     .addOption(formSelectOption("Valid option"))
-                                    .addGroups(asList(groups1), g -> formSelectOptionGroup(g._1)
-                                            .addOptions(asList(g._2), FormSelectOption::formSelectOption)))
+                                    .addGroups(groups1, g -> formSelectOptionGroup(g.key)
+                                            .addOptions(g.value, FormSelectOption::formSelectOption)))
                             .add(br())
                             .add(formSelect("form-select-4", Id.build("Warning option")).validated(warning)
                                     .addOption(formSelectOption("Warning option"))
-                                    .addGroups(asList(groups1), g -> formSelectOptionGroup(g._1)
-                                            .addOptions(asList(g._2), FormSelectOption::formSelectOption)))
+                                    .addGroups(groups1, g -> formSelectOptionGroup(g.key)
+                                            .addOptions(g.value, FormSelectOption::formSelectOption)))
                             .add(br())
                             .add(formSelect("form-select-5", Id.build("Invalid option")).validated(error)
                                     .addOption(formSelectOption("Invalid option"))
-                                    .addGroups(asList(groups1), g -> formSelectOptionGroup(g._1)
-                                            .addOptions(asList(g._2), FormSelectOption::formSelectOption)))
+                                    .addGroups(groups1, g -> formSelectOptionGroup(g.key)
+                                            .addOptions(g.value, FormSelectOption::formSelectOption)))
                             .add(br())
                             .add(formSelect("form-select-6").disabled()
                                     .addOption(formSelectOption("Disabled").placeholder())

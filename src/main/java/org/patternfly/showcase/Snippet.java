@@ -15,6 +15,17 @@
  */
 package org.patternfly.showcase;
 
+import java.util.function.Supplier;
+
+import org.jboss.elemento.By;
+import org.jboss.elemento.Id;
+import org.jboss.elemento.IsElement;
+import org.patternfly.component.code.CodeEditor;
+import org.patternfly.style.Classes;
+import org.patternfly.style.PredefinedIcon;
+
+import elemental2.dom.HTMLElement;
+
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.isVisible;
@@ -30,24 +41,13 @@ import static org.patternfly.component.title.Title.title;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.core.Aria.hidden;
 import static org.patternfly.core.Attributes.tabindex;
-import static org.patternfly.layout.Classes.component;
-import static org.patternfly.layout.Classes.flex;
-import static org.patternfly.layout.Classes.layout;
-import static org.patternfly.layout.Classes.main;
-import static org.patternfly.layout.Classes.modifier;
-import static org.patternfly.layout.PredefinedIcon.undo;
-import static org.patternfly.layout.Size.lg;
-
-import java.util.function.Supplier;
-
-import org.jboss.elemento.By;
-import org.jboss.elemento.Id;
-import org.jboss.elemento.IsElement;
-import org.patternfly.component.code.CodeEditor;
-import org.patternfly.layout.Classes;
-import org.patternfly.layout.PredefinedIcon;
-
-import elemental2.dom.HTMLElement;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Classes.flex;
+import static org.patternfly.style.Classes.layout;
+import static org.patternfly.style.Classes.main;
+import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.PredefinedIcon.undo;
+import static org.patternfly.style.Size.lg;
 
 public class Snippet implements IsElement<HTMLElement> {
 
