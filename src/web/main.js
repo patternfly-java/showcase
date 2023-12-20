@@ -16,10 +16,12 @@
 import "@patternfly/patternfly/patternfly.css";
 import "@patternfly/patternfly/patternfly-addons.css";
 import "./pforg/autoLinkHeader.css";
+import "./pforg/backToTop.css";
 import "./pforg/cssVariables.css";
 import "./pforg/tableOfContents.css";
 import "./pforg/example.css";
 import "./pforg/footer.css";
+import "./pforg/layouts.css";
 import "./pforg/sideNav.css";
 import './pforg/sideNavLayout.css';
 import "./styles.css";

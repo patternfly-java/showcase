@@ -14,24 +14,33 @@
  *  limitations under the License.
  */
 .ws-heading {
-  position: relative;
+    position: relative;
 }
 
 .ws-heading-anchor {
-  color: var(--pf-v5-global--Color--100);
-  transform: translate(calc(-100% - var(--pf-v5-global--spacer--xs)), -50%);
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 50%;
+    color: var(--pf-v5-global--Color--100);
+    transform: translate(calc(-100% - var(--pf-v5-global--spacer--xs)), -50%);
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 50%;
 }
 
 .ws-heading-anchor-icon {
-  height: 0.5em;
-  width: 0.5em;
+    height: 0.5em;
+    width: 0.5em;
 }
 
 .ws-heading:hover .ws-heading-anchor,
 .ws-heading-anchor:focus {
-  opacity: 1;
+    opacity: 1;
 }
+
+.ws-h2 {
+    margin-bottom: var(--pf-v5-c-content--h2--MarginBottom);
+    font-size: var(--pf-v5-c-content--h2--FontSize);
+    font-weight: var(--pf-v5-c-content--h2--FontWeight);
+    line-height: var(--pf-v5-c-content--h2--LineHeight);
+    margin-top: var(--pf-v5-c-content--h2--MarginTop);
+}
+

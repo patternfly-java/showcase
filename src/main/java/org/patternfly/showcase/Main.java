@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase;
 
+import org.jboss.elemento.By;
 import org.patternfly.component.navigation.Navigation;
 import org.patternfly.thirdparty.ThirdParty;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
@@ -24,6 +25,7 @@ import static elemental2.dom.DomGlobal.window;
 import static org.jboss.elemento.Elements.body;
 import static org.jboss.elemento.EventType.bind;
 import static org.jboss.elemento.EventType.hashchange;
+import static org.patternfly.component.backtotop.BackToTop.backToTop;
 import static org.patternfly.component.brand.Brand.brand;
 import static org.patternfly.component.navigation.ExpandableNavigationGroup.expandableNavigationGroup;
 import static org.patternfly.component.navigation.Navigation.navigation;
@@ -37,6 +39,10 @@ import static org.patternfly.component.page.PageSidebar.pageSidebar;
 import static org.patternfly.component.page.PageSidebarBody.pageSidebarBody;
 import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.Assets.pfLogo;
+import static org.patternfly.style.Classes.brand;
+import static org.patternfly.style.Classes.component;
+import static org.patternfly.style.Variable.componentVar;
+import static org.patternfly.style.Variables.Height;
 
 @SuppressWarnings("unused")
 public class Main {
@@ -49,9 +55,11 @@ public class Main {
         navigation = navigation(expandable)
                 .addItem(navigationItem("get-started", "Get started", "#get-started"))
                 .addGroup(expandableNavigationGroup("components", "Components")
+                        .addItem(navigationItem("c-accordion", "Accordion", "#c-accordion"))
                         .addItem(navigationItem("c-action-list", "Action list", "#c-action-list"))
                         .addItem(navigationItem("c-alert", "Alert", "#c-alert"))
                         .addItem(navigationItem("c-avatar", "Avatar", "#c-avatar"))
+                        .addItem(navigationItem("c-back-to-top", "Back to top", "#c-back-to-top"))
                         .addItem(navigationItem("c-badge", "Badge", "#c-badge"))
                         .addItem(navigationItem("c-brand", "Brand", "#c-brand"))
                         .addItem(navigationItem("c-button", "Button", "#c-button"))
@@ -92,7 +100,13 @@ public class Main {
                 // .addItem(navigationItem("c-toolbar", "Toolbar", "#c-toolbar"))
                 )
                 .addGroup(expandableNavigationGroup("layouts", "Layouts")
-                        .addItem(navigationItem("l-gallery", "Gallery", "#l-gallery")))
+                        .addItem(navigationItem("l-bullseye", "Bullseye", "#l-bullseye"))
+                        .addItem(navigationItem("l-flex", "Flex", "#l-flex"))
+                        .addItem(navigationItem("l-gallery", "Gallery", "#l-gallery"))
+                        .addItem(navigationItem("l-grid", "Grid", "#l-grid"))
+                        .addItem(navigationItem("l-level", "Level", "#l-level"))
+                        .addItem(navigationItem("l-split", "Split", "#l-split"))
+                        .addItem(navigationItem("l-stack", "Stack", "#l-stack")))
                 // .addGroup(expandableNavigationGroup("demos", "Demos")
                 // .addItem(navigationItem("d-server", "Server", "#d-server"))
                 // .addItem(navigationItem("d-user", "User", "#d-user")))
@@ -104,11 +118,15 @@ public class Main {
                 .addSkipToContent(skipToContent(mainId))
                 .addMasthead(masthead().css("ws-masthead")
                         .addToggle(mastheadToggle())
-                        .addBrand(brand(pfLogo, "PatternFly").style("--pf-v5-c-brand--Height:36px"), "#home"))
+                        .addBrand(brand(pfLogo, "PatternFly")
+                                .style(componentVar(component(brand), Height).name, "36px"),
+                                "#home"))
                 .addSidebar(pageSidebar()
                         .addBody(pageSidebarBody()
                                 .addNavigation(navigation)))
-                .addMain(pageMain(mainId)));
+                .addMain(pageMain(mainId))
+                .add(backToTop().css("ws-back-to-top")
+                        .scrollableSelector(By.id(mainId))));
 
         bind(window, hashchange, e -> navigate(location.hash));
         navigate(location.hash);

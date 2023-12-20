@@ -19,7 +19,9 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
+import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.p;
+import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.core.Tuple.tuple;
 import static org.patternfly.layout.gallery.Gallery.gallery;
 import static org.patternfly.layout.gallery.GalleryItem.galleryItem;
@@ -43,7 +45,7 @@ public class GalleryLayout extends SnippetPage {
         addSnippet(new Snippet("gallery-basic", "Basic",
                 code.get("gallery-basic"), () ->
                 // @code-start:gallery-basic
-                div().css("layouts")
+                div().css("ws-core-l-gallery")
                         .add(gallery()
                                 .addItem(galleryItem().textContent("Gallery item"))
                                 .addItem(galleryItem().textContent("Gallery item"))
@@ -60,7 +62,7 @@ public class GalleryLayout extends SnippetPage {
         addSnippet(new Snippet("gallery-gutter", "With gutters",
                 code.get("gallery-gutter"), () ->
                 // @code-start:gallery-gutter
-                div().css("layouts")
+                div().css("ws-core-l-gallery")
                         .add(gallery().gutter()
                                 .addItem(galleryItem().textContent("Gallery item"))
                                 .addItem(galleryItem().textContent("Gallery item"))
@@ -75,7 +77,7 @@ public class GalleryLayout extends SnippetPage {
         addSnippet(new Snippet("gallery-min-width", "Adjusting min widths",
                 code.get("gallery-min-width"), () ->
                 // @code-start:gallery-min-width
-                div().css("layouts")
+                div().css("ws-core-l-gallery")
                         .add(gallery().gutter()
                                 .minWidths(tuple(md, "100px"),
                                         tuple(lg, "150px"),
@@ -96,7 +98,7 @@ public class GalleryLayout extends SnippetPage {
         addSnippet(new Snippet("gallery-max-width", "Adjusting max widths",
                 code.get("gallery-max-width"), () ->
                 // @code-start:gallery-max-width
-                div().css("layouts")
+                div().css("ws-core-l-gallery")
                         .add(gallery().gutter()
                                 .minWidths(tuple(md, "280px"),
                                         tuple(lg, "320px"),
@@ -116,7 +118,7 @@ public class GalleryLayout extends SnippetPage {
         addSnippet(new Snippet("gallery-min-max-width", "Adjusting min and max widths",
                 code.get("gallery-min-max-width"), () ->
                 // @code-start:gallery-min-max-width
-                div().css("layouts")
+                div().css("ws-core-l-gallery")
                         .add(gallery().gutter()
                                 .minWidths(tuple(default_, "100%"),
                                         tuple(md, "100px"),
@@ -133,6 +135,20 @@ public class GalleryLayout extends SnippetPage {
                                 .addItem(galleryItem().textContent("Gallery item")))
                         .element()
         // @code-end:gallery-min-max-width
+        ));
+
+        addSnippet(new Snippet("gallery-alternative-components", "Alternative components",
+                code.get("gallery-alternative-components"), () ->
+                // @code-start:gallery-alternative-components
+                div()
+                        .add(gallery(ul())
+                                .addItem(galleryItem(li()).textContent("Gallery item"))
+                                .addItem(galleryItem(li()).textContent("Gallery item"))
+                                .addItem(galleryItem(li()).textContent("Gallery item"))
+                                .addItem(galleryItem(li()).textContent("Gallery item"))
+                                .addItem(galleryItem(li()).textContent("Gallery item")))
+                        .element()
+        // @code-end:gallery-alternative-components
         ));
     }
 }

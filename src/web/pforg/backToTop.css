@@ -13,30 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-.pf-m-redhat-font .pf-c-content {
-    --pf-v5-c-content--FontSize: var(--pf-v5-global--FontSize--lg);
-}
-
-.popover-box, .tooltip-box {
-    height: 450px;
+#ws-core-c-back-to-top-basic {
+    height: 300px;
     position: relative;
-    width: 100%;
-    overflow: scroll;
-    overscroll-behavior: contain;
-    margin: 0 auto;
-    border: 2px dashed #ff6b81;
+}
 
-}
-.popover-box::before,
-.popover-box::after,
-.tooltip-box::before,
-.tooltip-box::after {
-    content: '';
-    display: block;
-    width: 1500px;
-    height: 600px;
-}
-.popover-button, .tooltip-button {
-    position: absolute;
-    left: 600px;
+.ws-back-to-top {
+    z-index: var(--pf-v5-c-page__main--ZIndex);
 }

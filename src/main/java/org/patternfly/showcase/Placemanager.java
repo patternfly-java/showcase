@@ -19,9 +19,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import org.patternfly.showcase.component.AccordionComponent;
 import org.patternfly.showcase.component.ActionListComponent;
 import org.patternfly.showcase.component.AlertComponent;
 import org.patternfly.showcase.component.AvatarComponent;
+import org.patternfly.showcase.component.BackToTopComponent;
 import org.patternfly.showcase.component.BadgeComponent;
 import org.patternfly.showcase.component.BrandComponent;
 import org.patternfly.showcase.component.ButtonComponent;
@@ -50,7 +52,13 @@ import org.patternfly.showcase.component.TextInputComponent;
 import org.patternfly.showcase.component.TextInputGroupComponent;
 import org.patternfly.showcase.component.TitleComponent;
 import org.patternfly.showcase.component.TooltipComponent;
+import org.patternfly.showcase.layout.BullseyeLayout;
+import org.patternfly.showcase.layout.FlexLayout;
 import org.patternfly.showcase.layout.GalleryLayout;
+import org.patternfly.showcase.layout.GridLayout;
+import org.patternfly.showcase.layout.LevelLayout;
+import org.patternfly.showcase.layout.SplitLayout;
+import org.patternfly.showcase.layout.StackLayout;
 
 import elemental2.dom.HTMLElement;
 
@@ -73,8 +81,10 @@ final class Placemanager {
         places.put("home", () -> new HomePage());
 
         places.put("c-action-list", () -> new ActionListComponent());
+        places.put("c-accordion", () -> new AccordionComponent());
         places.put("c-alert", () -> new AlertComponent());
         places.put("c-avatar", () -> new AvatarComponent());
+        places.put("c-back-to-top", () -> new BackToTopComponent());
         places.put("c-badge", () -> new BadgeComponent());
         places.put("c-brand", () -> new BrandComponent());
         places.put("c-button", () -> new ButtonComponent());
@@ -112,7 +122,13 @@ final class Placemanager {
         places.put("c-tooltip", () -> new TooltipComponent());
         // places.put("c-toolbar", () -> new ToolbarComponent());
 
+        places.put("l-bullseye", () -> new BullseyeLayout());
+        places.put("l-flex", () -> new FlexLayout());
         places.put("l-gallery", () -> new GalleryLayout());
+        places.put("l-grid", () -> new GridLayout());
+        places.put("l-level", () -> new LevelLayout());
+        places.put("l-split", () -> new SplitLayout());
+        places.put("l-stack", () -> new StackLayout());
 
         // places.put("d-server", () -> new ServerDemo());
         // places.put("d-user", () -> new UserDemo());
