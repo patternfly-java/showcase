@@ -61,6 +61,7 @@ public class Main {
                         .addItem(navigationItem("c-avatar", "Avatar", "#c-avatar"))
                         .addItem(navigationItem("c-back-to-top", "Back to top", "#c-back-to-top"))
                         .addItem(navigationItem("c-badge", "Badge", "#c-badge"))
+                        .addItem(navigationItem("c-banner", "Banner", "#c-banner"))
                         .addItem(navigationItem("c-brand", "Brand", "#c-brand"))
                         .addItem(navigationItem("c-button", "Button", "#c-button"))
                         .addItem(navigationItem("c-card", "Card", "#c-card"))

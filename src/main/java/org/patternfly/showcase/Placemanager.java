@@ -25,6 +25,7 @@ import org.patternfly.showcase.component.AlertComponent;
 import org.patternfly.showcase.component.AvatarComponent;
 import org.patternfly.showcase.component.BackToTopComponent;
 import org.patternfly.showcase.component.BadgeComponent;
+import org.patternfly.showcase.component.BannerComponent;
 import org.patternfly.showcase.component.BrandComponent;
 import org.patternfly.showcase.component.ButtonComponent;
 import org.patternfly.showcase.component.CardComponent;
@@ -86,6 +87,7 @@ final class Placemanager {
         places.put("c-avatar", () -> new AvatarComponent());
         places.put("c-back-to-top", () -> new BackToTopComponent());
         places.put("c-badge", () -> new BadgeComponent());
+        places.put("c-banner", () -> new BannerComponent());
         places.put("c-brand", () -> new BrandComponent());
         places.put("c-button", () -> new ButtonComponent());
         places.put("c-card", () -> new CardComponent());

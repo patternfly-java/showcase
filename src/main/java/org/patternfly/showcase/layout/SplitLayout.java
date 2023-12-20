@@ -15,14 +15,14 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.split.Split.split;
 import static org.patternfly.layout.split.SplitItem.splitItem;
 import static org.patternfly.showcase.Code.code;
-
-import org.patternfly.showcase.Snippet;
-import org.patternfly.showcase.SnippetPage;
 
 public class SplitLayout extends SnippetPage {
 

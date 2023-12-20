@@ -15,14 +15,14 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.bullseye.Bullseye.bullseye;
 import static org.patternfly.layout.bullseye.BullseyeItem.bullseyeItem;
 import static org.patternfly.showcase.Code.code;
-
-import org.patternfly.showcase.Snippet;
-import org.patternfly.showcase.SnippetPage;
 
 public class BullseyeLayout extends SnippetPage {
 

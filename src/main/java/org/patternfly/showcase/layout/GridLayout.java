@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.p;
@@ -28,9 +31,6 @@ import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
-
-import org.patternfly.showcase.Snippet;
-import org.patternfly.showcase.SnippetPage;
 
 public class GridLayout extends SnippetPage {
 
@@ -183,7 +183,7 @@ public class GridLayout extends SnippetPage {
                                 .addItem(gridItem(li()).textContent("Grid item"))
                                 .addItem(gridItem(li()).textContent("Grid item")))
                         .element()
-                // @code-end:grid-alternative-components
+        // @code-end:grid-alternative-components
         ));
     }
 }
