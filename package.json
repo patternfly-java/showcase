@@ -16,7 +16,7 @@
     "@parcel/core": "^2.11.0",
     "@parcel/reporter-cli": "^2.10.3",
     "@parcel/resolver-glob": "^2.11.0",
-    "@parcel/transformer-inline-string": "^2.10.3",
+    "@parcel/transformer-inline-string": "^2.11.0",
     "parcel": "^2.10.3",
     "parcel-resolver-ignore": "^2.2.0"
   },
