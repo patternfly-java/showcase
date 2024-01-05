@@ -200,7 +200,7 @@
     "@parcel/transformer-react-refresh-wrap" "2.10.3"
     "@parcel/transformer-svg" "2.10.3"
 
-"@parcel/core@2.10.3", "@parcel/core@^2.10.3":
+"@parcel/core@2.10.3":
   version "2.10.3"
   resolved "https://registry.yarnpkg.com/@parcel/core/-/core-2.10.3.tgz#3de309cb71a6094f0c1e26634804128054c11d02"
   integrity sha512-b64FdqJi4CX6iWeLZNfmwdTrC1VLPXHMuFusf1sTZTuRBFw2oRpgJvuiqsrInaZ82o3lbLMo4a9/5LtNaZKa+Q==
@@ -220,6 +220,37 @@
     "@parcel/types" "2.10.3"
     "@parcel/utils" "2.10.3"
     "@parcel/workers" "2.10.3"
+    abortcontroller-polyfill "^1.1.9"
+    base-x "^3.0.8"
+    browserslist "^4.6.6"
+    clone "^2.1.1"
+    dotenv "^7.0.0"
+    dotenv-expand "^5.1.0"
+    json5 "^2.2.0"
+    msgpackr "^1.9.9"
+    nullthrows "^1.1.1"
+    semver "^7.5.2"
+
+"@parcel/core@^2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@parcel/core/-/core-2.11.0.tgz#5bbe8729e042a216c130864fb9063a26f9455b6f"
+  integrity sha512-Npe0S6hVaqWEwRL+HI7gtOYOaoE5bJQZTgUDhsDoppWbau51jOlRYOZTXuvRK/jxXnze4/S1sdM24xBYAQ5qkw==
+  dependencies:
+    "@mischnic/json-sourcemap" "^0.1.0"
+    "@parcel/cache" "2.11.0"
+    "@parcel/diagnostic" "2.11.0"
+    "@parcel/events" "2.11.0"
+    "@parcel/fs" "2.11.0"
+    "@parcel/graph" "3.1.0"
+    "@parcel/logger" "2.11.0"
+    "@parcel/package-manager" "2.11.0"
+    "@parcel/plugin" "2.11.0"
+    "@parcel/profiler" "2.11.0"
+    "@parcel/rust" "2.11.0"
+    "@parcel/source-map" "^2.1.1"
+    "@parcel/types" "2.11.0"
+    "@parcel/utils" "2.11.0"
+    "@parcel/workers" "2.11.0"
     abortcontroller-polyfill "^1.1.9"
     base-x "^3.0.8"
     browserslist "^4.6.6"
@@ -283,6 +314,13 @@
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@parcel/graph/-/graph-3.0.3.tgz#c19e2bcf83cc10b0969c5fa824459997c4c10fd2"
   integrity sha512-zUA8KsjR2+v2Q2bFBF7zBk33ejriDiRA/+LK5QE8LrFpkaDa+gjkx76h2x7JqGXIDHNos446KX4nz2OUCVwrNQ==
+  dependencies:
+    nullthrows "^1.1.1"
+
+"@parcel/graph@3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@parcel/graph/-/graph-3.1.0.tgz#1cac1e0af72a31d6327c752358886bc0b3193b3f"
+  integrity sha512-d1dTW5C7A52HgDtoXlyvlET1ypSlmIxSIZOJ1xp3R9L9hgo3h1u3jHNyaoTe/WPkGVe2QnFxh0h+UibVJhu9vg==
   dependencies:
     nullthrows "^1.1.1"
 
