@@ -110,7 +110,7 @@ public class GridLayout extends SnippetPage {
                 code.get("grid-overrides"), () ->
                 // @code-start:grid-overrides
                 div().css("ws-core-l-grid")
-                        .add(grid().cols(tuples(sm, 6, md, 4, lg, 3, _2xl, 1))
+                        .add(grid().columns(tuples(sm, 6, md, 4, lg, 3, _2xl, 1))
                                 .addItem(gridItem().span(3).rowSpan(2)
                                         .textContent("span = 3, rowSpan = 2"))
                                 .addItem(gridItem().textContent("Grid item"))

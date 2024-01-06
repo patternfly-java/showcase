@@ -68,6 +68,7 @@ public class Main {
                         .addItem(navigationItem("c-chip", "Chip", "#c-chip"))
                         .addItem(navigationItem("c-code-block", "Code block", "#c-code-block"))
                         .addItem(navigationItem("c-code-editor", "Code editor", "#c-code-editor"))
+                        .addItem(navigationItem("c-description-list", "Description list", "#c-description-list"))
                         // .addItem(navigationItem("c-data-list", "Data list", "#c-data-list"))
                         // .addItem(navigationItem("c-empty-state", "Empty state", "#c-empty-state"))
                         .addItem(navigationItem("c-expandable-section", "Expandable section", "#c-expandable-section"))

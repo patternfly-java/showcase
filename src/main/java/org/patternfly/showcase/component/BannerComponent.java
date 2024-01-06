@@ -16,7 +16,6 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.core.Aria;
-import org.patternfly.core.Tuples;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 

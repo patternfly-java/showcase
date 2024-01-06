@@ -33,6 +33,7 @@ import org.patternfly.showcase.component.CheckboxComponent;
 import org.patternfly.showcase.component.ChipComponent;
 import org.patternfly.showcase.component.CodeBlockComponent;
 import org.patternfly.showcase.component.CodeEditorComponent;
+import org.patternfly.showcase.component.DescriptionListComponent;
 import org.patternfly.showcase.component.DropdownComponent;
 import org.patternfly.showcase.component.ExpandableSectionComponent;
 import org.patternfly.showcase.component.FormComponent;
@@ -97,6 +98,7 @@ final class Placemanager {
         places.put("c-code-editor", () -> new CodeEditorComponent());
         // places.put("c-context-selector", () -> new ContextSelectorComponent());
         // places.put("c-data-list", () -> new DataListComponent());
+        places.put("c-description-list", () -> new DescriptionListComponent());
         places.put("c-dropdown", () -> new DropdownComponent());
         // places.put("c-empty-state", () -> new EmptyStateComponent());
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());
