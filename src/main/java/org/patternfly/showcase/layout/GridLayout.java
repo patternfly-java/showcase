@@ -22,7 +22,6 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.ul;
-import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.layout.grid.Grid.grid;
 import static org.patternfly.layout.grid.GridItem.gridItem;
 import static org.patternfly.showcase.Code.code;
@@ -134,9 +133,9 @@ public class GridLayout extends SnippetPage {
                 // @code-start:grid-order-standard
                 div().css("ws-core-l-grid")
                         .add(grid().gutter().span(3)
-                                .addItem(gridItem().order(tuples(default_, "2")).textContent("Item A"))
+                                .addItem(gridItem().order(breakpoints(default_, "2")).textContent("Item A"))
                                 .addItem(gridItem().textContent("Item B"))
-                                .addItem(gridItem().order(tuples(default_, "-1")).textContent("Item C")))
+                                .addItem(gridItem().order(breakpoints(default_, "-1")).textContent("Item C")))
                         .element()
         // @code-end:grid-order-standard
         ));
@@ -146,9 +145,9 @@ public class GridLayout extends SnippetPage {
                 // @code-start:grid-order-responsive
                 div().css("ws-core-l-grid")
                         .add(grid().gutter().span(3)
-                                .addItem(gridItem().order(tuples(lg, "2")).textContent("Item A"))
+                                .addItem(gridItem().order(breakpoints(lg, "2")).textContent("Item A"))
                                 .addItem(gridItem().textContent("Item B"))
-                                .addItem(gridItem().order(tuples(default_, "-1", md, "1"))
+                                .addItem(gridItem().order(breakpoints(default_, "-1", md, "1"))
                                         .textContent("Item C")))
                         .element()
         // @code-end:grid-order-responsive
@@ -160,15 +159,15 @@ public class GridLayout extends SnippetPage {
                 div().css("ws-core-l-grid")
                         .add(grid().gutter().span(12)
                                 .add(grid().gutter().span(6).order(breakpoints(default_, "2"))
-                                        .addItem(gridItem().order(tuples(default_, "3")).textContent("Set 1, Item A"))
-                                        .addItem(gridItem().order(tuples(default_, "1")).textContent("Set 1, Item B"))
+                                        .addItem(gridItem().order(breakpoints(default_, "3")).textContent("Set 1, Item A"))
+                                        .addItem(gridItem().order(breakpoints(default_, "1")).textContent("Set 1, Item B"))
                                         .addItem(gridItem().textContent("Set 1, Item C"))
-                                        .addItem(gridItem().order(tuples(default_, "2")).textContent("Set 1, Item D")))
+                                        .addItem(gridItem().order(breakpoints(default_, "2")).textContent("Set 1, Item D")))
                                 .add(grid().gutter().span(6)
-                                        .addItem(gridItem().order(tuples(default_, "2")).textContent("Set 2, Item A"))
-                                        .addItem(gridItem().order(tuples(default_, "1")).textContent("Set 2, Item B"))
+                                        .addItem(gridItem().order(breakpoints(default_, "2")).textContent("Set 2, Item A"))
+                                        .addItem(gridItem().order(breakpoints(default_, "1")).textContent("Set 2, Item B"))
                                         .addItem(gridItem().textContent("Set 2, Item C"))
-                                        .addItem(gridItem().order(tuples(default_, "2")).textContent("Set 2, Item D"))))
+                                        .addItem(gridItem().order(breakpoints(default_, "2")).textContent("Set 2, Item D"))))
                         .element()
         // @code-end:grid-order-grouped
         ));
