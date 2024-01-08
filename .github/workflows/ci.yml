@@ -19,8 +19,8 @@ jobs:
         with:
           repository: patternfly-java/patternfly-java
           path: patternfly-java
-      - name: Checkout PatternFly Showcase (1)
-        id: checkout-patternfly-showcase-1
+      - name: Checkout PatternFly Showcase
+        id: checkout-patternfly-showcase
         uses: actions/checkout@v4
         with:
           path: patternfly-showcase
@@ -35,23 +35,7 @@ jobs:
         id: install-patternfly-java
         run: $MVN install
         working-directory: patternfly-java
-      - name: Package PatternFly Showcase
-        id: install-patternfly-showcase
-        run: $MVN install
+      - name: Verify PatternFly Showcase
+        id: verify-patternfly-showcase
+        run: $MVN verify
         working-directory: patternfly-showcase
-      - name: Backup Pages
-        id: backup-pages
-        run: mv patternfly-showcase/target/showcase /tmp/showcase
-      - name: Checkout PatternFly Showcase (2)
-        id: checkout-patternfly-showcase-2
-        uses: actions/checkout@v4
-      - name: Restore Pages
-        id: restore-pages
-        run: mv /tmp/showcase ./target
-      - name: Publish PatternFly Showcase
-        id: publish-patternfly-showcase
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
-        with:
-          branch: gh-pages
-          folder: ./target/showcase
-          clean: true
