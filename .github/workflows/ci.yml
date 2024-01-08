@@ -7,59 +7,38 @@ on:
     branches: [ main ]
 
 jobs:
-  patternfly-java:
-    name: Install PatternFly Java
+  ci:
+    name: Continuous Integration
     runs-on: ubuntu-latest
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:
-      - name: Checkout
-        id: checkout
+      - name: Set up JDK
+        id: setup-jdk
+        uses: actions/setup-java@v4
+        with:
+          java-version: 11
+          distribution: temurin
+          cache: maven
+      - name: Checkout PatternFly Java
+        id: checkout-patternfly-java
         uses: actions/checkout@v4
         with:
           repository: patternfly-java/patternfly-java
           path: patternfly-java
-      - name: Set up JDK
-        id: setup-jdk
-        uses: actions/setup-java@v4
-        with:
-          java-version: 11
-          distribution: temurin
-          cache: maven
-      - name: Install
+      - name: Install PatternFly Java
         id: install
         run: $MVN install
         working-directory: patternfly-java
-
-  patternfly-showcase:
-    name: Build PatternFly Showcase
-    runs-on: ubuntu-latest
-    needs: patternfly-java
-    env:
-      MVN: ./mvnw --show-version --batch-mode
-    steps:
-      - name: Checkout
-        id: checkout
+      - name: Checkout PatternFly Showcase
+        id: checkout-patternfly-showcase
         uses: actions/checkout@v4
         with:
           path: patternfly-showcase
-      - name: Set up JDK
-        id: setup-jdk
-        uses: actions/setup-java@v4
-        with:
-          java-version: 11
-          distribution: temurin
-          cache: maven
-      - name: Install
-        id: install
+      - name: Install PatternFly Showcase
+        id: install-patternfly-showcase
         run: $MVN install
         working-directory: patternfly-showcase
-
-  pages:
-    name: Publish PatternFly Showcase
-    runs-on: ubuntu-latest
-    needs: patternfly-showcase
-    steps:
       - name: Publish
         id: publish
         uses: JamesIves/github-pages-deploy-action@v4.5.0
