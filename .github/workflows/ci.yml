@@ -13,6 +13,12 @@ jobs:
     env:
       MVN: ./mvnw --show-version --batch-mode
     steps:
+      - name: Checkout PatternFly Java
+        id: checkout-patternfly-java
+        uses: actions/checkout@v4
+        with:
+          repository: patternfly-java/patternfly-java
+          path: patternfly-java
       - name: Set up JDK
         id: setup-jdk
         uses: actions/setup-java@v4
@@ -20,12 +26,6 @@ jobs:
           java-version: 11
           distribution: temurin
           cache: maven
-      - name: Checkout PatternFly Java
-        id: checkout-patternfly-java
-        uses: actions/checkout@v4
-        with:
-          repository: patternfly-java/patternfly-java
-          path: patternfly-java
       - name: Install PatternFly Java
         id: install
         run: $MVN install
