@@ -32,7 +32,6 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.ul;
-import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.layout.flex.Flex.flex;
 import static org.patternfly.layout.flex.FlexItem.flexItem;
 import static org.patternfly.showcase.Code.code;
@@ -40,6 +39,7 @@ import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.xl;
+import static org.patternfly.style.Breakpoints.breakpoints;
 
 public class FlexLayout extends SnippetPage {
 
@@ -105,13 +105,13 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-individually-spaced
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .addItem(flexItem().spacer(tuples(default_, Spacer.none)).textContent("Item - none"))
-                                .addItem(flexItem().spacer(tuples(default_, Spacer.xs)).textContent("Item - xs"))
-                                .addItem(flexItem().spacer(tuples(default_, Spacer.md)).textContent("Item - md"))
-                                .addItem(flexItem().spacer(tuples(default_, Spacer.lg)).textContent("Item - lg"))
-                                .addItem(flexItem().spacer(tuples(default_, Spacer.xl)).textContent("Item - xl"))
-                                .addItem(flexItem().spacer(tuples(default_, Spacer._2xl)).textContent("Item - 2xl"))
-                                .addItem(flexItem().spacer(tuples(default_, Spacer._3xl)).textContent("Item - 3xl")))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer.none)).textContent("Item - none"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer.xs)).textContent("Item - xs"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer.md)).textContent("Item - md"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer.lg)).textContent("Item - lg"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer.xl)).textContent("Item - xl"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer._2xl)).textContent("Item - 2xl"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer._3xl)).textContent("Item - 3xl")))
                         .element()
         // @code-end:flex-individually-spaced
         ));
@@ -120,7 +120,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-spacing-xl"), () ->
                 // @code-start:flex-spacing-xl
                 div().css("ws-core-l-flex")
-                        .add(flex().spaceItems(tuples(default_, SpaceItems.xl))
+                        .add(flex().spaceItems(breakpoints(default_, SpaceItems.xl))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
@@ -134,7 +134,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-spacing-none"), () ->
                 // @code-start:flex-spacing-none
                 div().css("ws-core-l-flex")
-                        .add(flex().spaceItems(tuples(default_, SpaceItems.none))
+                        .add(flex().spaceItems(breakpoints(default_, SpaceItems.none))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
@@ -148,7 +148,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-row-gap"), () ->
                 // @code-start:flex-row-gap
                 div().css("ws-core-l-flex")
-                        .add(flex().rowGap(tuples(default_, Gap._2xl))
+                        .add(flex().rowGap(breakpoints(default_, Gap._2xl))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
@@ -167,7 +167,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-column-gap"), () ->
                 // @code-start:flex-column-gap
                 div().css("ws-core-l-flex")
-                        .add(flex().columnGap(tuples(default_, Gap._2xl))
+                        .add(flex().columnGap(breakpoints(default_, Gap._2xl))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
@@ -186,7 +186,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-gap"), () ->
                 // @code-start:flex-gap
                 div().css("ws-core-l-flex")
-                        .add(flex().gap(tuples(default_, Gap._2xl))
+                        .add(flex().gap(breakpoints(default_, Gap._2xl))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
@@ -219,7 +219,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-inline"), () ->
                 // @code-start:flex-inline
                 div().css("ws-core-l-flex")
-                        .add(flex().css("example-border").display(tuples(default_, Display.inlineFlex))
+                        .add(flex().css("example-border").display(breakpoints(default_, Display.inlineFlex))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
@@ -234,7 +234,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-grow
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().grow(tuples(default_, true))
+                                .add(flex().grow(default_)
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
@@ -252,12 +252,12 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-adjust-width
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().flex(tuples(default_, FlexShorthand._1))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._1))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().flex(tuples(default_, FlexShorthand._1))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._1))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().flex(tuples(default_, FlexShorthand._1))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._1))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
@@ -270,12 +270,12 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-column-widths
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().flex(tuples(default_, FlexShorthand._1))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._1))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().flex(tuples(default_, FlexShorthand._2))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._2))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().flex(tuples(default_, FlexShorthand._3))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._3))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
@@ -290,7 +290,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-column-layout"), () ->
                 // @code-start:flex-column-layout
                 div().css("ws-core-l-flex")
-                        .add(flex().direction(tuples(default_, Direction.column))
+                        .add(flex().direction(breakpoints(default_, Direction.column))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
@@ -302,7 +302,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-stacking-elements"), () ->
                 // @code-start:flex-stacking-elements
                 div().css("ws-core-l-flex")
-                        .add(flex().direction(tuples(default_, Direction.column))
+                        .add(flex().direction(breakpoints(default_, Direction.column))
                                 .add(flex()
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
@@ -321,11 +321,11 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-nest-columns
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -339,13 +339,13 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-column-row"), () ->
                 // @code-start:flex-column-row
                 div().css("ws-core-l-flex")
-                        .add(flex().direction(tuples(default_, Direction.column, lg, Direction.row))
+                        .add(flex().direction(breakpoints(default_, Direction.column, lg, Direction.row))
                                 .add(flex()
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -356,11 +356,11 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-width-of-text"), () ->
                 // @code-start:flex-width-of-text
                 div().css("ws-core-l-flex")
-                        .add(flex().direction(tuples(default_, Direction.column, lg, Direction.row))
-                                .add(flex().flex(tuples(default_, FlexShorthand._1))
+                        .add(flex().direction(breakpoints(default_, Direction.column, lg, Direction.row))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._1))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent(LoremIpsum.paragraphs(5))))
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -378,7 +378,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
-                                .addItem(flexItem().align(tuples(default_, Align.right)).textContent("Flex item"))
+                                .addItem(flexItem().align(breakpoints(default_, Align.right)).textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
         // @code-end:flex-align-right
@@ -389,7 +389,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-align-right-single
                 div().css("ws-core-l-flex")
                         .add(flex().css("example-border")
-                                .addItem(flexItem().align(tuples(default_, Align.right)).textContent("Flex item"))
+                                .addItem(flexItem().align(breakpoints(default_, Align.right)).textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
         // @code-end:flex-align-right-single
@@ -403,10 +403,10 @@ public class FlexLayout extends SnippetPage {
                                 .add(flex()
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().align(tuples(default_, Align.right))
+                                .add(flex().align(breakpoints(default_, Align.right))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().align(tuples(default_, Align.right))
+                                .add(flex().align(breakpoints(default_, Align.right))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -418,7 +418,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-align-adjacent-content
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().flex(tuples(default_, FlexShorthand._1))
+                                .add(flex().flex(breakpoints(default_, FlexShorthand._1))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
@@ -435,13 +435,13 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-align-self-end
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
                                 .add(flex()
-                                        .direction(tuples(default_, Direction.column))
-                                        .alignSelf(tuples(default_, AlignSelf.flexEnd))
+                                        .direction(breakpoints(default_, Direction.column))
+                                        .alignSelf(breakpoints(default_, AlignSelf.flexEnd))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -453,13 +453,13 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-align-self-center
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
                                 .add(flex()
-                                        .direction(tuples(default_, Direction.column))
-                                        .alignSelf(tuples(default_, AlignSelf.center))
+                                        .direction(breakpoints(default_, Direction.column))
+                                        .alignSelf(breakpoints(default_, AlignSelf.center))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -471,13 +471,13 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-align-self-baseline
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
                                 .add(flex()
-                                        .direction(tuples(default_, Direction.column))
-                                        .alignSelf(tuples(default_, AlignSelf.baseline))
+                                        .direction(breakpoints(default_, Direction.column))
+                                        .alignSelf(breakpoints(default_, AlignSelf.baseline))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -489,13 +489,13 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-align-self-stretch
                 div().css("ws-core-l-flex")
                         .add(flex()
-                                .add(flex().direction(tuples(default_, Direction.column))
+                                .add(flex().direction(breakpoints(default_, Direction.column))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item")))
                                 .add(flex()
-                                        .direction(tuples(default_, Direction.column))
-                                        .alignSelf(tuples(default_, AlignSelf.stretch))
+                                        .direction(breakpoints(default_, Direction.column))
+                                        .alignSelf(breakpoints(default_, AlignSelf.stretch))
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
@@ -509,7 +509,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-just-end"), () ->
                 // @code-start:flex-just-end
                 div().css("ws-core-l-flex")
-                        .add(flex().css("example-border").justifyContent(tuples(default_, JustifyContent.flexEnd))
+                        .add(flex().css("example-border").justifyContent(breakpoints(default_, JustifyContent.flexEnd))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
@@ -522,7 +522,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-just-space-between"), () ->
                 // @code-start:flex-just-space-between
                 div().css("ws-core-l-flex")
-                        .add(flex().css("example-border").justifyContent(tuples(default_, JustifyContent.spaceBetween))
+                        .add(flex().css("example-border").justifyContent(breakpoints(default_, JustifyContent.spaceBetween))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
@@ -534,7 +534,7 @@ public class FlexLayout extends SnippetPage {
                 code.get("flex-just-start"), () ->
                 // @code-start:flex-just-start
                 div().css("ws-core-l-flex")
-                        .add(flex().css("example-border").justifyContent(tuples(default_, JustifyContent.flexStart))
+                        .add(flex().css("example-border").justifyContent(breakpoints(default_, JustifyContent.flexStart))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
@@ -550,11 +550,11 @@ public class FlexLayout extends SnippetPage {
                 // @code-start:flex-order-first-last
                 div().css("ws-core-l-flex")
                         .add(flex().css("example-border")
-                                .addItem(flexItem().spacer(tuples(default_, Spacer.none)).order(tuples(default_, "2"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer.none)).order(breakpoints(default_, "2"))
                                         .textContent("Item A"))
                                 .addItem(flexItem()
                                         .textContent("Item B"))
-                                .addItem(flexItem().spacer(tuples(default_, Spacer.md)).order(tuples(default_, "-1"))
+                                .addItem(flexItem().spacer(breakpoints(default_, Spacer.md)).order(breakpoints(default_, "-1"))
                                         .textContent("Item C")))
                         .element()
         // @code-end:flex-order-first-last
@@ -566,16 +566,16 @@ public class FlexLayout extends SnippetPage {
                 div().css("ws-core-l-flex")
                         .add(flex().css("example-border")
                                 .addItem(flexItem()
-                                        .spacer(tuples(lg, Spacer.none))
-                                        .order(tuples(lg, "2"))
+                                        .spacer(breakpoints(lg, Spacer.none))
+                                        .order(breakpoints(lg, "2"))
                                         .textContent("Item A"))
                                 .addItem(flexItem()
-                                        .spacer(tuples(md, Spacer.none, lg, Spacer.md))
-                                        .order(tuples(default_, "-1", md, "1"))
+                                        .spacer(breakpoints(md, Spacer.none, lg, Spacer.md))
+                                        .order(breakpoints(default_, "-1", md, "1"))
                                         .textContent("Item B"))
                                 .addItem(flexItem()
-                                        .spacer(tuples(default_, Spacer.md))
-                                        .order(tuples(md, "-1"))
+                                        .spacer(breakpoints(default_, Spacer.md))
+                                        .order(breakpoints(md, "-1"))
                                         .textContent("Item C")))
                         .element()
         // @code-end:flex-order-first-last-responsive
@@ -587,35 +587,35 @@ public class FlexLayout extends SnippetPage {
                 div().css("ws-core-l-flex")
                         .add(flex().css("example-border")
                                 .add(flex().css("example-border")
-                                        .order(tuples(lg, "1"))
-                                        .spacer(tuples(default_, Spacer.none))
+                                        .order(breakpoints(lg, "1"))
+                                        .spacer(breakpoints(default_, Spacer.none))
                                         .addItem(flexItem()
-                                                .order(tuples(md, "2"))
+                                                .order(breakpoints(md, "2"))
                                                 .textContent("Set 1, Item A"))
                                         .addItem(flexItem()
-                                                .order(tuples(md, "-1"))
+                                                .order(breakpoints(md, "-1"))
                                                 .textContent("Set 1, Item B"))
                                         .addItem(flexItem()
-                                                .order(tuples(xl, "1"))
+                                                .order(breakpoints(xl, "1"))
                                                 .textContent("Set 1, Item C"))
                                         .addItem(flexItem()
-                                                .order(tuples(md, "2"))
-                                                .spacer(tuples(xl, Spacer.none))
+                                                .order(breakpoints(md, "2"))
+                                                .spacer(breakpoints(xl, Spacer.none))
                                                 .textContent("Set 1, Item D")))
                                 .add(flex().css("example-border")
-                                        .spacer(tuples(lg, Spacer.md))
+                                        .spacer(breakpoints(lg, Spacer.md))
                                         .addItem(flexItem()
-                                                .order(tuples(default_, "3"))
-                                                .spacer(tuples(default_, Spacer.none))
+                                                .order(breakpoints(default_, "3"))
+                                                .spacer(breakpoints(default_, Spacer.none))
                                                 .textContent("Set 2, Item A"))
                                         .addItem(flexItem()
-                                                .order(tuples(default_, "1"))
+                                                .order(breakpoints(default_, "1"))
                                                 .textContent("Set 2, Item B"))
                                         .addItem(flexItem()
                                                 .textContent("Set 2, Item C"))
                                         .addItem(flexItem()
-                                                .order(tuples(md, "2"))
-                                                .spacer(tuples(default_, Spacer.md))
+                                                .order(breakpoints(md, "2"))
+                                                .spacer(breakpoints(default_, Spacer.md))
                                                 .textContent("Set 2, Item D"))))
                         .element()
         // @code-end:flex-ordering
@@ -627,34 +627,34 @@ public class FlexLayout extends SnippetPage {
                 div().css("ws-core-l-flex")
                         .add(flex().css("example-border")
                                 .add(flex().css("example-border")
-                                        .order(tuples(default_, "1"))
-                                        .spacer(tuples(default_, Spacer.none))
+                                        .order(breakpoints(default_, "1"))
+                                        .spacer(breakpoints(default_, Spacer.none))
                                         .addItem(flexItem()
-                                                .order(tuples(default_, "3"))
-                                                .spacer(tuples(default_, Spacer.none))
+                                                .order(breakpoints(default_, "3"))
+                                                .spacer(breakpoints(default_, Spacer.none))
                                                 .textContent("Set 1, Item A"))
                                         .addItem(flexItem()
-                                                .order(tuples(default_, "1"))
+                                                .order(breakpoints(default_, "1"))
                                                 .textContent("Set 1, Item B"))
                                         .addItem(flexItem()
                                                 .textContent("Set 1, Item C"))
                                         .addItem(flexItem()
-                                                .spacer(tuples(default_, Spacer.md))
+                                                .spacer(breakpoints(default_, Spacer.md))
                                                 .textContent("Set 1, Item D")))
                                 .add(flex().css("example-border")
-                                        .spacer(tuples(default_, Spacer.md))
+                                        .spacer(breakpoints(default_, Spacer.md))
                                         .addItem(flexItem()
-                                                .order(tuples(default_, "3"))
-                                                .spacer(tuples(default_, Spacer.none))
+                                                .order(breakpoints(default_, "3"))
+                                                .spacer(breakpoints(default_, Spacer.none))
                                                 .textContent("Set 2, Item A"))
                                         .addItem(flexItem()
-                                                .order(tuples(lg, "1"))
+                                                .order(breakpoints(lg, "1"))
                                                 .textContent("Set 2, Item B"))
                                         .addItem(flexItem()
                                                 .textContent("Set 2, Item C"))
                                         .addItem(flexItem()
-                                                .order(tuples(default_, "2"))
-                                                .spacer(tuples(default_, Spacer.md))
+                                                .order(breakpoints(default_, "2"))
+                                                .spacer(breakpoints(default_, Spacer.md))
                                                 .textContent("Set 2, Item D"))))
                         .element()
         // @code-end:flex-ordering-responsive

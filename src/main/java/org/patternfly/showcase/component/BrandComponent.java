@@ -22,11 +22,11 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.img;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.brand.Brand.brand;
-import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
+import static org.patternfly.style.Breakpoints.breakpoints;
 
 public class BrandComponent extends SnippetPage {
 
@@ -50,7 +50,7 @@ public class BrandComponent extends SnippetPage {
                 // @code-start:brand-responsive
                 div()
                         .add(brand()
-                                .widths(tuples(default_, "40px", sm, "60px", md, "220px"))
+                                .widths(breakpoints(default_, "40px", sm, "60px", md, "220px"))
                                 .addSource("https://www.patternfly.org/assets/images/pf-c-brand__logo-on-xl.svg",
                                         "(min-width: 1200px)")
                                 .addSource("https://www.patternfly.org/assets/images/pf-c-brand__logo-on-lg.svg",

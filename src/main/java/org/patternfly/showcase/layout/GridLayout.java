@@ -31,6 +31,7 @@ import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
+import static org.patternfly.style.Breakpoints.breakpoints;
 
 public class GridLayout extends SnippetPage {
 
@@ -110,7 +111,7 @@ public class GridLayout extends SnippetPage {
                 code.get("grid-overrides"), () ->
                 // @code-start:grid-overrides
                 div().css("ws-core-l-grid")
-                        .add(grid().columns(tuples(sm, 6, md, 4, lg, 3, _2xl, 1))
+                        .add(grid().columns(breakpoints(sm, 6, md, 4, lg, 3, _2xl, 1))
                                 .addItem(gridItem().span(3).rowSpan(2)
                                         .textContent("span = 3, rowSpan = 2"))
                                 .addItem(gridItem().textContent("Grid item"))
@@ -158,7 +159,7 @@ public class GridLayout extends SnippetPage {
                 // @code-start:grid-order-grouped
                 div().css("ws-core-l-grid")
                         .add(grid().gutter().span(12)
-                                .add(grid().gutter().span(6).order(tuples(default_, "2"))
+                                .add(grid().gutter().span(6).order(breakpoints(default_, "2"))
                                         .addItem(gridItem().order(tuples(default_, "3")).textContent("Set 1, Item A"))
                                         .addItem(gridItem().order(tuples(default_, "1")).textContent("Set 1, Item B"))
                                         .addItem(gridItem().textContent("Set 1, Item C"))

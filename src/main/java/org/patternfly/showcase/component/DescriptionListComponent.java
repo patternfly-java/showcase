@@ -15,6 +15,10 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+import org.patternfly.style.Size;
+
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
@@ -26,7 +30,6 @@ import static org.patternfly.component.descriptionlist.DescriptionListGroup.desc
 import static org.patternfly.component.descriptionlist.DescriptionListTerm.descriptionListTerm;
 import static org.patternfly.component.popover.Popover.popover;
 import static org.patternfly.core.IconPosition.start;
-import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
@@ -34,6 +37,7 @@ import static org.patternfly.style.Breakpoint.lg;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
 import static org.patternfly.style.Breakpoint.xl;
+import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Orientation.horizontal;
 import static org.patternfly.style.Orientation.vertical;
 import static org.patternfly.style.PredefinedIcon.book;
@@ -42,11 +46,6 @@ import static org.patternfly.style.PredefinedIcon.flag;
 import static org.patternfly.style.PredefinedIcon.globe;
 import static org.patternfly.style.PredefinedIcon.key;
 import static org.patternfly.style.PredefinedIcon.plusCircle;
-
-import org.patternfly.showcase.Snippet;
-import org.patternfly.showcase.SnippetPage;
-import org.patternfly.style.PredefinedIcon;
-import org.patternfly.style.Size;
 
 public class DescriptionListComponent extends SnippetPage {
 
@@ -130,7 +129,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-default-2-col"), () ->
                 // @code-start:dl-default-2-col
                 div()
-                        .add(descriptionList().columns(tuples(default_, 2))
+                        .add(descriptionList().columns(breakpoints(default_, 2))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -157,7 +156,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-default-3-col-on-lg"), () ->
                 // @code-start:dl-default-3-col-on-lg
                 div()
-                        .add(descriptionList().columns(tuples(lg, 3))
+                        .add(descriptionList().columns(breakpoints(lg, 3))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -212,7 +211,7 @@ public class DescriptionListComponent extends SnippetPage {
                 // @code-start:dl-horizontal-term-width
                 div()
                         .add(descriptionList().horizontal()
-                                .horizontalTermWidth(tuples(
+                                .horizontalTermWidth(breakpoints(
                                         default_, "12ch",
                                         sm, "15ch",
                                         md, "20ch",
@@ -245,7 +244,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-horizontal-2-col"), () ->
                 // @code-start:dl-horizontal-2-col
                 div()
-                        .add(descriptionList().horizontal().columns(tuples(default_, 2))
+                        .add(descriptionList().horizontal().columns(breakpoints(default_, 2))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -272,7 +271,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-horizontal-3-col-on-lg"), () ->
                 // @code-start:dl-horizontal-3-col-on-lg
                 div()
-                        .add(descriptionList().horizontal().columns(tuples(lg, 3))
+                        .add(descriptionList().horizontal().columns(breakpoints(lg, 3))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -380,7 +379,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-column-fill"), () ->
                 // @code-start:dl-column-fill
                 div()
-                        .add(descriptionList().fillColumns().columns(tuples(default_, 2, lg, 3))
+                        .add(descriptionList().fillColumns().columns(breakpoints(default_, 2, lg, 3))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription(
@@ -408,7 +407,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-large"), () ->
                 // @code-start:dl-large
                 div()
-                        .add(descriptionList().displaySize(Size.lg).columns(tuples(lg, 2))
+                        .add(descriptionList().displaySize(Size.lg).columns(breakpoints(lg, 2))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -436,7 +435,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-default-responsive-columns"), () ->
                 // @code-start:dl-default-responsive-columns
                 div()
-                        .add(descriptionList().columns(tuples(lg, 2, xl, 3))
+                        .add(descriptionList().columns(breakpoints(lg, 2, xl, 3))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -463,7 +462,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-horizontal-responsive-columns"), () ->
                 // @code-start:dl-horizontal-responsive-columns
                 div()
-                        .add(descriptionList().horizontal().columns(tuples(lg, 2, xl, 3))
+                        .add(descriptionList().horizontal().columns(breakpoints(lg, 2, xl, 3))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -491,7 +490,7 @@ public class DescriptionListComponent extends SnippetPage {
                 // @code-start:dl-responsive-columns-vgl
                 div()
                         .add(descriptionList().horizontal()
-                                .orientation(tuples(
+                                .orientation(breakpoints(
                                         md, vertical,
                                         lg, horizontal,
                                         xl, vertical,
@@ -523,7 +522,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-default-auto-column-width"), () ->
                 // @code-start:dl-default-auto-column-width
                 div()
-                        .add(descriptionList().autoColumnWidths().columns(tuples(default_, 3))
+                        .add(descriptionList().autoColumnWidths().columns(breakpoints(default_, 3))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -550,7 +549,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-horizontal-auto-column-width"), () ->
                 // @code-start:dl-horizontal-auto-column-width
                 div()
-                        .add(descriptionList().autoColumnWidths().horizontal().columns(tuples(default_, 2))
+                        .add(descriptionList().autoColumnWidths().horizontal().columns(breakpoints(default_, 2))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -578,7 +577,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-default-inline-grid"), () ->
                 // @code-start:dl-default-inline-grid
                 div()
-                        .add(descriptionList().inlineGrid().columns(tuples(default_, 3))
+                        .add(descriptionList().inlineGrid().columns(breakpoints(default_, 3))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -606,7 +605,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-with-card"), () ->
                 // @code-start:dl-with-card
                 div()
-                        .add(descriptionList().columns(tuples(lg, 2))
+                        .add(descriptionList().columns(breakpoints(lg, 2))
                                 .add(card()
                                         .add(descriptionListTerm("Name"))
                                         .add(descriptionListDescription("Example")))
@@ -633,7 +632,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-card-large"), () ->
                 // @code-start:dl-card-large
                 div()
-                        .add(descriptionList().displaySize(Size.lg).columns(tuples(lg, 2))
+                        .add(descriptionList().displaySize(Size.lg).columns(breakpoints(lg, 2))
                                 .add(card()
                                         .add(descriptionListTerm("Name"))
                                         .add(descriptionListDescription("Example")))
@@ -660,7 +659,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-card-large-breakpoint"), () ->
                 // @code-start:dl-card-large-breakpoint
                 div()
-                        .add(descriptionList().displaySize(Size.lg).columns(tuples(lg, 3))
+                        .add(descriptionList().displaySize(Size.lg).columns(breakpoints(lg, 3))
                                 .add(card()
                                         .add(descriptionListTerm("Name"))
                                         .add(descriptionListDescription("Example")))
@@ -687,7 +686,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-card-horizontal"), () ->
                 // @code-start:dl-card-horizontal
                 div()
-                        .add(descriptionList().displaySize(Size.lg).horizontal().columns(tuples(lg, 2)).termWidth("10ch")
+                        .add(descriptionList().displaySize(Size.lg).horizontal().columns(breakpoints(lg, 2)).termWidth("10ch")
                                 .add(card()
                                         .add(descriptionListTerm("Name"))
                                         .add(descriptionListDescription("Example")))
@@ -742,7 +741,7 @@ public class DescriptionListComponent extends SnippetPage {
                 code.get("dl-auto-fit-gtc"), () ->
                 // @code-start:dl-auto-fit-gtc
                 div()
-                        .add(descriptionList().autoFit().autoFitMin(tuples(default_, "200px"))
+                        .add(descriptionList().autoFit().autoFitMin(breakpoints(default_, "200px"))
                                 .addGroup(descriptionListGroup()
                                         .addTerm(descriptionListTerm("Name"))
                                         .addDescription(descriptionListDescription("Example")))
@@ -770,7 +769,7 @@ public class DescriptionListComponent extends SnippetPage {
                 // @code-start:dl-auto-fit-rgtc
                 div()
                         .add(descriptionList().autoFit()
-                                .autoFitMin(tuples(
+                                .autoFitMin(breakpoints(
                                         md, "100px",
                                         lg, "150px",
                                         xl, "200px",
@@ -822,7 +821,7 @@ public class DescriptionListComponent extends SnippetPage {
                                         .addTerm(descriptionListTerm("Annotation").icon(flag))
                                         .addDescription(descriptionListDescription("2 annotations"))))
                         .element()
-                // @code-end:dl-icons
+        // @code-end:dl-icons
         ));
     }
 }

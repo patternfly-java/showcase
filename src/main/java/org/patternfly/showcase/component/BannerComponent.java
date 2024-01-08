@@ -27,12 +27,12 @@ import static org.patternfly.component.banner.Banner.banner;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.core.Attributes.role;
-import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.layout.flex.Flex.flex;
 import static org.patternfly.layout.flex.FlexItem.flexItem;
 import static org.patternfly.layout.flex.SpaceItems.sm;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint.default_;
+import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.disabled;
 import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Color.blue;
@@ -113,27 +113,27 @@ public class BannerComponent extends SnippetPage {
                 // @code-start:banner-status
                 div()
                         .add(banner().screenReader("Default banner")
-                                .add(flex().spaceItems(tuples(default_, sm))
+                                .add(flex().spaceItems(breakpoints(default_, sm))
                                         .addItem(flexItem().add(inlineIcon(bell)))
                                         .addItem(flexItem().textContent("Default banner"))))
                         .add(br())
                         .add(banner(blue).screenReader("Info banner")
-                                .add(flex().spaceItems(tuples(default_, sm))
+                                .add(flex().spaceItems(breakpoints(default_, sm))
                                         .addItem(flexItem().add(inlineIcon(infoCircle)))
                                         .addItem(flexItem().textContent("Info banner"))))
                         .add(br())
                         .add(banner(red).screenReader("Danger banner")
-                                .add(flex().spaceItems(tuples(default_, sm))
+                                .add(flex().spaceItems(breakpoints(default_, sm))
                                         .addItem(flexItem().add(inlineIcon(exclamationCircle)))
                                         .addItem(flexItem().textContent("Danger banner"))))
                         .add(br())
                         .add(banner(green).screenReader("Success banner")
-                                .add(flex().spaceItems(tuples(default_, sm))
+                                .add(flex().spaceItems(breakpoints(default_, sm))
                                         .addItem(flexItem().add(inlineIcon(checkCircle)))
                                         .addItem(flexItem().textContent("Success banner"))))
                         .add(br())
                         .add(banner(gold).screenReader("Warning banner")
-                                .add(flex().spaceItems(tuples(default_, sm))
+                                .add(flex().spaceItems(breakpoints(default_, sm))
                                         .addItem(flexItem().add(inlineIcon(exclamationTriangle)))
                                         .addItem(flexItem().textContent("Warning"))))
                         .element()
