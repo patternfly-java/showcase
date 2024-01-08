@@ -39,6 +39,9 @@ jobs:
         id: install-patternfly-showcase
         run: $MVN install
         working-directory: patternfly-showcase
+      - name: Fake Git # github-pages-deploy-action needs a git directory!
+        id: fake-git
+        run: git init
       - name: Publish PatternFly Showcase
         id: publish-patternfly-showcase
         uses: JamesIves/github-pages-deploy-action@v4.5.0
