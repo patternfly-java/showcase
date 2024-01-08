@@ -408,6 +408,16 @@
 
     <repositories>
         <repository>
+            <id>oss-pubic</id>
+            <url>https://s01.oss.sonatype.org/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
             <id>patternfly-java-snapshots</id>
             <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
             <releases>
