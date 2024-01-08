@@ -22,6 +22,8 @@ jobs:
       - name: Checkout PatternFly Showcase
         id: checkout-patternfly-showcase
         uses: actions/checkout@v4
+        with:
+          path: patternfly-showcase
       - name: Set up JDK
         id: setup-jdk
         uses: actions/setup-java@v4
@@ -36,10 +38,11 @@ jobs:
       - name: Install PatternFly Showcase
         id: install-patternfly-showcase
         run: $MVN install
+        working-directory: patternfly-showcase
       - name: Publish PatternFly Showcase
         id: publish-patternfly-showcase
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           branch: gh-pages
-          folder: ./target/showcase
+          folder: ./patternfly-showcase/target/showcase
           clean: true
