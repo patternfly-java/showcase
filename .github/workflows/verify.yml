@@ -1,4 +1,4 @@
-name: Verify Codebase
+name: Verify
 
 on:
   push:
