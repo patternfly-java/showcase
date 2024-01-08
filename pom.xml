@@ -409,7 +409,7 @@
     <repositories>
         <repository>
             <id>oss-releases</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
+            <url>https://s01.oss.sonatype.org/content/repositories/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
