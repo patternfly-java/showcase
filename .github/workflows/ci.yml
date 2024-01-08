@@ -19,6 +19,11 @@ jobs:
         with:
           repository: patternfly-java/patternfly-java
           path: patternfly-java
+      - name: Checkout PatternFly Showcase
+        id: checkout-patternfly-showcase
+        uses: actions/checkout@v4
+        with:
+          path: patternfly-showcase
       - name: Set up JDK
         id: setup-jdk
         uses: actions/setup-java@v4
@@ -27,14 +32,9 @@ jobs:
           distribution: temurin
           cache: maven
       - name: Install PatternFly Java
-        id: install
+        id: install-patternfly-java
         run: $MVN install
         working-directory: patternfly-java
-      - name: Checkout PatternFly Showcase
-        id: checkout-patternfly-showcase
-        uses: actions/checkout@v4
-        with:
-          path: patternfly-showcase
       - name: Install PatternFly Showcase
         id: install-patternfly-showcase
         run: $MVN install
