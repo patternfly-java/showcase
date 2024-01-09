@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.showcase.Snippet;
+import org.patternfly.showcase.SnippetPage;
+
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
@@ -32,10 +35,6 @@ import static org.patternfly.style.Size.sm;
 import static org.patternfly.style.Size.xl;
 import static org.patternfly.style.Size.xs;
 import static org.patternfly.style.Variable.globalVar;
-
-import org.patternfly.showcase.Snippet;
-import org.patternfly.showcase.SnippetPage;
-import org.patternfly.style.PredefinedIcon;
 
 public class EmptyStateComponent extends SnippetPage {
 

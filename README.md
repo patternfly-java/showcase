@@ -4,7 +4,7 @@ Showcase for [PatternFly Java](https://github.com/patternfly-java/patternfly-jav
 
 ## Get Started
 
-The showcase is a [J2CL](https://github.com/google/j2cl/) web app built with the [J2CL Maven Plugin](https://github.com/Vertispan/j2clmavenplugin) and bundled with [Parcel](https://parceljs.org/). 
+The showcase is a [J2CL](https://github.com/google/j2cl/) web app built with the [J2CL Maven Plugin](https://github.com/Vertispan/j2clmavenplugin) and bundled with [Parcel](https://parceljs.org/).
 
 ### Development Mode
 
