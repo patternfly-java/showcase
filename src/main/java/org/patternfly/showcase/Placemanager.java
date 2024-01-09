@@ -35,6 +35,7 @@ import org.patternfly.showcase.component.CodeBlockComponent;
 import org.patternfly.showcase.component.CodeEditorComponent;
 import org.patternfly.showcase.component.DescriptionListComponent;
 import org.patternfly.showcase.component.DropdownComponent;
+import org.patternfly.showcase.component.EmptyStateComponent;
 import org.patternfly.showcase.component.ExpandableSectionComponent;
 import org.patternfly.showcase.component.FormComponent;
 import org.patternfly.showcase.component.FormControlComponent;
@@ -100,7 +101,7 @@ final class Placemanager {
         // places.put("c-data-list", () -> new DataListComponent());
         places.put("c-description-list", () -> new DescriptionListComponent());
         places.put("c-dropdown", () -> new DropdownComponent());
-        // places.put("c-empty-state", () -> new EmptyStateComponent());
+        places.put("c-empty-state", () -> new EmptyStateComponent());
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());
         places.put("c-form", () -> new FormComponent());
         places.put("c-form-control", () -> new FormControlComponent());

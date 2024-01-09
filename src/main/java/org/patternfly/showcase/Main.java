@@ -70,7 +70,7 @@ public class Main {
                         .addItem(navigationItem("c-code-editor", "Code editor", "#c-code-editor"))
                         .addItem(navigationItem("c-description-list", "Description list", "#c-description-list"))
                         // .addItem(navigationItem("c-data-list", "Data list", "#c-data-list"))
-                        // .addItem(navigationItem("c-empty-state", "Empty state", "#c-empty-state"))
+                        .addItem(navigationItem("c-empty-state", "Empty state", "#c-empty-state"))
                         .addItem(navigationItem("c-expandable-section", "Expandable section", "#c-expandable-section"))
                         .addGroup(expandableNavigationGroup("forms", "Forms")
                                 .addItem(navigationItem("c-checkbox", "Checkbox", "#c-checkbox"))
