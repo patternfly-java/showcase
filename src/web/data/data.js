@@ -22,5 +22,5 @@ const PatternFlyData = {
 };
 
 // Parcel cannot detect that this is going to be used from J2CL
-// "Export" it soo it doesn't get stripped away
+// "Export" it, so it doesn't get stripped away
 window["PatternFlyData"] = PatternFlyData;
