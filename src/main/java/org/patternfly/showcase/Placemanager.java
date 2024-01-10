@@ -34,6 +34,7 @@ import org.patternfly.showcase.component.ChipComponent;
 import org.patternfly.showcase.component.CodeBlockComponent;
 import org.patternfly.showcase.component.CodeEditorComponent;
 import org.patternfly.showcase.component.DescriptionListComponent;
+import org.patternfly.showcase.component.DrawerComponent;
 import org.patternfly.showcase.component.DropdownComponent;
 import org.patternfly.showcase.component.EmptyStateComponent;
 import org.patternfly.showcase.component.ExpandableSectionComponent;
@@ -97,8 +98,7 @@ final class Placemanager {
         places.put("c-chip", () -> new ChipComponent());
         places.put("c-code-block", () -> new CodeBlockComponent());
         places.put("c-code-editor", () -> new CodeEditorComponent());
-        // places.put("c-context-selector", () -> new ContextSelectorComponent());
-        // places.put("c-data-list", () -> new DataListComponent());
+        places.put("c-drawer", () -> new DrawerComponent());
         places.put("c-description-list", () -> new DescriptionListComponent());
         places.put("c-dropdown", () -> new DropdownComponent());
         places.put("c-empty-state", () -> new EmptyStateComponent());
