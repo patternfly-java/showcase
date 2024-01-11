@@ -99,8 +99,8 @@ final class Placemanager {
         places.put("c-chip", () -> new ChipComponent());
         places.put("c-code-block", () -> new CodeBlockComponent());
         places.put("c-code-editor", () -> new CodeEditorComponent());
-        places.put("c-drawer", () -> new DrawerComponent());
         places.put("c-description-list", () -> new DescriptionListComponent());
+        places.put("c-drawer", () -> new DrawerComponent());
         places.put("c-dropdown", () -> new DropdownComponent());
         places.put("c-empty-state", () -> new EmptyStateComponent());
         places.put("c-expandable-section", () -> new ExpandableSectionComponent());

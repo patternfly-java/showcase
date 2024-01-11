@@ -121,14 +121,15 @@ public class DrawerComponent extends SnippetPage {
                     .add(button("Toggle drawer").css(util("mb-lg"))
                             .primary()
                             .onClick((event, btn) -> drawer.toggle()))
-                    .add(drawer.style("height", "400px").position(bottom)
-                            .addContent(drawerContent()
-                                    .addBody(drawerContentBody()
-                                            .textContent(LoremIpsum.paragraphs(20))))
-                            .addPanel(drawerPanel()
-                                    .addHead(drawerPanelHead()
-                                            .add(span().textContent("drawer-panel"))
-                                            .addCloseButton(drawerCloseButton()))))
+                    .add(div().style("height", "400px")
+                            .add(drawer.position(bottom)
+                                    .addContent(drawerContent()
+                                            .addBody(drawerContentBody()
+                                                    .textContent(LoremIpsum.paragraphs(20))))
+                                    .addPanel(drawerPanel()
+                                            .addHead(drawerPanelHead()
+                                                    .add(span().textContent("drawer-panel"))
+                                                    .addCloseButton(drawerCloseButton())))))
                     .element();
             // @code-end:drawer-bottom
         }));
@@ -323,6 +324,73 @@ public class DrawerComponent extends SnippetPage {
                                             .addCloseButton(drawerCloseButton()))))
                     .element();
             // @code-end:drawer-breakpoint
+        }));
+
+        addSnippet(new Snippet("drawer-resizable", "Resizable at end",
+                code.get("drawer-resizable"), () -> {
+            // @code-start:drawer-resizable
+            Drawer drawer = drawer();
+            return div()
+                    .add(button("Toggle drawer").css(util("mb-lg"))
+                            .primary()
+                            .onClick((event, btn) -> drawer.toggle()))
+                    .add(drawer
+                            .addContent(drawerContent()
+                                    .addBody(drawerContentBody()
+                                            .textContent(LoremIpsum.paragraphs(20))))
+                            .addPanel(drawerPanel()
+                                    .resizable()
+                                    .minSize("150px").defaultSize("500px")
+                                    .addHead(drawerPanelHead()
+                                            .add(span().textContent("drawer-panel"))
+                                            .addCloseButton(drawerCloseButton()))))
+                    .element();
+            // @code-end:drawer-resizable
+        }));
+
+        addSnippet(new Snippet("drawer-resizable-start", "Resizable at start",
+                code.get("drawer-resizable-start"), () -> {
+            // @code-start:drawer-resizable-start
+            Drawer drawer = drawer();
+            return div()
+                    .add(button("Toggle drawer").css(util("mb-lg"))
+                            .primary()
+                            .onClick((event, btn) -> drawer.toggle()))
+                    .add(drawer.position(start)
+                            .addContent(drawerContent()
+                                    .addBody(drawerContentBody()
+                                            .textContent(LoremIpsum.paragraphs(20))))
+                            .addPanel(drawerPanel()
+                                    .resizable().increment(50)
+                                    .minSize("200px").defaultSize("500px")
+                                    .addHead(drawerPanelHead()
+                                            .add(span().textContent("drawer-panel"))
+                                            .addCloseButton(drawerCloseButton()))))
+                    .element();
+            // @code-end:drawer-resizable-start
+        }));
+
+        addSnippet(new Snippet("drawer-resizable-bottom", "Resizable on bottom",
+                code.get("drawer-resizable-bottom"), () -> {
+            // @code-start:drawer-resizable-bottom
+            Drawer drawer = drawer();
+            return div()
+                    .add(button("Toggle drawer").css(util("mb-lg"))
+                            .primary()
+                            .onClick((event, btn) -> drawer.toggle()))
+                    .add(div().style("height", "400px")
+                            .add(drawer.position(bottom)
+                                    .addContent(drawerContent()
+                                            .addBody(drawerContentBody()
+                                                    .textContent(LoremIpsum.paragraphs(20))))
+                                    .addPanel(drawerPanel()
+                                            .resizable()
+                                            .minSize("100px").defaultSize("200px")
+                                            .addHead(drawerPanelHead()
+                                                    .add(span().textContent("drawer-panel"))
+                                                    .addCloseButton(drawerCloseButton())))))
+                    .element();
+            // @code-end:drawer-resizable-bottom
         }));
     }
 }
