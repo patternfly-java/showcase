@@ -51,6 +51,7 @@ import org.patternfly.showcase.component.PanelComponent;
 import org.patternfly.showcase.component.PopoverComponent;
 import org.patternfly.showcase.component.RadioComponent;
 import org.patternfly.showcase.component.SpinnerComponent;
+import org.patternfly.showcase.component.TabsComponent;
 import org.patternfly.showcase.component.TextAreaComponent;
 import org.patternfly.showcase.component.TextContentComponent;
 import org.patternfly.showcase.component.TextInputComponent;
@@ -120,7 +121,7 @@ final class Placemanager {
         // places.put("c-select", () -> new SelectComponent());
         places.put("c-spinner", () -> new SpinnerComponent());
         // places.put("c-table", () -> new TableComponent());
-        // places.put("c-tabs", () -> new TabsComponent());
+        places.put("c-tabs", () -> new TabsComponent());
         places.put("c-text-content", () -> new TextContentComponent());
         places.put("c-text-area", () -> new TextAreaComponent());
         places.put("c-text-input", () -> new TextInputComponent());
