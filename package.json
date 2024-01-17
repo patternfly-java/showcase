@@ -21,7 +21,7 @@
     "parcel-resolver-ignore": "^2.2.0"
   },
   "dependencies": {
-    "@github/relative-time-element": "^4.3.0",
+    "@github/relative-time-element": "^4.3.1",
     "@patternfly/patternfly": "^5.1.0",
     "@popperjs/core": "^2.11.8"
   }
