@@ -85,6 +85,7 @@ public class Main {
                         .addItem(navigationItem("c-hint", "Hint", "#c-hint"))
                         .addItem(navigationItem("c-icon", "Icon", "#c-icon"))
                         .addItem(navigationItem("c-label", "Label", "#c-label"))
+                        .addItem(navigationItem("c-list", "List", "#c-list"))
                         .addItem(navigationItem("c-masthead", "Masthead", "#c-masthead"))
                         .addGroup(expandableNavigationGroup("menus", "Menus")
                                 .addItem(navigationItem("c-dropdown", "Dropdown", "#c-dropdown"))

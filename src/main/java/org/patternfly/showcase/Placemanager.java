@@ -45,6 +45,7 @@ import org.patternfly.showcase.component.HelperTextComponent;
 import org.patternfly.showcase.component.HintComponent;
 import org.patternfly.showcase.component.IconComponent;
 import org.patternfly.showcase.component.LabelComponent;
+import org.patternfly.showcase.component.ListComponent;
 import org.patternfly.showcase.component.MastheadComponent;
 import org.patternfly.showcase.component.MenuComponent;
 import org.patternfly.showcase.component.MenuToggleComponent;
@@ -113,6 +114,7 @@ final class Placemanager {
         places.put("c-hint", () -> new HintComponent());
         places.put("c-icon", () -> new IconComponent());
         places.put("c-label", () -> new LabelComponent());
+        places.put("c-list", () -> new ListComponent());
         places.put("c-masthead", () -> new MastheadComponent());
         places.put("c-menu", () -> new MenuComponent());
         places.put("c-menu-toggle", () -> new MenuToggleComponent());
