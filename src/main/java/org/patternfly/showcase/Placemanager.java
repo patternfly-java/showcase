@@ -42,6 +42,7 @@ import org.patternfly.showcase.component.FormComponent;
 import org.patternfly.showcase.component.FormControlComponent;
 import org.patternfly.showcase.component.FormSelectComponent;
 import org.patternfly.showcase.component.HelperTextComponent;
+import org.patternfly.showcase.component.HintComponent;
 import org.patternfly.showcase.component.IconComponent;
 import org.patternfly.showcase.component.LabelComponent;
 import org.patternfly.showcase.component.MastheadComponent;
@@ -109,6 +110,7 @@ final class Placemanager {
         places.put("c-form-control", () -> new FormControlComponent());
         places.put("c-form-select", () -> new FormSelectComponent());
         places.put("c-helper-text", () -> new HelperTextComponent());
+        places.put("c-hint", () -> new HintComponent());
         places.put("c-icon", () -> new IconComponent());
         places.put("c-label", () -> new LabelComponent());
         places.put("c-masthead", () -> new MastheadComponent());

@@ -82,6 +82,7 @@ public class Main {
                                 .addItem(navigationItem("c-text-area", "Text area", "#c-text-area"))
                                 .addItem(navigationItem("c-text-input", "Text input", "#c-text-input")))
                         .addItem(navigationItem("c-helper-text", "Helper text", "#c-helper-text"))
+                        .addItem(navigationItem("c-hint", "Hint", "#c-hint"))
                         .addItem(navigationItem("c-icon", "Icon", "#c-icon"))
                         .addItem(navigationItem("c-label", "Label", "#c-label"))
                         .addItem(navigationItem("c-masthead", "Masthead", "#c-masthead"))
