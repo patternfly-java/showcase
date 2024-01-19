@@ -96,6 +96,7 @@ public class Main {
                         .addItem(navigationItem("c-panel", "Panel", "#c-panel"))
                         .addItem(navigationItem("c-popover", "Popover", "#c-popover"))
                         .addItem(navigationItem("c-spinner", "Spinner", "#c-spinner"))
+                        .addItem(navigationItem("c-switch", "Switch", "#c-switch"))
                         // .addItem(navigationItem("c-table", "Table", "#c-table"))
                         .addItem(navigationItem("c-tabs", "Tabs", "#c-tabs"))
                         .addItem(navigationItem("c-text-content", "Text content", "#c-text-content"))
