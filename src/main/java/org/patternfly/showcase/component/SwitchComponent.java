@@ -15,7 +15,6 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.switch_.Switch;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
