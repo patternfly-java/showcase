@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"GalleryItem.impl.java.js",
-"lineCount":74,
-"mappings":"A;;;;;;;;;;;;;;;;;;MA2Ba,W;;CAAA,W;EAAAA,Q;;;QAIiB,wD;EAAcC,sB;EACpCA,+B;;;QAKJ,S;EAAAC,sB;EAAAA,kC;EAAAA,mE;EAAAA,iB;;;CAAA,sD;EACIC,oqB;;;CAMe,iD;EACfC,Y;;;;CAlBK,uC;EAAAA,gE;;;;CAAA,uC;EAAAC,6J;;;;CAAA,gD;EAAAA,4K;;;;CAAA,iD;EAAAA,6J;;;;CAAA,0D;EAAAA,4K;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA,qB;EAAAA;",
+"lineCount":55,
+"mappings":"A;;;;;;;;;;;;;;;MA2Ba,W;;CAAA,W;EAAAA,Q;;;QAIiB,wD;EAAcC,sB;EACpCA,+H;;;QAG8C,iG,gCAAoCC,O;EAASD,sB;EAC3FA,6E;;;QAKoB,gD,gCAAoCC,O;EAApCC,sB;EAAAA,kC;EAAAA,mH;EAAAA,iB;;;CAAA,+F,gCAAoCD,O;EACxDE,4kB;;;CAMe,iD;EACfC,Y;;;;CAtBK,uC;EAAAA,gE;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA;",
 "sources":["GalleryItem.java"],
-"names":["org.patternfly.layout.gallery.GalleryItem.<synthetic: ctor_js>","org.patternfly.layout.gallery.GalleryItem.galleryItem","org.patternfly.layout.gallery.GalleryItem.<synthetic: ctor_create>","org.patternfly.layout.gallery.GalleryItem.<init>","org.patternfly.layout.gallery.GalleryItem.that","org.patternfly.layout.gallery.GalleryItem.fill","org.patternfly.layout.gallery.GalleryItem.<clinit>"]
+"names":["org.patternfly.layout.gallery.GalleryItem.<synthetic: ctor_js>","org.patternfly.layout.gallery.GalleryItem.galleryItem","builder","org.patternfly.layout.gallery.GalleryItem.<synthetic: ctor_create>","org.patternfly.layout.gallery.GalleryItem.<init>","org.patternfly.layout.gallery.GalleryItem.that","org.patternfly.layout.gallery.GalleryItem.<clinit>"]
 }

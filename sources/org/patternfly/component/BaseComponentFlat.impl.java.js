@@ -55,13 +55,25 @@ class BaseComponentFlat extends j_l_Object {
  m_element__elemental2_dom_HTMLElement() {
   return this.f_element__org_patternfly_component_BaseComponentFlat_;
  }
+ /** @nodts */
+ m_storeFlatComponent__void() {
+  ComponentStore.m_storeFlatComponent__org_patternfly_component_BaseComponentFlat__void(this);
+ }
  /** @nodts @template C, E1, B1 @return {C} */
  m_lookupComponent__org_patternfly_component_ComponentType__org_patternfly_component_BaseComponent(/** ComponentType */ componentType) {
   return this.m_lookupComponent__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponent(componentType, false);
  }
  /** @nodts @template C, E1, B1 @return {C} */
  m_lookupComponent__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponent(/** ComponentType */ componentType, /** boolean */ lenient) {
-  return ComponentStore.m_lookup__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponent(componentType, /**@type {HTMLElement}*/ (this.m_element__elemental2_dom_HTMLElement()), lenient);
+  return ComponentStore.m_lookupComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponent(componentType, /**@type {HTMLElement}*/ (this.m_element__elemental2_dom_HTMLElement()), lenient);
+ }
+ /** @nodts @template C, E1, B1 @return {C} */
+ m_lookupComponentFlat__org_patternfly_component_ComponentType__org_patternfly_component_BaseComponentFlat(/** ComponentType */ componentType) {
+  return this.m_lookupComponentFlat__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponentFlat(componentType, false);
+ }
+ /** @nodts @template C, E1, B1 @return {C} */
+ m_lookupComponentFlat__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponentFlat(/** ComponentType */ componentType, /** boolean */ lenient) {
+  return ComponentStore.m_lookupFlatComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponentFlat(componentType, /**@type {HTMLElement}*/ (this.m_element__elemental2_dom_HTMLElement()), lenient);
  }
  //Bridge method.
  /** @final @override @nodts @return {E} */

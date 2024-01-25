@@ -11,8 +11,7 @@ let Finder = goog.forwardDeclare('org.jboss.elemento.Finder$impl');
 let HasElement = goog.forwardDeclare('org.jboss.elemento.HasElement$impl');
 let HasHTMLElement = goog.forwardDeclare('org.jboss.elemento.HasHTMLElement$impl');
 let PageMainBody = goog.forwardDeclare('org.patternfly.component.page.PageMainBody$impl');
-let Tuples = goog.forwardDeclare('org.patternfly.core.Tuples$impl');
-let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
+let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let Padding = goog.forwardDeclare('org.patternfly.style.Padding$impl');
 let Sticky = goog.forwardDeclare('org.patternfly.style.Sticky$impl');
@@ -48,12 +47,12 @@ class PageSectionBuilder extends PageSubComponent {
   return /**@type {P}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_limitWidth__org_patternfly_style_Classes)], j_l_String))), PageSectionBuilder));
  }
  /** @nodts @return {P} */
- m_sticky__org_patternfly_core_Tuples__org_patternfly_component_page_PageSectionBuilder(/** Tuples<Breakpoint, Sticky> */ sticky) {
-  return /**@type {P}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_typedModifier__org_patternfly_core_Tuples__java_lang_String(sticky)], j_l_String))), PageSectionBuilder));
+ m_sticky__org_patternfly_style_Breakpoints__org_patternfly_component_page_PageSectionBuilder(/** Breakpoints<Sticky> */ sticky) {
+  return /**@type {P}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([sticky.m_modifiers__java_lang_String()], j_l_String))), PageSectionBuilder));
  }
  /** @nodts @return {P} */
- m_padding__org_patternfly_core_Tuples__org_patternfly_component_page_PageSectionBuilder(/** Tuples<Breakpoint, Padding> */ padding) {
-  return /**@type {P}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_typedModifier__org_patternfly_core_Tuples__java_lang_String(padding)], j_l_String))), PageSectionBuilder));
+ m_padding__org_patternfly_style_Breakpoints__org_patternfly_component_page_PageSectionBuilder(/** Breakpoints<Padding> */ padding) {
+  return /**@type {P}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([padding.m_modifiers__java_lang_String()], j_l_String))), PageSectionBuilder));
  }
  /** @nodts @return {P} */
  m_centerAligned__org_patternfly_component_page_PageSectionBuilder() {

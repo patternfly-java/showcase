@@ -26,6 +26,7 @@ goog.require('org.patternfly.style.Classes');
 goog.require('org.patternfly.style.Modifiers');
 goog.require('org.patternfly.style.Modifiers.Compact');
 goog.require('org.patternfly.style.Modifiers.Disabled');
+goog.require('org.patternfly.style.Modifiers.FullHeight');
 goog.require('org.patternfly.style.Modifiers.Plain');
 goog.require('org.patternfly.style.Size');
 goog.require('vmbootstrap.Arrays');

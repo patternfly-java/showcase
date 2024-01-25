@@ -13,8 +13,7 @@ let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLElementBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLElementBuilder$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
-let Tuples = goog.forwardDeclare('org.patternfly.core.Tuples$impl');
-let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
+let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let Variable = goog.forwardDeclare('org.patternfly.style.Variable$impl');
 let Variables = goog.forwardDeclare('org.patternfly.style.Variables$impl');
@@ -96,12 +95,12 @@ class Brand extends BaseComponent {
   return this;
  }
  /** @nodts @return {Brand} */
- m_widths__org_patternfly_core_Tuples__org_patternfly_component_brand_Brand(/** Tuples<Breakpoint, ?string> */ widths) {
-  return /**@type {Brand}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_style_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_brand__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_Width__org_patternfly_style_Variables], j_l_String))).m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_core_Tuples__org_jboss_elemento_TypedBuilder(this, widths), Brand));
+ m_widths__org_patternfly_style_Breakpoints__org_patternfly_component_brand_Brand(/** Breakpoints<?string> */ widths) {
+  return /**@type {Brand}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_style_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_brand__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_Width__org_patternfly_style_Variables], j_l_String))).m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_style_Breakpoints__org_jboss_elemento_TypedBuilder(this, widths), Brand));
  }
  /** @nodts @return {Brand} */
- m_heights__org_patternfly_core_Tuples__org_patternfly_component_brand_Brand(/** Tuples<Breakpoint, ?string> */ heights) {
-  return /**@type {Brand}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_style_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_brand__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_Height__org_patternfly_style_Variables], j_l_String))).m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_core_Tuples__org_jboss_elemento_TypedBuilder(this, heights), Brand));
+ m_heights__org_patternfly_style_Breakpoints__org_patternfly_component_brand_Brand(/** Breakpoints<?string> */ heights) {
+  return /**@type {Brand}*/ ($Casts.$to(Variable.m_componentVar__java_lang_String__arrayOf_java_lang_String__org_patternfly_style_Variable(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_brand__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))), /**@type {!Array<?string>}*/ ($Arrays.$init([Variables.f_Height__org_patternfly_style_Variables], j_l_String))).m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_style_Breakpoints__org_jboss_elemento_TypedBuilder(this, heights), Brand));
  }
  /** @nodts @return {Brand} */
  m_that__org_patternfly_component_brand_Brand() {

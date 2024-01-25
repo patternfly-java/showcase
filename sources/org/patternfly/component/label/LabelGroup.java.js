@@ -34,6 +34,7 @@ goog.require('org.patternfly.core.HasValues');
 goog.require('org.patternfly.handler.CloseHandler');
 goog.require('org.patternfly.style.Classes');
 goog.require('org.patternfly.style.Color');
+goog.require('org.patternfly.style.Modifiers.Vertical');
 goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');

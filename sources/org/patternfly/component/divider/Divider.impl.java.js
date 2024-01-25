@@ -11,8 +11,7 @@ let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$
 let DividerType = goog.forwardDeclare('org.patternfly.component.divider.DividerType$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
-let Tuples = goog.forwardDeclare('org.patternfly.core.Tuples$impl');
-let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
+let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let Inset = goog.forwardDeclare('org.patternfly.style.Inset$impl');
 let Orientation = goog.forwardDeclare('org.patternfly.style.Orientation$impl');
@@ -55,14 +54,12 @@ class Divider extends BaseComponentFlat {
   this.$ctor__org_patternfly_component_BaseComponentFlat__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Divider__org_patternfly_component_ComponentType, /**@type {HTMLElement}*/ (/**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(/**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(/**@type {HTMLElementBuilder<E>}*/ (Elements.m_htmlElement__java_lang_String__java_lang_Class__org_jboss_elemento_HTMLElementBuilder(element, type)).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_divider__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLElementBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'separator'), HTMLElementBuilder)).m_element__elemental2_dom_HTMLElement()));
  }
  /** @nodts @return {Divider} */
- m_inset__org_patternfly_core_Tuples__org_patternfly_component_divider_Divider(/** Tuples<Breakpoint, Inset> */ inset) {
-  this.m_classList__org_jboss_elemento_ClassList().m_add__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_typedModifier__org_patternfly_core_Tuples__java_lang_String(inset)], j_l_String)));
-  return this;
+ m_inset__org_patternfly_style_Breakpoints__org_patternfly_component_divider_Divider(/** Breakpoints<Inset> */ inset) {
+  return /**@type {Divider}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([inset.m_modifiers__java_lang_String()], j_l_String))), Divider));
  }
  /** @nodts @return {Divider} */
- m_orientation__org_patternfly_core_Tuples__org_patternfly_component_divider_Divider(/** Tuples<Breakpoint, Orientation> */ orientation) {
-  this.m_classList__org_jboss_elemento_ClassList().m_add__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_typedModifier__org_patternfly_core_Tuples__java_lang_String(orientation)], j_l_String)));
-  return this;
+ m_orientation__org_patternfly_style_Breakpoints__org_patternfly_component_divider_Divider(/** Breakpoints<Orientation> */ orientation) {
+  return /**@type {Divider}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([orientation.m_modifiers__java_lang_String()], j_l_String))), Divider));
  }
  /** @nodts @return {Divider} */
  m_that__org_patternfly_component_divider_Divider() {

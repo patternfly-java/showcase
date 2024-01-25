@@ -86,6 +86,11 @@ class FormSelectOptionGroup extends FormSelectSubComponent {
   return this.m_disabled__boolean__org_patternfly_component_form_FormSelectOptionGroup(arg0);
  }
  //Default method forwarding stub.
+ /** @override @nodts @return {boolean} */
+ m_isDisabled__boolean() {
+  return Disabled.m_isDisabled__$default__org_patternfly_style_Modifiers_Disabled__boolean(this);
+ }
+ //Default method forwarding stub.
  /** @nodts @return {FormSelectOptionGroup} */
  m_disabled__org_patternfly_component_form_FormSelectOptionGroup() {
   return /**@type {FormSelectOptionGroup}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), FormSelectOptionGroup));

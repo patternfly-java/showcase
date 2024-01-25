@@ -10,12 +10,9 @@ let HTMLUListElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLUListEle
 let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
-let EnumSet = goog.forwardDeclare('java.util.EnumSet$impl');
 let HashMap = goog.forwardDeclare('java.util.HashMap$impl');
 let Map = goog.forwardDeclare('java.util.Map$impl');
 let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
-let Collectors = goog.forwardDeclare('java.util.stream.Collectors$impl');
-let Stream = goog.forwardDeclare('java.util.stream.Stream$impl');
 let JsPropertyMap_$Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
@@ -36,6 +33,7 @@ let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let Dataset = goog.forwardDeclare('org.patternfly.core.Dataset$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
+let Validation = goog.forwardDeclare('org.patternfly.core.Validation$impl');
 let SelectHandler = goog.forwardDeclare('org.patternfly.handler.SelectHandler$impl');
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
 let Brightness = goog.forwardDeclare('org.patternfly.style.Brightness$impl');
@@ -64,7 +62,7 @@ class Navigation extends BaseComponent {
   /**@type {SelectHandler<NavigationItem>} @nodts*/
   this.f_onSelect__org_patternfly_component_navigation_Navigation_;
   /**@type {ToggleHandler<ExpandableNavigationGroup>} @nodts*/
-  this.f_onToggle__org_patternfly_component_navigation_Navigation_;
+  this.f_toggleHandler__org_patternfly_component_navigation_Navigation_;
  }
  /** @nodts @return {Navigation} */
  static m_navigation__org_patternfly_component_navigation_NavigationType__org_patternfly_component_navigation_Navigation(/** NavigationType */ type) {
@@ -173,8 +171,8 @@ class Navigation extends BaseComponent {
   group.m_collapse__void_$pp_org_patternfly_component_navigation();
   this.f_expandableGroups__org_patternfly_component_navigation_Navigation_.put(group.f_id__org_patternfly_component_navigation_ExpandableNavigationGroup, group);
   this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(/**@type {HTMLLIElement}*/ ($Casts.$to(group.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)));
-  if (!$Equality.$same(this.f_onToggle__org_patternfly_component_navigation_Navigation_, null)) {
-   group.f_onToggle__org_patternfly_component_navigation_ExpandableNavigationGroup = this.f_onToggle__org_patternfly_component_navigation_Navigation_;
+  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_navigation_Navigation_, null)) {
+   group.f_toggleHandler__org_patternfly_component_navigation_ExpandableNavigationGroup = this.f_toggleHandler__org_patternfly_component_navigation_Navigation_;
   }
   return this;
  }
@@ -185,27 +183,23 @@ class Navigation extends BaseComponent {
  }
  /** @nodts @return {Navigation} */
  m_theme__org_patternfly_style_Brightness__org_patternfly_component_navigation_Navigation(/** Brightness */ theme) {
-  if (!/**@type {EnumSet<Brightness>}*/ (EnumSet.m_of__java_lang_Enum__arrayOf_java_lang_Enum__java_util_EnumSet(Brightness.f_dark__org_patternfly_style_Brightness, /**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_light__org_patternfly_style_Brightness], Brightness)))).contains(theme)) {
-   Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Theme ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(theme) + ' not supported. Valid values: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {?string}*/ ($Casts.$to(/**@type {Stream<?string>}*/ (/**@type {Stream<Brightness>}*/ (Stream.m_of__arrayOf_java_lang_Object__java_util_stream_Stream(/**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_dark__org_patternfly_style_Brightness, Brightness.f_light__org_patternfly_style_Brightness], Brightness)))).m_map__java_util_function_Function__java_util_stream_Stream(j_u_function_Function.$adapt((arg0) =>{
-    let arg0_1 = /**@type {Brightness}*/ ($Casts.$to(arg0, Brightness));
-    return arg0_1.name();
-   }))).m_collect__java_util_stream_Collector__java_lang_Object(Collectors.m_joining__java_lang_CharSequence__java_util_stream_Collector(' ')), j_l_String))));
-   return this;
+  if (Validation.m_verifyEnum__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__java_lang_String__java_lang_Enum__java_lang_Enum__arrayOf_java_lang_Enum__boolean(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'theme', theme, Brightness.f_dark__org_patternfly_style_Brightness, /**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_light__org_patternfly_style_Brightness], Brightness)))) {
+   this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([theme.m_modifier__java_lang_String()], j_l_String)));
   }
-  return /**@type {Navigation}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([theme.m_modifier__java_lang_String()], j_l_String))), Navigation));
+  return this;
  }
  /** @nodts @return {Navigation} */
  m_that__org_patternfly_component_navigation_Navigation() {
   return this;
  }
  /** @nodts @return {Navigation} */
- m_onSelect__org_patternfly_handler_SelectHandler__org_patternfly_component_navigation_Navigation(/** SelectHandler<NavigationItem> */ onSelect) {
-  this.f_onSelect__org_patternfly_component_navigation_Navigation_ = onSelect;
+ m_onSelect__org_patternfly_handler_SelectHandler__org_patternfly_component_navigation_Navigation(/** SelectHandler<NavigationItem> */ selectHandler) {
+  this.f_onSelect__org_patternfly_component_navigation_Navigation_ = selectHandler;
   return this;
  }
  /** @nodts @return {Navigation} */
- m_onToggle__org_patternfly_handler_ToggleHandler__org_patternfly_component_navigation_Navigation(/** ToggleHandler<ExpandableNavigationGroup> */ onToggle) {
-  this.f_onToggle__org_patternfly_component_navigation_Navigation_ = onToggle;
+ m_onToggle__org_patternfly_handler_ToggleHandler__org_patternfly_component_navigation_Navigation(/** ToggleHandler<ExpandableNavigationGroup> */ toggleHandler) {
+  this.f_toggleHandler__org_patternfly_component_navigation_Navigation_ = toggleHandler;
   return this;
  }
  /** @nodts */
@@ -265,8 +259,8 @@ class Navigation extends BaseComponent {
    let group = this.m_findGroup__java_lang_String__org_patternfly_component_navigation_ExpandableNavigationGroup_$p_org_patternfly_component_navigation_Navigation(groupId);
    if (!$Equality.$same(group, null)) {
     group.m_expand__void_$pp_org_patternfly_component_navigation();
-    if (fireEvent && !$Equality.$same(this.f_onToggle__org_patternfly_component_navigation_Navigation_, null)) {
-     this.f_onToggle__org_patternfly_component_navigation_Navigation_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), group, true);
+    if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_navigation_Navigation_, null)) {
+     this.f_toggleHandler__org_patternfly_component_navigation_Navigation_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), group, true);
     }
    }
    let parent = li.parentElement;
@@ -349,11 +343,7 @@ class Navigation extends BaseComponent {
   HTMLUListElement_$Overlay = goog.module.get('elemental2.dom.HTMLUListElement.$Overlay$impl');
   MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
-  EnumSet = goog.module.get('java.util.EnumSet$impl');
   HashMap = goog.module.get('java.util.HashMap$impl');
-  j_u_function_Function = goog.module.get('java.util.function.Function$impl');
-  Collectors = goog.module.get('java.util.stream.Collectors$impl');
-  Stream = goog.module.get('java.util.stream.Stream$impl');
   JsPropertyMap_$Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   By = goog.module.get('org.jboss.elemento.By$impl');
@@ -373,6 +363,7 @@ class Navigation extends BaseComponent {
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
   Dataset = goog.module.get('org.patternfly.core.Dataset$impl');
   Logger = goog.module.get('org.patternfly.core.Logger$impl');
+  Validation = goog.module.get('org.patternfly.core.Validation$impl');
   Brightness = goog.module.get('org.patternfly.style.Brightness$impl');
   Classes = goog.module.get('org.patternfly.style.Classes$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');

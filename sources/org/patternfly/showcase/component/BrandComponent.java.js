@@ -11,10 +11,10 @@ goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.jboss.elemento.HTMLElementBuilder');
 goog.require('org.patternfly.component.brand.Brand');
-goog.require('org.patternfly.core.Tuples');
 goog.require('org.patternfly.showcase.Snippet');
 goog.require('org.patternfly.showcase.SnippetPage');
 goog.require('org.patternfly.style.Breakpoint');
+goog.require('org.patternfly.style.Breakpoints');
 goog.require('vmbootstrap.Casts');
 
 const BrandComponent = goog.require('org.patternfly.showcase.component.BrandComponent$impl');

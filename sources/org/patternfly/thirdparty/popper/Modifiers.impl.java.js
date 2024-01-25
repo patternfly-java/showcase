@@ -2,6 +2,8 @@ goog.module('org.patternfly.thirdparty.popper.Modifiers$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 
+let $Overlay = goog.forwardDeclare('elemental2.dom.CSSProperties.MinWidthUnionType.$Overlay$impl');
+let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let InternalPreconditions = goog.forwardDeclare('javaemul.internal.InternalPreconditions$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let ModifierPhase = goog.forwardDeclare('org.patternfly.thirdparty.popper.ModifierPhase$impl');
@@ -13,6 +15,20 @@ let $$int = goog.forwardDeclare('vmbootstrap.primitives.$int$impl');
  * @interface
  */
 class Modifiers {
+ /** @nodts @return {Object} */
+ static m_widths__org_patternfly_thirdparty_popper_Modifier() {
+  Modifiers.$clinit();
+  let modifier = new Object();
+  modifier.name = 'widths';
+  modifier.enabled = true;
+  modifier.phase = ModifierPhase.f_beforeWrite__org_patternfly_thirdparty_popper_ModifierPhase.name();
+  modifier.requires = /**@type {!Array<?string>}*/ ($Arrays.$init(['computeStyles'], j_l_String));
+  modifier.fn = (/** Object */ args) =>{
+   let triggerWidth = args.state.rects.reference.width;
+   args.state.styles.popper.minWidth = $Overlay.m_of__java_lang_Object__elemental2_dom_CSSProperties_MinWidthUnionType(triggerWidth + 'px');
+  };
+  return modifier;
+ }
  /** @nodts @return {Object} */
  static m_placement__org_patternfly_thirdparty_popper_Modifier() {
   Modifiers.$clinit();
@@ -89,6 +105,8 @@ class Modifiers {
  
  /** @nodts */
  static $loadModules() {
+  $Overlay = goog.module.get('elemental2.dom.CSSProperties.MinWidthUnionType.$Overlay$impl');
+  j_l_String = goog.module.get('java.lang.String$impl');
   InternalPreconditions = goog.module.get('javaemul.internal.InternalPreconditions$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   ModifierPhase = goog.module.get('org.patternfly.thirdparty.popper.ModifierPhase$impl');

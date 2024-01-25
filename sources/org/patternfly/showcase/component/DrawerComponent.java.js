@@ -1,0 +1,36 @@
+goog.module('org.patternfly.showcase.component.DrawerComponent');
+
+goog.require('elemental2.dom.Event.$Overlay');
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('elemental2.dom.HTMLParagraphElement.$Overlay');
+goog.require('java.lang.String');
+goog.require('java.util.function.Supplier');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.patternfly.component.button.Button');
+goog.require('org.patternfly.component.drawer.Drawer');
+goog.require('org.patternfly.component.drawer.DrawerCloseButton');
+goog.require('org.patternfly.component.drawer.DrawerContent');
+goog.require('org.patternfly.component.drawer.DrawerContentBody');
+goog.require('org.patternfly.component.drawer.DrawerPanel');
+goog.require('org.patternfly.component.drawer.DrawerPanelBody');
+goog.require('org.patternfly.component.drawer.DrawerPanelHead');
+goog.require('org.patternfly.component.drawer.DrawerPanelWidth');
+goog.require('org.patternfly.component.drawer.DrawerSection');
+goog.require('org.patternfly.component.drawer.Position');
+goog.require('org.patternfly.component.title.Title');
+goog.require('org.patternfly.handler.ComponentHandler');
+goog.require('org.patternfly.showcase.LoremIpsum');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.Breakpoint');
+goog.require('org.patternfly.style.Breakpoints');
+goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Size');
+goog.require('vmbootstrap.Arrays');
+goog.require('vmbootstrap.Casts');
+
+const DrawerComponent = goog.require('org.patternfly.showcase.component.DrawerComponent$impl');
+exports = DrawerComponent;

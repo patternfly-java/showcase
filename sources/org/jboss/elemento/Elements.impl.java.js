@@ -92,6 +92,7 @@ let ObserverCallback = goog.forwardDeclare('org.jboss.elemento.ObserverCallback$
 let ResizeObserver_$Overlay = goog.forwardDeclare('org.jboss.elemento.ResizeObserver.$Overlay$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 let $JavaScriptObject = goog.forwardDeclare('vmbootstrap.JavaScriptObject$impl');
+let $Primitives = goog.forwardDeclare('vmbootstrap.Primitives$impl');
 
 /**
  * @final
@@ -1511,6 +1512,37 @@ class Elements extends j_l_Object {
    Elements.m_setVisible__elemental2_dom_HTMLElement__boolean__void(/**@type {HTMLElement}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), visible);
   }
  }
+ /** @nodts @template E @return {boolean} */
+ static m_isElementInView__org_jboss_elemento_IsElement__elemental2_dom_HTMLElement__boolean__boolean(/** IsElement<E> */ container, /** HTMLElement */ element, /** boolean */ partial) {
+  Elements.$clinit();
+  return Elements.m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(/**@type {HTMLElement}*/ ($Casts.$to(container.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), element, partial);
+ }
+ /** @nodts @template E @return {boolean} */
+ static m_isElementInView__elemental2_dom_HTMLElement__org_jboss_elemento_IsElement__boolean__boolean(/** HTMLElement */ container, /** IsElement<E> */ element, /** boolean */ partial) {
+  Elements.$clinit();
+  return Elements.m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(container, /**@type {HTMLElement}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), partial);
+ }
+ /** @nodts @template E, F @return {boolean} */
+ static m_isElementInView__org_jboss_elemento_IsElement__org_jboss_elemento_IsElement__boolean__boolean(/** IsElement<E> */ container, /** IsElement<F> */ element, /** boolean */ partial) {
+  Elements.$clinit();
+  return Elements.m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(/**@type {HTMLElement}*/ ($Casts.$to(container.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), /**@type {HTMLElement}*/ ($Casts.$to(element.m_element__elemental2_dom_Element(), HTMLElement_$Overlay)), partial);
+ }
+ /** @nodts @return {boolean} */
+ static m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(/** HTMLElement */ container, /** HTMLElement */ element, /** boolean */ partial) {
+  Elements.$clinit();
+  if (!$Equality.$same(container, null) && !$Equality.$same(element, null)) {
+   let containerBounds = container.getBoundingClientRect();
+   let elementBounds = element.getBoundingClientRect();
+   let containerBoundsLeft = $Primitives.narrowDoubleToInt(Math.ceil(containerBounds.left));
+   let containerBoundsRight = $Primitives.narrowDoubleToInt(Math.floor(containerBounds.right));
+   let elementBoundsLeft = $Primitives.narrowDoubleToInt(Math.ceil(elementBounds.left));
+   let elementBoundsRight = $Primitives.narrowDoubleToInt(Math.floor(elementBounds.right));
+   let isTotallyInView = elementBoundsLeft >= containerBoundsLeft && elementBoundsRight <= containerBoundsRight;
+   let isPartiallyInView = (partial || containerBounds.width < elementBounds.width) && (elementBoundsLeft < containerBoundsLeft && elementBoundsRight > containerBoundsLeft || elementBoundsRight > containerBoundsRight && elementBoundsLeft < containerBoundsRight);
+   return isTotallyInView || isPartiallyInView;
+  }
+  return false;
+ }
  /** @nodts @template E @return {?function():void} */
  static m_resizeObserver__org_jboss_elemento_IsElement__org_jboss_elemento_ResizeCallback__org_jboss_elemento_ResizeObserverCleanup(/** IsElement<E> */ element, /** ?function():void */ callback) {
   Elements.$clinit();
@@ -1733,6 +1765,7 @@ class Elements extends j_l_Object {
   ResizeObserver_$Overlay = goog.module.get('org.jboss.elemento.ResizeObserver.$Overlay$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
   $JavaScriptObject = goog.module.get('vmbootstrap.JavaScriptObject$impl');
+  $Primitives = goog.module.get('vmbootstrap.Primitives$impl');
  }
 }
 $Util.$setClassMetadata(Elements, 'org.jboss.elemento.Elements');

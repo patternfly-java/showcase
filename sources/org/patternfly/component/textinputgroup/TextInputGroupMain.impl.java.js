@@ -176,6 +176,11 @@ class TextInputGroupMain extends TextInputGroupSubComponent {
  m_disabled__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
   return /**@type {TextInputGroupMain}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__boolean__org_jboss_elemento_TypedBuilder(this, arg0), TextInputGroupMain));
  }
+ //Default method forwarding stub.
+ /** @override @nodts @return {boolean} */
+ m_isDisabled__boolean() {
+  return Disabled.m_isDisabled__$default__org_patternfly_style_Modifiers_Disabled__boolean(this);
+ }
  //Bridge method.
  /** @final @override @nodts @return {TextInputGroupMain} */
  m_icon__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ arg0) {

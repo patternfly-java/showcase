@@ -82,13 +82,6 @@ class FormGroupLabel extends FormSubComponent {
   }
  }
  /** @nodts @return {FormGroupLabel} */
- m_addHelp__java_lang_String__org_patternfly_component_popover_Popover__org_patternfly_component_form_FormGroupLabel(/** ?string */ ariaLabel, /** Popover */ popover) {
-  let helpButton = /**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_form__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_group__org_patternfly_style_Classes, Classes.f_label__org_patternfly_style_Classes, Classes.f_help__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, ariaLabel), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_help__org_patternfly_style_PredefinedIcon)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay));
-  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(helpButton);
-  popover.m_trigger__elemental2_dom_HTMLElement__org_patternfly_component_popover_Popover(helpButton).m_appendToBody__org_patternfly_component_popover_Popover();
-  return this;
- }
- /** @nodts @return {FormGroupLabel} */
  m_label__java_lang_String__org_patternfly_component_form_FormGroupLabel(/** ?string */ label) {
   this.f_textElement__org_patternfly_component_form_FormGroupLabel_.textContent = label;
   return this;
@@ -96,6 +89,13 @@ class FormGroupLabel extends FormSubComponent {
  /** @nodts @return {FormGroupLabel} */
  m_noPaddingTop__org_patternfly_component_form_FormGroupLabel() {
   return /**@type {FormGroupLabel}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_noPaddingTop__org_patternfly_style_Classes)], j_l_String))), FormGroupLabel));
+ }
+ /** @nodts @return {FormGroupLabel} */
+ m_help__java_lang_String__org_patternfly_component_popover_Popover__org_patternfly_component_form_FormGroupLabel(/** ?string */ ariaLabel, /** Popover */ popover) {
+  let helpButton = /**@type {HTMLButtonElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_form__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_group__org_patternfly_style_Classes, Classes.f_label__org_patternfly_style_Classes, Classes.f_help__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, ariaLabel), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_help__org_patternfly_style_PredefinedIcon)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay));
+  this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(helpButton);
+  popover.m_trigger__elemental2_dom_HTMLElement__org_patternfly_component_popover_Popover(helpButton).m_appendToBody__org_patternfly_component_popover_Popover();
+  return this;
  }
  /** @nodts @return {FormGroupLabel} */
  m_that__org_patternfly_component_form_FormGroupLabel() {

@@ -4,18 +4,10 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let StringBuilder = goog.forwardDeclare('java.lang.StringBuilder$impl');
-let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
-let Collectors = goog.forwardDeclare('java.util.stream.Collectors$impl');
-let Stream = goog.forwardDeclare('java.util.stream.Stream$impl');
-let StreamSupport = goog.forwardDeclare('java.util.stream.StreamSupport$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let PatternFly = goog.forwardDeclare('org.patternfly.core.PatternFly$impl');
-let Tuple = goog.forwardDeclare('org.patternfly.core.Tuple$impl');
-let Tuples = goog.forwardDeclare('org.patternfly.core.Tuples$impl');
 let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
 let Size = goog.forwardDeclare('org.patternfly.style.Size$impl');
-let TypedModifier = goog.forwardDeclare('org.patternfly.style.TypedModifier$impl');
-let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
  * @interface
@@ -30,6 +22,11 @@ class Classes {
  static m_layout__java_lang_String__arrayOf_java_lang_String__java_lang_String(/** ?string */ layout, /** Array<?string> */ elements) {
   Classes.$clinit();
   return Classes.m_compose__char__java_lang_String__arrayOf_java_lang_String__java_lang_String(108 /* 'l' */, layout, elements);
+ }
+ /** @nodts @return {?string} */
+ static m_util__java_lang_String__java_lang_String(/** ?string */ utility) {
+  Classes.$clinit();
+  return 'pf-' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(PatternFly.f_VERSION__org_patternfly_core_PatternFly) + '-u-' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(utility);
  }
  /** @nodts @return {?string} */
  static m_modifier__java_lang_String__java_lang_String(/** ?string */ modifier) {
@@ -53,50 +50,6 @@ class Classes {
   return '';
  }
  /** @nodts @return {?string} */
- static m_modifier__org_patternfly_core_Tuples__java_lang_String(/** Tuples<Breakpoint, ?string> */ tuples) {
-  Classes.$clinit();
-  return Classes.m_modifier__org_patternfly_core_Tuples__org_patternfly_style_Breakpoint__java_util_function_Function__java_lang_String(tuples, null, /**@type {j_u_function_Function<?string, ?string>}*/ (j_u_function_Function.m_identity__java_util_function_Function()));
- }
- /** @nodts @return {?string} */
- static m_modifier__org_patternfly_core_Tuples__org_patternfly_style_Breakpoint__java_lang_String(/** Tuples<Breakpoint, ?string> */ tuples, /** Breakpoint */ breakpoint) {
-  Classes.$clinit();
-  return Classes.m_modifier__org_patternfly_core_Tuples__org_patternfly_style_Breakpoint__java_util_function_Function__java_lang_String(tuples, breakpoint, /**@type {j_u_function_Function<?string, ?string>}*/ (j_u_function_Function.m_identity__java_util_function_Function()));
- }
- /** @nodts @return {?string} */
- static m_verticalModifier__org_patternfly_core_Tuples__java_lang_String(/** Tuples<Breakpoint, ?string> */ tuples) {
-  Classes.$clinit();
-  return Classes.m_verticalModifier__org_patternfly_core_Tuples__java_util_function_Function__java_lang_String(tuples, /**@type {j_u_function_Function<?string, ?string>}*/ (j_u_function_Function.m_identity__java_util_function_Function()));
- }
- /** @nodts @template T @return {?string} */
- static m_typedModifier__org_patternfly_core_Tuples__java_lang_String(/** Tuples<Breakpoint, T> */ tuples) {
-  Classes.$clinit();
-  return Classes.m_modifier__org_patternfly_core_Tuples__org_patternfly_style_Breakpoint__java_util_function_Function__java_lang_String(tuples, null, j_u_function_Function.$adapt((arg0) =>{
-   let arg0_1 = /**@type {TypedModifier}*/ ($Casts.$to(arg0, TypedModifier));
-   return /**@type {!TypedModifier}*/ (arg0_1).m_value__java_lang_String();
-  }));
- }
- /** @nodts @template T @return {?string} */
- static m_typedModifier__org_patternfly_core_Tuples__org_patternfly_style_Breakpoint__java_lang_String(/** Tuples<Breakpoint, T> */ tuples, /** Breakpoint */ breakpoint) {
-  Classes.$clinit();
-  return Classes.m_modifier__org_patternfly_core_Tuples__org_patternfly_style_Breakpoint__java_util_function_Function__java_lang_String(tuples, breakpoint, j_u_function_Function.$adapt((arg0) =>{
-   let arg0_1 = /**@type {TypedModifier}*/ ($Casts.$to(arg0, TypedModifier));
-   return /**@type {!TypedModifier}*/ (arg0_1).m_value__java_lang_String();
-  }));
- }
- /** @nodts @template T @return {?string} */
- static m_verticalTypedModifier__org_patternfly_core_Tuples__java_lang_String(/** Tuples<Breakpoint, T> */ tuples) {
-  Classes.$clinit();
-  return Classes.m_verticalModifier__org_patternfly_core_Tuples__java_util_function_Function__java_lang_String(tuples, j_u_function_Function.$adapt((arg0) =>{
-   let arg0_1 = /**@type {TypedModifier}*/ ($Casts.$to(arg0, TypedModifier));
-   return /**@type {!TypedModifier}*/ (arg0_1).m_value__java_lang_String();
-  }));
- }
- /** @nodts @return {?string} */
- static m_util__java_lang_String__java_lang_String(/** ?string */ utility) {
-  Classes.$clinit();
-  return 'pf-' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(PatternFly.f_VERSION__org_patternfly_core_PatternFly) + '-u-' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(utility);
- }
- /** @nodts @return {?string} */
  static m_compose__char__java_lang_String__arrayOf_java_lang_String__java_lang_String(/** number */ abbreviation, /** ?string */ type, /** Array<?string> */ elements) {
   let builder = StringBuilder.$create__();
   if (!$Equality.$same(type, null) && !j_l_String.m_isEmpty__java_lang_String__boolean(type)) {
@@ -112,55 +65,6 @@ class Classes {
    }
   }
   return builder.toString();
- }
- /** @nodts @template V @return {?string} */
- static m_modifier__org_patternfly_core_Tuples__org_patternfly_style_Breakpoint__java_util_function_Function__java_lang_String(/** Tuples<Breakpoint, V> */ tuples, /** Breakpoint */ breakpoint, /** j_u_function_Function<V, ?string> */ stringValue) {
-  let modifier = '';
-  if (!$Equality.$same(tuples, null) && !tuples.m_isEmpty__boolean()) {
-   if (!$Equality.$same(breakpoint, null)) {
-    if (tuples.m_hasKey__java_lang_Object__boolean(breakpoint)) {
-     modifier = Classes.m_modifier__java_lang_String__java_lang_String(/**@type {?string}*/ ($Casts.$to(stringValue.m_apply__java_lang_Object__java_lang_Object(tuples.m_value__java_lang_Object__java_lang_Object(breakpoint)), j_l_String)));
-    } else {
-     let index = Breakpoint.f_LARGE_TO_SMALL__org_patternfly_style_Breakpoint.indexOf(breakpoint);
-     for (let i = index; i < Breakpoint.f_LARGE_TO_SMALL__org_patternfly_style_Breakpoint.size(); i = i + 1 | 0) {
-      let bp = /**@type {Breakpoint}*/ ($Casts.$to(Breakpoint.f_LARGE_TO_SMALL__org_patternfly_style_Breakpoint.getAtIndex(i), Breakpoint));
-      if (tuples.m_hasKey__java_lang_Object__boolean(bp)) {
-       modifier = Classes.m_modifier__java_lang_String__java_lang_String(/**@type {?string}*/ ($Casts.$to(stringValue.m_apply__java_lang_Object__java_lang_Object(tuples.m_value__java_lang_Object__java_lang_Object(bp)), j_l_String)));
-      }
-     }
-    }
-   } else {
-    modifier = /**@type {?string}*/ ($Casts.$to(/**@type {Stream<?string>}*/ (/**@type {Stream<?string>}*/ (/**@type {Stream<Tuple<Breakpoint, V>>}*/ (StreamSupport.m_stream__java_util_Spliterator__boolean__java_util_stream_Stream(tuples.m_spliterator__java_util_Spliterator(), false)).m_map__java_util_function_Function__java_util_stream_Stream(j_u_function_Function.$adapt((tuple) =>{
-     let tuple_1 = /**@type {Tuple}*/ ($Casts.$to(tuple, Tuple));
-     let builder = StringBuilder.$create__java_lang_String(/**@type {?string}*/ ($Casts.$to(stringValue.m_apply__java_lang_Object__java_lang_Object(tuple_1.f_value__org_patternfly_core_Tuple), j_l_String)));
-     if (!$Equality.$same(tuple_1.f_key__org_patternfly_core_Tuple, Breakpoint.f_default___org_patternfly_style_Breakpoint)) {
-      builder.m_append__java_lang_String__java_lang_StringBuilder('-on-').m_append__java_lang_String__java_lang_StringBuilder(/**@type {Breakpoint}*/ ($Casts.$to(tuple_1.f_key__org_patternfly_core_Tuple, Breakpoint)).f_value__org_patternfly_style_Breakpoint);
-     }
-     return builder.toString();
-    }))).m_map__java_util_function_Function__java_util_stream_Stream(j_u_function_Function.$adapt((arg0) =>{
-     let arg0_1 = /**@type {?string}*/ ($Casts.$to(arg0, j_l_String));
-     return Classes.m_modifier__java_lang_String__java_lang_String(arg0_1);
-    }))).m_collect__java_util_stream_Collector__java_lang_Object(Collectors.m_joining__java_lang_CharSequence__java_util_stream_Collector(' ')), j_l_String));
-   }
-  }
-  return modifier;
- }
- /** @nodts @template V @return {?string} */
- static m_verticalModifier__org_patternfly_core_Tuples__java_util_function_Function__java_lang_String(/** Tuples<Breakpoint, V> */ tuples, /** j_u_function_Function<V, ?string> */ stringValue) {
-  if (!$Equality.$same(tuples, null) && !tuples.m_isEmpty__boolean()) {
-   return /**@type {?string}*/ ($Casts.$to(/**@type {Stream<?string>}*/ (/**@type {Stream<?string>}*/ (/**@type {Stream<Tuple<Breakpoint, V>>}*/ (StreamSupport.m_stream__java_util_Spliterator__boolean__java_util_stream_Stream(tuples.m_spliterator__java_util_Spliterator(), false)).m_map__java_util_function_Function__java_util_stream_Stream(j_u_function_Function.$adapt((tuple) =>{
-    let tuple_1 = /**@type {Tuple}*/ ($Casts.$to(tuple, Tuple));
-    let builder = StringBuilder.$create__java_lang_String(/**@type {?string}*/ ($Casts.$to(stringValue.m_apply__java_lang_Object__java_lang_Object(tuple_1.f_value__org_patternfly_core_Tuple), j_l_String)));
-    if (!$Equality.$same(tuple_1.f_key__org_patternfly_core_Tuple, Breakpoint.f_default___org_patternfly_style_Breakpoint)) {
-     builder.m_append__java_lang_String__java_lang_StringBuilder('-on-').m_append__java_lang_String__java_lang_StringBuilder(/**@type {Breakpoint}*/ ($Casts.$to(tuple_1.f_key__org_patternfly_core_Tuple, Breakpoint)).f_value__org_patternfly_style_Breakpoint).m_append__java_lang_String__java_lang_StringBuilder('-height');
-    }
-    return builder.toString();
-   }))).m_map__java_util_function_Function__java_util_stream_Stream(j_u_function_Function.$adapt((arg0) =>{
-    let arg0_1 = /**@type {?string}*/ ($Casts.$to(arg0, j_l_String));
-    return Classes.m_modifier__java_lang_String__java_lang_String(arg0_1);
-   }))).m_collect__java_util_stream_Collector__java_lang_Object(Collectors.m_joining__java_lang_CharSequence__java_util_stream_Collector(' ')), j_l_String));
-  }
-  return '';
  }
  /** @nodts */
  static $clinit() {
@@ -180,17 +84,13 @@ class Classes {
  static $loadModules() {
   j_l_String = goog.module.get('java.lang.String$impl');
   StringBuilder = goog.module.get('java.lang.StringBuilder$impl');
-  j_u_function_Function = goog.module.get('java.util.function.Function$impl');
-  Collectors = goog.module.get('java.util.stream.Collectors$impl');
-  StreamSupport = goog.module.get('java.util.stream.StreamSupport$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   PatternFly = goog.module.get('org.patternfly.core.PatternFly$impl');
-  Tuple = goog.module.get('org.patternfly.core.Tuple$impl');
   Breakpoint = goog.module.get('org.patternfly.style.Breakpoint$impl');
-  TypedModifier = goog.module.get('org.patternfly.style.TypedModifier$impl');
-  $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
+/**@const {string} @nodts*/
+Classes.f_accordion__org_patternfly_style_Classes = 'accordion';
 /**@const {string} @nodts*/
 Classes.f_action__org_patternfly_style_Classes = 'action';
 /**@const {string} @nodts*/
@@ -202,6 +102,8 @@ Classes.f_actions__org_patternfly_style_Classes = 'actions';
 /**@const {string} @nodts*/
 Classes.f_active__org_patternfly_style_Classes = 'active';
 /**@const {string} @nodts*/
+Classes.f_add__org_patternfly_style_Classes = 'add';
+/**@const {string} @nodts*/
 Classes.f_alert__org_patternfly_style_Classes = 'alert';
 /**@const {string} @nodts*/
 Classes.f_alertGroup__org_patternfly_style_Classes = 'alert-group';
@@ -210,9 +112,17 @@ Classes.f_alignCenter__org_patternfly_style_Classes = 'align-center';
 /**@const {string} @nodts*/
 Classes.f_alignRight__org_patternfly_style_Classes = 'align-right';
 /**@const {string} @nodts*/
+Classes.f_ariaDisabled__org_patternfly_style_Classes = 'aria-disabled';
+/**@const {string} @nodts*/
 Classes.f_arrow__org_patternfly_style_Classes = 'arrow';
 /**@const {string} @nodts*/
+Classes.f_autoColumnWidths__org_patternfly_style_Classes = 'auto-column-widths';
+/**@const {string} @nodts*/
+Classes.f_autoFit__org_patternfly_style_Classes = 'auto-fit';
+/**@const {string} @nodts*/
 Classes.f_avatar__org_patternfly_style_Classes = 'avatar';
+/**@const {string} @nodts*/
+Classes.f_backToTop__org_patternfly_style_Classes = 'back-to-top';
 /**@const {string} @nodts*/
 Classes.f_badge__org_patternfly_style_Classes = 'badge';
 /**@const {string} @nodts*/
@@ -222,6 +132,10 @@ Classes.f_block__org_patternfly_style_Classes = 'block';
 /**@const {string} @nodts*/
 Classes.f_body__org_patternfly_style_Classes = 'body';
 /**@const {string} @nodts*/
+Classes.f_box__org_patternfly_style_Classes = 'box';
+/**@const {string} @nodts*/
+Classes.f_bordered__org_patternfly_style_Classes = 'bordered';
+/**@const {string} @nodts*/
 Classes.f_bottom__org_patternfly_style_Classes = 'bottom';
 /**@const {string} @nodts*/
 Classes.f_brand__org_patternfly_style_Classes = 'brand';
@@ -229,6 +143,8 @@ Classes.f_brand__org_patternfly_style_Classes = 'brand';
 Classes.f_breadcrumb__org_patternfly_style_Classes = 'breadcrumb';
 /**@const {string} @nodts*/
 Classes.f_bulkSelect__org_patternfly_style_Classes = 'bulk-select';
+/**@const {string} @nodts*/
+Classes.f_bullseye__org_patternfly_style_Classes = 'bullseye';
 /**@const {string} @nodts*/
 Classes.f_button__org_patternfly_style_Classes = 'button';
 /**@const {string} @nodts*/
@@ -288,6 +204,8 @@ Classes.f_dataToolbar__org_patternfly_style_Classes = 'data-toolbar';
 /**@const {string} @nodts*/
 Classes.f_description__org_patternfly_style_Classes = 'description';
 /**@const {string} @nodts*/
+Classes.f_descriptionList__org_patternfly_style_Classes = 'description-list';
+/**@const {string} @nodts*/
 Classes.f_detached__org_patternfly_style_Classes = 'detached';
 /**@const {string} @nodts*/
 Classes.f_disabled__org_patternfly_style_Classes = 'disabled';
@@ -295,6 +213,8 @@ Classes.f_disabled__org_patternfly_style_Classes = 'disabled';
 Classes.f_display__org_patternfly_style_Classes = 'display';
 /**@const {string} @nodts*/
 Classes.f_divider__org_patternfly_style_Classes = 'divider';
+/**@const {string} @nodts*/
+Classes.f_drawer__org_patternfly_style_Classes = 'drawer';
 /**@const {string} @nodts*/
 Classes.f_dropdown__org_patternfly_style_Classes = 'dropdown';
 /**@const {string} @nodts*/
@@ -334,15 +254,23 @@ Classes.f_fieldset__org_patternfly_style_Classes = 'fieldset';
 /**@const {string} @nodts*/
 Classes.f_fill__org_patternfly_style_Classes = 'fill';
 /**@const {string} @nodts*/
+Classes.f_fillColumns__org_patternfly_style_Classes = 'fill-columns';
+/**@const {string} @nodts*/
 Classes.f_filterGroup__org_patternfly_style_Classes = 'filter-group';
+/**@const {string} @nodts*/
+Classes.f_fixed__org_patternfly_style_Classes = 'fixed';
 /**@const {string} @nodts*/
 Classes.f_flat__org_patternfly_style_Classes = 'flat';
 /**@const {string} @nodts*/
 Classes.f_flex__org_patternfly_style_Classes = 'flex';
 /**@const {string} @nodts*/
+Classes.f_floating__org_patternfly_style_Classes = 'floating';
+/**@const {string} @nodts*/
 Classes.f_floatLeft__org_patternfly_style_Classes = 'float-left';
 /**@const {string} @nodts*/
 Classes.f_floatRight__org_patternfly_style_Classes = 'float-right';
+/**@const {string} @nodts*/
+Classes.f_fluid__org_patternfly_style_Classes = 'fluid';
 /**@const {string} @nodts*/
 Classes.f_flyout__org_patternfly_style_Classes = 'flyout';
 /**@const {string} @nodts*/
@@ -368,13 +296,21 @@ Classes.f_gutter__org_patternfly_style_Classes = 'gutter';
 /**@const {string} @nodts*/
 Classes.f_hasPopup__org_patternfly_style_Classes = 'haspopup';
 /**@const {string} @nodts*/
+Classes.f_handle__org_patternfly_style_Classes = 'handle';
+/**@const {string} @nodts*/
 Classes.f_head__org_patternfly_style_Classes = 'head';
 /**@const {string} @nodts*/
 Classes.f_header__org_patternfly_style_Classes = 'header';
 /**@const {string} @nodts*/
 Classes.f_help__org_patternfly_style_Classes = 'help';
 /**@const {string} @nodts*/
+Classes.f_helpText__org_patternfly_style_Classes = 'help-text';
+/**@const {string} @nodts*/
 Classes.f_helperText__org_patternfly_style_Classes = 'helper-text';
+/**@const {string} @nodts*/
+Classes.f_hidden__org_patternfly_style_Classes = 'hidden';
+/**@const {string} @nodts*/
+Classes.f_hint__org_patternfly_style_Classes = 'hint';
 /**@const {string} @nodts*/
 Classes.f_horizontal__org_patternfly_style_Classes = 'horizontal';
 /**@const {string} @nodts*/
@@ -397,6 +333,8 @@ Classes.f_indicator__org_patternfly_style_Classes = 'indicator';
 Classes.f_info__org_patternfly_style_Classes = 'info';
 /**@const {string} @nodts*/
 Classes.f_inline__org_patternfly_style_Classes = 'inline';
+/**@const {string} @nodts*/
+Classes.f_inlineGrid__org_patternfly_style_Classes = 'inline-grid';
 /**@const {string} @nodts*/
 Classes.f_inProgress__org_patternfly_style_Classes = 'in-progress';
 /**@const {string} @nodts*/
@@ -428,6 +366,8 @@ Classes.f_leadBall__org_patternfly_style_Classes = 'lead-ball';
 /**@const {string} @nodts*/
 Classes.f_left__org_patternfly_style_Classes = 'left';
 /**@const {string} @nodts*/
+Classes.f_level__org_patternfly_style_Classes = 'level';
+/**@const {string} @nodts*/
 Classes.f_limitWidth__org_patternfly_style_Classes = 'limit-width';
 /**@const {string} @nodts*/
 Classes.f_link__org_patternfly_style_Classes = 'link';
@@ -452,6 +392,10 @@ Classes.f_menuToggle__org_patternfly_style_Classes = 'menu-toggle';
 /**@const {string} @nodts*/
 Classes.f_nav__org_patternfly_style_Classes = 'nav';
 /**@const {string} @nodts*/
+Classes.f_noBorder__org_patternfly_style_Classes = 'no-border';
+/**@const {string} @nodts*/
+Classes.f_noBorderBottom__org_patternfly_style_Classes = 'no-border-bottom';
+/**@const {string} @nodts*/
 Classes.f_noBorderRows__org_patternfly_style_Classes = 'no-border-rows';
 /**@const {string} @nodts*/
 Classes.f_noFill__org_patternfly_style_Classes = 'no-fill';
@@ -463,6 +407,10 @@ Classes.f_none__org_patternfly_style_Classes = 'none';
 Classes.f_noPadding__org_patternfly_style_Classes = 'no-padding';
 /**@const {string} @nodts*/
 Classes.f_noPaddingTop__org_patternfly_style_Classes = 'no-padding-top';
+/**@const {string} @nodts*/
+Classes.f_off__org_patternfly_style_Classes = 'off';
+/**@const {string} @nodts*/
+Classes.f_on__org_patternfly_style_Classes = 'on';
 /**@const {string} @nodts*/
 Classes.f_option__org_patternfly_style_Classes = 'option';
 /**@const {string} @nodts*/
@@ -481,6 +429,8 @@ Classes.f_page__org_patternfly_style_Classes = 'page';
 Classes.f_pageInsets__org_patternfly_style_Classes = 'page-insets';
 /**@const {string} @nodts*/
 Classes.f_pagination__org_patternfly_style_Classes = 'pagination';
+/**@const {string} @nodts*/
+Classes.f_panel__org_patternfly_style_Classes = 'panel';
 /**@const {string} @nodts*/
 Classes.f_path__org_patternfly_style_Classes = 'path';
 /**@const {string} @nodts*/
@@ -504,6 +454,10 @@ Classes.f_progressbar__org_patternfly_style_Classes = 'progressbar';
 /**@const {string} @nodts*/
 Classes.f_radio__org_patternfly_style_Classes = 'radio';
 /**@const {string} @nodts*/
+Classes.f_rail__org_patternfly_style_Classes = 'rail';
+/**@const {string} @nodts*/
+Classes.f_raised__org_patternfly_style_Classes = 'raised';
+/**@const {string} @nodts*/
 Classes.f_read__org_patternfly_style_Classes = 'read';
 /**@const {string} @nodts*/
 Classes.f_readOnly__org_patternfly_style_Classes = 'read-only';
@@ -512,6 +466,8 @@ Classes.f_readonly__org_patternfly_style_Classes = 'readonly';
 /**@const {string} @nodts*/
 Classes.f_required__org_patternfly_style_Classes = 'required';
 /**@const {string} @nodts*/
+Classes.f_resizable__org_patternfly_style_Classes = 'resizable';
+/**@const {string} @nodts*/
 Classes.f_resizeBoth__org_patternfly_style_Classes = 'resize-both';
 /**@const {string} @nodts*/
 Classes.f_resizeObserver__org_patternfly_style_Classes = 'resize-observer';
@@ -519,6 +475,10 @@ Classes.f_resizeObserver__org_patternfly_style_Classes = 'resize-observer';
 Classes.f_resizeHorizontal__org_patternfly_style_Classes = 'resize-horizontal';
 /**@const {string} @nodts*/
 Classes.f_resizeVertical__org_patternfly_style_Classes = 'resize-vertical';
+/**@const {string} @nodts*/
+Classes.f_resizing__org_patternfly_style_Classes = 'resizing';
+/**@const {string} @nodts*/
+Classes.f_reverse__org_patternfly_style_Classes = 'reverse';
 /**@const {string} @nodts*/
 Classes.f_right__org_patternfly_style_Classes = 'right';
 /**@const {string} @nodts*/
@@ -562,11 +522,17 @@ Classes.f_simple__org_patternfly_style_Classes = 'simple';
 /**@const {string} @nodts*/
 Classes.f_skipToContent__org_patternfly_style_Classes = 'skip-to-content';
 /**@const {string} @nodts*/
+Classes.f_slider__org_patternfly_style_Classes = 'slider';
+/**@const {string} @nodts*/
 Classes.f_small__org_patternfly_style_Classes = 'small';
 /**@const {string} @nodts*/
 Classes.f_sort__org_patternfly_style_Classes = 'sort';
 /**@const {string} @nodts*/
 Classes.f_spinner__org_patternfly_style_Classes = 'spinner';
+/**@const {string} @nodts*/
+Classes.f_split__org_patternfly_style_Classes = 'split';
+/**@const {string} @nodts*/
+Classes.f_splitter__org_patternfly_style_Classes = 'splitter';
 /**@const {string} @nodts*/
 Classes.f_splitButton__org_patternfly_style_Classes = 'split-button';
 /**@const {string} @nodts*/
@@ -576,7 +542,17 @@ Classes.f_standalone__org_patternfly_style_Classes = 'standalone';
 /**@const {string} @nodts*/
 Classes.f_start__org_patternfly_style_Classes = 'start';
 /**@const {string} @nodts*/
+Classes.f_static___org_patternfly_style_Classes = 'static';
+/**@const {string} @nodts*/
 Classes.f_status__org_patternfly_style_Classes = 'status';
+/**@const {string} @nodts*/
+Classes.f_step__org_patternfly_style_Classes = 'step';
+/**@const {string} @nodts*/
+Classes.f_steps__org_patternfly_style_Classes = 'steps';
+/**@const {string} @nodts*/
+Classes.f_sticky__org_patternfly_style_Classes = 'sticky';
+/**@const {string} @nodts*/
+Classes.f_switch___org_patternfly_style_Classes = 'switch';
 /**@const {string} @nodts*/
 Classes.f_subnav__org_patternfly_style_Classes = 'subnav';
 /**@const {string} @nodts*/
@@ -596,6 +572,8 @@ Classes.f_tailBall__org_patternfly_style_Classes = 'tail-ball';
 /**@const {string} @nodts*/
 Classes.f_tertiary__org_patternfly_style_Classes = 'tertiary';
 /**@const {string} @nodts*/
+Classes.f_term__org_patternfly_style_Classes = 'term';
+/**@const {string} @nodts*/
 Classes.f_text__org_patternfly_style_Classes = 'text';
 /**@const {string} @nodts*/
 Classes.f_textInput__org_patternfly_style_Classes = 'text-input';
@@ -605,6 +583,10 @@ Classes.f_textInputGroup__org_patternfly_style_Classes = 'text-input-group';
 Classes.f_textAlignLeft__org_patternfly_style_Classes = 'text-align-left';
 /**@const {string} @nodts*/
 Classes.f_textLeftAligned__org_patternfly_style_Classes = 'textLeftAligned';
+/**@const {string} @nodts*/
+Classes.f_thumb__org_patternfly_style_Classes = 'thumb';
+/**@const {string} @nodts*/
+Classes.f_tick__org_patternfly_style_Classes = 'tick';
 /**@const {string} @nodts*/
 Classes.f_title__org_patternfly_style_Classes = 'title';
 /**@const {string} @nodts*/
@@ -628,6 +610,8 @@ Classes.f_top__org_patternfly_style_Classes = 'top';
 /**@const {string} @nodts*/
 Classes.f_totalItems__org_patternfly_style_Classes = 'total-items';
 /**@const {string} @nodts*/
+Classes.f_track__org_patternfly_style_Classes = 'track';
+/**@const {string} @nodts*/
 Classes.f_truncate__org_patternfly_style_Classes = 'truncate';
 /**@const {string} @nodts*/
 Classes.f_type__org_patternfly_style_Classes = 'type';
@@ -637,6 +621,8 @@ Classes.f_typeahead__org_patternfly_style_Classes = 'typeahead';
 Classes.f_unread__org_patternfly_style_Classes = 'unread';
 /**@const {string} @nodts*/
 Classes.f_utilities__org_patternfly_style_Classes = 'utilities';
+/**@const {string} @nodts*/
+Classes.f_value__org_patternfly_style_Classes = 'value';
 /**@const {string} @nodts*/
 Classes.f_valueText__org_patternfly_style_Classes = 'value-text';
 /**@const {string} @nodts*/

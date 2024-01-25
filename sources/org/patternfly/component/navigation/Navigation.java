@@ -15,11 +15,9 @@
  */
 package org.patternfly.component.navigation;
 
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
 import org.jboss.elemento.By;
 import org.jboss.elemento.Elements;
@@ -37,7 +35,6 @@ import elemental2.dom.Element;
 import elemental2.dom.Event;
 import elemental2.dom.HTMLElement;
 
-import static java.util.stream.Collectors.joining;
 import static org.jboss.elemento.Elements.button;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.nav;
@@ -54,6 +51,7 @@ import static org.patternfly.component.navigation.NavigationType.Vertical.groupe
 import static org.patternfly.core.Aria.label;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.core.Dataset.navigationGroup;
+import static org.patternfly.core.Validation.verifyEnum;
 import static org.patternfly.style.Brightness.dark;
 import static org.patternfly.style.Brightness.light;
 import static org.patternfly.style.Classes.button;
@@ -79,8 +77,7 @@ import static org.patternfly.style.PredefinedIcon.angleRight;
  * <p>
  * {@snippet class = NavigationDemo region = expandable}
  *
- * @see <a href=
- *      "https://www.patternfly.org/components/navigation/html">https://www.patternfly.org/components/navigation/html</a>
+ * @see <a href= "https://www.patternfly.org/components/navigation">https://www.patternfly.org/components/navigation</a>
  */
 public class Navigation extends BaseComponent<HTMLElement, Navigation> {
 
@@ -103,7 +100,7 @@ public class Navigation extends BaseComponent<HTMLElement, Navigation> {
     private final Map<String, NavigationGroup> groups;
     private final Map<String, ExpandableNavigationGroup> expandableGroups;
     private SelectHandler<NavigationItem> onSelect;
-    private ToggleHandler<ExpandableNavigationGroup> onToggle;
+    private ToggleHandler<ExpandableNavigationGroup> toggleHandler;
 
     Navigation(NavigationType type) {
         super(ComponentType.Navigation, nav().css(component(nav)).element());
@@ -205,8 +202,8 @@ public class Navigation extends BaseComponent<HTMLElement, Navigation> {
         group.collapse(); // all groups are collapsed by default
         expandableGroups.put(group.id, group);
         itemsContainer.appendChild(group.element());
-        if (onToggle != null) {
-            group.onToggle = onToggle;
+        if (toggleHandler != null) {
+            group.toggleHandler = toggleHandler;
         }
         return this;
     }
@@ -219,13 +216,10 @@ public class Navigation extends BaseComponent<HTMLElement, Navigation> {
     // ------------------------------------------------------ builder
 
     public Navigation theme(Brightness theme) {
-        if (!EnumSet.of(dark, light).contains(theme)) {
-            Logger.unsupported(componentType(), element(),
-                    "Theme " + theme + " not supported. Valid values: " +
-                            Stream.of(dark, light).map(Brightness::name).collect(joining(" ")));
-            return this;
+        if (verifyEnum(componentType(), element(), "theme", theme, dark, light)) {
+            css(theme.modifier());
         }
-        return css(theme.modifier());
+        return this;
     }
 
     @Override
@@ -235,13 +229,13 @@ public class Navigation extends BaseComponent<HTMLElement, Navigation> {
 
     // ------------------------------------------------------ events
 
-    public Navigation onSelect(SelectHandler<NavigationItem> onSelect) {
-        this.onSelect = onSelect;
+    public Navigation onSelect(SelectHandler<NavigationItem> selectHandler) {
+        this.onSelect = selectHandler;
         return this;
     }
 
-    public Navigation onToggle(ToggleHandler<ExpandableNavigationGroup> onToggle) {
-        this.onToggle = onToggle;
+    public Navigation onToggle(ToggleHandler<ExpandableNavigationGroup> toggleHandler) {
+        this.toggleHandler = toggleHandler;
         return this;
     }
 
@@ -302,8 +296,8 @@ public class Navigation extends BaseComponent<HTMLElement, Navigation> {
             ExpandableNavigationGroup group = findGroup(groupId);
             if (group != null) {
                 group.expand();
-                if (fireEvent && onToggle != null) {
-                    onToggle.onToggle(new Event(""), group, true);
+                if (fireEvent && toggleHandler != null) {
+                    toggleHandler.onToggle(new Event(""), group, true);
                 }
             }
             // select parent group (if any)

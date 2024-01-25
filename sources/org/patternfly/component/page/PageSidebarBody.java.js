@@ -10,6 +10,7 @@ goog.require('org.patternfly.component.page.PageSubComponent');
 goog.require('org.patternfly.style.Classes');
 goog.require('org.patternfly.style.Modifiers.Fill');
 goog.require('org.patternfly.style.Modifiers.NoFill');
+goog.require('org.patternfly.style.Modifiers.PageInsets');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

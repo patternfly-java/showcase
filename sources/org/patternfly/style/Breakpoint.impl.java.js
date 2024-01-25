@@ -4,8 +4,6 @@ const Enum = goog.require('java.lang.Enum$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
-let Arrays = goog.forwardDeclare('java.util.Arrays$impl');
-let List = goog.forwardDeclare('java.util.List$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Enums = goog.forwardDeclare('vmbootstrap.Enums$impl');
@@ -123,10 +121,6 @@ class Breakpoint extends Enum {
  static get f__2xl__org_patternfly_style_Breakpoint() {
   return (Breakpoint.$clinit(), Breakpoint.$static__2xl__org_patternfly_style_Breakpoint);
  }
- /** @nodts @return {List<Breakpoint>} */
- static get f_LARGE_TO_SMALL__org_patternfly_style_Breakpoint() {
-  return (Breakpoint.$clinit(), Breakpoint.$static_LARGE_TO_SMALL__org_patternfly_style_Breakpoint);
- }
  /** @nodts */
  static $clinit() {
   Breakpoint.$clinit = () =>{};
@@ -138,7 +132,6 @@ class Breakpoint extends Enum {
   Breakpoint.$static_lg__org_patternfly_style_Breakpoint = Breakpoint.$create__java_lang_String__int__java_lang_String__int__java_lang_String__int__java_lang_String($Util.$makeEnumName('lg'), Breakpoint.$ordinal_lg__org_patternfly_style_Breakpoint, 'lg', 992, 'px', 48, 'rem');
   Breakpoint.$static_xl__org_patternfly_style_Breakpoint = Breakpoint.$create__java_lang_String__int__java_lang_String__int__java_lang_String__int__java_lang_String($Util.$makeEnumName('xl'), Breakpoint.$ordinal_xl__org_patternfly_style_Breakpoint, 'xl', 1200, 'px', 60, 'rem');
   Breakpoint.$static__2xl__org_patternfly_style_Breakpoint = Breakpoint.$create__java_lang_String__int__java_lang_String__int__java_lang_String__int__java_lang_String($Util.$makeEnumName('_2xl'), Breakpoint.$ordinal__2xl__org_patternfly_style_Breakpoint, '2xl', 1450, 'px', 80, 'rem');
-  Breakpoint.$static_LARGE_TO_SMALL__org_patternfly_style_Breakpoint = /**@type {List<Breakpoint>}*/ (Arrays.m_asList__arrayOf_java_lang_Object__java_util_List(/**@type {!Array<Breakpoint>}*/ ($Arrays.$init([Breakpoint.$static__2xl__org_patternfly_style_Breakpoint, Breakpoint.$static_xl__org_patternfly_style_Breakpoint, Breakpoint.$static_lg__org_patternfly_style_Breakpoint, Breakpoint.$static_md__org_patternfly_style_Breakpoint, Breakpoint.$static_sm__org_patternfly_style_Breakpoint, Breakpoint.$static_default___org_patternfly_style_Breakpoint], Breakpoint))));
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -148,7 +141,6 @@ class Breakpoint extends Enum {
  /** @nodts */
  static $loadModules() {
   j_l_String = goog.module.get('java.lang.String$impl');
-  Arrays = goog.module.get('java.util.Arrays$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Enums = goog.module.get('vmbootstrap.Enums$impl');
@@ -178,8 +170,6 @@ Breakpoint.$static_lg__org_patternfly_style_Breakpoint;
 Breakpoint.$static_xl__org_patternfly_style_Breakpoint;
 /**@private {!Breakpoint} @nodts*/
 Breakpoint.$static__2xl__org_patternfly_style_Breakpoint;
-/**@private {List<Breakpoint>} @nodts*/
-Breakpoint.$static_LARGE_TO_SMALL__org_patternfly_style_Breakpoint;
 /**@type {Map<?string, !Breakpoint>} @nodts*/
 Breakpoint.f_namesToValuesMap__org_patternfly_style_Breakpoint_;
 $Util.$setClassMetadataForEnum(Breakpoint, 'org.patternfly.style.Breakpoint');

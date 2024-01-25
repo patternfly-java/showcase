@@ -21,6 +21,7 @@ goog.require('org.patternfly.core.Closeable');
 goog.require('org.patternfly.core.Expandable');
 goog.require('org.patternfly.core.Logger');
 goog.require('org.patternfly.handler.CloseHandler');
+goog.require('org.patternfly.style.Modifiers.Disabled');
 goog.require('org.patternfly.thirdparty.popper.Modifiers');
 goog.require('org.patternfly.thirdparty.popper.Placement');
 goog.require('org.patternfly.thirdparty.popper.Popper');

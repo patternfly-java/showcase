@@ -27,6 +27,8 @@ public enum PredefinedIcon {
 
     angleRight(fas("angle-right")),
 
+    angleUp(fas("angle-up")),
+
     arrowLeft(fas("arrow-left")),
 
     arrowRight(fas("arrow-right")),
@@ -37,6 +39,10 @@ public enum PredefinedIcon {
 
     bell(fas("bell")),
 
+    book(fas("book")),
+
+    bookOpen(fas("book-open")),
+
     box(fas("box")),
 
     bullhorn(fas("bullhorn")),
@@ -45,15 +51,21 @@ public enum PredefinedIcon {
 
     check(fas("check")),
 
+    checkCircle(fas("check-circle")),
+
     code(fas("code")),
 
     cog(fas("cog")),
 
     copy(fas("copy")),
 
-    checkCircle(fas("check-circle")),
+    cube(fas("cube")),
+
+    cubes(fas("cubes")),
 
     database(fas("database")),
+
+    desktop(fas("desktop")),
 
     download(fas("download")),
 
@@ -69,11 +81,21 @@ public enum PredefinedIcon {
 
     filter(fas("filter")),
 
+    flag(fas("flag")),
+
+    globe(fas("globe")),
+
     help(pfIcon("help")),
 
     infoCircle(fas("info-circle")),
 
+    key(fas("key")),
+
     laptop(fas("laptop")),
+
+    lock(fas("lock")),
+
+    lockOpen(fas("lock-open")),
 
     longArrowAltDown(fas("long-arrow-alt-down")),
 
@@ -83,7 +105,11 @@ public enum PredefinedIcon {
 
     play(fas("play")),
 
+    plus(fas("plus")),
+
     plusCircle(fas("plus-circle")),
+
+    questionCircle(fas("question-circle")),
 
     search(fas("search")),
 

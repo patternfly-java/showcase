@@ -27,6 +27,7 @@ import org.gwtproject.event.shared.HandlerRegistration;
 import org.gwtproject.safehtml.shared.SafeHtml;
 
 import elemental2.core.JsArray;
+import elemental2.dom.DOMRect;
 import elemental2.dom.Element;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLAreaElement;
@@ -107,7 +108,9 @@ public final class Elements {
 
     // ------------------------------------------------------ body
 
-    /** Returns an HTML content builder for the document body. */
+    /**
+     * Returns an HTML content builder for the document body.
+     */
     public static HTMLContainerBuilder<HTMLBodyElement> body() {
         return new HTMLContainerBuilder<>(document.body);
     }
@@ -947,46 +950,62 @@ public final class Elements {
         return new ElementsBag();
     }
 
-    /** Returns a builder for the specified HTML element. */
+    /**
+     * Returns a builder for the specified HTML element.
+     */
     public static <E extends HTMLElement> HTMLElementBuilder<E> htmlElement(String element, Class<E> type) {
         return new HTMLElementBuilder<>(createHtmlElement(element, type));
     }
 
-    /** Returns a builder for the existing HTML element. */
+    /**
+     * Returns a builder for the existing HTML element.
+     */
     public static <E extends HTMLElement> HTMLElementBuilder<E> wrapHtmlElement(E element) {
         return new HTMLElementBuilder<>(element);
     }
 
-    /** Returns a builder for the specified input element. */
+    /**
+     * Returns a builder for the specified input element.
+     */
     public static <E extends HTMLInputElement> InputElementBuilder<E> inputElement(String type, Class<E> jType) {
         E input = createHtmlElement("input", jType);
         input.type = type;
         return new InputElementBuilder<>(input);
     }
 
-    /** Returns a builder for the existing input element. */
+    /**
+     * Returns a builder for the existing input element.
+     */
     public static <E extends HTMLInputElement> InputElementBuilder<E> wrapInputElement(E element) {
         return new InputElementBuilder<>(element);
     }
 
-    /** Returns a builder for the specified HTML element. */
+    /**
+     * Returns a builder for the specified HTML element.
+     */
     public static <E extends HTMLElement> HTMLContainerBuilder<E> htmlContainer(String element, Class<E> type) {
         return new HTMLContainerBuilder<>(createHtmlElement(element, type));
     }
 
-    /** Returns a builder for the existing HTML element. */
+    /**
+     * Returns a builder for the existing HTML element.
+     */
     public static <E extends HTMLElement> HTMLContainerBuilder<E> wrapHtmlContainer(E element) {
         return new HTMLContainerBuilder<>(element);
     }
 
-    /** Creates the specified HTML element. */
+    /**
+     * Creates the specified HTML element.
+     */
     public static <E extends HTMLElement> E createHtmlElement(String element, Class<E> type) {
         return cast(document.createElement(element));
     }
 
     // ------------------------------------------------------ finder methods
 
-    /** Finds all HTML elements for the given selector. */
+    /**
+     * Finds all HTML elements for the given selector.
+     */
     public static Iterable<HTMLElement> findAll(Node node, By selector) {
         if (node != null) {
             NodeList<Element> nodes = node.querySelectorAll(selector.selector());
@@ -1002,17 +1021,23 @@ public final class Elements {
         return emptyList();
     }
 
-    /** Finds all HTML elements for the given selector. */
+    /**
+     * Finds all HTML elements for the given selector.
+     */
     public static <E extends HTMLElement> Iterable<HTMLElement> findAll(IsElement<E> element, By selector) {
         return findAll(element.element(), selector);
     }
 
-    /** Finds a single HTML elements for the given selector. */
+    /**
+     * Finds a single HTML elements for the given selector.
+     */
     public static <E extends HTMLElement> E find(Node node, By selector) {
         return cast(node.querySelector(selector.selector()));
     }
 
-    /** Finds a single HTML elements for the given selector. */
+    /**
+     * Finds a single HTML elements for the given selector.
+     */
     public static <E extends HTMLElement, F extends HTMLElement> F find(IsElement<E> element, By selector) {
         return find(element.element(), selector);
     }
@@ -1073,22 +1098,30 @@ public final class Elements {
 
     // ------------------------------------------------------ iterable methods
 
-    /** Returns an iterable for the elements in the given array-like. */
+    /**
+     * Returns an iterable for the elements in the given array-like.
+     */
     public static <E> Iterable<E> elements(JsArrayLike<E> nodes) {
         return () -> iterator(nodes);
     }
 
-    /** Returns an iterable for the child nodes of the given parent node. */
+    /**
+     * Returns an iterable for the child nodes of the given parent node.
+     */
     public static Iterable<Node> children(Node parent) {
         return () -> iterator(parent);
     }
 
-    /** Returns an iterable for the child elements of the given parent element. */
+    /**
+     * Returns an iterable for the child elements of the given parent element.
+     */
     public static Iterable<HTMLElement> children(HTMLElement parent) {
         return () -> iterator(parent);
     }
 
-    /** Returns an iterable for the child elements of the given parent element. */
+    /**
+     * Returns an iterable for the child elements of the given parent element.
+     */
     public static <E extends HTMLElement> Iterable<HTMLElement> children(IsElement<E> parent) {
         return () -> iterator(parent);
     }
@@ -1187,12 +1220,16 @@ public final class Elements {
         }
     }
 
-    /** Inserts element {@code newElement} into the parent after element {@code after}. */
+    /**
+     * Inserts element {@code newElement} into the parent after element {@code after}.
+     */
     public static void insertAfter(Element newElement, Element after) {
         after.parentNode.insertBefore(newElement, after.nextSibling);
     }
 
-    /** Inserts element {@code newElement} into the parent after element {@code after}. */
+    /**
+     * Inserts element {@code newElement} into the parent after element {@code after}.
+     */
     public static <E extends HTMLElement> void insertAfter(IsElement<E> newElement, Element after) {
         if (newElement != null) {
             insertAfter(newElement.element(), after);
@@ -1239,12 +1276,16 @@ public final class Elements {
         }
     }
 
-    /** Inserts element {@code newElement} into the parent before element {@code before}. */
+    /**
+     * Inserts element {@code newElement} into the parent before element {@code before}.
+     */
     public static void insertBefore(Element newElement, Element before) {
         before.parentNode.insertBefore(newElement, before);
     }
 
-    /** Inserts element {@code newElement} into the parent before element {@code before}. */
+    /**
+     * Inserts element {@code newElement} into the parent before element {@code before}.
+     */
     public static <E extends HTMLElement> void insertBefore(IsElement<E> newElement, Element before) {
         if (newElement != null) {
             insertBefore(newElement.element(), before);
@@ -1292,19 +1333,25 @@ public final class Elements {
         }
     }
 
-    /** Inserts element {@code newElement} as first element into {@code parent}. */
+    /**
+     * Inserts element {@code newElement} as first element into {@code parent}.
+     */
     public static void insertFirst(Element parent, Element newElement) {
         parent.insertBefore(newElement, parent.firstChild);
     }
 
-    /** Inserts element {@code newElement} as first element into {@code parent}. */
+    /**
+     * Inserts element {@code newElement} as first element into {@code parent}.
+     */
     public static <E extends HTMLElement> void insertFirst(Element parent, IsElement<E> newElement) {
         if (newElement != null) {
             insertFirst(parent, newElement.element());
         }
     }
 
-    /** Removes all child elements from {@code element} */
+    /**
+     * Removes all child elements from {@code element}
+     */
     public static void removeChildrenFrom(Element element) {
         if (element != null) {
             while (element.firstChild != null) {
@@ -1313,7 +1360,9 @@ public final class Elements {
         }
     }
 
-    /** Removes all child elements from {@code element} */
+    /**
+     * Removes all child elements from {@code element}
+     */
     public static <E extends HTMLElement> void removeChildrenFrom(IsElement<E> element) {
         if (element != null) {
             removeChildrenFrom(element.element());
@@ -1450,28 +1499,78 @@ public final class Elements {
 
     // ------------------------------------------------------ visibility
 
-    /** Checks whether the given element is visible (i.e. {@code display} is not {@code none}) */
+    /**
+     * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
+     */
     public static boolean isVisible(HTMLElement element) {
         return element != null && !"none".equals(element.style.display);
     }
 
-    /** Checks whether the given element is visible (i.e. {@code display} is not {@code none}) */
+    /**
+     * Checks whether the given element is visible (i.e. {@code display} is not {@code none})
+     */
     public static <E extends HTMLElement> boolean isVisible(IsElement<E> element) {
         return element != null && isVisible(element.element());
     }
 
-    /** Shows / hide the specified element by modifying the {@code display} property. */
+    /**
+     * Shows / hide the specified element by modifying the {@code display} property.
+     */
     public static void setVisible(HTMLElement element, boolean visible) {
         if (element != null) {
             element.style.display = visible ? "" : "none";
         }
     }
 
-    /** Shows / hide the specified element by modifying the {@code display} property. */
+    /**
+     * Shows / hide the specified element by modifying the {@code display} property.
+     */
     public static <E extends HTMLElement> void setVisible(IsElement<E> element, boolean visible) {
         if (element != null) {
             setVisible(element.element(), visible);
         }
+    }
+
+    public static <E extends HTMLElement> boolean isElementInView(IsElement<E> container, HTMLElement element,
+            boolean partial) {
+        return isElementInView(container.element(), element, partial);
+    }
+
+    public static <E extends HTMLElement> boolean isElementInView(HTMLElement container, IsElement<E> element,
+            boolean partial) {
+        return isElementInView(container, element.element(), partial);
+    }
+
+    public static <E extends HTMLElement, F extends HTMLElement> boolean isElementInView(IsElement<E> container,
+            IsElement<F> element, boolean partial) {
+        return isElementInView(container.element(), element.element(), partial);
+    }
+
+    /**
+     * This function returns whether an element is within the viewable area of a container. If partial is true, then this
+     * function will return true even if only part of the element is in view.
+     *
+     * @param container The container to check if the element is in view of.
+     * @param element The element to check if it is view
+     * @param partial true if partial view is allowed
+     * @return {@code true} if the component is in view.
+     */
+    public static boolean isElementInView(HTMLElement container, HTMLElement element, boolean partial) {
+        if (container != null && element != null) {
+            DOMRect containerBounds = container.getBoundingClientRect();
+            DOMRect elementBounds = element.getBoundingClientRect();
+            int containerBoundsLeft = (int) Math.ceil(containerBounds.left);
+            int containerBoundsRight = (int) Math.floor(containerBounds.right);
+            int elementBoundsLeft = (int) Math.ceil(elementBounds.left);
+            int elementBoundsRight = (int) Math.floor(elementBounds.right);
+
+            boolean isTotallyInView = elementBoundsLeft >= containerBoundsLeft && elementBoundsRight <= containerBoundsRight;
+            boolean isPartiallyInView = (partial || (containerBounds.width < elementBounds.width)) &&
+                    ((elementBoundsLeft < containerBoundsLeft && elementBoundsRight > containerBoundsLeft) ||
+                            (elementBoundsRight > containerBoundsRight && elementBoundsLeft < containerBoundsRight));
+            return isTotallyInView || isPartiallyInView;
+        }
+        return false;
     }
 
     // ------------------------------------------------------ resize
@@ -1523,28 +1622,36 @@ public final class Elements {
 
     // ------------------------------------------------------ CSS
 
-    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
+    /**
+     * Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise.
+     */
     public static void toggle(HTMLElement element, String css, boolean condition) {
         if (element != null) {
             element.classList.toggle(css, condition);
         }
     }
 
-    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
+    /**
+     * Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise.
+     */
     public static <E extends HTMLElement> void toggle(IsElement<E> element, String css, boolean condition) {
         if (element != null) {
             toggle(element.element(), css, condition);
         }
     }
 
-    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
+    /**
+     * Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise.
+     */
     public static void toggle(HTMLElement element, String css, Supplier<Boolean> condition) {
         if (element != null) {
             element.classList.toggle(css, condition.get());
         }
     }
 
-    /** Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise. */
+    /**
+     * Adds the specified CSS class to the element if {@code condition} is {@code true}, removes it otherwise.
+     */
     public static <E extends HTMLElement> void toggle(IsElement<E> element, String css, Supplier<Boolean> condition) {
         if (element != null) {
             element.element().classList.toggle(css, condition.get());
@@ -1553,14 +1660,18 @@ public final class Elements {
 
     // ------------------------------------------------------ inner HTML
 
-    /** Convenience method to set the inner HTML of the given element. */
+    /**
+     * Convenience method to set the inner HTML of the given element.
+     */
     public static void innerHtml(HTMLElement element, SafeHtml html) {
         if (element != null) {
             element.innerHTML = html.asString();
         }
     }
 
-    /** Convenience method to set the inner HTML of the given element. */
+    /**
+     * Convenience method to set the inner HTML of the given element.
+     */
     public static <E extends HTMLElement> void innerHtml(IsElement<E> element, SafeHtml html) {
         if (element != null) {
             innerHtml(element.element(), html);
@@ -1606,19 +1717,25 @@ public final class Elements {
 
     // ------------------------------------------------------ deprecated
 
-    /** @deprecated Replaced bv {@link Id#unique()} */
+    /**
+     * @deprecated Replaced bv {@link Id#unique()}
+     */
     @Deprecated
     public static String uniqueId() {
         return Id.unique();
     }
 
-    /** @deprecated Replaced bv {@link Id#unique(String, String...)} */
+    /**
+     * @deprecated Replaced bv {@link Id#unique(String, String...)}
+     */
     @Deprecated
     public static String uniqueId(String id, String... additionalIds) {
         return Id.unique(id, additionalIds);
     }
 
-    /** @deprecated Replaced bv {@link Id#build(String, String...)} */
+    /**
+     * @deprecated Replaced bv {@link Id#build(String, String...)}
+     */
     @Deprecated
     public static String buildId(String id, String... additionalIds) {
         return Id.build(id, additionalIds);

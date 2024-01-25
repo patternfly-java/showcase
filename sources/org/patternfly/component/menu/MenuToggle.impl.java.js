@@ -6,6 +6,7 @@ const WithIcon = goog.require('org.patternfly.core.WithIcon$impl');
 const WithIconAndText = goog.require('org.patternfly.core.WithIconAndText$impl');
 const WithText = goog.require('org.patternfly.core.WithText$impl');
 const Disabled = goog.require('org.patternfly.style.Modifiers.Disabled$impl');
+const Secondary = goog.require('org.patternfly.style.Modifiers.Secondary$impl');
 
 let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
 let HTMLButtonElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLButtonElement.$Overlay$impl');
@@ -31,6 +32,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
  * @extends {BaseComponent<HTMLElement, MenuToggle>}
+ * @implements {Secondary<HTMLElement, MenuToggle>}
  * @implements {WithIcon<HTMLElement, MenuToggle>}
  * @implements {WithText<HTMLElement, MenuToggle>}
  * @implements {WithIconAndText<HTMLElement, MenuToggle>}
@@ -223,10 +225,6 @@ class MenuToggle extends BaseComponent {
   return /**@type {MenuToggle}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_primary__org_patternfly_style_Classes)], j_l_String))), MenuToggle));
  }
  /** @nodts @return {MenuToggle} */
- m_secondary__org_patternfly_component_menu_MenuToggle() {
-  return /**@type {MenuToggle}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_secondary__org_patternfly_style_Classes)], j_l_String))), MenuToggle));
- }
- /** @nodts @return {MenuToggle} */
  m_text__java_lang_String__org_patternfly_component_menu_MenuToggle(/** ?string */ text) {
   if ($Equality.$same(this.f_type__org_patternfly_component_menu_MenuToggle_, MenuToggleType.f_default___org_patternfly_component_menu_MenuToggleType) || $Equality.$same(this.f_type__org_patternfly_component_menu_MenuToggle_, MenuToggleType.f_plainText__org_patternfly_component_menu_MenuToggleType)) {
    if ($Equality.$same(this.f_textElement__org_patternfly_component_menu_MenuToggle_, null)) {
@@ -261,6 +259,16 @@ class MenuToggle extends BaseComponent {
  /** @final @override @nodts @return {MenuToggle} */
  m_that__org_jboss_elemento_TypedBuilder() {
   return this.m_that__org_patternfly_component_menu_MenuToggle();
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {MenuToggle} */
+ m_secondary__org_jboss_elemento_TypedBuilder() {
+  return /**@type {MenuToggle}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__org_jboss_elemento_TypedBuilder(this), MenuToggle));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {MenuToggle} */
+ m_secondary__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
+  return /**@type {MenuToggle}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__boolean__org_jboss_elemento_TypedBuilder(this, arg0), MenuToggle));
  }
  //Bridge method.
  /** @final @override @nodts @return {MenuToggle} */
@@ -328,6 +336,21 @@ class MenuToggle extends BaseComponent {
   return this.m_disabled__boolean__org_patternfly_component_menu_MenuToggle(arg0);
  }
  //Default method forwarding stub.
+ /** @override @nodts @return {boolean} */
+ m_isDisabled__boolean() {
+  return Disabled.m_isDisabled__$default__org_patternfly_style_Modifiers_Disabled__boolean(this);
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {MenuToggle} */
+ m_secondary__org_patternfly_component_menu_MenuToggle() {
+  return /**@type {MenuToggle}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__org_jboss_elemento_TypedBuilder(this), MenuToggle));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {MenuToggle} */
+ m_secondary__boolean__org_patternfly_component_menu_MenuToggle(/** boolean */ arg0) {
+  return /**@type {MenuToggle}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__boolean__org_jboss_elemento_TypedBuilder(this, arg0), MenuToggle));
+ }
+ //Default method forwarding stub.
  /** @nodts @return {MenuToggle} */
  m_icon__java_lang_String__org_patternfly_component_menu_MenuToggle(/** ?string */ arg0) {
   return /**@type {MenuToggle}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), MenuToggle));
@@ -372,6 +395,7 @@ class MenuToggle extends BaseComponent {
   MenuToggle.$clinit = () =>{};
   MenuToggle.$loadModules();
   BaseComponent.$clinit();
+  Secondary.$clinit();
   WithIcon.$clinit();
   WithIconAndText.$clinit();
   Disabled.$clinit();
@@ -401,6 +425,7 @@ class MenuToggle extends BaseComponent {
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
+Secondary.$markImplementor(MenuToggle);
 WithIcon.$markImplementor(MenuToggle);
 WithText.$markImplementor(MenuToggle);
 WithIconAndText.$markImplementor(MenuToggle);

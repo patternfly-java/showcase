@@ -24,9 +24,15 @@ class Variables {
  static $loadModules() {}
 }
 /**@const {string} @nodts*/
+Variables.f_Color__org_patternfly_style_Variables = 'Color';
+/**@const {string} @nodts*/
+Variables.f_FlexBasis__org_patternfly_style_Variables = 'FlexBasis';
+/**@const {string} @nodts*/
 Variables.f_GridTemplateColumns__org_patternfly_style_Variables = 'GridTemplateColumns';
 /**@const {string} @nodts*/
 Variables.f_Height__org_patternfly_style_Variables = 'Height';
+/**@const {string} @nodts*/
+Variables.f_Left__org_patternfly_style_Variables = 'Left';
 /**@const {string} @nodts*/
 Variables.f_LineClamp__org_patternfly_style_Variables = 'LineClamp';
 /**@const {string} @nodts*/

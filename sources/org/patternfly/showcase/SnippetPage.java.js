@@ -1,7 +1,9 @@
 goog.module('org.patternfly.showcase.SnippetPage');
 
+goog.require('elemental2.dom.HTMLAnchorElement.$Overlay');
 goog.require('elemental2.dom.HTMLDivElement.$Overlay');
 goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('elemental2.dom.HTMLHeadingElement.$Overlay');
 goog.require('java.lang.Iterable');
 goog.require('java.lang.Object');
 goog.require('java.lang.String');
@@ -19,6 +21,8 @@ goog.require('org.patternfly.component.page.PageMainBody');
 goog.require('org.patternfly.component.page.PageMainSection');
 goog.require('org.patternfly.component.title.Title');
 goog.require('org.patternfly.component.tooltip.Tooltip');
+goog.require('org.patternfly.core.Aria');
+goog.require('org.patternfly.core.Attributes');
 goog.require('org.patternfly.showcase.Page');
 goog.require('org.patternfly.showcase.Snippet');
 goog.require('org.patternfly.style.Brightness');

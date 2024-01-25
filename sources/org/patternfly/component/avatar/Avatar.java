@@ -15,19 +15,15 @@
  */
 package org.patternfly.component.avatar;
 
-import java.util.EnumSet;
-import java.util.stream.Stream;
-
 import org.patternfly.component.BaseComponentFlat;
 import org.patternfly.component.ComponentType;
-import org.patternfly.core.Logger;
 import org.patternfly.style.Brightness;
 import org.patternfly.style.Size;
 
 import elemental2.dom.HTMLImageElement;
 
-import static java.util.stream.Collectors.joining;
 import static org.jboss.elemento.Elements.img;
+import static org.patternfly.core.Validation.verifyEnum;
 import static org.patternfly.style.Brightness.dark;
 import static org.patternfly.style.Brightness.light;
 import static org.patternfly.style.Classes.avatar;
@@ -36,7 +32,7 @@ import static org.patternfly.style.Classes.component;
 /**
  * An avatar is a visual used to represent a user. It may contain an image or a placeholder graphic.
  *
- * @see <a href= "https://www.patternfly.org/components/avatar/html">https://www.patternfly.org/components/avatar/html</a>
+ * @see <a href= "https://www.patternfly.org/components/avatar">https://www.patternfly.org/components/avatar</a>
  */
 public class Avatar extends BaseComponentFlat<HTMLImageElement, Avatar> {
 
@@ -72,13 +68,10 @@ public class Avatar extends BaseComponentFlat<HTMLImageElement, Avatar> {
     }
 
     public Avatar border(Brightness border) {
-        if (!EnumSet.of(light, dark).contains(border)) {
-            Logger.unsupported(componentType(), element(),
-                    "Border " + border + " not supported. Valid values: " +
-                            Stream.of(light, dark).map(Brightness::name).collect(joining(" ")));
-            return this;
+        if (verifyEnum(componentType(), element(), "border", border, light, dark)) {
+            css(border.modifier());
         }
-        return css(border.modifier());
+        return this;
     }
 
     @Override

@@ -9,8 +9,7 @@ let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let PageSection = goog.forwardDeclare('org.patternfly.component.page.PageSection$impl');
-let Tuples = goog.forwardDeclare('org.patternfly.core.Tuples$impl');
-let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
+let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let Sticky = goog.forwardDeclare('org.patternfly.style.Sticky$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
@@ -45,8 +44,8 @@ class PageMainGroup extends SubComponent {
   return /**@type {PageMainGroup}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(pageSection), PageMainGroup));
  }
  /** @nodts @return {PageMainGroup} */
- m_sticky__org_patternfly_core_Tuples__org_patternfly_component_page_PageMainGroup(/** Tuples<Breakpoint, Sticky> */ sticky) {
-  return /**@type {PageMainGroup}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_typedModifier__org_patternfly_core_Tuples__java_lang_String(sticky)], j_l_String))), PageMainGroup));
+ m_sticky__org_patternfly_style_Breakpoints__org_patternfly_component_page_PageMainGroup(/** Breakpoints<Sticky> */ sticky) {
+  return /**@type {PageMainGroup}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([sticky.m_modifiers__java_lang_String()], j_l_String))), PageMainGroup));
  }
  /** @nodts @return {PageMainGroup} */
  m_shadowTop__org_patternfly_component_page_PageMainGroup() {

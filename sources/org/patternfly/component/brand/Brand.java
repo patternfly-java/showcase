@@ -19,8 +19,7 @@ import org.jboss.elemento.HTMLElementBuilder;
 import org.patternfly.component.BaseComponent;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Logger;
-import org.patternfly.core.Tuples;
-import org.patternfly.style.Breakpoint;
+import org.patternfly.style.Breakpoints;
 import org.patternfly.style.Classes;
 
 import elemental2.dom.HTMLElement;
@@ -39,7 +38,7 @@ import static org.patternfly.style.Variables.Width;
 /**
  * A brand is used to place a product logotype on a screen.
  *
- * @see <a href= "https://www.patternfly.org/components/brand/html">https://www.patternfly.org/components/brand/html</a>
+ * @see <a href= "https://www.patternfly.org/components/brand">https://www.patternfly.org/components/brand</a>
  */
 public class Brand extends BaseComponent<HTMLElement, Brand> {
 
@@ -109,11 +108,11 @@ public class Brand extends BaseComponent<HTMLElement, Brand> {
 
     // ------------------------------------------------------ builder
 
-    public Brand widths(Tuples<Breakpoint, String> widths) {
+    public Brand widths(Breakpoints<String> widths) {
         return componentVar(component(brand), Width).applyTo(this, widths);
     }
 
-    public Brand heights(Tuples<Breakpoint, String> heights) {
+    public Brand heights(Breakpoints<String> heights) {
         return componentVar(component(brand), Height).applyTo(this, heights);
     }
 

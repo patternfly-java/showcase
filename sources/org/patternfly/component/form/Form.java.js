@@ -14,6 +14,7 @@ goog.require('org.patternfly.component.form.FormFieldGroup');
 goog.require('org.patternfly.component.form.FormGroup');
 goog.require('org.patternfly.component.form.FormSection');
 goog.require('org.patternfly.style.Classes');
+goog.require('org.patternfly.style.Modifiers.Horizontal');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

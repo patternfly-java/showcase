@@ -96,6 +96,7 @@ goog.require('org.jboss.elemento.ResizeObserver.$Overlay');
 goog.require('org.jboss.elemento.ResizeObserverEntry.$Overlay');
 goog.require('vmbootstrap.Casts');
 goog.require('vmbootstrap.JavaScriptObject');
+goog.require('vmbootstrap.Primitives');
 
 const Elements = goog.require('org.jboss.elemento.Elements$impl');
 exports = Elements;

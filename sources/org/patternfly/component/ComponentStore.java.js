@@ -18,6 +18,7 @@ goog.require('org.jboss.elemento.Id');
 goog.require('org.jboss.elemento.ObserverCallback');
 goog.require('org.jboss.elemento.TypedBuilder');
 goog.require('org.patternfly.component.BaseComponent');
+goog.require('org.patternfly.component.BaseComponentFlat');
 goog.require('org.patternfly.component.ComponentType');
 goog.require('org.patternfly.component.SubComponent');
 goog.require('org.patternfly.core.Logger');

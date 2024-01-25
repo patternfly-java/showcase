@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"SnippetPage.impl.java.js",
-"lineCount":84,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA0Ca,W;;CAAA,W;EAAAA,Q;EAAAA;OAEuB,gDAFvBA,C;EAAAA;OAGS,+CAHTA,C;;;QAKF,yF,gBAAmBC,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAA7EC,sB;EAAAA,kC;EAAAA,0L;EAAAA,iB;;;CAAA,kI,gBAAmBJ,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAAaE,qC;EAC7FA,otM;;;CAiCQ,mD,gBAAmBC,O;EAC3BC,kH;;;CAIyB,8B;EACzBC,6D;;;;CA7CK,4C;EAAAC,gG;;;;CAAA,8B;EAAAC,yF;;;;CAAA,oC;EAAAC,iI;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA,qB;EAAAA;",
+"lineCount":91,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA6Ca,W;;CAAA,W;EAAAA,Q;EAAAA;OAEuB,gDAFvBA,C;EAAAA;OAGS,+CAHTA,C;;;QAKF,yF,gBAAmBC,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAA7EC,sB;EAAAA,kC;EAAAA,0L;EAAAA,iB;;;CAAA,kI,gBAAmBJ,K,iBAAcC,W,iBAAoBC,U,qBAAwBC,W;EAAaE,qC;EAC7FA,otM;;;CAiCQ,qD,gBAAiBC,E,iBAAWC,M;EACpCC,yqD;;;CASQ,mD,gBAAmBC,O;EAC3BC,kH;;;CAIyB,8B;EACzBC,6D;;;;CAvDK,4C;EAAAC,gG;;;;CAAA,8B;EAAAC,yF;;;;CAAA,oC;EAAAC,iI;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA,qB;EAAAA;",
 "sources":["SnippetPage.java"],
-"names":["org.patternfly.showcase.SnippetPage.<synthetic: ctor_js>","title","javadocLink","designLink","description","org.patternfly.showcase.SnippetPage.<synthetic: ctor_create>","org.patternfly.showcase.SnippetPage.<init>","snippet","org.patternfly.showcase.SnippetPage.addSnippet","org.patternfly.showcase.SnippetPage.elements","org.patternfly.showcase.SnippetPage.forEach","org.patternfly.showcase.SnippetPage.iterator","org.patternfly.showcase.SnippetPage.spliterator","org.patternfly.showcase.SnippetPage.<clinit>"]
+"names":["org.patternfly.showcase.SnippetPage.<synthetic: ctor_js>","title","javadocLink","designLink","description","org.patternfly.showcase.SnippetPage.<synthetic: ctor_create>","org.patternfly.showcase.SnippetPage.<init>","id","header","org.patternfly.showcase.SnippetPage.addHeader","snippet","org.patternfly.showcase.SnippetPage.addSnippet","org.patternfly.showcase.SnippetPage.elements","org.patternfly.showcase.SnippetPage.forEach","org.patternfly.showcase.SnippetPage.iterator","org.patternfly.showcase.SnippetPage.spliterator","org.patternfly.showcase.SnippetPage.<clinit>"]
 }

@@ -5,6 +5,7 @@ const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
 const Closeable = goog.require('org.patternfly.core.Closeable$impl');
 const HasValues = goog.require('org.patternfly.core.HasValues$impl');
+const Vertical = goog.require('org.patternfly.style.Modifiers.Vertical$impl');
 
 let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
@@ -42,6 +43,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
  * @implements {HasValues<Label>}
  * @implements {Attachable}
  * @implements {Closeable<HTMLDivElement, LabelGroup>}
+ * @implements {Vertical<HTMLDivElement, LabelGroup>}
  */
 class LabelGroup extends BaseComponent {
  /** @protected @nodts */
@@ -188,10 +190,6 @@ class LabelGroup extends BaseComponent {
   return this;
  }
  /** @nodts @return {LabelGroup} */
- m_vertical__org_patternfly_component_label_LabelGroup() {
-  return /**@type {LabelGroup}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_vertical__org_patternfly_style_Classes)], j_l_String))), LabelGroup));
- }
- /** @nodts @return {LabelGroup} */
  m_that__org_patternfly_component_label_LabelGroup() {
   return this;
  }
@@ -288,6 +286,26 @@ class LabelGroup extends BaseComponent {
  m_onClose__org_patternfly_handler_CloseHandler__org_jboss_elemento_TypedBuilder(/** CloseHandler<LabelGroup> */ arg0) {
   return this.m_onClose__org_patternfly_handler_CloseHandler__org_patternfly_component_label_LabelGroup(arg0);
  }
+ //Bridge method.
+ /** @final @override @nodts @return {LabelGroup} */
+ m_vertical__org_jboss_elemento_TypedBuilder() {
+  return /**@type {LabelGroup}*/ ($Casts.$to(Vertical.m_vertical__$default__org_patternfly_style_Modifiers_Vertical__org_jboss_elemento_TypedBuilder(this), LabelGroup));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {LabelGroup} */
+ m_vertical__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
+  return /**@type {LabelGroup}*/ ($Casts.$to(Vertical.m_vertical__$default__org_patternfly_style_Modifiers_Vertical__boolean__org_jboss_elemento_TypedBuilder(this, arg0), LabelGroup));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {LabelGroup} */
+ m_vertical__org_patternfly_component_label_LabelGroup() {
+  return /**@type {LabelGroup}*/ ($Casts.$to(Vertical.m_vertical__$default__org_patternfly_style_Modifiers_Vertical__org_jboss_elemento_TypedBuilder(this), LabelGroup));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {LabelGroup} */
+ m_vertical__boolean__org_patternfly_component_label_LabelGroup(/** boolean */ arg0) {
+  return /**@type {LabelGroup}*/ ($Casts.$to(Vertical.m_vertical__$default__org_patternfly_style_Modifiers_Vertical__boolean__org_jboss_elemento_TypedBuilder(this, arg0), LabelGroup));
+ }
  /** @nodts */
  static $clinit() {
   LabelGroup.$clinit = () =>{};
@@ -295,6 +313,7 @@ class LabelGroup extends BaseComponent {
   BaseComponent.$clinit();
   Attachable.$clinit();
   Closeable.$clinit();
+  Vertical.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -338,6 +357,7 @@ LabelGroup.f_REMAINING_PLACEHOLDER__org_patternfly_component_label_LabelGroup_ =
 HasValues.$markImplementor(LabelGroup);
 Attachable.$markImplementor(LabelGroup);
 Closeable.$markImplementor(LabelGroup);
+Vertical.$markImplementor(LabelGroup);
 $Util.$setClassMetadata(LabelGroup, 'org.patternfly.component.label.LabelGroup');
 
 exports = LabelGroup;

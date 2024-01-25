@@ -1,0 +1,30 @@
+goog.module('org.patternfly.showcase.component.DescriptionListComponent');
+
+goog.require('elemental2.dom.HTMLAnchorElement.$Overlay');
+goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLParagraphElement.$Overlay');
+goog.require('java.lang.Integer');
+goog.require('java.lang.String');
+goog.require('java.util.function.Supplier');
+goog.require('nativebootstrap.Util');
+goog.require('org.jboss.elemento.Elements');
+goog.require('org.jboss.elemento.HTMLContainerBuilder');
+goog.require('org.patternfly.component.button.Button');
+goog.require('org.patternfly.component.card.Card');
+goog.require('org.patternfly.component.descriptionlist.DescriptionList');
+goog.require('org.patternfly.component.descriptionlist.DescriptionListDescription');
+goog.require('org.patternfly.component.descriptionlist.DescriptionListGroup');
+goog.require('org.patternfly.component.descriptionlist.DescriptionListTerm');
+goog.require('org.patternfly.component.popover.Popover');
+goog.require('org.patternfly.core.IconPosition');
+goog.require('org.patternfly.showcase.Snippet');
+goog.require('org.patternfly.showcase.SnippetPage');
+goog.require('org.patternfly.style.Breakpoint');
+goog.require('org.patternfly.style.Breakpoints');
+goog.require('org.patternfly.style.Orientation');
+goog.require('org.patternfly.style.PredefinedIcon');
+goog.require('org.patternfly.style.Size');
+goog.require('vmbootstrap.Casts');
+
+const DescriptionListComponent = goog.require('org.patternfly.showcase.component.DescriptionListComponent$impl');
+exports = DescriptionListComponent;

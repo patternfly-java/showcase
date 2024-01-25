@@ -50,9 +50,19 @@ Aria.f_modal__org_patternfly_core_Aria = 'aria-modal';
 /**@const {string} @nodts*/
 Aria.f_multiSelectable__org_patternfly_core_Aria = 'aria-multiselectable';
 /**@const {string} @nodts*/
+Aria.f_orientation__org_patternfly_core_Aria = 'aria-orientation';
+/**@const {string} @nodts*/
 Aria.f_relevant__org_patternfly_core_Aria = 'aria-relevant';
 /**@const {string} @nodts*/
 Aria.f_selected__org_patternfly_core_Aria = 'aria-selected';
+/**@const {string} @nodts*/
+Aria.f_valueMin__org_patternfly_core_Aria = 'aria-valuemin';
+/**@const {string} @nodts*/
+Aria.f_valueMax__org_patternfly_core_Aria = 'aria-valuemax';
+/**@const {string} @nodts*/
+Aria.f_valueNow__org_patternfly_core_Aria = 'aria-valuenow';
+/**@const {string} @nodts*/
+Aria.f_valueText__org_patternfly_core_Aria = 'aria-valuetext';
 Aria.$markImplementor(/**@type {Function}*/ (Aria));
 $Util.$setClassMetadataForInterface(Aria, 'org.patternfly.core.Aria');
 

@@ -51,7 +51,7 @@ class ExpandableNavigationGroup extends NavigationSubComponent {
   /**@type {HTMLUListElement} @nodts*/
   this.f_ul__org_patternfly_component_navigation_ExpandableNavigationGroup_;
   /**@type {ToggleHandler<ExpandableNavigationGroup>} @nodts*/
-  this.f_onToggle__org_patternfly_component_navigation_ExpandableNavigationGroup;
+  this.f_toggleHandler__org_patternfly_component_navigation_ExpandableNavigationGroup;
  }
  /** @nodts @return {ExpandableNavigationGroup} */
  static m_expandableNavigationGroup__java_lang_String__java_lang_String__org_patternfly_component_navigation_ExpandableNavigationGroup(/** ?string */ id, /** ?string */ text) {
@@ -151,8 +151,8 @@ class ExpandableNavigationGroup extends NavigationSubComponent {
   } else {
    this.m_expand__void_$pp_org_patternfly_component_navigation();
   }
-  if (!$Equality.$same(this.f_onToggle__org_patternfly_component_navigation_ExpandableNavigationGroup, null)) {
-   this.f_onToggle__org_patternfly_component_navigation_ExpandableNavigationGroup.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, !expanded);
+  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_navigation_ExpandableNavigationGroup, null)) {
+   this.f_toggleHandler__org_patternfly_component_navigation_ExpandableNavigationGroup.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, !expanded);
   }
  }
  /** @nodts */

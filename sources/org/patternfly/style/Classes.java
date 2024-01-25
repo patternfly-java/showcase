@@ -15,14 +15,8 @@
  */
 package org.patternfly.style;
 
-import java.util.function.Function;
-
 import org.patternfly.core.PatternFly;
-import org.patternfly.core.Tuples;
 
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.StreamSupport.stream;
-import static org.patternfly.style.Breakpoint.LARGE_TO_SMALL;
 import static org.patternfly.style.Breakpoint.default_;
 
 @SuppressWarnings("SpellCheckingInspection")
@@ -31,25 +25,34 @@ public interface Classes {
     // ------------------------------------------------------ constants (a-z)
 
     // TODO Cleanup and remove unused classes
+    String accordion = "accordion";
     String action = "action";
     String actionGroup = "action-group";
     String actionList = "action-list";
     String actions = "actions";
     String active = "active";
+    String add = "add";
     String alert = "alert";
     String alertGroup = "alert-group";
     String alignCenter = "align-center";
     String alignRight = "align-right";
+    String ariaDisabled = "aria-disabled";
     String arrow = "arrow";
+    String autoColumnWidths = "auto-column-widths";
+    String autoFit = "auto-fit";
     String avatar = "avatar";
+    String backToTop = "back-to-top";
     String badge = "badge";
     String banner = "banner";
     String block = "block";
     String body = "body";
+    String box = "box";
+    String bordered = "bordered";
     String bottom = "bottom";
     String brand = "brand";
     String breadcrumb = "breadcrumb";
     String bulkSelect = "bulk-select";
+    String bullseye = "bullseye";
     String button = "button";
     String buttonGroup = "button-group";
     String card = "card";
@@ -79,10 +82,12 @@ public interface Classes {
     String dataList = "data-list";
     String dataToolbar = "data-toolbar";
     String description = "description";
+    String descriptionList = "description-list";
     String detached = "detached";
     String disabled = "disabled";
     String display = "display";
     String divider = "divider";
+    String drawer = "drawer";
     String dropdown = "dropdown";
     String dynamic = "dynamic";
     String editable = "editable";
@@ -102,11 +107,15 @@ public interface Classes {
     String fieldGroup = "field-group";
     String fieldset = "fieldset";
     String fill = "fill";
+    String fillColumns = "fill-columns";
     String filterGroup = "filter-group";
+    String fixed = "fixed";
     String flat = "flat";
     String flex = "flex";
+    String floating = "floating";
     String floatLeft = "float-left";
     String floatRight = "float-right";
+    String fluid = "fluid";
     String flyout = "flyout";
     String focus = "focus";
     String footer = "footer";
@@ -119,10 +128,14 @@ public interface Classes {
     String group = "group";
     String gutter = "gutter";
     String hasPopup = "haspopup";
+    String handle = "handle";
     String head = "head";
     String header = "header";
     String help = "help";
+    String helpText = "help-text";
     String helperText = "helper-text";
+    String hidden = "hidden";
+    String hint = "hint";
     String horizontal = "horizontal";
     String horizontalSubnav = "horizontal-subnav";
     String hoverable = "hoverable";
@@ -134,6 +147,7 @@ public interface Classes {
     String indicator = "indicator";
     String info = "info";
     String inline = "inline";
+    String inlineGrid = "inline-grid";
     String inProgress = "in-progress";
     String input = "input";
     String inputGroup = "input-group";
@@ -149,6 +163,7 @@ public interface Classes {
     String labelGroup = "label-group";
     String leadBall = "lead-ball";
     String left = "left";
+    String level = "level";
     String limitWidth = "limit-width";
     String link = "link";
     String list = "list";
@@ -161,12 +176,16 @@ public interface Classes {
     String menuitem = "menuitem";
     String menuToggle = "menu-toggle";
     String nav = "nav";
+    String noBorder = "no-border";
+    String noBorderBottom = "no-border-bottom";
     String noBorderRows = "no-border-rows";
     String noFill = "no-fill";
     String noOffset = "no-offset";
     String none = "none";
     String noPadding = "no-padding";
     String noPaddingTop = "no-padding-top";
+    String off = "off";
+    String on = "on";
     String option = "option";
     String optionsMenu = "options-menu";
     String outline = "outline";
@@ -176,6 +195,7 @@ public interface Classes {
     String page = "page";
     String pageInsets = "page-insets";
     String pagination = "pagination";
+    String panel = "panel";
     String path = "path";
     String picture = "picture";
     String plain = "plain";
@@ -187,14 +207,19 @@ public interface Classes {
     String progress = "progress";
     String progressbar = "progressbar";
     String radio = "radio";
+    String rail = "rail";
+    String raised = "raised";
     String read = "read";
     String readOnly = "read-only";
     String readonly = "readonly";
     String required = "required";
+    String resizable = "resizable";
     String resizeBoth = "resize-both";
     String resizeObserver = "resize-observer";
     String resizeHorizontal = "resize-horizontal";
     String resizeVertical = "resize-vertical";
+    String resizing = "resizing";
+    String reverse = "reverse";
     String right = "right";
     String rounded = "rounded";
     String scope = "scope";
@@ -216,14 +241,22 @@ public interface Classes {
     String sidebar = "sidebar";
     String simple = "simple";
     String skipToContent = "skip-to-content";
+    String slider = "slider";
     String small = "small";
     String sort = "sort";
     String spinner = "spinner";
+    String split = "split";
+    String splitter = "splitter";
     String splitButton = "split-button";
     String stack = "stack";
     String standalone = "standalone";
     String start = "start";
+    String static_ = "static";
     String status = "status";
+    String step = "step";
+    String steps = "steps";
+    String sticky = "sticky";
+    String switch_ = "switch";
     String subnav = "subnav";
     String success = "success";
     String tab = "tab";
@@ -233,11 +266,14 @@ public interface Classes {
     String tabs = "tabs";
     String tailBall = "tail-ball";
     String tertiary = "tertiary";
+    String term = "term";
     String text = "text";
     String textInput = "text-input";
     String textInputGroup = "text-input-group";
     String textAlignLeft = "text-align-left";
     String textLeftAligned = "textLeftAligned";
+    String thumb = "thumb";
+    String tick = "tick";
     String title = "title";
     String toast = "toast";
     String toggle = "toggle";
@@ -249,11 +285,13 @@ public interface Classes {
     String tooltip = "tooltip";
     String top = "top";
     String totalItems = "total-items";
+    String track = "track";
     String truncate = "truncate";
     String type = "type";
     String typeahead = "typeahead";
     String unread = "unread";
     String utilities = "utilities";
+    String value = "value";
     String valueText = "value-text";
     String vertical = "vertical";
     String warning = "warning";
@@ -271,6 +309,12 @@ public interface Classes {
     static String layout(String layout, String... elements) {
         return compose('l', layout, elements);
     }
+
+    static String util(String utility) {
+        return "pf-" + PatternFly.VERSION + "-u-" + utility;
+    }
+
+    // ------------------------------------------------------ modifiers
 
     static String modifier(String modifier) {
         return modifier != null && !modifier.isEmpty() ? "pf-m-" + modifier : "";
@@ -291,34 +335,6 @@ public interface Classes {
 
     }
 
-    static String modifier(Tuples<Breakpoint, String> tuples) {
-        return modifier(tuples, null, Function.identity());
-    }
-
-    static String modifier(Tuples<Breakpoint, String> tuples, Breakpoint breakpoint) {
-        return modifier(tuples, breakpoint, Function.identity());
-    }
-
-    static String verticalModifier(Tuples<Breakpoint, String> tuples) {
-        return verticalModifier(tuples, Function.identity());
-    }
-
-    static <T extends TypedModifier> String typedModifier(Tuples<Breakpoint, T> tuples) {
-        return modifier(tuples, null, TypedModifier::value);
-    }
-
-    static <T extends TypedModifier> String typedModifier(Tuples<Breakpoint, T> tuples, Breakpoint breakpoint) {
-        return modifier(tuples, breakpoint, TypedModifier::value);
-    }
-
-    static <T extends TypedModifier> String verticalTypedModifier(Tuples<Breakpoint, T> tuples) {
-        return verticalModifier(tuples, TypedModifier::value);
-    }
-
-    static String util(String utility) {
-        return "pf-" + PatternFly.VERSION + "-u-" + utility;
-    }
-
     // ------------------------------------------------------ internal
 
     private static String compose(char abbreviation, String type, String... elements) {
@@ -336,54 +352,5 @@ public interface Classes {
             }
         }
         return builder.toString();
-    }
-
-    private static <V> String modifier(Tuples<Breakpoint, V> tuples, Breakpoint breakpoint,
-            Function<V, String> stringValue) {
-        String modifier = "";
-        if (tuples != null && !tuples.isEmpty()) {
-            if (breakpoint != null) {
-                if (tuples.hasKey(breakpoint)) {
-                    modifier = modifier(stringValue.apply(tuples.value(breakpoint)));
-                } else {
-                    int index = LARGE_TO_SMALL.indexOf(breakpoint);
-                    for (int i = index; i < LARGE_TO_SMALL.size(); i++) {
-                        Breakpoint bp = LARGE_TO_SMALL.get(i);
-                        if (tuples.hasKey(bp)) {
-                            modifier = modifier(stringValue.apply(tuples.value(bp)));
-                        }
-                    }
-                }
-            } else {
-                modifier = stream(tuples.spliterator(), false)
-                        .map(tuple -> {
-                            StringBuilder builder = new StringBuilder(stringValue.apply(tuple.value));
-                            if (tuple.key != default_) {
-                                builder.append("-on-").append(tuple.key.value);
-                            }
-                            return builder.toString();
-                        })
-                        .map(Classes::modifier)
-                        .collect(joining(" "));
-            }
-
-        }
-        return modifier;
-    }
-
-    private static <V> String verticalModifier(Tuples<Breakpoint, V> tuples, Function<V, String> stringValue) {
-        if (tuples != null && !tuples.isEmpty()) {
-            return stream(tuples.spliterator(), false)
-                    .map(tuple -> {
-                        StringBuilder builder = new StringBuilder(stringValue.apply(tuple.value));
-                        if (tuple.key != default_) {
-                            builder.append("-on-").append(tuple.key.value).append("-height");
-                        }
-                        return builder.toString();
-                    })
-                    .map(Classes::modifier)
-                    .collect(joining(" "));
-        }
-        return "";
     }
 }

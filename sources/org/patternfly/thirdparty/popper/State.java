@@ -24,4 +24,6 @@ public class State {
 
     public StateElements elements;
     public String placement;
+    public StateRects rects;
+    public StyleDefinitions styles;
 }

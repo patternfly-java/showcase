@@ -4,6 +4,7 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
 const ComponentDelegate = goog.require('org.patternfly.component.ComponentDelegate$impl');
 const Closeable = goog.require('org.patternfly.core.Closeable$impl');
+const Disabled = goog.require('org.patternfly.style.Modifiers.Disabled$impl');
 
 let Event_$Overlay = goog.forwardDeclare('elemental2.dom.Event.$Overlay$impl');
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
@@ -30,6 +31,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 /**
  * @extends {ComponentDelegate<HTMLElement, Dropdown>}
  * @implements {Closeable<HTMLElement, Dropdown>}
+ * @implements {Disabled<HTMLElement, Dropdown>}
  * @implements {Attachable}
  */
 class Dropdown extends ComponentDelegate {
@@ -46,6 +48,8 @@ class Dropdown extends ComponentDelegate {
   this.f_zIndex__org_patternfly_component_menu_Dropdown_ = 0;
   /**@type {boolean} @nodts*/
   this.f_flip__org_patternfly_component_menu_Dropdown_ = false;
+  /**@type {boolean} @nodts*/
+  this.f_disabled__org_patternfly_component_menu_Dropdown_ = false;
   /**@type {Placement} @nodts*/
   this.f_placement__org_patternfly_component_menu_Dropdown_;
   /**@type {Popper} @nodts*/
@@ -76,9 +80,12 @@ class Dropdown extends ComponentDelegate {
  /** @override @nodts */
  m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
   if (!$Equality.$same(this.f_toggle__org_patternfly_component_menu_Dropdown_, null) && !$Equality.$same(this.f_menu__org_patternfly_component_menu_Dropdown_, null)) {
+   if (this.f_disabled__org_patternfly_component_menu_Dropdown_) {
+    this.f_toggle__org_patternfly_component_menu_Dropdown_.m_disabled__boolean__org_patternfly_component_menu_MenuToggle(true);
+   }
    Elements.m_setVisible__org_jboss_elemento_IsElement__boolean__void(this.f_menu__org_patternfly_component_menu_Dropdown_, false);
    Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLDivElement}*/ ($Casts.$to(this.f_menu__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), $Overlay)), this.f_toggle__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement());
-   this.f_popper__org_patternfly_component_menu_Dropdown_ = PopperBuilder.$create__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(this.m_componentType__org_patternfly_component_ComponentType(), this.f_toggle__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_menu__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), $Overlay))).m_zIndex__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_zIndex__org_patternfly_component_menu_Dropdown_).m_placement__org_patternfly_thirdparty_popper_Placement__org_patternfly_thirdparty_popper_PopperBuilder(this.f_placement__org_patternfly_component_menu_Dropdown_).m_addModifier__arrayOf_org_patternfly_thirdparty_popper_Modifier__org_patternfly_thirdparty_popper_PopperBuilder([Modifiers.m_noOverflow__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_hide__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_flip__boolean__org_patternfly_thirdparty_popper_Modifier($Equality.$same(this.f_placement__org_patternfly_component_menu_Dropdown_, Placement.f_auto__org_patternfly_thirdparty_popper_Placement) || this.f_flip__org_patternfly_component_menu_Dropdown_), Modifiers.m_placement__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_eventListeners__boolean__org_patternfly_thirdparty_popper_Modifier(false)]).m_registerHandler__elemental2_dom_HTMLElement__java_util_Set__java_util_function_Consumer__java_util_function_Consumer__org_patternfly_thirdparty_popper_PopperBuilder(this.f_toggle__org_patternfly_component_menu_Dropdown_.f_toggleElement__org_patternfly_component_menu_MenuToggle, this.f_triggerActions__org_patternfly_component_menu_Dropdown_, Consumer.$adapt((arg0) =>{
+   this.f_popper__org_patternfly_component_menu_Dropdown_ = PopperBuilder.$create__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement(this.m_componentType__org_patternfly_component_ComponentType(), this.f_toggle__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), /**@type {HTMLDivElement}*/ ($Casts.$to(this.f_menu__org_patternfly_component_menu_Dropdown_.m_element__elemental2_dom_HTMLElement(), $Overlay))).m_zIndex__int__org_patternfly_thirdparty_popper_PopperBuilder(this.f_zIndex__org_patternfly_component_menu_Dropdown_).m_placement__org_patternfly_thirdparty_popper_Placement__org_patternfly_thirdparty_popper_PopperBuilder(this.f_placement__org_patternfly_component_menu_Dropdown_).m_addModifier__arrayOf_org_patternfly_thirdparty_popper_Modifier__org_patternfly_thirdparty_popper_PopperBuilder([Modifiers.m_noOverflow__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_hide__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_flip__boolean__org_patternfly_thirdparty_popper_Modifier($Equality.$same(this.f_placement__org_patternfly_component_menu_Dropdown_, Placement.f_auto__org_patternfly_thirdparty_popper_Placement) || this.f_flip__org_patternfly_component_menu_Dropdown_), Modifiers.m_widths__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_placement__org_patternfly_thirdparty_popper_Modifier(), Modifiers.m_eventListeners__boolean__org_patternfly_thirdparty_popper_Modifier(false)]).m_registerHandler__elemental2_dom_HTMLElement__java_util_Set__java_util_function_Consumer__java_util_function_Consumer__org_patternfly_thirdparty_popper_PopperBuilder(this.f_toggle__org_patternfly_component_menu_Dropdown_.f_toggleElement__org_patternfly_component_menu_MenuToggle, this.f_triggerActions__org_patternfly_component_menu_Dropdown_, Consumer.$adapt((arg0) =>{
     let arg0_1 = /**@type {Event}*/ ($Casts.$to(arg0, Event_$Overlay));
     this.m_show__elemental2_dom_Event__void(arg0_1);
    }), Consumer.$adapt((arg0_2) =>{
@@ -113,6 +120,19 @@ class Dropdown extends ComponentDelegate {
  m_add__org_patternfly_component_menu_Menu__org_patternfly_component_menu_Dropdown(/** Menu */ menu) {
   this.f_menu__org_patternfly_component_menu_Dropdown_ = menu;
   return this;
+ }
+ /** @nodts @return {Dropdown} */
+ m_disabled__boolean__org_patternfly_component_menu_Dropdown(/** boolean */ disabled) {
+  if (!$Equality.$same(this.f_toggle__org_patternfly_component_menu_Dropdown_, null)) {
+   this.f_toggle__org_patternfly_component_menu_Dropdown_.m_disabled__boolean__org_patternfly_component_menu_MenuToggle(disabled);
+  } else {
+   this.f_disabled__org_patternfly_component_menu_Dropdown_ = disabled;
+  }
+  return this;
+ }
+ /** @override @nodts @return {boolean} */
+ m_isDisabled__boolean() {
+  return $Equality.$same(this.f_toggle__org_patternfly_component_menu_Dropdown_, null) ? this.f_disabled__org_patternfly_component_menu_Dropdown_ : this.f_toggle__org_patternfly_component_menu_Dropdown_.m_isDisabled__boolean();
  }
  /** @nodts @return {Dropdown} */
  m_flip__boolean__org_patternfly_component_menu_Dropdown(/** boolean */ flip) {
@@ -194,12 +214,28 @@ class Dropdown extends ComponentDelegate {
  m_onClose__org_patternfly_handler_CloseHandler__org_jboss_elemento_TypedBuilder(/** CloseHandler<Dropdown> */ arg0) {
   return this.m_onClose__org_patternfly_handler_CloseHandler__org_patternfly_component_menu_Dropdown(arg0);
  }
+ //Bridge method.
+ /** @final @override @nodts @return {Dropdown} */
+ m_disabled__org_jboss_elemento_TypedBuilder() {
+  return /**@type {Dropdown}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Dropdown));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Dropdown} */
+ m_disabled__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
+  return this.m_disabled__boolean__org_patternfly_component_menu_Dropdown(arg0);
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Dropdown} */
+ m_disabled__org_patternfly_component_menu_Dropdown() {
+  return /**@type {Dropdown}*/ ($Casts.$to(Disabled.m_disabled__$default__org_patternfly_style_Modifiers_Disabled__org_jboss_elemento_TypedBuilder(this), Dropdown));
+ }
  /** @nodts */
  static $clinit() {
   Dropdown.$clinit = () =>{};
   Dropdown.$loadModules();
   ComponentDelegate.$clinit();
   Closeable.$clinit();
+  Disabled.$clinit();
   Attachable.$clinit();
  }
  /** @nodts @return {boolean} */
@@ -231,6 +267,7 @@ class Dropdown extends ComponentDelegate {
 /**@const {number} @nodts*/
 Dropdown.f_Z_INDEX__org_patternfly_component_menu_Dropdown = 9999;
 Closeable.$markImplementor(Dropdown);
+Disabled.$markImplementor(Dropdown);
 Attachable.$markImplementor(Dropdown);
 $Util.$setClassMetadata(Dropdown, 'org.patternfly.component.menu.Dropdown');
 

@@ -15,29 +15,37 @@
  */
 package org.patternfly.layout.stack;
 
+import org.jboss.elemento.HTMLContainerBuilder;
 import org.patternfly.layout.BaseLayout;
-import org.patternfly.style.Classes;
+import org.patternfly.style.Modifiers.Gutter;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.style.Classes.gutter;
 import static org.patternfly.style.Classes.layout;
-import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.stack;
 
-public class Stack extends BaseLayout<HTMLDivElement, Stack> {
+/**
+ * The stack layout positions items vertically, with one or more items filling the available vertical space.
+ *
+ * @see <a href="https://www.patternfly.org/layouts/stack">https://www.patternfly.org/layouts/stack</a>
+ */
+public class Stack extends BaseLayout<HTMLElement, Stack> implements Gutter<HTMLElement, Stack> {
 
     // ------------------------------------------------------ factory
 
     public static Stack stack() {
-        return new Stack();
+        return new Stack(div());
+    }
+
+    public static <E extends HTMLElement> Stack stack(HTMLContainerBuilder<E> builder) {
+        return new Stack(builder);
     }
 
     // ------------------------------------------------------ instance
 
-    Stack() {
-        super(div().css(layout(stack)).element());
+    <E extends HTMLElement> Stack(HTMLContainerBuilder<E> builder) {
+        super(builder.css(layout(stack)).element());
     }
 
     // ------------------------------------------------------ add
@@ -47,11 +55,6 @@ public class Stack extends BaseLayout<HTMLDivElement, Stack> {
     }
 
     // ------------------------------------------------------ builder
-
-    /** Adds {@linkplain Classes#modifier(String) modifier(gutter)} */
-    public Stack gutter() {
-        return css(modifier(gutter));
-    }
 
     @Override
     public Stack that() {

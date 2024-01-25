@@ -10,13 +10,9 @@ let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
  */
 class Modifiers {
  /** @nodts @template E, B @return {B} */
- static m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** B */ builder, /** E */ element, /** ?string */ modifier, /** boolean */ flag) {
+ static m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(/** B */ builder, /** E */ element, /** ?string */ pureModifier, /** boolean */ flag) {
   Modifiers.$clinit();
-  if (flag) {
-   /**@type {!Element}*/ (element).classList.add(Classes.m_modifier__java_lang_String__java_lang_String(modifier));
-  } else {
-   /**@type {!Element}*/ (element).classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(modifier));
-  }
+  /**@type {!Element}*/ (element).classList.toggle(Classes.m_modifier__java_lang_String__java_lang_String(pureModifier), flag);
   return builder;
  }
  /** @nodts */

@@ -29,6 +29,8 @@ import static org.patternfly.component.page.PageMainBody.pageMainBody;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
+import static org.patternfly.core.Aria.hidden;
+import static org.patternfly.core.Attributes.tabindex;
 import static org.patternfly.style.Brightness.light;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Classes.content;
@@ -37,6 +39,7 @@ import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.fas;
 import static org.patternfly.style.PredefinedIcon.pfIcon;
+import static org.patternfly.style.Size._2xl;
 import static org.patternfly.style.Size._4xl;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 
@@ -77,6 +80,16 @@ public class SnippetPage implements Page {
                         .fill()
                         .add(snippets = div().element())
                         .element());
+    }
+
+    public void addHeader(String id, String header) {
+        snippets.appendChild(title(2, _2xl, header).css("ws-heading", "ws-title", "ws-h2")
+                .id(id)
+                .attr(tabindex, -1)
+                .add(a("#" + id).css("ws-heading-anchor")
+                        .aria(hidden, true)
+                        .attr(tabindex, -1))
+                .element());
     }
 
     public void addSnippet(Snippet snippet) {

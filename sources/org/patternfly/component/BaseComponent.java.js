@@ -21,6 +21,7 @@ goog.require('org.jboss.elemento.HasElement');
 goog.require('org.jboss.elemento.HasHTMLElement');
 goog.require('org.jboss.elemento.IsElement');
 goog.require('org.jboss.elemento.TypedBuilder');
+goog.require('org.patternfly.component.BaseComponentFlat');
 goog.require('org.patternfly.component.Component');
 goog.require('org.patternfly.component.ComponentStore');
 goog.require('org.patternfly.component.ComponentType');

@@ -19,6 +19,7 @@ let ClassList = goog.forwardDeclare('org.jboss.elemento.ClassList$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let IsElement = goog.forwardDeclare('org.jboss.elemento.IsElement$impl');
 let TypedBuilder = goog.forwardDeclare('org.jboss.elemento.TypedBuilder$impl');
+let BaseComponentFlat = goog.forwardDeclare('org.patternfly.component.BaseComponentFlat$impl');
 let ComponentStore = goog.forwardDeclare('org.patternfly.component.ComponentStore$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Ouia = goog.forwardDeclare('org.patternfly.core.Ouia$impl');
@@ -59,7 +60,7 @@ class BaseComponent extends j_l_Object {
  }
  /** @nodts */
  m_storeComponent__void() {
-  ComponentStore.m_store__org_patternfly_component_BaseComponent__void(this);
+  ComponentStore.m_storeComponent__org_patternfly_component_BaseComponent__void(this);
  }
  /** @nodts @template C, E1, B1 @return {C} */
  m_lookupComponent__org_patternfly_component_ComponentType__org_patternfly_component_BaseComponent(/** ComponentType */ componentType) {
@@ -67,7 +68,15 @@ class BaseComponent extends j_l_Object {
  }
  /** @nodts @template C, E1, B1 @return {C} */
  m_lookupComponent__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponent(/** ComponentType */ componentType, /** boolean */ lenient) {
-  return ComponentStore.m_lookup__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponent(componentType, /**@type {HTMLElement}*/ (this.m_element__elemental2_dom_HTMLElement()), lenient);
+  return ComponentStore.m_lookupComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponent(componentType, /**@type {HTMLElement}*/ (this.m_element__elemental2_dom_HTMLElement()), lenient);
+ }
+ /** @nodts @template C, E1, B1 @return {C} */
+ m_lookupComponentFlat__org_patternfly_component_ComponentType__org_patternfly_component_BaseComponentFlat(/** ComponentType */ componentType) {
+  return this.m_lookupComponentFlat__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponentFlat(componentType, false);
+ }
+ /** @nodts @template C, E1, B1 @return {C} */
+ m_lookupComponentFlat__org_patternfly_component_ComponentType__boolean__org_patternfly_component_BaseComponentFlat(/** ComponentType */ componentType, /** boolean */ lenient) {
+  return ComponentStore.m_lookupFlatComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponentFlat(componentType, /**@type {HTMLElement}*/ (this.m_element__elemental2_dom_HTMLElement()), lenient);
  }
  //Bridge method.
  /** @final @override @nodts @return {E} */

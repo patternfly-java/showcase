@@ -18,8 +18,7 @@ package org.patternfly.component.divider;
 import org.patternfly.component.BaseComponentFlat;
 import org.patternfly.component.ComponentType;
 import org.patternfly.core.Logger;
-import org.patternfly.core.Tuples;
-import org.patternfly.style.Breakpoint;
+import org.patternfly.style.Breakpoints;
 import org.patternfly.style.Inset;
 import org.patternfly.style.Orientation;
 
@@ -33,13 +32,12 @@ import static org.patternfly.component.divider.DividerType.div;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Classes.divider;
-import static org.patternfly.style.Classes.typedModifier;
 
 /**
  * A divider is a horizontal or vertical line that is placed between screen elements to create visual divisions and content
  * groupings.
  *
- * @see <a href= "https://www.patternfly.org/components/divider/html">https://www.patternfly.org/components/divider/html</a>
+ * @see <a href= "https://www.patternfly.org/components/divider">https://www.patternfly.org/components/divider</a>
  */
 public class Divider extends BaseComponentFlat<HTMLElement, Divider> {
 
@@ -71,14 +69,12 @@ public class Divider extends BaseComponentFlat<HTMLElement, Divider> {
 
     // ------------------------------------------------------ builder
 
-    public Divider inset(Tuples<Breakpoint, Inset> inset) {
-        classList().add(typedModifier(inset));
-        return this;
+    public Divider inset(Breakpoints<Inset> inset) {
+        return css(inset.modifiers());
     }
 
-    public Divider orientation(Tuples<Breakpoint, Orientation> orientation) {
-        classList().add(typedModifier(orientation));
-        return this;
+    public Divider orientation(Breakpoints<Orientation> orientation) {
+        return css(orientation.modifiers());
     }
 
     @Override

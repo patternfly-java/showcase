@@ -5,6 +5,7 @@ const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl'
 const Expandable = goog.require('org.patternfly.core.Expandable$impl');
 const Compact = goog.require('org.patternfly.style.Modifiers.Compact$impl');
 const Disabled = goog.require('org.patternfly.style.Modifiers.Disabled$impl');
+const FullHeight = goog.require('org.patternfly.style.Modifiers.FullHeight$impl');
 const Plain = goog.require('org.patternfly.style.Modifiers.Plain$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
@@ -35,6 +36,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
  * @extends {BaseComponent<HTMLDivElement, Card>}
  * @implements {Compact<HTMLDivElement, Card>}
  * @implements {Disabled<HTMLDivElement, Card>}
+ * @implements {FullHeight<HTMLDivElement, Card>}
  * @implements {Plain<HTMLDivElement, Card>}
  * @implements {Expandable<HTMLDivElement, Card>}
  */
@@ -140,14 +142,6 @@ class Card extends BaseComponent {
    /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)).classList.remove(Classes.m_modifier__java_lang_String__org_patternfly_style_Size__java_lang_String(Classes.f_display__org_patternfly_style_Classes, Size.f_lg__org_patternfly_style_Size));
   }
   return this;
- }
- /** @nodts @return {Card} */
- m_fullHeight__org_patternfly_component_card_Card() {
-  return this.m_fullHeight__boolean__org_patternfly_component_card_Card(true);
- }
- /** @nodts @return {Card} */
- m_fullHeight__boolean__org_patternfly_component_card_Card(/** boolean */ fullHeight) {
-  return /**@type {Card}*/ ($Casts.$to(Modifiers.m_toggleModifier__org_jboss_elemento_TypedBuilder__elemental2_dom_Element__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(this, /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), $Overlay)), Classes.f_fullHeight__org_patternfly_style_Classes, fullHeight), Card));
  }
  /** @nodts @return {Card} */
  m_selectable__org_patternfly_component_card_Card() {
@@ -340,6 +334,21 @@ class Card extends BaseComponent {
  m_disabled__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
   return this.m_disabled__boolean__org_patternfly_component_card_Card(arg0);
  }
+ //Default method forwarding stub.
+ /** @override @nodts @return {boolean} */
+ m_isDisabled__boolean() {
+  return Disabled.m_isDisabled__$default__org_patternfly_style_Modifiers_Disabled__boolean(this);
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Card} */
+ m_fullHeight__org_jboss_elemento_TypedBuilder() {
+  return /**@type {Card}*/ ($Casts.$to(FullHeight.m_fullHeight__$default__org_patternfly_style_Modifiers_FullHeight__org_jboss_elemento_TypedBuilder(this), Card));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Card} */
+ m_fullHeight__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
+  return /**@type {Card}*/ ($Casts.$to(FullHeight.m_fullHeight__$default__org_patternfly_style_Modifiers_FullHeight__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
+ }
  //Bridge method.
  /** @final @override @nodts @return {Card} */
  m_plain__org_jboss_elemento_TypedBuilder() {
@@ -392,6 +401,16 @@ class Card extends BaseComponent {
  }
  //Default method forwarding stub.
  /** @nodts @return {Card} */
+ m_fullHeight__org_patternfly_component_card_Card() {
+  return /**@type {Card}*/ ($Casts.$to(FullHeight.m_fullHeight__$default__org_patternfly_style_Modifiers_FullHeight__org_jboss_elemento_TypedBuilder(this), Card));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Card} */
+ m_fullHeight__boolean__org_patternfly_component_card_Card(/** boolean */ arg0) {
+  return /**@type {Card}*/ ($Casts.$to(FullHeight.m_fullHeight__$default__org_patternfly_style_Modifiers_FullHeight__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Card));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Card} */
  m_plain__org_patternfly_component_card_Card() {
   return /**@type {Card}*/ ($Casts.$to(Plain.m_plain__$default__org_patternfly_style_Modifiers_Plain__org_jboss_elemento_TypedBuilder(this), Card));
  }
@@ -407,6 +426,7 @@ class Card extends BaseComponent {
   BaseComponent.$clinit();
   Compact.$clinit();
   Disabled.$clinit();
+  FullHeight.$clinit();
   Plain.$clinit();
   Expandable.$clinit();
  }
@@ -436,6 +456,7 @@ class Card extends BaseComponent {
 }
 Compact.$markImplementor(Card);
 Disabled.$markImplementor(Card);
+FullHeight.$markImplementor(Card);
 Plain.$markImplementor(Card);
 Expandable.$markImplementor(Card);
 $Util.$setClassMetadata(Card, 'org.patternfly.component.card.Card');

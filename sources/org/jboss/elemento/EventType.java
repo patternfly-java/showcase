@@ -17,6 +17,7 @@ package org.jboss.elemento;
 
 import org.gwtproject.event.shared.HandlerRegistration;
 
+import elemental2.dom.AddEventListenerOptions;
 import elemental2.dom.ClipboardEvent;
 import elemental2.dom.Document;
 import elemental2.dom.DragEvent;
@@ -150,8 +151,8 @@ public class EventType<T extends Event, V extends EventTarget> {
      * <p>
      * {@snippet class = EventDemo region = bind}
      */
-    public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
-            EventCallbackFn<T> listener) {
+    public static <T extends Event> HandlerRegistration bind(EventTarget target,
+            EventType<T, ?> type, EventCallbackFn<T> listener) {
         return bind(target, type.name, e -> listener.onEvent(Js.cast(e)));
     }
 
@@ -160,7 +161,8 @@ public class EventType<T extends Event, V extends EventTarget> {
      * <p>
      * {@snippet class = EventDemo region = bind}
      */
-    public static HandlerRegistration bind(EventTarget target, String type, EventListener listener) {
+    public static HandlerRegistration bind(EventTarget target,
+            String type, EventListener listener) {
         target.addEventListener(type, listener);
         return () -> target.removeEventListener(type, listener);
     }
@@ -170,9 +172,8 @@ public class EventType<T extends Event, V extends EventTarget> {
      * <p>
      * {@snippet class = EventDemo region = bind}
      */
-    public static <T extends Event> HandlerRegistration bind(EventTarget target, EventType<T, ?> type,
-            boolean useCapture,
-            EventCallbackFn<T> listener) {
+    public static <T extends Event> HandlerRegistration bind(EventTarget target,
+            EventType<T, ?> type, boolean useCapture, EventCallbackFn<T> listener) {
         return bind(target, type.name, useCapture, e -> listener.onEvent(Js.cast(e)));
     }
 
@@ -181,8 +182,8 @@ public class EventType<T extends Event, V extends EventTarget> {
      * <p>
      * {@snippet class = EventDemo region = bind}
      */
-    public static HandlerRegistration bind(EventTarget target, String type, boolean useCapture,
-            EventListener listener) {
+    public static HandlerRegistration bind(EventTarget target,
+            String type, boolean useCapture, EventListener listener) {
         target.addEventListener(type, listener, useCapture);
         return () -> target.removeEventListener(type, listener, useCapture);
     }
@@ -192,9 +193,29 @@ public class EventType<T extends Event, V extends EventTarget> {
      * <p>
      * {@snippet class = EventDemo region = bind}
      */
+    public static <T extends Event> HandlerRegistration bind(EventTarget target,
+            EventType<T, ?> type, AddEventListenerOptions options, EventCallbackFn<T> listener) {
+        return bind(target, type.name, options, e -> listener.onEvent(Js.cast(e)));
+    }
+
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static HandlerRegistration bind(EventTarget target,
+            String type, AddEventListenerOptions options, EventListener listener) {
+        target.addEventListener(type, listener, options);
+        return () -> target.removeEventListener(type, listener, options);
+    }
+
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
     public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
-            EventType<T, ?> type,
-            EventCallbackFn<T> listener) {
+            EventType<T, ?> type, EventCallbackFn<T> listener) {
         return bind(target.element(), type, listener);
     }
 
@@ -203,8 +224,8 @@ public class EventType<T extends Event, V extends EventTarget> {
      * <p>
      * {@snippet class = EventDemo region = bind}
      */
-    public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target, String type,
-            EventListener listener) {
+    public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
+            String type, EventListener listener) {
         return bind(target.element(), type, listener);
     }
 
@@ -214,8 +235,7 @@ public class EventType<T extends Event, V extends EventTarget> {
      * {@snippet class = EventDemo region = bind}
      */
     public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
-            EventType<T, ?> type,
-            boolean useCapture, EventCallbackFn<T> listener) {
+            EventType<T, ?> type, boolean useCapture, EventCallbackFn<T> listener) {
         return bind(target.element(), type, useCapture, listener);
     }
 
@@ -224,9 +244,29 @@ public class EventType<T extends Event, V extends EventTarget> {
      * <p>
      * {@snippet class = EventDemo region = bind}
      */
-    public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target, String type, boolean useCapture,
-            EventListener listener) {
+    public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
+            String type, boolean useCapture, EventListener listener) {
         return bind(target.element(), type, useCapture, listener);
+    }
+
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static <T extends Event, E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
+            EventType<T, ?> type, AddEventListenerOptions options, EventCallbackFn<T> listener) {
+        return bind(target.element(), type, options, listener);
+    }
+
+    /**
+     * Registers an event handler.
+     * <p>
+     * {@snippet class = EventDemo region = bind}
+     */
+    public static <E extends HTMLElement> HandlerRegistration bind(IsElement<E> target,
+            String type, AddEventListenerOptions options, EventListener listener) {
+        return bind(target.element(), type, options, listener);
     }
 
     // ------------------------------------------------------ instance

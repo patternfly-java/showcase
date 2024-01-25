@@ -49,7 +49,7 @@ import static org.patternfly.style.Classes.page;
  * <p>
  * {@snippet class = PageDemo region = page}
  *
- * @see <a href="https://www.patternfly.org/components/page/html">https://www.patternfly.org/components/page/html</a>
+ * @see <a href="https://www.patternfly.org/components/page">https://www.patternfly.org/components/page</a>
  */
 public class Page extends BaseComponent<HTMLDivElement, Page> implements Attachable {
 
@@ -230,7 +230,7 @@ public class Page extends BaseComponent<HTMLDivElement, Page> implements Attacha
     private void onResize() {
         int width = element().clientWidth;
         int height = element().clientHeight;
-        rect.set(new Rect(width, height));
+        rect.set(new Rect(width, height)); // triggers onChangedRect()
     }
 
     private void onChangedRect(Rect current, Rect previous) {

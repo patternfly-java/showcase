@@ -6,13 +6,9 @@ const Fill = goog.require('org.patternfly.style.Modifiers.Fill$impl');
 const NoFill = goog.require('org.patternfly.style.Modifiers.NoFill$impl');
 
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
-let EnumSet = goog.forwardDeclare('java.util.EnumSet$impl');
-let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
-let Collectors = goog.forwardDeclare('java.util.stream.Collectors$impl');
-let Stream = goog.forwardDeclare('java.util.stream.Stream$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
-let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
+let Validation = goog.forwardDeclare('org.patternfly.core.Validation$impl');
 let Brightness = goog.forwardDeclare('org.patternfly.style.Brightness$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
@@ -46,14 +42,10 @@ class PageMainSection extends PageSectionBuilder {
  }
  /** @nodts @return {PageMainSection} */
  m_background__org_patternfly_style_Brightness__org_patternfly_component_page_PageMainSection(/** Brightness */ brightness) {
-  if (!/**@type {EnumSet<Brightness>}*/ (EnumSet.m_of__java_lang_Enum__arrayOf_java_lang_Enum__java_util_EnumSet(Brightness.f_light__org_patternfly_style_Brightness, /**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_dark100__org_patternfly_style_Brightness, Brightness.f_dark200__org_patternfly_style_Brightness], Brightness)))).contains(brightness)) {
-   Logger.m_unsupported__java_lang_String__elemental2_dom_Element__java_lang_String__void('PF5/PageMainSection', this.m_element__elemental2_dom_HTMLElement(), 'Background ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(brightness) + ' not supported. Valid values: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {?string}*/ ($Casts.$to(/**@type {Stream<?string>}*/ (/**@type {Stream<Brightness>}*/ (Stream.m_of__arrayOf_java_lang_Object__java_util_stream_Stream(/**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_light__org_patternfly_style_Brightness, Brightness.f_dark100__org_patternfly_style_Brightness, Brightness.f_dark200__org_patternfly_style_Brightness], Brightness)))).m_map__java_util_function_Function__java_util_stream_Stream(j_u_function_Function.$adapt((arg0) =>{
-    let arg0_1 = /**@type {Brightness}*/ ($Casts.$to(arg0, Brightness));
-    return arg0_1.name();
-   }))).m_collect__java_util_stream_Collector__java_lang_Object(Collectors.m_joining__java_lang_CharSequence__java_util_stream_Collector(' ')), j_l_String))));
-   return this;
+  if (Validation.m_verifyEnum__java_lang_String__elemental2_dom_HTMLElement__java_lang_String__java_lang_Enum__java_lang_Enum__arrayOf_java_lang_Enum__boolean('PF5/PageMainSection', this.m_element__elemental2_dom_HTMLElement(), 'background', brightness, Brightness.f_light__org_patternfly_style_Brightness, /**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_dark100__org_patternfly_style_Brightness, Brightness.f_dark200__org_patternfly_style_Brightness], Brightness)))) {
+   this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([brightness.m_modifier__java_lang_String()], j_l_String)));
   }
-  return /**@type {PageMainSection}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([brightness.m_modifier__java_lang_String()], j_l_String))), PageMainSection));
+  return this;
  }
  /** @nodts @return {PageMainSection} */
  m_that__org_patternfly_component_page_PageMainSection() {
@@ -120,13 +112,9 @@ class PageMainSection extends PageSectionBuilder {
  /** @nodts */
  static $loadModules() {
   j_l_String = goog.module.get('java.lang.String$impl');
-  EnumSet = goog.module.get('java.util.EnumSet$impl');
-  j_u_function_Function = goog.module.get('java.util.function.Function$impl');
-  Collectors = goog.module.get('java.util.stream.Collectors$impl');
-  Stream = goog.module.get('java.util.stream.Stream$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
-  Logger = goog.module.get('org.patternfly.core.Logger$impl');
+  Validation = goog.module.get('org.patternfly.core.Validation$impl');
   Brightness = goog.module.get('org.patternfly.style.Brightness$impl');
   Classes = goog.module.get('org.patternfly.style.Classes$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');

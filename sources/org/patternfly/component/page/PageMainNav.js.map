@@ -2,7 +2,7 @@
 "version":3,
 "file":"PageMainNav.impl.java.js",
 "lineCount":68,
-"mappings":"A;;;;;;;;;;;;;;;MAiCa,W;;CAAA,W;EAAAA,Q;;;QAOiB,wD;EAAcC,sB;EACpCA,+B;;;QAOJ,S;EAAAC,sB;EAAAA,kC;EAAAA,mE;EAAAA,iB;;;CAAA,sD;EACIC,6wB;;;CAMe,iD;EACfC,Y;;;;CAvBK,uC;EAAAA,gE;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA,6B;;;;;;;;;;;;;;;;;AAaT;YAAoB,+DAApB;",
+"mappings":"A;;;;;;;;;;;;;;;MA8Ba,W;;CAAA,W;EAAAA,Q;;;QAOiB,wD;EAAcC,sB;EACpCA,+B;;;QAOJ,S;EAAAC,sB;EAAAA,kC;EAAAA,mE;EAAAA,iB;;;CAAA,sD;EACIC,6wB;;;CAMe,iD;EACfC,Y;;;;CAvBK,uC;EAAAA,gE;;;QAAA,O;EAAAC,8B;EAAAA,2B;EAAAA,6B;;;;;;;;;;;;;;;;;AAaT;YAAoB,+DAApB;",
 "sources":["PageMainNav.java"],
 "names":["org.patternfly.component.page.PageMainNav.<synthetic: ctor_js>","org.patternfly.component.page.PageMainNav.pageMainNav","org.patternfly.component.page.PageMainNav.<synthetic: ctor_create>","org.patternfly.component.page.PageMainNav.<init>","org.patternfly.component.page.PageMainNav.that","org.patternfly.component.page.PageMainNav.<clinit>"]
 }

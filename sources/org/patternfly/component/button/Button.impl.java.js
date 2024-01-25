@@ -10,6 +10,7 @@ const Disabled = goog.require('org.patternfly.style.Modifiers.Disabled$impl');
 const Inline = goog.require('org.patternfly.style.Modifiers.Inline$impl');
 const NoPadding = goog.require('org.patternfly.style.Modifiers.NoPadding$impl');
 const Plain = goog.require('org.patternfly.style.Modifiers.Plain$impl');
+const Secondary = goog.require('org.patternfly.style.Modifiers.Secondary$impl');
 
 let HTMLAnchorElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLAnchorElement.$Overlay$impl');
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLButtonElement.$Overlay$impl');
@@ -41,6 +42,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
  * @implements {Inline<HTMLElement, Button>}
  * @implements {Plain<HTMLElement, Button>}
  * @implements {NoPadding<HTMLElement, Button>}
+ * @implements {Secondary<HTMLElement, Button>}
  * @implements {WithIcon<HTMLElement, Button>}
  * @implements {WithText<HTMLElement, Button>}
  * @implements {WithIconAndText<HTMLElement, Button>}
@@ -169,10 +171,6 @@ class Button extends BaseComponent {
   return /**@type {Button}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_primary__org_patternfly_style_Classes)], j_l_String))), Button));
  }
  /** @nodts @return {Button} */
- m_secondary__org_patternfly_component_button_Button() {
-  return /**@type {Button}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_secondary__org_patternfly_style_Classes)], j_l_String))), Button));
- }
- /** @nodts @return {Button} */
  m_danger__org_patternfly_component_button_Button() {
   return /**@type {Button}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_danger__org_patternfly_style_Classes)], j_l_String))), Button));
  }
@@ -261,6 +259,11 @@ class Button extends BaseComponent {
  m_disabled__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
   return this.m_disabled__boolean__org_patternfly_component_button_Button(arg0);
  }
+ //Default method forwarding stub.
+ /** @override @nodts @return {boolean} */
+ m_isDisabled__boolean() {
+  return Disabled.m_isDisabled__$default__org_patternfly_style_Modifiers_Disabled__boolean(this);
+ }
  //Bridge method.
  /** @final @override @nodts @return {Button} */
  m_inline__org_jboss_elemento_TypedBuilder() {
@@ -290,6 +293,16 @@ class Button extends BaseComponent {
  /** @final @override @nodts @return {Button} */
  m_noPadding__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
   return /**@type {Button}*/ ($Casts.$to(NoPadding.m_noPadding__$default__org_patternfly_style_Modifiers_NoPadding__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Button));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Button} */
+ m_secondary__org_jboss_elemento_TypedBuilder() {
+  return /**@type {Button}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__org_jboss_elemento_TypedBuilder(this), Button));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Button} */
+ m_secondary__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
+  return /**@type {Button}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Button));
  }
  //Bridge method.
  /** @final @override @nodts @return {Button} */
@@ -423,6 +436,16 @@ class Button extends BaseComponent {
  }
  //Default method forwarding stub.
  /** @nodts @return {Button} */
+ m_secondary__org_patternfly_component_button_Button() {
+  return /**@type {Button}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__org_jboss_elemento_TypedBuilder(this), Button));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Button} */
+ m_secondary__boolean__org_patternfly_component_button_Button(/** boolean */ arg0) {
+  return /**@type {Button}*/ ($Casts.$to(Secondary.m_secondary__$default__org_patternfly_style_Modifiers_Secondary__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Button));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Button} */
  m_icon__java_lang_String__org_patternfly_component_button_Button(/** ?string */ arg0) {
   return /**@type {Button}*/ ($Casts.$to(WithIcon.m_icon__$default__org_patternfly_core_WithIcon__java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), Button));
  }
@@ -495,6 +518,7 @@ class Button extends BaseComponent {
   Inline.$clinit();
   Plain.$clinit();
   NoPadding.$clinit();
+  Secondary.$clinit();
   WithIcon.$clinit();
   WithIconAndText.$clinit();
   WithProgress.$clinit();
@@ -530,6 +554,7 @@ Disabled.$markImplementor(Button);
 Inline.$markImplementor(Button);
 Plain.$markImplementor(Button);
 NoPadding.$markImplementor(Button);
+Secondary.$markImplementor(Button);
 WithIcon.$markImplementor(Button);
 WithText.$markImplementor(Button);
 WithIconAndText.$markImplementor(Button);

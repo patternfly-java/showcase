@@ -5,6 +5,7 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let StringBuilder = goog.forwardDeclare('java.lang.StringBuilder$impl');
+let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let HasHTMLElement = goog.forwardDeclare('org.jboss.elemento.HasHTMLElement$impl');
 let TypedBuilder = goog.forwardDeclare('org.jboss.elemento.TypedBuilder$impl');
@@ -13,8 +14,9 @@ let SVGElement_$Overlay = goog.forwardDeclare('org.jboss.elemento.svg.SVGElement
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
 let PatternFly = goog.forwardDeclare('org.patternfly.core.PatternFly$impl');
 let Tuple = goog.forwardDeclare('org.patternfly.core.Tuple$impl');
-let Tuples = goog.forwardDeclare('org.patternfly.core.Tuples$impl');
 let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
+let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
+let TypedModifier = goog.forwardDeclare('org.patternfly.style.TypedModifier$impl');
 let VariableScope = goog.forwardDeclare('org.patternfly.style.VariableScope$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -95,13 +97,27 @@ class Variable extends j_l_Object {
   }
   return element.m_that__org_jboss_elemento_TypedBuilder();
  }
- /** @nodts @template E, B @return {B} */
- m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_core_Tuples__org_jboss_elemento_TypedBuilder(/** HasHTMLElement<E, B> */ element, /** Tuples<Breakpoint, ?string> */ tuples) {
-  if (this.f_valid__org_patternfly_style_Variable_ && !$Equality.$same(tuples, null) && !tuples.m_isEmpty__boolean()) {
-   for (let $iterator = tuples.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
-    let tuple = /**@type {Tuple<Breakpoint, ?string>}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), Tuple));
+ /** @nodts @template E, B, V @return {B} */
+ m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_style_Breakpoints__org_jboss_elemento_TypedBuilder(/** HasHTMLElement<E, B> */ element, /** Breakpoints<V> */ breakpoints) {
+  if (breakpoints.m_typedModifier__boolean_$pp_org_patternfly_style()) {
+   return this.m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_style_Breakpoints__java_util_function_Function__org_jboss_elemento_TypedBuilder(element, breakpoints, j_u_function_Function.$adapt((/** V */ v) =>{
+    return /**@type {!TypedModifier}*/ ($Casts.$to(v, TypedModifier)).m_value__java_lang_String();
+   }));
+  } else {
+   return this.m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_style_Breakpoints__java_util_function_Function__org_jboss_elemento_TypedBuilder(element, breakpoints, j_u_function_Function.$adapt((/** V */ arg0) =>{
+    return j_l_String.m_valueOf__java_lang_Object__java_lang_String(arg0);
+   }));
+  }
+ }
+ /** @nodts @template E, B, V @return {B} */
+ m_applyTo__org_jboss_elemento_HasHTMLElement__org_patternfly_style_Breakpoints__java_util_function_Function__org_jboss_elemento_TypedBuilder(/** HasHTMLElement<E, B> */ element, /** Breakpoints<V> */ breakpoints, /** j_u_function_Function<V, ?string> */ stringValue) {
+  if (this.f_valid__org_patternfly_style_Variable_ && !$Equality.$same(breakpoints, null) && !breakpoints.m_isEmpty__boolean()) {
+   for (let $iterator = breakpoints.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
+    let breakpoint = /**@type {Tuple<Breakpoint, V>}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), Tuple));
     {
-     element.m_style__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(this.m_nameOnBreakpoint__org_patternfly_core_Tuple__java_lang_String_$p_org_patternfly_style_Variable(tuple), /**@type {?string}*/ ($Casts.$to(tuple.f_value__org_patternfly_core_Tuple, j_l_String)));
+     let property = $Equality.$same(breakpoint.f_key__org_patternfly_core_Tuple, Breakpoint.f_default___org_patternfly_style_Breakpoint) ? this.f_name__org_patternfly_style_Variable : j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_name__org_patternfly_style_Variable) + '-on-' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {Breakpoint}*/ ($Casts.$to(breakpoint.f_key__org_patternfly_core_Tuple, Breakpoint)).f_value__org_patternfly_style_Breakpoint);
+     let value = /**@type {?string}*/ ($Casts.$to(stringValue.m_apply__java_lang_Object__java_lang_Object(breakpoint.f_value__org_patternfly_core_Tuple), j_l_String));
+     element.m_style__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(property, value);
     }
    }
   }
@@ -133,20 +149,30 @@ class Variable extends j_l_Object {
    element.style.setProperty(this.f_name__org_patternfly_style_Variable, value);
   }
  }
- /** @nodts */
- m_applyTo__elemental2_dom_HTMLElement__org_patternfly_core_Tuples__void(/** HTMLElement */ element, /** Tuples<Breakpoint, ?string> */ tuples) {
-  if (this.f_valid__org_patternfly_style_Variable_ && !$Equality.$same(tuples, null) && !tuples.m_isEmpty__boolean()) {
-   for (let $iterator = tuples.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
-    let tuple = /**@type {Tuple<Breakpoint, ?string>}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), Tuple));
+ /** @nodts @template V */
+ m_applyTo__elemental2_dom_HTMLElement__org_patternfly_style_Breakpoints__void(/** HTMLElement */ element, /** Breakpoints<V> */ breakpoints) {
+  if (breakpoints.m_typedModifier__boolean_$pp_org_patternfly_style()) {
+   this.m_applyTo__elemental2_dom_HTMLElement__org_patternfly_style_Breakpoints__java_util_function_Function__void(element, breakpoints, j_u_function_Function.$adapt((/** V */ v) =>{
+    return /**@type {!TypedModifier}*/ ($Casts.$to(v, TypedModifier)).m_value__java_lang_String();
+   }));
+  } else {
+   this.m_applyTo__elemental2_dom_HTMLElement__org_patternfly_style_Breakpoints__java_util_function_Function__void(element, breakpoints, j_u_function_Function.$adapt((/** V */ arg0) =>{
+    return j_l_String.m_valueOf__java_lang_Object__java_lang_String(arg0);
+   }));
+  }
+ }
+ /** @nodts @template V */
+ m_applyTo__elemental2_dom_HTMLElement__org_patternfly_style_Breakpoints__java_util_function_Function__void(/** HTMLElement */ element, /** Breakpoints<V> */ breakpoints, /** j_u_function_Function<V, ?string> */ stringValue) {
+  if (this.f_valid__org_patternfly_style_Variable_ && !$Equality.$same(breakpoints, null) && !breakpoints.m_isEmpty__boolean()) {
+   for (let $iterator = breakpoints.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
+    let breakpoint = /**@type {Tuple<Breakpoint, V>}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), Tuple));
     {
-     element.style.setProperty(this.m_nameOnBreakpoint__org_patternfly_core_Tuple__java_lang_String_$p_org_patternfly_style_Variable(tuple), /**@type {?string}*/ ($Casts.$to(tuple.f_value__org_patternfly_core_Tuple, j_l_String)));
+     let property = $Equality.$same(breakpoint.f_key__org_patternfly_core_Tuple, Breakpoint.f_default___org_patternfly_style_Breakpoint) ? this.f_name__org_patternfly_style_Variable : j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_name__org_patternfly_style_Variable) + '-on-' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {Breakpoint}*/ ($Casts.$to(breakpoint.f_key__org_patternfly_core_Tuple, Breakpoint)).f_value__org_patternfly_style_Breakpoint);
+     let value = /**@type {?string}*/ ($Casts.$to(stringValue.m_apply__java_lang_Object__java_lang_Object(breakpoint.f_value__org_patternfly_core_Tuple), j_l_String));
+     element.style.setProperty(property, value);
     }
    }
   }
- }
- /** @nodts @return {?string} */
- m_nameOnBreakpoint__org_patternfly_core_Tuple__java_lang_String_$p_org_patternfly_style_Variable(/** Tuple<Breakpoint, ?string> */ tuple) {
-  return $Equality.$same(tuple.f_key__org_patternfly_core_Tuple, Breakpoint.f_default___org_patternfly_style_Breakpoint) ? this.f_name__org_patternfly_style_Variable : j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_name__org_patternfly_style_Variable) + '-on-' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(/**@type {Breakpoint}*/ ($Casts.$to(tuple.f_key__org_patternfly_core_Tuple, Breakpoint)).f_value__org_patternfly_style_Breakpoint);
  }
  /** @nodts */
  static $clinit() {
@@ -163,12 +189,14 @@ class Variable extends j_l_Object {
  static $loadModules() {
   j_l_String = goog.module.get('java.lang.String$impl');
   StringBuilder = goog.module.get('java.lang.StringBuilder$impl');
+  j_u_function_Function = goog.module.get('java.util.function.Function$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   SVGElement_$Overlay = goog.module.get('org.jboss.elemento.svg.SVGElement.$Overlay$impl');
   Logger = goog.module.get('org.patternfly.core.Logger$impl');
   PatternFly = goog.module.get('org.patternfly.core.PatternFly$impl');
   Tuple = goog.module.get('org.patternfly.core.Tuple$impl');
   Breakpoint = goog.module.get('org.patternfly.style.Breakpoint$impl');
+  TypedModifier = goog.module.get('org.patternfly.style.TypedModifier$impl');
   VariableScope = goog.module.get('org.patternfly.style.VariableScope$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

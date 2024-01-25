@@ -3,6 +3,8 @@ goog.module('org.patternfly.core.Tuple$impl');
 const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 
+let j_l_String = goog.forwardDeclare('java.lang.String$impl');
+
 /**
  * @template K, V
  */
@@ -33,6 +35,10 @@ class Tuple extends j_l_Object {
   this.f_key__org_patternfly_core_Tuple = key;
   this.f_value__org_patternfly_core_Tuple = value;
  }
+ /** @override @return {?string} */
+ toString() {
+  return j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_key__org_patternfly_core_Tuple) + ': ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_value__org_patternfly_core_Tuple);
+ }
  /** @nodts */
  static $clinit() {
   Tuple.$clinit = () =>{};
@@ -45,7 +51,9 @@ class Tuple extends j_l_Object {
  }
  
  /** @nodts */
- static $loadModules() {}
+ static $loadModules() {
+  j_l_String = goog.module.get('java.lang.String$impl');
+ }
 }
 $Util.$setClassMetadata(Tuple, 'org.patternfly.core.Tuple');
 

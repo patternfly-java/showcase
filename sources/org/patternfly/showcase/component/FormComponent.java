@@ -53,12 +53,12 @@ import static org.patternfly.component.popover.Popover.popover;
 import static org.patternfly.component.popover.PopoverBody.popoverBody;
 import static org.patternfly.component.popover.PopoverHeader.popoverHeader;
 import static org.patternfly.core.Severity.danger;
-import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.layout.grid.Grid.grid;
 import static org.patternfly.layout.grid.GridItem.gridItem;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint.md;
+import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.PredefinedIcon.trash;
 
 public class FormComponent extends SnippetPage {
@@ -92,7 +92,7 @@ public class FormComponent extends SnippetPage {
                             .add(form()
                                     .addGroup(formGroup().fieldId("form-basic-name").required()
                                             .addLabel(formGroupLabel("Full name")
-                                                    .addHelp("More info for name field", nameInfo))
+                                                    .help("More info for name field", nameInfo))
                                             .addControl(formGroupControl()
                                                     .addControl(textInput("form-basic-name"))
                                                     .addHelperText(helperText("Include your middle name if you have one."))))
@@ -198,7 +198,7 @@ public class FormComponent extends SnippetPage {
                             .add(form().limitWidth()
                                     .addGroup(formGroup().fieldId("form-lw-name").required()
                                             .addLabel(formGroupLabel("Full name")
-                                                    .addHelp("More info for name field", nameInfo))
+                                                    .help("More info for name field", nameInfo))
                                             .addControl(formGroupControl()
                                                     .addControl(textInput("form-lw-name"))
                                                     .addHelperText(helperText("Include your middle name if you have one."))))
@@ -332,7 +332,7 @@ public class FormComponent extends SnippetPage {
                 // @code-start:form-grid
                 div()
                         .add(form()
-                                .add(grid().gutter().cols(tuples(md, 6))
+                                .add(grid().gutter().columns(breakpoints(md, 6))
                                         .addItem(gridItem().span(12)
                                                 .add(formGroup().fieldId("form-grid-name").required()
                                                         .addLabel(formGroupLabel("Full name"))

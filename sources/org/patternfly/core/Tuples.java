@@ -18,25 +18,35 @@ package org.patternfly.core;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
+import static java.util.stream.Collectors.joining;
+import static org.patternfly.core.Tuple.tuple;
 
 public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
 
     // ------------------------------------------------------ factory
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1) {
+    public static <K, V> Tuples<K, V> tuples(K key, V value) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
-        tuples.add(new Tuple<>(key1, value1));
+        tuples.add(new Tuple<>(key, value));
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
@@ -44,7 +54,11 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3, K key4, V value4) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3,
+            K key4, V value4) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
@@ -53,7 +67,11 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3, K key4, V value4,
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3,
+            K key4, V value4,
             K key5, V value5) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
@@ -64,8 +82,13 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3, K key4, V value4,
-            K key5, V value5, K key6, V value6) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3,
+            K key4, V value4,
+            K key5, V value5,
+            K key6, V value6) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
@@ -76,8 +99,14 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3, K key4, V value4,
-            K key5, V value5, K key6, V value6, K key7, V value7) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3,
+            K key4, V value4,
+            K key5, V value5,
+            K key6, V value6,
+            K key7, V value7) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
@@ -89,8 +118,15 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3, K key4, V value4,
-            K key5, V value5, K key6, V value6, K key7, V value7, K key8, V value8) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3,
+            K key4, V value4,
+            K key5, V value5,
+            K key6, V value6,
+            K key7, V value7,
+            K key8, V value8) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
@@ -103,8 +139,16 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3, K key4, V value4,
-            K key5, V value5, K key6, V value6, K key7, V value7, K key8, V value8, K key9, V value9) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3,
+            K key4, V value4,
+            K key5, V value5,
+            K key6, V value6,
+            K key7, V value7,
+            K key8, V value8,
+            K key9, V value9) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
@@ -118,8 +162,17 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return new Tuples<>(tuples);
     }
 
-    public static <K, V> Tuples<K, V> tuples(K key1, V value1, K key2, V value2, K key3, V value3, K key4, V value4,
-            K key5, V value5, K key6, V value6, K key7, V value7, K key8, V value8, K key9, V value9, K key10, V value10) {
+    public static <K, V> Tuples<K, V> tuples(
+            K key1, V value1,
+            K key2, V value2,
+            K key3, V value3,
+            K key4, V value4,
+            K key5, V value5,
+            K key6, V value6,
+            K key7, V value7,
+            K key8, V value8,
+            K key9, V value9,
+            K key10, V value10) {
         List<Tuple<K, V>> tuples = new ArrayList<>();
         tuples.add(new Tuple<>(key1, value1));
         tuples.add(new Tuple<>(key2, value2));
@@ -142,8 +195,18 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
 
     private final List<Tuple<K, V>> tuples;
 
-    Tuples(List<Tuple<K, V>> tuples) {
-        this.tuples = tuples;
+    protected Tuples(Iterable<Tuple<K, V>> tuples) {
+        this.tuples = new ArrayList<>();
+        if (tuples != null) {
+            for (Tuple<K, V> tuple : tuples) {
+                this.tuples.add(tuple);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return tuples.stream().map(Tuple::toString).collect(joining(", ", "[", "]"));
     }
 
     // ------------------------------------------------------ api
@@ -170,12 +233,24 @@ public class Tuples<K, V> implements Iterable<Tuple<K, V>> {
         return tuples.isEmpty();
     }
 
+    public int size() {
+        return tuples.size();
+    }
+
     @Override
     public Iterator<Tuple<K, V>> iterator() {
         return tuples.iterator();
     }
 
+    public Stream<Tuple<K, V>> stream() {
+        return StreamSupport.stream(spliterator(), false);
+    }
+
     // ------------------------------------------------------ internal
+
+    protected void add(K key, V value) {
+        tuples.add(tuple(key, value));
+    }
 
     private Tuple<K, V> findTuple(K key, V value) {
         if (key != null) {

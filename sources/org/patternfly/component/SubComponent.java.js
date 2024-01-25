@@ -23,6 +23,7 @@ goog.require('org.jboss.elemento.HasHTMLElement');
 goog.require('org.jboss.elemento.IsElement');
 goog.require('org.jboss.elemento.TypedBuilder');
 goog.require('org.patternfly.component.BaseComponent');
+goog.require('org.patternfly.component.BaseComponentFlat');
 goog.require('org.patternfly.component.ComponentStore');
 goog.require('org.patternfly.component.ComponentType');
 goog.require('vmbootstrap.Casts');

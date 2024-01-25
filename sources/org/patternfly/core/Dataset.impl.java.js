@@ -33,6 +33,8 @@ Dataset.f_placeholder__org_patternfly_core_Dataset = 'placeholder';
 Dataset.f_navigationGroup__org_patternfly_core_Dataset = 'navigationGroup';
 /**@const {string} @nodts*/
 Dataset.f_navigationItem__org_patternfly_core_Dataset = 'navigationItem';
+/**@const {string} @nodts*/
+Dataset.f_sliderStepValue__org_patternfly_core_Dataset = 'sliderStepValue';
 Dataset.$markImplementor(/**@type {Function}*/ (Dataset));
 $Util.$setClassMetadataForInterface(Dataset, 'org.patternfly.core.Dataset');
 

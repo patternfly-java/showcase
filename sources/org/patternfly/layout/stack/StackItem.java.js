@@ -1,6 +1,6 @@
 goog.module('org.patternfly.layout.stack.StackItem');
 
-goog.require('elemental2.dom.HTMLDivElement.$Overlay');
+goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('java.lang.String');
 goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.Elements');

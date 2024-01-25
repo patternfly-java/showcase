@@ -4,6 +4,7 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const PageSubComponent = goog.require('org.patternfly.component.page.PageSubComponent$impl');
 const Fill = goog.require('org.patternfly.style.Modifiers.Fill$impl');
 const NoFill = goog.require('org.patternfly.style.Modifiers.NoFill$impl');
+const PageInsets = goog.require('org.patternfly.style.Modifiers.PageInsets$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
@@ -18,6 +19,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
  * @extends {PageSubComponent<HTMLDivElement, PageSidebarBody>}
  * @implements {Fill<HTMLDivElement, PageSidebarBody>}
  * @implements {NoFill<HTMLDivElement, PageSidebarBody>}
+ * @implements {PageInsets<HTMLDivElement, PageSidebarBody>}
  */
 class PageSidebarBody extends PageSubComponent {
  /** @protected @nodts */
@@ -81,6 +83,16 @@ class PageSidebarBody extends PageSubComponent {
  m_noFill__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
   return /**@type {PageSidebarBody}*/ ($Casts.$to(NoFill.m_noFill__$default__org_patternfly_style_Modifiers_NoFill__boolean__org_jboss_elemento_TypedBuilder(this, arg0), PageSidebarBody));
  }
+ //Bridge method.
+ /** @final @override @nodts @return {PageSidebarBody} */
+ m_pageInsets__org_jboss_elemento_TypedBuilder() {
+  return /**@type {PageSidebarBody}*/ ($Casts.$to(PageInsets.m_pageInsets__$default__org_patternfly_style_Modifiers_PageInsets__org_jboss_elemento_TypedBuilder(this), PageSidebarBody));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {PageSidebarBody} */
+ m_pageInsets__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
+  return /**@type {PageSidebarBody}*/ ($Casts.$to(PageInsets.m_pageInsets__$default__org_patternfly_style_Modifiers_PageInsets__boolean__org_jboss_elemento_TypedBuilder(this, arg0), PageSidebarBody));
+ }
  //Default method forwarding stub.
  /** @nodts @return {PageSidebarBody} */
  m_fill__org_patternfly_component_page_PageSidebarBody() {
@@ -101,6 +113,16 @@ class PageSidebarBody extends PageSubComponent {
  m_noFill__boolean__org_patternfly_component_page_PageSidebarBody(/** boolean */ arg0) {
   return /**@type {PageSidebarBody}*/ ($Casts.$to(NoFill.m_noFill__$default__org_patternfly_style_Modifiers_NoFill__boolean__org_jboss_elemento_TypedBuilder(this, arg0), PageSidebarBody));
  }
+ //Default method forwarding stub.
+ /** @nodts @return {PageSidebarBody} */
+ m_pageInsets__org_patternfly_component_page_PageSidebarBody() {
+  return /**@type {PageSidebarBody}*/ ($Casts.$to(PageInsets.m_pageInsets__$default__org_patternfly_style_Modifiers_PageInsets__org_jboss_elemento_TypedBuilder(this), PageSidebarBody));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {PageSidebarBody} */
+ m_pageInsets__boolean__org_patternfly_component_page_PageSidebarBody(/** boolean */ arg0) {
+  return /**@type {PageSidebarBody}*/ ($Casts.$to(PageInsets.m_pageInsets__$default__org_patternfly_style_Modifiers_PageInsets__boolean__org_jboss_elemento_TypedBuilder(this, arg0), PageSidebarBody));
+ }
  /** @nodts */
  static $clinit() {
   PageSidebarBody.$clinit = () =>{};
@@ -108,6 +130,7 @@ class PageSidebarBody extends PageSubComponent {
   PageSubComponent.$clinit();
   Fill.$clinit();
   NoFill.$clinit();
+  PageInsets.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -129,6 +152,7 @@ class PageSidebarBody extends PageSubComponent {
 PageSidebarBody.f_SUB_COMPONENT_NAME__org_patternfly_component_page_PageSidebarBody = 'psbb';
 Fill.$markImplementor(PageSidebarBody);
 NoFill.$markImplementor(PageSidebarBody);
+PageInsets.$markImplementor(PageSidebarBody);
 $Util.$setClassMetadata(PageSidebarBody, 'org.patternfly.component.page.PageSidebarBody');
 
 exports = PageSidebarBody;

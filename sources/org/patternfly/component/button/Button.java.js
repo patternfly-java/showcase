@@ -31,6 +31,7 @@ goog.require('org.patternfly.style.Modifiers.Disabled');
 goog.require('org.patternfly.style.Modifiers.Inline');
 goog.require('org.patternfly.style.Modifiers.NoPadding');
 goog.require('org.patternfly.style.Modifiers.Plain');
+goog.require('org.patternfly.style.Modifiers.Secondary');
 goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('org.patternfly.style.Size');
 goog.require('vmbootstrap.Arrays');

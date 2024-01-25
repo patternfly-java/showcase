@@ -4,7 +4,7 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const IsElement = goog.require('org.jboss.elemento.IsElement$impl');
 const TypedBuilder = goog.require('org.jboss.elemento.TypedBuilder$impl');
 
-let $Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
+let Element_$Overlay = goog.forwardDeclare('elemental2.dom.Element.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
@@ -19,10 +19,15 @@ class Expandable {
  /** @nodts */
  static m_collapse__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/** HTMLElement */ root, /** HTMLElement */ toggle, /** HTMLElement */ menu) {
   Expandable.$clinit();
-  if (Expandable.m_expanded__elemental2_dom_Element__boolean(root)) {
+  Expandable.m_collapse__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__void(root, toggle, menu, false);
+ }
+ /** @nodts */
+ static m_collapse__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__void(/** HTMLElement */ root, /** HTMLElement */ toggle, /** HTMLElement */ menu, /** boolean */ force) {
+  Expandable.$clinit();
+  if (force || Expandable.m_expanded__elemental2_dom_Element__boolean(root)) {
    root.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes));
    if (!$Equality.$same(toggle, null)) {
-    $Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(toggle, Aria.f_expanded__org_patternfly_core_Aria, false);
+    Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(toggle, Aria.f_expanded__org_patternfly_core_Aria, false);
    }
    if (!$Equality.$same(menu, null)) {
     menu.hidden = true;
@@ -32,10 +37,15 @@ class Expandable {
  /** @nodts */
  static m_expand__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__void(/** HTMLElement */ root, /** HTMLElement */ toggle, /** HTMLElement */ menu) {
   Expandable.$clinit();
+  Expandable.m_expand__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__void(root, toggle, menu, false);
+ }
+ /** @nodts */
+ static m_expand__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__void(/** HTMLElement */ root, /** HTMLElement */ toggle, /** HTMLElement */ menu, /** boolean */ force) {
+  Expandable.$clinit();
   if (!Expandable.m_expanded__elemental2_dom_Element__boolean(root)) {
    root.classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes));
    if (!$Equality.$same(toggle, null)) {
-    $Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(toggle, Aria.f_expanded__org_patternfly_core_Aria, true);
+    Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(toggle, Aria.f_expanded__org_patternfly_core_Aria, true);
    }
    if (!$Equality.$same(menu, null)) {
     menu.hidden = false;
@@ -108,7 +118,7 @@ class Expandable {
  
  /** @nodts */
  static $loadModules() {
-  $Overlay = goog.module.get('elemental2.dom.Element.$Overlay$impl');
+  Element_$Overlay = goog.module.get('elemental2.dom.Element.$Overlay$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Classes = goog.module.get('org.patternfly.style.Classes$impl');

@@ -20,6 +20,7 @@ let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let IsElement = goog.forwardDeclare('org.jboss.elemento.IsElement$impl');
 let TypedBuilder = goog.forwardDeclare('org.jboss.elemento.TypedBuilder$impl');
 let BaseComponent = goog.forwardDeclare('org.patternfly.component.BaseComponent$impl');
+let BaseComponentFlat = goog.forwardDeclare('org.patternfly.component.BaseComponentFlat$impl');
 let ComponentStore = goog.forwardDeclare('org.patternfly.component.ComponentStore$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -56,7 +57,7 @@ class SubComponent extends j_l_Object {
  }
  /** @nodts */
  m_storeSubComponent__void() {
-  ComponentStore.m_store__org_patternfly_component_SubComponent__void(this);
+  ComponentStore.m_storeSubComponent__org_patternfly_component_SubComponent__void(this);
  }
  /** @nodts @template C, E1, B1 @return {C} */
  m_lookupComponent__org_patternfly_component_BaseComponent() {
@@ -64,7 +65,15 @@ class SubComponent extends j_l_Object {
  }
  /** @nodts @template C, E1, B1 @return {C} */
  m_lookupComponent__boolean__org_patternfly_component_BaseComponent(/** boolean */ lenient) {
-  return ComponentStore.m_lookup__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponent(this.f_componentType__org_patternfly_component_SubComponent, /**@type {HTMLElement}*/ (this.f_element__org_patternfly_component_SubComponent_), false);
+  return ComponentStore.m_lookupComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponent(this.f_componentType__org_patternfly_component_SubComponent, /**@type {HTMLElement}*/ (this.f_element__org_patternfly_component_SubComponent_), lenient);
+ }
+ /** @nodts @template C, E1, B1 @return {C} */
+ m_lookupFlatComponent__org_patternfly_component_BaseComponentFlat() {
+  return this.m_lookupFlatComponent__boolean__org_patternfly_component_BaseComponentFlat(false);
+ }
+ /** @nodts @template C, E1, B1 @return {C} */
+ m_lookupFlatComponent__boolean__org_patternfly_component_BaseComponentFlat(/** boolean */ lenient) {
+  return ComponentStore.m_lookupFlatComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__boolean__org_patternfly_component_BaseComponentFlat(this.f_componentType__org_patternfly_component_SubComponent, /**@type {HTMLElement}*/ (this.f_element__org_patternfly_component_SubComponent_), lenient);
  }
  /** @nodts @template S, E2, B2 @return {S} */
  m_lookupSubComponent__java_lang_String__org_patternfly_component_SubComponent(/** ?string */ name) {
@@ -72,7 +81,7 @@ class SubComponent extends j_l_Object {
  }
  /** @nodts @template S, E2, B2 @return {S} */
  m_lookupSubComponent__java_lang_String__boolean__org_patternfly_component_SubComponent(/** ?string */ name, /** boolean */ lenient) {
-  return ComponentStore.m_lookup__org_patternfly_component_ComponentType__java_lang_String__elemental2_dom_HTMLElement__boolean__org_patternfly_component_SubComponent(this.f_componentType__org_patternfly_component_SubComponent, name, /**@type {HTMLElement}*/ (this.f_element__org_patternfly_component_SubComponent_), lenient);
+  return ComponentStore.m_lookupSubComponent__org_patternfly_component_ComponentType__java_lang_String__elemental2_dom_HTMLElement__boolean__org_patternfly_component_SubComponent(this.f_componentType__org_patternfly_component_SubComponent, name, /**@type {HTMLElement}*/ (this.f_element__org_patternfly_component_SubComponent_), lenient);
  }
  //Bridge method.
  /** @final @override @nodts @return {E} */

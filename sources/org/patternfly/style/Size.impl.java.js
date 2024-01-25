@@ -56,7 +56,11 @@ class Size extends Enum {
  /** @nodts @return {!Array<!Size>} */
  static m_values__arrayOf_org_patternfly_style_Size() {
   Size.$clinit();
-  return /**@type {!Array<Size>}*/ ($Arrays.$init([Size.$static_sm__org_patternfly_style_Size, Size.$static_md__org_patternfly_style_Size, Size.$static_lg__org_patternfly_style_Size, Size.$static_xl__org_patternfly_style_Size, Size.$static__2xl__org_patternfly_style_Size, Size.$static__3xl__org_patternfly_style_Size, Size.$static__4xl__org_patternfly_style_Size], Size));
+  return /**@type {!Array<Size>}*/ ($Arrays.$init([Size.$static_xs__org_patternfly_style_Size, Size.$static_sm__org_patternfly_style_Size, Size.$static_md__org_patternfly_style_Size, Size.$static_lg__org_patternfly_style_Size, Size.$static_xl__org_patternfly_style_Size, Size.$static__2xl__org_patternfly_style_Size, Size.$static__3xl__org_patternfly_style_Size, Size.$static__4xl__org_patternfly_style_Size], Size));
+ }
+ /** @nodts @return {!Size} */
+ static get f_xs__org_patternfly_style_Size() {
+  return (Size.$clinit(), Size.$static_xs__org_patternfly_style_Size);
  }
  /** @nodts @return {!Size} */
  static get f_sm__org_patternfly_style_Size() {
@@ -91,6 +95,7 @@ class Size extends Enum {
   Size.$clinit = () =>{};
   Size.$loadModules();
   Enum.$clinit();
+  Size.$static_xs__org_patternfly_style_Size = Size.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('xs'), Size.$ordinal_xs__org_patternfly_style_Size, 'xs');
   Size.$static_sm__org_patternfly_style_Size = Size.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('sm'), Size.$ordinal_sm__org_patternfly_style_Size, 'sm');
   Size.$static_md__org_patternfly_style_Size = Size.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('md'), Size.$ordinal_md__org_patternfly_style_Size, 'md');
   Size.$static_lg__org_patternfly_style_Size = Size.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('lg'), Size.$ordinal_lg__org_patternfly_style_Size, 'lg');
@@ -113,19 +118,23 @@ class Size extends Enum {
  }
 }
 /**@const {number} @nodts*/
-Size.$ordinal_sm__org_patternfly_style_Size = 0;
+Size.$ordinal_xs__org_patternfly_style_Size = 0;
 /**@const {number} @nodts*/
-Size.$ordinal_md__org_patternfly_style_Size = 1;
+Size.$ordinal_sm__org_patternfly_style_Size = 1;
 /**@const {number} @nodts*/
-Size.$ordinal_lg__org_patternfly_style_Size = 2;
+Size.$ordinal_md__org_patternfly_style_Size = 2;
 /**@const {number} @nodts*/
-Size.$ordinal_xl__org_patternfly_style_Size = 3;
+Size.$ordinal_lg__org_patternfly_style_Size = 3;
 /**@const {number} @nodts*/
-Size.$ordinal__2xl__org_patternfly_style_Size = 4;
+Size.$ordinal_xl__org_patternfly_style_Size = 4;
 /**@const {number} @nodts*/
-Size.$ordinal__3xl__org_patternfly_style_Size = 5;
+Size.$ordinal__2xl__org_patternfly_style_Size = 5;
 /**@const {number} @nodts*/
-Size.$ordinal__4xl__org_patternfly_style_Size = 6;
+Size.$ordinal__3xl__org_patternfly_style_Size = 6;
+/**@const {number} @nodts*/
+Size.$ordinal__4xl__org_patternfly_style_Size = 7;
+/**@private {!Size} @nodts*/
+Size.$static_xs__org_patternfly_style_Size;
 /**@private {!Size} @nodts*/
 Size.$static_sm__org_patternfly_style_Size;
 /**@private {!Size} @nodts*/

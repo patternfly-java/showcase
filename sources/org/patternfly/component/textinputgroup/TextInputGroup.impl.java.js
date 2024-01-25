@@ -115,6 +115,11 @@ class TextInputGroup extends BaseComponent {
   return this.m_disabled__boolean__org_patternfly_component_textinputgroup_TextInputGroup(arg0);
  }
  //Default method forwarding stub.
+ /** @override @nodts @return {boolean} */
+ m_isDisabled__boolean() {
+  return Disabled.m_isDisabled__$default__org_patternfly_style_Modifiers_Disabled__boolean(this);
+ }
+ //Default method forwarding stub.
  /** @override @nodts */
  m_detach__elemental2_dom_MutationRecord__void(/** MutationRecord */ arg0) {
   Attachable.m_detach__$default__org_jboss_elemento_Attachable__elemental2_dom_MutationRecord__void(this, arg0);

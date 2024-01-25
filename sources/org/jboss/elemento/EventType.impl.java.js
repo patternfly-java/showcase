@@ -56,6 +56,21 @@ class EventType extends j_l_Object {
    EventTarget_$Overlay.m_removeEventListener__$devirt__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_EventListener__boolean__void(target, type, listener, useCapture);
   });
  }
+ /** @nodts @template T_1 @return {HandlerRegistration} */
+ static m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__elemental2_dom_AddEventListenerOptions__org_jboss_elemento_EventCallbackFn__org_gwtproject_event_shared_HandlerRegistration(/** EventTarget */ target, /** EventType<T_1, ?> */ type, /** AddEventListenerOptions */ options, /** ?function(T_1):void */ listener) {
+  EventType.$clinit();
+  return EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_AddEventListenerOptions__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(target, type.f_name__org_jboss_elemento_EventType, options, EventListener_$Overlay.$adapt__elemental2_dom_EventListener_$JsFunction__elemental2_dom_EventListener((/** Event */ e) =>{
+   listener(/**@type {T_1}*/ ($Casts.$to(Js.m_cast__java_lang_Object__java_lang_Object(e), $Overlay)));
+  }));
+ }
+ /** @nodts @return {HandlerRegistration} */
+ static m_bind__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_AddEventListenerOptions__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(/** EventTarget */ target, /** ?string */ type, /** AddEventListenerOptions */ options, /** EventListener */ listener) {
+  EventType.$clinit();
+  EventTarget_$Overlay.m_addEventListener__$devirt__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_EventListener__elemental2_dom_AddEventListenerOptions__void(target, type, listener, options);
+  return HandlerRegistration.$adapt(() =>{
+   EventTarget_$Overlay.m_removeEventListener__$devirt__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_EventListener__elemental2_dom_EventListenerOptions__void(target, type, listener, options);
+  });
+ }
  /** @nodts @template T_1, E @return {HandlerRegistration} */
  static m_bind__org_jboss_elemento_IsElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_gwtproject_event_shared_HandlerRegistration(/** IsElement<E> */ target, /** EventType<T_1, ?> */ type, /** ?function(T_1):void */ listener) {
   EventType.$clinit();
@@ -75,6 +90,16 @@ class EventType extends j_l_Object {
  static m_bind__org_jboss_elemento_IsElement__java_lang_String__boolean__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(/** IsElement<E> */ target, /** ?string */ type, /** boolean */ useCapture, /** EventListener */ listener) {
   EventType.$clinit();
   return EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__boolean__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(/**@type {EventTarget}*/ (target.m_element__elemental2_dom_Element()), type, useCapture, listener);
+ }
+ /** @nodts @template T_1, E @return {HandlerRegistration} */
+ static m_bind__org_jboss_elemento_IsElement__org_jboss_elemento_EventType__elemental2_dom_AddEventListenerOptions__org_jboss_elemento_EventCallbackFn__org_gwtproject_event_shared_HandlerRegistration(/** IsElement<E> */ target, /** EventType<T_1, ?> */ type, /** AddEventListenerOptions */ options, /** ?function(T_1):void */ listener) {
+  EventType.$clinit();
+  return EventType.m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__elemental2_dom_AddEventListenerOptions__org_jboss_elemento_EventCallbackFn__org_gwtproject_event_shared_HandlerRegistration(/**@type {EventTarget}*/ (target.m_element__elemental2_dom_Element()), type, options, listener);
+ }
+ /** @nodts @template E @return {HandlerRegistration} */
+ static m_bind__org_jboss_elemento_IsElement__java_lang_String__elemental2_dom_AddEventListenerOptions__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(/** IsElement<E> */ target, /** ?string */ type, /** AddEventListenerOptions */ options, /** EventListener */ listener) {
+  EventType.$clinit();
+  return EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_AddEventListenerOptions__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(/**@type {EventTarget}*/ (target.m_element__elemental2_dom_Element()), type, options, listener);
  }
  /** @nodts @template T, V @return {!EventType<T, V>} */
  static $create__java_lang_String(/** ?string */ name) {

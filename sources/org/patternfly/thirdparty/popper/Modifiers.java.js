@@ -1,5 +1,7 @@
 goog.module('org.patternfly.thirdparty.popper.Modifiers');
 
+goog.require('elemental2.dom.CSSProperties.MinWidthUnionType.$Overlay');
+goog.require('java.lang.String');
 goog.require('javaemul.internal.InternalPreconditions');
 goog.require('nativebootstrap.Equality');
 goog.require('nativebootstrap.Util');

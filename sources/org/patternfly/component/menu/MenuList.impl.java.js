@@ -94,7 +94,6 @@ class MenuList extends MenuSubComponent {
  }
  /** @nodts @return {MenuList} */
  m_addItem__org_patternfly_component_menu_MenuItem__org_patternfly_component_menu_MenuList(/** MenuItem */ item) {
-  this.f_items__org_patternfly_component_menu_MenuList.put(item.f_id__org_patternfly_component_menu_MenuItem, item);
   return this.m_add__org_patternfly_component_menu_MenuItem__org_patternfly_component_menu_MenuList(item);
  }
  /** @nodts @return {MenuList} */
@@ -109,6 +108,16 @@ class MenuList extends MenuSubComponent {
  /** @nodts @return {MenuList} */
  m_that__org_patternfly_component_menu_MenuList() {
   return this;
+ }
+ /** @nodts */
+ m_clear__void() {
+  for (let $iterator = this.f_items__org_patternfly_component_menu_MenuList.values().m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
+   let item = /**@type {MenuItem}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), MenuItem));
+   {
+    Elements.m_failSafeRemoveFromParent__org_jboss_elemento_IsElement__boolean(item);
+   }
+  }
+  this.f_items__org_patternfly_component_menu_MenuList.clear();
  }
  /** @nodts */
  m_removeItem__org_patternfly_component_menu_MenuItem__void_$pp_org_patternfly_component_menu(/** MenuItem */ favoriteItem) {

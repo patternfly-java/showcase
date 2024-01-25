@@ -25,6 +25,7 @@ goog.require('org.patternfly.core.WithIconAndText');
 goog.require('org.patternfly.core.WithText');
 goog.require('org.patternfly.style.Classes');
 goog.require('org.patternfly.style.Modifiers.Disabled');
+goog.require('org.patternfly.style.Modifiers.Secondary');
 goog.require('org.patternfly.style.PredefinedIcon');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');

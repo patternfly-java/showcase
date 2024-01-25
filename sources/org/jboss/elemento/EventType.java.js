@@ -1,5 +1,6 @@
 goog.module('org.jboss.elemento.EventType');
 
+goog.require('elemental2.dom.AddEventListenerOptions.$Overlay');
 goog.require('elemental2.dom.ClipboardEvent.$Overlay');
 goog.require('elemental2.dom.Document.$Overlay');
 goog.require('elemental2.dom.DragEvent.$Overlay');

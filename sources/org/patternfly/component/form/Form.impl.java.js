@@ -2,6 +2,7 @@ goog.module('org.patternfly.component.form.Form$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
+const Horizontal = goog.require('org.patternfly.style.Modifiers.Horizontal$impl');
 
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLFormElement.$Overlay$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
@@ -20,6 +21,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
  * @extends {BaseComponent<HTMLFormElement, Form>}
+ * @implements {Horizontal<HTMLFormElement, Form>}
  */
 class Form extends BaseComponent {
  /** @protected @nodts */
@@ -67,10 +69,6 @@ class Form extends BaseComponent {
   return /**@type {Form}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(actionGroup), Form));
  }
  /** @nodts @return {Form} */
- m_horizontal__org_patternfly_component_form_Form() {
-  return /**@type {Form}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_horizontal__org_patternfly_style_Classes)], j_l_String))), Form));
- }
- /** @nodts @return {Form} */
  m_limitWidth__org_patternfly_component_form_Form() {
   return /**@type {Form}*/ ($Casts.$to(this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_limitWidth__org_patternfly_style_Classes)], j_l_String))), Form));
  }
@@ -83,11 +81,32 @@ class Form extends BaseComponent {
  m_that__org_jboss_elemento_TypedBuilder() {
   return this.m_that__org_patternfly_component_form_Form();
  }
+ //Bridge method.
+ /** @final @override @nodts @return {Form} */
+ m_horizontal__org_jboss_elemento_TypedBuilder() {
+  return /**@type {Form}*/ ($Casts.$to(Horizontal.m_horizontal__$default__org_patternfly_style_Modifiers_Horizontal__org_jboss_elemento_TypedBuilder(this), Form));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {Form} */
+ m_horizontal__boolean__org_jboss_elemento_TypedBuilder(/** boolean */ arg0) {
+  return /**@type {Form}*/ ($Casts.$to(Horizontal.m_horizontal__$default__org_patternfly_style_Modifiers_Horizontal__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Form));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Form} */
+ m_horizontal__org_patternfly_component_form_Form() {
+  return /**@type {Form}*/ ($Casts.$to(Horizontal.m_horizontal__$default__org_patternfly_style_Modifiers_Horizontal__org_jboss_elemento_TypedBuilder(this), Form));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {Form} */
+ m_horizontal__boolean__org_patternfly_component_form_Form(/** boolean */ arg0) {
+  return /**@type {Form}*/ ($Casts.$to(Horizontal.m_horizontal__$default__org_patternfly_style_Modifiers_Horizontal__boolean__org_jboss_elemento_TypedBuilder(this, arg0), Form));
+ }
  /** @nodts */
  static $clinit() {
   Form.$clinit = () =>{};
   Form.$loadModules();
   BaseComponent.$clinit();
+  Horizontal.$clinit();
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -107,6 +126,7 @@ class Form extends BaseComponent {
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }
+Horizontal.$markImplementor(Form);
 $Util.$setClassMetadata(Form, 'org.patternfly.component.form.Form');
 
 exports = Form;

@@ -17,7 +17,7 @@ package org.patternfly.component;
 
 public enum ComponentType {
 
-    Accordion("ac", null),
+    Accordion("ac", "PF5/Accordion"),
 
     ActionList("al", "PF5/ActionList"),
 
@@ -27,7 +27,11 @@ public enum ComponentType {
 
     Avatar("av", "PF5/Avatar"),
 
+    BackToTop("btt", "PF5/BackToTop"),
+
     Badge("bdg", "PF5/Badge"),
+
+    Banner("bnr", "PF5/Banner"),
 
     Brand("bnd", "PF5/Brand"),
 
@@ -55,13 +59,15 @@ public enum ComponentType {
 
     DataTable("dt", null),
 
+    DescriptionList("dsl", "PF5/DescriptionList"),
+
     Divider("dvr", "PF5/Divider"),
 
-    Drawer("dw", null),
+    Drawer("dw", "PF5/Drawer"),
 
     Dropdown("dd", "PF5/Dropdown"),
 
-    EmptyState("es", null),
+    EmptyState("es", "PF5/EmptyState"),
 
     ExpandableSection("exs", "PF5/ExpandableSection"),
 
@@ -71,15 +77,17 @@ public enum ComponentType {
 
     HelperText("ht", "PF5/HelperText"),
 
+    Hint("hnt", "PF5/Hint"),
+
     Icon("icn", "PF5/Icon"),
 
-    InputGroup("ig", null),
+    InputGroup("ig", "PF5/InputGroup"),
 
     Label("lbl", "PF5/Label"),
 
     LabelGroup("lbg", null),
 
-    List("lst", null),
+    List("lst", "PF5/List"),
 
     Masthead("mh", "PF5/Masthead"),
 
@@ -97,6 +105,8 @@ public enum ComponentType {
 
     Pagination("pgn", null),
 
+    Panel("pnl", "PF5/Panel"),
+
     Popover("pvr", "PF5/Popover"),
 
     Radio("rd", "PF5/Radio"),
@@ -105,17 +115,19 @@ public enum ComponentType {
 
     Sidebar("sb", "PF5/Sidebar"),
 
+    SimpleList("sl", "PF5/SimpleList"),
+
     Skeleton("sk", null),
 
     SkipToContent("stc", "PF5/SkipToContent"),
 
-    Slider("sld", null),
+    Slider("sld", "PF5/Slider"),
 
     Spinner("sp", "PF5/Spinner"),
 
-    Switch("sw", null),
+    Switch("sw", "PF5/Switch"),
 
-    Tabs("tbs", null),
+    Tabs("tbs", "PF5/Tabs"),
 
     TextContent("tc", "PF5/TextContent"),
 

@@ -80,7 +80,7 @@ class CardComponent extends SnippetPage {
    }))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Checkbox.m_checkbox__java_lang_String__java_lang_String__java_lang_String__org_patternfly_component_form_Checkbox('card-modifiers-fullHeight', 'card-modifiers', 'fullHeight').m_onChange__org_patternfly_handler_ChangeHandler__org_patternfly_component_form_Checkbox(ChangeHandler.$adapt((/** Event */ e_4, c_8, value_8) =>{
     let c_9 = /**@type {Checkbox}*/ ($Casts.$to(c_8, Checkbox));
     let value_9 = /**@type {?boolean}*/ ($Casts.$to(value_8, Boolean));
-    card.m_fullHeight__boolean__org_patternfly_component_card_Card(Boolean.m_booleanValue__java_lang_Boolean__boolean(value_9));
+    card.m_fullHeight__boolean__org_jboss_elemento_TypedBuilder(Boolean.m_booleanValue__java_lang_Boolean__boolean(value_9));
    }))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Checkbox.m_checkbox__java_lang_String__java_lang_String__java_lang_String__org_patternfly_component_form_Checkbox('card-modifiers-plain', 'card-modifiers', 'plain').m_onChange__org_patternfly_handler_ChangeHandler__org_patternfly_component_form_Checkbox(ChangeHandler.$adapt((/** Event */ e_5, c_10, value_10) =>{
     let c_11 = /**@type {Checkbox}*/ ($Casts.$to(c_10, Checkbox));
     let value_11 = /**@type {?boolean}*/ ($Casts.$to(value_10, Boolean));

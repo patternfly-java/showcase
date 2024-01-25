@@ -15,34 +15,39 @@
  */
 package org.patternfly.layout.grid;
 
-import org.patternfly.core.Logger;
-import org.patternfly.core.Tuple;
-import org.patternfly.core.Tuples;
+import org.jboss.elemento.HTMLContainerBuilder;
 import org.patternfly.layout.BaseLayout;
-import org.patternfly.style.Breakpoint;
-import org.patternfly.style.Modifiers.Fill;
+import org.patternfly.style.Breakpoints;
 
-import elemental2.dom.HTMLDivElement;
+import elemental2.dom.HTMLElement;
 
 import static org.jboss.elemento.Elements.div;
-import static org.patternfly.layout.grid.Grid.internalOrder;
+import static org.patternfly.core.Validation.verifyRange;
+import static org.patternfly.style.Breakpoint.default_;
+import static org.patternfly.style.BreakpointCollector.modifiers;
 import static org.patternfly.style.Classes.grid;
 import static org.patternfly.style.Classes.item;
 import static org.patternfly.style.Classes.layout;
 import static org.patternfly.style.Classes.modifier;
+import static org.patternfly.style.Variable.componentVar;
+import static org.patternfly.style.Variables.Order;
 
-public class GridItem extends BaseLayout<HTMLDivElement, GridItem> implements Fill<HTMLDivElement, GridItem> {
+public class GridItem extends BaseLayout<HTMLElement, GridItem> {
 
     // ------------------------------------------------------ factory
 
     public static GridItem gridItem() {
-        return new GridItem();
+        return new GridItem(div());
+    }
+
+    public static <E extends HTMLElement> GridItem gridItem(HTMLContainerBuilder<E> builder) {
+        return new GridItem(builder);
     }
 
     // ------------------------------------------------------ instance
 
-    GridItem() {
-        super(div().css(layout(grid, item)).element());
+    <E extends HTMLElement> GridItem(HTMLContainerBuilder<E> builder) {
+        super(builder.css(layout(grid, item)).element());
     }
 
     // ------------------------------------------------------ builder
@@ -51,7 +56,7 @@ public class GridItem extends BaseLayout<HTMLDivElement, GridItem> implements Fi
      * The number of columns the grid item spans. Value should be a number 1-12.
      */
     public GridItem span(int columns) {
-        if (verifyRange("span", columns)) {
+        if (verifyRange("PF5/GridItem", element(), "span", columns, 1, 12)) {
             css(modifier(columns + "-col"));
         }
         return this;
@@ -60,20 +65,19 @@ public class GridItem extends BaseLayout<HTMLDivElement, GridItem> implements Fi
     /**
      * The number of columns the grid item spans on a specific breakpoint. Value should be a number 1-12.
      */
-    public GridItem span(Tuples<Breakpoint, Integer> columns) {
-        if (columns != null) {
-            for (Tuple<Breakpoint, Integer> column : columns) {
-                internalSpan(column);
-            }
-        }
-        return this;
+    public GridItem span(Breakpoints<Integer> columns) {
+        String modifiers = columns.stream()
+                .filter(bp -> verifyRange("PF5/GridItem", element(), "span", bp.value, 1, 12))
+                .filter(bp -> bp.key != default_)
+                .collect(modifiers(col -> col + "-col"));
+        return css(modifiers);
     }
 
     /**
      * The number of rows the grid item spans. Value should be a number 1-12.
      */
     public GridItem rowSpan(int rows) {
-        if (verifyRange("rowSpan", rows)) {
+        if (verifyRange("PF5/GridItem", element(), "rowSpan", rows, 1, 12)) {
             css(modifier(rows + "-row"));
         }
         return this;
@@ -82,20 +86,19 @@ public class GridItem extends BaseLayout<HTMLDivElement, GridItem> implements Fi
     /**
      * The number of rows the grid item spans on a specific breakpoint. Value should be a number 1-12
      */
-    public GridItem rowSpan(Tuples<Breakpoint, Integer> rows) {
-        if (rows != null) {
-            for (Tuple<Breakpoint, Integer> row : rows) {
-                internalRowSpan(row);
-            }
-        }
-        return this;
+    public GridItem rowSpan(Breakpoints<Integer> rows) {
+        String modifiers = rows.stream()
+                .filter(bp -> verifyRange("PF5/GridItem", element(), "rowSpan", bp.value, 1, 12))
+                .filter(bp -> bp.key != default_)
+                .collect(modifiers(row -> row + "-row"));
+        return css(modifiers);
     }
 
     /**
      * The number of columns a grid item is offset.
      */
     public GridItem offset(int columns) {
-        if (verifyRange("offset", columns)) {
+        if (verifyRange("PF5/GridItem", element(), "offset", columns, 1, 12)) {
             css(modifier("offset-" + columns + "-col"));
         }
         return this;
@@ -104,64 +107,23 @@ public class GridItem extends BaseLayout<HTMLDivElement, GridItem> implements Fi
     /**
      * The number of columns the grid item is offset on a specific breakpoint. Value should be a number 1-12
      */
-    public GridItem offset(Tuples<Breakpoint, Integer> columns) {
-        if (columns != null) {
-            for (Tuple<Breakpoint, Integer> column : columns) {
-                internalOffset(column);
-            }
-        }
-        return this;
+    public GridItem offset(Breakpoints<Integer> columns) {
+        String modifiers = columns.stream()
+                .filter(bp -> verifyRange("PF5/GridItem", element(), "offset", bp.value, 1, 12))
+                .filter(bp -> bp.key != default_)
+                .collect(modifiers(col -> "offset-" + col + "-col"));
+        return css(modifiers);
     }
 
     /**
      * Modifies the flex layout element order property.
      */
-    public GridItem order(Tuples<Breakpoint, String> order) {
-        if (order != null) {
-            for (Tuple<Breakpoint, String> o : order) {
-                internalOrder(element(), o);
-            }
-        }
-        return this;
+    public GridItem order(Breakpoints<String> order) {
+        return componentVar(layout(grid), item, Order).applyTo(this, order);
     }
 
     @Override
     public GridItem that() {
         return this;
-    }
-
-    // ------------------------------------------------------ internal
-
-    private void internalSpan(Tuple<Breakpoint, Integer> tuple) {
-        if (tuple.key != Breakpoint.default_) {
-            if (verifyRange("span", tuple.value)) {
-                css(modifier(tuple.value + "-col-on-" + tuple.key.value));
-            }
-        }
-    }
-
-    private void internalRowSpan(Tuple<Breakpoint, Integer> tuple) {
-        if (tuple.key != Breakpoint.default_) {
-            if (verifyRange("rowSpan", tuple.value)) {
-                css(modifier(tuple.value + "-row-on-" + tuple.key.value));
-            }
-        }
-    }
-
-    private void internalOffset(Tuple<Breakpoint, Integer> tuple) {
-        if (tuple.key != Breakpoint.default_) {
-            if (verifyRange("offset", tuple.value)) {
-                css(modifier("offset-" + tuple.value + "-col-on-" + tuple.key.value));
-            }
-        }
-    }
-
-    private boolean verifyRange(String property, int value) {
-        if (value < 1 || value > 12) {
-            Logger.unsupported("PF5/GridItem", element(),
-                    "'" + property + "' out of range. Given: " + value + ", allowed [1,12].");
-            return false;
-        }
-        return true;
     }
 }
