@@ -28,11 +28,6 @@ import static org.jboss.elemento.Elements.strong;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.icon.Icon.icon;
 import static org.patternfly.component.text.TextContent.textContent;
-import static org.patternfly.core.Status.custom;
-import static org.patternfly.core.Status.danger;
-import static org.patternfly.core.Status.info;
-import static org.patternfly.core.Status.success;
-import static org.patternfly.core.Status.warning;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.angleDown;
@@ -49,6 +44,11 @@ import static org.patternfly.style.Size.lg;
 import static org.patternfly.style.Size.md;
 import static org.patternfly.style.Size.sm;
 import static org.patternfly.style.Size.xl;
+import static org.patternfly.style.Status.custom;
+import static org.patternfly.style.Status.danger;
+import static org.patternfly.style.Status.info;
+import static org.patternfly.style.Status.success;
+import static org.patternfly.style.Status.warning;
 
 public class IconComponent extends SnippetPage {
 
