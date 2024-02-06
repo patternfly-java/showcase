@@ -15,12 +15,25 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.Id;
+import org.patternfly.component.help.HelperText;
+import org.patternfly.component.progress.Progress;
+import org.patternfly.core.Tuple;
 import org.patternfly.core.Tuples;
+import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
+import org.patternfly.style.Status;
 
+import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
+import static org.patternfly.component.descriptionlist.DescriptionList.descriptionList;
+import static org.patternfly.component.descriptionlist.DescriptionListDescription.descriptionListDescription;
+import static org.patternfly.component.descriptionlist.DescriptionListGroup.descriptionListGroup;
+import static org.patternfly.component.descriptionlist.DescriptionListTerm.descriptionListTerm;
+import static org.patternfly.component.form.Radio.radio;
+import static org.patternfly.component.help.HelperText.helperText;
 import static org.patternfly.component.progress.MeasureLocation.inside;
 import static org.patternfly.component.progress.MeasureLocation.none;
 import static org.patternfly.component.progress.MeasureLocation.outside;
@@ -29,8 +42,8 @@ import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Size.lg;
 import static org.patternfly.style.Size.sm;
-import static org.patternfly.style.Status.custom;
 import static org.patternfly.style.Status.danger;
+import static org.patternfly.style.Status.info;
 import static org.patternfly.style.Status.success;
 import static org.patternfly.style.Status.warning;
 
@@ -92,7 +105,7 @@ public class ProgressComponent extends SnippetPage {
                 code.get("progress-inside"), () ->
                 // @code-start:progress-inside
                 div()
-                        .add(progress().size(lg)
+                        .add(progress()
                                 .measureLocation(inside)
                                 .title("Title")
                                 .value(33))
@@ -137,7 +150,7 @@ public class ProgressComponent extends SnippetPage {
                 code.get("progress-inside-success"), () ->
                 // @code-start:progress-inside-success
                 div()
-                        .add(progress().size(lg)
+                        .add(progress()
                                 .status(success)
                                 .measureLocation(inside)
                                 .title("Title")
@@ -222,6 +235,69 @@ public class ProgressComponent extends SnippetPage {
                             .value(2))
                     .element();
             // @code-end:progress-step-instruction
+        }));
+
+        addSnippet(new Snippet("progress-truncate", "Truncate",
+                code.get("progress-truncate"), () ->
+                // @code-start:progress-truncate
+                div()
+                        .add(progress()
+                                .title(LoremIpsum.words(42))
+                                .truncate()
+                                .value(33))
+                        .element()
+                // @code-end:progress-truncate
+        ));
+
+        addSnippet(new Snippet("progress-outer-title", "Title outside of progress bar",
+                code.get("progress-outer-title"), () ->
+                // @code-start:progress-outer-title
+                div()
+                        .add(descriptionList()
+                                .addGroup(descriptionListGroup()
+                                        .addTerm(descriptionListTerm("Title outside of progress bar")
+                                                .id("title-outside-progress-example-label"))
+                                        .addDescription(descriptionListDescription()
+                                                .add(progress()
+                                                        .ariaLabeledBy("title-outside-progress-example-label")
+                                                        .measureLocation(outside)
+                                                        .value(33)))))
+                        .element()
+                // @code-end:progress-outer-title
+        ));
+
+        addSnippet(new Snippet("progress-helper-text", "Helper text",
+                code.get("progress-helper-text"), () -> {
+            // @code-start:progress-helper-text
+            Tuples<Status, String> status = tuples(
+                    info, "Default variant",
+                    success, "Success variant",
+                    warning, "Warning variant",
+                    danger, "Danger variant"
+            );
+            Progress progress = progress();
+            HelperText helperText = helperText("Default variant is being displayed");
+
+            return div()
+                    .run(div -> {
+                        for (Tuple<Status, String> tuple : status) {
+                            div.add(radio(Id.build("progress-helper-text", tuple.key.name()),
+                                    "progress-helper-text-status",
+                                    tuple.value)
+                                    .value(tuple.key == info)
+                                    .onChange((event, component, value) -> {
+                                        progress.status(tuple.key);
+                                        helperText.firstItem().text(tuple.value + " is being displayed");
+                                    }));
+                        }
+                    })
+                    .add(br())
+                    .add(progress
+                            .title("Title")
+                            .value(33)
+                            .addHelperText(helperText))
+                    .element();
+            // @code-end:progress-helper-text
         }));
     }
 }
