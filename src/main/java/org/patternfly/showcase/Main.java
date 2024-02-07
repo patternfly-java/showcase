@@ -106,6 +106,7 @@ public class Main {
                         .addItem(navigationItem("c-text-content", "Text content", "#c-text-content"))
                         .addItem(navigationItem("c-text-input-group", "Text input group", "#c-text-input-group"))
                         .addItem(navigationItem("c-title", "Title", "#c-title"))
+                        .addItem(navigationItem("c-toggle-group", "Toggle group", "#c-toggle-group"))
                         .addItem(navigationItem("c-tooltip", "Tooltip", "#c-tooltip"))
                 // .addItem(navigationItem("c-title", "Title", "#c-title"))
                 // .addItem(navigationItem("c-toolbar", "Toolbar", "#c-toolbar"))
