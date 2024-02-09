@@ -55,6 +55,7 @@ import org.patternfly.showcase.component.PopoverComponent;
 import org.patternfly.showcase.component.ProgressComponent;
 import org.patternfly.showcase.component.RadioComponent;
 import org.patternfly.showcase.component.SimpleListComponent;
+import org.patternfly.showcase.component.SkeletonComponent;
 import org.patternfly.showcase.component.SliderComponent;
 import org.patternfly.showcase.component.SpinnerComponent;
 import org.patternfly.showcase.component.SwitchComponent;
@@ -132,6 +133,7 @@ final class Placemanager {
         // places.put("c-options-menu", () -> new OptionsMenuComponent());
         // places.put("c-select", () -> new SelectComponent());
         places.put("c-simple-list", () -> new SimpleListComponent());
+        places.put("c-skeleton", () -> new SkeletonComponent());
         places.put("c-slider", () -> new SliderComponent());
         places.put("c-spinner", () -> new SpinnerComponent());
         places.put("c-switch", () -> new SwitchComponent());
