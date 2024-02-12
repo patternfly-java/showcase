@@ -67,6 +67,7 @@ import org.patternfly.showcase.component.TextInputGroupComponent;
 import org.patternfly.showcase.component.TitleComponent;
 import org.patternfly.showcase.component.ToggleGroupComponent;
 import org.patternfly.showcase.component.TooltipComponent;
+import org.patternfly.showcase.component.TruncateComponent;
 import org.patternfly.showcase.layout.BullseyeLayout;
 import org.patternfly.showcase.layout.FlexLayout;
 import org.patternfly.showcase.layout.GalleryLayout;
@@ -146,6 +147,7 @@ final class Placemanager {
         places.put("c-title", () -> new TitleComponent());
         places.put("c-toggle-group", () -> new ToggleGroupComponent());
         places.put("c-tooltip", () -> new TooltipComponent());
+        places.put("c-truncate", () -> new TruncateComponent());
         // places.put("c-toolbar", () -> new ToolbarComponent());
 
         places.put("l-bullseye", () -> new BullseyeLayout());

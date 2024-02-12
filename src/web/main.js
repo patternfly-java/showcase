@@ -24,6 +24,7 @@ import "./pforg/footer.css";
 import "./pforg/layouts.css";
 import "./pforg/sideNav.css";
 import './pforg/sideNavLayout.css';
+import './pforg/truncate.css';
 import "./styles.css";
 
 import "@popperjs/core";

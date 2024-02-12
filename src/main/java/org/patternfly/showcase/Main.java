@@ -109,6 +109,7 @@ public class Main {
                         .addItem(navigationItem("c-title", "Title", "#c-title"))
                         .addItem(navigationItem("c-toggle-group", "Toggle group", "#c-toggle-group"))
                         .addItem(navigationItem("c-tooltip", "Tooltip", "#c-tooltip"))
+                        .addItem(navigationItem("c-truncate", "Truncate", "#c-truncate"))
                 // .addItem(navigationItem("c-title", "Title", "#c-title"))
                 // .addItem(navigationItem("c-toolbar", "Toolbar", "#c-toolbar"))
                 )
