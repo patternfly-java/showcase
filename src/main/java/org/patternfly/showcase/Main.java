@@ -63,6 +63,7 @@ public class Main {
                         .addItem(navigationItem("c-badge", "Badge", "#c-badge"))
                         .addItem(navigationItem("c-banner", "Banner", "#c-banner"))
                         .addItem(navigationItem("c-brand", "Brand", "#c-brand"))
+                        .addItem(navigationItem("c-breadcrumb", "Breadcrumb", "#c-breadcrumb"))
                         .addItem(navigationItem("c-button", "Button", "#c-button"))
                         .addItem(navigationItem("c-card", "Card", "#c-card"))
                         .addItem(navigationItem("c-chip", "Chip", "#c-chip"))

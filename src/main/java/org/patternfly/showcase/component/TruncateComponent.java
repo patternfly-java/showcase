@@ -15,7 +15,6 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.truncate.TruncatePosition;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
