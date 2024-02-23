@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.split.Split;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,8 +28,7 @@ import static org.patternfly.showcase.Code.code;
 public class SplitLayout extends SnippetPage {
 
     public SplitLayout() {
-        super("Split",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/split/Split.html",
+        super(Split.class, "Split",
                 "https://www.patternfly.org/layouts/split/design-guidelines",
                 p().textContent(
                         "The split layout positions items horizontally in a container, with one item filling the remaining horizontal space as the viewport is resized.")

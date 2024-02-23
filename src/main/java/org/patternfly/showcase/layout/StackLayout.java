@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.stack.Stack;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,8 +28,7 @@ import static org.patternfly.showcase.Code.code;
 public class StackLayout extends SnippetPage {
 
     public StackLayout() {
-        super("Stack",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/stack/Stack.html",
+        super(Stack.class, "Stack",
                 "https://www.patternfly.org/layouts/stack/design-guidelines",
                 p().textContent(
                         "The stack layout positions items vertically, with one or more items filling the available vertical space.")

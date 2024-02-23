@@ -15,6 +15,10 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.accordion.Accordion;
+import org.patternfly.component.accordion.AccordionItem;
+import org.patternfly.component.accordion.AccordionItemBody;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -32,13 +36,13 @@ import static org.patternfly.style.PredefinedIcon.arrowRight;
 public class AccordionComponent extends SnippetPage {
 
     public AccordionComponent() {
-        super("Accordion",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/accordion/Accordion.html",
+        super(Accordion.class, "Accordion",
                 "https://www.patternfly.org/components/accordion/design-guidelines",
                 p().textContent(
                         "An accordion is an interactive container that expands and collapses to hide or reveal nested content. It takes advantage of progressive disclosure to help reduce page scrolling, by allowing users to choose whether they want to show or hide more detailed information as needed.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("accordion-dl", "Definition list",
                 code.get("accordion-dl"), () ->
                 // @code-start:accordion-dl
@@ -146,5 +150,10 @@ public class AccordionComponent extends SnippetPage {
                         .element()
         // @code-end:accordion-large
         ));
+
+        startApiDocs(Accordion.class);
+        addApiDoc(Accordion.class, ApiDocType.component);
+        addApiDoc(AccordionItem.class, ApiDocType.subcomponent);
+        addApiDoc(AccordionItemBody.class, ApiDocType.subcomponent);
     }
 }

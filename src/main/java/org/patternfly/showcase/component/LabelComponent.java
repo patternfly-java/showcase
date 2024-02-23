@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.HTMLContainerBuilder;
+import org.patternfly.component.label.Label;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 import org.patternfly.style.Color;
@@ -39,8 +40,7 @@ import static org.patternfly.style.PredefinedIcon.infoCircle;
 public class LabelComponent extends SnippetPage {
 
     public LabelComponent() {
-        super("Label",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/label/Label.html",
+        super(Label.class, "Label",
                 "https://www.patternfly.org/components/label/design-guidelines",
                 p().textContent(
                         "The label component allows users to add specific element captions for user clarity and convenience.")
@@ -59,10 +59,10 @@ public class LabelComponent extends SnippetPage {
                         div.add(label(name + " icon removable", color).icon(infoCircle).closable()).add(" ");
                         div.add(label(name + " link", color).href("#c-label")).add(" ");
                         div.add(label(name + " link removable", color).href("#c-label").closable()).add(" ");
-                        div.add(label(name + " clickable", color).id()
+                        div.add(label(name + " clickable", color).uniqueId()
                                 .clickable((e, l) -> console.log("Label " + l.element().id + " clicked")))
                                 .add(" ");
-                        div.add(label(name + " clickable removable", color).id().closable()
+                        div.add(label(name + " clickable removable", color).uniqueId().closable()
                                 .clickable((e, l) -> console.log("Label " + l.element().id + " clicked")))
                                 .add(" ");
                         div.add(label(name + " label with icon that overflows", color).closable()
@@ -89,10 +89,10 @@ public class LabelComponent extends SnippetPage {
                         div.add(label(name + " icon removable", color).outline().icon(infoCircle).closable()).add(" ");
                         div.add(label(name + " link", color).outline().href("#c-label")).add(" ");
                         div.add(label(name + " link removable", color).outline().href("#c-label").closable()).add(" ");
-                        div.add(label(name + " clickable", color).outline().id()
+                        div.add(label(name + " clickable", color).outline().uniqueId()
                                 .clickable((e, l) -> console.log("Label " + l.element().id + " clicked")))
                                 .add(" ");
-                        div.add(label(name + " clickable removable", color).outline().id().closable()
+                        div.add(label(name + " clickable removable", color).outline().uniqueId().closable()
                                 .clickable((e, l) -> console.log("Label " + l.element().id + " clicked")))
                                 .add(" ");
                         div.add(label(name + " label with icon that overflows", color).outline().closable()
@@ -115,10 +115,10 @@ public class LabelComponent extends SnippetPage {
                         .add(label("Grey icon removable").compact().icon(infoCircle).closable()).add(" ")
                         .add(label("Grey link").compact().href("#c-label")).add(" ")
                         .add(label("Grey link removable").compact().href("#c-label").closable()).add(" ")
-                        .add(label("Grey clickable").compact().id()
+                        .add(label("Grey clickable").compact().uniqueId()
                                 .clickable((e, l) -> console.log("Label " + l.element().id + " clicked")))
                         .add(" ")
-                        .add(label("Grey clickable removable").compact().id().closable()
+                        .add(label("Grey clickable removable").compact().uniqueId().closable()
                                 .clickable((e, l) -> console.log("Label " + l.element().id + " clicked")))
                         .add(" ")
                         .add(label("Grey label with icon that overflows").compact().closable()

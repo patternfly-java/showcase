@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.descriptionlist.DescriptionList;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 import org.patternfly.style.Size;
@@ -50,8 +51,7 @@ import static org.patternfly.style.PredefinedIcon.plusCircle;
 public class DescriptionListComponent extends SnippetPage {
 
     public DescriptionListComponent() {
-        super("Description list",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/descriptionlist/DescriptionList.html",
+        super(DescriptionList.class, "Description list",
                 "https://www.patternfly.org/components/description-list/design-guidelines",
                 p().textContent("A description list contains terms and their corresponding descriptions.").element());
 

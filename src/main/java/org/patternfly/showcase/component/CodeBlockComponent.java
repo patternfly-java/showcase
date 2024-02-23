@@ -15,6 +15,10 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.code.CodeBlock;
+import org.patternfly.component.code.CodeBlockAction;
+import org.patternfly.component.code.CodeBlockActions;
+import org.patternfly.component.code.CodeBlockHeader;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -24,6 +28,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.code.CodeBlock.codeBlock;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockAction;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockCopyToClipboardAction;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.play;
 
@@ -38,13 +44,13 @@ public class CodeBlockComponent extends SnippetPage {
             "url: https://raw.githubusercontent.com/Azure-Samples/helm-charts/master/docs";
 
     public CodeBlockComponent() {
-        super("Code block",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeBlock.html",
+        super(CodeBlock.class, "Code block",
                 "https://www.patternfly.org/components/code-block/design-guidelines",
                 p().textContent(
                         "A code block is a component that contains 2 or more lines of read-only code. The code in a code block can be copied to the clipboard.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("code-block-basic", "Basic",
                 code.get("code-block-basic"), () ->
                 // @code-start:code-block-basic
@@ -74,5 +80,11 @@ public class CodeBlockComponent extends SnippetPage {
                         .element()
         // @code-end:code-block-expandable
         ));
+
+        startApiDocs(CodeBlock.class);
+        addApiDoc(CodeBlock.class, component);
+        addApiDoc(CodeBlockAction.class, subcomponent);
+        addApiDoc(CodeBlockActions.class, subcomponent);
+        addApiDoc(CodeBlockHeader.class, subcomponent);
     }
 }

@@ -19,6 +19,7 @@ import org.patternfly.layout.flex.Align;
 import org.patternfly.layout.flex.AlignSelf;
 import org.patternfly.layout.flex.Direction;
 import org.patternfly.layout.flex.Display;
+import org.patternfly.layout.flex.Flex;
 import org.patternfly.layout.flex.FlexShorthand;
 import org.patternfly.layout.flex.Gap;
 import org.patternfly.layout.flex.JustifyContent;
@@ -44,8 +45,7 @@ import static org.patternfly.style.Breakpoints.breakpoints;
 public class FlexLayout extends SnippetPage {
 
     public FlexLayout() {
-        super("Flex",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/flex/Flex.html",
+        super(Flex.class, "Flex",
                 "https://www.patternfly.org/layouts/flex/design-guidelines",
                 p().textContent(
                         "The flex layout supports a completely custom layout by utilizing the PatternFly spacer and breakpoint systems. Flex layouts are infinitely nestable and allow you to adjust spacing, direction, alignment, justification, wrapping, and width to fit your needs.")

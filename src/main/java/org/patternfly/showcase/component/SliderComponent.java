@@ -51,8 +51,7 @@ import static org.patternfly.style.PredefinedIcon.plus;
 public class SliderComponent extends SnippetPage {
 
     public SliderComponent() {
-        super("Slider",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/slider/Slider.html",
+        super(Slider.class, "Slider",
                 "https://www.patternfly.org/components/slider/design-guidelines",
                 p().textContent(
                                 "A slider provides a quick and effective way for users to set and adjust a numeric value from a defined range of values.")

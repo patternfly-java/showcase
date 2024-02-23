@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase;
 
+import org.patternfly.showcase.router.Page;
+
 import elemental2.dom.HTMLElement;
 
 import static java.util.Collections.singletonList;

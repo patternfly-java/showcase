@@ -32,8 +32,7 @@ import static org.patternfly.style.PredefinedIcon.fas;
 public class TextInputComponent extends SnippetPage {
 
     public TextInputComponent() {
-        super("Text input",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/TextInput.html",
+        super(TextInput.class, "Text input",
                 "https://www.patternfly.org/components/forms/text-input/design-guidelines",
                 p().textContent("A text input is used to gather free-form text from a user.").element());
 

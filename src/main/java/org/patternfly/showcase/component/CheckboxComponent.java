@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.form.Checkbox;
+import org.patternfly.component.form.CheckboxBody;
+import org.patternfly.component.form.CheckboxDescription;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -24,18 +27,20 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.CheckboxBody.checkboxBody;
 import static org.patternfly.component.form.CheckboxDescription.checkboxDescription;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 
 public class CheckboxComponent extends SnippetPage {
 
     public CheckboxComponent() {
-        super("Checkbox",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/Checkbox.html",
+        super(Checkbox.class, "Checkbox",
                 "https://www.patternfly.org/components/forms/checkbox/design-guidelines",
                 p().textContent(
                         "A checkbox is used to select a single item or multiple items, typically to choose elements to perform an action or to reflect a binary setting.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("checkbox-basic", "Basic",
                 code.get("checkbox-basic"), () ->
                 // @code-start:checkbox-basic
@@ -110,5 +115,10 @@ public class CheckboxComponent extends SnippetPage {
                         .element()
         // @code-end:checkbox-required
         ));
+
+        startApiDocs(Checkbox.class);
+        addApiDoc(Checkbox.class, component);
+        addApiDoc(CheckboxBody.class, subcomponent);
+        addApiDoc(CheckboxDescription.class, subcomponent);
     }
 }

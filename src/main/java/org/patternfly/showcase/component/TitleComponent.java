@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.title.Title;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -33,8 +34,7 @@ import static org.patternfly.style.Size.xl;
 public class TitleComponent extends SnippetPage {
 
     public TitleComponent() {
-        super("Title",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/title/Title.html",
+        super(Title.class, "Title",
                 "https://www.patternfly.org/components/title/design-guidelines",
                 p().textContent(
                         "A title component applies top and bottom margins, font-weight, font-size, and line-height to titles. The most common usage for a title is to define headings within a page.")

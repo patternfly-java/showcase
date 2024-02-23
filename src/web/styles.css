@@ -17,7 +17,7 @@
     --pf-v5-c-content--FontSize: var(--pf-v5-global--FontSize--lg);
 }
 
-.popover-box, .tooltip-box {
+.pfj-popover-box, .pfj-tooltip-box {
     height: 450px;
     position: relative;
     width: 100%;
@@ -27,16 +27,20 @@
     border: 2px dashed #ff6b81;
 
 }
-.popover-box::before,
-.popover-box::after,
-.tooltip-box::before,
-.tooltip-box::after {
+.pfj-popover-box::before,
+.pfj-popover-box::after,
+.pfj-tooltip-box::before,
+.pfj-tooltip-box::after {
     content: '';
     display: block;
     width: 1500px;
     height: 600px;
 }
-.popover-button, .tooltip-button {
+.pfj-popover-button, .pfj-tooltip-button {
     position: absolute;
     left: 600px;
+}
+
+.pfj-api-doc {
+
 }

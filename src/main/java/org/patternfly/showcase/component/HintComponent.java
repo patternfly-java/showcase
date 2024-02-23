@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.hint.Hint;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -40,8 +41,7 @@ import static org.patternfly.style.PredefinedIcon.ellipsisV;
 public class HintComponent extends SnippetPage {
 
     public HintComponent() {
-        super("Hint",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/hint/Hint.html",
+        super(Hint.class, "Hint",
                 "https://www.patternfly.org/components/hint/design-guidelines",
                 p().textContent(
                                 "A hint is in-app messaging that provides a one-step reminder, explanation, or call to action for a page or modal.")

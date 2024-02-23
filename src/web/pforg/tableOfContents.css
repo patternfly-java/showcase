@@ -67,7 +67,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     order: 1;
-    padding: 0 var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--2xl);
+    padding: var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--lg) var(--pf-v5-global--spacer--2xl);
     flex-grow: 1;
     background: none;
     margin: 0;
@@ -79,7 +79,7 @@
   }
 }
 
-/* .ws-toc-link { */
+/* .ws-toc-link */
 .ws-toc-item .pf-v5-c-jump-links__link {
   position: relative;
   display: block;

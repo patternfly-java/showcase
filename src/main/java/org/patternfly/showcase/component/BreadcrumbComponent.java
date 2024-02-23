@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.breadcrumb.Breadcrumb;
+import org.patternfly.component.breadcrumb.BreadcrumbItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -22,19 +24,21 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.breadcrumb.Breadcrumb.breadcrumb;
 import static org.patternfly.component.breadcrumb.BreadcrumbItem.breadcrumbItem;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.component.NotYetImplemented.nyi;
 
 public class BreadcrumbComponent extends SnippetPage {
 
     public BreadcrumbComponent() {
-        super("Breadcrumb",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/breadcrumb/Breadcrumb.html",
+        super(Breadcrumb.class, "Breadcrumb",
                 "https://www.patternfly.org/components/breadcrumb/design-guidelines",
                 p().textContent(
                                 "A breadcrumb provides page context to help users navigate more efficiently and understand where they are in the application hierarchy.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("breadcrumb-basic", "Basic",
                 code.get("breadcrumb-basic"), () ->
                 // @code-start:breadcrumb-basic
@@ -80,5 +84,9 @@ public class BreadcrumbComponent extends SnippetPage {
                         .element()
                 // @code-end:breadcrumb-dropdown
         ));
+
+        startApiDocs(Breadcrumb.class);
+        addApiDoc(Breadcrumb.class, component);
+        addApiDoc(BreadcrumbItem.class, subcomponent);
     }
 }

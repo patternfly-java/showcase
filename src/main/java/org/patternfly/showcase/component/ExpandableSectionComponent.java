@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.badge.Badge;
+import org.patternfly.component.expandable.ExpandableSection;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -37,8 +38,7 @@ import static org.patternfly.style.PredefinedIcon.fas;
 public class ExpandableSectionComponent extends SnippetPage {
 
     public ExpandableSectionComponent() {
-        super("Expandable section",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/expandable/ExpandableSection.html",
+        super(ExpandableSection.class, "Expandable section",
                 "https://www.patternfly.org/components/expandable-section/design-guidelines",
                 p().textContent(
                         "An expandable section component is used to support progressive disclosure in a form or page by hiding additional content when you don't want it to be shown by default. An expandable section can contain any type of content such as plain text, form inputs, and charts.")

@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.spinner.Spinner;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -34,8 +35,7 @@ import static org.patternfly.style.Size.xl;
 public class SpinnerComponent extends SnippetPage {
 
     public SpinnerComponent() {
-        super("Spinner",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/spinner/Spinner.html",
+        super(Spinner.class, "Spinner",
                 "https://www.patternfly.org/components/spinner/design-guidelines",
                 p().textContent(
                         "A spinner is used to indicate to users that an action is in progress. For actions that may take a long time, use a progress bar instead.")

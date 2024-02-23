@@ -15,6 +15,11 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.alert.Alert;
+import org.patternfly.component.alert.AlertActionGroup;
+import org.patternfly.component.alert.AlertDescription;
+import org.patternfly.component.alert.AlertGroup;
+import org.patternfly.component.alert.AlertGroupType;
 import org.patternfly.core.Aria;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
@@ -51,6 +56,9 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.Severity.info;
 import static org.patternfly.core.Severity.success;
 import static org.patternfly.core.Severity.warning;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.other;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.alertGroup;
 import static org.patternfly.style.Classes.component;
@@ -64,13 +72,14 @@ import static org.patternfly.style.PredefinedIcon.users;
 public class AlertComponent extends SnippetPage {
 
     public AlertComponent() {
-        super("Alert",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/alert/Alert.html",
+        super(Alert.class, "Alert",
                 "https://www.patternfly.org/components/alert/design-guidelines",
                 p().textContent("Alerts are used to notify the user about a change in status or other event")
                         .element());
 
-        addSnippet(new Snippet("alert-variants", "Alert variants",
+        addHeader("alert-examples", "Alert examples",
+                "PatternFly supports several alert variants for different scenarios. Each variant has an associated status icon, background, and alert title coded to communicate the severity of an alert.");
+        addSnippet("alert-examples", new Snippet("alert-variants", "Alert variants",
                 code.get("alert-variants"), () ->
                 // @code-start:alert-variants
                 div()
@@ -84,10 +93,10 @@ public class AlertComponent extends SnippetPage {
                         .add(br())
                         .add(alert(danger, "Danger alert title"))
                         .element()
-        // @code-end:alert-variants
+                // @code-end:alert-variants
         ));
 
-        addSnippet(new Snippet("alert-variations", "Alert variations",
+        addSnippet("alert-examples", new Snippet("alert-variations", "Alert variations",
                 code.get("alert-variations"), () ->
                 // @code-start:alert-variations
                 div()
@@ -120,10 +129,10 @@ public class AlertComponent extends SnippetPage {
                         .add(br())
                         .add(alert(success, "Success alert title"))
                         .element()
-        // @code-end:alert-variations
+                // @code-end:alert-variations
         ));
 
-        addSnippet(new Snippet("alert-timeout", "Alert timeout",
+        addSnippet("alert-examples", new Snippet("alert-timeout", "Alert timeout",
                 code.get("alert-timeout"),
                 () -> {
                     // @code-start:alert-timeout
@@ -152,7 +161,7 @@ public class AlertComponent extends SnippetPage {
                     // @code-end:alert-timeout
                 }));
 
-        addSnippet(new Snippet("alert-expandable", "Expandable alerts",
+        addSnippet("alert-examples", new Snippet("alert-expandable", "Expandable alerts",
                 code.get("alert-expandable"), () ->
                 // @code-start:alert-expandable
                 div()
@@ -174,10 +183,10 @@ public class AlertComponent extends SnippetPage {
                                         .addAction("View details", (e, a) -> DomGlobal.alert("Clicked on View details"))
                                         .addAction("Ignore", (e, a) -> DomGlobal.alert("Clicked on Ignore"))))
                         .element()
-        // @code-end:alert-expandable
+                // @code-end:alert-expandable
         ));
 
-        addSnippet(new Snippet("alert-truncate", "Truncated alerts",
+        addSnippet("alert-examples", new Snippet("alert-truncate", "Truncated alerts",
                 code.get("alert-truncate"), () ->
                 // @code-start:alert-truncate
                 div()
@@ -187,10 +196,10 @@ public class AlertComponent extends SnippetPage {
                         .add(br())
                         .add(alert(danger, LoremIpsum.paragraphs(10)).truncate(3))
                         .element()
-        // @code-end:alert-truncate
+                // @code-end:alert-truncate
         ));
 
-        addSnippet(new Snippet("alert-custom-icons", "Custom icons",
+        addSnippet("alert-examples", new Snippet("alert-custom-icons", "Custom icons",
                 code.get("alert-custom-icons"), () ->
                 // @code-start:alert-custom-icons
                 div()
@@ -204,10 +213,10 @@ public class AlertComponent extends SnippetPage {
                         .add(br())
                         .add(alert(danger, "Danger alert title").icon(laptop))
                         .element()
-        // @code-end:alert-custom-icons
+                // @code-end:alert-custom-icons
         ));
 
-        addSnippet(new Snippet("alert-inline-variants", "Inline alert variants",
+        addSnippet("alert-examples", new Snippet("alert-inline-variants", "Inline alert variants",
                 code.get("alert-inline-types"), () ->
                 // @code-start:alert-inline-variants
                 div()
@@ -221,10 +230,10 @@ public class AlertComponent extends SnippetPage {
                         .add(br())
                         .add(alert(danger, "Danger inline alert title").inline())
                         .element()
-        // @code-end:alert-inline-variants
+                // @code-end:alert-inline-variants
         ));
 
-        addSnippet(new Snippet("alert-inline-variations", "Inline alert variations",
+        addSnippet("alert-examples", new Snippet("alert-inline-variations", "Inline alert variations",
                 code.get("alert-inline-variations"), () ->
                 // @code-start:alert-inline-variations
                 div()
@@ -262,10 +271,10 @@ public class AlertComponent extends SnippetPage {
                         .add(alert(success, "Success alert title")
                                 .inline())
                         .element()
-        // @code-end:alert-inline-variations
+                // @code-end:alert-inline-variations
         ));
 
-        addSnippet(new Snippet("alert-plain-inline-variants", "Plain inline alert variants",
+        addSnippet("alert-examples", new Snippet("alert-plain-inline-variants", "Plain inline alert variants",
                 code.get("alert-plain-inline-variants"), () ->
                 // @code-start:alert-plain-inline-variants
                 div()
@@ -279,10 +288,10 @@ public class AlertComponent extends SnippetPage {
                         .add(br())
                         .add(alert(danger, "Danger inline alert title").inline().plain())
                         .element()
-        // @code-end:alert-plain-inline-variants
+                // @code-end:alert-plain-inline-variants
         ));
 
-        addSnippet(new Snippet("alert-plain-inline-variations", "Plain inline alert variations",
+        addSnippet("alert-examples", new Snippet("alert-plain-inline-variations", "Plain inline alert variations",
                 code.get("alert-plain-inline-variations"), () ->
                 // @code-start:alert-plain-inline-variations
                 div()
@@ -291,10 +300,10 @@ public class AlertComponent extends SnippetPage {
                                 .addDescription(
                                         "Success alert description. This should tell the user more information about the alert."))
                         .element()
-        // @code-end:alert-plain-inline-variations
+                // @code-end:alert-plain-inline-variations
         ));
 
-        addSnippet(new Snippet("alert-static-live-region", "Static live region alerts",
+        addSnippet("alert-examples", new Snippet("alert-static-live-region", "Static live region alerts",
                 code.get("alert-static-live-region"), () ->
                 // @code-start:alert-static-live-region
                 div()
@@ -318,9 +327,11 @@ public class AlertComponent extends SnippetPage {
                                                 .add(code("liveRegion()"))
                                                 .add(" to specify ARIA attributes and CSS manually on the containing element."))))
                         .element()
-        // @code-end:alert-static-live-region
+                // @code-end:alert-static-live-region
         ));
 
+        addHeader("alert-groups", "Alert group examples",
+                "An alert group stacks and positions 2 or more alerts in a live region, either in a layer over the main content of a page or inline with the page content. Alert groups should always rank alerts by age, stacking new alerts on top of old ones as they surface.");
         addSnippet(new Snippet("alert-group-static-inline", "Static inline alert group",
                 code.get("alert-group-static-inline"), () ->
                 // @code-start:alert-group-static-inline
@@ -329,10 +340,10 @@ public class AlertComponent extends SnippetPage {
                                 .addAlert(alert(success, "Success alert").inline())
                                 .addAlert(alert(info, "Info alert"))) // inline is added automatically!
                         .element()
-        // @code-end:alert-group-static-inline
+                // @code-end:alert-group-static-inline
         ));
 
-        addSnippet(new Snippet("alert-group-toast", "Toast alert group",
+        addSnippet("alert-groups", new Snippet("alert-group-toast", "Toast alert group",
                 code.get("alert-group-toast"), () ->
                 // @code-start:alert-group-toast
                 div()
@@ -350,15 +361,15 @@ public class AlertComponent extends SnippetPage {
                                                 .onClick((e, b) -> alertGroup(toast)
                                                         .addAlert(alert(info, "Toast info alert"))))))
                         .element()
-        // @code-end:alert-group-toast
+                // @code-end:alert-group-toast
         ));
 
-        addSnippet(new Snippet("alert-group-asynchronous", "Asynchronous alert groups",
+        addSnippet("alert-groups", new Snippet("alert-group-asynchronous", "Asynchronous alert groups",
                 code.get("alert-group-asynchronous"),
                 () -> {
                     // @code-start:alert-group-asynchronous
-                    final int[] counter = { 0 };
-                    final double[] intervalHandle = { 0 };
+                    final int[] counter = {0};
+                    final double[] intervalHandle = {0};
                     return div()
                             .add(actionList()
                                     .addItem(actionListItem()
@@ -378,5 +389,12 @@ public class AlertComponent extends SnippetPage {
                             .element();
                     // @code-end:alert-group-asynchronous
                 }));
+
+        startApiDocs(Alert.class);
+        addApiDoc(Alert.class, component);
+        addApiDoc(AlertGroup.class, component);
+        addApiDoc(AlertGroupType.class, other);
+        addApiDoc(AlertActionGroup.class, subcomponent);
+        addApiDoc(AlertDescription.class, subcomponent);
     }
 }

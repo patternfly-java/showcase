@@ -46,8 +46,7 @@ import static org.patternfly.style.Size._2xl;
 public class DrawerComponent extends SnippetPage {
 
     public DrawerComponent() {
-        super("Drawer",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/drawer/Drawer.html",
+        super(Drawer.class, "Drawer",
                 "https://www.patternfly.org/components/drawer/design-guidelines",
                 p().textContent(
                                 "A drawer is a sliding panel that enters from the right edge of the viewport. It can be configured to either overlay content on a page or create a sidebar by pushing that content to the left.")

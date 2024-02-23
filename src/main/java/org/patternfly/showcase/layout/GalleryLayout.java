@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.gallery.Gallery;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -35,8 +36,7 @@ import static org.patternfly.style.Breakpoint.xl;
 public class GalleryLayout extends SnippetPage {
 
     public GalleryLayout() {
-        super("Gallery",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/gallery/Gallery.html",
+        super(Gallery.class, "Gallery",
                 "https://www.patternfly.org/layouts/gallery/design-guidelines",
                 p().textContent(
                         "The gallery layout is used to arrange content in a responsive grid. Content will wrap responsively to create uniform rows and columns.")

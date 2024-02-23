@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.panel.Panel;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,8 +28,7 @@ import static org.patternfly.showcase.Code.code;
 public class PanelComponent extends SnippetPage {
 
     public PanelComponent() {
-        super("Panel",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/panel/Panel.html",
+        super(Panel.class, "Panel",
                 "https://www.patternfly.org/components/panel/design-guidelines",
                 p().textContent(
                         "The panel component is a container that supports flexible content layouts. It can be used to house other components such as fields, forms, videos, buttons, and more. The panel should not be confused with the drawer component, which allows you to surface information via a collapsable container.")

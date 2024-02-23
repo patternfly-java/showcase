@@ -15,6 +15,9 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.actionlist.ActionList;
+import org.patternfly.component.actionlist.ActionListGroup;
+import org.patternfly.component.actionlist.ActionListItem;
 import org.patternfly.component.menu.Dropdown;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -33,6 +36,8 @@ import static org.patternfly.component.menu.MenuItem.actionMenuItem;
 import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
@@ -41,13 +46,13 @@ import static org.patternfly.style.PredefinedIcon.times;
 public class ActionListComponent extends SnippetPage {
 
     public ActionListComponent() {
-        super("Action list",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/actionlist/ActionList.html",
+        super(ActionList.class, "Action list",
                 "https://www.patternfly.org/components/action-list/design-guidelines",
                 p().textContent(
                         "An action list is a group of actions, controls, or buttons with set spacing.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("action-list-single-group", "Action list single group",
                 code.get("action-list-single-group"), () -> {
                     // @code-start:action-list-single-group
@@ -121,5 +126,10 @@ public class ActionListComponent extends SnippetPage {
                         .element()
         // @code-end:action-list-multiple-groups
         ));
+
+        startApiDocs(ActionList.class);
+        addApiDoc(ActionList.class, component);
+        addApiDoc(ActionListGroup.class, subcomponent);
+        addApiDoc(ActionListItem.class, subcomponent);
     }
 }

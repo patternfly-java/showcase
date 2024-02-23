@@ -46,8 +46,7 @@ import static org.patternfly.thirdparty.popper.TriggerAction.mouseenter;
 public class PopoverComponent extends SnippetPage {
 
     public PopoverComponent() {
-        super("Popover",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/popover/Popover.html",
+        super(Popover.class, "Popover",
                 "https://www.patternfly.org/components/popover/design-guidelines",
                 p().textContent(
                         "A popover is in-app messaging that provides more information on specific product areas. Popovers display content in a new window that overlays the current page. Unlike modals, popovers don't block the current page.")
@@ -157,8 +156,8 @@ public class PopoverComponent extends SnippetPage {
                     });
 
                     return div().style("width", "720px")
-                            .add(div().css("popover-box")
-                                    .add(button.css("popover-button").primary()
+                            .add(div().css("pfj-popover-box")
+                                    .add(button.css("pfj-popover-button").primary()
                                             .id("popover-advanced-button"))
                                     .add(popover(By.id("popover-advanced-button"))
                                             .placement(auto)

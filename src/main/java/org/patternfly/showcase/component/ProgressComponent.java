@@ -50,8 +50,7 @@ import static org.patternfly.style.Status.warning;
 public class ProgressComponent extends SnippetPage {
 
     public ProgressComponent() {
-        super("Progress",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/progress/Progress.html",
+        super(Progress.class, "Progress",
                 "https://www.patternfly.org/components/progress/design-guidelines",
                 p().textContent(
                                 "A progress bar informs users about the completion status of an ongoing process or task.")

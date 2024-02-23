@@ -45,8 +45,7 @@ import static org.patternfly.style.Classes.util;
 public class TextAreaComponent extends SnippetPage {
 
     public TextAreaComponent() {
-        super("Text area",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/TextArea.html",
+        super(TextArea.class, "Text area",
                 "https://www.patternfly.org/components/forms/text-area/design-guidelines",
                 p().textContent("A text area component is used for entering a paragraph of text that is longer than one line.")
                         .element());

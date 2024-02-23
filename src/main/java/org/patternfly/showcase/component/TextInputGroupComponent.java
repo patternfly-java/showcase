@@ -43,8 +43,7 @@ import static org.patternfly.style.PredefinedIcon.times;
 public class TextInputGroupComponent extends SnippetPage {
 
     public TextInputGroupComponent() {
-        super("Text input group",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/textinputgroup/TextInputGroup.html",
+        super(TextInputGroup.class, "Text input group",
                 "https://www.patternfly.org/components/text-input-group/design-guidelines",
                 p().textContent(
                         "A text input group is a more flexible composable version of a text input. It enables consumers of PatternFly to build custom inputs for filtering and similar use cases by placing elements like icons, chips groups and buttons within a text input.")

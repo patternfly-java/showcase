@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.form.Checkbox;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -29,8 +30,7 @@ import static org.patternfly.showcase.Code.code;
 public class RadioComponent extends SnippetPage {
 
     public RadioComponent() {
-        super("Checkbox",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/Radio.html",
+        super(Checkbox.class, "Checkbox",
                 "https://www.patternfly.org/components/forms/radio/design-guidelines",
                 p().textContent(
                         "A radio button is used to present the user with mutually exclusive choices. Always present radio buttons in groups of 2 or more.")

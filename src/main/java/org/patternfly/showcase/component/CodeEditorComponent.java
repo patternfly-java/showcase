@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.code.CodeEditor;
 import org.patternfly.showcase.Code;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -44,8 +45,7 @@ public class CodeEditorComponent extends SnippetPage {
             "              .textContent(\"This content is visible only when the component is expanded.\"))";
 
     public CodeEditorComponent() {
-        super("Code editor",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeEditor.html",
+        super(CodeEditor.class, "Code editor",
                 "https://www.patternfly.org/components/code-editor/design-guidelines",
                 p().textContent(
                         "A code editor is a versatile text editor that allows for editing various languages. ")

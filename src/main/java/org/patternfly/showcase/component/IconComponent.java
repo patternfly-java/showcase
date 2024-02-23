@@ -53,8 +53,7 @@ import static org.patternfly.style.Status.warning;
 public class IconComponent extends SnippetPage {
 
     public IconComponent() {
-        super("Icon",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/icon/Icon.html",
+        super(Icon.class, "Icon",
                 "https://www.patternfly.org/design-foundations/icons/",
                 p().textContent(
                         "An icon component is a container that allows for icons of varying dimensions, as well as spinners, to seamlessly replace each other without shifting surrounding content.")

@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.form.Form;
 import org.patternfly.component.form.FormSelectOption;
 import org.patternfly.component.popover.Popover;
 import org.patternfly.showcase.Snippet;
@@ -64,8 +65,7 @@ import static org.patternfly.style.PredefinedIcon.trash;
 public class FormComponent extends SnippetPage {
 
     public FormComponent() {
-        super("Form",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/Form.html",
+        super(Form.class, "Form",
                 "https://www.patternfly.org/components/forms/form/design-guidelines",
                 p().textContent(
                         "A form is a group of elements used to collect information from a user in a variety of contexts including in a modal, in a wizard, or on a page. Use cases for forms include tasks reliant on user-inputted information for completion like logging in, registering, configuring settings, or completing surveys.")

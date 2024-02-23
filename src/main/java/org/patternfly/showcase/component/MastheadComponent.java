@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.icon.Icon;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -26,8 +27,7 @@ import static org.patternfly.showcase.Code.code;
 public class MastheadComponent extends SnippetPage {
 
     public MastheadComponent() {
-        super("Icon",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/page/Masthead.html",
+        super(Icon.class, "Icon",
                 "https://www.patternfly.org/components/masthead/design-guidelines",
                 p().textContent(
                         "A masthead contains global properties such as logotype, navigation and settings in an organized fashion and it is accessible from all parts of the application. All pages should share a common masthead.")

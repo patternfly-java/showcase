@@ -20,7 +20,6 @@ import java.util.Random;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.tabs.Tab;
-import org.patternfly.component.tabs.TabContent;
 import org.patternfly.component.tabs.Tabs;
 import org.patternfly.handler.CloseHandler;
 import org.patternfly.showcase.LoremIpsum;
@@ -43,8 +42,6 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.popover.Popover.popover;
-import static org.patternfly.component.tabs.ExpandableModifier.expandable;
-import static org.patternfly.component.tabs.ExpandableModifier.nonExpandable;
 import static org.patternfly.component.tabs.Tab.tab;
 import static org.patternfly.component.tabs.TabContent.tabContent;
 import static org.patternfly.component.tabs.TabContentBody.tabContentBody;
@@ -58,6 +55,8 @@ import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.xl;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.ExpandableModifier.expandable;
+import static org.patternfly.style.ExpandableModifier.nonExpandable;
 import static org.patternfly.style.PredefinedIcon.box;
 import static org.patternfly.style.PredefinedIcon.database;
 import static org.patternfly.style.PredefinedIcon.fas;
@@ -68,8 +67,7 @@ import static org.patternfly.style.PredefinedIcon.users;
 public class TabsComponent extends SnippetPage {
 
     public TabsComponent() {
-        super("Tabs",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/tabs/Tabs.html",
+        super(Tabs.class, "Tabs",
                 "https://www.patternfly.org/components/tabs/design-guidelines",
                 p().textContent("Tabs allow users to navigate between views within the same page or context.").element());
 
@@ -449,13 +447,6 @@ public class TabsComponent extends SnippetPage {
                 // @code-end:tabs-body-padding
         ));
 
-        Promise<TabContent> promise = new Promise<TabContent>((resolve, reject) -> {
-            int timeout = 2 + new Random().nextInt(4);
-            setTimeout(__ -> {
-                resolve.onInvoke(tabContent());
-            }, timeout);
-        });
-
         addSnippet(new Snippet("tabs-promise", "Children mounting on click",
                 code.get("tabs-promise"), () ->
                 // @code-start:tabs-promise
@@ -494,6 +485,7 @@ public class TabsComponent extends SnippetPage {
                 code.get("tabs-dynamic"), () -> {
             // @code-start:tabs-dynamic
             int[] counter = new int[]{6};
+            //noinspection Convert2Diamond
             CloseHandler<Tab> closeHandler = new CloseHandler<Tab>() {
                 @Override
                 public boolean shouldClose(Event event, Tab tab) {

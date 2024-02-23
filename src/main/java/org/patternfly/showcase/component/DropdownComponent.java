@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.menu.Dropdown;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -41,8 +42,7 @@ import static org.patternfly.style.PredefinedIcon.ellipsisV;
 public class DropdownComponent extends SnippetPage {
 
     public DropdownComponent() {
-        super("Dropdown",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/menu/Dropdown.html",
+        super(Dropdown.class, "Dropdown",
                 "https://www.patternfly.org/components/menus/dropdown/design-guidelines/",
                 p().textContent(
                         "A dropdown presents a menu of actions or links in a constrained space that will trigger a process or navigate to a new location. See select component guidelines for more information about making one or more selections from a list of items in a value list.")

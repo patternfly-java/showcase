@@ -15,15 +15,28 @@
  */
 package org.patternfly.showcase;
 
-import java.util.Iterator;
+import org.patternfly.style.Color;
 
-import elemental2.dom.HTMLElement;
+import static org.patternfly.style.Color.blue;
+import static org.patternfly.style.Color.cyan;
+import static org.patternfly.style.Color.grey;
+import static org.patternfly.style.Color.orange;
 
-public interface Page extends Iterable<HTMLElement> {
+public enum ApiDocType {
 
-    default Iterator<HTMLElement> iterator() {
-        return elements().iterator();
+    component("Component", blue),
+
+    subcomponent("Subcomponent", cyan),
+
+    modifier("Modifier", orange),
+
+    other("Other", grey);
+
+    final String name;
+    final Color color;
+
+    ApiDocType(String name, Color color) {
+        this.name = name;
+        this.color = color;
     }
-
-    Iterable<HTMLElement> elements();
 }

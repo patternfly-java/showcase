@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.grid.Grid;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -35,8 +36,7 @@ import static org.patternfly.style.Breakpoints.breakpoints;
 public class GridLayout extends SnippetPage {
 
     public GridLayout() {
-        super("Grid",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/grid/Grid.html",
+        super(Grid.class, "Grid",
                 "https://www.patternfly.org/layouts/grid/design-guidelines",
                 p().textContent("The grid layout places content on a fixed 12 column grid.").element());
 

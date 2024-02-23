@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.bullseye.Bullseye;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,8 +28,7 @@ import static org.patternfly.showcase.Code.code;
 public class BullseyeLayout extends SnippetPage {
 
     public BullseyeLayout() {
-        super("Bullseye",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/bullseye/Bullseye.html",
+        super(Bullseye.class, "Bullseye",
                 "https://www.patternfly.org/layouts/bullseye/design-guidelines",
                 p().textContent(
                         "The bullseye layout centers content, both vertically and horizontally within a container.")

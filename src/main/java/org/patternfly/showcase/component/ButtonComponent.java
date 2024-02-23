@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.button.Button;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -23,6 +24,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.core.IconPosition.end;
+import static org.patternfly.core.IconPosition.start;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.arrowRight;
@@ -35,18 +38,22 @@ import static org.patternfly.style.PredefinedIcon.upload;
 public class ButtonComponent extends SnippetPage {
 
     public ButtonComponent() {
-        super("Button",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/button/Button.html",
+        super(Button.class, "Button",
                 "https://www.patternfly.org/components/button/design-guidelines",
-                p().textContent("Buttons communicate and trigger actions a user can take in an application or website.")
+                p().textContent(
+                                "A button is a box area or text that communicates and triggers user actions when clicked or selected. Buttons can be used to communicate and immediately trigger actions a user can take in an application, like submitting a form, canceling a process, or creating a new object. Buttons can also be used to take a user to a new location, like another page inside of a web application, or an external site such as help or documentation.")
                         .element());
 
+        startExamples(
+                "PatternFly supports several button styling variants to be used in different scenarios as needed. Take a look at the code to see how to apply the different variants.");
         addSnippet(new Snippet("button-variant-examples", "Variant examples",
                 code.get("button-variant-examples"), () ->
                 // @code-start:button-variant-examples
                 div()
                         .add(div()
                                 .add(button("Primary").primary())
+                                .add(" ")
+                                .add(button().primary().iconAndText(externalLinkSquareAlt, "Primary with icon", start))
                                 .add(" ")
                                 .add(button("Secondary").secondary())
                                 .add(" ")
@@ -72,7 +79,7 @@ public class ButtonComponent extends SnippetPage {
                                 .add(" ")
                                 .add(button().icon(copy).control()))
                         .element()
-        // @code-end:button-variant-examples
+                // @code-end:button-variant-examples
         ));
 
         addSnippet(new Snippet("button-disabled", "Disabled buttons",
@@ -104,7 +111,7 @@ public class ButtonComponent extends SnippetPage {
                                 .add(" ")
                                 .add(button().icon(copy).control().disabled()))
                         .element()
-        // @code-end:button-disabled
+                // @code-end:button-disabled
         ));
 
         addSnippet(new Snippet("button-small", "Small buttons",
@@ -123,7 +130,7 @@ public class ButtonComponent extends SnippetPage {
                         .add(" ")
                         .add(button("Warning").warning().small())
                         .element()
-        // @code-end:button-small
+                // @code-end:button-small
         ));
 
         addSnippet(new Snippet("button-cta", "Call to action (CTA) buttons",
@@ -138,7 +145,7 @@ public class ButtonComponent extends SnippetPage {
                         .add(" ")
                         .add(button().iconAndText(arrowRight, "Call to action", end).link().callToAction())
                         .element()
-        // @code-end:button-cta
+                // @code-end:button-cta
         ));
 
         addSnippet(new Snippet("button-block-level", "Block level buttons",
@@ -147,7 +154,7 @@ public class ButtonComponent extends SnippetPage {
                 div()
                         .add(button("Block level button").primary().block())
                         .element()
-        // @code-end:button-block-level
+                // @code-end:button-block-level
         ));
 
         addSnippet(new Snippet("button-progress", "Progress indicators",
@@ -188,7 +195,7 @@ public class ButtonComponent extends SnippetPage {
                                             }
                                         })))
                         .element()
-        // @code-end:button-progress
+                // @code-end:button-progress
         ));
 
         addSnippet(new Snippet("button-block-links", "Links as buttons",
@@ -205,7 +212,7 @@ public class ButtonComponent extends SnippetPage {
                         .add(button("Jump to lifecycle in developer contributions",
                                 "https://www.patternfly.org/get-started/contribute/developer-contributions#lifecycle").link())
                         .element()
-        // @code-end:button-block-links
+                // @code-end:button-block-links
         ));
 
         addSnippet(new Snippet("button-count", "Button with count",
@@ -257,7 +264,10 @@ public class ButtonComponent extends SnippetPage {
                                 .add(" ")
                                 .add(button("View issues").link().disabled().addBadge(badge(10).read())))
                         .element()
-        // @code-end:button-count
+                // @code-end:button-count
         ));
+
+        startApiDocs(Button.class);
+        addApiDoc(Button.class, component);
     }
 }

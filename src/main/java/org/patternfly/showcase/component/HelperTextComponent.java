@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.help.HelperText;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -36,8 +37,7 @@ import static org.patternfly.style.PredefinedIcon.times;
 public class HelperTextComponent extends SnippetPage {
 
     public HelperTextComponent() {
-        super("Helper text",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/help/HelperText.html",
+        super(HelperText.class, "Helper text",
                 "https://www.patternfly.org/components/helper-text/design-guidelines",
                 p().textContent(
                         "Helper text is an on-screen field guideline that helps provide context regarding field inputs.")

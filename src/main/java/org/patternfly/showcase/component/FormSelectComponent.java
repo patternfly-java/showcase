@@ -44,8 +44,7 @@ import static org.patternfly.showcase.Code.code;
 public class FormSelectComponent extends SnippetPage {
 
     public FormSelectComponent() {
-        super("Form select",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/FormSelect.html",
+        super(FormSelect.class, "Form select",
                 "https://www.patternfly.org/components/forms/form-select/design-guidelines",
                 p().textContent("A form select embeds browser native select lists into a form.")
                         .element());

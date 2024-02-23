@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.By;
+import org.patternfly.component.inputgroup.InputGroup;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -45,8 +46,7 @@ import static org.patternfly.thirdparty.popper.Placement.top;
 public class InputGroupComponent extends SnippetPage {
 
     public InputGroupComponent() {
-        super("Input group",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/inputgroup/InputGroup.html",
+        super(InputGroup.class, "Input group",
                 "https://www.patternfly.org/components/input-group/design-guidelines",
                 p().textContent(
                                 "An input group groups multiple related controls or inputs together so they appear as one control.")

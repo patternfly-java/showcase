@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.menu.MenuToggle;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -35,8 +36,7 @@ import static org.patternfly.style.PredefinedIcon.ellipsisV;
 public class MenuToggleComponent extends SnippetPage {
 
     public MenuToggleComponent() {
-        super("Menu toggle",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/menu/MenuToggle.html",
+        super(MenuToggle.class, "Menu toggle",
                 "https://www.patternfly.org/components/menus/menu-toggle/html/",
                 p().textContent(
                         "The menu toggle component pairs with the menu OR the panel component to create more customizable dropdown and select implementations. Using a menu toggle with a menu enables you to create custom component configurations not supported by the standard dropdown or select components.")

@@ -18,6 +18,7 @@ package org.patternfly.showcase.component;
 import java.util.List;
 
 import org.jboss.elemento.Id;
+import org.patternfly.component.form.FormControl;
 import org.patternfly.component.form.FormSelectOption;
 import org.patternfly.core.Tuples;
 import org.patternfly.showcase.Snippet;
@@ -46,8 +47,7 @@ import static org.patternfly.style.PredefinedIcon.fas;
 public class FormControlComponent extends SnippetPage {
 
     public FormControlComponent() {
-        super("Form control",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/FormControl.html",
+        super(FormControl.class, "Form control",
                 "https://www.patternfly.org/components/forms/form-control/design-guidelines",
                 p().textContent(
                         "Form controls refer to the different visual states that data input components can take to help guide users in completing forms.")

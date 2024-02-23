@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.list.List;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -31,8 +32,7 @@ import static org.patternfly.style.PredefinedIcon.key;
 public class ListComponent extends SnippetPage {
 
     public ListComponent() {
-        super("List",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/list/List.html",
+        super(List.class, "List",
                 "https://www.patternfly.org/components/list/design-guidelines",
                 p().textContent("A list component embeds a formatted list (bulleted or numbered list) into page content.")
                         .element());

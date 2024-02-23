@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.Id;
+import org.patternfly.component.list.SimpleList;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -31,8 +32,7 @@ import static org.patternfly.showcase.Code.code;
 public class SimpleListComponent extends SnippetPage {
 
     public SimpleListComponent() {
-        super("Simple list",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/list/SimpleList.html",
+        super(SimpleList.class, "Simple list",
                 "https://www.patternfly.org/components/simple-list/design-guidelines",
                 p().textContent(
                                 "A simple list provides a list of selectable items that can be shown within a page. Each item is described by a text label. The list may be divided into logical sections by introducing group headers.")

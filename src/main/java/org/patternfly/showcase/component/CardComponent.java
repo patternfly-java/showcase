@@ -17,6 +17,12 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.card.Card;
 import org.patternfly.component.card.CardActions;
+import org.patternfly.component.card.CardBody;
+import org.patternfly.component.card.CardExpandableContent;
+import org.patternfly.component.card.CardFooter;
+import org.patternfly.component.card.CardHeader;
+import org.patternfly.component.card.CardSelectableActions;
+import org.patternfly.component.card.CardTitle;
 import org.patternfly.component.menu.Dropdown;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -45,6 +51,8 @@ import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.core.SelectionMode.single;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.noFill;
@@ -54,13 +62,13 @@ import static org.patternfly.style.PredefinedIcon.ellipsisV;
 public class CardComponent extends SnippetPage {
 
     public CardComponent() {
-        super("Card",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/card/Card.html",
+        super(Card.class, "Card",
                 "https://www.patternfly.org/components/card/design-guidelines",
                 p().textContent(
                         "A card is a square or rectangular container that can contain any kind of content. Cards symbolize units of information, and each one acts as an entry point for users to access more details. For example, in dashboards and catalog views, cards function as a preview of a detailed page. Cards may also be used in data displays like card views, or for positioning content on a page.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("card-basic", "Basic cards",
                 code.get("card-basic"), () ->
                 // @code-start:card-basic
@@ -465,5 +473,15 @@ public class CardComponent extends SnippetPage {
                             .element();
                     // @code-end:card-expandable-image
                 }));
+
+        startApiDocs(Card.class);
+        addApiDoc(Card.class, component);
+        addApiDoc(CardActions.class, subcomponent);
+        addApiDoc(CardBody.class, subcomponent);
+        addApiDoc(CardExpandableContent.class, subcomponent);
+        addApiDoc(CardFooter.class, subcomponent);
+        addApiDoc(CardHeader.class, subcomponent);
+        addApiDoc(CardSelectableActions.class, subcomponent);
+        addApiDoc(CardTitle.class, subcomponent);
     }
 }

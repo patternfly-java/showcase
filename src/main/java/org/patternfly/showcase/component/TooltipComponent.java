@@ -37,8 +37,7 @@ import static org.patternfly.thirdparty.popper.Placement.auto;
 public class TooltipComponent extends SnippetPage {
 
     public TooltipComponent() {
-        super("Tooltip",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/tooltip/Tooltip.html",
+        super(Tooltip.class, "Tooltip",
                 "https://www.patternfly.org/components/tooltip/design-guidelines",
                 p().textContent(
                         "A tooltip is in-app messaging used to identify elements on a page with short, clarifying text.")
@@ -83,8 +82,8 @@ public class TooltipComponent extends SnippetPage {
                         button.element().scrollIntoView(options);
                     });
                     return div().style("width", "720px")
-                            .add(div().css("tooltip-box")
-                                    .add(button.css("tooltip-button").primary()
+                            .add(div().css("pfj-tooltip-box")
+                                    .add(button.css("pfj-tooltip-button").primary()
                                             .id("tooltip-options-button"))
                                     .add(tooltip(By.id("tooltip-options-button"), LoremIpsum.words())
                                             .placement(auto)))

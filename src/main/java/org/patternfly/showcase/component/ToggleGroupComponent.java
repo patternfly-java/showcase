@@ -40,8 +40,7 @@ import static org.patternfly.style.PredefinedIcon.undo;
 public class ToggleGroupComponent extends SnippetPage {
 
     public ToggleGroupComponent() {
-        super("ToggleGroup",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/togglegroup/ToggleGroup.html",
+        super(ToggleGroup.class, "ToggleGroup",
                 "https://www.patternfly.org/components/toggle-group/design-guidelines",
                 p().textContent(
                                 "A toggle group is a group of controls that can be used to quickly switch between actions or states.")

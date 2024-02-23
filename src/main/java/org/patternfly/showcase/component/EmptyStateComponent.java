@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.emptystate.EmptyState;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -39,8 +40,7 @@ import static org.patternfly.style.Variable.globalVar;
 public class EmptyStateComponent extends SnippetPage {
 
     public EmptyStateComponent() {
-        super("Empty state",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/emptystate/EmptyState.html",
+        super(EmptyState.class, "Empty state",
                 "https://www.patternfly.org/components/empty-state/design-guidelines",
                 p().textContent(
                         "An empty state is a screen that is not yet populated with data or information. Empty states typically contain a short message and next steps for the user.")

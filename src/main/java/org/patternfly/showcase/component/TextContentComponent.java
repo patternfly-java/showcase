@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.text.TextContent;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -39,8 +40,7 @@ import static org.patternfly.style.Classes.plain;
 public class TextContentComponent extends SnippetPage {
 
     public TextContentComponent() {
-        super("Text",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/text/TextContent.html",
+        super(TextContent.class, "Text",
                 "https://www.patternfly.org/components/text/design-guidelines",
                 p().textContent(
                         "Text and TextList components are always wrapped in TextContent and provide correct formatting to a number of standard HTML tags.")

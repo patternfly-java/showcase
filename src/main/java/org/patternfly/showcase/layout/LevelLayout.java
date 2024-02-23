@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.level.Level;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,8 +28,7 @@ import static org.patternfly.showcase.Code.code;
 public class LevelLayout extends SnippetPage {
 
     public LevelLayout() {
-        super("Level",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/level/Level.html",
+        super(Level.class, "Level",
                 "https://www.patternfly.org/layouts/level/design-guidelines",
                 p().textContent(
                         "Use a Level layout to evenly distribute content horizontally within a container.")

@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.banner.Banner;
 import org.patternfly.core.Aria;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -30,6 +31,7 @@ import static org.patternfly.core.Attributes.role;
 import static org.patternfly.layout.flex.Flex.flex;
 import static org.patternfly.layout.flex.FlexItem.flexItem;
 import static org.patternfly.layout.flex.SpaceItems.sm;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
@@ -48,14 +50,15 @@ import static org.patternfly.style.PredefinedIcon.infoCircle;
 public class BannerComponent extends SnippetPage {
 
     public BannerComponent() {
-        super("Banner",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/banner/Banner.html",
+        super(Banner.class, "Banner",
                 "https://www.patternfly.org/components/banner/design-guidelines",
                 p().textContent(
-                        "A banner is a 1-line, full color, full width container that can be used to communicate short snippets of information to users. Banners are un-intrusive and non-dismissible.")
+                                "A banner is a 1-line, full color, full width container that can be used to communicate short snippets of information to users. Banners are un-intrusive and non-dismissible.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("banner-basic", "Basic",
+                "Banners can be styled with one of 5 different colors. A basic banner should only be used when the banner color does not represent status or severity.",
                 code.get("banner-basic"), () ->
                 // @code-start:banner-basic
                 div()
@@ -69,7 +72,7 @@ public class BannerComponent extends SnippetPage {
                         .add(br())
                         .add(banner("Gold banner", gold))
                         .element()
-        // @code-end:banner-basic
+                // @code-end:banner-basic
         ));
 
         addSnippet(new Snippet("banner-links", "Banner with links",
@@ -105,10 +108,11 @@ public class BannerComponent extends SnippetPage {
                                 .add(button("disabled inline link button")
                                         .link().inline().disabled()))
                         .element()
-        // @code-end:banner-links
+                // @code-end:banner-links
         ));
 
         addSnippet(new Snippet("banner-status", "Status",
+                "When a banner is used to convey status, it is advised to pass in an icon inside the banner to convey the status in a way besides just color. The screenReader() method should also be passed in to convey the status/severity of the banner to users of certain assistive technologies such as screen readers.",
                 code.get("banner-status"), () ->
                 // @code-start:banner-status
                 div()
@@ -137,7 +141,10 @@ public class BannerComponent extends SnippetPage {
                                         .addItem(flexItem().add(inlineIcon(exclamationTriangle)))
                                         .addItem(flexItem().textContent("Warning"))))
                         .element()
-        // @code-end:banner-status
+                // @code-end:banner-status
         ));
+
+        startApiDocs(Banner.class);
+        addApiDoc(Banner.class, component);
     }
 }

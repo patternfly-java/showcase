@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.patternfly.component.switch_.Switch;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,8 +28,7 @@ import static org.patternfly.showcase.Code.code;
 public class SwitchComponent extends SnippetPage {
 
     public SwitchComponent() {
-        super("Switch",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/switch_/Switch.html",
+        super(Switch.class, "Switch",
                 "https://www.patternfly.org/components/switch/design-guidelines",
                 p().textContent(
                                 "A switch toggles the state of a setting (between on and off). Switches and checkboxes can often be used interchangeably, but the switch provides a more explicit, visible representation on a setting.")
