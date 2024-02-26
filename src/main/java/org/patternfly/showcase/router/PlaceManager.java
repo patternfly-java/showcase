@@ -1,6 +1,23 @@
+/*
+ *  Copyright 2023 Red Hat
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
 package org.patternfly.showcase.router;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -8,6 +25,9 @@ import java.util.function.Supplier;
 import org.jboss.elemento.By;
 import org.jboss.elemento.Elements;
 
+import elemental2.dom.Element;
+import elemental2.dom.Event;
+import elemental2.dom.EventTarget;
 import elemental2.dom.HTMLAnchorElement;
 import elemental2.dom.HTMLElement;
 import elemental2.dom.URL;
@@ -30,109 +50,193 @@ public class PlaceManager {
 
     // ------------------------------------------------------ instance
 
-    private static final Place NOT_FOUND = new Place("__404__");
+    private static final Place NOT_FOUND = new Place("/404", "Not found");
 
-    private final Function<Place, Page> notFound;
     private final Map<String, Place> routes;
     private final Map<Place, Supplier<Page>> places;
-    private final Map<Place, Page> cache;
+    private final List<BeforePlaceHandler> beforeHandlers;
+    private final List<AfterPlaceHandler> afterHandlers;
     private Supplier<HTMLElement> root;
+    private Function<String, String> title;
+    private Function<Place, Page> notFound;
+    private By linkSelector;
 
-    public PlaceManager(Function<Place, Page> notFound) {
-        this.notFound = notFound;
-        this.root = () -> document.body;
+    public PlaceManager() {
         this.routes = new HashMap<>();
         this.places = new HashMap<>();
-        this.cache = new HashMap<>();
+        this.beforeHandlers = new ArrayList<>();
+        this.afterHandlers = new ArrayList<>();
+        this.root = () -> document.body;
+        this.title = Function.identity();
+        this.notFound = place -> new DefaultNotFound();
+        this.linkSelector = null;
+    }
+
+    // ------------------------------------------------------ builder
+
+    public PlaceManager root(String selector) {
+        return root(() -> Elements.find(document, By.selector(selector)));
+    }
+
+    public PlaceManager root(By selector) {
+        return root(() -> Elements.find(document, selector));
+    }
+
+    public PlaceManager root(HTMLElement element) {
+        return root(() -> element);
+    }
+
+    public PlaceManager root(Supplier<HTMLElement> root) {
+        this.root = root;
+        return this;
+    }
+
+    public PlaceManager title(Function<String, String> title) {
+        this.title = title;
+        return this;
+    }
+
+    public PlaceManager notFound(Function<Place, Page> notFound) {
+        this.notFound = notFound;
+        return this;
+    }
+
+    public PlaceManager beforePlace(BeforePlaceHandler beforePlace) {
+        beforeHandlers.add(beforePlace);
+        return this;
+    }
+
+    public PlaceManager afterPlace(AfterPlaceHandler afterPlace) {
+        afterHandlers.add(afterPlace);
+        return this;
+    }
+
+    public PlaceManager linkSelector(String selector) {
+        return linkSelector(By.selector(selector));
+    }
+
+    public PlaceManager linkSelector(By selector) {
+        this.linkSelector = selector;
+        return this;
     }
 
     // ------------------------------------------------------ api
+
+    public Place place(String route) {
+        return routes.getOrDefault(route, NOT_FOUND);
+    }
 
     public void register(Place place, Supplier<Page> page) {
         routes.put(place.route, place);
         places.put(place, page);
     }
 
-    public void start(String selector) {
-        start(() -> Elements.find(document, By.selector(selector)));
+    public void start() {
+        bindClickHandler();
+        bindHistoryHandler();
+        Place place = place(location.pathname);
+        if (place != null) {
+            if (internalGoto(place)) {
+                history.replaceState(place.route, "", location.pathname);
+            }
+        }
     }
 
-    public void start(By selector) {
-        start(() -> Elements.find(document, selector));
+    public void goTo(Place place) {
+        if (place != null) {
+            if (internalGoto(place)) {
+                history.pushState(place.route, "", place.route);
+            }
+        }
     }
 
-    public void start(HTMLElement element) {
-        start(() -> element);
-    }
+    // ------------------------------------------------------ internal
 
-    public void start(Supplier<HTMLElement> root) {
-        this.root = root;
-
-        // bind document click and handle links with registered places
+    private void bindClickHandler() {
         bind(document, click, e -> {
-            if (e.target instanceof HTMLAnchorElement) {
-                String href = ((HTMLAnchorElement) e.target).href;
-                Place place = place(href);
-                if (place != null) {
-                    e.preventDefault();
-                    goTo(place);
+            String href = href(e);
+            if (href != null) {
+                URL url = new URL(href, location.origin);
+                if (url.hash == null || url.hash.isEmpty()) {
+                    Place place = place(url.pathname);
+                    if (place != null) {
+                        e.preventDefault();
+                        internalGoto(place);
+                        history.pushState(place.route, "", place.route);
+                    }
                 }
             }
         });
+    }
 
-        // handle browser back/forward
+    private String href(Event event) {
+        String href = null;
+        HTMLAnchorElement anchorElement = null;
+
+        EventTarget target = event.target;
+        if (target instanceof HTMLAnchorElement) {
+            anchorElement = ((HTMLAnchorElement) target);
+        } else {
+            HTMLElement closest = Elements.closest(((Element) target), By.element("a"));
+            if (closest instanceof HTMLAnchorElement) {
+                anchorElement = ((HTMLAnchorElement) closest);
+            }
+        }
+        if (anchorElement != null) {
+            if (linkSelector != null) {
+                if (anchorElement.matches(linkSelector.toString())) {
+                    href = anchorElement.href;
+                }
+            } else {
+                href = anchorElement.href;
+            }
+        }
+        return href;
+    }
+
+    private void bindHistoryHandler() {
         bind(window, popstate, event -> {
             if (event.state != null) {
                 String route = String.valueOf(event.state);
                 Place place = place(route);
                 if (place != null) {
-                    Page page = page(place);
-                    showPage(page);
+                    internalGoto(place);
                 }
             }
         });
-
-        // go to home page (w/o pushing state)
-        Place place = place(location.href);
-        showPage(page(place));
-        history.replaceState(place.route, "", location.href);
     }
 
-    public void goTo(Place place) {
-        showPage(page(place));
-        history.pushState(place.route, "", place.route);
-    }
-
-    // ------------------------------------------------------ internal
-
-    private Place place(String route) {
-        return routes.get(pathname(route));
+    private boolean internalGoto(Place place) {
+        for (BeforePlaceHandler handler : beforeHandlers) {
+            if (!handler.shouldGoTo(this, place)) {
+                return false;
+            }
+        }
+        Page page = page(place);
+        if (place.title != null) {
+            document.title = this.title.apply(place.title);
+        }
+        HTMLElement rootElement = place.root != null ? place.root.get() : root.get();
+        removeChildrenFrom(rootElement);
+        for (HTMLElement e : page.elements()) {
+            rootElement.appendChild(e);
+        }
+        for (AfterPlaceHandler handler : afterHandlers) {
+            handler.afterPlace(this, place, page);
+        }
+        return true;
     }
 
     private Page page(Place place) {
         if (place != null) {
-            if (cache.containsKey(place)) {
-                return cache.get(place);
+            if (places.containsKey(place)) {
+                Supplier<Page> supplier = places.get(place);
+                return supplier.get();
             } else {
-                if (places.containsKey(place)) {
-                    Supplier<Page> supplier = places.get(place);
-                    Page page = supplier.get();
-                    cache.put(place, page);
-                    return page;
-                } else {
-                    return notFound(place);
-                }
+                return notFound(place);
             }
         } else {
             return notFound(NOT_FOUND);
-        }
-    }
-
-    private void showPage(Page page) {
-        HTMLElement rootElement = root.get();
-        removeChildrenFrom(rootElement);
-        for (HTMLElement e : page.elements()) {
-            rootElement.appendChild(e);
         }
     }
 
@@ -142,10 +246,6 @@ public class PlaceManager {
         } else {
             return new DefaultNotFound();
         }
-    }
-
-    private String pathname(String route) {
-        return new URL(route, location.origin).pathname;
     }
 
     private static class DefaultNotFound implements Page {
