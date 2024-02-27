@@ -16,6 +16,8 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.truncate.Truncate;
+import org.patternfly.component.truncate.TruncatePosition;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -25,6 +27,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.truncate.Truncate.truncate;
 import static org.patternfly.component.truncate.TruncatePosition.middle;
 import static org.patternfly.component.truncate.TruncatePosition.start;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.modifier;
 import static org.patternfly.showcase.Code.code;
 
 public class TruncateComponent extends SnippetPage {
@@ -36,6 +40,7 @@ public class TruncateComponent extends SnippetPage {
                                 "A truncate is a tool used to shorten numeric and non-numeric character strings, typically when the string overflows its container.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("truncate-default", "Default",
                 code.get("truncate-default"), () ->
                 // @code-start:truncate-default
@@ -62,5 +67,9 @@ public class TruncateComponent extends SnippetPage {
                         .element()
                 // @code-end:truncate-start
         ));
+
+        startApiDocs(Truncate.class);
+        addApiDoc(Truncate.class, component);
+        addApiDoc(TruncatePosition.class, modifier);
     }
 }

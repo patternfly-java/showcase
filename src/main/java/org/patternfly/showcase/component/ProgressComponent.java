@@ -17,7 +17,9 @@ package org.patternfly.showcase.component;
 
 import org.jboss.elemento.Id;
 import org.patternfly.component.help.HelperText;
+import org.patternfly.component.progress.MeasureLocation;
 import org.patternfly.component.progress.Progress;
+import org.patternfly.component.progress.ProgressLabel;
 import org.patternfly.core.Tuple;
 import org.patternfly.core.Tuples;
 import org.patternfly.showcase.LoremIpsum;
@@ -39,6 +41,9 @@ import static org.patternfly.component.progress.MeasureLocation.none;
 import static org.patternfly.component.progress.MeasureLocation.outside;
 import static org.patternfly.component.progress.Progress.progress;
 import static org.patternfly.core.Tuples.tuples;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.modifier;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Size.lg;
 import static org.patternfly.style.Size.sm;
@@ -56,6 +61,7 @@ public class ProgressComponent extends SnippetPage {
                                 "A progress bar informs users about the completion status of an ongoing process or task.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("progress-basic", "Basic",
                 code.get("progress-basic"), () ->
                 // @code-start:progress-basic
@@ -298,5 +304,10 @@ public class ProgressComponent extends SnippetPage {
                     .element();
             // @code-end:progress-helper-text
         }));
+
+        startApiDocs(Progress.class);
+        addApiDoc(MeasureLocation.class, modifier);
+        addApiDoc(Progress.class, component);
+        addApiDoc(ProgressLabel.class, subcomponent);
     }
 }

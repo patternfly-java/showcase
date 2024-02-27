@@ -18,6 +18,11 @@ package org.patternfly.showcase.component;
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.Id;
 import org.patternfly.component.slider.Slider;
+import org.patternfly.component.slider.SliderActions;
+import org.patternfly.component.slider.SliderInputPosition;
+import org.patternfly.component.slider.SliderStep;
+import org.patternfly.component.slider.SliderSteps;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -41,6 +46,9 @@ import static org.patternfly.component.slider.SliderActions.sliderActions;
 import static org.patternfly.component.slider.SliderInputPosition.aboveThumb;
 import static org.patternfly.component.slider.SliderStep.sliderStep;
 import static org.patternfly.component.slider.SliderSteps.sliderSteps;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.other;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.lock;
 import static org.patternfly.style.PredefinedIcon.lockOpen;
@@ -57,6 +65,7 @@ public class SliderComponent extends SnippetPage {
                                 "A slider provides a quick and effective way for users to set and adjust a numeric value from a defined range of values.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("slider-discrete", "Discrete",
                 code.get("slider-discrete"), () -> {
             // @code-start:slider-discrete
@@ -283,5 +292,12 @@ public class SliderComponent extends SnippetPage {
                     .element();
             // @code-end:slider-disabled
         }));
+
+        startApiDocs(Slider.class);
+        addApiDoc(Slider.class, component);
+        addApiDoc(SliderActions.class, subcomponent);
+        addApiDoc(SliderInputPosition.class, other);
+        addApiDoc(SliderStep.class, other);
+        addApiDoc(SliderSteps.class, other);
     }
 }

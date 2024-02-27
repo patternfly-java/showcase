@@ -18,6 +18,10 @@ package org.patternfly.showcase.component;
 import org.jboss.elemento.By;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.popover.Popover;
+import org.patternfly.component.popover.PopoverBody;
+import org.patternfly.component.popover.PopoverFooter;
+import org.patternfly.component.popover.PopoverHeader;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -38,6 +42,8 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.Severity.info;
 import static org.patternfly.core.Severity.success;
 import static org.patternfly.core.Severity.warning;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.bullhorn;
 import static org.patternfly.thirdparty.popper.Placement.auto;
@@ -52,6 +58,7 @@ public class PopoverComponent extends SnippetPage {
                         "A popover is in-app messaging that provides more information on specific product areas. Popovers display content in a new window that overlays the current page. Unlike modals, popovers don't block the current page.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("popover-basic", "Basic",
                 code.get("popover-basic"), () ->
                 // @code-start:popover-basic
@@ -235,5 +242,11 @@ public class PopoverComponent extends SnippetPage {
                         .element()
         // @code-end:popover-alert
         ));
+
+        startApiDocs(Popover.class);
+        addApiDoc(Popover.class, component);
+        addApiDoc(PopoverBody.class, subcomponent);
+        addApiDoc(PopoverFooter.class, subcomponent);
+        addApiDoc(PopoverHeader.class, subcomponent);
     }
 }

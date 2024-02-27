@@ -18,6 +18,9 @@ package org.patternfly.showcase.component;
 import org.jboss.elemento.By;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.tooltip.Tooltip;
+import org.patternfly.component.tooltip.TooltipToggle;
+import org.patternfly.component.tooltip.TriggerAria;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -30,6 +33,9 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.core.Aria.label;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.other;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.copy;
 import static org.patternfly.thirdparty.popper.Placement.auto;
@@ -43,6 +49,7 @@ public class TooltipComponent extends SnippetPage {
                         "A tooltip is in-app messaging used to identify elements on a page with short, clarifying text.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("tooltip-basic", "Basic",
                 code.get("tooltip-basic"), () ->
                 // @code-start:tooltip-basic
@@ -90,5 +97,10 @@ public class TooltipComponent extends SnippetPage {
                             .element();
                     // @code-end:tooltip-auto
                 }));
+
+        startApiDocs(Tooltip.class);
+        addApiDoc(Tooltip.class, component);
+        addApiDoc(TooltipToggle.class, other);
+        addApiDoc(TriggerAria.class, other);
     }
 }

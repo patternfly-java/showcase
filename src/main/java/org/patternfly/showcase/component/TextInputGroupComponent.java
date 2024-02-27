@@ -19,8 +19,11 @@ import org.jboss.elemento.Key;
 import org.patternfly.component.chip.Chip;
 import org.patternfly.component.chip.ChipGroup;
 import org.patternfly.component.textinputgroup.TextInputGroup;
+import org.patternfly.component.textinputgroup.TextInputGroupMain;
+import org.patternfly.component.textinputgroup.TextInputGroupUtilities;
 import org.patternfly.core.ObservableValue;
 import org.patternfly.handler.CloseHandler;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -36,6 +39,8 @@ import static org.patternfly.component.textinputgroup.TextInputGroup.textInputGr
 import static org.patternfly.component.textinputgroup.TextInputGroupMain.textInputGroupMain;
 import static org.patternfly.component.textinputgroup.TextInputGroupUtilities.textInputGroupUtilities;
 import static org.patternfly.core.ObservableValue.ov;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.search;
 import static org.patternfly.style.PredefinedIcon.times;
@@ -49,6 +54,7 @@ public class TextInputGroupComponent extends SnippetPage {
                         "A text input group is a more flexible composable version of a text input. It enables consumers of PatternFly to build custom inputs for filtering and similar use cases by placing elements like icons, chips groups and buttons within a text input.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("tig-basic", "Basic",
                 code.get("tig-basic"), () ->
                 // @code-start:tig-basic
@@ -145,5 +151,10 @@ public class TextInputGroupComponent extends SnippetPage {
                             .element();
                     // @code-end:tig-filters
                 }));
+
+        startApiDocs(TextInputGroup.class);
+        addApiDoc(TextInputGroup.class, component);
+        addApiDoc(TextInputGroupMain.class, subcomponent);
+        addApiDoc(TextInputGroupUtilities.class, subcomponent);
     }
 }

@@ -20,8 +20,11 @@ import java.util.Random;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.tabs.Tab;
+import org.patternfly.component.tabs.TabContent;
+import org.patternfly.component.tabs.TabContentBody;
 import org.patternfly.component.tabs.Tabs;
 import org.patternfly.handler.CloseHandler;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -47,6 +50,8 @@ import static org.patternfly.component.tabs.TabContent.tabContent;
 import static org.patternfly.component.tabs.TabContentBody.tabContentBody;
 import static org.patternfly.component.tabs.Tabs.tabs;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
@@ -71,6 +76,7 @@ public class TabsComponent extends SnippetPage {
                 "https://www.patternfly.org/components/tabs/design-guidelines",
                 p().textContent("Tabs allow users to navigate between views within the same page or context.").element());
 
+        startExamples();
         addSnippet(new Snippet("tabs-default", "Default tabs",
                 code.get("tabs-default"), () ->
         {
@@ -575,5 +581,11 @@ public class TabsComponent extends SnippetPage {
                         .element()
                 // @code-end:tabs-help-close
         ));
+
+        startApiDocs(Tabs.class);
+        addApiDoc(Tab.class, subcomponent);
+        addApiDoc(TabContent.class, subcomponent);
+        addApiDoc(TabContentBody.class, subcomponent);
+        addApiDoc(Tabs.class, component);
     }
 }

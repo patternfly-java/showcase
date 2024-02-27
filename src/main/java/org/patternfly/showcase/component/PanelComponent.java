@@ -16,6 +16,10 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.panel.Panel;
+import org.patternfly.component.panel.PanelFooter;
+import org.patternfly.component.panel.PanelHeader;
+import org.patternfly.component.panel.PanelMain;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -23,6 +27,8 @@ import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.panel.Panel.panel;
 import static org.patternfly.component.panel.PanelMain.panelMain;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 
 public class PanelComponent extends SnippetPage {
@@ -34,6 +40,7 @@ public class PanelComponent extends SnippetPage {
                         "The panel component is a container that supports flexible content layouts. It can be used to house other components such as fields, forms, videos, buttons, and more. The panel should not be confused with the drawer component, which allows you to surface information via a collapsable container.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("panel-basic", "Basic",
                 code.get("panel-basic"), () ->
                 // @code-start:panel-basic
@@ -152,5 +159,11 @@ public class PanelComponent extends SnippetPage {
                         .element()
                 // @code-end:panel-scrollable-header-footer
         ));
+
+        startApiDocs(Panel.class);
+        addApiDoc(Panel.class, component);
+        addApiDoc(PanelFooter.class, subcomponent);
+        addApiDoc(PanelHeader.class, subcomponent);
+        addApiDoc(PanelMain.class, subcomponent);
     }
 }

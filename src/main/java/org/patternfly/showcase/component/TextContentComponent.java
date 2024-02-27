@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.text.TextContent;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -33,6 +34,7 @@ import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.small;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.text.TextContent.textContent;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.plain;
@@ -46,6 +48,7 @@ public class TextContentComponent extends SnippetPage {
                         "Text and TextList components are always wrapped in TextContent and provide correct formatting to a number of standard HTML tags.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("text-content-headings", "Heading",
                 code.get("text-content-headings"), () ->
                 // @code-start:text-content-headings
@@ -151,5 +154,8 @@ public class TextContentComponent extends SnippetPage {
                         .element()
         // @code-end:text-content-dl
         ));
+
+        startApiDocs(TextContent.class);
+        addApiDoc(TextContent.class, component);
     }
 }

@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.spinner.Spinner;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -26,6 +27,7 @@ import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.small;
 import static org.patternfly.component.spinner.Spinner.spinner;
 import static org.patternfly.component.text.TextContent.textContent;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Size.lg;
 import static org.patternfly.style.Size.md;
@@ -40,7 +42,7 @@ public class SpinnerComponent extends SnippetPage {
                 p().textContent(
                         "A spinner is used to indicate to users that an action is in progress. For actions that may take a long time, use a progress bar instead.")
                         .element());
-
+        startExamples();
         addSnippet(new Snippet("spinner-basic", "Basic",
                 code.get("spinner-basic"), () ->
                 // @code-start:spinner-basic
@@ -96,5 +98,8 @@ public class SpinnerComponent extends SnippetPage {
                         .element()
         // @code-end:spinner-inline-size
         ));
+
+        startApiDocs(Spinner.class);
+        addApiDoc(Spinner.class, component);
     }
 }

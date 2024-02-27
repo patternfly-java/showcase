@@ -53,6 +53,7 @@ import org.patternfly.showcase.component.MastheadComponent;
 import org.patternfly.showcase.component.MenuComponent;
 import org.patternfly.showcase.component.MenuToggleComponent;
 import org.patternfly.showcase.component.NavigationComponent;
+import org.patternfly.showcase.component.PageComponent;
 import org.patternfly.showcase.component.PanelComponent;
 import org.patternfly.showcase.component.PopoverComponent;
 import org.patternfly.showcase.component.ProgressComponent;
@@ -171,6 +172,7 @@ public class Main {
         pm.register(new Place("/components/menus/menu", "Menu"), () -> new MenuComponent());
         pm.register(new Place("/components/menus/menu-toggle", "Menu toggle"), () -> new MenuToggleComponent());
         pm.register(new Place("/components/navigation", "Navigation"), () -> new NavigationComponent());
+        pm.register(new Place("/components/page", "Page"), () -> new PageComponent());
         pm.register(new Place("/components/panel", "Panel"), () -> new PanelComponent());
         pm.register(new Place("/components/popover", "Popover"), () -> new PopoverComponent());
         pm.register(new Place("/components/progress", "Progress"), () -> new ProgressComponent());
@@ -244,6 +246,7 @@ public class Main {
                                 .addItem(ni(pm.place("/components/menus/menu-toggle")))
                         )
                         .addItem(ni(pm.place("/components/navigation")))
+                        .addItem(ni(pm.place("/components/page")))
                         .addItem(ni(pm.place("/components/panel")))
                         .addItem(ni(pm.place("/components/popover")))
                         .addItem(ni(pm.place("/components/progress")))

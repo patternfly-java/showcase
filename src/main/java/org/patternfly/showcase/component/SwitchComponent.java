@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.switch_.Switch;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -23,6 +24,7 @@ import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.switch_.Switch.switch_;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Code.code;
 
 public class SwitchComponent extends SnippetPage {
@@ -34,6 +36,7 @@ public class SwitchComponent extends SnippetPage {
                                 "A switch toggles the state of a setting (between on and off). Switches and checkboxes can often be used interchangeably, but the switch provides a more explicit, visible representation on a setting.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("switch-basic", "Basic",
                 code.get("switch-basic"), () ->
                 // @code-start:switch-basic
@@ -98,5 +101,8 @@ public class SwitchComponent extends SnippetPage {
                         .element()
                 // @code-end:switch-disabled
         ));
+
+        startApiDocs(Switch.class);
+        addApiDoc(Switch.class, component);
     }
 }

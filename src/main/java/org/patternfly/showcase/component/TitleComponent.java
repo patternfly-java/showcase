@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.title.Title;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -23,6 +24,7 @@ import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Size._2xl;
 import static org.patternfly.style.Size._3xl;
@@ -40,6 +42,7 @@ public class TitleComponent extends SnippetPage {
                         "A title component applies top and bottom margins, font-weight, font-size, and line-height to titles. The most common usage for a title is to define headings within a page.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("title-default-sizes", "Default sizes",
                 code.get("title-default-sizes"), () ->
                 // @code-start:title-default-sizes
@@ -69,5 +72,8 @@ public class TitleComponent extends SnippetPage {
                         .element()
         // @code-end:title-custom-sizes
         ));
+
+        startApiDocs(Title.class);
+        addApiDoc(Title.class, component);
     }
 }

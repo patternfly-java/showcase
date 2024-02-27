@@ -17,6 +17,8 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.button.Button;
 import org.patternfly.component.togglegroup.ToggleGroup;
+import org.patternfly.component.togglegroup.ToggleGroupItem;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -32,6 +34,8 @@ import static org.patternfly.core.SelectionMode.multi;
 import static org.patternfly.core.SelectionMode.single;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.copy;
 import static org.patternfly.style.PredefinedIcon.shareSquare;
@@ -46,6 +50,7 @@ public class ToggleGroupComponent extends SnippetPage {
                                 "A toggle group is a group of controls that can be used to quickly switch between actions or states.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("toggle-group-multiple", "Default with multiple selectable",
                 code.get("toggle-group-multiple"), () -> {
             // @code-start:toggle-group-multiple
@@ -115,5 +120,9 @@ public class ToggleGroupComponent extends SnippetPage {
                         .element()
                 // @code-end:toggle-group-compact
         ));
+
+        startApiDocs(ToggleGroup.class);
+        addApiDoc(ToggleGroup.class, component);
+        addApiDoc(ToggleGroupItem.class, subcomponent);
     }
 }

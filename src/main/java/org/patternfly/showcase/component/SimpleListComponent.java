@@ -17,6 +17,9 @@ package org.patternfly.showcase.component;
 
 import org.jboss.elemento.Id;
 import org.patternfly.component.list.SimpleList;
+import org.patternfly.component.list.SimpleListGroup;
+import org.patternfly.component.list.SimpleListItem;
+import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,6 +30,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.list.SimpleList.simpleList;
 import static org.patternfly.component.list.SimpleListGroup.simpleListGroup;
 import static org.patternfly.component.list.SimpleListItem.simpleListItem;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 
 public class SimpleListComponent extends SnippetPage {
@@ -38,6 +43,7 @@ public class SimpleListComponent extends SnippetPage {
                                 "A simple list provides a list of selectable items that can be shown within a page. Each item is described by a text label. The list may be divided into logical sections by introducing group headers.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("simple-list", "Simple list",
                 code.get("simple-list"), () ->
                 // @code-start:simple-list
@@ -66,5 +72,10 @@ public class SimpleListComponent extends SnippetPage {
                         .element()
                 // @code-end:grouped-list
         ));
+
+        startApiDocs(SimpleList.class);
+        addApiDoc(SimpleList.class, component);
+        addApiDoc(SimpleListGroup.class, subcomponent);
+        addApiDoc(SimpleListItem.class, subcomponent);
     }
 }
