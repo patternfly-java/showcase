@@ -145,3 +145,7 @@
 .pf-v5-theme-dark .ws-theme-switch-full-page::before {
   background-color: var(--pf-v5-global--BackgroundColor--300);
 }
+
+.ws-react-c-navigation {
+    background-color: var(--pf-v5-global--BackgroundColor--dark-300);
+}

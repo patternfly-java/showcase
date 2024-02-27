@@ -34,6 +34,7 @@ import org.patternfly.showcase.component.ChipComponent;
 import org.patternfly.showcase.component.CodeBlockComponent;
 import org.patternfly.showcase.component.CodeEditorComponent;
 import org.patternfly.showcase.component.DescriptionListComponent;
+import org.patternfly.showcase.component.DividerComponent;
 import org.patternfly.showcase.component.DrawerComponent;
 import org.patternfly.showcase.component.DropdownComponent;
 import org.patternfly.showcase.component.EmptyStateComponent;
@@ -51,6 +52,7 @@ import org.patternfly.showcase.component.ListComponent;
 import org.patternfly.showcase.component.MastheadComponent;
 import org.patternfly.showcase.component.MenuComponent;
 import org.patternfly.showcase.component.MenuToggleComponent;
+import org.patternfly.showcase.component.NavigationComponent;
 import org.patternfly.showcase.component.PanelComponent;
 import org.patternfly.showcase.component.PopoverComponent;
 import org.patternfly.showcase.component.ProgressComponent;
@@ -81,6 +83,7 @@ import org.patternfly.showcase.router.PlaceManager;
 import org.patternfly.thirdparty.ThirdParty;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
+import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.body;
 import static org.patternfly.component.backtotop.BackToTop.backToTop;
 import static org.patternfly.component.brand.Brand.brand;
@@ -89,6 +92,8 @@ import static org.patternfly.component.navigation.Navigation.navigation;
 import static org.patternfly.component.navigation.NavigationItem.navigationItem;
 import static org.patternfly.component.navigation.NavigationType.Vertical.expandable;
 import static org.patternfly.component.page.Masthead.masthead;
+import static org.patternfly.component.page.MastheadBrand.mastheadBrand;
+import static org.patternfly.component.page.MastheadMain.mastheadMain;
 import static org.patternfly.component.page.MastheadToggle.mastheadToggle;
 import static org.patternfly.component.page.Page.page;
 import static org.patternfly.component.page.PageMain.pageMain;
@@ -114,7 +119,7 @@ public class Main {
                 .title(title -> "PatternFly Java • " + title)
                 .notFound(place -> new NotFound(place));
         Navigation navigation = setupNavigation(placeManager);
-        createBody(navigation);
+        appendBody(navigation);
         placeManager
                 .afterPlace((pm, place, page) -> navigation.select(place.route))
                 .start();
@@ -143,6 +148,7 @@ public class Main {
         pm.register(new Place("/components/code-block", "Code block"), () -> new CodeBlockComponent());
         pm.register(new Place("/components/code-editor", "Code editor"), () -> new CodeEditorComponent());
         pm.register(new Place("/components/description-list", "Description list"), () -> new DescriptionListComponent());
+        pm.register(new Place("/components/divider", "Divider"), () -> new DividerComponent());
         pm.register(new Place("/components/drawer", "Drawer"), () -> new DrawerComponent());
         pm.register(new Place("/components/empty-state", "Empty state"), () -> new EmptyStateComponent());
         pm.register(new Place("/components/expandable-section", "Expandable section"), () -> new ExpandableSectionComponent());
@@ -164,6 +170,7 @@ public class Main {
         pm.register(new Place("/components/menus/dropdown", "Dropdown"), () -> new DropdownComponent());
         pm.register(new Place("/components/menus/menu", "Menu"), () -> new MenuComponent());
         pm.register(new Place("/components/menus/menu-toggle", "Menu toggle"), () -> new MenuToggleComponent());
+        pm.register(new Place("/components/navigation", "Navigation"), () -> new NavigationComponent());
         pm.register(new Place("/components/panel", "Panel"), () -> new PanelComponent());
         pm.register(new Place("/components/popover", "Popover"), () -> new PopoverComponent());
         pm.register(new Place("/components/progress", "Progress"), () -> new ProgressComponent());
@@ -210,6 +217,7 @@ public class Main {
                         .addItem(ni(pm.place("/components/code-block")))
                         .addItem(ni(pm.place("/components/code-editor")))
                         .addItem(ni(pm.place("/components/description-list")))
+                        .addItem(ni(pm.place("/components/divider")))
                         .addItem(ni(pm.place("/components/drawer")))
                         .addItem(ni(pm.place("/components/empty-state")))
                         .addItem(ni(pm.place("/components/expandable-section")))
@@ -235,6 +243,7 @@ public class Main {
                                 .addItem(ni(pm.place("/components/menus/menu")))
                                 .addItem(ni(pm.place("/components/menus/menu-toggle")))
                         )
+                        .addItem(ni(pm.place("/components/navigation")))
                         .addItem(ni(pm.place("/components/panel")))
                         .addItem(ni(pm.place("/components/popover")))
                         .addItem(ni(pm.place("/components/progress")))
@@ -268,14 +277,16 @@ public class Main {
         return navigationItem(place.route, place.title, place.route);
     }
 
-    private void createBody(Navigation navigation) {
+    private void appendBody(Navigation navigation) {
         body().add(page()
                 .addSkipToContent(skipToContent(MAIN_ID))
                 .addMasthead(masthead().css("ws-masthead")
-                        .addToggle(mastheadToggle())
-                        .addBrand(brand(pfLogo, "PatternFly")
-                                        .style(componentVar(component(brand), Height).name, "36px"),
-                                "/"))
+                        .addToggle(mastheadToggle()
+                                .toggleSidebar())
+                        .addMain(mastheadMain()
+                                .addBrand(mastheadBrand(a("/"))
+                                        .addBrand(brand(pfLogo, "PatternFly")
+                                                .style(componentVar(component(brand), Height).name, "36px")))))
                 .addSidebar(pageSidebar()
                         .addBody(pageSidebarBody()
                                 .addNavigation(navigation)))

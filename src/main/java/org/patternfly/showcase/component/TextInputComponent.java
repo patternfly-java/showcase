@@ -17,6 +17,7 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.TextInput;
+import org.patternfly.component.form.TextInputType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -25,6 +26,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.TextInput.textInput;
 import static org.patternfly.core.ValidationStatus.error;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.other;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.fas;
@@ -36,13 +39,14 @@ public class TextInputComponent extends SnippetPage {
                 "https://www.patternfly.org/components/forms/text-input/design-guidelines",
                 p().textContent("A text input is used to gather free-form text from a user.").element());
 
+        startExamples();
         addSnippet(new Snippet("text-input-basic", "Basic",
                 code.get("text-input-basic"), () ->
                 // @code-start:text-input-basic
                 div()
                         .add(textInput("basic-text-input-0"))
                         .element()
-        // @code-end:text-input-basic
+                // @code-end:text-input-basic
         ));
 
         addSnippet(new Snippet("text-input-disabled", "Disabled",
@@ -52,22 +56,22 @@ public class TextInputComponent extends SnippetPage {
                         .add(textInput("disabled-text-input-0", "disabled text input example")
                                 .disabled())
                         .element()
-        // @code-end:text-input-disabled
+                // @code-end:text-input-disabled
         ));
 
         addSnippet(new Snippet("text-input-readonly", "Read only",
                 code.get("text-input-readonly"), () -> {
-                    // @code-start:text-input-readonly
-                    Checkbox plainToggle = checkbox("plain-toggle", "plain-toggle", "Plain read only variant");
-                    TextInput readOnlyTextInput = textInput("readonly-text-input-0", "read only text input example")
-                            .readonly();
-                    return div()
-                            .add(div().css(util("mb-sm"))
-                                    .add(plainToggle.onChange((e, c, value) -> readOnlyTextInput.plain(value))))
-                            .add(readOnlyTextInput)
-                            .element();
-                    // @code-end:text-input-readonly
-                }));
+            // @code-start:text-input-readonly
+            Checkbox plainToggle = checkbox("plain-toggle", "plain-toggle", "Plain read only variant");
+            TextInput readOnlyTextInput = textInput("readonly-text-input-0", "read only text input example")
+                    .readonly();
+            return div()
+                    .add(div().css(util("mb-sm"))
+                            .add(plainToggle.onChange((e, c, value) -> readOnlyTextInput.plain(value))))
+                    .add(readOnlyTextInput)
+                    .element();
+            // @code-end:text-input-readonly
+        }));
 
         addSnippet(new Snippet("text-input-invalid", "Invalid",
                 code.get("text-input-invalid"), () ->
@@ -75,7 +79,7 @@ public class TextInputComponent extends SnippetPage {
                 div()
                         .add(textInput("invalid-text-input-0").validated(error))
                         .element()
-        // @code-end:text-input-invalid
+                // @code-end:text-input-invalid
         ));
 
         addSnippet(new Snippet("text-input-custom-icon", "Custom icon",
@@ -87,7 +91,7 @@ public class TextInputComponent extends SnippetPage {
                         .add(textInput("custom-icon-text-input-1")
                                 .icon(fas("clock")))
                         .element()
-        // @code-end:text-input-custom-icon
+                // @code-end:text-input-custom-icon
         ));
 
         addSnippet(new Snippet("text-input-custom-icon-and-invalid", "Custom icon and invalid",
@@ -98,7 +102,11 @@ public class TextInputComponent extends SnippetPage {
                                 .validated(error)
                                 .icon(fas("calendar")))
                         .element()
-        // @code-end:text-input-custom-icon-and-invalid
+                // @code-end:text-input-custom-icon-and-invalid
         ));
+
+        startApiDocs(TextInput.class);
+        addApiDoc(TextInput.class, component);
+        addApiDoc(TextInputType.class, other);
     }
 }

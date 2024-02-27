@@ -18,6 +18,7 @@ package org.patternfly.showcase.component;
 import org.jboss.elemento.Id;
 import org.patternfly.component.form.FormSelect;
 import org.patternfly.component.form.FormSelectOption;
+import org.patternfly.component.form.FormSelectOptionGroup;
 import org.patternfly.component.help.HelperText;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -39,6 +40,8 @@ import static org.patternfly.core.ValidationStatus.default_;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 
 public class FormSelectComponent extends SnippetPage {
@@ -49,6 +52,7 @@ public class FormSelectComponent extends SnippetPage {
                 p().textContent("A form select embeds browser native select lists into a form.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("form-select-basic", "Basic",
                 code.get("form-select-basic"), () -> {
                     // @code-start:form-select-basic
@@ -139,5 +143,10 @@ public class FormSelectComponent extends SnippetPage {
                         .element()
         // @code-end:form-select-grouped
         ));
+
+        startApiDocs(FormSelect.class);
+        addApiDoc(FormSelect.class, component);
+        addApiDoc(FormSelectOption.class, subcomponent);
+        addApiDoc(FormSelectOptionGroup.class, subcomponent);
     }
 }

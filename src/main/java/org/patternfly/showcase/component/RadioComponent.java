@@ -16,6 +16,9 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.form.Checkbox;
+import org.patternfly.component.form.Radio;
+import org.patternfly.component.form.RadioBody;
+import org.patternfly.component.form.RadioDescription;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -25,6 +28,8 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Radio.radio;
 import static org.patternfly.component.form.RadioBody.radioBody;
 import static org.patternfly.component.form.RadioDescription.radioDescription;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 
 public class RadioComponent extends SnippetPage {
@@ -33,9 +38,10 @@ public class RadioComponent extends SnippetPage {
         super(Checkbox.class, "Checkbox",
                 "https://www.patternfly.org/components/forms/radio/design-guidelines",
                 p().textContent(
-                        "A radio button is used to present the user with mutually exclusive choices. Always present radio buttons in groups of 2 or more.")
+                                "A radio button is used to present the user with mutually exclusive choices. Always present radio buttons in groups of 2 or more.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("radio-basic", "Basic",
                 code.get("radio-basic"), () ->
                 // @code-start:radio-basic
@@ -44,7 +50,7 @@ public class RadioComponent extends SnippetPage {
                                 .value(true))
                         .add(radio("basic-radio-1", "basic-radio", "Option 2"))
                         .element()
-        // @code-end:radio-basic
+                // @code-end:radio-basic
         ));
 
         addSnippet(new Snippet("radio-reversed", "Reversed",
@@ -54,7 +60,7 @@ public class RadioComponent extends SnippetPage {
                         .add(radio("reversed-radio-0", "reversed-radio", "Option 1")
                                 .reversed())
                         .element()
-        // @code-end:radio-reversed
+                // @code-end:radio-reversed
         ));
 
         addSnippet(new Snippet("radio-disabled", "Disabled",
@@ -67,7 +73,7 @@ public class RadioComponent extends SnippetPage {
                         .add(radio("disabled-radio-1", "disabled-radio", "Disabled radio 2")
                                 .disabled())
                         .element()
-        // @code-end:radio-disabled
+                // @code-end:radio-disabled
         ));
 
         addSnippet(new Snippet("radio-description", "Radio with description",
@@ -77,7 +83,7 @@ public class RadioComponent extends SnippetPage {
                         .add(radio("rwd-0", "rwd", "Radio with description")
                                 .addDescription(radioDescription(LoremIpsum.words(50))))
                         .element()
-        // @code-end:radio-description
+                // @code-end:radio-description
         ));
 
         addSnippet(new Snippet("radio-body", "Radio with body",
@@ -87,7 +93,7 @@ public class RadioComponent extends SnippetPage {
                         .add(radio("rwb-0", "rwb", "Radio with body")
                                 .addBody(radioBody("This is where custom content goes.")))
                         .element()
-        // @code-end:radio-body
+                // @code-end:radio-body
         ));
 
         addSnippet(new Snippet("radio-description-body", "Radio with description and body",
@@ -98,7 +104,7 @@ public class RadioComponent extends SnippetPage {
                                 .addDescription(radioDescription(LoremIpsum.words(50)))
                                 .addBody(radioBody("This is where custom content goes.")))
                         .element()
-        // @code-end:radio-description-body
+                // @code-end:radio-description-body
         ));
 
         addSnippet(new Snippet("radio-standalone", "Standalone input",
@@ -108,7 +114,12 @@ public class RadioComponent extends SnippetPage {
                         .add(radio("standalone-radio-0", "standalone-radio")
                                 .standalone())
                         .element()
-        // @code-end:radio-standalone
+                // @code-end:radio-standalone
         ));
+
+        startApiDocs(Radio.class);
+        addApiDoc(Radio.class, component);
+        addApiDoc(RadioBody.class, subcomponent);
+        addApiDoc(RadioDescription.class, subcomponent);
     }
 }

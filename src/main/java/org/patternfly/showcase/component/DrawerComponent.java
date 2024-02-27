@@ -16,6 +16,16 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.drawer.Drawer;
+import org.patternfly.component.drawer.DrawerCloseButton;
+import org.patternfly.component.drawer.DrawerColor;
+import org.patternfly.component.drawer.DrawerContent;
+import org.patternfly.component.drawer.DrawerContentBody;
+import org.patternfly.component.drawer.DrawerPanel;
+import org.patternfly.component.drawer.DrawerPanelBody;
+import org.patternfly.component.drawer.DrawerPanelHead;
+import org.patternfly.component.drawer.DrawerPanelWidth;
+import org.patternfly.component.drawer.DrawerSection;
+import org.patternfly.component.drawer.Position;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -37,6 +47,9 @@ import static org.patternfly.component.drawer.Position.bottom;
 import static org.patternfly.component.drawer.Position.end;
 import static org.patternfly.component.drawer.Position.start;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.modifier;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
@@ -52,6 +65,7 @@ public class DrawerComponent extends SnippetPage {
                                 "A drawer is a sliding panel that enters from the right edge of the viewport. It can be configured to either overlay content on a page or create a sidebar by pushing that content to the left.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("drawer-basic", "Basic",
                 code.get("drawer-basic"), () -> {
             // @code-start:drawer-basic
@@ -391,5 +405,18 @@ public class DrawerComponent extends SnippetPage {
                     .element();
             // @code-end:drawer-resizable-bottom
         }));
+
+        startApiDocs(Drawer.class);
+        addApiDoc(Drawer.class, component);
+        addApiDoc(DrawerCloseButton.class, subcomponent);
+        addApiDoc(DrawerColor.class, modifier);
+        addApiDoc(DrawerContent.class, subcomponent);
+        addApiDoc(DrawerContentBody.class, subcomponent);
+        addApiDoc(DrawerPanel.class, subcomponent);
+        addApiDoc(DrawerPanelBody.class, subcomponent);
+        addApiDoc(DrawerPanelHead.class, subcomponent);
+        addApiDoc(DrawerPanelWidth.class, modifier);
+        addApiDoc(DrawerSection.class, subcomponent);
+        addApiDoc(Position.class, modifier);
     }
 }

@@ -47,14 +47,13 @@ public class JumpLinksComponent extends SnippetPage {
                 .add(a("https://github.com/patternfly-java/showcase/blob/main/src/main/java/org/patternfly/showcase/SnippetPage.java",
                         SnippetPage.API_DOC_TARGET).textContent("showcase"))
                 .add(" to see how tu use scroll spying."));
-
         addSnippet(new Snippet("jump-links-basic", "Basic",
                 code.get("jump-links-basic"), () ->
                 // @code-start:jump-links-basic
                 div()
                         .add(jumpLinks()
                                 .addItem(jumpLinksItem("jump-links-basic-0", "Inactive section"))
-                                .addItem(jumpLinksItem("jump-links-basic-1", "Active section", "#c-jump-links")
+                                .addItem(jumpLinksItem("jump-links-basic-1", "Active section", "#item-1")
                                         .active())
                                 .addItem(jumpLinksItem("jump-links-basic-2", "Inactive section")))
                         .element()
@@ -67,7 +66,7 @@ public class JumpLinksComponent extends SnippetPage {
                 div()
                         .add(jumpLinks().center()
                                 .addItem(jumpLinksItem("jump-links-center-0", "Inactive section"))
-                                .addItem(jumpLinksItem("jump-links-center-1", "Active section", "#c-jump-links")
+                                .addItem(jumpLinksItem("jump-links-center-1", "Active section", "#item-1")
                                         .active())
                                 .addItem(jumpLinksItem("jump-links-center-2", "Inactive section")))
                         .element()
@@ -80,13 +79,13 @@ public class JumpLinksComponent extends SnippetPage {
                 div()
                         .add(jumpLinks("Jump to section")
                                 .addItem(jumpLinksItem("jump-links-label-0", "Inactive section"))
-                                .addItem(jumpLinksItem("jump-links-label-1", "Active section", "#c-jump-links")
+                                .addItem(jumpLinksItem("jump-links-label-1", "Active section", "#item-1")
                                         .active())
                                 .addItem(jumpLinksItem("jump-links-label-2", "Inactive section")))
                         .add(br())
                         .add(jumpLinks("Jump to section").center()
                                 .addItem(jumpLinksItem("jump-links-label-3", "Inactive section"))
-                                .addItem(jumpLinksItem("jump-links-label-4", "Active section", "#c-jump-links")
+                                .addItem(jumpLinksItem("jump-links-label-4", "Active section", "#item-4")
                                         .active())
                                 .addItem(jumpLinksItem("jump-links-label-5", "Inactive section")))
                         .element()
@@ -99,7 +98,7 @@ public class JumpLinksComponent extends SnippetPage {
                 div()
                         .add(jumpLinks().vertical()
                                 .addItem(jumpLinksItem("jump-links-vertical-0", "Inactive section"))
-                                .addItem(jumpLinksItem("jump-links-vertical-1", "Active section", "#c-jump-links")
+                                .addItem(jumpLinksItem("jump-links-vertical-1", "Active section", "#item-1")
                                         .active())
                                 .addItem(jumpLinksItem("jump-links-vertical-2", "Inactive section")))
                         .element()
@@ -112,7 +111,7 @@ public class JumpLinksComponent extends SnippetPage {
                 div()
                         .add(jumpLinks("Jump to section").vertical()
                                 .addItem(jumpLinksItem("jump-links-vertical-label-0", "Inactive section"))
-                                .addItem(jumpLinksItem("jump-links-vertical-label-1", "Active section", "#c-jump-links")
+                                .addItem(jumpLinksItem("jump-links-vertical-label-1", "Active section", "#item-1")
                                         .active())
                                 .addItem(jumpLinksItem("jump-links-vertical-label-2", "Inactive section")))
                         .element()
@@ -131,7 +130,7 @@ public class JumpLinksComponent extends SnippetPage {
                                                         .active())
                                                 .addItem(jumpLinksItem("jump-links-expandable-11", "Inactive subsection"))
                                                 .addItem(jumpLinksItem("jump-links-expandable-12", "Inactive subsection"))))
-                                .addItem(jumpLinksItem("jump-links-expandable-1", "Active section", "#c-jump-links"))
+                                .addItem(jumpLinksItem("jump-links-expandable-1", "Active section", "#item-1"))
                                 .addItem(jumpLinksItem("jump-links-expandable-2", "Inactive section")))
                         .element()
                 // @code-end:jump-links-expandable

@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.icon.Icon;
+import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -28,6 +29,8 @@ import static org.jboss.elemento.Elements.strong;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.icon.Icon.icon;
 import static org.patternfly.component.text.TextContent.textContent;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.angleDown;
@@ -59,6 +62,7 @@ public class IconComponent extends SnippetPage {
                         "An icon component is a container that allows for icons of varying dimensions, as well as spinners, to seamlessly replace each other without shifting surrounding content.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("icon-basic", "Basic",
                 code.get("icon-basic"), () ->
                 // @code-start:icon-basic
@@ -90,6 +94,7 @@ public class IconComponent extends SnippetPage {
         ));
 
         addSnippet(new Snippet("icon-status-colors", "Status colors",
+                "The following example demonstrates the various status variants of an icon. Keep in mind that these icons are displayed out of a typical context, and that you should not rely on color alone to convey status to users.",
                 code.get("icon-status-colors"), () ->
                 // @code-start:icon-status-colors
                 div()
@@ -107,6 +112,7 @@ public class IconComponent extends SnippetPage {
         ));
 
         addSnippet(new Snippet("icon-container", "Sizing an icon within the icon container",
+                "Providing both size and iconSize properties allows the icon container to maintain a consistent size, even if the icon changes in size.",
                 code.get("icon-container"), () ->
                 // @code-start:icon-container
                 div()
@@ -184,5 +190,9 @@ public class IconComponent extends SnippetPage {
                             .element();
                     // @code-end:icon-in-progress-custom
                 }));
+
+        startApiDocs(Icon.class);
+        addApiDoc(Icon.class, component);
+        addApiDoc(InlineIcon.class, subcomponent);
     }
 }

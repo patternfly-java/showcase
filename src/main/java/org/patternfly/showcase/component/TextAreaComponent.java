@@ -17,6 +17,7 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.TextArea;
+import org.patternfly.component.form.TextAreaResize;
 import org.patternfly.component.help.HelperText;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -39,6 +40,8 @@ import static org.patternfly.core.ValidationStatus.default_;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.modifier;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Classes.util;
 
@@ -50,6 +53,7 @@ public class TextAreaComponent extends SnippetPage {
                 p().textContent("A text area component is used for entering a paragraph of text that is longer than one line.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("text-area-basic", "Basic",
                 code.get("text-area-basic"), () ->
                 // @code-start:text-area-basic
@@ -170,5 +174,9 @@ public class TextAreaComponent extends SnippetPage {
                         .element()
         // @code-end:text-auto-size
         ));
+
+        startApiDocs(TextArea.class);
+        addApiDoc(TextArea.class, component);
+        addApiDoc(TextAreaResize.class, modifier);
     }
 }

@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.help.HelperText;
+import org.patternfly.component.help.HelperTextItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -29,6 +30,8 @@ import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.indeterminate;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.fas;
@@ -43,6 +46,7 @@ public class HelperTextComponent extends SnippetPage {
                         "Helper text is an on-screen field guideline that helps provide context regarding field inputs.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("helper-text-static", "Static",
                 code.get("helper-text-static"), () ->
                 // @code-start:helper-text-static
@@ -163,5 +167,9 @@ public class HelperTextComponent extends SnippetPage {
                         .element()
         // @code-end:helper-text-dynamic-list
         ));
+
+        startApiDocs(HelperText.class);
+        addApiDoc(HelperText.class, component);
+        addApiDoc(HelperTextItem.class, subcomponent);
     }
 }

@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.list.List;
+import org.patternfly.component.list.ListItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -24,6 +25,8 @@ import static org.jboss.elemento.Elements.ol;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.list.List.list;
 import static org.patternfly.component.list.ListItem.listItem;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.bookOpen;
 import static org.patternfly.style.PredefinedIcon.desktop;
@@ -37,6 +40,7 @@ public class ListComponent extends SnippetPage {
                 p().textContent("A list component embeds a formatted list (bulleted or numbered list) into page content.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("list-basic", "Basic",
                 code.get("list-basic"), () ->
                 // @code-start:list-basic
@@ -120,5 +124,9 @@ public class ListComponent extends SnippetPage {
                         .element()
                 // @code-end:list-icons-lg
         ));
+
+        startApiDocs(List.class);
+        addApiDoc(List.class, component);
+        addApiDoc(ListItem.class, subcomponent);
     }
 }

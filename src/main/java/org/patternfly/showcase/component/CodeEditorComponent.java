@@ -16,6 +16,15 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.code.CodeEditor;
+import org.patternfly.component.code.CodeEditorAction;
+import org.patternfly.component.code.CodeEditorActions;
+import org.patternfly.component.code.CodeEditorHeader;
+import org.patternfly.component.code.CodeEditorHeaderMain;
+import org.patternfly.component.code.CodeEditorLink;
+import org.patternfly.component.code.CodeEditorLinks;
+import org.patternfly.component.code.CodeEditorTab;
+import org.patternfly.component.code.CodeEditorTabIcon;
+import org.patternfly.component.code.CodeEditorTabText;
 import org.patternfly.showcase.Code;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -33,6 +42,8 @@ import static org.patternfly.component.code.CodeEditorHeaderMain.codeEditorHeade
 import static org.patternfly.component.code.CodeEditorLink.codeEditorViewShortcutsLink;
 import static org.patternfly.component.code.CodeEditorLinks.codeEditorLinks;
 import static org.patternfly.component.code.CodeEditorTab.codeEditorTab;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.style.PredefinedIcon.download;
 import static org.patternfly.style.PredefinedIcon.upload;
 
@@ -51,6 +62,7 @@ public class CodeEditorComponent extends SnippetPage {
                         "A code editor is a versatile text editor that allows for editing various languages. ")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("code-editor-basic", "Basic",
                 Code.code.get("code-editor-basic"), () ->
                 // @code-start:code-editor-basic
@@ -140,5 +152,17 @@ public class CodeEditorComponent extends SnippetPage {
                         .element()
         // @code-end:code-editor-header-content
         ));
+
+        startApiDocs(CodeEditor.class);
+        addApiDoc(CodeEditor.class, component);
+        addApiDoc(CodeEditorAction.class, subcomponent);
+        addApiDoc(CodeEditorActions.class, subcomponent);
+        addApiDoc(CodeEditorHeader.class, subcomponent);
+        addApiDoc(CodeEditorHeaderMain.class, subcomponent);
+        addApiDoc(CodeEditorLink.class, subcomponent);
+        addApiDoc(CodeEditorLinks.class, subcomponent);
+        addApiDoc(CodeEditorTab.class, subcomponent);
+        addApiDoc(CodeEditorTabIcon.class, subcomponent);
+        addApiDoc(CodeEditorTabText.class, subcomponent);
     }
 }

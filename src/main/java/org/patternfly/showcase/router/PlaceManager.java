@@ -56,6 +56,7 @@ public class PlaceManager {
     private final Map<Place, Supplier<Page>> places;
     private final List<BeforePlaceHandler> beforeHandlers;
     private final List<AfterPlaceHandler> afterHandlers;
+    private Place current;
     private Supplier<HTMLElement> root;
     private Function<String, String> title;
     private Function<Place, Page> notFound;
@@ -66,6 +67,7 @@ public class PlaceManager {
         this.places = new HashMap<>();
         this.beforeHandlers = new ArrayList<>();
         this.afterHandlers = new ArrayList<>();
+        this.current = NOT_FOUND;
         this.root = () -> document.body;
         this.title = Function.identity();
         this.notFound = place -> new DefaultNotFound();
@@ -122,6 +124,11 @@ public class PlaceManager {
 
     // ------------------------------------------------------ api
 
+
+    public Place current() {
+        return current;
+    }
+
     public Place place(String route) {
         return routes.getOrDefault(route, NOT_FOUND);
     }
@@ -154,25 +161,28 @@ public class PlaceManager {
 
     private void bindClickHandler() {
         bind(document, click, e -> {
-            String href = href(e);
-            if (href != null) {
-                URL url = new URL(href, location.origin);
-                if (url.hash == null || url.hash.isEmpty()) {
-                    Place place = place(url.pathname);
-                    if (place != null) {
-                        e.preventDefault();
-                        internalGoto(place);
-                        history.pushState(place.route, "", place.route);
+            HTMLAnchorElement a = anchorElement(e);
+            if (a != null) {
+                URL url = new URL(a.href, location.origin);
+                if (url.origin.equals(location.origin)) { // only links of this origin
+                    if (url.hash == null || url.hash.isEmpty()) { // no hash links
+                        if (linkSelector == null || a.matches(linkSelector.toString())) {
+                            Place place = place(url.pathname);
+                            if (place != null) {
+                                e.preventDefault();
+                                if (internalGoto(place)) {
+                                    history.pushState(place.route, "", place.route);
+                                }
+                            }
+                        }
                     }
                 }
             }
         });
     }
 
-    private String href(Event event) {
-        String href = null;
+    private HTMLAnchorElement anchorElement(Event event) {
         HTMLAnchorElement anchorElement = null;
-
         EventTarget target = event.target;
         if (target instanceof HTMLAnchorElement) {
             anchorElement = ((HTMLAnchorElement) target);
@@ -182,16 +192,7 @@ public class PlaceManager {
                 anchorElement = ((HTMLAnchorElement) closest);
             }
         }
-        if (anchorElement != null) {
-            if (linkSelector != null) {
-                if (anchorElement.matches(linkSelector.toString())) {
-                    href = anchorElement.href;
-                }
-            } else {
-                href = anchorElement.href;
-            }
-        }
-        return href;
+        return anchorElement;
     }
 
     private void bindHistoryHandler() {
@@ -221,6 +222,7 @@ public class PlaceManager {
         for (HTMLElement e : page.elements()) {
             rootElement.appendChild(e);
         }
+        current = place;
         for (AfterPlaceHandler handler : afterHandlers) {
             handler.afterPlace(this, place, page);
         }

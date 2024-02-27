@@ -16,6 +16,10 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.emptystate.EmptyState;
+import org.patternfly.component.emptystate.EmptyStateActions;
+import org.patternfly.component.emptystate.EmptyStateBody;
+import org.patternfly.component.emptystate.EmptyStateFooter;
+import org.patternfly.component.emptystate.EmptyStateHeader;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -27,6 +31,8 @@ import static org.patternfly.component.emptystate.EmptyStateActions.emptyStateAc
 import static org.patternfly.component.emptystate.EmptyStateBody.emptyStateBody;
 import static org.patternfly.component.emptystate.EmptyStateFooter.emptyStateFooter;
 import static org.patternfly.component.emptystate.EmptyStateHeader.emptyStateHeader;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.cubes;
@@ -46,6 +52,7 @@ public class EmptyStateComponent extends SnippetPage {
                         "An empty state is a screen that is not yet populated with data or information. Empty states typically contain a short message and next steps for the user.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("empty-state-basic", "Basic",
                 code.get("empty-state-basic"), () ->
                 // @code-start:empty-state-basic
@@ -215,5 +222,12 @@ public class EmptyStateComponent extends SnippetPage {
                         .element()
         // @code-end:empty-state-color
         ));
+
+        startApiDocs(EmptyState.class);
+        addApiDoc(EmptyState.class, component);
+        addApiDoc(EmptyStateActions.class, subcomponent);
+        addApiDoc(EmptyStateBody.class, subcomponent);
+        addApiDoc(EmptyStateFooter.class, subcomponent);
+        addApiDoc(EmptyStateHeader.class, subcomponent);
     }
 }

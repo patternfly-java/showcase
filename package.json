@@ -8,7 +8,7 @@
   "source": "src/web/index.html",
   "scripts": {
     "prewatch": "./extract-code.kts",
-    "watch": "parcel serve --dist-dir target/showcase --open",
+    "watch": "parcel serve --https --dist-dir target/showcase --open",
     "prebuild": "./extract-code.kts",
     "build": "parcel build --dist-dir target/showcase --public-url \"./\""
   },

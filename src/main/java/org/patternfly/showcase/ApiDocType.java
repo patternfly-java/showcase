@@ -21,6 +21,7 @@ import static org.patternfly.style.Color.blue;
 import static org.patternfly.style.Color.cyan;
 import static org.patternfly.style.Color.grey;
 import static org.patternfly.style.Color.orange;
+import static org.patternfly.style.Color.purple;
 
 public enum ApiDocType {
 
@@ -29,6 +30,8 @@ public enum ApiDocType {
     subcomponent("Subcomponent", cyan),
 
     modifier("Modifier", orange),
+
+    handler("Event handler", purple),
 
     other("Other", grey);
 

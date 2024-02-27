@@ -44,10 +44,10 @@ public class BreadcrumbComponent extends SnippetPage {
                 // @code-start:breadcrumb-basic
                 div()
                         .add(breadcrumb()
-                                .addItem(breadcrumbItem("Section home", "#c-breadcrumb"))
-                                .addItem(breadcrumbItem("Section title", "#c-breadcrumb"))
-                                .addItem(breadcrumbItem("Section title", "#c-breadcrumb"))
-                                .addItem(breadcrumbItem("Section landing", "#c-breadcrumb").active()))
+                                .addItem(breadcrumbItem("Section home", "#item-0"))
+                                .addItem(breadcrumbItem("Section title", "#item-1"))
+                                .addItem(breadcrumbItem("Section title", "#item-2"))
+                                .addItem(breadcrumbItem("Section landing", "#item-3").active()))
                         .element()
                 // @code-end:breadcrumb-basic
         ));
@@ -58,11 +58,11 @@ public class BreadcrumbComponent extends SnippetPage {
                 div()
                         .add(breadcrumb()
                                 .addItem(breadcrumbItem("Section home"))
-                                .addItem(breadcrumbItem("Section title", "#c-breadcrumb"))
-                                .addItem(breadcrumbItem("Section title", "#c-breadcrumb"))
-                                .addItem(breadcrumbItem("Section title", "#c-breadcrumb"))
-                                .addItem(breadcrumbItem("Section title", "#c-breadcrumb"))
-                                .addItem(breadcrumbItem("Section landing", "#c-breadcrumb").active()))
+                                .addItem(breadcrumbItem("Section title", "#item-0"))
+                                .addItem(breadcrumbItem("Section title", "#item-1"))
+                                .addItem(breadcrumbItem("Section title", "#item-2"))
+                                .addItem(breadcrumbItem("Section title", "#item-3"))
+                                .addItem(breadcrumbItem("Section landing", "#item-4").active()))
                         .element()
                 // @code-end:breadcrumb-no-home-link
         ));

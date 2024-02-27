@@ -210,14 +210,14 @@ public class SnippetPage implements Page {
 
         failSafeToc(Toc.API_DOCS).add(id, simpleName);
         failSafeTableBody().add(tr().css(component(table, tr))
-                        .add(td().css(component(table, td)).apply(td -> td.tabIndex = -1)
-                                .add(span().css(component(table, text), modifier(breakWord))
-                                        .id(id)
-                                        .add(a("#" + id).css("ws-heading-anchor")
-                                                .aria(hidden, true)
-                                                .attr(tabindex, -1)
-                                                .add(linkIcon()))
-                                        .add(simpleName)))
+                .add(td().css(component(table, td)).apply(td -> td.tabIndex = -1)
+                        .add(span().css(component(table, text), modifier(breakWord))
+                                .id(id)
+                                .add(a("#" + id).css("ws-heading-anchor")
+                                        .aria(hidden, true)
+                                        .attr(tabindex, -1)
+                                        .add(linkIcon()))
+                                .add(simpleName)))
                 .add(td().css(component(table, td)).apply(td -> td.tabIndex = -1)
                         .add(span().css(component(table, text), modifier(breakWord))
                                 .add(label(type.name, type.color))))
@@ -312,22 +312,16 @@ public class SnippetPage implements Page {
                             .add(thead().css(component(table, thead))
                                     .add(tr().css(component(table, tr))
                                             .add(th().css(component(table, th), modifier("width-30"))
-                                                    .apply(th -> {
-                                                        th.scope = "col";
-                                                        th.tabIndex = -1;
-                                                    })
+                                                    .attr(role, "columnheader")
+                                                    .apply(th -> th.scope = "col")
                                                     .textContent("Name"))
                                             .add(th().css(component(table, th), modifier("width-20"))
-                                                    .apply(th -> {
-                                                        th.scope = "col";
-                                                        th.tabIndex = -1;
-                                                    })
+                                                    .attr(role, "columnheader")
+                                                    .apply(th -> th.scope = "col")
                                                     .textContent("Type"))
                                             .add(th().css(component(table, th))
-                                                    .apply(th -> {
-                                                        th.scope = "col";
-                                                        th.tabIndex = -1;
-                                                    })
+                                                    .attr(role, "columnheader")
+                                                    .apply(th -> th.scope = "col")
                                                     .textContent("API documentation"))))
                             .add(tbody = tbody().css(component(table, Classes.tbody)).attr(role, "rowgroup"))
                             .element());

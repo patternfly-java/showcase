@@ -17,6 +17,9 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.badge.Badge;
 import org.patternfly.component.expandable.ExpandableSection;
+import org.patternfly.component.expandable.ExpandableSectionContent;
+import org.patternfly.component.expandable.ExpandableSectionToggle;
+import org.patternfly.component.expandable.ExpandableSectionToggleText;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -32,6 +35,8 @@ import static org.patternfly.component.expandable.ExpandableSectionToggleText.ex
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.fas;
 
@@ -44,6 +49,7 @@ public class ExpandableSectionComponent extends SnippetPage {
                         "An expandable section component is used to support progressive disclosure in a form or page by hiding additional content when you don't want it to be shown by default. An expandable section can contain any type of content such as plain text, form inputs, and charts.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("expandable-section-basic", "Basic",
                 code.get("expandable-section-basic"), () ->
                 // @code-start:expandable-section-basic
@@ -148,5 +154,11 @@ public class ExpandableSectionComponent extends SnippetPage {
                         .element()
         // @code-end:expandable-section-truncate
         ));
+
+        startApiDocs(ExpandableSection.class);
+        addApiDoc(ExpandableSection.class, component);
+        addApiDoc(ExpandableSectionContent.class, subcomponent);
+        addApiDoc(ExpandableSectionToggle.class, subcomponent);
+        addApiDoc(ExpandableSectionToggleText.class, subcomponent);
     }
 }

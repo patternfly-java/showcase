@@ -40,6 +40,7 @@ import static org.patternfly.core.Tuples.tuples;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.bell;
 import static org.patternfly.style.PredefinedIcon.fas;
@@ -53,6 +54,7 @@ public class FormControlComponent extends SnippetPage {
                         "Form controls refer to the different visual states that data input components can take to help guide users in completing forms.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("form-control-text-input", "Text input",
                 code.get("form-control-text-input"), () ->
                 // @code-start:form-control-text-input
@@ -168,5 +170,8 @@ public class FormControlComponent extends SnippetPage {
                         .element()
         // @code-end:form-control-text-area
         ));
+
+        startApiDocs(FormControl.class);
+        addApiDoc(FormControl.class, component);
     }
 }

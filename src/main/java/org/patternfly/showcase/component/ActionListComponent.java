@@ -62,14 +62,14 @@ public class ActionListComponent extends SnippetPage {
                                     .addContent(menuContent()
                                             .addList(menuList()
                                                     .addItem(actionMenuItem("item-0", "Action"))
-                                                    .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                    .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                     .addItem(actionMenuItem("item-2", "Disabled action")
                                                             .disabled())
-                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                             .disabled())
                                                     .addDivider()
                                                     .addItem(actionMenuItem("item-4", "Separated action"))
-                                                    .addItem(linkMenuItem("item-5", "Separated link", "#home")))));
+                                                    .addItem(linkMenuItem("item-5", "Separated link", "#item-5")))));
                     return div()
                             .add(actionList()
                                     .addItem(actionListItem()

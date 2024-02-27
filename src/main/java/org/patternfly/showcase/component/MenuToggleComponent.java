@@ -16,6 +16,8 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.menu.MenuToggle;
+import org.patternfly.component.menu.MenuToggleAction;
+import org.patternfly.component.menu.MenuToggleCheckbox;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -28,6 +30,8 @@ import static org.patternfly.component.menu.MenuToggleAction.menuToggleAction;
 import static org.patternfly.component.menu.MenuToggleCheckbox.menuToggleCheckbox;
 import static org.patternfly.component.menu.MenuToggleType.plainText;
 import static org.patternfly.component.menu.MenuToggleType.split;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.cog;
@@ -42,6 +46,7 @@ public class MenuToggleComponent extends SnippetPage {
                         "The menu toggle component pairs with the menu OR the panel component to create more customizable dropdown and select implementations. Using a menu toggle with a menu enables you to create custom component configurations not supported by the standard dropdown or select components.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("menu-toggle-basic", "Basic toggle",
                 code.get("menu-toggle-basic"), () ->
                 // @code-start:menu-toggle-basic
@@ -210,5 +215,10 @@ public class MenuToggleComponent extends SnippetPage {
                         .element()
         // @code-end:menu-toggle-split-action
         ));
+
+        startApiDocs(MenuToggle.class);
+        addApiDoc(MenuToggle.class, component);
+        addApiDoc(MenuToggleAction.class, subcomponent);
+        addApiDoc(MenuToggleCheckbox.class, subcomponent);
     }
 }

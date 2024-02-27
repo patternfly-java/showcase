@@ -20,6 +20,7 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
+import static org.jboss.elemento.Elements.code;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.avatar.Avatar.avatar;
@@ -34,6 +35,7 @@ import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.component.menu.MenuToggleAction.menuToggleAction;
 import static org.patternfly.component.menu.MenuToggleCheckbox.menuToggleCheckbox;
 import static org.patternfly.component.menu.MenuToggleType.split;
+import static org.patternfly.showcase.ApiDocType.component;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.cog;
@@ -45,9 +47,12 @@ public class DropdownComponent extends SnippetPage {
         super(Dropdown.class, "Dropdown",
                 "https://www.patternfly.org/components/menus/dropdown/design-guidelines/",
                 p().textContent(
-                        "A dropdown presents a menu of actions or links in a constrained space that will trigger a process or navigate to a new location. See select component guidelines for more information about making one or more selections from a list of items in a value list.")
+                                "A dropdown presents a menu of actions or links in a constrained space that will trigger a process or navigate to a new location. See select component guidelines for more information about making one or more selections from a list of items in a value list.")
                         .element());
 
+        startExamples(p()
+                .add(code().textContent("Dropdown"))
+                .add(" builds off of the Menu component suite to wrap commonly used properties and functions for a dropdown menu."));
         addSnippet(new Snippet("dropdown-basic", "Basic dropdown",
                 code.get("dropdown-basic"), () ->
                 // @code-start:dropdown-basic
@@ -58,16 +63,16 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .element()
-        // @code-end:dropdown-basic
+                // @code-end:dropdown-basic
         ));
 
         addSnippet(new Snippet("dropdown-kebab", "With kebab toggle",
@@ -80,16 +85,16 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .element()
-        // @code-end:dropdown-kebab
+                // @code-end:dropdown-kebab
         ));
 
         addSnippet(new Snippet("dropdown-badge", "With a badge",
@@ -103,16 +108,16 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .element()
-        // @code-end:dropdown-badge
+                // @code-end:dropdown-badge
         ));
 
         addSnippet(new Snippet("dropdown-icon", "With an icon",
@@ -126,16 +131,16 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .element()
-        // @code-end:dropdown-icon
+                // @code-end:dropdown-icon
         ));
 
         addSnippet(new Snippet("dropdown-avatar", "With an avatar",
@@ -149,16 +154,16 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .element()
-        // @code-end:dropdown-avatar
+                // @code-end:dropdown-avatar
         ));
 
         addSnippet(new Snippet("dropdown-split-check", "With a checkbox",
@@ -172,14 +177,14 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .add(br())
                         .add(br())
                         .add(dropdown()
@@ -190,16 +195,16 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .element()
-        // @code-end:dropdown-split-check
+                // @code-end:dropdown-split-check
         ));
 
         addSnippet(new Snippet("dropdown-split-action", "With an action",
@@ -213,16 +218,19 @@ public class DropdownComponent extends SnippetPage {
                                         .addContent(menuContent()
                                                 .addList(menuList()
                                                         .addItem(actionMenuItem("item-0", "Action"))
-                                                        .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                        .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                         .addItem(actionMenuItem("item-2", "Disabled action")
                                                                 .disabled())
-                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                        .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                                 .disabled())
                                                         .addDivider()
                                                         .addItem(actionMenuItem("item-4", "Separated action"))
-                                                        .addItem(linkMenuItem("item-5", "Separated link", "#home"))))))
+                                                        .addItem(linkMenuItem("item-5", "Separated link", "#item-5"))))))
                         .element()
-        // @code-end:dropdown-split-action
+                // @code-end:dropdown-split-action
         ));
+
+        startApiDocs(Dropdown.class);
+        addApiDoc(Dropdown.class, component);
     }
 }

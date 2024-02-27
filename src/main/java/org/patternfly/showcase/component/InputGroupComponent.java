@@ -17,6 +17,8 @@ package org.patternfly.showcase.component;
 
 import org.jboss.elemento.By;
 import org.patternfly.component.inputgroup.InputGroup;
+import org.patternfly.component.inputgroup.InputGroupItem;
+import org.patternfly.component.inputgroup.InputGroupText;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -38,6 +40,8 @@ import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.component.popover.Popover.popover;
 import static org.patternfly.core.ValidationStatus.error;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.PredefinedIcon.fas;
 import static org.patternfly.style.PredefinedIcon.questionCircle;
@@ -52,6 +56,7 @@ public class InputGroupComponent extends SnippetPage {
                                 "An input group groups multiple related controls or inputs together so they appear as one control.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("input-group-basic", "Basic",
                 code.get("input-group-basic"), () ->
                 // @code-start:input-group-basic
@@ -169,5 +174,10 @@ public class InputGroupComponent extends SnippetPage {
                         .element()
                 // @code-end:input-group-multiple-siblings
         ));
+
+        startApiDocs(InputGroup.class);
+        addApiDoc(InputGroup.class, component);
+        addApiDoc(InputGroupItem.class, subcomponent);
+        addApiDoc(InputGroupText.class, subcomponent);
     }
 }

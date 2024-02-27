@@ -16,6 +16,17 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.form.Form;
+import org.patternfly.component.form.FormActionGroup;
+import org.patternfly.component.form.FormAlert;
+import org.patternfly.component.form.FormControl;
+import org.patternfly.component.form.FormFieldGroup;
+import org.patternfly.component.form.FormFieldGroupBody;
+import org.patternfly.component.form.FormFieldGroupHeader;
+import org.patternfly.component.form.FormGroup;
+import org.patternfly.component.form.FormGroupControl;
+import org.patternfly.component.form.FormGroupLabel;
+import org.patternfly.component.form.FormGroupRole;
+import org.patternfly.component.form.FormSection;
 import org.patternfly.component.form.FormSelectOption;
 import org.patternfly.component.popover.Popover;
 import org.patternfly.showcase.Snippet;
@@ -57,6 +68,9 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.layout.grid.Grid.grid;
 import static org.patternfly.layout.grid.GridItem.gridItem;
+import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDocType.other;
+import static org.patternfly.showcase.ApiDocType.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoints.breakpoints;
@@ -71,6 +85,7 @@ public class FormComponent extends SnippetPage {
                         "A form is a group of elements used to collect information from a user in a variety of contexts including in a modal, in a wizard, or on a page. Use cases for forms include tasks reliant on user-inputted information for completion like logging in, registering, configuring settings, or completing surveys.")
                         .element());
 
+        startExamples();
         addSnippet(new Snippet("form-basic", "Basic",
                 code.get("form-basic"), () -> {
                     // @code-start:form-basic
@@ -483,5 +498,19 @@ public class FormComponent extends SnippetPage {
                         .element()
         // @code-end:form-field-group
         ));
+
+        startApiDocs(Form.class);
+        addApiDoc(Form.class, component);
+        addApiDoc(FormActionGroup.class, subcomponent);
+        addApiDoc(FormAlert.class, subcomponent);
+        addApiDoc(FormControl.class, subcomponent);
+        addApiDoc(FormFieldGroup.class, subcomponent);
+        addApiDoc(FormFieldGroupBody.class, subcomponent);
+        addApiDoc(FormFieldGroupHeader.class, subcomponent);
+        addApiDoc(FormGroup.class, subcomponent);
+        addApiDoc(FormGroupControl.class, subcomponent);
+        addApiDoc(FormGroupLabel.class, subcomponent);
+        addApiDoc(FormGroupRole.class, other);
+        addApiDoc(FormSection.class, subcomponent);
     }
 }
