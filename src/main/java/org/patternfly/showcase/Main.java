@@ -33,6 +33,7 @@ import org.patternfly.showcase.component.CheckboxComponent;
 import org.patternfly.showcase.component.ChipComponent;
 import org.patternfly.showcase.component.CodeBlockComponent;
 import org.patternfly.showcase.component.CodeEditorComponent;
+import org.patternfly.showcase.component.ComponentsPage;
 import org.patternfly.showcase.component.DescriptionListComponent;
 import org.patternfly.showcase.component.DividerComponent;
 import org.patternfly.showcase.component.DrawerComponent;
@@ -134,6 +135,7 @@ public class Main {
         pm.register(new Place("/get-in-touch", "Get in touch"), () -> new GetInTouchPage());
         pm.register(new Place("/get-started", "Get started"), () -> new GetStartedPage());
 
+        pm.register(new Place("/components/all-components", "All components"), () -> new ComponentsPage());
         pm.register(new Place("/components/accordion", "Accordion"), () -> new AccordionComponent());
         pm.register(new Place("/components/action-list", "Action list"), () -> new ActionListComponent());
         pm.register(new Place("/components/alert", "Alert"), () -> new AlertComponent());
@@ -204,6 +206,7 @@ public class Main {
         return navigation(expandable)
                 .addItem(ni(pm.place("/get-started")))
                 .addGroup(expandableNavigationGroup("components", "Components")
+                        .addItem(ni(pm.place("/components/all-components")))
                         .addItem(ni(pm.place("/components/accordion")))
                         .addItem(ni(pm.place("/components/action-list")))
                         .addItem(ni(pm.place("/components/alert")))

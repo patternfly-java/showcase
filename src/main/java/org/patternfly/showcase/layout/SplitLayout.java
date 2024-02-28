@@ -15,24 +15,19 @@
  */
 package org.patternfly.showcase.layout;
 
-import org.patternfly.layout.split.Split;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.split.Split.split;
 import static org.patternfly.layout.split.SplitItem.splitItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 
 public class SplitLayout extends SnippetPage {
 
     public SplitLayout() {
-        super(Split.class, "Split",
-                "https://www.patternfly.org/layouts/split/design-guidelines",
-                p().textContent(
-                        "The split layout positions items horizontally in a container, with one item filling the remaining horizontal space as the viewport is resized.")
-                        .element());
+        super(layouts.get("split"));
 
         addSnippet(new Snippet("split-basic", "Basic",
                 code.get("split-basic"), () ->
@@ -43,7 +38,7 @@ public class SplitLayout extends SnippetPage {
                                 .addItem(splitItem().fill().textContent("pf-m-fill"))
                                 .addItem(splitItem().textContent("content")))
                         .element()
-        // @code-end:split-basic
+                // @code-end:split-basic
         ));
 
         addSnippet(new Snippet("split-gutter", "With gutter",
@@ -55,7 +50,7 @@ public class SplitLayout extends SnippetPage {
                                 .addItem(splitItem().fill().textContent("pf-m-fill"))
                                 .addItem(splitItem().textContent("content")))
                         .element()
-        // @code-end:split-gutter
+                // @code-end:split-gutter
         ));
 
         addSnippet(new Snippet("split-wrap", "Wrappable",
@@ -78,7 +73,7 @@ public class SplitLayout extends SnippetPage {
                                 .addItem(splitItem().textContent("content"))
                                 .addItem(splitItem().textContent("content")))
                         .element()
-        // @code-end:split-wrap
+                // @code-end:split-wrap
         ));
     }
 }

@@ -18,14 +18,12 @@ package org.patternfly.showcase.component;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.togglegroup.ToggleGroup;
 import org.patternfly.component.togglegroup.ToggleGroupItem;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.IntStream.range;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Id.build;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.togglegroup.ToggleGroup.toggleGroup;
@@ -34,9 +32,10 @@ import static org.patternfly.core.SelectionMode.multi;
 import static org.patternfly.core.SelectionMode.single;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.copy;
 import static org.patternfly.style.PredefinedIcon.shareSquare;
 import static org.patternfly.style.PredefinedIcon.undo;
@@ -44,11 +43,7 @@ import static org.patternfly.style.PredefinedIcon.undo;
 public class ToggleGroupComponent extends SnippetPage {
 
     public ToggleGroupComponent() {
-        super(ToggleGroup.class, "ToggleGroup",
-                "https://www.patternfly.org/components/toggle-group/design-guidelines",
-                p().textContent(
-                                "A toggle group is a group of controls that can be used to quickly switch between actions or states.")
-                        .element());
+        super(components.get("toggle-group"));
 
         startExamples();
         addSnippet(new Snippet("toggle-group-multiple", "Default with multiple selectable",

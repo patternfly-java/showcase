@@ -15,24 +15,19 @@
  */
 package org.patternfly.showcase.layout;
 
-import org.patternfly.layout.level.Level;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.level.Level.level;
 import static org.patternfly.layout.level.LevelItem.levelItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 
 public class LevelLayout extends SnippetPage {
 
     public LevelLayout() {
-        super(Level.class, "Level",
-                "https://www.patternfly.org/layouts/level/design-guidelines",
-                p().textContent(
-                        "Use a Level layout to evenly distribute content horizontally within a container.")
-                        .element());
+        super(layouts.get("level"));
 
         addSnippet(new Snippet("level-basic", "Basic",
                 code.get("level-basic"), () ->
@@ -43,7 +38,7 @@ public class LevelLayout extends SnippetPage {
                                 .addItem(levelItem().textContent("Level item"))
                                 .addItem(levelItem().textContent("Level item")))
                         .element()
-        // @code-end:level-basic
+                // @code-end:level-basic
         ));
 
         addSnippet(new Snippet("level-gutter", "With gutters",
@@ -55,7 +50,7 @@ public class LevelLayout extends SnippetPage {
                                 .addItem(levelItem().textContent("Level item"))
                                 .addItem(levelItem().textContent("Level item")))
                         .element()
-        // @code-end:level-gutter
+                // @code-end:level-gutter
         ));
     }
 }

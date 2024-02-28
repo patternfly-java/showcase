@@ -22,7 +22,6 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.help.HelperText.helperText;
 import static org.patternfly.component.help.HelperTextItem.helperTextItem;
@@ -30,9 +29,10 @@ import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.indeterminate;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.fas;
 import static org.patternfly.style.PredefinedIcon.times;
@@ -40,11 +40,7 @@ import static org.patternfly.style.PredefinedIcon.times;
 public class HelperTextComponent extends SnippetPage {
 
     public HelperTextComponent() {
-        super(HelperText.class, "Helper text",
-                "https://www.patternfly.org/components/helper-text/design-guidelines",
-                p().textContent(
-                        "Helper text is an on-screen field guideline that helps provide context regarding field inputs.")
-                        .element());
+        super(components.get("helper-text"));
 
         startExamples();
         addSnippet(new Snippet("helper-text-static", "Static",
@@ -57,7 +53,7 @@ public class HelperTextComponent extends SnippetPage {
                         .add(helperText("This is success helper text", success))
                         .add(helperText("This is error helper text", error))
                         .element()
-        // @code-end:helper-text-static
+                // @code-end:helper-text-static
         ));
 
         addSnippet(new Snippet("helper-text-static-icon", "Static with default icons",
@@ -75,7 +71,7 @@ public class HelperTextComponent extends SnippetPage {
                         .add(helperText()
                                 .addItem(helperTextItem("This is error helper text", error).defaultIcon()))
                         .element()
-        // @code-end:helper-text-static-icon
+                // @code-end:helper-text-static-icon
         ));
 
         addSnippet(new Snippet("helper-text-static-custom-icon", "Static with custom icons",
@@ -98,7 +94,7 @@ public class HelperTextComponent extends SnippetPage {
                                 .addItem(helperTextItem("This is error helper text", error)
                                         .icon(times)))
                         .element()
-        // @code-end:helper-text-static-custom-icon
+                // @code-end:helper-text-static-custom-icon
         ));
 
         addSnippet(new Snippet("helper-text-multiple-static", "Multiple static",
@@ -110,7 +106,7 @@ public class HelperTextComponent extends SnippetPage {
                                 .addItem(helperTextItem("This is another default helper text in the same block"))
                                 .addItem(helperTextItem("And this is more default text in the same block")))
                         .element()
-        // @code-end:helper-text-multiple-static
+                // @code-end:helper-text-multiple-static
         ));
 
         addSnippet(new Snippet("helper-text-dynamic", "Dynamic",
@@ -145,7 +141,7 @@ public class HelperTextComponent extends SnippetPage {
                                 .addItem(helperTextItem("This is error helper text with no icon", error)
                                         .dynamic()))
                         .element()
-        // @code-end:helper-text-dynamic
+                // @code-end:helper-text-dynamic
         ));
 
         addSnippet(new Snippet("helper-text-dynamic-list", "Dynamic list",
@@ -165,7 +161,7 @@ public class HelperTextComponent extends SnippetPage {
                                         .dynamic()
                                         .defaultIcon()))
                         .element()
-        // @code-end:helper-text-dynamic-list
+                // @code-end:helper-text-dynamic-list
         ));
 
         startApiDocs(HelperText.class);

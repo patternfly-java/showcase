@@ -38,8 +38,6 @@ import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.removeChildrenFrom;
 import static org.jboss.elemento.Elements.ul;
-import static org.patternfly.component.actionlist.ActionList.actionList;
-import static org.patternfly.component.actionlist.ActionListItem.actionListItem;
 import static org.patternfly.component.alert.Alert.alert;
 import static org.patternfly.component.alert.AlertActionGroup.alertActionGroup;
 import static org.patternfly.component.alert.AlertDescription.alertDescription;
@@ -47,6 +45,8 @@ import static org.patternfly.component.alert.AlertGroup.alertGroup;
 import static org.patternfly.component.alert.AlertGroupType.staticInline;
 import static org.patternfly.component.alert.AlertGroupType.toast;
 import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.list.ActionList.actionList;
+import static org.patternfly.component.list.ActionListItem.actionListItem;
 import static org.patternfly.core.Aria.atomic;
 import static org.patternfly.core.Aria.live;
 import static org.patternfly.core.Aria.relevant;
@@ -56,10 +56,11 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.Severity.info;
 import static org.patternfly.core.Severity.success;
 import static org.patternfly.core.Severity.warning;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.other;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.alertGroup;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Classes.util;
@@ -72,10 +73,7 @@ import static org.patternfly.style.PredefinedIcon.users;
 public class AlertComponent extends SnippetPage {
 
     public AlertComponent() {
-        super(Alert.class, "Alert",
-                "https://www.patternfly.org/components/alert/design-guidelines",
-                p().textContent("Alerts are used to notify the user about a change in status or other event")
-                        .element());
+        super(components.get("alert"));
 
         addHeader("alert-examples", "Alert examples",
                 "PatternFly supports several alert variants for different scenarios. Each variant has an associated status icon, background, and alert title coded to communicate the severity of an alert.");

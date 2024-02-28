@@ -16,25 +16,20 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.switch_.Switch;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.switch_.Switch.switch_;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
 public class SwitchComponent extends SnippetPage {
 
     public SwitchComponent() {
-        super(Switch.class, "Switch",
-                "https://www.patternfly.org/components/switch/design-guidelines",
-                p().textContent(
-                                "A switch toggles the state of a setting (between on and off). Switches and checkboxes can often be used interchangeably, but the switch provides a more explicit, visible representation on a setting.")
-                        .element());
+        super(components.get("switch"));
 
         startExamples();
         addSnippet(new Snippet("switch-basic", "Basic",

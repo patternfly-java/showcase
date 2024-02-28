@@ -25,8 +25,9 @@ import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.core.IconPosition.end;
 import static org.patternfly.core.IconPosition.start;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.arrowRight;
 import static org.patternfly.style.PredefinedIcon.copy;
@@ -38,11 +39,7 @@ import static org.patternfly.style.PredefinedIcon.upload;
 public class ButtonComponent extends SnippetPage {
 
     public ButtonComponent() {
-        super(Button.class, "Button",
-                "https://www.patternfly.org/components/button/design-guidelines",
-                p().textContent(
-                                "A button is a box area or text that communicates and triggers user actions when clicked or selected. Buttons can be used to communicate and immediately trigger actions a user can take in an application, like submitting a form, canceling a process, or creating a new object. Buttons can also be used to take a user to a new location, like another page inside of a web application, or an external site such as help or documentation.")
-                        .element());
+        super(components.get("button"));
 
         startExamples(
                 "PatternFly supports several button styling variants to be used in different scenarios as needed. Take a look at the code to see how to apply the different variants.");

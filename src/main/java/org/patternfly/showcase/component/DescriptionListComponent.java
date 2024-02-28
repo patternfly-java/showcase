@@ -15,28 +15,28 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.descriptionlist.DescriptionList;
-import org.patternfly.component.descriptionlist.DescriptionListDescription;
-import org.patternfly.component.descriptionlist.DescriptionListGroup;
-import org.patternfly.component.descriptionlist.DescriptionListTerm;
+import org.patternfly.component.list.DescriptionList;
+import org.patternfly.component.list.DescriptionListDescription;
+import org.patternfly.component.list.DescriptionListGroup;
+import org.patternfly.component.list.DescriptionListTerm;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 import org.patternfly.style.Size;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.card.Card.card;
-import static org.patternfly.component.descriptionlist.DescriptionList.descriptionList;
-import static org.patternfly.component.descriptionlist.DescriptionListDescription.descriptionListDescription;
-import static org.patternfly.component.descriptionlist.DescriptionListGroup.descriptionListGroup;
-import static org.patternfly.component.descriptionlist.DescriptionListTerm.descriptionListTerm;
+import static org.patternfly.component.list.DescriptionList.descriptionList;
+import static org.patternfly.component.list.DescriptionListDescription.descriptionListDescription;
+import static org.patternfly.component.list.DescriptionListGroup.descriptionListGroup;
+import static org.patternfly.component.list.DescriptionListTerm.descriptionListTerm;
 import static org.patternfly.component.popover.Popover.popover;
 import static org.patternfly.core.IconPosition.start;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
@@ -56,9 +56,7 @@ import static org.patternfly.style.PredefinedIcon.plusCircle;
 public class DescriptionListComponent extends SnippetPage {
 
     public DescriptionListComponent() {
-        super(DescriptionList.class, "Description list",
-                "https://www.patternfly.org/components/description-list/design-guidelines",
-                p().textContent("A description list contains terms and their corresponding descriptions.").element());
+        super(components.get("description-list"));
 
         startExamples();
         addSnippet(new Snippet("dl-basic", "Basic",

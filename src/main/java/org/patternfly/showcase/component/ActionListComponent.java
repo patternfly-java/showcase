@@ -15,20 +15,19 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.actionlist.ActionList;
-import org.patternfly.component.actionlist.ActionListGroup;
-import org.patternfly.component.actionlist.ActionListItem;
+import org.patternfly.component.list.ActionList;
+import org.patternfly.component.list.ActionListGroup;
+import org.patternfly.component.list.ActionListItem;
 import org.patternfly.component.menu.Dropdown;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.actionlist.ActionList.actionList;
-import static org.patternfly.component.actionlist.ActionListGroup.actionListGroup;
-import static org.patternfly.component.actionlist.ActionListItem.actionListItem;
 import static org.patternfly.component.button.Button.button;
+import static org.patternfly.component.list.ActionList.actionList;
+import static org.patternfly.component.list.ActionListGroup.actionListGroup;
+import static org.patternfly.component.list.ActionListItem.actionListItem;
 import static org.patternfly.component.menu.Dropdown.dropdown;
 import static org.patternfly.component.menu.Menu.menu;
 import static org.patternfly.component.menu.MenuContent.menuContent;
@@ -36,9 +35,10 @@ import static org.patternfly.component.menu.MenuItem.actionMenuItem;
 import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 import static org.patternfly.style.PredefinedIcon.times;
@@ -46,48 +46,44 @@ import static org.patternfly.style.PredefinedIcon.times;
 public class ActionListComponent extends SnippetPage {
 
     public ActionListComponent() {
-        super(ActionList.class, "Action list",
-                "https://www.patternfly.org/components/action-list/design-guidelines",
-                p().textContent(
-                        "An action list is a group of actions, controls, or buttons with set spacing.")
-                        .element());
+        super(components.get("action-list"));
 
         startExamples();
         addSnippet(new Snippet("action-list-single-group", "Action list single group",
                 code.get("action-list-single-group"), () -> {
-                    // @code-start:action-list-single-group
-                    Dropdown dropdown = dropdown()
-                            .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
-                            .addMenu(menu()
-                                    .addContent(menuContent()
-                                            .addList(menuList()
-                                                    .addItem(actionMenuItem("item-0", "Action"))
-                                                    .addItem(linkMenuItem("item-1", "Link", "#item-1"))
-                                                    .addItem(actionMenuItem("item-2", "Disabled action")
-                                                            .disabled())
-                                                    .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
-                                                            .disabled())
-                                                    .addDivider()
-                                                    .addItem(actionMenuItem("item-4", "Separated action"))
-                                                    .addItem(linkMenuItem("item-5", "Separated link", "#item-5")))));
-                    return div()
-                            .add(actionList()
-                                    .addItem(actionListItem()
-                                            .add(button("Next").primary()))
-                                    .addItem(actionListItem()
-                                            .add(button("Back").secondary())))
-                            .add(br())
-                            .add("With kebab")
-                            .add(actionList()
-                                    .addItem(actionListItem()
-                                            .add(button("Next").primary()))
-                                    .addItem(actionListItem()
-                                            .add(button("Back").secondary()))
-                                    .addItem(actionListItem()
-                                            .add(dropdown)))
-                            .element();
-                    // @code-end:action-list-single-group
-                }));
+            // @code-start:action-list-single-group
+            Dropdown dropdown = dropdown()
+                    .addToggle(menuToggle(ellipsisV, "kebab dropdown toggle"))
+                    .addMenu(menu()
+                            .addContent(menuContent()
+                                    .addList(menuList()
+                                            .addItem(actionMenuItem("item-0", "Action"))
+                                            .addItem(linkMenuItem("item-1", "Link", "#item-1"))
+                                            .addItem(actionMenuItem("item-2", "Disabled action")
+                                                    .disabled())
+                                            .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
+                                                    .disabled())
+                                            .addDivider()
+                                            .addItem(actionMenuItem("item-4", "Separated action"))
+                                            .addItem(linkMenuItem("item-5", "Separated link", "#item-5")))));
+            return div()
+                    .add(actionList()
+                            .addItem(actionListItem()
+                                    .add(button("Next").primary()))
+                            .addItem(actionListItem()
+                                    .add(button("Back").secondary())))
+                    .add(br())
+                    .add("With kebab")
+                    .add(actionList()
+                            .addItem(actionListItem()
+                                    .add(button("Next").primary()))
+                            .addItem(actionListItem()
+                                    .add(button("Back").secondary()))
+                            .addItem(actionListItem()
+                                    .add(dropdown)))
+                    .element();
+            // @code-end:action-list-single-group
+        }));
 
         addSnippet(new Snippet("action-list-icons", "Action list with icons",
                 code.get("action-list-icons"), () ->
@@ -99,7 +95,7 @@ public class ActionListComponent extends SnippetPage {
                                 .addItem(actionListItem()
                                         .add(button().icon(check).plain())))
                         .element()
-        // @code-end:action-list-icons
+                // @code-end:action-list-icons
         ));
 
         addSnippet(new Snippet("action-list-multiple-groups", "Action list multiple groups",
@@ -124,7 +120,7 @@ public class ActionListComponent extends SnippetPage {
                                         .addItem(actionListItem()
                                                 .add(button("Cancel").link()))))
                         .element()
-        // @code-end:action-list-multiple-groups
+                // @code-end:action-list-multiple-groups
         ));
 
         startApiDocs(ActionList.class);

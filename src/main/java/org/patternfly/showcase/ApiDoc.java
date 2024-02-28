@@ -23,23 +23,29 @@ import static org.patternfly.style.Color.grey;
 import static org.patternfly.style.Color.orange;
 import static org.patternfly.style.Color.purple;
 
-public enum ApiDocType {
+public interface ApiDoc {
 
-    component("Component", blue),
+    String API_DOC_BASE = "https://patternfly-java.github.io/patternfly-java/";
+    String API_DOC_TARGET = "api-doc";
 
-    subcomponent("Subcomponent", cyan),
+    enum Type {
 
-    modifier("Modifier", orange),
+        component("Component", blue),
 
-    handler("Event handler", purple),
+        subcomponent("Subcomponent", cyan),
 
-    other("Other", grey);
+        modifier("Modifier", orange),
 
-    final String name;
-    final Color color;
+        handler("Event handler", purple),
 
-    ApiDocType(String name, Color color) {
-        this.name = name;
-        this.color = color;
+        other("Other", grey);
+
+        final String name;
+        final Color color;
+
+        Type(String name, Color color) {
+            this.name = name;
+            this.color = color;
+        }
     }
 }

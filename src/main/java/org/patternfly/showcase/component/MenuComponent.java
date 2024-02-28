@@ -36,7 +36,6 @@ import org.patternfly.showcase.SnippetPage;
 import static elemental2.dom.DomGlobal.console;
 import static java.util.stream.Collectors.joining;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.menu.Menu.menu;
 import static org.patternfly.component.menu.MenuContent.menuContent;
@@ -49,11 +48,12 @@ import static org.patternfly.component.menu.MenuItemAction.menuItemAction;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.core.SelectionMode.click;
 import static org.patternfly.core.SelectionMode.multi;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.handler;
-import static org.patternfly.showcase.ApiDocType.other;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.handler;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.bars;
 import static org.patternfly.style.PredefinedIcon.bell;
 import static org.patternfly.style.PredefinedIcon.fas;
@@ -61,11 +61,7 @@ import static org.patternfly.style.PredefinedIcon.fas;
 public class MenuComponent extends SnippetPage {
 
     public MenuComponent() {
-        super(Menu.class, "Menu",
-                "https://www.patternfly.org/components/menus/menu/design-guidelines",
-                p().textContent(
-                                "A menu is a list of options or actions that users can choose from. It can be used in a variety of contexts whenever the user needs to choose between multiple values, options, or actions. A menu is most often paired with a menu toggle as its trigger, but can also be used inline or can be attached to other interactable elements to toggle it open and close.")
-                        .element());
+        super(components.get("menu"));
 
         startExamples();
         addSnippet(new Snippet("menu-basic", "Basic menu",

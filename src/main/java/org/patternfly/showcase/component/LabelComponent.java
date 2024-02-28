@@ -29,12 +29,12 @@ import elemental2.dom.HTMLDivElement;
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.label.Label.label;
 import static org.patternfly.component.label.LabelGroup.labelGroup;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.handler;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.handler;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Color.blue;
 import static org.patternfly.style.Color.green;
 import static org.patternfly.style.Color.orange;
@@ -45,11 +45,7 @@ import static org.patternfly.style.PredefinedIcon.infoCircle;
 public class LabelComponent extends SnippetPage {
 
     public LabelComponent() {
-        super(Label.class, "Label",
-                "https://www.patternfly.org/components/label/design-guidelines",
-                p().textContent(
-                                "The label component allows users to add specific element captions for user clarity and convenience.")
-                        .element());
+        super(components.get("label"));
 
         startExamples();
         addSnippet(new Snippet("label-filled", "Filled labels",

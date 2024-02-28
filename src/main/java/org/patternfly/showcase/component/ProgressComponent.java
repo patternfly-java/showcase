@@ -29,22 +29,22 @@ import org.patternfly.style.Status;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
-import static org.patternfly.component.descriptionlist.DescriptionList.descriptionList;
-import static org.patternfly.component.descriptionlist.DescriptionListDescription.descriptionListDescription;
-import static org.patternfly.component.descriptionlist.DescriptionListGroup.descriptionListGroup;
-import static org.patternfly.component.descriptionlist.DescriptionListTerm.descriptionListTerm;
 import static org.patternfly.component.form.Radio.radio;
 import static org.patternfly.component.help.HelperText.helperText;
+import static org.patternfly.component.list.DescriptionList.descriptionList;
+import static org.patternfly.component.list.DescriptionListDescription.descriptionListDescription;
+import static org.patternfly.component.list.DescriptionListGroup.descriptionListGroup;
+import static org.patternfly.component.list.DescriptionListTerm.descriptionListTerm;
 import static org.patternfly.component.progress.MeasureLocation.inside;
 import static org.patternfly.component.progress.MeasureLocation.none;
 import static org.patternfly.component.progress.MeasureLocation.outside;
 import static org.patternfly.component.progress.Progress.progress;
 import static org.patternfly.core.Tuples.tuples;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.modifier;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.modifier;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Size.lg;
 import static org.patternfly.style.Size.sm;
 import static org.patternfly.style.Status.danger;
@@ -55,11 +55,7 @@ import static org.patternfly.style.Status.warning;
 public class ProgressComponent extends SnippetPage {
 
     public ProgressComponent() {
-        super(Progress.class, "Progress",
-                "https://www.patternfly.org/components/progress/design-guidelines",
-                p().textContent(
-                                "A progress bar informs users about the completion status of an ongoing process or task.")
-                        .element());
+        super(components.get("progress"));
 
         startExamples();
         addSnippet(new Snippet("progress-basic", "Basic",

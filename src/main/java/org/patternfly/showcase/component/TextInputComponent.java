@@ -22,22 +22,20 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.TextInput.textInput;
 import static org.patternfly.core.ValidationStatus.error;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.other;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.fas;
 
 public class TextInputComponent extends SnippetPage {
 
     public TextInputComponent() {
-        super(TextInput.class, "Text input",
-                "https://www.patternfly.org/components/forms/text-input/design-guidelines",
-                p().textContent("A text input is used to gather free-form text from a user.").element());
+        super(components.get("text-input"));
 
         startExamples();
         addSnippet(new Snippet("text-input-basic", "Basic",

@@ -22,7 +22,6 @@ import org.patternfly.component.slider.SliderActions;
 import org.patternfly.component.slider.SliderInputPosition;
 import org.patternfly.component.slider.SliderStep;
 import org.patternfly.component.slider.SliderSteps;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -46,10 +45,11 @@ import static org.patternfly.component.slider.SliderActions.sliderActions;
 import static org.patternfly.component.slider.SliderInputPosition.aboveThumb;
 import static org.patternfly.component.slider.SliderStep.sliderStep;
 import static org.patternfly.component.slider.SliderSteps.sliderSteps;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.other;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.lock;
 import static org.patternfly.style.PredefinedIcon.lockOpen;
 import static org.patternfly.style.PredefinedIcon.minus;
@@ -59,11 +59,7 @@ import static org.patternfly.style.PredefinedIcon.plus;
 public class SliderComponent extends SnippetPage {
 
     public SliderComponent() {
-        super(Slider.class, "Slider",
-                "https://www.patternfly.org/components/slider/design-guidelines",
-                p().textContent(
-                                "A slider provides a quick and effective way for users to set and adjust a numeric value from a defined range of values.")
-                        .element());
+        super(components.get("slider"));
 
         startExamples();
         addSnippet(new Snippet("slider-discrete", "Discrete",

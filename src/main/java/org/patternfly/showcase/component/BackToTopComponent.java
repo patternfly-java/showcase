@@ -20,19 +20,16 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.backtotop.BackToTop.backToTop;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
 public class BackToTopComponent extends SnippetPage {
 
     public BackToTopComponent() {
-        super(BackToTop.class,"Back to top",
-                "https://www.patternfly.org/components/back-to-top/design-guidelines",
-                p().textContent(
-                        "The back to top component is a shortcut that allows users to quickly navigate to the top of a lengthy content page.")
-                        .element());
+        super(components.get("back-to-top"));
+
         startExamples();
         addSnippet(new Snippet("btt-basic", "Basic",
                 code.get("btt-basic"), () ->
@@ -40,7 +37,7 @@ public class BackToTopComponent extends SnippetPage {
                 div().id("ws-core-c-back-to-top-basic")
                         .add(backToTop().alwaysVisible())
                         .element()
-        // @code-end:btt-basic
+                // @code-end:btt-basic
         ));
 
         startApiDocs(BackToTop.class);

@@ -20,7 +20,7 @@ import java.util.Random;
 @SuppressWarnings("SpellCheckingInspection")
 public final class LoremIpsum {
 
-    private static final String[] PARAGRAPHS = { "Aliquam aliquet blandit erat nec hendrerit.",
+    private static final String[] PARAGRAPHS = {"Aliquam aliquet blandit erat nec hendrerit.",
             "At vero eos et accusam et justo duo dolores et ea rebum.",
             "Atque ab isto capite fluere necesse est omnem rationem bonorum et malorum.",
             "Cras bibendum nisi quis turpis aliquet tempus.", "Duis tempor maximus nulla at varius.",
@@ -30,7 +30,7 @@ public final class LoremIpsum {
             "Sed ac fringilla eros.", "Ut ut volutpat nisi.",
             "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.",
             "Vivamus tempus lacus ac semper luctus.",
-            "Vivamus varius nisl in sapien sagittis, vel condimentum lectus rutrum.", };
+            "Vivamus varius nisl in sapien sagittis, vel condimentum lectus rutrum.",};
 
     private static final String[] WORDS = "lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet lorem ipsum dolor sit amet consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat sed diam voluptua at vero eos et accusam et justo duo dolores et ea rebum stet clita kasd gubergren no sea takimata sanctus est lorem ipsum dolor sit amet"
             .split("\\s");

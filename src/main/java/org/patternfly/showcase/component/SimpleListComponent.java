@@ -19,29 +19,24 @@ import org.jboss.elemento.Id;
 import org.patternfly.component.list.SimpleList;
 import org.patternfly.component.list.SimpleListGroup;
 import org.patternfly.component.list.SimpleListItem;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.IntStream.range;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.list.SimpleList.simpleList;
 import static org.patternfly.component.list.SimpleListGroup.simpleListGroup;
 import static org.patternfly.component.list.SimpleListItem.simpleListItem;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
 public class SimpleListComponent extends SnippetPage {
 
     public SimpleListComponent() {
-        super(SimpleList.class, "Simple list",
-                "https://www.patternfly.org/components/simple-list/design-guidelines",
-                p().textContent(
-                                "A simple list provides a list of selectable items that can be shown within a page. Each item is described by a text label. The list may be divided into logical sections by introducing group headers.")
-                        .element());
+        super(components.get("simple-list"));
 
         startExamples();
         addSnippet(new Snippet("simple-list", "Simple list",

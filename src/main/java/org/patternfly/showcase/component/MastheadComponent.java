@@ -26,7 +26,6 @@ import org.patternfly.style.Inset;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.span;
 import static org.patternfly.component.brand.Brand.brand;
 import static org.patternfly.component.button.Button.button;
@@ -36,10 +35,11 @@ import static org.patternfly.component.page.MastheadContent.mastheadContent;
 import static org.patternfly.component.page.MastheadMain.mastheadMain;
 import static org.patternfly.component.page.MastheadToggle.mastheadToggle;
 import static org.patternfly.layout.flex.Flex.flex;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Assets.pfLogo;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
@@ -54,11 +54,7 @@ import static org.patternfly.style.Variables.Height;
 public class MastheadComponent extends SnippetPage {
 
     public MastheadComponent() {
-        super(Masthead.class, "Masthead",
-                "https://www.patternfly.org/components/masthead/design-guidelines",
-                p().textContent(
-                                "A masthead contains global properties such as logotype, navigation and settings in an organized fashion and it is accessible from all parts of the application. All pages should share a common masthead.")
-                        .element());
+        super(components.get("masthead"));
 
         startExamples();
         addSnippet(new Snippet("masthead-basic", "Basic",

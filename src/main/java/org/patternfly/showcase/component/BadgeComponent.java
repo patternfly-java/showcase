@@ -21,19 +21,15 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
 public class BadgeComponent extends SnippetPage {
 
     public BadgeComponent() {
-        super(Badge.class, "Badge",
-                "https://www.patternfly.org/components/badge/design-guidelines",
-                p().textContent(
-                        "A badge is used to annotate other information like a label or an object name. Badges are typically used to reflect a count, e.g. number of object, number of events, number of unread, etc.")
-                        .element());
+        super(components.get("badge"));
 
         startExamples();
         addSnippet(new Snippet("badge-read", "Badge (read)",
@@ -52,7 +48,7 @@ public class BadgeComponent extends SnippetPage {
                                 .display(v -> v + " apples")
                                 .maxDisplay(v -> "More apples than you can ever eat"))
                         .element()
-        // @code-end:badge-read
+                // @code-end:badge-read
         ));
 
         addSnippet(new Snippet("badge-unread", "Badge (unread)",
@@ -71,7 +67,7 @@ public class BadgeComponent extends SnippetPage {
                                 .display(v -> v + " apples")
                                 .maxDisplay(v -> "More apples than you can ever eat"))
                         .element()
-        // @code-end:badge-unread
+                // @code-end:badge-unread
         ));
 
         startApiDocs(Badge.class);

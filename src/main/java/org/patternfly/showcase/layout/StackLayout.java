@@ -15,24 +15,19 @@
  */
 package org.patternfly.showcase.layout;
 
-import org.patternfly.layout.stack.Stack;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 
 public class StackLayout extends SnippetPage {
 
     public StackLayout() {
-        super(Stack.class, "Stack",
-                "https://www.patternfly.org/layouts/stack/design-guidelines",
-                p().textContent(
-                        "The stack layout positions items vertically, with one or more items filling the available vertical space.")
-                        .element());
+        super(layouts.get("stack"));
 
         addSnippet(new Snippet("stack-basic", "Basic",
                 code.get("stack-basic"), () ->
@@ -43,7 +38,7 @@ public class StackLayout extends SnippetPage {
                                 .addItem(stackItem().fill().textContent("pf-m-fill"))
                                 .addItem(stackItem().textContent("content")))
                         .element()
-        // @code-end:stack-basic
+                // @code-end:stack-basic
         ));
 
         addSnippet(new Snippet("stack-gutter", "With gutters",
@@ -55,7 +50,7 @@ public class StackLayout extends SnippetPage {
                                 .addItem(stackItem().fill().textContent("pf-m-fill"))
                                 .addItem(stackItem().textContent("content")))
                         .element()
-        // @code-end:stack-gutter
+                // @code-end:stack-gutter
         ));
     }
 }

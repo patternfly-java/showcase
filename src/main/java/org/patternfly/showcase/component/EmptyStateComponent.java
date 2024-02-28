@@ -24,16 +24,16 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.emptystate.EmptyState.emptyState;
 import static org.patternfly.component.emptystate.EmptyStateActions.emptyStateActions;
 import static org.patternfly.component.emptystate.EmptyStateBody.emptyStateBody;
 import static org.patternfly.component.emptystate.EmptyStateFooter.emptyStateFooter;
 import static org.patternfly.component.emptystate.EmptyStateHeader.emptyStateHeader;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.cubes;
 import static org.patternfly.style.PredefinedIcon.search;
@@ -46,11 +46,7 @@ import static org.patternfly.style.Variable.globalVar;
 public class EmptyStateComponent extends SnippetPage {
 
     public EmptyStateComponent() {
-        super(EmptyState.class, "Empty state",
-                "https://www.patternfly.org/components/empty-state/design-guidelines",
-                p().textContent(
-                        "An empty state is a screen that is not yet populated with data or information. Empty states typically contain a short message and next steps for the user.")
-                        .element());
+        super(components.get("empty-state"));
 
         startExamples();
         addSnippet(new Snippet("empty-state-basic", "Basic",
@@ -75,7 +71,7 @@ public class EmptyStateComponent extends SnippetPage {
                                                 .add(button("In the secondary").link())
                                                 .add(button("Action area").link()))))
                         .element()
-        // @code-end:empty-state-basic
+                // @code-end:empty-state-basic
         ));
 
         addSnippet(new Snippet("empty-state-xs", "Extra small",
@@ -98,7 +94,7 @@ public class EmptyStateComponent extends SnippetPage {
                                                 .add(button("In the secondary").link())
                                                 .add(button("Action area").link()))))
                         .element()
-        // @code-end:empty-state-xs
+                // @code-end:empty-state-xs
         ));
 
         addSnippet(new Snippet("empty-state-small", "Small",
@@ -124,7 +120,7 @@ public class EmptyStateComponent extends SnippetPage {
                                                 .add(button("In the secondary").link())
                                                 .add(button("Action area").link()))))
                         .element()
-        // @code-end:empty-state-small
+                // @code-end:empty-state-small
         ));
 
         addSnippet(new Snippet("empty-state-large", "Large",
@@ -150,7 +146,7 @@ public class EmptyStateComponent extends SnippetPage {
                                                 .add(button("In the secondary").link())
                                                 .add(button("Action area").link()))))
                         .element()
-        // @code-end:empty-state-large
+                // @code-end:empty-state-large
         ));
 
         addSnippet(new Snippet("empty-state-xl", "Extra large",
@@ -176,7 +172,7 @@ public class EmptyStateComponent extends SnippetPage {
                                                 .add(button("In the secondary").link())
                                                 .add(button("Action area").link()))))
                         .element()
-        // @code-end:empty-state-xl
+                // @code-end:empty-state-xl
         ));
 
         addSnippet(new Snippet("empty-state-spinner", "Spinner",
@@ -188,7 +184,7 @@ public class EmptyStateComponent extends SnippetPage {
                                         .spinner("Loading...")
                                         .text("Loading")))
                         .element()
-        // @code-end:empty-state-spinner
+                // @code-end:empty-state-spinner
         ));
 
         addSnippet(new Snippet("empty-state-no-match", "No match found",
@@ -205,7 +201,7 @@ public class EmptyStateComponent extends SnippetPage {
                                         .addActions(emptyStateActions()
                                                 .add(button("Clear all filters").link()))))
                         .element()
-        // @code-end:empty-state-no-match
+                // @code-end:empty-state-no-match
         ));
 
         addSnippet(new Snippet("empty-state-color", "Custom icon color",
@@ -220,7 +216,7 @@ public class EmptyStateComponent extends SnippetPage {
                                         .textContent(
                                                 "This represents an the empty state pattern in PatternFly. Hopefully it's simple enough to use but flexible enough to meet a variety of needs.")))
                         .element()
-        // @code-end:empty-state-color
+                // @code-end:empty-state-color
         ));
 
         startApiDocs(EmptyState.class);

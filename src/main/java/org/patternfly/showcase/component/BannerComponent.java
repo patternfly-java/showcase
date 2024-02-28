@@ -23,7 +23,6 @@ import org.patternfly.showcase.SnippetPage;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.banner.Banner.banner;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
@@ -31,8 +30,9 @@ import static org.patternfly.core.Attributes.role;
 import static org.patternfly.layout.flex.Flex.flex;
 import static org.patternfly.layout.flex.FlexItem.flexItem;
 import static org.patternfly.layout.flex.SpaceItems.sm;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.disabled;
@@ -50,11 +50,7 @@ import static org.patternfly.style.PredefinedIcon.infoCircle;
 public class BannerComponent extends SnippetPage {
 
     public BannerComponent() {
-        super(Banner.class, "Banner",
-                "https://www.patternfly.org/components/banner/design-guidelines",
-                p().textContent(
-                                "A banner is a 1-line, full color, full width container that can be used to communicate short snippets of information to users. Banners are un-intrusive and non-dismissible.")
-                        .element());
+        super(components.get("banner"));
 
         startExamples();
         addSnippet(new Snippet("banner-basic", "Basic",

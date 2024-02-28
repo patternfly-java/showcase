@@ -21,22 +21,18 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.breadcrumb.Breadcrumb.breadcrumb;
 import static org.patternfly.component.breadcrumb.BreadcrumbItem.breadcrumbItem;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.showcase.component.NotYetImplemented.nyi;
 
 public class BreadcrumbComponent extends SnippetPage {
 
     public BreadcrumbComponent() {
-        super(Breadcrumb.class, "Breadcrumb",
-                "https://www.patternfly.org/components/breadcrumb/design-guidelines",
-                p().textContent(
-                                "A breadcrumb provides page context to help users navigate more efficiently and understand where they are in the application hierarchy.")
-                        .element());
+        super(components.get("breadcrumb"));
 
         startExamples();
         addSnippet(new Snippet("breadcrumb-basic", "Basic",

@@ -31,7 +31,6 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.span;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.drawer.Drawer.drawer;
@@ -47,10 +46,11 @@ import static org.patternfly.component.drawer.Position.bottom;
 import static org.patternfly.component.drawer.Position.end;
 import static org.patternfly.component.drawer.Position.start;
 import static org.patternfly.component.title.Title.title;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.modifier;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.modifier;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.util;
@@ -59,11 +59,7 @@ import static org.patternfly.style.Size._2xl;
 public class DrawerComponent extends SnippetPage {
 
     public DrawerComponent() {
-        super(Drawer.class, "Drawer",
-                "https://www.patternfly.org/components/drawer/design-guidelines",
-                p().textContent(
-                                "A drawer is a sliding panel that enters from the right edge of the viewport. It can be configured to either overlay content on a page or create a sidebar by pushing that content to the left.")
-                        .element());
+        super(components.get("drawer"));
 
         startExamples();
         addSnippet(new Snippet("drawer-basic", "Basic",

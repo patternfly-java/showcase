@@ -15,7 +15,6 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.Radio;
 import org.patternfly.component.form.RadioBody;
 import org.patternfly.component.form.RadioDescription;
@@ -24,22 +23,18 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Radio.radio;
 import static org.patternfly.component.form.RadioBody.radioBody;
 import static org.patternfly.component.form.RadioDescription.radioDescription;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
 public class RadioComponent extends SnippetPage {
 
     public RadioComponent() {
-        super(Checkbox.class, "Checkbox",
-                "https://www.patternfly.org/components/forms/radio/design-guidelines",
-                p().textContent(
-                                "A radio button is used to present the user with mutually exclusive choices. Always present radio buttons in groups of 2 or more.")
-                        .element());
+        super(components.get("radio"));
 
         startExamples();
         addSnippet(new Snippet("radio-basic", "Basic",

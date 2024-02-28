@@ -19,7 +19,6 @@ import org.patternfly.layout.flex.Align;
 import org.patternfly.layout.flex.AlignSelf;
 import org.patternfly.layout.flex.Direction;
 import org.patternfly.layout.flex.Display;
-import org.patternfly.layout.flex.Flex;
 import org.patternfly.layout.flex.FlexShorthand;
 import org.patternfly.layout.flex.Gap;
 import org.patternfly.layout.flex.JustifyContent;
@@ -31,11 +30,11 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.layout.flex.Flex.flex;
 import static org.patternfly.layout.flex.FlexItem.flexItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
 import static org.patternfly.style.Breakpoint.md;
@@ -45,11 +44,7 @@ import static org.patternfly.style.Breakpoints.breakpoints;
 public class FlexLayout extends SnippetPage {
 
     public FlexLayout() {
-        super(Flex.class, "Flex",
-                "https://www.patternfly.org/layouts/flex/design-guidelines",
-                p().textContent(
-                        "The flex layout supports a completely custom layout by utilizing the PatternFly spacer and breakpoint systems. Flex layouts are infinitely nestable and allow you to adjust spacing, direction, alignment, justification, wrapping, and width to fit your needs.")
-                        .element());
+        super(layouts.get("flex"));
 
         // ------------------------------------------------------ basics
 
@@ -65,7 +60,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-basic
+                // @code-end:flex-basic
         ));
 
         addSnippet(new Snippet("flex-nesting", "Nesting",
@@ -81,7 +76,7 @@ public class FlexLayout extends SnippetPage {
                                         .add(flexItem().textContent("Flex item"))
                                         .add(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-nesting
+                // @code-end:flex-nesting
         ));
 
         addSnippet(new Snippet("flex-nested-with-items", "Nested with items",
@@ -97,7 +92,7 @@ public class FlexLayout extends SnippetPage {
                                 .add(flex()
                                         .add(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-nested-with-items
+                // @code-end:flex-nested-with-items
         ));
 
         addSnippet(new Snippet("flex-individually-spaced", "Individually spaced",
@@ -113,7 +108,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().spacer(breakpoints(default_, Spacer._2xl)).textContent("Item - 2xl"))
                                 .addItem(flexItem().spacer(breakpoints(default_, Spacer._3xl)).textContent("Item - 3xl")))
                         .element()
-        // @code-end:flex-individually-spaced
+                // @code-end:flex-individually-spaced
         ));
 
         addSnippet(new Snippet("flex-spacing-xl", "Spacing xl",
@@ -127,7 +122,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-spacing-xl
+                // @code-end:flex-spacing-xl
         ));
 
         addSnippet(new Snippet("flex-spacing-none", "Spacing none",
@@ -141,7 +136,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-spacing-none
+                // @code-end:flex-spacing-none
         ));
 
         addSnippet(new Snippet("flex-row-gap", "Row gap",
@@ -160,7 +155,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-row-gap
+                // @code-end:flex-row-gap
         ));
 
         addSnippet(new Snippet("flex-column-gap", "Column gap",
@@ -179,7 +174,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-column-gap
+                // @code-end:flex-column-gap
         ));
 
         addSnippet(new Snippet("flex-gap", "Gap",
@@ -198,7 +193,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-gap
+                // @code-end:flex-gap
         ));
 
         addSnippet(new Snippet("flex-default-layout", "Default layout",
@@ -212,7 +207,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-default-layout
+                // @code-end:flex-default-layout
         ));
 
         addSnippet(new Snippet("flex-inline", "Inline",
@@ -226,7 +221,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-inline
+                // @code-end:flex-inline
         ));
 
         addSnippet(new Snippet("flex-grow", "Using canGrow",
@@ -244,7 +239,7 @@ public class FlexLayout extends SnippetPage {
                                 .add(flex()
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-grow
+                // @code-end:flex-grow
         ));
 
         addSnippet(new Snippet("flex-adjust-width", "Adjusting width",
@@ -262,7 +257,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-adjust-width
+                // @code-end:flex-adjust-width
         ));
 
         addSnippet(new Snippet("flex-column-widths", "Specifying column widths",
@@ -280,7 +275,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-column-widths
+                // @code-end:flex-column-widths
         ));
 
         // ------------------------------------------------------ column
@@ -295,7 +290,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-column-layout
+                // @code-end:flex-column-layout
         ));
 
         addSnippet(new Snippet("flex-stacking-elements", "Stacking elements",
@@ -313,7 +308,7 @@ public class FlexLayout extends SnippetPage {
                                 .add(flex()
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-stacking-elements
+                // @code-end:flex-stacking-elements
         ));
 
         addSnippet(new Snippet("flex-nest-columns", "Nesting elements in columns",
@@ -329,7 +324,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-nest-columns
+                // @code-end:flex-nest-columns
         ));
 
         // ------------------------------------------------------ responsive
@@ -349,7 +344,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-column-row
+                // @code-end:flex-column-row
         ));
 
         addSnippet(new Snippet("flex-width-of-text", "Controlling width of text",
@@ -364,7 +359,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-width-of-text
+                // @code-end:flex-width-of-text
         ));
 
         // ------------------------------------------------------ alignment
@@ -381,7 +376,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().align(breakpoints(default_, Align.right)).textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-align-right
+                // @code-end:flex-align-right
         ));
 
         addSnippet(new Snippet("flex-align-right-single", "Align right on single item",
@@ -392,7 +387,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().align(breakpoints(default_, Align.right)).textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-align-right-single
+                // @code-end:flex-align-right-single
         ));
 
         addSnippet(new Snippet("flex-align-right-multiple", "Align right on multiple groups",
@@ -410,7 +405,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-align-right-multiple
+                // @code-end:flex-align-right-multiple
         ));
 
         addSnippet(new Snippet("flex-align-adjacent-content", "Align adjacent content",
@@ -427,7 +422,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-align-adjacent-content
+                // @code-end:flex-align-adjacent-content
         ));
 
         addSnippet(new Snippet("flex-align-self-end", "Align self flex end",
@@ -445,7 +440,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-align-self-end
+                // @code-end:flex-align-self-end
         ));
 
         addSnippet(new Snippet("flex-align-self-center", "Align self center",
@@ -463,7 +458,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-align-self-center
+                // @code-end:flex-align-self-center
         ));
 
         addSnippet(new Snippet("flex-align-self-baseline", "Align self baseline",
@@ -481,7 +476,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-align-self-baseline
+                // @code-end:flex-align-self-baseline
         ));
 
         addSnippet(new Snippet("flex-align-self-stretch", "Align self stretch",
@@ -499,7 +494,7 @@ public class FlexLayout extends SnippetPage {
                                         .addItem(flexItem().textContent("Flex item"))
                                         .addItem(flexItem().textContent("Flex item"))))
                         .element()
-        // @code-end:flex-align-self-stretch
+                // @code-end:flex-align-self-stretch
         ));
 
         // ------------------------------------------------------ justification
@@ -515,7 +510,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-just-end
+                // @code-end:flex-just-end
         ));
 
         addSnippet(new Snippet("flex-just-space-between", "Justify content space between",
@@ -527,7 +522,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-just-space-between
+                // @code-end:flex-just-space-between
         ));
 
         addSnippet(new Snippet("flex-just-start", "Justify content flex start",
@@ -539,7 +534,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().textContent("Flex item"))
                                 .addItem(flexItem().textContent("Flex item")))
                         .element()
-        // @code-end:flex-just-start
+                // @code-end:flex-just-start
         ));
 
         // ------------------------------------------------------ order
@@ -557,7 +552,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem().spacer(breakpoints(default_, Spacer.md)).order(breakpoints(default_, "-1"))
                                         .textContent("Item C")))
                         .element()
-        // @code-end:flex-order-first-last
+                // @code-end:flex-order-first-last
         ));
 
         addSnippet(new Snippet("flex-order-first-last-responsive", "Responsive first last ordering",
@@ -578,7 +573,7 @@ public class FlexLayout extends SnippetPage {
                                         .order(breakpoints(md, "-1"))
                                         .textContent("Item C")))
                         .element()
-        // @code-end:flex-order-first-last-responsive
+                // @code-end:flex-order-first-last-responsive
         ));
 
         addSnippet(new Snippet("flex-ordering", "Ordering",
@@ -618,7 +613,7 @@ public class FlexLayout extends SnippetPage {
                                                 .spacer(breakpoints(default_, Spacer.md))
                                                 .textContent("Set 2, Item D"))))
                         .element()
-        // @code-end:flex-ordering
+                // @code-end:flex-ordering
         ));
 
         addSnippet(new Snippet("flex-ordering-responsive", "Responsive ordering",
@@ -657,7 +652,7 @@ public class FlexLayout extends SnippetPage {
                                                 .spacer(breakpoints(default_, Spacer.md))
                                                 .textContent("Set 2, Item D"))))
                         .element()
-        // @code-end:flex-ordering-responsive
+                // @code-end:flex-ordering-responsive
         ));
 
         // ------------------------------------------------------ components
@@ -674,7 +669,7 @@ public class FlexLayout extends SnippetPage {
                                 .addItem(flexItem(li()).textContent("Flex item"))
                                 .addItem(flexItem(li()).textContent("Flex item")))
                         .element()
-        // @code-end:flex-alternative-components
+                // @code-end:flex-alternative-components
         ));
 
     }

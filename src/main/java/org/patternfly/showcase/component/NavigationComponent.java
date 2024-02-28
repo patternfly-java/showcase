@@ -28,7 +28,6 @@ import static elemental2.dom.DomGlobal.console;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.IntStream.range;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.small;
 import static org.jboss.elemento.Elements.strong;
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
@@ -41,10 +40,11 @@ import static org.patternfly.component.navigation.NavigationType.Horizontal.seco
 import static org.patternfly.component.navigation.NavigationType.Vertical.expandable;
 import static org.patternfly.component.navigation.NavigationType.Vertical.flat;
 import static org.patternfly.component.navigation.NavigationType.Vertical.grouped;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.other;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.showcase.component.NotYetImplemented.nyi;
 import static org.patternfly.style.PredefinedIcon.arrowRight;
 import static org.patternfly.style.PredefinedIcon.user;
@@ -52,11 +52,7 @@ import static org.patternfly.style.PredefinedIcon.user;
 public class NavigationComponent extends SnippetPage {
 
     public NavigationComponent() {
-        super(Navigation.class, "Navigation",
-                "https://www.patternfly.org/components/navigation/design-guidelines",
-                p().textContent(
-                                "A navigation organizes an application's structure and content, making it easy to find information and accomplish tasks. Navigation communicates relationships, context, and actions a user can take within an application.")
-                        .element());
+        super(components.get("navigation"));
 
         startExamples();
         addSnippet(new Snippet("nav-default", "Default",

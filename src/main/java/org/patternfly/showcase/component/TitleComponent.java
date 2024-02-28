@@ -16,16 +16,15 @@
 package org.patternfly.showcase.component;
 
 import org.patternfly.component.title.Title;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Size._2xl;
 import static org.patternfly.style.Size._3xl;
 import static org.patternfly.style.Size._4xl;
@@ -36,11 +35,7 @@ import static org.patternfly.style.Size.xl;
 public class TitleComponent extends SnippetPage {
 
     public TitleComponent() {
-        super(Title.class, "Title",
-                "https://www.patternfly.org/components/title/design-guidelines",
-                p().textContent(
-                        "A title component applies top and bottom margins, font-weight, font-size, and line-height to titles. The most common usage for a title is to define headings within a page.")
-                        .element());
+        super(components.get("title"));
 
         startExamples();
         addSnippet(new Snippet("title-default-sizes", "Default sizes",
@@ -55,7 +50,7 @@ public class TitleComponent extends SnippetPage {
                                 .add(title(5, "h5 defaults to md"))
                                 .add(title(6, "h6 defaults to md")))
                         .element()
-        // @code-end:title-default-sizes
+                // @code-end:title-default-sizes
         ));
 
         addSnippet(new Snippet("title-custom-sizes", "Custom sizes",
@@ -70,7 +65,7 @@ public class TitleComponent extends SnippetPage {
                                 .add(title(5, lg, "h5 has lg"))
                                 .add(title(6, md, "h6 as md")))
                         .element()
-        // @code-end:title-custom-sizes
+                // @code-end:title-custom-sizes
         ));
 
         startApiDocs(Title.class);

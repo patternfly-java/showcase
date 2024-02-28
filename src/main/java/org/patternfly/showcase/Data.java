@@ -15,15 +15,20 @@
  */
 package org.patternfly.showcase;
 
+import org.patternfly.showcase.component.Component;
 import org.patternfly.showcase.demo.server.Server;
 import org.patternfly.showcase.demo.user.User;
+import org.patternfly.showcase.layout.Layout;
 
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
+import jsinterop.base.JsPropertyMap;
 
 @JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "PatternFlyData")
 public class Data {
 
+    public static JsPropertyMap<Component> components;
+    public static JsPropertyMap<Layout> layouts;
     public static Server[] servers;
     public static User[] users;
 }

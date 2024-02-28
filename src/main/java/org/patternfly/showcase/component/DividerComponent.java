@@ -15,7 +15,6 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.avatar.Avatar;
 import org.patternfly.component.divider.Divider;
 import org.patternfly.component.divider.DividerType;
 import org.patternfly.showcase.Snippet;
@@ -24,7 +23,6 @@ import org.patternfly.style.Inset;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.divider.Divider.divider;
 import static org.patternfly.component.divider.DividerType.div;
@@ -33,9 +31,10 @@ import static org.patternfly.component.divider.DividerType.li;
 import static org.patternfly.core.Attributes.role;
 import static org.patternfly.layout.flex.Flex.flex;
 import static org.patternfly.layout.flex.FlexItem.flexItem;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.other;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
@@ -49,11 +48,7 @@ import static org.patternfly.style.Orientation.vertical;
 public class DividerComponent extends SnippetPage {
 
     public DividerComponent() {
-        super(Avatar.class, "Avatar",
-                "https://www.patternfly.org/components/divider/design-guidelines",
-                p().textContent(
-                                "A divider is a horizontal or vertical line that is placed between screen elements to create visual divisions and content groupings.")
-                        .element());
+        super(components.get("divider"));
 
         startExamples();
         addSnippet(new Snippet("divider-hr", "Using hr",

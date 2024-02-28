@@ -25,7 +25,6 @@ import org.patternfly.showcase.SnippetPage;
 import static elemental2.dom.DomGlobal.clearTimeout;
 import static elemental2.dom.DomGlobal.setTimeout;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.Form.form;
 import static org.patternfly.component.form.FormGroup.formGroup;
@@ -40,18 +39,16 @@ import static org.patternfly.core.ValidationStatus.default_;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.core.ValidationStatus.success;
 import static org.patternfly.core.ValidationStatus.warning;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.modifier;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.modifier;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.util;
 
 public class TextAreaComponent extends SnippetPage {
 
     public TextAreaComponent() {
-        super(TextArea.class, "Text area",
-                "https://www.patternfly.org/components/forms/text-area/design-guidelines",
-                p().textContent("A text area component is used for entering a paragraph of text that is longer than one line.")
-                        .element());
+        super(components.get("text-area"));
 
         startExamples();
         addSnippet(new Snippet("text-area-basic", "Basic",
@@ -60,7 +57,7 @@ public class TextAreaComponent extends SnippetPage {
                 div()
                         .add(textArea("basic-text-area-0"))
                         .element()
-        // @code-end:text-area-basic
+                // @code-end:text-area-basic
         ));
 
         addSnippet(new Snippet("text-area-invalid", "Invalid",
@@ -69,52 +66,52 @@ public class TextAreaComponent extends SnippetPage {
                 div()
                         .add(textArea("invalid-text-area-0").validated(error))
                         .element()
-        // @code-end:text-area-invalid
+                // @code-end:text-area-invalid
         ));
 
         addSnippet(new Snippet("text-area-validated", "Validated",
                 code.get("text-area-validated"), () -> {
-                    // @code-start:text-area-validated
-                    final double[] handle = { 0 };
-                    HelperText helperText = helperText("Share your thoughts.");
-                    TextArea textArea = textArea("validated-text-area-0")
-                            .onChange((e, ta, value) -> {
-                                clearTimeout(handle[0]);
-                                ta.validated(default_);
+            // @code-start:text-area-validated
+            final double[] handle = {0};
+            HelperText helperText = helperText("Share your thoughts.");
+            TextArea textArea = textArea("validated-text-area-0")
+                    .onChange((e, ta, value) -> {
+                        clearTimeout(handle[0]);
+                        ta.validated(default_);
+                        helperText.firstItem()
+                                .status(default_)
+                                .text("Validating...");
+                        handle[0] = setTimeout(__ -> {
+                            if (value.isEmpty()) {
+                                ta.validated(warning);
                                 helperText.firstItem()
-                                        .status(default_)
-                                        .text("Validating...");
-                                handle[0] = setTimeout(__ -> {
-                                    if (value.isEmpty()) {
-                                        ta.validated(warning);
-                                        helperText.firstItem()
-                                                .status(warning)
-                                                .text("You must have something to say");
-                                    } else {
-                                        if (value.length() < 10) {
-                                            ta.validated(error);
-                                            helperText.firstItem()
-                                                    .status(error)
-                                                    .text("You're being too brief, please enter at least 10 characters.");
-                                        } else {
-                                            ta.validated(success);
-                                            helperText.firstItem()
-                                                    .status(success)
-                                                    .text("Thanks for your comments!");
-                                        }
-                                    }
-                                }, 1234);
-                            });
-                    return div()
-                            .add(form()
-                                    .add(formGroup()
-                                            .addLabel(formGroupLabel("Comments:"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textArea)
-                                                    .addHelperText(helperText))))
-                            .element();
-                    // @code-end:text-area-validated
-                }));
+                                        .status(warning)
+                                        .text("You must have something to say");
+                            } else {
+                                if (value.length() < 10) {
+                                    ta.validated(error);
+                                    helperText.firstItem()
+                                            .status(error)
+                                            .text("You're being too brief, please enter at least 10 characters.");
+                                } else {
+                                    ta.validated(success);
+                                    helperText.firstItem()
+                                            .status(success)
+                                            .text("Thanks for your comments!");
+                                }
+                            }
+                        }, 1234);
+                    });
+            return div()
+                    .add(form()
+                            .add(formGroup()
+                                    .addLabel(formGroupLabel("Comments:"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textArea)
+                                            .addHelperText(helperText))))
+                    .element();
+            // @code-end:text-area-validated
+        }));
 
         addSnippet(new Snippet("text-area-vertical", "Vertically resizable",
                 code.get("text-area-vertical"), () ->
@@ -122,7 +119,7 @@ public class TextAreaComponent extends SnippetPage {
                 div()
                         .add(textArea("vertical-text-area-0").resize(vertical))
                         .element()
-        // @code-end:text-area-vertical
+                // @code-end:text-area-vertical
         ));
 
         addSnippet(new Snippet("text-area-horizontal", "Horizontally resizable",
@@ -131,7 +128,7 @@ public class TextAreaComponent extends SnippetPage {
                 div()
                         .add(textArea("horizontal-text-area-0").resize(horizontal))
                         .element()
-        // @code-end:text-area-horizontal
+                // @code-end:text-area-horizontal
         ));
 
         addSnippet(new Snippet("text-area-both", "Vertically and horizontally resizable",
@@ -140,7 +137,7 @@ public class TextAreaComponent extends SnippetPage {
                 div()
                         .add(textArea("horizontal-text-area-0").resize(both))
                         .element()
-        // @code-end:text-area-both
+                // @code-end:text-area-both
         ));
 
         addSnippet(new Snippet("text-area-disabled", "Disabled",
@@ -149,22 +146,22 @@ public class TextAreaComponent extends SnippetPage {
                 div()
                         .add(textArea("disabled-text-area-0").disabled())
                         .element()
-        // @code-end:text-area-disabled
+                // @code-end:text-area-disabled
         ));
 
         addSnippet(new Snippet("text-area-readonly", "Read only",
                 code.get("text-area-readonly"), () -> {
-                    // @code-start:text-area-readonly
-                    Checkbox plainToggle = checkbox("plain-toggle", "plain-toggle", "Plain read only variant");
-                    TextArea readOnlyTextArea = textArea("readonly-text-area-0", "read only text area example")
-                            .readonly();
-                    return div()
-                            .add(div().css(util("mb-sm"))
-                                    .add(plainToggle.onChange((e, c, value) -> readOnlyTextArea.plain(value))))
-                            .add(readOnlyTextArea)
-                            .element();
-                    // @code-end:text-area-readonly
-                }));
+            // @code-start:text-area-readonly
+            Checkbox plainToggle = checkbox("plain-toggle", "plain-toggle", "Plain read only variant");
+            TextArea readOnlyTextArea = textArea("readonly-text-area-0", "read only text area example")
+                    .readonly();
+            return div()
+                    .add(div().css(util("mb-sm"))
+                            .add(plainToggle.onChange((e, c, value) -> readOnlyTextArea.plain(value))))
+                    .add(readOnlyTextArea)
+                    .element();
+            // @code-end:text-area-readonly
+        }));
 
         addSnippet(new Snippet("text-auto-size", "Auto resizing",
                 code.get("text-auto-size"), () ->
@@ -172,7 +169,7 @@ public class TextAreaComponent extends SnippetPage {
                 div()
                         .add(textArea("auto-size-text-area-0").autoResize())
                         .element()
-        // @code-end:text-auto-size
+                // @code-end:text-auto-size
         ));
 
         startApiDocs(TextArea.class);

@@ -18,6 +18,7 @@ package org.patternfly.showcase.component;
 import org.patternfly.component.jumplinks.JumpLinks;
 import org.patternfly.component.jumplinks.JumpLinksItem;
 import org.patternfly.component.jumplinks.JumpLinksList;
+import org.patternfly.showcase.ApiDoc;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -28,9 +29,10 @@ import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.jumplinks.JumpLinks.jumpLinks;
 import static org.patternfly.component.jumplinks.JumpLinksItem.jumpLinksItem;
 import static org.patternfly.component.jumplinks.JumpLinksList.jumpLinksList;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.ExpandableModifier.expandable;
@@ -38,14 +40,12 @@ import static org.patternfly.style.ExpandableModifier.expandable;
 public class JumpLinksComponent extends SnippetPage {
 
     public JumpLinksComponent() {
-        super(JumpLinks.class, "Jump links",
-                "https://www.patternfly.org/components/jump-links/design-guidelines",
-                p().textContent("Jump links allow users to navigate to sections within a page.").element());
+        super(components.get("jump-links"));
 
         startExamples(p()
                 .add("These examples are static because they have no element to scroll spy on that makes sense. Check out the code of the ")
                 .add(a("https://github.com/patternfly-java/showcase/blob/main/src/main/java/org/patternfly/showcase/SnippetPage.java",
-                        SnippetPage.API_DOC_TARGET).textContent("showcase"))
+                        ApiDoc.API_DOC_TARGET).textContent("showcase"))
                 .add(" to see how tu use scroll spying."));
         addSnippet(new Snippet("jump-links-basic", "Basic",
                 code.get("jump-links-basic"), () ->

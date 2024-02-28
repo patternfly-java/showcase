@@ -22,7 +22,6 @@ import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.avatar.Avatar.avatar;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
@@ -30,21 +29,18 @@ import static org.patternfly.component.menu.MenuToggleAction.menuToggleAction;
 import static org.patternfly.component.menu.MenuToggleCheckbox.menuToggleCheckbox;
 import static org.patternfly.component.menu.MenuToggleType.plainText;
 import static org.patternfly.component.menu.MenuToggleType.split;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.cog;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
 public class MenuToggleComponent extends SnippetPage {
 
     public MenuToggleComponent() {
-        super(MenuToggle.class, "Menu toggle",
-                "https://www.patternfly.org/components/menus/menu-toggle/html/",
-                p().textContent(
-                        "The menu toggle component pairs with the menu OR the panel component to create more customizable dropdown and select implementations. Using a menu toggle with a menu enables you to create custom component configurations not supported by the standard dropdown or select components.")
-                        .element());
+        super(components.get("menu-toggle"));
 
         startExamples();
         addSnippet(new Snippet("menu-toggle-basic", "Basic toggle",
@@ -59,7 +55,7 @@ public class MenuToggleComponent extends SnippetPage {
                         .add(" ")
                         .add(menuToggle("Toggle").disabled())
                         .element()
-        // @code-end:menu-toggle-basic
+                // @code-end:menu-toggle-basic
         ));
 
         addSnippet(new Snippet("menu-toggle-badge", "With a badge",
@@ -78,7 +74,7 @@ public class MenuToggleComponent extends SnippetPage {
                         .add(menuToggle("Count").disabled()
                                 .addBadge(badge(4).unread()))
                         .element()
-        // @code-end:menu-toggle-badge
+                // @code-end:menu-toggle-badge
         ));
 
         addSnippet(new Snippet("menu-toggle-icons", "With icons",
@@ -100,7 +96,7 @@ public class MenuToggleComponent extends SnippetPage {
                         .add(menuToggle().disabled()
                                 .iconAndText(cog, "Icon")) // same as above
                         .element()
-        // @code-end:menu-toggle-icons
+                // @code-end:menu-toggle-icons
         ));
 
         addSnippet(new Snippet("menu-toggle-avatar", "With avatar",
@@ -123,7 +119,7 @@ public class MenuToggleComponent extends SnippetPage {
                                 .addAvatar(avatar(avatarLight, "avatar"))
                                 .text("John Doe"))
                         .element()
-        // @code-end:menu-toggle-avatar
+                // @code-end:menu-toggle-avatar
         ));
 
         addSnippet(new Snippet("menu-toggle-plain-icon", "Plain toggle with icon",
@@ -135,7 +131,7 @@ public class MenuToggleComponent extends SnippetPage {
                         .add(menuToggle(ellipsisV, "disabled kebab")
                                 .disabled())
                         .element()
-        // @code-end:menu-toggle-plain-icon
+                // @code-end:menu-toggle-plain-icon
         ));
 
         addSnippet(new Snippet("menu-toggle-plain-text", "Plain toggle with text",
@@ -147,7 +143,7 @@ public class MenuToggleComponent extends SnippetPage {
                         .add(menuToggle(plainText).text("Disabled")
                                 .disabled())
                         .element()
-        // @code-end:menu-toggle-plain-text
+                // @code-end:menu-toggle-plain-text
         ));
 
         addSnippet(new Snippet("menu-toggle-split-check", "Split button toggle with checkbox",
@@ -170,7 +166,7 @@ public class MenuToggleComponent extends SnippetPage {
                                 .addCheckbox(menuToggleCheckbox()
                                         .ariaLabel("Select all")))
                         .element()
-        // @code-end:menu-toggle-split-check
+                // @code-end:menu-toggle-split-check
         ));
 
         addSnippet(new Snippet("menu-toggle-split-label", "Split button toggle with text label",
@@ -194,7 +190,7 @@ public class MenuToggleComponent extends SnippetPage {
                                 .addCheckbox(menuToggleCheckbox("10 selected")
                                         .ariaLabel("Select all")))
                         .element()
-        // @code-end:menu-toggle-split-label
+                // @code-end:menu-toggle-split-label
         ));
 
         addSnippet(new Snippet("menu-toggle-split-action", "Split button toggle with action",
@@ -213,7 +209,7 @@ public class MenuToggleComponent extends SnippetPage {
                         .add(menuToggle(split).disabled()
                                 .addAction(menuToggleAction("Action")))
                         .element()
-        // @code-end:menu-toggle-split-action
+                // @code-end:menu-toggle-split-action
         ));
 
         startApiDocs(MenuToggle.class);

@@ -15,24 +15,19 @@
  */
 package org.patternfly.showcase.layout;
 
-import org.patternfly.layout.bullseye.Bullseye;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.bullseye.Bullseye.bullseye;
 import static org.patternfly.layout.bullseye.BullseyeItem.bullseyeItem;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 
 public class BullseyeLayout extends SnippetPage {
 
     public BullseyeLayout() {
-        super(Bullseye.class, "Bullseye",
-                "https://www.patternfly.org/layouts/bullseye/design-guidelines",
-                p().textContent(
-                        "The bullseye layout centers content, both vertically and horizontally within a container.")
-                        .element());
+        super(layouts.get("bullseye"));
 
         addSnippet(new Snippet("bullseye-basic", "Basic",
                 code.get("bullseye-basic"), () ->
@@ -41,7 +36,7 @@ public class BullseyeLayout extends SnippetPage {
                         .add(bullseye()
                                 .addItem(bullseyeItem().textContent("Bullseye ◎ layout")))
                         .element()
-        // @code-end:bullseye-basic
+                // @code-end:bullseye-basic
         ));
     }
 }

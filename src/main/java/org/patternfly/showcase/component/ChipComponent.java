@@ -22,21 +22,17 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.chip.Chip.chip;
 import static org.patternfly.component.chip.ChipGroup.chipGroup;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
 public class ChipComponent extends SnippetPage {
 
     public ChipComponent() {
-        super(Chip.class, "Chip",
-                "https://www.patternfly.org/components/chip/design-guidelines",
-                p().textContent(
-                                "A chip is used to communicate a value or a set of attribute-value pairs within workflows that involve filtering a set of objects.")
-                        .element());
+        super(components.get("chip"));
 
         startExamples();
         addSnippet(new Snippet("chip-variants", "Chip variants",

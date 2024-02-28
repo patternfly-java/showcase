@@ -23,6 +23,7 @@ import "./pforg/example.css";
 import "./pforg/footer.css";
 import "./pforg/layouts.css";
 import "./pforg/mdx.css";
+import "./pforg/sectionGallery.css";
 import "./pforg/sideNav.css";
 import './pforg/sideNavLayout.css';
 import './pforg/truncate.css';

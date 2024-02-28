@@ -22,12 +22,12 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.ol;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.list.List.list;
 import static org.patternfly.component.list.ListItem.listItem;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.bookOpen;
 import static org.patternfly.style.PredefinedIcon.desktop;
 import static org.patternfly.style.PredefinedIcon.key;
@@ -35,10 +35,7 @@ import static org.patternfly.style.PredefinedIcon.key;
 public class ListComponent extends SnippetPage {
 
     public ListComponent() {
-        super(List.class, "List",
-                "https://www.patternfly.org/components/list/design-guidelines",
-                p().textContent("A list component embeds a formatted list (bulleted or numbered list) into page content.")
-                        .element());
+        super(components.get("list"));
 
         startExamples();
         addSnippet(new Snippet("list-basic", "Basic",

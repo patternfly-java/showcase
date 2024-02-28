@@ -29,9 +29,10 @@ import static org.jboss.elemento.Elements.strong;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.icon.Icon.icon;
 import static org.patternfly.component.text.TextContent.textContent;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.angleDown;
 import static org.patternfly.style.PredefinedIcon.angleRight;
@@ -56,11 +57,7 @@ import static org.patternfly.style.Status.warning;
 public class IconComponent extends SnippetPage {
 
     public IconComponent() {
-        super(Icon.class, "Icon",
-                "https://www.patternfly.org/design-foundations/icons/",
-                p().textContent(
-                        "An icon component is a container that allows for icons of varying dimensions, as well as spinners, to seamlessly replace each other without shifting surrounding content.")
-                        .element());
+        super(components.get("icon"));
 
         startExamples();
         addSnippet(new Snippet("icon-basic", "Basic",
@@ -75,7 +72,7 @@ public class IconComponent extends SnippetPage {
                         .add(" ")
                         .add(icon(fas("cog")))
                         .element()
-        // @code-end:icon-basic
+                // @code-end:icon-basic
         ));
 
         addSnippet(new Snippet("icon-sizes", "Sizes",
@@ -90,7 +87,7 @@ public class IconComponent extends SnippetPage {
                         .add(" ")
                         .add(icon(plusCircle).size(xl))
                         .element()
-        // @code-end:icon-sizes
+                // @code-end:icon-sizes
         ));
 
         addSnippet(new Snippet("icon-status-colors", "Status colors",
@@ -108,7 +105,7 @@ public class IconComponent extends SnippetPage {
                         .add(" ")
                         .add(icon(bell).status(custom))
                         .element()
-        // @code-end:icon-status-colors
+                // @code-end:icon-status-colors
         ));
 
         addSnippet(new Snippet("icon-container", "Sizing an icon within the icon container",
@@ -124,7 +121,7 @@ public class IconComponent extends SnippetPage {
                         .add(" ")
                         .add(icon(plusCircle).size(xl))
                         .element()
-        // @code-end:icon-container
+                // @code-end:icon-container
         ));
 
         addSnippet(new Snippet("icon-inline", "Inline",
@@ -161,35 +158,35 @@ public class IconComponent extends SnippetPage {
                                         .add(icon(plusCircle).size(xl).inline())
                                         .add(" extra large")))
                         .element()
-        // @code-end:icon-inline
+                // @code-end:icon-inline
         ));
 
         addSnippet(new Snippet("icon-in-progress", "In progress",
                 code.get("icon-in-progress"), () -> {
-                    // @code-start:icon-in-progress
-                    Icon icon = icon(checkCircle);
-                    return div()
-                            .add(div().css(util("mb-md"))
-                                    .add(checkbox("in-progress-cb", "in-progress-cb", "Toggle in progress state")
-                                            .onChange((e, c, value) -> icon.progress(value))))
-                            .add(icon)
-                            .element();
-                    // @code-end:icon-in-progress
-                }));
+            // @code-start:icon-in-progress
+            Icon icon = icon(checkCircle);
+            return div()
+                    .add(div().css(util("mb-md"))
+                            .add(checkbox("in-progress-cb", "in-progress-cb", "Toggle in progress state")
+                                    .onChange((e, c, value) -> icon.progress(value))))
+                    .add(icon)
+                    .element();
+            // @code-end:icon-in-progress
+        }));
 
         addSnippet(new Snippet("icon-in-progress-custom", "Custom in progress icon",
                 code.get("icon-in-progress-custom"), () -> {
-                    // @code-start:icon-in-progress-custom
-                    Icon icon = icon(checkCircle);
-                    return div()
-                            .add(div().css(util("mb-md"))
-                                    .add(checkbox("in-progress-custom-cb", "in-progress-custom-cb", "Toggle in progress state")
-                                            .onChange((e, c, value) -> icon.progress(value,
-                                                    spinner -> spinner.diameter("2em")))))
-                            .add(icon)
-                            .element();
-                    // @code-end:icon-in-progress-custom
-                }));
+            // @code-start:icon-in-progress-custom
+            Icon icon = icon(checkCircle);
+            return div()
+                    .add(div().css(util("mb-md"))
+                            .add(checkbox("in-progress-custom-cb", "in-progress-custom-cb", "Toggle in progress state")
+                                    .onChange((e, c, value) -> icon.progress(value,
+                                            spinner -> spinner.diameter("2em")))))
+                    .add(icon)
+                    .element();
+            // @code-end:icon-in-progress-custom
+        }));
 
         startApiDocs(Icon.class);
         addApiDoc(Icon.class, component);

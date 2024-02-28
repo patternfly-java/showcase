@@ -17,28 +17,23 @@ package org.patternfly.showcase.component;
 
 import org.patternfly.component.truncate.Truncate;
 import org.patternfly.component.truncate.TruncatePosition;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.truncate.Truncate.truncate;
 import static org.patternfly.component.truncate.TruncatePosition.middle;
 import static org.patternfly.component.truncate.TruncatePosition.start;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.modifier;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.modifier;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
 public class TruncateComponent extends SnippetPage {
 
     public TruncateComponent() {
-        super(Truncate.class, "Truncate",
-                "https://www.patternfly.org/components/truncate/design-guidelines",
-                p().textContent(
-                                "A truncate is a tool used to shorten numeric and non-numeric character strings, typically when the string overflows its container.")
-                        .element());
+        super(components.get("truncate"));
 
         startExamples();
         addSnippet(new Snippet("truncate-default", "Default",

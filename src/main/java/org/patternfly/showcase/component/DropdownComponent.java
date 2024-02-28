@@ -35,20 +35,17 @@ import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.component.menu.MenuToggleAction.menuToggleAction;
 import static org.patternfly.component.menu.MenuToggleCheckbox.menuToggleCheckbox;
 import static org.patternfly.component.menu.MenuToggleType.split;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.cog;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
 public class DropdownComponent extends SnippetPage {
 
     public DropdownComponent() {
-        super(Dropdown.class, "Dropdown",
-                "https://www.patternfly.org/components/menus/dropdown/design-guidelines/",
-                p().textContent(
-                                "A dropdown presents a menu of actions or links in a constrained space that will trigger a process or navigate to a new location. See select component guidelines for more information about making one or more selections from a list of items in a value list.")
-                        .element());
+        super(components.get("dropdown"));
 
         startExamples(p()
                 .add(code().textContent("Dropdown"))

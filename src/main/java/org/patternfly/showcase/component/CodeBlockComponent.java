@@ -24,13 +24,13 @@ import org.patternfly.showcase.SnippetPage;
 
 import static elemental2.dom.DomGlobal.console;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.code.CodeBlock.codeBlock;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockAction;
 import static org.patternfly.component.code.CodeBlockAction.codeBlockCopyToClipboardAction;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.play;
 
 public class CodeBlockComponent extends SnippetPage {
@@ -44,11 +44,7 @@ public class CodeBlockComponent extends SnippetPage {
             "url: https://raw.githubusercontent.com/Azure-Samples/helm-charts/master/docs";
 
     public CodeBlockComponent() {
-        super(CodeBlock.class, "Code block",
-                "https://www.patternfly.org/components/code-block/design-guidelines",
-                p().textContent(
-                        "A code block is a component that contains 2 or more lines of read-only code. The code in a code block can be copied to the clipboard.")
-                        .element());
+        super(components.get("code-block"));
 
         startExamples();
         addSnippet(new Snippet("code-block-basic", "Basic",
@@ -63,7 +59,7 @@ public class CodeBlockComponent extends SnippetPage {
                                                 "Play not yet implemented")))
                                 .code(CODE))
                         .element()
-        // @code-end:code-block-basic
+                // @code-end:code-block-basic
         ));
 
         addSnippet(new Snippet("code-block-expandable", "Expandable",
@@ -78,7 +74,7 @@ public class CodeBlockComponent extends SnippetPage {
                                 .truncate()
                                 .code(CODE))
                         .element()
-        // @code-end:code-block-expandable
+                // @code-end:code-block-expandable
         ));
 
         startApiDocs(CodeBlock.class);

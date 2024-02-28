@@ -24,7 +24,6 @@ import org.patternfly.component.tabs.TabContent;
 import org.patternfly.component.tabs.TabContentBody;
 import org.patternfly.component.tabs.Tabs;
 import org.patternfly.handler.CloseHandler;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -41,7 +40,6 @@ import static java.util.stream.IntStream.range;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.nav;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.popover.Popover.popover;
@@ -50,9 +48,10 @@ import static org.patternfly.component.tabs.TabContent.tabContent;
 import static org.patternfly.component.tabs.TabContentBody.tabContentBody;
 import static org.patternfly.component.tabs.Tabs.tabs;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
@@ -72,9 +71,7 @@ import static org.patternfly.style.PredefinedIcon.users;
 public class TabsComponent extends SnippetPage {
 
     public TabsComponent() {
-        super(Tabs.class, "Tabs",
-                "https://www.patternfly.org/components/tabs/design-guidelines",
-                p().textContent("Tabs allow users to navigate between views within the same page or context.").element());
+        super(components.get("tabs"));
 
         startExamples();
         addSnippet(new Snippet("tabs-default", "Default tabs",

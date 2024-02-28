@@ -20,10 +20,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.gwtproject.safehtml.shared.SafeHtml;
 import org.jboss.elemento.By;
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.Id;
 import org.patternfly.component.jumplinks.JumpLinks;
+import org.patternfly.showcase.component.Component;
+import org.patternfly.showcase.layout.Layout;
 import org.patternfly.showcase.router.Page;
 import org.patternfly.style.Classes;
 import org.patternfly.style.Size;
@@ -51,6 +54,7 @@ import static org.patternfly.component.label.Label.label;
 import static org.patternfly.component.page.PageMainBody.pageMainBody;
 import static org.patternfly.component.page.PageMainGroup.pageMainGroup;
 import static org.patternfly.component.page.PageMainSection.pageMainSection;
+import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.core.Aria.hidden;
@@ -68,7 +72,6 @@ import static org.patternfly.style.Brightness.light;
 import static org.patternfly.style.Classes.breakWord;
 import static org.patternfly.style.Classes.compact;
 import static org.patternfly.style.Classes.component;
-import static org.patternfly.style.Classes.content;
 import static org.patternfly.style.Classes.floatRight;
 import static org.patternfly.style.Classes.grid;
 import static org.patternfly.style.Classes.modifier;
@@ -91,9 +94,6 @@ public class SnippetPage implements Page {
 
     // ------------------------------------------------------ instance
 
-    private static final String API_DOC_BASE = "https://patternfly-java.github.io/patternfly-java/";
-    protected static final String API_DOC_TARGET = "api-doc";
-
     private final JumpLinks jumpLinks;
     private final HTMLElement contentContainer;
     private final Map<String, Toc> tocs;
@@ -101,7 +101,15 @@ public class SnippetPage implements Page {
     private boolean tocReady;
     private HTMLContainerBuilder<HTMLTableSectionElement> tbody;
 
-    public SnippetPage(Class<?> component, String title, String designLink, HTMLElement description) {
+    public SnippetPage(Component component) {
+        this(component.title, component.summary(), component.apiDoc(), component.designGuidelines());
+    }
+
+    public SnippetPage(Layout layout) {
+        this(layout.title, layout.summary(), layout.apiDoc(), layout.designGuidelines());
+    }
+
+    SnippetPage(String title, SafeHtml summary, String apiDoc, String designGuidelines) {
         tocReady = false;
         tocs = new LinkedHashMap<>();
         elements = singletonList(
@@ -114,7 +122,7 @@ public class SnippetPage implements Page {
                                                 .add(button(a())
                                                         .id("design-guidelines")
                                                         .plain()
-                                                        .href(designLink)
+                                                        .href(designGuidelines)
                                                         .target("patternfly")
                                                         .icon(fas("swatchbook")))
                                                 .add(tooltip(By.id("design-guidelines"), "Design guidelines")
@@ -123,14 +131,15 @@ public class SnippetPage implements Page {
                                                 .add(button(a())
                                                         .id("api-doc")
                                                         .plain()
-                                                        .href(apiDocLink(component))
-                                                        .target(API_DOC_TARGET)
+                                                        .href(apiDoc)
+                                                        .target(ApiDoc.API_DOC_TARGET)
                                                         .icon(pfIcon("catalog")))
                                                 .add(tooltip(By.id("api-doc"), "API documentation")
                                                         .placement(auto)))
-                                        .add(div().css(component(content))
-                                                .add(title(1, _4xl, title))
-                                                .add(description))))
+                                        .add(textContent()
+                                                .add(flex().alignItems(breakpoints(default_, center))
+                                                        .add(title(1, _4xl, title)))
+                                                .add(p().innerHtml(summary)))))
                         .addSection(pageMainSection().css(modifier("light-100"))
                                 .fill()
                                 .add(div().css(util("h-100"))
@@ -199,11 +208,11 @@ public class SnippetPage implements Page {
     public void startApiDocs(Class<?> component) {
         addHeader(Toc.API_DOCS, "API documentation", p()
                 .add("All classes for this component are in the package ")
-                .add(a(packageDocLink(component), API_DOC_TARGET).textContent(package_(component)))
+                .add(a(packageDocLink(component), ApiDoc.API_DOC_TARGET).textContent(package_(component)))
                 .add("."));
     }
 
-    public void addApiDoc(Class<?> clazz, ApiDocType type) {
+    public void addApiDoc(Class<?> clazz, ApiDoc.Type type) {
         String fullName = clazz.getName();
         String simpleName = clazz.getSimpleName();
         String id = Id.build(simpleName);
@@ -223,7 +232,7 @@ public class SnippetPage implements Page {
                                 .add(label(type.name, type.color))))
                 .add(td().css(component(table, td)).apply(td -> td.tabIndex = -1)
                         .add(span().css(component(table, text), modifier(breakWord))
-                                .add(a(apiDocLink(clazz), API_DOC_TARGET).textContent(fullName)))));
+                                .add(a(apiDocLink(clazz), ApiDoc.API_DOC_TARGET).textContent(fullName)))));
     }
 
     // ------------------------------------------------------ header
@@ -291,11 +300,11 @@ public class SnippetPage implements Page {
     // ------------------------------------------------------ internal
 
     private String apiDocLink(Class<?> clazz) {
-        return API_DOC_BASE + clazz.getName().replace('.', '/') + ".html";
+        return ApiDoc.API_DOC_BASE + clazz.getName().replace('.', '/') + ".html";
     }
 
     private String packageDocLink(Class<?> clazz) {
-        return API_DOC_BASE + package_(clazz).replace('.', '/') + "/package-summary.html";
+        return ApiDoc.API_DOC_BASE + package_(clazz).replace('.', '/') + "/package-summary.html";
     }
 
     private String package_(Class<?> clazz) {

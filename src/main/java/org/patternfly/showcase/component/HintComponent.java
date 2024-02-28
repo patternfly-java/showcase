@@ -25,7 +25,6 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.hint.Hint.hint;
 import static org.patternfly.component.hint.HintActions.hintActions;
@@ -39,19 +38,16 @@ import static org.patternfly.component.menu.MenuItem.actionMenuItem;
 import static org.patternfly.component.menu.MenuItem.linkMenuItem;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
 public class HintComponent extends SnippetPage {
 
     public HintComponent() {
-        super(Hint.class, "Hint",
-                "https://www.patternfly.org/components/hint/design-guidelines",
-                p().textContent(
-                                "A hint is in-app messaging that provides a one-step reminder, explanation, or call to action for a page or modal.")
-                        .element());
+        super(components.get("hint"));
 
         startExamples();
         addSnippet(new Snippet("hint-basic", "Basic with title",

@@ -15,22 +15,20 @@
  */
 package org.patternfly.showcase.component;
 
-import org.patternfly.component.avatar.Avatar;
 import org.patternfly.component.skeleton.Shape;
 import org.patternfly.component.skeleton.Skeleton;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.skeleton.Shape.circle;
 import static org.patternfly.component.skeleton.Shape.square;
 import static org.patternfly.component.skeleton.Skeleton.skeleton;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.modifier;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.modifier;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Size._2xl;
 import static org.patternfly.style.Size._3xl;
@@ -43,11 +41,7 @@ import static org.patternfly.style.Size.xl;
 public class SkeletonComponent extends SnippetPage {
 
     public SkeletonComponent() {
-        super(Avatar.class, "Avatar",
-                "https://www.patternfly.org/components/skeleton/design-guidelines",
-                p().textContent(
-                                "A skeleton is a type of loading state that allows you to expose content incrementally. For content that may take a long time to load, use a progress bar in place of a skeleton.")
-                        .element());
+        super(components.get("skeleton"));
 
         startExamples();
         addSnippet(new Snippet("skeleton-default", "Default",

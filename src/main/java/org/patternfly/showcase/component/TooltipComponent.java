@@ -20,7 +20,6 @@ import org.patternfly.component.button.Button;
 import org.patternfly.component.tooltip.Tooltip;
 import org.patternfly.component.tooltip.TooltipToggle;
 import org.patternfly.component.tooltip.TriggerAria;
-import org.patternfly.showcase.ApiDocType;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -29,25 +28,20 @@ import elemental2.dom.ScrollIntoViewOptions;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.onAttach;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
 import static org.patternfly.core.Aria.label;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.other;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.copy;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 
 public class TooltipComponent extends SnippetPage {
 
     public TooltipComponent() {
-        super(Tooltip.class, "Tooltip",
-                "https://www.patternfly.org/components/tooltip/design-guidelines",
-                p().textContent(
-                        "A tooltip is in-app messaging used to identify elements on a page with short, clarifying text.")
-                        .element());
+        super(components.get("tooltip"));
 
         startExamples();
         addSnippet(new Snippet("tooltip-basic", "Basic",
@@ -58,7 +52,7 @@ public class TooltipComponent extends SnippetPage {
                                 .id("tooltip-basic-button"))
                         .add(tooltip(By.id("tooltip-basic-button"), LoremIpsum.words()))
                         .element()
-        // @code-end:tooltip-basic
+                // @code-end:tooltip-basic
         ));
 
         addSnippet(new Snippet("tooltip-dynamic", "Dynamic content",

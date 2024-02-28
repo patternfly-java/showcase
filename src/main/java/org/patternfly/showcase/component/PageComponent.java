@@ -32,7 +32,6 @@ import org.patternfly.showcase.SnippetPage;
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.code;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.breadcrumb.Breadcrumb.breadcrumb;
 import static org.patternfly.component.breadcrumb.BreadcrumbItem.breadcrumbItem;
 import static org.patternfly.component.card.Card.card;
@@ -57,10 +56,11 @@ import static org.patternfly.component.page.PageSidebarBody.pageSidebarBody;
 import static org.patternfly.component.toolbar.Toolbar.toolbar;
 import static org.patternfly.component.toolbar.ToolbarContent.toolbarContent;
 import static org.patternfly.component.toolbar.ToolbarItem.toolbarItem;
-import static org.patternfly.showcase.ApiDocType.component;
-import static org.patternfly.showcase.ApiDocType.other;
-import static org.patternfly.showcase.ApiDocType.subcomponent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoints.breakpoints;
@@ -78,11 +78,7 @@ import static org.patternfly.style.Variables.MaxWidth;
 public class PageComponent extends SnippetPage {
 
     public PageComponent() {
-        super(Page.class, "Page",
-                "https://www.patternfly.org/components/page/design-guidelines",
-                p().textContent(
-                                "The page component is used to define the basic layout of a page with either vertical or horizontal navigation.")
-                        .element());
+        super(components.get("page"));
 
         startExamples();
         addSnippet(new Snippet("page-vertical-nav", "Vertical navigation",

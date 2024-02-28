@@ -21,12 +21,12 @@ import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.avatar.Avatar.avatar;
-import static org.patternfly.showcase.ApiDocType.component;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Assets.avatarDark;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Brightness.dark;
 import static org.patternfly.style.Brightness.light;
 import static org.patternfly.style.Size.lg;
@@ -37,11 +37,7 @@ import static org.patternfly.style.Size.xl;
 public class AvatarComponent extends SnippetPage {
 
     public AvatarComponent() {
-        super(Avatar.class, "Avatar",
-                "https://www.patternfly.org/components/avatar/design-guidelines",
-                p().textContent(
-                                "An avatar is a visual used to represent a user. It may contain an image or a placeholder graphic.")
-                        .element());
+        super(components.get("avatar"));
 
         startExamples();
         addSnippet(new Snippet("avatar-basic", "Basic",
