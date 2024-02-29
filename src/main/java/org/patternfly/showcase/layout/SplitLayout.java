@@ -15,12 +15,16 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.split.Split;
+import org.patternfly.layout.split.SplitItem;
+import org.patternfly.showcase.ApiDoc;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.layout.split.Split.split;
 import static org.patternfly.layout.split.SplitItem.splitItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 
@@ -29,6 +33,7 @@ public class SplitLayout extends SnippetPage {
     public SplitLayout() {
         super(layouts.get("split"));
 
+        startExamples();
         addSnippet(new Snippet("split-basic", "Basic",
                 code.get("split-basic"), () ->
                 // @code-start:split-basic
@@ -75,5 +80,9 @@ public class SplitLayout extends SnippetPage {
                         .element()
                 // @code-end:split-wrap
         ));
+
+        startApiDocs(Split.class);
+        addApiDoc(Split.class, layout);
+        addApiDoc(SplitItem.class, layout);
     }
 }

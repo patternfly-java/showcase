@@ -32,8 +32,8 @@ var PatternFlyAssets;
 
 /**
  * @typedef {{
- *     components: Map<string,Object>
- *     layouts: Map<string,Object>
+ *     components: Map<string,Object>,
+ *     layouts: Map<string,Object>,
  *     servers: Object,
  *     users: Object
  * }}

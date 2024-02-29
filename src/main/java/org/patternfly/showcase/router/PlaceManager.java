@@ -235,6 +235,8 @@ public class PlaceManager {
                 Supplier<Page> supplier = places.get(place);
                 return supplier.get();
             } else {
+                // TODO Try to find an hierarchical match
+                //  /a/b/c -> /a/b
                 return notFound(place);
             }
         } else {

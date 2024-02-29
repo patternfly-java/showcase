@@ -19,9 +19,11 @@ import org.patternfly.style.Color;
 
 import static org.patternfly.style.Color.blue;
 import static org.patternfly.style.Color.cyan;
+import static org.patternfly.style.Color.gold;
 import static org.patternfly.style.Color.grey;
 import static org.patternfly.style.Color.orange;
 import static org.patternfly.style.Color.purple;
+import static org.patternfly.style.Color.red;
 
 public interface ApiDoc {
 
@@ -33,6 +35,8 @@ public interface ApiDoc {
         component("Component", blue),
 
         subcomponent("Subcomponent", cyan),
+
+        layout("Layout", red),
 
         modifier("Modifier", orange),
 

@@ -15,12 +15,15 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.stack.Stack;
+import org.patternfly.layout.stack.StackItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 
@@ -29,6 +32,7 @@ public class StackLayout extends SnippetPage {
     public StackLayout() {
         super(layouts.get("stack"));
 
+        startExamples();
         addSnippet(new Snippet("stack-basic", "Basic",
                 code.get("stack-basic"), () ->
                 // @code-start:stack-basic
@@ -52,5 +56,9 @@ public class StackLayout extends SnippetPage {
                         .element()
                 // @code-end:stack-gutter
         ));
+
+        startApiDocs(Stack.class);
+        addApiDoc(Stack.class, layout);
+        addApiDoc(StackItem.class, layout);
     }
 }

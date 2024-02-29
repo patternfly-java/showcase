@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.gallery.Gallery;
+import org.patternfly.layout.gallery.GalleryItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -24,6 +26,7 @@ import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.core.Tuple.tuple;
 import static org.patternfly.layout.gallery.Gallery.gallery;
 import static org.patternfly.layout.gallery.GalleryItem.galleryItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 import static org.patternfly.style.Breakpoint._2xl;
@@ -37,6 +40,7 @@ public class GalleryLayout extends SnippetPage {
     public GalleryLayout() {
         super(layouts.get("gallery"));
 
+        startExamples();
         addSnippet(new Snippet("gallery-basic", "Basic",
                 code.get("gallery-basic"), () ->
                 // @code-start:gallery-basic
@@ -145,5 +149,9 @@ public class GalleryLayout extends SnippetPage {
                         .element()
                 // @code-end:gallery-alternative-components
         ));
+
+        startApiDocs(Gallery.class);
+        addApiDoc(Gallery.class, layout);
+        addApiDoc(GalleryItem.class, layout);
     }
 }

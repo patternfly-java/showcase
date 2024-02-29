@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.grid.Grid;
+import org.patternfly.layout.grid.GridItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -23,6 +25,7 @@ import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.layout.grid.Grid.grid;
 import static org.patternfly.layout.grid.GridItem.gridItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 import static org.patternfly.style.Breakpoint._2xl;
@@ -37,6 +40,7 @@ public class GridLayout extends SnippetPage {
     public GridLayout() {
         super(layouts.get("grid"));
 
+        startExamples();
         addSnippet(new Snippet("grid-basic", "Basic",
                 code.get("grid-basic"), () ->
                 // @code-start:grid-basic
@@ -182,5 +186,9 @@ public class GridLayout extends SnippetPage {
                         .element()
                 // @code-end:grid-alternative-components
         ));
+
+        startApiDocs(Grid.class);
+        addApiDoc(Grid.class, layout);
+        addApiDoc(GridItem.class, layout);
     }
 }

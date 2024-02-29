@@ -31,9 +31,11 @@ public class Component {
 
     public String name;
     public String title;
-    public String place;
     public String summary;
     public String illustration;
+
+    @JsNullable
+    public String route;
 
     @JsNullable
     @JsProperty(name = "class")
@@ -41,7 +43,7 @@ public class Component {
 
     @JsOverlay
     public final boolean implemented() {
-        return clazz != null;
+        return clazz != null && route != null;
     }
 
     @JsOverlay
@@ -52,12 +54,6 @@ public class Component {
     @JsOverlay
     public final String apiDoc() {
         return API_DOC_BASE + clazz.replace('.', '/') + ".html";
-    }
-
-    @JsOverlay
-    public final String packageDoc() {
-        String package_ = clazz.substring(0, clazz.lastIndexOf('.'));
-        return API_DOC_BASE + package_.replace('.', '/') + "/package-summary.html";
     }
 
     @JsOverlay

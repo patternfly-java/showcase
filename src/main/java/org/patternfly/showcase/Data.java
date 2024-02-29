@@ -15,11 +15,15 @@
  */
 package org.patternfly.showcase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.patternfly.showcase.component.Component;
 import org.patternfly.showcase.demo.server.Server;
 import org.patternfly.showcase.demo.user.User;
 import org.patternfly.showcase.layout.Layout;
 
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 import jsinterop.base.JsPropertyMap;
@@ -31,4 +35,53 @@ public class Data {
     public static JsPropertyMap<Layout> layouts;
     public static Server[] servers;
     public static User[] users;
+
+    @JsOverlay
+    public static List<Component> components() {
+        List<Component> result = new ArrayList<>();
+        components.forEach(key -> {
+            Component component = components.get(key);
+            if (component.implemented()) {
+                result.add(component);
+            }
+        });
+        return result;
+    }
+
+    @JsOverlay
+    public static List<Component> topLevelComponents() {
+        List<Component> result = new ArrayList<>();
+        components.forEach(key -> {
+            Component component = components.get(key);
+            if (component.implemented() && component.route.equals("/components/" + component.name)) {
+                result.add(component);
+            }
+        });
+        return result;
+    }
+
+    @JsOverlay
+    public static List<Component> groupComponents(String group) {
+        List<Component> result = new ArrayList<>();
+        components.forEach(key -> {
+            Component component = components.get(key);
+            if (component.implemented() && component.route.contains(group)) {
+                result.add(component);
+            }
+        });
+        return result;
+    }
+
+    @JsOverlay
+    public static List<Layout> layouts() {
+        List<Layout> result = new ArrayList<>();
+        layouts.forEach(key -> {
+            Layout layout = layouts.get(key);
+            if (layout.implemented()) {
+                result.add(layout);
+            }
+        });
+        return result;
+    }
+
 }

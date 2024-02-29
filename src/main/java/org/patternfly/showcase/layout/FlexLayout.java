@@ -16,14 +16,20 @@
 package org.patternfly.showcase.layout;
 
 import org.patternfly.layout.flex.Align;
+import org.patternfly.layout.flex.AlignContent;
+import org.patternfly.layout.flex.AlignItems;
 import org.patternfly.layout.flex.AlignSelf;
 import org.patternfly.layout.flex.Direction;
 import org.patternfly.layout.flex.Display;
+import org.patternfly.layout.flex.Flex;
+import org.patternfly.layout.flex.FlexItem;
 import org.patternfly.layout.flex.FlexShorthand;
+import org.patternfly.layout.flex.FlexWrap;
 import org.patternfly.layout.flex.Gap;
 import org.patternfly.layout.flex.JustifyContent;
 import org.patternfly.layout.flex.SpaceItems;
 import org.patternfly.layout.flex.Spacer;
+import org.patternfly.showcase.ApiDoc;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -33,6 +39,8 @@ import static org.jboss.elemento.Elements.li;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.layout.flex.Flex.flex;
 import static org.patternfly.layout.flex.FlexItem.flexItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
+import static org.patternfly.showcase.ApiDoc.Type.modifier;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 import static org.patternfly.style.Breakpoint.default_;
@@ -49,7 +57,7 @@ public class FlexLayout extends SnippetPage {
         // ------------------------------------------------------ basics
 
         addHeader("flex-basics", "Flex basics");
-        addSnippet(new Snippet("flex-basic", "Basic",
+        addSnippet("flex-basics", new Snippet("flex-basic", "Basic",
                 code.get("flex-basic"), () ->
                 // @code-start:flex-basic
                 div().css("ws-core-l-flex")
@@ -63,7 +71,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-basic
         ));
 
-        addSnippet(new Snippet("flex-nesting", "Nesting",
+        addSnippet("flex-basics", new Snippet("flex-nesting", "Nesting",
                 code.get("flex-nesting"), () ->
                 // @code-start:flex-nesting
                 div().css("ws-core-l-flex")
@@ -79,7 +87,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-nesting
         ));
 
-        addSnippet(new Snippet("flex-nested-with-items", "Nested with items",
+        addSnippet("flex-basics", new Snippet("flex-nested-with-items", "Nested with items",
                 code.get("flex-nested-with-items"), () ->
                 // @code-start:flex-nested-with-items
                 div().css("ws-core-l-flex")
@@ -95,7 +103,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-nested-with-items
         ));
 
-        addSnippet(new Snippet("flex-individually-spaced", "Individually spaced",
+        addSnippet("flex-basics", new Snippet("flex-individually-spaced", "Individually spaced",
                 code.get("flex-individually-spaced"), () ->
                 // @code-start:flex-individually-spaced
                 div().css("ws-core-l-flex")
@@ -111,7 +119,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-individually-spaced
         ));
 
-        addSnippet(new Snippet("flex-spacing-xl", "Spacing xl",
+        addSnippet("flex-basics", new Snippet("flex-spacing-xl", "Spacing xl",
                 code.get("flex-spacing-xl"), () ->
                 // @code-start:flex-spacing-xl
                 div().css("ws-core-l-flex")
@@ -125,7 +133,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-spacing-xl
         ));
 
-        addSnippet(new Snippet("flex-spacing-none", "Spacing none",
+        addSnippet("flex-basics", new Snippet("flex-spacing-none", "Spacing none",
                 code.get("flex-spacing-none"), () ->
                 // @code-start:flex-spacing-none
                 div().css("ws-core-l-flex")
@@ -139,7 +147,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-spacing-none
         ));
 
-        addSnippet(new Snippet("flex-row-gap", "Row gap",
+        addSnippet("flex-basics", new Snippet("flex-row-gap", "Row gap",
                 code.get("flex-row-gap"), () ->
                 // @code-start:flex-row-gap
                 div().css("ws-core-l-flex")
@@ -158,7 +166,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-row-gap
         ));
 
-        addSnippet(new Snippet("flex-column-gap", "Column gap",
+        addSnippet("flex-basics", new Snippet("flex-column-gap", "Column gap",
                 code.get("flex-column-gap"), () ->
                 // @code-start:flex-column-gap
                 div().css("ws-core-l-flex")
@@ -177,7 +185,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-column-gap
         ));
 
-        addSnippet(new Snippet("flex-gap", "Gap",
+        addSnippet("flex-basics", new Snippet("flex-gap", "Gap",
                 code.get("flex-gap"), () ->
                 // @code-start:flex-gap
                 div().css("ws-core-l-flex")
@@ -196,7 +204,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-gap
         ));
 
-        addSnippet(new Snippet("flex-default-layout", "Default layout",
+        addSnippet("flex-basics", new Snippet("flex-default-layout", "Default layout",
                 code.get("flex-default-layout"), () ->
                 // @code-start:flex-default-layout
                 div().css("ws-core-l-flex")
@@ -210,7 +218,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-default-layout
         ));
 
-        addSnippet(new Snippet("flex-inline", "Inline",
+        addSnippet("flex-basics", new Snippet("flex-inline", "Inline",
                 code.get("flex-inline"), () ->
                 // @code-start:flex-inline
                 div().css("ws-core-l-flex")
@@ -224,7 +232,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-inline
         ));
 
-        addSnippet(new Snippet("flex-grow", "Using canGrow",
+        addSnippet("flex-basics", new Snippet("flex-grow", "Using canGrow",
                 code.get("flex-grow"), () ->
                 // @code-start:flex-grow
                 div().css("ws-core-l-flex")
@@ -242,7 +250,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-grow
         ));
 
-        addSnippet(new Snippet("flex-adjust-width", "Adjusting width",
+        addSnippet("flex-basics", new Snippet("flex-adjust-width", "Adjusting width",
                 code.get("flex-adjust-width"), () ->
                 // @code-start:flex-adjust-width
                 div().css("ws-core-l-flex")
@@ -260,7 +268,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-adjust-width
         ));
 
-        addSnippet(new Snippet("flex-column-widths", "Specifying column widths",
+        addSnippet("flex-basics", new Snippet("flex-column-widths", "Specifying column widths",
                 code.get("flex-column-widths"), () ->
                 // @code-start:flex-column-widths
                 div().css("ws-core-l-flex")
@@ -281,7 +289,7 @@ public class FlexLayout extends SnippetPage {
         // ------------------------------------------------------ column
 
         addHeader("flex-column-layout-modifiers", "Column layout modifiers");
-        addSnippet(new Snippet("flex-column-layout", "Column layout",
+        addSnippet("flex-column-layout-modifiers", new Snippet("flex-column-layout", "Column layout",
                 code.get("flex-column-layout"), () ->
                 // @code-start:flex-column-layout
                 div().css("ws-core-l-flex")
@@ -293,7 +301,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-column-layout
         ));
 
-        addSnippet(new Snippet("flex-stacking-elements", "Stacking elements",
+        addSnippet("flex-column-layout-modifiers", new Snippet("flex-stacking-elements", "Stacking elements",
                 code.get("flex-stacking-elements"), () ->
                 // @code-start:flex-stacking-elements
                 div().css("ws-core-l-flex")
@@ -311,7 +319,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-stacking-elements
         ));
 
-        addSnippet(new Snippet("flex-nest-columns", "Nesting elements in columns",
+        addSnippet("flex-column-layout-modifiers", new Snippet("flex-nest-columns", "Nesting elements in columns",
                 code.get("flex-nest-columns"), () ->
                 // @code-start:flex-nest-columns
                 div().css("ws-core-l-flex")
@@ -330,24 +338,25 @@ public class FlexLayout extends SnippetPage {
         // ------------------------------------------------------ responsive
 
         addHeader("flex-responsive-layout-modifiers", "Responsive layout modifiers");
-        addSnippet(new Snippet("flex-column-row", "Switching between direction column and row",
-                code.get("flex-column-row"), () ->
-                // @code-start:flex-column-row
-                div().css("ws-core-l-flex")
-                        .add(flex().direction(breakpoints(default_, Direction.column, lg, Direction.row))
-                                .add(flex()
-                                        .addItem(flexItem().textContent("Flex item"))
-                                        .addItem(flexItem().textContent("Flex item"))
-                                        .addItem(flexItem().textContent("Flex item"))
-                                        .addItem(flexItem().textContent("Flex item")))
-                                .add(flex().direction(breakpoints(default_, Direction.column))
-                                        .addItem(flexItem().textContent("Flex item"))
-                                        .addItem(flexItem().textContent("Flex item"))))
-                        .element()
-                // @code-end:flex-column-row
-        ));
+        addSnippet("flex-responsive-layout-modifiers",
+                new Snippet("flex-column-row", "Switching between direction column and row",
+                        code.get("flex-column-row"), () ->
+                        // @code-start:flex-column-row
+                        div().css("ws-core-l-flex")
+                                .add(flex().direction(breakpoints(default_, Direction.column, lg, Direction.row))
+                                        .add(flex()
+                                                .addItem(flexItem().textContent("Flex item"))
+                                                .addItem(flexItem().textContent("Flex item"))
+                                                .addItem(flexItem().textContent("Flex item"))
+                                                .addItem(flexItem().textContent("Flex item")))
+                                        .add(flex().direction(breakpoints(default_, Direction.column))
+                                                .addItem(flexItem().textContent("Flex item"))
+                                                .addItem(flexItem().textContent("Flex item"))))
+                                .element()
+                        // @code-end:flex-column-row
+                ));
 
-        addSnippet(new Snippet("flex-width-of-text", "Controlling width of text",
+        addSnippet("flex-responsive-layout-modifiers", new Snippet("flex-width-of-text", "Controlling width of text",
                 code.get("flex-width-of-text"), () ->
                 // @code-start:flex-width-of-text
                 div().css("ws-core-l-flex")
@@ -365,7 +374,7 @@ public class FlexLayout extends SnippetPage {
         // ------------------------------------------------------ alignment
 
         addHeader("flex-alignment", "Flex alignment");
-        addSnippet(new Snippet("flex-align-right", "Aligning right",
+        addSnippet("flex-alignment", new Snippet("flex-align-right", "Aligning right",
                 code.get("flex-align-right"), () ->
                 // @code-start:flex-align-right
                 div().css("ws-core-l-flex")
@@ -379,7 +388,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-align-right
         ));
 
-        addSnippet(new Snippet("flex-align-right-single", "Align right on single item",
+        addSnippet("flex-alignment", new Snippet("flex-align-right-single", "Align right on single item",
                 code.get("flex-align-right-single"), () ->
                 // @code-start:flex-align-right-single
                 div().css("ws-core-l-flex")
@@ -390,7 +399,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-align-right-single
         ));
 
-        addSnippet(new Snippet("flex-align-right-multiple", "Align right on multiple groups",
+        addSnippet("flex-alignment", new Snippet("flex-align-right-multiple", "Align right on multiple groups",
                 code.get("flex-align-right-multiple"), () ->
                 // @code-start:flex-align-right-multiple
                 div().css("ws-core-l-flex")
@@ -408,7 +417,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-align-right-multiple
         ));
 
-        addSnippet(new Snippet("flex-align-adjacent-content", "Align adjacent content",
+        addSnippet("flex-alignment", new Snippet("flex-align-adjacent-content", "Align adjacent content",
                 code.get("flex-align-adjacent-content"), () ->
                 // @code-start:flex-align-adjacent-content
                 div().css("ws-core-l-flex")
@@ -425,7 +434,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-align-adjacent-content
         ));
 
-        addSnippet(new Snippet("flex-align-self-end", "Align self flex end",
+        addSnippet("flex-alignment", new Snippet("flex-align-self-end", "Align self flex end",
                 code.get("flex-align-self-end"), () ->
                 // @code-start:flex-align-self-end
                 div().css("ws-core-l-flex")
@@ -443,7 +452,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-align-self-end
         ));
 
-        addSnippet(new Snippet("flex-align-self-center", "Align self center",
+        addSnippet("flex-alignment", new Snippet("flex-align-self-center", "Align self center",
                 code.get("flex-align-self-center"), () ->
                 // @code-start:flex-align-self-center
                 div().css("ws-core-l-flex")
@@ -461,7 +470,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-align-self-center
         ));
 
-        addSnippet(new Snippet("flex-align-self-baseline", "Align self baseline",
+        addSnippet("flex-alignment", new Snippet("flex-align-self-baseline", "Align self baseline",
                 code.get("flex-align-self-baseline"), () ->
                 // @code-start:flex-align-self-baseline
                 div().css("ws-core-l-flex")
@@ -479,7 +488,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-align-self-baseline
         ));
 
-        addSnippet(new Snippet("flex-align-self-stretch", "Align self stretch",
+        addSnippet("flex-alignment", new Snippet("flex-align-self-stretch", "Align self stretch",
                 code.get("flex-align-self-stretch"), () ->
                 // @code-start:flex-align-self-stretch
                 div().css("ws-core-l-flex")
@@ -500,7 +509,7 @@ public class FlexLayout extends SnippetPage {
         // ------------------------------------------------------ justification
 
         addHeader("flex-justification", "Flex justification");
-        addSnippet(new Snippet("flex-just-end", "Justify content flex end",
+        addSnippet("flex-justification", new Snippet("flex-just-end", "Justify content flex end",
                 code.get("flex-just-end"), () ->
                 // @code-start:flex-just-end
                 div().css("ws-core-l-flex")
@@ -513,7 +522,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-just-end
         ));
 
-        addSnippet(new Snippet("flex-just-space-between", "Justify content space between",
+        addSnippet("flex-justification", new Snippet("flex-just-space-between", "Justify content space between",
                 code.get("flex-just-space-between"), () ->
                 // @code-start:flex-just-space-between
                 div().css("ws-core-l-flex")
@@ -525,7 +534,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-just-space-between
         ));
 
-        addSnippet(new Snippet("flex-just-start", "Justify content flex start",
+        addSnippet("flex-justification", new Snippet("flex-just-start", "Justify content flex start",
                 code.get("flex-just-start"), () ->
                 // @code-start:flex-just-start
                 div().css("ws-core-l-flex")
@@ -540,7 +549,7 @@ public class FlexLayout extends SnippetPage {
         // ------------------------------------------------------ order
 
         addHeader("flex-order", "Flex item order");
-        addSnippet(new Snippet("flex-order-first-last", "First last ordering",
+        addSnippet("flex-order", new Snippet("flex-order-first-last", "First last ordering",
                 code.get("flex-order-first-last"), () ->
                 // @code-start:flex-order-first-last
                 div().css("ws-core-l-flex")
@@ -555,7 +564,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-order-first-last
         ));
 
-        addSnippet(new Snippet("flex-order-first-last-responsive", "Responsive first last ordering",
+        addSnippet("flex-order", new Snippet("flex-order-first-last-responsive", "Responsive first last ordering",
                 code.get("flex-order-first-last-responsive"), () ->
                 // @code-start:flex-order-first-last-responsive
                 div().css("ws-core-l-flex")
@@ -576,7 +585,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-order-first-last-responsive
         ));
 
-        addSnippet(new Snippet("flex-ordering", "Ordering",
+        addSnippet("flex-order", new Snippet("flex-ordering", "Ordering",
                 code.get("flex-ordering"), () ->
                 // @code-start:flex-ordering
                 div().css("ws-core-l-flex")
@@ -616,7 +625,7 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-ordering
         ));
 
-        addSnippet(new Snippet("flex-ordering-responsive", "Responsive ordering",
+        addSnippet("flex-order", new Snippet("flex-ordering-responsive", "Responsive ordering",
                 code.get("flex-ordering-responsive"), () ->
                 // @code-start:flex-ordering-responsive
                 div().css("ws-core-l-flex")
@@ -658,7 +667,7 @@ public class FlexLayout extends SnippetPage {
         // ------------------------------------------------------ components
 
         addHeader("flex-components", "Components");
-        addSnippet(new Snippet("flex-alternative-components", "Alternative components",
+        addSnippet("flex-components", new Snippet("flex-alternative-components", "Alternative components",
                 code.get("flex-alternative-components"), () ->
                 // @code-start:flex-alternative-components
                 div().css("ws-core-l-flex")
@@ -672,5 +681,20 @@ public class FlexLayout extends SnippetPage {
                 // @code-end:flex-alternative-components
         ));
 
+        startApiDocs(Flex.class);
+        addApiDoc(Align.class, modifier);
+        addApiDoc(AlignContent.class, modifier);
+        addApiDoc(AlignItems.class, modifier);
+        addApiDoc(AlignSelf.class, modifier);
+        addApiDoc(Direction.class, modifier);
+        addApiDoc(Display.class, modifier);
+        addApiDoc(Flex.class, layout);
+        addApiDoc(FlexItem.class, layout);
+        addApiDoc(FlexShorthand.class, modifier);
+        addApiDoc(FlexWrap.class, modifier);
+        addApiDoc(Gap.class, modifier);
+        addApiDoc(JustifyContent.class, modifier);
+        addApiDoc(SpaceItems.class, modifier);
+        addApiDoc(Spacer.class, modifier);
     }
 }

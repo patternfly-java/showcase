@@ -77,6 +77,7 @@ import org.patternfly.showcase.layout.BullseyeLayout;
 import org.patternfly.showcase.layout.FlexLayout;
 import org.patternfly.showcase.layout.GalleryLayout;
 import org.patternfly.showcase.layout.GridLayout;
+import org.patternfly.showcase.layout.LayoutsPage;
 import org.patternfly.showcase.layout.LevelLayout;
 import org.patternfly.showcase.layout.SplitLayout;
 import org.patternfly.showcase.layout.StackLayout;
@@ -103,6 +104,9 @@ import static org.patternfly.component.page.PageSidebar.pageSidebar;
 import static org.patternfly.component.page.PageSidebarBody.pageSidebarBody;
 import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.Assets.pfLogo;
+import static org.patternfly.showcase.Data.groupComponents;
+import static org.patternfly.showcase.Data.layouts;
+import static org.patternfly.showcase.Data.topLevelComponents;
 import static org.patternfly.style.Classes.brand;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Variable.componentVar;
@@ -191,6 +195,7 @@ public class Main {
         pm.register(new Place("/components/tooltip", "Tooltip"), () -> new TooltipComponent());
         pm.register(new Place("/components/truncate", "Truncate"), () -> new TruncateComponent());
 
+        pm.register(new Place("/layouts/about-layouts", "Layouts"), () -> new LayoutsPage());
         pm.register(new Place("/layouts/bullseye", "Bullseye"), () -> new BullseyeLayout());
         pm.register(new Place("/layouts/flex", "Flex"), () -> new FlexLayout());
         pm.register(new Place("/layouts/gallery", "Gallery"), () -> new GalleryLayout());
@@ -207,80 +212,30 @@ public class Main {
                 .addItem(ni(pm.place("/get-started")))
                 .addGroup(expandableNavigationGroup("components", "Components")
                         .addItem(ni(pm.place("/components/all-components")))
-                        .addItem(ni(pm.place("/components/accordion")))
-                        .addItem(ni(pm.place("/components/action-list")))
-                        .addItem(ni(pm.place("/components/alert")))
-                        .addItem(ni(pm.place("/components/avatar")))
-                        .addItem(ni(pm.place("/components/back-to-top")))
-                        .addItem(ni(pm.place("/components/badge")))
-                        .addItem(ni(pm.place("/components/banner")))
-                        .addItem(ni(pm.place("/components/brand")))
-                        .addItem(ni(pm.place("/components/breadcrumb")))
-                        .addItem(ni(pm.place("/components/button")))
-                        .addItem(ni(pm.place("/components/card")))
-                        .addItem(ni(pm.place("/components/chip")))
-                        .addItem(ni(pm.place("/components/code-block")))
-                        .addItem(ni(pm.place("/components/code-editor")))
-                        .addItem(ni(pm.place("/components/description-list")))
-                        .addItem(ni(pm.place("/components/divider")))
-                        .addItem(ni(pm.place("/components/drawer")))
-                        .addItem(ni(pm.place("/components/empty-state")))
-                        .addItem(ni(pm.place("/components/expandable-section")))
-                        .addGroup(expandableNavigationGroup("components/forms", "Forms")
-                                .addItem(ni(pm.place("/components/forms/checkbox")))
-                                .addItem(ni(pm.place("/components/forms/form")))
-                                .addItem(ni(pm.place("/components/forms/form-control")))
-                                .addItem(ni(pm.place("/components/forms/form-select")))
-                                .addItem(ni(pm.place("/components/forms/radio")))
-                                .addItem(ni(pm.place("/components/forms/text-area")))
-                                .addItem(ni(pm.place("/components/forms/text-input")))
-                        )
-                        .addItem(ni(pm.place("/components/helper-text")))
-                        .addItem(ni(pm.place("/components/hint")))
-                        .addItem(ni(pm.place("/components/icon")))
-                        .addItem(ni(pm.place("/components/input-group")))
-                        .addItem(ni(pm.place("/components/jump-links")))
-                        .addItem(ni(pm.place("/components/label")))
-                        .addItem(ni(pm.place("/components/list")))
-                        .addItem(ni(pm.place("/components/masthead")))
-                        .addGroup(expandableNavigationGroup("menus", "Menus")
-                                .addItem(ni(pm.place("/components/menus/dropdown")))
-                                .addItem(ni(pm.place("/components/menus/menu")))
-                                .addItem(ni(pm.place("/components/menus/menu-toggle")))
-                        )
-                        .addItem(ni(pm.place("/components/navigation")))
-                        .addItem(ni(pm.place("/components/page")))
-                        .addItem(ni(pm.place("/components/panel")))
-                        .addItem(ni(pm.place("/components/popover")))
-                        .addItem(ni(pm.place("/components/progress")))
-                        .addItem(ni(pm.place("/components/simple-list")))
-                        .addItem(ni(pm.place("/components/slider")))
-                        .addItem(ni(pm.place("/components/skeleton")))
-                        .addItem(ni(pm.place("/components/spinner")))
-                        .addItem(ni(pm.place("/components/switch")))
-                        .addItem(ni(pm.place("/components/tabs")))
-                        .addItem(ni(pm.place("/components/text-content")))
-                        .addItem(ni(pm.place("/components/text-input-group")))
-                        .addItem(ni(pm.place("/components/title")))
-                        .addItem(ni(pm.place("/components/toggle-group")))
-                        .addItem(ni(pm.place("/components/tooltip")))
-                        .addItem(ni(pm.place("/components/truncate")))
-                )
+                        .addItems(topLevelComponents(), component ->
+                                navigationItem(component.route, component.title, component.route))
+                        .insertGroupAfter(expandableNavigationGroup("forms", "Forms")
+                                        .addItems(groupComponents("forms"), sc ->
+                                                navigationItem(sc.route, sc.title, sc.route)),
+                                "/components/expandable-section")
+                        .insertGroupAfter(expandableNavigationGroup("menus", "Menus")
+                                        .addItems(groupComponents("menus"), sc ->
+                                                navigationItem(sc.route, sc.title, sc.route)),
+                                "/components/masthead"))
                 .addGroup(expandableNavigationGroup("layouts", "Layouts")
-                        .addItem(ni(pm.place("/layouts/bullseye")))
-                        .addItem(ni(pm.place("/layouts/flex")))
-                        .addItem(ni(pm.place("/layouts/gallery")))
-                        .addItem(ni(pm.place("/layouts/grid")))
-                        .addItem(ni(pm.place("/layouts/level")))
-                        .addItem(ni(pm.place("/layouts/split")))
-                        .addItem(ni(pm.place("/layouts/stack")))
-                )
+                        .addItem(ni(pm.place("/layouts/about-layouts"), "About layouts"))
+                        .addItems(layouts(), layout ->
+                                navigationItem(layout.route, layout.title, layout.route)))
                 .addItem(ni(pm.place("/contribute")))
                 .addItem(ni(pm.place("/get-in-touch")));
     }
 
     private NavigationItem ni(Place place) {
-        return navigationItem(place.route, place.title, place.route);
+        return ni(place, place.title);
+    }
+
+    private NavigationItem ni(Place place, String text) {
+        return navigationItem(place.route, text, place.route);
     }
 
     private void appendBody(Navigation navigation) {

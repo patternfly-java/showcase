@@ -15,12 +15,15 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.patternfly.layout.bullseye.Bullseye;
+import org.patternfly.layout.bullseye.BullseyeItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.patternfly.layout.bullseye.Bullseye.bullseye;
 import static org.patternfly.layout.bullseye.BullseyeItem.bullseyeItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 
@@ -29,6 +32,7 @@ public class BullseyeLayout extends SnippetPage {
     public BullseyeLayout() {
         super(layouts.get("bullseye"));
 
+        startExamples();
         addSnippet(new Snippet("bullseye-basic", "Basic",
                 code.get("bullseye-basic"), () ->
                 // @code-start:bullseye-basic
@@ -38,5 +42,9 @@ public class BullseyeLayout extends SnippetPage {
                         .element()
                 // @code-end:bullseye-basic
         ));
+
+        startApiDocs(Bullseye.class);
+        addApiDoc(Bullseye.class, layout);
+        addApiDoc(BullseyeItem.class, layout);
     }
 }
