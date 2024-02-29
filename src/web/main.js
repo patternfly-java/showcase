@@ -32,5 +32,4 @@ import "./styles.css";
 import "@popperjs/core";
 import "@github/relative-time-element";
 import "./assets/assets";
-import "./data/data";
 import "./code";

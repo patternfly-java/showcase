@@ -21,6 +21,8 @@
  * @externs
  */
 
+// ------------------------------------------------------ assets, code, data
+
 /**
  * @typedef {{
  *     avatarLight: string,
@@ -32,17 +34,52 @@ var PatternFlyAssets;
 
 /**
  * @typedef {{
- *     components: Map<string,Object>,
- *     layouts: Map<string,Object>,
- *     servers: Object,
- *     users: Object
- * }}
- */
-var PatternFlyData;
-
-/**
- * @typedef {{
  *     code: Map<string,string>
  * }}
  */
 var PatternFlyCode;
+
+// ------------------------------------------------------ component
+
+/** @constructor */
+function Component() {
+}
+
+/** @type {string} */
+Component.prototype.name
+
+/** @type {string} */
+Component.prototype.title
+
+/** @type {string} */
+Component.prototype.route
+
+/** @type {string} */
+Component.prototype.clazz
+
+/** @type {string} */
+Component.prototype.illustration
+
+/** @type {string} */
+Component.prototype.summary
+
+// ------------------------------------------------------ layout
+
+/** @constructor */
+function Layout() {
+}
+
+/** @type {string} */
+Layout.prototype.name
+
+/** @type {string} */
+Layout.prototype.title
+
+/** @type {string} */
+Layout.prototype.route
+
+/** @type {string} */
+Layout.prototype.clazz
+
+/** @type {string} */
+Layout.prototype.summary

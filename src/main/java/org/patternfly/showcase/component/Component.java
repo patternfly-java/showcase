@@ -18,10 +18,8 @@ package org.patternfly.showcase.component;
 import org.gwtproject.safehtml.shared.SafeHtml;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 
-import jsinterop.annotations.JsNullable;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 import static org.patternfly.showcase.ApiDoc.API_DOC_BASE;
@@ -31,14 +29,9 @@ public class Component {
 
     public String name;
     public String title;
+    public String route;
     public String summary;
     public String illustration;
-
-    @JsNullable
-    public String route;
-
-    @JsNullable
-    @JsProperty(name = "class")
     public String clazz;
 
     @JsOverlay

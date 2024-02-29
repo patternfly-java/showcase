@@ -19,7 +19,6 @@ import org.patternfly.style.Color;
 
 import static org.patternfly.style.Color.blue;
 import static org.patternfly.style.Color.cyan;
-import static org.patternfly.style.Color.gold;
 import static org.patternfly.style.Color.grey;
 import static org.patternfly.style.Color.orange;
 import static org.patternfly.style.Color.purple;

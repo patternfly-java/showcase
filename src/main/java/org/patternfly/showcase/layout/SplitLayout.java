@@ -17,7 +17,6 @@ package org.patternfly.showcase.layout;
 
 import org.patternfly.layout.split.Split;
 import org.patternfly.layout.split.SplitItem;
-import org.patternfly.showcase.ApiDoc;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 

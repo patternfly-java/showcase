@@ -29,7 +29,6 @@ import org.patternfly.layout.flex.Gap;
 import org.patternfly.layout.flex.JustifyContent;
 import org.patternfly.layout.flex.SpaceItems;
 import org.patternfly.layout.flex.Spacer;
-import org.patternfly.showcase.ApiDoc;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;

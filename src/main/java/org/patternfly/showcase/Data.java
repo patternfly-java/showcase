@@ -19,24 +19,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.patternfly.showcase.component.Component;
-import org.patternfly.showcase.demo.server.Server;
-import org.patternfly.showcase.demo.user.User;
 import org.patternfly.showcase.layout.Layout;
 
-import jsinterop.annotations.JsOverlay;
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsType;
+import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
 
-@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "PatternFlyData")
+import static elemental2.core.Global.JSON;
+
 public class Data {
 
     public static JsPropertyMap<Component> components;
     public static JsPropertyMap<Layout> layouts;
-    public static Server[] servers;
-    public static User[] users;
 
-    @JsOverlay
+    static {
+        components = Js.cast(JSON.parse(ShowcaseBundleImpl.INSTANCE.components().getText()));
+        layouts = Js.cast(JSON.parse(ShowcaseBundleImpl.INSTANCE.layouts().getText()));
+    }
+
     public static List<Component> components() {
         List<Component> result = new ArrayList<>();
         components.forEach(key -> {
@@ -48,7 +47,6 @@ public class Data {
         return result;
     }
 
-    @JsOverlay
     public static List<Component> topLevelComponents() {
         List<Component> result = new ArrayList<>();
         components.forEach(key -> {
@@ -60,7 +58,6 @@ public class Data {
         return result;
     }
 
-    @JsOverlay
     public static List<Component> groupComponents(String group) {
         List<Component> result = new ArrayList<>();
         components.forEach(key -> {
@@ -72,7 +69,6 @@ public class Data {
         return result;
     }
 
-    @JsOverlay
     public static List<Layout> layouts() {
         List<Layout> result = new ArrayList<>();
         layouts.forEach(key -> {
@@ -83,5 +79,4 @@ public class Data {
         });
         return result;
     }
-
 }

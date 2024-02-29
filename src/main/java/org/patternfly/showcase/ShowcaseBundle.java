@@ -13,18 +13,18 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import components from "./components.json"
-import layouts from "./layouts.json"
-import servers from "./servers.json"
-import users from "./users.json"
+package org.patternfly.showcase;
 
-const PatternFlyData = {
-    components: components,
-    layouts: layouts,
-    servers: servers,
-    users: users,
-};
+import org.treblereel.j2cl.processors.annotations.GWT3Resource;
+import org.treblereel.j2cl.processors.common.resources.ClientBundle;
+import org.treblereel.j2cl.processors.common.resources.TextResource;
 
-// Parcel cannot detect that this is going to be used from J2CL
-// "Export" it, so it doesn't get stripped away
-window["PatternFlyData"] = PatternFlyData;
+@GWT3Resource
+public interface ShowcaseBundle extends ClientBundle {
+
+    @Source("components.json")
+    TextResource components();
+
+    @Source("layouts.json")
+    TextResource layouts();
+}

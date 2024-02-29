@@ -18,10 +18,8 @@ package org.patternfly.showcase.layout;
 import org.gwtproject.safehtml.shared.SafeHtml;
 import org.gwtproject.safehtml.shared.SafeHtmlUtils;
 
-import jsinterop.annotations.JsNullable;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 import static org.patternfly.showcase.ApiDoc.API_DOC_BASE;
@@ -32,12 +30,7 @@ public class Layout {
     public String name;
     public String title;
     public String summary;
-
-    @JsNullable
     public String route;
-
-    @JsNullable
-    @JsProperty(name = "class")
     public String clazz;
 
     @JsOverlay
