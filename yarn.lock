@@ -578,15 +578,15 @@
     "@parcel/node-resolver-core" "3.2.0"
     "@parcel/plugin" "2.11.0"
 
-"@parcel/resolver-glob@^2.11.0":
-  version "2.11.0"
-  resolved "https://registry.npmjs.org/@parcel/resolver-glob/-/resolver-glob-2.11.0.tgz"
-  integrity sha512-ep6OOs7Flskzc3SiPEcVAGCXwPDudDJ8KAnRGprFWbVeZhBIlz7Gzbx2zCiRjmhYRm2pNVC37GBSbeANcRGitw==
+"@parcel/resolver-glob@^2.12.0":
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/@parcel/resolver-glob/-/resolver-glob-2.12.0.tgz#82915ddcc7820e136347f895f1431036f5e229f2"
+  integrity sha512-vyv2YZQlj9Pg5mL7Lz92nlN0zo8VkPdauCTqjj19OVrDTF2BiBw6sf2vukUOl1RzFfAruBMcTzxjkWXaTyDgpQ==
   dependencies:
-    "@parcel/diagnostic" "2.11.0"
-    "@parcel/node-resolver-core" "3.2.0"
-    "@parcel/plugin" "2.11.0"
-    "@parcel/utils" "2.11.0"
+    "@parcel/diagnostic" "2.12.0"
+    "@parcel/node-resolver-core" "3.3.0"
+    "@parcel/plugin" "2.12.0"
+    "@parcel/utils" "2.12.0"
     nullthrows "^1.1.1"
 
 "@parcel/runtime-browser-hmr@2.11.0":
