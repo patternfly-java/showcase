@@ -1,20 +1,27 @@
 goog.module('org.patternfly.component.navigation.Navigation$impl');
 
 const $Util = goog.require('nativebootstrap.Util$impl');
+const Attachable = goog.require('org.jboss.elemento.Attachable$impl');
 const BaseComponent = goog.require('org.patternfly.component.BaseComponent$impl');
 
+let DomGlobal_$Overlay = goog.forwardDeclare('elemental2.dom.DomGlobal.$Overlay$impl');
+let EventListener_$Overlay = goog.forwardDeclare('elemental2.dom.EventListener.$Overlay$impl');
+let HTMLButtonElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLButtonElement.$Overlay$impl');
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
 let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLElement.$Overlay$impl');
 let HTMLLIElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLLIElement.$Overlay$impl');
 let HTMLUListElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLUListElement.$Overlay$impl');
 let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
+let Boolean = goog.forwardDeclare('java.lang.Boolean$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let HashMap = goog.forwardDeclare('java.util.HashMap$impl');
 let Map = goog.forwardDeclare('java.util.Map$impl');
+let Consumer = goog.forwardDeclare('java.util.function.Consumer$impl');
 let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
 let JsPropertyMap_$Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
+let HandlerRegistration = goog.forwardDeclare('org.gwtproject.event.shared.HandlerRegistration$impl');
 let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
@@ -32,7 +39,10 @@ let Vertical = goog.forwardDeclare('org.patternfly.component.navigation.Navigati
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Attributes = goog.forwardDeclare('org.patternfly.core.Attributes$impl');
 let Dataset = goog.forwardDeclare('org.patternfly.core.Dataset$impl');
+let LanguageDirection = goog.forwardDeclare('org.patternfly.core.LanguageDirection$impl');
 let Logger = goog.forwardDeclare('org.patternfly.core.Logger$impl');
+let ObservableValue = goog.forwardDeclare('org.patternfly.core.ObservableValue$impl');
+let Subscriber = goog.forwardDeclare('org.patternfly.core.ObservableValue.Subscriber$impl');
 let Validation = goog.forwardDeclare('org.patternfly.core.Validation$impl');
 let SelectHandler = goog.forwardDeclare('org.patternfly.handler.SelectHandler$impl');
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
@@ -44,6 +54,7 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
  * @extends {BaseComponent<HTMLElement, Navigation>}
+ * @implements {Attachable}
  */
 class Navigation extends BaseComponent {
  /** @protected @nodts */
@@ -59,10 +70,30 @@ class Navigation extends BaseComponent {
   this.f_groups__org_patternfly_component_navigation_Navigation_;
   /**@type {Map<?string, ExpandableNavigationGroup>} @nodts*/
   this.f_expandableGroups__org_patternfly_component_navigation_Navigation_;
+  /**@type {ObservableValue<?boolean>} @nodts*/
+  this.f_enableScrollButtons__org_patternfly_component_navigation_Navigation_;
+  /**@type {ObservableValue<?boolean>} @nodts*/
+  this.f_showScrollButtons__org_patternfly_component_navigation_Navigation_;
+  /**@type {ObservableValue<?boolean>} @nodts*/
+  this.f_renderScrollButtons__org_patternfly_component_navigation_Navigation_;
+  /**@type {ObservableValue<?boolean>} @nodts*/
+  this.f_disableBackScrollButton__org_patternfly_component_navigation_Navigation_;
+  /**@type {ObservableValue<?boolean>} @nodts*/
+  this.f_disableForwardScrollButton__org_patternfly_component_navigation_Navigation_;
+  /**@type {number} @nodts*/
+  this.f_scrollTimeout__org_patternfly_component_navigation_Navigation_ = 0;
+  /**@type {HandlerRegistration} @nodts*/
+  this.f_resizeHandler__org_patternfly_component_navigation_Navigation_;
+  /**@type {HandlerRegistration} @nodts*/
+  this.f_transitionEndHandler__org_patternfly_component_navigation_Navigation_;
   /**@type {SelectHandler<NavigationItem>} @nodts*/
   this.f_onSelect__org_patternfly_component_navigation_Navigation_;
   /**@type {ToggleHandler<ExpandableNavigationGroup>} @nodts*/
   this.f_toggleHandler__org_patternfly_component_navigation_Navigation_;
+  /**@type {HTMLContainerBuilder<HTMLButtonElement>} @nodts*/
+  this.f_scrollBack__org_patternfly_component_navigation_Navigation_;
+  /**@type {HTMLContainerBuilder<HTMLButtonElement>} @nodts*/
+  this.f_scrollForward__org_patternfly_component_navigation_Navigation_;
  }
  /** @nodts @return {Navigation} */
  static m_navigation__org_patternfly_component_navigation_NavigationType__org_patternfly_component_navigation_Navigation(/** NavigationType */ type) {
@@ -83,7 +114,12 @@ class Navigation extends BaseComponent {
   this.f_items__org_patternfly_component_navigation_Navigation_ = /**@type {!HashMap<?string, NavigationItem>}*/ (HashMap.$create__());
   this.f_groups__org_patternfly_component_navigation_Navigation_ = /**@type {!HashMap<?string, NavigationGroup>}*/ (HashMap.$create__());
   this.f_expandableGroups__org_patternfly_component_navigation_Navigation_ = /**@type {!HashMap<?string, ExpandableNavigationGroup>}*/ (HashMap.$create__());
-  if ($Equality.$same(type, Horizontal.f_secondary__org_patternfly_component_navigation_NavigationType_Horizontal)) {
+  this.f_enableScrollButtons__org_patternfly_component_navigation_Navigation_ = /**@type {ObservableValue<?boolean>}*/ (ObservableValue.m_ov__java_lang_Object__org_patternfly_core_ObservableValue(false));
+  this.f_showScrollButtons__org_patternfly_component_navigation_Navigation_ = /**@type {ObservableValue<?boolean>}*/ (ObservableValue.m_ov__java_lang_Object__org_patternfly_core_ObservableValue(false));
+  this.f_renderScrollButtons__org_patternfly_component_navigation_Navigation_ = /**@type {ObservableValue<?boolean>}*/ (ObservableValue.m_ov__java_lang_Object__org_patternfly_core_ObservableValue(false));
+  this.f_disableBackScrollButton__org_patternfly_component_navigation_Navigation_ = /**@type {ObservableValue<?boolean>}*/ (ObservableValue.m_ov__java_lang_Object__org_patternfly_core_ObservableValue(false));
+  this.f_disableForwardScrollButton__org_patternfly_component_navigation_Navigation_ = /**@type {ObservableValue<?boolean>}*/ (ObservableValue.m_ov__java_lang_Object__org_patternfly_core_ObservableValue(false));
+  if ($Equality.$same(type, Horizontal.f_secondary__org_patternfly_component_navigation_NavigationType_Horizontal) || $Equality.$same(type, Horizontal.f_tertiary__org_patternfly_component_navigation_NavigationType_Horizontal)) {
    this.m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Local');
   } else {
    this.m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Global');
@@ -93,15 +129,25 @@ class Navigation extends BaseComponent {
     this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_horizontal__org_patternfly_style_Classes)], j_l_String)));
    } else if ($Equality.$same(type, Horizontal.f_secondary__org_patternfly_component_navigation_NavigationType_Horizontal)) {
     this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_horizontalSubnav__org_patternfly_style_Classes)], j_l_String)));
+   } else if ($Equality.$same(type, Horizontal.f_tertiary__org_patternfly_component_navigation_NavigationType_Horizontal)) {
+    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_tertiary__org_patternfly_style_Classes)], j_l_String)));
    }
-   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_style_Classes, Classes.f_button__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll left'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
+   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_scrollBack__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_style_Classes, Classes.f_button__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_apply__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(Consumer.$adapt((b) =>{
+    let b_1 = /**@type {HTMLButtonElement}*/ ($Casts.$to(b, HTMLButtonElement_$Overlay));
+    b_1.disabled = true;
+   })), HTMLContainerBuilder)).m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_hidden__org_patternfly_core_Aria, true), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll back'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e) =>{
     let e_1 = /**@type {MouseEvent}*/ ($Casts.$to(e, MouseEvent_$Overlay));
-    this.m_scrollLeft__void_$p_org_patternfly_component_navigation_Navigation();
+    this.m_scrollBack__void_$p_org_patternfly_component_navigation_Navigation();
    }), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleLeft__org_patternfly_style_PredefinedIcon)), HTMLContainerBuilder)));
-   this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_horizontal__org_patternfly_style_Classes, Classes.f_list__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)));
-   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_style_Classes, Classes.f_button__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll right'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e_2) =>{
-    let e_3 = /**@type {MouseEvent}*/ ($Casts.$to(e_2, MouseEvent_$Overlay));
-    this.m_scrollRight__void_$p_org_patternfly_component_navigation_Navigation();
+   this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLUListElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLUListElement>}*/ ($Casts.$to(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_list__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_attr__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Attributes.f_role__org_patternfly_core_Attributes, 'list'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_scroll__org_jboss_elemento_EventType, (/** Event */ e_2) =>{
+    this.m_updateScrollState__void_$p_org_patternfly_component_navigation_Navigation();
+   }), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLUListElement_$Overlay)));
+   this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(this.f_scrollForward__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLButtonElement>}*/ ($Casts.$to(Elements.m_button__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_scroll__org_patternfly_style_Classes, Classes.f_button__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_apply__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(Consumer.$adapt((b_2) =>{
+    let b_3 = /**@type {HTMLButtonElement}*/ ($Casts.$to(b_2, HTMLButtonElement_$Overlay));
+    b_3.disabled = true;
+   })), HTMLContainerBuilder)).m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_hidden__org_patternfly_core_Aria, true), HTMLContainerBuilder)).m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, 'Scroll forward'), HTMLContainerBuilder)).m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(EventType.f_click__org_jboss_elemento_EventType, (e_3) =>{
+    let e_4 = /**@type {MouseEvent}*/ ($Casts.$to(e_3, MouseEvent_$Overlay));
+    this.m_scrollForward__void_$p_org_patternfly_component_navigation_Navigation();
    }), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(InlineIcon.m_inlineIcon__org_patternfly_style_PredefinedIcon__org_patternfly_component_icon_InlineIcon(PredefinedIcon.f_angleRight__org_patternfly_style_PredefinedIcon)), HTMLContainerBuilder)));
   } else if (Vertical.$isInstance(type)) {
    let vt = /**@type {Vertical}*/ (type);
@@ -126,6 +172,65 @@ class Navigation extends BaseComponent {
    Logger.m_unknown__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Unknown navigation type: ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(type));
    this.f_itemsContainer__org_patternfly_component_navigation_Navigation_ = /**@type {HTMLDivElement}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   }
+  this.m_storeComponent__void();
+  Attachable.m_register__org_jboss_elemento_IsElement__org_jboss_elemento_Attachable__void(this, this);
+ }
+ /** @override @nodts */
+ m_attach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
+  if (Horizontal.$isInstance(this.f_type__org_patternfly_component_navigation_Navigation_) && !$Equality.$same(this.f_scrollBack__org_patternfly_component_navigation_Navigation_, null) && !$Equality.$same(this.f_scrollForward__org_patternfly_component_navigation_Navigation_, null)) {
+   this.f_enableScrollButtons__org_patternfly_component_navigation_Navigation_.m_subscribe__org_patternfly_core_ObservableValue_Subscriber__org_patternfly_core_ObservableValue(Subscriber.$adapt((current, previous) =>{
+    let current_1 = /**@type {?boolean}*/ ($Casts.$to(current, Boolean));
+    let previous_1 = /**@type {?boolean}*/ ($Casts.$to(previous, Boolean));
+    if (!Boolean.m_booleanValue__java_lang_Boolean__boolean(previous_1) && Boolean.m_booleanValue__java_lang_Boolean__boolean(current_1)) {
+     this.f_renderScrollButtons__org_patternfly_component_navigation_Navigation_.m_change__java_lang_Object__void(true);
+     DomGlobal_$Overlay.m_setTimeout__elemental2_dom_DomGlobal_SetTimeoutCallbackFn__double__arrayOf_java_lang_Object__double((.../** ...* */ __) =>{
+      this.f_transitionEndHandler__org_patternfly_component_navigation_Navigation_ = EventType.m_bind__org_jboss_elemento_IsElement__java_lang_String__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(this.f_scrollBack__org_patternfly_component_navigation_Navigation_, 'transitionend', EventListener_$Overlay.$adapt__elemental2_dom_EventListener_$JsFunction__elemental2_dom_EventListener((/** Event */ e) =>{
+       this.m_hideScrollButtons__void_$p_org_patternfly_component_navigation_Navigation();
+      }));
+      this.f_showScrollButtons__org_patternfly_component_navigation_Navigation_.m_set__java_lang_Object__void(true);
+     }, 100, []);
+    } else if (Boolean.m_booleanValue__java_lang_Boolean__boolean(previous_1) && !Boolean.m_booleanValue__java_lang_Boolean__boolean(current_1)) {
+     this.f_showScrollButtons__org_patternfly_component_navigation_Navigation_.m_change__java_lang_Object__void(false);
+    }
+   }));
+   this.f_showScrollButtons__org_patternfly_component_navigation_Navigation_.m_subscribe__org_patternfly_core_ObservableValue_Subscriber__org_patternfly_core_ObservableValue(Subscriber.$adapt((current_2, ___1) =>{
+    let current_3 = /**@type {?boolean}*/ ($Casts.$to(current_2, Boolean));
+    let ___2 = /**@type {?boolean}*/ ($Casts.$to(___1, Boolean));
+    this.m_classList__org_jboss_elemento_ClassList().m_toggle__java_lang_String__boolean__void(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_scrollable__org_patternfly_style_Classes), Boolean.m_booleanValue__java_lang_Boolean__boolean(current_3));
+   }));
+   this.f_renderScrollButtons__org_patternfly_component_navigation_Navigation_.m_subscribe__org_patternfly_core_ObservableValue_Subscriber__org_patternfly_core_ObservableValue(Subscriber.$adapt((current_4, ___3) =>{
+    let current_5 = /**@type {?boolean}*/ ($Casts.$to(current_4, Boolean));
+    let ___4 = /**@type {?boolean}*/ ($Casts.$to(___3, Boolean));
+    Elements.m_setVisible__org_jboss_elemento_IsElement__boolean__void(this.f_scrollBack__org_patternfly_component_navigation_Navigation_, Boolean.m_booleanValue__java_lang_Boolean__boolean(current_5));
+    Elements.m_setVisible__org_jboss_elemento_IsElement__boolean__void(this.f_scrollForward__org_patternfly_component_navigation_Navigation_, Boolean.m_booleanValue__java_lang_Boolean__boolean(current_5));
+   }));
+   this.f_disableBackScrollButton__org_patternfly_component_navigation_Navigation_.m_subscribe__org_patternfly_core_ObservableValue_Subscriber__org_patternfly_core_ObservableValue(Subscriber.$adapt((current_6, ___5) =>{
+    let current_7 = /**@type {?boolean}*/ ($Casts.$to(current_6, Boolean));
+    let ___6 = /**@type {?boolean}*/ ($Casts.$to(___5, Boolean));
+    /**@type {HTMLButtonElement}*/ ($Casts.$to(this.f_scrollBack__org_patternfly_component_navigation_Navigation_.m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay)).disabled = Boolean.m_booleanValue__java_lang_Boolean__boolean(current_7);
+    this.f_scrollBack__org_patternfly_component_navigation_Navigation_.m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_disabled__org_patternfly_core_Aria, Boolean.m_booleanValue__java_lang_Boolean__boolean(current_7));
+   }));
+   this.f_disableForwardScrollButton__org_patternfly_component_navigation_Navigation_.m_subscribe__org_patternfly_core_ObservableValue_Subscriber__org_patternfly_core_ObservableValue(Subscriber.$adapt((current_8, ___7) =>{
+    let current_9 = /**@type {?boolean}*/ ($Casts.$to(current_8, Boolean));
+    let ___8 = /**@type {?boolean}*/ ($Casts.$to(___7, Boolean));
+    /**@type {HTMLButtonElement}*/ ($Casts.$to(this.f_scrollForward__org_patternfly_component_navigation_Navigation_.m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay)).disabled = Boolean.m_booleanValue__java_lang_Boolean__boolean(current_9);
+    this.f_scrollForward__org_patternfly_component_navigation_Navigation_.m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_disabled__org_patternfly_core_Aria, Boolean.m_booleanValue__java_lang_Boolean__boolean(current_9));
+   }));
+   this.f_resizeHandler__org_patternfly_component_navigation_Navigation_ = EventType.m_bind__elemental2_dom_EventTarget__java_lang_String__elemental2_dom_EventListener__org_gwtproject_event_shared_HandlerRegistration(goog.global.window, EventType.f_resize__org_jboss_elemento_EventType.f_name__org_jboss_elemento_EventType, EventListener_$Overlay.$adapt__elemental2_dom_EventListener_$JsFunction__elemental2_dom_EventListener((/** Event */ e_1) =>{
+    this.m_updateScrollState__void_$p_org_patternfly_component_navigation_Navigation();
+   }));
+   this.m_updateScrollState__void_$p_org_patternfly_component_navigation_Navigation();
+  }
+ }
+ /** @override @nodts */
+ m_detach__elemental2_dom_MutationRecord__void(/** MutationRecord */ mutationRecord) {
+  goog.global.clearTimeout(this.f_scrollTimeout__org_patternfly_component_navigation_Navigation_);
+  if (!$Equality.$same(this.f_resizeHandler__org_patternfly_component_navigation_Navigation_, null)) {
+   this.f_resizeHandler__org_patternfly_component_navigation_Navigation_.m_removeHandler__void();
+  }
+  if (!$Equality.$same(this.f_transitionEndHandler__org_patternfly_component_navigation_Navigation_, null)) {
+   this.f_transitionEndHandler__org_patternfly_component_navigation_Navigation_.m_removeHandler__void();
+  }
  }
  /** @nodts @template T @return {Navigation} */
  m_addItems__java_lang_Iterable__java_util_function_Function__org_patternfly_component_navigation_Navigation(/** Iterable<T> */ items, /** j_u_function_Function<T, NavigationItem> */ display) {
@@ -144,41 +249,125 @@ class Navigation extends BaseComponent {
  }
  /** @nodts @return {Navigation} */
  m_addItem__org_patternfly_component_navigation_NavigationItem__org_patternfly_component_navigation_Navigation(/** NavigationItem */ item) {
+  return this.m_add__org_patternfly_component_navigation_NavigationItem__org_patternfly_component_navigation_Navigation(item);
+ }
+ /** @nodts @return {Navigation} */
+ m_add__org_patternfly_component_navigation_NavigationItem__org_patternfly_component_navigation_Navigation(/** NavigationItem */ item) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical)) {
    Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'addItem(NavigationItem) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
-  this.f_items__org_patternfly_component_navigation_Navigation_.put(item.f_id__org_patternfly_component_navigation_NavigationItem, item);
-  this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(/**@type {HTMLLIElement}*/ ($Casts.$to(item.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)));
+  this.m_internalAddItem__org_patternfly_component_navigation_NavigationItem__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(item, Consumer.$adapt((itm) =>{
+   let itm_1 = /**@type {NavigationItem}*/ ($Casts.$to(itm, NavigationItem));
+   this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(/**@type {HTMLLIElement}*/ ($Casts.$to(itm_1.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)));
+  }));
   return this;
  }
  /** @nodts @return {Navigation} */
  m_addGroup__org_patternfly_component_navigation_NavigationGroup__org_patternfly_component_navigation_Navigation(/** NavigationGroup */ group) {
+  return this.m_add__org_patternfly_component_navigation_NavigationGroup__org_patternfly_component_navigation_Navigation(group);
+ }
+ /** @nodts @return {Navigation} */
+ m_add__org_patternfly_component_navigation_NavigationGroup__org_patternfly_component_navigation_Navigation(/** NavigationGroup */ group) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_flat__org_patternfly_component_navigation_NavigationType_Vertical) || $Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_expandable__org_patternfly_component_navigation_NavigationType_Vertical) || Horizontal.$isInstance(this.f_type__org_patternfly_component_navigation_Navigation_)) {
    Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'addGroup(NavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
-  this.f_groups__org_patternfly_component_navigation_Navigation_.put(group.f_id__org_patternfly_component_navigation_NavigationGroup, group);
-  this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(group.m_element__elemental2_dom_HTMLElement());
+  this.m_internalAddGroup__org_patternfly_component_navigation_NavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(group, Consumer.$adapt((grp) =>{
+   let grp_1 = /**@type {NavigationGroup}*/ ($Casts.$to(grp, NavigationGroup));
+   this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(grp_1.m_element__elemental2_dom_HTMLElement());
+  }));
   return this;
  }
  /** @nodts @return {Navigation} */
  m_addGroup__org_patternfly_component_navigation_ExpandableNavigationGroup__org_patternfly_component_navigation_Navigation(/** ExpandableNavigationGroup */ group) {
+  return this.m_add__org_patternfly_component_navigation_ExpandableNavigationGroup__org_patternfly_component_navigation_Navigation(group);
+ }
+ /** @nodts @return {Navigation} */
+ m_add__org_patternfly_component_navigation_ExpandableNavigationGroup__org_patternfly_component_navigation_Navigation(/** ExpandableNavigationGroup */ group) {
   if ($Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_flat__org_patternfly_component_navigation_NavigationType_Vertical) || $Equality.$same(this.f_type__org_patternfly_component_navigation_Navigation_, Vertical.f_grouped__org_patternfly_component_navigation_NavigationType_Vertical) || Horizontal.$isInstance(this.f_type__org_patternfly_component_navigation_Navigation_)) {
    Logger.m_unsupported__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'addGroup(ExpandableNavigationGroup) is not supported for type ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_type__org_patternfly_component_navigation_Navigation_));
    return this;
   }
-  group.m_collapse__void_$pp_org_patternfly_component_navigation();
-  this.f_expandableGroups__org_patternfly_component_navigation_Navigation_.put(group.f_id__org_patternfly_component_navigation_ExpandableNavigationGroup, group);
-  this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(/**@type {HTMLLIElement}*/ ($Casts.$to(group.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)));
-  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_navigation_Navigation_, null)) {
-   group.f_toggleHandler__org_patternfly_component_navigation_ExpandableNavigationGroup = this.f_toggleHandler__org_patternfly_component_navigation_Navigation_;
-  }
+  this.m_internalAddGroup__org_patternfly_component_navigation_ExpandableNavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(group, Consumer.$adapt((grp) =>{
+   let grp_1 = /**@type {ExpandableNavigationGroup}*/ ($Casts.$to(grp, ExpandableNavigationGroup));
+   this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(/**@type {HTMLLIElement}*/ ($Casts.$to(group.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)));
+  }));
   return this;
  }
  /** @nodts @return {Navigation} */
  m_addDivider__org_patternfly_component_navigation_Navigation() {
-  this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(Divider.m_divider__org_patternfly_component_divider_DividerType__org_patternfly_component_divider_Divider(DividerType.f_li__org_patternfly_component_divider_DividerType).m_element__elemental2_dom_HTMLElement());
+  return this.m_add__org_patternfly_component_divider_Divider__org_patternfly_component_navigation_Navigation(Divider.m_divider__org_patternfly_component_divider_DividerType__org_patternfly_component_divider_Divider(DividerType.f_li__org_patternfly_component_divider_DividerType));
+ }
+ /** @nodts @return {Navigation} */
+ m_add__org_patternfly_component_divider_Divider__org_patternfly_component_navigation_Navigation(/** Divider */ divider) {
+  this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.appendChild(divider.m_element__elemental2_dom_HTMLElement());
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_insertItemBefore__org_patternfly_component_navigation_NavigationItem__java_lang_String__org_patternfly_component_navigation_Navigation(/** NavigationItem */ item, /** ?string */ beforeItemId) {
+  let element = Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, By.m_data__java_lang_String__java_lang_String__org_jboss_elemento_By(Dataset.f_navigationItem__org_patternfly_core_Dataset, beforeItemId));
+  if (!$Equality.$same(element, null)) {
+   this.m_internalAddItem__org_patternfly_component_navigation_NavigationItem__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(item, Consumer.$adapt((itm) =>{
+    let itm_1 = /**@type {NavigationItem}*/ ($Casts.$to(itm, NavigationItem));
+    Elements.m_insertBefore__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLLIElement}*/ ($Casts.$to(itm_1.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)), element);
+   }));
+  }
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_insertItemAfter__org_patternfly_component_navigation_NavigationItem__java_lang_String__org_patternfly_component_navigation_Navigation(/** NavigationItem */ item, /** ?string */ afterItemId) {
+  let element = Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, By.m_data__java_lang_String__java_lang_String__org_jboss_elemento_By(Dataset.f_navigationItem__org_patternfly_core_Dataset, afterItemId));
+  if (!$Equality.$same(element, null)) {
+   this.m_internalAddItem__org_patternfly_component_navigation_NavigationItem__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(item, Consumer.$adapt((itm) =>{
+    let itm_1 = /**@type {NavigationItem}*/ ($Casts.$to(itm, NavigationItem));
+    Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLLIElement}*/ ($Casts.$to(itm_1.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)), element);
+   }));
+  }
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_insertGroupBefore__org_patternfly_component_navigation_NavigationGroup__java_lang_String__org_patternfly_component_navigation_Navigation(/** NavigationGroup */ group, /** ?string */ beforeItemId) {
+  let element = Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, By.m_data__java_lang_String__java_lang_String__org_jboss_elemento_By(Dataset.f_navigationItem__org_patternfly_core_Dataset, beforeItemId));
+  if (!$Equality.$same(element, null)) {
+   this.m_internalAddGroup__org_patternfly_component_navigation_NavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(group, Consumer.$adapt((grp) =>{
+    let grp_1 = /**@type {NavigationGroup}*/ ($Casts.$to(grp, NavigationGroup));
+    Elements.m_insertBefore__elemental2_dom_Element__elemental2_dom_Element__void(grp_1.m_element__elemental2_dom_HTMLElement(), element);
+   }));
+  }
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_insertGroupAfter__org_patternfly_component_navigation_NavigationGroup__java_lang_String__org_patternfly_component_navigation_Navigation(/** NavigationGroup */ group, /** ?string */ afterItemId) {
+  let element = Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, By.m_data__java_lang_String__java_lang_String__org_jboss_elemento_By(Dataset.f_navigationItem__org_patternfly_core_Dataset, afterItemId));
+  if (!$Equality.$same(element, null)) {
+   this.m_internalAddGroup__org_patternfly_component_navigation_NavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(group, Consumer.$adapt((grp) =>{
+    let grp_1 = /**@type {NavigationGroup}*/ ($Casts.$to(grp, NavigationGroup));
+    Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(grp_1.m_element__elemental2_dom_HTMLElement(), element);
+   }));
+  }
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_insertGroupBefore__org_patternfly_component_navigation_ExpandableNavigationGroup__java_lang_String__org_patternfly_component_navigation_Navigation(/** ExpandableNavigationGroup */ group, /** ?string */ beforeItemId) {
+  let element = Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, By.m_data__java_lang_String__java_lang_String__org_jboss_elemento_By(Dataset.f_navigationItem__org_patternfly_core_Dataset, beforeItemId));
+  if (!$Equality.$same(element, null)) {
+   this.m_internalAddGroup__org_patternfly_component_navigation_ExpandableNavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(group, Consumer.$adapt((grp) =>{
+    let grp_1 = /**@type {ExpandableNavigationGroup}*/ ($Casts.$to(grp, ExpandableNavigationGroup));
+    Elements.m_insertBefore__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLLIElement}*/ ($Casts.$to(grp_1.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)), element);
+   }));
+  }
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_insertGroupAfter__org_patternfly_component_navigation_ExpandableNavigationGroup__java_lang_String__org_patternfly_component_navigation_Navigation(/** ExpandableNavigationGroup */ group, /** ?string */ afterItemId) {
+  let element = Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, By.m_data__java_lang_String__java_lang_String__org_jboss_elemento_By(Dataset.f_navigationItem__org_patternfly_core_Dataset, afterItemId));
+  if (!$Equality.$same(element, null)) {
+   this.m_internalAddGroup__org_patternfly_component_navigation_ExpandableNavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(group, Consumer.$adapt((grp) =>{
+    let grp_1 = /**@type {ExpandableNavigationGroup}*/ ($Casts.$to(grp, ExpandableNavigationGroup));
+    Elements.m_insertAfter__elemental2_dom_Element__elemental2_dom_Element__void(/**@type {HTMLLIElement}*/ ($Casts.$to(grp_1.m_element__elemental2_dom_HTMLElement(), HTMLLIElement_$Overlay)), element);
+   }));
+  }
   return this;
  }
  /** @nodts @return {Navigation} */
@@ -190,6 +379,20 @@ class Navigation extends BaseComponent {
  }
  /** @nodts @return {Navigation} */
  m_that__org_patternfly_component_navigation_Navigation() {
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_ariaScrollBackLabel__java_lang_String__org_patternfly_component_navigation_Navigation(/** ?string */ label) {
+  if (!$Equality.$same(this.f_scrollBack__org_patternfly_component_navigation_Navigation_, null)) {
+   this.f_scrollBack__org_patternfly_component_navigation_Navigation_.m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, label);
+  }
+  return this;
+ }
+ /** @nodts @return {Navigation} */
+ m_ariaScrollForwardLabel__java_lang_String__org_patternfly_component_navigation_Navigation(/** ?string */ label) {
+  if (!$Equality.$same(this.f_scrollForward__org_patternfly_component_navigation_Navigation_, null)) {
+   this.f_scrollForward__org_patternfly_component_navigation_Navigation_.m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(Aria.f_label__org_patternfly_core_Aria, label);
+  }
   return this;
  }
  /** @nodts @return {Navigation} */
@@ -230,6 +433,28 @@ class Navigation extends BaseComponent {
    this.m_unselectAllItems__void_$p_org_patternfly_component_navigation_Navigation();
    this.m_unselectAllExpandableGroups__void_$p_org_patternfly_component_navigation_Navigation();
   }
+ }
+ /** @nodts */
+ m_internalAddItem__org_patternfly_component_navigation_NavigationItem__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(/** NavigationItem */ item, /** Consumer<NavigationItem> */ dom) {
+  this.f_items__org_patternfly_component_navigation_Navigation_.put(item.f_id__org_patternfly_component_navigation_NavigationItem, item);
+  dom.m_accept__java_lang_Object__void(item);
+  if (Elements.m_isAttached__elemental2_dom_Node__boolean(this.m_element__elemental2_dom_HTMLElement())) {
+   this.m_updateScrollState__void_$p_org_patternfly_component_navigation_Navigation();
+  }
+ }
+ /** @nodts */
+ m_internalAddGroup__org_patternfly_component_navigation_NavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(/** NavigationGroup */ group, /** Consumer<NavigationGroup> */ dom) {
+  this.f_groups__org_patternfly_component_navigation_Navigation_.put(group.f_id__org_patternfly_component_navigation_NavigationGroup, group);
+  dom.m_accept__java_lang_Object__void(group);
+ }
+ /** @nodts */
+ m_internalAddGroup__org_patternfly_component_navigation_ExpandableNavigationGroup__java_util_function_Consumer__void_$p_org_patternfly_component_navigation_Navigation(/** ExpandableNavigationGroup */ group, /** Consumer<ExpandableNavigationGroup> */ dom) {
+  group.m_collapse__void_$pp_org_patternfly_component_navigation();
+  this.f_expandableGroups__org_patternfly_component_navigation_Navigation_.put(group.f_id__org_patternfly_component_navigation_ExpandableNavigationGroup, group);
+  if (!$Equality.$same(this.f_toggleHandler__org_patternfly_component_navigation_Navigation_, null)) {
+   group.f_toggleHandler__org_patternfly_component_navigation_ExpandableNavigationGroup = this.f_toggleHandler__org_patternfly_component_navigation_Navigation_;
+  }
+  dom.m_accept__java_lang_Object__void(group);
  }
  /** @nodts */
  m_unselectAllItems__void_$p_org_patternfly_component_navigation_Navigation() {
@@ -314,9 +539,62 @@ class Navigation extends BaseComponent {
   return group;
  }
  /** @nodts */
- m_scrollLeft__void_$p_org_patternfly_component_navigation_Navigation() {}
+ m_updateScrollState__void_$p_org_patternfly_component_navigation_Navigation() {
+  goog.global.clearTimeout(this.f_scrollTimeout__org_patternfly_component_navigation_Navigation_);
+  this.f_scrollTimeout__org_patternfly_component_navigation_Navigation_ = DomGlobal_$Overlay.m_setTimeout__elemental2_dom_DomGlobal_SetTimeoutCallbackFn__double__arrayOf_java_lang_Object__double((.../** ...* */ __) =>{
+   let overflowOnLeft = !Elements.m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, /**@type {HTMLElement}*/ ($Casts.$to(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.firstElementChild, $Overlay)), false);
+   let overflowOnRight = !Elements.m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, /**@type {HTMLElement}*/ ($Casts.$to(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.lastElementChild, $Overlay)), false);
+   this.f_enableScrollButtons__org_patternfly_component_navigation_Navigation_.m_change__java_lang_Object__void(overflowOnLeft || overflowOnRight);
+   this.f_disableBackScrollButton__org_patternfly_component_navigation_Navigation_.m_change__java_lang_Object__void(!overflowOnLeft);
+   this.f_disableForwardScrollButton__org_patternfly_component_navigation_Navigation_.m_change__java_lang_Object__void(!overflowOnRight);
+  }, 100, []);
+ }
  /** @nodts */
- m_scrollRight__void_$p_org_patternfly_component_navigation_Navigation() {}
+ m_hideScrollButtons__void_$p_org_patternfly_component_navigation_Navigation() {
+  if (!Boolean.m_booleanValue__java_lang_Boolean__boolean(/**@type {?boolean}*/ ($Casts.$to(this.f_enableScrollButtons__org_patternfly_component_navigation_Navigation_.m_get__java_lang_Object(), Boolean))) && !Boolean.m_booleanValue__java_lang_Boolean__boolean(/**@type {?boolean}*/ ($Casts.$to(this.f_showScrollButtons__org_patternfly_component_navigation_Navigation_.m_get__java_lang_Object(), Boolean))) && Boolean.m_booleanValue__java_lang_Boolean__boolean(/**@type {?boolean}*/ ($Casts.$to(this.f_renderScrollButtons__org_patternfly_component_navigation_Navigation_.m_get__java_lang_Object(), Boolean)))) {
+   this.f_renderScrollButtons__org_patternfly_component_navigation_Navigation_.m_change__java_lang_Object__void(false);
+  }
+ }
+ /** @nodts */
+ m_scrollBack__void_$p_org_patternfly_component_navigation_Navigation() {
+  let firstElementInView = null;
+  let lastElementOutOfView = null;
+  let children = this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.childNodes;
+  for (let i = 0; i < children.length && $Equality.$same(firstElementInView, null); i = i + 1 | 0) {
+   let child = /**@type {HTMLElement}*/ ($Casts.$to(children.item(i), $Overlay));
+   if (Elements.m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, child, false)) {
+    firstElementInView = child;
+    lastElementOutOfView = /**@type {HTMLElement}*/ ($Casts.$to(children.item(i - 1 | 0), $Overlay));
+   }
+  }
+  if (!$Equality.$same(lastElementOutOfView, null)) {
+   if ($Equality.$same(LanguageDirection.m_languageDirection__elemental2_dom_HTMLElement__org_patternfly_core_LanguageDirection(this.m_element__elemental2_dom_HTMLElement()), LanguageDirection.f_ltr__org_patternfly_core_LanguageDirection)) {
+    this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.scrollLeft -= lastElementOutOfView.scrollWidth;
+   } else {
+    this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.scrollLeft += lastElementOutOfView.scrollWidth;
+   }
+  }
+ }
+ /** @nodts */
+ m_scrollForward__void_$p_org_patternfly_component_navigation_Navigation() {
+  let lastElementInView = null;
+  let firstElementOutOfView = null;
+  let children = this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.childNodes;
+  for (let i = children.length - 1 | 0; i >= 0 && $Equality.$same(lastElementInView, null); i = i - 1 | 0) {
+   let child = /**@type {HTMLElement}*/ ($Casts.$to(children.item(i), $Overlay));
+   if (Elements.m_isElementInView__elemental2_dom_HTMLElement__elemental2_dom_HTMLElement__boolean__boolean(this.f_itemsContainer__org_patternfly_component_navigation_Navigation_, child, false)) {
+    lastElementInView = child;
+    firstElementOutOfView = /**@type {HTMLElement}*/ ($Casts.$to(children.item(i + 1 | 0), $Overlay));
+   }
+  }
+  if (!$Equality.$same(firstElementOutOfView, null)) {
+   if ($Equality.$same(LanguageDirection.m_languageDirection__elemental2_dom_HTMLElement__org_patternfly_core_LanguageDirection(this.m_element__elemental2_dom_HTMLElement()), LanguageDirection.f_ltr__org_patternfly_core_LanguageDirection)) {
+    this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.scrollLeft += firstElementOutOfView.scrollWidth;
+   } else {
+    this.f_itemsContainer__org_patternfly_component_navigation_Navigation_.scrollLeft -= firstElementOutOfView.scrollWidth;
+   }
+  }
+ }
  //Bridge method.
  /** @final @override @nodts @return {Navigation} */
  m_that__org_jboss_elemento_TypedBuilder() {
@@ -327,6 +605,7 @@ class Navigation extends BaseComponent {
   Navigation.$clinit = () =>{};
   Navigation.$loadModules();
   BaseComponent.$clinit();
+  Attachable.$clinit();
   Navigation.f_A_NAV_LINK_CURRENT__org_patternfly_component_navigation_Navigation_ = By.m_element__java_lang_String__org_jboss_elemento_By('a').m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classnames__java_lang_String__java_lang_String__arrayOf_java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_link__org_patternfly_style_Classes], j_l_String))), Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_current__org_patternfly_style_Classes), /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))));
   Navigation.f_LI_NAV_ITEM_EXPANDABLE__org_patternfly_component_navigation_Navigation_ = By.m_element__java_lang_String__org_jboss_elemento_By('li').m_and__org_jboss_elemento_By__org_jboss_elemento_By(By.m_classnames__java_lang_String__java_lang_String__arrayOf_java_lang_String__org_jboss_elemento_By(Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_nav__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_item__org_patternfly_style_Classes], j_l_String))), Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expandable__org_patternfly_style_Classes), /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String))));
  }
@@ -337,13 +616,18 @@ class Navigation extends BaseComponent {
  
  /** @nodts */
  static $loadModules() {
+  DomGlobal_$Overlay = goog.module.get('elemental2.dom.DomGlobal.$Overlay$impl');
+  EventListener_$Overlay = goog.module.get('elemental2.dom.EventListener.$Overlay$impl');
+  HTMLButtonElement_$Overlay = goog.module.get('elemental2.dom.HTMLButtonElement.$Overlay$impl');
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
   $Overlay = goog.module.get('elemental2.dom.HTMLElement.$Overlay$impl');
   HTMLLIElement_$Overlay = goog.module.get('elemental2.dom.HTMLLIElement.$Overlay$impl');
   HTMLUListElement_$Overlay = goog.module.get('elemental2.dom.HTMLUListElement.$Overlay$impl');
   MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
+  Boolean = goog.module.get('java.lang.Boolean$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   HashMap = goog.module.get('java.util.HashMap$impl');
+  Consumer = goog.module.get('java.util.function.Consumer$impl');
   JsPropertyMap_$Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   By = goog.module.get('org.jboss.elemento.By$impl');
@@ -362,7 +646,10 @@ class Navigation extends BaseComponent {
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Attributes = goog.module.get('org.patternfly.core.Attributes$impl');
   Dataset = goog.module.get('org.patternfly.core.Dataset$impl');
+  LanguageDirection = goog.module.get('org.patternfly.core.LanguageDirection$impl');
   Logger = goog.module.get('org.patternfly.core.Logger$impl');
+  ObservableValue = goog.module.get('org.patternfly.core.ObservableValue$impl');
+  Subscriber = goog.module.get('org.patternfly.core.ObservableValue.Subscriber$impl');
   Validation = goog.module.get('org.patternfly.core.Validation$impl');
   Brightness = goog.module.get('org.patternfly.style.Brightness$impl');
   Classes = goog.module.get('org.patternfly.style.Classes$impl');
@@ -375,6 +662,7 @@ class Navigation extends BaseComponent {
 Navigation.f_A_NAV_LINK_CURRENT__org_patternfly_component_navigation_Navigation_;
 /**@type {By} @nodts*/
 Navigation.f_LI_NAV_ITEM_EXPANDABLE__org_patternfly_component_navigation_Navigation_;
+Attachable.$markImplementor(Navigation);
 $Util.$setClassMetadata(Navigation, 'org.patternfly.component.navigation.Navigation');
 
 exports = Navigation;

@@ -119,7 +119,7 @@ class SVGContainerBuilder extends j_l_Object {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
  //Bridge method.
- /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} @deprecated */
  m_id__org_jboss_elemento_TypedBuilder() {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGContainerBuilder));
  }
@@ -137,6 +137,11 @@ class SVGContainerBuilder extends j_l_Object {
  /** @final @override @nodts @template V @return {SVGContainerBuilder<E>} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(/** EventType<V, ?> */ arg0, /** ?function(V):void */ arg1) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_on__$default__org_jboss_elemento_HasElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<SVGContainerBuilder<E>> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
  //Bridge method.
  /** @final @override @nodts @return {SVGContainerBuilder<E>} */
@@ -162,6 +167,11 @@ class SVGContainerBuilder extends j_l_Object {
  /** @final @override @nodts @return {SVGContainerBuilder<E>} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** Supplier<?boolean> */ arg1) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_uniqueId__org_jboss_elemento_TypedBuilder() {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGContainerBuilder));
  }
  //Bridge method.
  /** @final @override @nodts @return {SVGContainerBuilder<E>} */
@@ -225,6 +235,11 @@ class SVGContainerBuilder extends j_l_Object {
  }
  //Bridge method.
  /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_add__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** Supplier<Node> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_add__$default__org_jboss_elemento_Container__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
  m_addAll__arrayOf_elemental2_dom_Node__org_jboss_elemento_TypedBuilder(/** Array<Node> */ arg0) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_addAll__$default__org_jboss_elemento_Container__arrayOf_elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
@@ -247,6 +262,11 @@ class SVGContainerBuilder extends j_l_Object {
  /** @final @override @nodts @return {SVGContainerBuilder<E>} */
  m_addAll__java_lang_Iterable__org_jboss_elemento_TypedBuilder(/** Iterable<?> */ arg0) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_addAll__$default__org_jboss_elemento_Container__java_lang_Iterable__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGContainerBuilder<E>} */
+ m_addAll__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** Supplier<Iterable<?>> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_addAll__$default__org_jboss_elemento_Container__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGContainerBuilder<E>} */
@@ -299,7 +319,7 @@ class SVGContainerBuilder extends j_l_Object {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
  //Default method forwarding stub.
- /** @nodts @return {SVGContainerBuilder<E>} */
+ /** @nodts @return {SVGContainerBuilder<E>} @deprecated */
  m_id__org_jboss_elemento_svg_SVGContainerBuilder() {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGContainerBuilder));
  }
@@ -317,6 +337,11 @@ class SVGContainerBuilder extends j_l_Object {
  /** @nodts @template V @return {SVGContainerBuilder<E>} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_svg_SVGContainerBuilder(/** EventType<V, ?> */ arg0, /** ?function(V):void */ arg1) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_on__$default__org_jboss_elemento_HasElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_svg_SVGContainerBuilder(/** Consumer<SVGContainerBuilder<E>> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGContainerBuilder<E>} */
@@ -342,6 +367,11 @@ class SVGContainerBuilder extends j_l_Object {
  /** @nodts @return {SVGContainerBuilder<E>} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_svg_SVGContainerBuilder(/** ?string */ arg0, /** Supplier<?boolean> */ arg1) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_uniqueId__org_jboss_elemento_svg_SVGContainerBuilder() {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(HasElement.m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGContainerBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGContainerBuilder<E>} */
@@ -390,6 +420,11 @@ class SVGContainerBuilder extends j_l_Object {
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGContainerBuilder<E>} */
+ m_add__java_util_function_Supplier__org_jboss_elemento_svg_SVGContainerBuilder(/** Supplier<Node> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_add__$default__org_jboss_elemento_Container__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
  m_addAll__arrayOf_elemental2_dom_Node__org_jboss_elemento_svg_SVGContainerBuilder(/** Array<Node> */ arg0) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_addAll__$default__org_jboss_elemento_Container__arrayOf_elemental2_dom_Node__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
@@ -412,6 +447,11 @@ class SVGContainerBuilder extends j_l_Object {
  /** @nodts @return {SVGContainerBuilder<E>} */
  m_addAll__java_lang_Iterable__org_jboss_elemento_svg_SVGContainerBuilder(/** Iterable<?> */ arg0) {
   return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_addAll__$default__org_jboss_elemento_Container__java_lang_Iterable__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGContainerBuilder<E>} */
+ m_addAll__java_util_function_Supplier__org_jboss_elemento_svg_SVGContainerBuilder(/** Supplier<Iterable<?>> */ arg0) {
+  return /**@type {SVGContainerBuilder<E>}*/ ($Casts.$to(Container.m_addAll__$default__org_jboss_elemento_Container__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0), SVGContainerBuilder));
  }
  /** @nodts */
  static $clinit() {

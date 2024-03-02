@@ -24,6 +24,6 @@ import elemental2.dom.HTMLElement;
 abstract class ListSubComponent<E extends HTMLElement, B extends TypedBuilder<E, B>> extends SubComponent<E, B> {
 
     ListSubComponent(String name, E element) {
-        super(ComponentType.SimpleList, name, element);
+        super(ComponentType.List, name, element);
     }
 }

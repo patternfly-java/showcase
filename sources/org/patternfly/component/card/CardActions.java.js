@@ -9,6 +9,8 @@ goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.patternfly.component.card.Card');
 goog.require('org.patternfly.component.card.CardSelectableActions');
 goog.require('org.patternfly.component.card.CardSubComponent');
+goog.require('org.patternfly.component.form.Checkbox');
+goog.require('org.patternfly.component.menu.Dropdown');
 goog.require('org.patternfly.style.Classes');
 goog.require('org.patternfly.style.Modifiers');
 goog.require('vmbootstrap.Arrays');

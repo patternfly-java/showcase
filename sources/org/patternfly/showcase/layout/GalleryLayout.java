@@ -15,33 +15,34 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.layout.gallery.Gallery;
+import org.patternfly.layout.gallery.GalleryItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.core.Tuple.tuple;
 import static org.patternfly.layout.gallery.Gallery.gallery;
 import static org.patternfly.layout.gallery.GalleryItem.galleryItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.xl;
 
+@Route(value = "/layouts/gallery", title = "Gallery")
 public class GalleryLayout extends SnippetPage {
 
     public GalleryLayout() {
-        super("Gallery",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/gallery/Gallery.html",
-                "https://www.patternfly.org/layouts/gallery/design-guidelines",
-                p().textContent(
-                        "The gallery layout is used to arrange content in a responsive grid. Content will wrap responsively to create uniform rows and columns.")
-                        .element());
+        super(layouts.get("gallery"));
 
+        startExamples();
         addSnippet(new Snippet("gallery-basic", "Basic",
                 code.get("gallery-basic"), () ->
                 // @code-start:gallery-basic
@@ -56,7 +57,7 @@ public class GalleryLayout extends SnippetPage {
                                 .addItem(galleryItem().textContent("Gallery item"))
                                 .addItem(galleryItem().textContent("Gallery item")))
                         .element()
-        // @code-end:gallery-basic
+                // @code-end:gallery-basic
         ));
 
         addSnippet(new Snippet("gallery-gutter", "With gutters",
@@ -71,7 +72,7 @@ public class GalleryLayout extends SnippetPage {
                                 .addItem(galleryItem().textContent("Gallery item"))
                                 .addItem(galleryItem().textContent("Gallery item")))
                         .element()
-        // @code-end:gallery-gutter
+                // @code-end:gallery-gutter
         ));
 
         addSnippet(new Snippet("gallery-min-width", "Adjusting min widths",
@@ -92,7 +93,7 @@ public class GalleryLayout extends SnippetPage {
                                 .addItem(galleryItem().textContent("Gallery item"))
                                 .addItem(galleryItem().textContent("Gallery item")))
                         .element()
-        // @code-end:gallery-min-width
+                // @code-end:gallery-min-width
         ));
 
         addSnippet(new Snippet("gallery-max-width", "Adjusting max widths",
@@ -112,7 +113,7 @@ public class GalleryLayout extends SnippetPage {
                                 .addItem(galleryItem().textContent("Gallery item"))
                                 .addItem(galleryItem().textContent("Gallery item")))
                         .element()
-        // @code-end:gallery-max-width
+                // @code-end:gallery-max-width
         ));
 
         addSnippet(new Snippet("gallery-min-max-width", "Adjusting min and max widths",
@@ -134,7 +135,7 @@ public class GalleryLayout extends SnippetPage {
                                 .addItem(galleryItem().textContent("Gallery item"))
                                 .addItem(galleryItem().textContent("Gallery item")))
                         .element()
-        // @code-end:gallery-min-max-width
+                // @code-end:gallery-min-max-width
         ));
 
         addSnippet(new Snippet("gallery-alternative-components", "Alternative components",
@@ -148,7 +149,11 @@ public class GalleryLayout extends SnippetPage {
                                 .addItem(galleryItem(li()).textContent("Gallery item"))
                                 .addItem(galleryItem(li()).textContent("Gallery item")))
                         .element()
-        // @code-end:gallery-alternative-components
+                // @code-end:gallery-alternative-components
         ));
+
+        startApiDocs(Gallery.class);
+        addApiDoc(Gallery.class, layout);
+        addApiDoc(GalleryItem.class, layout);
     }
 }

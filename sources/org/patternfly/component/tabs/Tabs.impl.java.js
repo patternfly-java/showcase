@@ -35,7 +35,6 @@ let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainer
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
 let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
-let ExpandableModifier = goog.forwardDeclare('org.patternfly.component.tabs.ExpandableModifier$impl');
 let OverflowTab = goog.forwardDeclare('org.patternfly.component.tabs.OverflowTab$impl');
 let Tab = goog.forwardDeclare('org.patternfly.component.tabs.Tab$impl');
 let TabsToggle = goog.forwardDeclare('org.patternfly.component.tabs.TabsToggle$impl');
@@ -50,6 +49,7 @@ let SelectHandler = goog.forwardDeclare('org.patternfly.handler.SelectHandler$im
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
 let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
+let ExpandableModifier = goog.forwardDeclare('org.patternfly.style.ExpandableModifier$impl');
 let Inset = goog.forwardDeclare('org.patternfly.style.Inset$impl');
 let Modifiers = goog.forwardDeclare('org.patternfly.style.Modifiers$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
@@ -343,7 +343,7 @@ class Tabs extends BaseComponentFlat {
  }
  /** @nodts @return {Tabs} */
  m_expandable__org_patternfly_style_Breakpoints__org_patternfly_component_tabs_Tabs(/** Breakpoints<ExpandableModifier> */ expandable) {
-  this.f_expandable__org_patternfly_component_tabs_Tabs_ = expandable.m_hasValue__java_lang_Object__boolean(ExpandableModifier.f_expandable__org_patternfly_component_tabs_ExpandableModifier);
+  this.f_expandable__org_patternfly_component_tabs_Tabs_ = expandable.m_hasValue__java_lang_Object__boolean(ExpandableModifier.f_expandable__org_patternfly_style_ExpandableModifier);
   this.f_mainContainer__org_patternfly_component_tabs_Tabs_.m_classList__org_jboss_elemento_ClassList().m_add__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([expandable.m_modifiers__java_lang_String()], j_l_String)));
   return this;
  }
@@ -867,7 +867,6 @@ class Tabs extends BaseComponentFlat {
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
   InlineIcon = goog.module.get('org.patternfly.component.icon.InlineIcon$impl');
-  ExpandableModifier = goog.module.get('org.patternfly.component.tabs.ExpandableModifier$impl');
   OverflowTab = goog.module.get('org.patternfly.component.tabs.OverflowTab$impl');
   Tab = goog.module.get('org.patternfly.component.tabs.Tab$impl');
   TabsToggle = goog.module.get('org.patternfly.component.tabs.TabsToggle$impl');
@@ -879,6 +878,7 @@ class Tabs extends BaseComponentFlat {
   Subscriber = goog.module.get('org.patternfly.core.ObservableValue.Subscriber$impl');
   SelectHandler = goog.module.get('org.patternfly.handler.SelectHandler$impl');
   Classes = goog.module.get('org.patternfly.style.Classes$impl');
+  ExpandableModifier = goog.module.get('org.patternfly.style.ExpandableModifier$impl');
   Modifiers = goog.module.get('org.patternfly.style.Modifiers$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');

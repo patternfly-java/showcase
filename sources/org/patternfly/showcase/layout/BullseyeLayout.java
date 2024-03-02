@@ -15,25 +15,26 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.layout.bullseye.Bullseye;
+import org.patternfly.layout.bullseye.BullseyeItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.bullseye.Bullseye.bullseye;
 import static org.patternfly.layout.bullseye.BullseyeItem.bullseyeItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 
+@Route(value = "/layouts/bullseye", title = "Bullseye")
 public class BullseyeLayout extends SnippetPage {
 
     public BullseyeLayout() {
-        super("Bullseye",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/bullseye/Bullseye.html",
-                "https://www.patternfly.org/layouts/bullseye/design-guidelines",
-                p().textContent(
-                        "The bullseye layout centers content, both vertically and horizontally within a container.")
-                        .element());
+        super(layouts.get("bullseye"));
 
+        startExamples();
         addSnippet(new Snippet("bullseye-basic", "Basic",
                 code.get("bullseye-basic"), () ->
                 // @code-start:bullseye-basic
@@ -41,7 +42,11 @@ public class BullseyeLayout extends SnippetPage {
                         .add(bullseye()
                                 .addItem(bullseyeItem().textContent("Bullseye ◎ layout")))
                         .element()
-        // @code-end:bullseye-basic
+                // @code-end:bullseye-basic
         ));
+
+        startApiDocs(Bullseye.class);
+        addApiDoc(Bullseye.class, layout);
+        addApiDoc(BullseyeItem.class, layout);
     }
 }

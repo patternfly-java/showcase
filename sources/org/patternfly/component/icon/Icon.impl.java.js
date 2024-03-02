@@ -14,10 +14,10 @@ let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainer
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
 let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$impl');
 let Spinner = goog.forwardDeclare('org.patternfly.component.spinner.Spinner$impl');
-let Status = goog.forwardDeclare('org.patternfly.core.Status$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let Size = goog.forwardDeclare('org.patternfly.style.Size$impl');
+let Status = goog.forwardDeclare('org.patternfly.style.Status$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -78,8 +78,8 @@ class Icon extends BaseComponent {
   return this;
  }
  /** @nodts @return {Icon} */
- m_status__org_patternfly_core_Status__org_patternfly_component_icon_Icon(/** Status */ status) {
-  this.f_content__org_patternfly_component_icon_Icon_.classList.add(status.f_modifier__org_patternfly_core_Status);
+ m_status__org_patternfly_style_Status__org_patternfly_component_icon_Icon(/** Status */ status) {
+  this.f_content__org_patternfly_component_icon_Icon_.classList.add(status.f_modifier__org_patternfly_style_Status);
   return this;
  }
  /** @nodts @return {Icon} */

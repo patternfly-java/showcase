@@ -35,7 +35,7 @@ public enum ComponentType {
 
     Brand("bnd", "PF5/Brand"),
 
-    Breadcrumb("bc", null),
+    Breadcrumb("bc", "PF5/Breadcrumb"),
 
     Button("btn", "PF5/Button"),
 
@@ -83,6 +83,8 @@ public enum ComponentType {
 
     InputGroup("ig", "PF5/InputGroup"),
 
+    JumpLinks("jl", "PF5/JumpLinks"),
+
     Label("lbl", "PF5/Label"),
 
     LabelGroup("lbg", null),
@@ -108,6 +110,8 @@ public enum ComponentType {
     Panel("pnl", "PF5/Panel"),
 
     Popover("pvr", "PF5/Popover"),
+
+    Progress("prg", "PF5/Progress"),
 
     Radio("rd", "PF5/Radio"),
 
@@ -144,6 +148,8 @@ public enum ComponentType {
     Tooltip("tt", "PF5/Tooltip"),
 
     TreeView("tv", null),
+
+    Truncate("tr", "PF5/Truncate"),
 
     Wizard("wzd", "PF5/Wizard");
 

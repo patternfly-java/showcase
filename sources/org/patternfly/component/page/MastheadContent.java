@@ -42,10 +42,16 @@ public class MastheadContent extends MastheadSubComponent<HTMLDivElement, Masthe
 
     // ------------------------------------------------------ instance
 
-    static final String SUB_COMPONENT_NAME = "mc";
+    static final String SUB_COMPONENT_NAME = "mhc";
 
     MastheadContent() {
         super(SUB_COMPONENT_NAME, div().css(component(masthead, content)).element());
+    }
+
+    // ------------------------------------------------------ add
+
+    public MastheadContent addToolbar(Toolbar toolbar) {
+        return add(toolbar);
     }
 
     // ------------------------------------------------------ builder

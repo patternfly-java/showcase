@@ -4,13 +4,17 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Switch = goog.forwardDeclare('org.patternfly.component.switch_.Switch$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 class SwitchComponent extends SnippetPage {
@@ -27,7 +31,8 @@ class SwitchComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_SwitchComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Switch', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/switch_/Switch.html', 'https://www.patternfly.org/components/switch/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('A switch toggles the state of a setting (between on and off). Switches and checkboxes can often be used interchangeably, but the switch provides a more explicit, visible representation on a setting.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'switch'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('switch-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('switch-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Switch.m_switch___java_lang_String__java_lang_String__boolean__org_patternfly_component_switch__Switch('switch-basic-0', 'switch-basic-0', true).m_label__java_lang_String__java_lang_String__org_patternfly_component_switch__Switch('Message when on', 'Message when off')), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
@@ -43,6 +48,8 @@ class SwitchComponent extends SnippetPage {
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('switch-disabled', 'Disabled', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('switch-disabled'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {Switch}*/ ($Casts.$to(Switch.m_switch___java_lang_String__java_lang_String__boolean__org_patternfly_component_switch__Switch('switch-disabled-0', 'switch-disabled-0', true).m_disabled__org_jboss_elemento_TypedBuilder(), Switch)).m_label__java_lang_String__java_lang_String__org_patternfly_component_switch__Switch('Message when on', 'Message when off')), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Elements.m_br__org_jboss_elemento_HTMLElementBuilder()), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {Switch}*/ ($Casts.$to(Switch.m_switch___java_lang_String__java_lang_String__boolean__org_patternfly_component_switch__Switch('switch-disabled-1', 'switch-disabled-1', false).m_disabled__org_jboss_elemento_TypedBuilder(), Switch)).m_label__java_lang_String__java_lang_String__org_patternfly_component_switch__Switch('Message when on', 'Message when off')), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Elements.m_br__org_jboss_elemento_HTMLElementBuilder()), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {Switch}*/ ($Casts.$to(Switch.m_switch___java_lang_String__java_lang_String__boolean__org_patternfly_component_switch__Switch('switch-disabled-2', 'switch-disabled-2', true).m_disabled__org_jboss_elemento_TypedBuilder(), Switch)).m_checkIcon__org_patternfly_component_switch__Switch()), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Elements.m_br__org_jboss_elemento_HTMLElementBuilder()), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {Switch}*/ ($Casts.$to(Switch.m_switch___java_lang_String__java_lang_String__boolean__org_patternfly_component_switch__Switch('switch-disabled-3', 'switch-disabled-3', false).m_disabled__org_jboss_elemento_TypedBuilder(), Switch)).m_checkIcon__org_patternfly_component_switch__Switch()), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(Switch));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(Switch), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -58,13 +65,17 @@ class SwitchComponent extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Switch = goog.module.get('org.patternfly.component.switch_.Switch$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }

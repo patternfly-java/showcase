@@ -17,10 +17,12 @@ package org.patternfly.showcase.component;
 
 import java.util.Random;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.tabs.Tab;
 import org.patternfly.component.tabs.TabContent;
+import org.patternfly.component.tabs.TabContentBody;
 import org.patternfly.component.tabs.Tabs;
 import org.patternfly.handler.CloseHandler;
 import org.patternfly.showcase.LoremIpsum;
@@ -39,18 +41,18 @@ import static java.util.stream.IntStream.range;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.nav;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.popover.Popover.popover;
-import static org.patternfly.component.tabs.ExpandableModifier.expandable;
-import static org.patternfly.component.tabs.ExpandableModifier.nonExpandable;
 import static org.patternfly.component.tabs.Tab.tab;
 import static org.patternfly.component.tabs.TabContent.tabContent;
 import static org.patternfly.component.tabs.TabContentBody.tabContentBody;
 import static org.patternfly.component.tabs.Tabs.tabs;
 import static org.patternfly.component.tooltip.Tooltip.tooltip;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
@@ -58,6 +60,8 @@ import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.xl;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.util;
+import static org.patternfly.style.ExpandableModifier.expandable;
+import static org.patternfly.style.ExpandableModifier.nonExpandable;
 import static org.patternfly.style.PredefinedIcon.box;
 import static org.patternfly.style.PredefinedIcon.database;
 import static org.patternfly.style.PredefinedIcon.fas;
@@ -65,14 +69,13 @@ import static org.patternfly.style.PredefinedIcon.laptop;
 import static org.patternfly.style.PredefinedIcon.server;
 import static org.patternfly.style.PredefinedIcon.users;
 
+@Route(value = "/components/tabs", title = "Tabs")
 public class TabsComponent extends SnippetPage {
 
     public TabsComponent() {
-        super("Tabs",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/tabs/Tabs.html",
-                "https://www.patternfly.org/components/tabs/design-guidelines",
-                p().textContent("Tabs allow users to navigate between views within the same page or context.").element());
+        super(components.get("tabs"));
 
+        startExamples();
         addSnippet(new Snippet("tabs-default", "Default tabs",
                 code.get("tabs-default"), () ->
         {
@@ -361,24 +364,24 @@ public class TabsComponent extends SnippetPage {
                 div()
                         .add(tabs(nav())
                                 .addTab(tab(a(), "tabs-nav-users", "Users")
-                                        .href("#c-tabs")
+                                        .href("#item-0")
                                         .addContent(tabContent().textContent("Users")))
                                 .addTab(tab(a(), "tabs-nav-containers", "Containers")
-                                        .href("#c-tabs")
+                                        .href("#item-1")
                                         .addContent(tabContent().textContent("Containers")))
                                 .addTab(tab(a(), "tabs-nav-database", "Database")
-                                        .href("#c-tabs")
+                                        .href("#item-2")
                                         .addContent(tabContent().textContent("Database")))
                                 .addTab(tab(a(), "tabs-nav-disabled", "Disabled")
-                                        .href("#c-tabs")
+                                        .href("#item-3")
                                         .disabled()
                                         .addContent(tabContent().textContent("Disabled")))
                                 .addTab(tab(a(), "tabs-nav-disabled-aria", "ARIA Disabled")
-                                        .href("#c-tabs")
+                                        .href("#item-4")
                                         .ariaDisabled()
                                         .addContent(tabContent().textContent("ARIA Disabled")))
                                 .addTab(tab(a(), "tabs-secondary-network", "Network")
-                                        .href("#c-tabs")
+                                        .href("#item-5")
                                         .addContent(tabContent().textContent("Network"))))
                         .element()
                 // @code-end:tabs-nav
@@ -390,45 +393,45 @@ public class TabsComponent extends SnippetPage {
                 div()
                         .add(tabs(nav())
                                 .addTab(tab(a(), "tabs-secondary-nav-users", "Users")
-                                        .href("#c-tabs")
+                                        .href("#item-0")
                                         .addContent(tabContent()
                                                 .add(tabs(nav()).secondary()
                                                         .addTab(tab(a(), "secondary-tab-item-1", "Item 1")
-                                                                .href("#c-tabs")
+                                                                .href("#item-00")
                                                                 .addContent(tabContent().textContent("Item 1")))
                                                         .addTab(tab(a(), "secondary-tab-item-2", "Item 2")
-                                                                .href("#c-tabs")
+                                                                .href("#item-01")
                                                                 .addContent(tabContent().textContent("Item 2")))
                                                         .addTab(tab(a(), "secondary-tab-item-3", "Item 3")
-                                                                .href("#c-tabs")
+                                                                .href("#item-02")
                                                                 .addContent(tabContent().textContent("Item 3")))
                                                         .addTab(tab(a(), "secondary-tab-disabled", "Disabled")
-                                                                .href("#c-tabs")
+                                                                .href("#item-03")
                                                                 .disabled()
                                                                 .addContent(tabContent().textContent("Disabled")))
                                                         .addTab(tab(a(), "secondary-tab-disabled-aria", "ARIA Disabled")
-                                                                .href("#c-tabs")
+                                                                .href("#item-04")
                                                                 .ariaDisabled()
                                                                 .addContent(tabContent().textContent("ARIA Disabled")))
                                                         .addTab(tab(a(), "secondary-tab-item-6", "Item 6")
-                                                                .href("#c-tabs")
+                                                                .href("#item-05")
                                                                 .addContent(tabContent().textContent("Item 6"))))))
                                 .addTab(tab(a(), "tabs-secondary-nav-containers", "Containers")
-                                        .href("#c-tabs")
+                                        .href("#item-1")
                                         .addContent(tabContent().textContent("Containers")))
                                 .addTab(tab(a(), "tabs-secondary-nav-database", "Database")
-                                        .href("#c-tabs")
+                                        .href("#item-2")
                                         .addContent(tabContent().textContent("Database")))
                                 .addTab(tab(a(), "tabs-secondary-nav-disabled", "Disabled")
-                                        .href("#c-tabs")
+                                        .href("#item-3")
                                         .disabled()
                                         .addContent(tabContent().textContent("Disabled")))
                                 .addTab(tab(a(), "tabs-secondary-nav-disabled-aria", "ARIA Disabled")
-                                        .href("#c-tabs")
+                                        .href("#item-4")
                                         .ariaDisabled()
                                         .addContent(tabContent().textContent("ARIA Disabled")))
                                 .addTab(tab(a(), "tabs-secondary-network", "Network")
-                                        .href("#c-tabs")
+                                        .href("#item-5")
                                         .addContent(tabContent().textContent("Network"))))
                         .element()
                 // @code-end:tabs-secondary-nav
@@ -448,13 +451,6 @@ public class TabsComponent extends SnippetPage {
                         .element()
                 // @code-end:tabs-body-padding
         ));
-
-        Promise<TabContent> promise = new Promise<TabContent>((resolve, reject) -> {
-            int timeout = 2 + new Random().nextInt(4);
-            setTimeout(__ -> {
-                resolve.onInvoke(tabContent());
-            }, timeout);
-        });
 
         addSnippet(new Snippet("tabs-promise", "Children mounting on click",
                 code.get("tabs-promise"), () ->
@@ -494,6 +490,7 @@ public class TabsComponent extends SnippetPage {
                 code.get("tabs-dynamic"), () -> {
             // @code-start:tabs-dynamic
             int[] counter = new int[]{6};
+            //noinspection Convert2Diamond
             CloseHandler<Tab> closeHandler = new CloseHandler<Tab>() {
                 @Override
                 public boolean shouldClose(Event event, Tab tab) {
@@ -583,5 +580,11 @@ public class TabsComponent extends SnippetPage {
                         .element()
                 // @code-end:tabs-help-close
         ));
+
+        startApiDocs(Tabs.class);
+        addApiDoc(Tab.class, subcomponent);
+        addApiDoc(TabContent.class, subcomponent);
+        addApiDoc(TabContentBody.class, subcomponent);
+        addApiDoc(Tabs.class, component);
     }
 }

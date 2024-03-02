@@ -41,7 +41,7 @@ class Horizontal extends Enum {
  /** @nodts @return {!Array<!Horizontal>} */
  static m_values__arrayOf_org_patternfly_component_navigation_NavigationType_Horizontal() {
   Horizontal.$clinit();
-  return /**@type {!Array<Horizontal>}*/ ($Arrays.$init([Horizontal.f_primary__org_patternfly_component_navigation_NavigationType_Horizontal, Horizontal.f_secondary__org_patternfly_component_navigation_NavigationType_Horizontal], Horizontal));
+  return /**@type {!Array<Horizontal>}*/ ($Arrays.$init([Horizontal.f_primary__org_patternfly_component_navigation_NavigationType_Horizontal, Horizontal.f_secondary__org_patternfly_component_navigation_NavigationType_Horizontal, Horizontal.f_tertiary__org_patternfly_component_navigation_NavigationType_Horizontal], Horizontal));
  }
  /** @nodts */
  static $clinit() {
@@ -65,10 +65,14 @@ class Horizontal extends Enum {
 Horizontal.$ordinal_primary__org_patternfly_component_navigation_NavigationType_Horizontal = 0;
 /**@const {number} @nodts*/
 Horizontal.$ordinal_secondary__org_patternfly_component_navigation_NavigationType_Horizontal = 1;
+/**@const {number} @nodts*/
+Horizontal.$ordinal_tertiary__org_patternfly_component_navigation_NavigationType_Horizontal = 2;
 /**@const {!Horizontal} @nodts*/
 Horizontal.f_primary__org_patternfly_component_navigation_NavigationType_Horizontal = /**@pureOrBreakMyCode*/ Horizontal.$create__java_lang_String__int($Util.$makeEnumName('primary'), Horizontal.$ordinal_primary__org_patternfly_component_navigation_NavigationType_Horizontal);
 /**@const {!Horizontal} @nodts*/
 Horizontal.f_secondary__org_patternfly_component_navigation_NavigationType_Horizontal = /**@pureOrBreakMyCode*/ Horizontal.$create__java_lang_String__int($Util.$makeEnumName('secondary'), Horizontal.$ordinal_secondary__org_patternfly_component_navigation_NavigationType_Horizontal);
+/**@const {!Horizontal} @nodts*/
+Horizontal.f_tertiary__org_patternfly_component_navigation_NavigationType_Horizontal = /**@pureOrBreakMyCode*/ Horizontal.$create__java_lang_String__int($Util.$makeEnumName('tertiary'), Horizontal.$ordinal_tertiary__org_patternfly_component_navigation_NavigationType_Horizontal);
 /**@type {Map<?string, !Horizontal>} @nodts*/
 Horizontal.f_namesToValuesMap__org_patternfly_component_navigation_NavigationType_Horizontal_;
 NavigationType.$markImplementor(Horizontal);

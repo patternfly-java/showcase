@@ -247,6 +247,12 @@ class Tooltip extends BaseComponent {
   return this;
  }
  /** @nodts @return {Tooltip} */
+ m_trigger__java_lang_String__org_patternfly_component_tooltip_Tooltip(/** ?string */ trigger) {
+  return this.m_trigger__java_util_function_Supplier__org_patternfly_component_tooltip_Tooltip(Supplier.$adapt(() =>{
+   return Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(DomGlobal_$Overlay.f_document__elemental2_dom_DomGlobal_$Overlay.body, By.m_selector__java_lang_String__org_jboss_elemento_By(trigger));
+  }));
+ }
+ /** @nodts @return {Tooltip} */
  m_trigger__org_jboss_elemento_By__org_patternfly_component_tooltip_Tooltip(/** By */ trigger) {
   return this.m_trigger__java_util_function_Supplier__org_patternfly_component_tooltip_Tooltip(Supplier.$adapt(() =>{
    return Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(DomGlobal_$Overlay.f_document__elemental2_dom_DomGlobal_$Overlay.body, trigger);
@@ -368,6 +374,7 @@ class Tooltip extends BaseComponent {
   Consumer = goog.module.get('java.util.function.Consumer$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
+  By = goog.module.get('org.jboss.elemento.By$impl');
   Callback = goog.module.get('org.jboss.elemento.Callback$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');

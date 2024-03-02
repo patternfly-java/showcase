@@ -153,7 +153,7 @@ class Button extends BaseComponent {
   if (!$Equality.$same(this.f_anchorElement__org_patternfly_component_button_Button_, null)) {
    this.f_anchorElement__org_patternfly_component_button_Button_.href = href;
   } else {
-   Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Unable to set href: This button is no <a/> button. ');
+   Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Unable to set href: This button is not an <a/> button.');
   }
   return this;
  }
@@ -162,7 +162,7 @@ class Button extends BaseComponent {
   if (!$Equality.$same(this.f_anchorElement__org_patternfly_component_button_Button_, null)) {
    this.f_anchorElement__org_patternfly_component_button_Button_.target = target;
   } else {
-   Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Unable to set target: This button is no <a/> button. ');
+   Logger.m_undefined__org_patternfly_component_ComponentType__elemental2_dom_Element__java_lang_String__void(this.m_componentType__org_patternfly_component_ComponentType(), this.m_element__elemental2_dom_HTMLElement(), 'Unable to set target: This button is not an <a/> button.');
   }
   return this;
  }

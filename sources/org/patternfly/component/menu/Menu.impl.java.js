@@ -213,31 +213,6 @@ class Menu extends BaseComponent {
    }
   }
  }
- /** @nodts */
- m_unselectAllItems__void_$p_org_patternfly_component_menu_Menu() {
-  if ($Equality.$same(this.f_selectionMode__org_patternfly_component_menu_Menu, SelectionMode.f_click__org_patternfly_core_SelectionMode)) {
-   for (let $iterator = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Menu.f_MENU_ITEMS__org_patternfly_component_menu_Menu_).m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
-    let element = /**@type {HTMLElement}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), HTMLElement_$Overlay));
-    {
-     Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(element, Aria.f_current__org_patternfly_core_Aria, false);
-    }
-   }
-  } else if ($Equality.$same(this.f_selectionMode__org_patternfly_component_menu_Menu, SelectionMode.f_single__org_patternfly_core_SelectionMode)) {
-   for (let $iterator_1 = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Menu.f_MENU_ITEMS__org_patternfly_component_menu_Menu_).m_iterator__java_util_Iterator(); $iterator_1.m_hasNext__boolean(); ) {
-    let element_1 = /**@type {HTMLElement}*/ ($Casts.$to($iterator_1.m_next__java_lang_Object(), HTMLElement_$Overlay));
-    {
-     Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(element_1, Aria.f_selected__org_patternfly_core_Aria, false);
-     element_1.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_selected__org_patternfly_style_Classes));
-    }
-   }
-   for (let $iterator_2 = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Menu.f_SELECT_ICONS__org_patternfly_component_menu_Menu_).m_iterator__java_util_Iterator(); $iterator_2.m_hasNext__boolean(); ) {
-    let element_2 = /**@type {HTMLElement}*/ ($Casts.$to($iterator_2.m_next__java_lang_Object(), HTMLElement_$Overlay));
-    {
-     Elements.m_failSafeRemoveFromParent__elemental2_dom_Element__boolean(element_2);
-    }
-   }
-  }
- }
  /** @nodts @return {MenuItem} */
  m_findItem__java_lang_String__org_patternfly_component_menu_MenuItem_$pp_org_patternfly_component_menu(/** ?string */ id) {
   let menuItem = null;
@@ -299,6 +274,31 @@ class Menu extends BaseComponent {
    let sourceItem = favoriteItem.f_sourceItem__org_patternfly_component_menu_MenuItem;
    /**@type {HTMLButtonElement}*/ ($Casts.$to(sourceItem.f_favoriteItemAction__org_patternfly_component_menu_MenuItem.m_element__elemental2_dom_HTMLElement(), HTMLButtonElement_$Overlay)).classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_favorited__org_patternfly_style_Classes));
    sourceItem.f_favoriteItem__org_patternfly_component_menu_MenuItem = null;
+  }
+ }
+ /** @nodts */
+ m_unselectAllItems__void_$p_org_patternfly_component_menu_Menu() {
+  if ($Equality.$same(this.f_selectionMode__org_patternfly_component_menu_Menu, SelectionMode.f_click__org_patternfly_core_SelectionMode)) {
+   for (let $iterator = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Menu.f_MENU_ITEMS__org_patternfly_component_menu_Menu_).m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
+    let element = /**@type {HTMLElement}*/ ($Casts.$to($iterator.m_next__java_lang_Object(), HTMLElement_$Overlay));
+    {
+     Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(element, Aria.f_current__org_patternfly_core_Aria, false);
+    }
+   }
+  } else if ($Equality.$same(this.f_selectionMode__org_patternfly_component_menu_Menu, SelectionMode.f_single__org_patternfly_core_SelectionMode)) {
+   for (let $iterator_1 = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Menu.f_MENU_ITEMS__org_patternfly_component_menu_Menu_).m_iterator__java_util_Iterator(); $iterator_1.m_hasNext__boolean(); ) {
+    let element_1 = /**@type {HTMLElement}*/ ($Casts.$to($iterator_1.m_next__java_lang_Object(), HTMLElement_$Overlay));
+    {
+     Element_$Overlay.m_setAttribute__$devirt__elemental2_dom_Element__java_lang_String__boolean__void(element_1, Aria.f_selected__org_patternfly_core_Aria, false);
+     element_1.classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_selected__org_patternfly_style_Classes));
+    }
+   }
+   for (let $iterator_2 = this.m_findAll__org_jboss_elemento_By__java_lang_Iterable(Menu.f_SELECT_ICONS__org_patternfly_component_menu_Menu_).m_iterator__java_util_Iterator(); $iterator_2.m_hasNext__boolean(); ) {
+    let element_2 = /**@type {HTMLElement}*/ ($Casts.$to($iterator_2.m_next__java_lang_Object(), HTMLElement_$Overlay));
+    {
+     Elements.m_failSafeRemoveFromParent__elemental2_dom_Element__boolean(element_2);
+    }
+   }
   }
  }
  //Bridge method.

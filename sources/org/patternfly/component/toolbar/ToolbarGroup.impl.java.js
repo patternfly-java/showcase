@@ -7,6 +7,7 @@ let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl'
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
+let ToolbarItem = goog.forwardDeclare('org.patternfly.component.toolbar.ToolbarItem$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -33,7 +34,11 @@ class ToolbarGroup extends ToolbarSubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_toolbar_ToolbarGroup__void() {
-  this.$ctor__org_patternfly_component_toolbar_ToolbarSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(ToolbarGroup.f_SUB_COMPONENT_NAME__org_patternfly_component_toolbar_ToolbarGroup, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_alert__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_description__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_component_toolbar_ToolbarSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(ToolbarGroup.f_SUB_COMPONENT_NAME__org_patternfly_component_toolbar_ToolbarGroup, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_toolbar__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_group__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+ }
+ /** @nodts @return {ToolbarGroup} */
+ m_addItem__org_patternfly_component_toolbar_ToolbarItem__org_patternfly_component_toolbar_ToolbarGroup(/** ToolbarItem */ item) {
+  return /**@type {ToolbarGroup}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(item), ToolbarGroup));
  }
  /** @nodts @return {ToolbarGroup} */
  m_that__org_patternfly_component_toolbar_ToolbarGroup() {

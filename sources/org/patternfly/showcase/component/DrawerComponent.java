@@ -15,13 +15,23 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.drawer.Drawer;
+import org.patternfly.component.drawer.DrawerCloseButton;
+import org.patternfly.component.drawer.DrawerColor;
+import org.patternfly.component.drawer.DrawerContent;
+import org.patternfly.component.drawer.DrawerContentBody;
+import org.patternfly.component.drawer.DrawerPanel;
+import org.patternfly.component.drawer.DrawerPanelBody;
+import org.patternfly.component.drawer.DrawerPanelHead;
+import org.patternfly.component.drawer.DrawerPanelWidth;
+import org.patternfly.component.drawer.DrawerSection;
+import org.patternfly.component.drawer.Position;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.span;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.drawer.Drawer.drawer;
@@ -37,22 +47,23 @@ import static org.patternfly.component.drawer.Position.bottom;
 import static org.patternfly.component.drawer.Position.end;
 import static org.patternfly.component.drawer.Position.start;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.modifier;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.Size._2xl;
 
+@Route(value = "/components/drawer", title = "Drawer")
 public class DrawerComponent extends SnippetPage {
 
     public DrawerComponent() {
-        super("Drawer",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/drawer/Drawer.html",
-                "https://www.patternfly.org/components/drawer/design-guidelines",
-                p().textContent(
-                                "A drawer is a sliding panel that enters from the right edge of the viewport. It can be configured to either overlay content on a page or create a sidebar by pushing that content to the left.")
-                        .element());
+        super(components.get("drawer"));
 
+        startExamples();
         addSnippet(new Snippet("drawer-basic", "Basic",
                 code.get("drawer-basic"), () -> {
             // @code-start:drawer-basic
@@ -392,5 +403,18 @@ public class DrawerComponent extends SnippetPage {
                     .element();
             // @code-end:drawer-resizable-bottom
         }));
+
+        startApiDocs(Drawer.class);
+        addApiDoc(Drawer.class, component);
+        addApiDoc(DrawerCloseButton.class, subcomponent);
+        addApiDoc(DrawerColor.class, modifier);
+        addApiDoc(DrawerContent.class, subcomponent);
+        addApiDoc(DrawerContentBody.class, subcomponent);
+        addApiDoc(DrawerPanel.class, subcomponent);
+        addApiDoc(DrawerPanelBody.class, subcomponent);
+        addApiDoc(DrawerPanelHead.class, subcomponent);
+        addApiDoc(DrawerPanelWidth.class, modifier);
+        addApiDoc(DrawerSection.class, subcomponent);
+        addApiDoc(Position.class, modifier);
     }
 }

@@ -17,7 +17,12 @@ package org.patternfly.showcase.component;
 
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.Id;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.slider.Slider;
+import org.patternfly.component.slider.SliderActions;
+import org.patternfly.component.slider.SliderInputPosition;
+import org.patternfly.component.slider.SliderStep;
+import org.patternfly.component.slider.SliderSteps;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
@@ -41,23 +46,24 @@ import static org.patternfly.component.slider.SliderActions.sliderActions;
 import static org.patternfly.component.slider.SliderInputPosition.aboveThumb;
 import static org.patternfly.component.slider.SliderStep.sliderStep;
 import static org.patternfly.component.slider.SliderSteps.sliderSteps;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.lock;
 import static org.patternfly.style.PredefinedIcon.lockOpen;
 import static org.patternfly.style.PredefinedIcon.minus;
 import static org.patternfly.style.PredefinedIcon.plus;
 
 @SuppressWarnings("unchecked")
+@Route(value = "/components/slider", title = "Slider")
 public class SliderComponent extends SnippetPage {
 
     public SliderComponent() {
-        super("Slider",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/slider/Slider.html",
-                "https://www.patternfly.org/components/slider/design-guidelines",
-                p().textContent(
-                                "A slider provides a quick and effective way for users to set and adjust a numeric value from a defined range of values.")
-                        .element());
+        super(components.get("slider"));
 
+        startExamples();
         addSnippet(new Snippet("slider-discrete", "Discrete",
                 code.get("slider-discrete"), () -> {
             // @code-start:slider-discrete
@@ -284,5 +290,12 @@ public class SliderComponent extends SnippetPage {
                     .element();
             // @code-end:slider-disabled
         }));
+
+        startApiDocs(Slider.class);
+        addApiDoc(Slider.class, component);
+        addApiDoc(SliderActions.class, subcomponent);
+        addApiDoc(SliderInputPosition.class, other);
+        addApiDoc(SliderStep.class, other);
+        addApiDoc(SliderSteps.class, other);
     }
 }

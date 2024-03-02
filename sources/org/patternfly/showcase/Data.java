@@ -15,15 +15,68 @@
  */
 package org.patternfly.showcase;
 
-import org.patternfly.showcase.demo.server.Server;
-import org.patternfly.showcase.demo.user.User;
+import java.util.ArrayList;
+import java.util.List;
 
-import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsType;
+import org.patternfly.showcase.component.Component;
+import org.patternfly.showcase.layout.Layout;
 
-@JsType(isNative = true, namespace = JsPackage.GLOBAL, name = "PatternFlyData")
+import jsinterop.base.Js;
+import jsinterop.base.JsPropertyMap;
+
+import static elemental2.core.Global.JSON;
+
 public class Data {
 
-    public static Server[] servers;
-    public static User[] users;
+    public static JsPropertyMap<Component> components;
+    public static JsPropertyMap<Layout> layouts;
+
+    static {
+        components = Js.cast(JSON.parse(ShowcaseBundleImpl.INSTANCE.components().getText()));
+        layouts = Js.cast(JSON.parse(ShowcaseBundleImpl.INSTANCE.layouts().getText()));
+    }
+
+    public static List<Component> components() {
+        List<Component> result = new ArrayList<>();
+        components.forEach(key -> {
+            Component component = components.get(key);
+            if (component.implemented()) {
+                result.add(component);
+            }
+        });
+        return result;
+    }
+
+    public static List<Component> topLevelComponents() {
+        List<Component> result = new ArrayList<>();
+        components.forEach(key -> {
+            Component component = components.get(key);
+            if (component.implemented() && component.route.equals("/components/" + component.name)) {
+                result.add(component);
+            }
+        });
+        return result;
+    }
+
+    public static List<Component> groupComponents(String group) {
+        List<Component> result = new ArrayList<>();
+        components.forEach(key -> {
+            Component component = components.get(key);
+            if (component.implemented() && component.route.contains(group)) {
+                result.add(component);
+            }
+        });
+        return result;
+    }
+
+    public static List<Layout> layouts() {
+        List<Layout> result = new ArrayList<>();
+        layouts.forEach(key -> {
+            Layout layout = layouts.get(key);
+            if (layout.implemented()) {
+                result.add(layout);
+            }
+        });
+        return result;
+    }
 }

@@ -4,8 +4,8 @@ const Enum = goog.require('java.lang.Enum$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
 
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
-let Status = goog.forwardDeclare('org.patternfly.core.Status$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
+let Status = goog.forwardDeclare('org.patternfly.style.Status$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Enums = goog.forwardDeclare('vmbootstrap.Enums$impl');
 
@@ -25,13 +25,13 @@ class Severity extends Enum {
   this.f_aria__org_patternfly_core_Severity;
  }
  /** @nodts @return {!Severity} */
- static $create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String(/** ?string */ $name, /** number */ $ordinal, /** PredefinedIcon */ icon, /** Status */ status, /** ?string */ aria) {
+ static $create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String(/** ?string */ $name, /** number */ $ordinal, /** PredefinedIcon */ icon, /** Status */ status, /** ?string */ aria) {
   let $instance = new Severity();
-  $instance.$ctor__org_patternfly_core_Severity__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String__void($name, $ordinal, icon, status, aria);
+  $instance.$ctor__org_patternfly_core_Severity__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String__void($name, $ordinal, icon, status, aria);
   return $instance;
  }
  /** @nodts */
- $ctor__org_patternfly_core_Severity__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String__void(/** ?string */ $name, /** number */ $ordinal, /** PredefinedIcon */ icon, /** Status */ status, /** ?string */ aria) {
+ $ctor__org_patternfly_core_Severity__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String__void(/** ?string */ $name, /** number */ $ordinal, /** PredefinedIcon */ icon, /** Status */ status, /** ?string */ aria) {
   this.f_name__java_lang_Enum_ = $name;
   this.f_ordinal__java_lang_Enum_ = $ordinal;
   this.$ctor__java_lang_Enum__java_lang_String__int__void($name, $ordinal);
@@ -77,11 +77,11 @@ class Severity extends Enum {
   Severity.$clinit = () =>{};
   Severity.$loadModules();
   Enum.$clinit();
-  Severity.$static_custom__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String($Util.$makeEnumName('custom'), Severity.$ordinal_custom__org_patternfly_core_Severity, PredefinedIcon.f_bell__org_patternfly_style_PredefinedIcon, Status.f_custom__org_patternfly_core_Status, 'custom alert');
-  Severity.$static_info__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String($Util.$makeEnumName('info'), Severity.$ordinal_info__org_patternfly_core_Severity, PredefinedIcon.f_infoCircle__org_patternfly_style_PredefinedIcon, Status.f_info__org_patternfly_core_Status, 'info alert');
-  Severity.$static_success__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String($Util.$makeEnumName('success'), Severity.$ordinal_success__org_patternfly_core_Severity, PredefinedIcon.f_checkCircle__org_patternfly_style_PredefinedIcon, Status.f_success__org_patternfly_core_Status, 'success alert');
-  Severity.$static_warning__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String($Util.$makeEnumName('warning'), Severity.$ordinal_warning__org_patternfly_core_Severity, PredefinedIcon.f_exclamationTriangle__org_patternfly_style_PredefinedIcon, Status.f_warning__org_patternfly_core_Status, 'warning alert');
-  Severity.$static_danger__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_core_Status__java_lang_String($Util.$makeEnumName('danger'), Severity.$ordinal_danger__org_patternfly_core_Severity, PredefinedIcon.f_exclamationCircle__org_patternfly_style_PredefinedIcon, Status.f_danger__org_patternfly_core_Status, 'danger alert');
+  Severity.$static_custom__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String($Util.$makeEnumName('custom'), Severity.$ordinal_custom__org_patternfly_core_Severity, PredefinedIcon.f_bell__org_patternfly_style_PredefinedIcon, Status.f_custom__org_patternfly_style_Status, 'custom alert');
+  Severity.$static_info__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String($Util.$makeEnumName('info'), Severity.$ordinal_info__org_patternfly_core_Severity, PredefinedIcon.f_infoCircle__org_patternfly_style_PredefinedIcon, Status.f_info__org_patternfly_style_Status, 'info alert');
+  Severity.$static_success__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String($Util.$makeEnumName('success'), Severity.$ordinal_success__org_patternfly_core_Severity, PredefinedIcon.f_checkCircle__org_patternfly_style_PredefinedIcon, Status.f_success__org_patternfly_style_Status, 'success alert');
+  Severity.$static_warning__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String($Util.$makeEnumName('warning'), Severity.$ordinal_warning__org_patternfly_core_Severity, PredefinedIcon.f_exclamationTriangle__org_patternfly_style_PredefinedIcon, Status.f_warning__org_patternfly_style_Status, 'warning alert');
+  Severity.$static_danger__org_patternfly_core_Severity = Severity.$create__java_lang_String__int__org_patternfly_style_PredefinedIcon__org_patternfly_style_Status__java_lang_String($Util.$makeEnumName('danger'), Severity.$ordinal_danger__org_patternfly_core_Severity, PredefinedIcon.f_exclamationCircle__org_patternfly_style_PredefinedIcon, Status.f_danger__org_patternfly_style_Status, 'danger alert');
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {
@@ -91,8 +91,8 @@ class Severity extends Enum {
  /** @nodts */
  static $loadModules() {
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
-  Status = goog.module.get('org.patternfly.core.Status$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
+  Status = goog.module.get('org.patternfly.style.Status$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Enums = goog.module.get('vmbootstrap.Enums$impl');
  }

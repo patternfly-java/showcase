@@ -8,14 +8,12 @@ let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
-let Page = goog.forwardDeclare('org.patternfly.component.page.Page$impl');
 let PageSidebarBody = goog.forwardDeclare('org.patternfly.component.page.PageSidebarBody$impl');
 let Aria = goog.forwardDeclare('org.patternfly.core.Aria$impl');
 let Validation = goog.forwardDeclare('org.patternfly.core.Validation$impl');
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
 let Brightness = goog.forwardDeclare('org.patternfly.style.Brightness$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
-let Rect = goog.forwardDeclare('org.patternfly.style.Rect$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -27,6 +25,8 @@ class PageSidebar extends PageSubComponent {
  /** @protected @nodts */
  constructor() {
   super();
+  /**@type {boolean} @nodts*/
+  this.f_keepExpanded__org_patternfly_component_page_PageSidebar_ = false;
   /**@type {ToggleHandler<PageSidebar>} @nodts*/
   this.f_toggleHandler__org_patternfly_component_page_PageSidebar_;
  }
@@ -45,10 +45,16 @@ class PageSidebar extends PageSubComponent {
  /** @nodts */
  $ctor__org_patternfly_component_page_PageSidebar__void() {
   this.$ctor__org_patternfly_component_page_PageSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(PageSidebar.f_SUB_COMPONENT_NAME__org_patternfly_component_page_PageSidebar, /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_aside__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_page__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_sidebar__org_patternfly_style_Classes], j_l_String))), Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes)], j_l_String))), HTMLContainerBuilder)).m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_hidden__org_patternfly_core_Aria, false), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
+  this.f_keepExpanded__org_patternfly_component_page_PageSidebar_ = false;
  }
  /** @nodts @return {PageSidebar} */
  m_addBody__org_patternfly_component_page_PageSidebarBody__org_patternfly_component_page_PageSidebar(/** PageSidebarBody */ body) {
   return /**@type {PageSidebar}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(body), PageSidebar));
+ }
+ /** @nodts @return {PageSidebar} */
+ m_keepExpanded__org_patternfly_component_page_PageSidebar() {
+  this.f_keepExpanded__org_patternfly_component_page_PageSidebar_ = true;
+  return this;
  }
  /** @nodts @return {PageSidebar} */
  m_theme__org_patternfly_style_Brightness__org_patternfly_component_page_PageSidebar(/** Brightness */ theme) {
@@ -68,11 +74,13 @@ class PageSidebar extends PageSubComponent {
  }
  /** @override @nodts */
  m_collapse__boolean__void(/** boolean */ fireEvent) {
-  this.m_element__elemental2_dom_HTMLElement().classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes));
-  this.m_element__elemental2_dom_HTMLElement().classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_collapsed__org_patternfly_style_Classes));
-  this.m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_hidden__org_patternfly_core_Aria, true);
-  if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_page_PageSidebar_, null)) {
-   this.f_toggleHandler__org_patternfly_component_page_PageSidebar_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, false);
+  if (!this.f_keepExpanded__org_patternfly_component_page_PageSidebar_) {
+   this.m_element__elemental2_dom_HTMLElement().classList.remove(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_expanded__org_patternfly_style_Classes));
+   this.m_element__elemental2_dom_HTMLElement().classList.add(Classes.m_modifier__java_lang_String__java_lang_String(Classes.f_collapsed__org_patternfly_style_Classes));
+   this.m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_hidden__org_patternfly_core_Aria, true);
+   if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_page_PageSidebar_, null)) {
+    this.f_toggleHandler__org_patternfly_component_page_PageSidebar_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, false);
+   }
   }
  }
  /** @override @nodts */
@@ -82,14 +90,6 @@ class PageSidebar extends PageSubComponent {
   this.m_aria__java_lang_String__boolean__org_jboss_elemento_TypedBuilder(Aria.f_hidden__org_patternfly_core_Aria, false);
   if (fireEvent && !$Equality.$same(this.f_toggleHandler__org_patternfly_component_page_PageSidebar_, null)) {
    this.f_toggleHandler__org_patternfly_component_page_PageSidebar_.m_onToggle__elemental2_dom_Event__java_lang_Object__boolean__void(new Event(''), this, true);
-  }
- }
- /** @nodts */
- m_onPageResize__org_patternfly_style_Rect__org_patternfly_style_Rect__void_$pp_org_patternfly_component_page(/** Rect */ currentPageRect, /** Rect */ previousPageRect) {
-  if (Page.m_page__org_patternfly_component_page_Page().m_underXl__boolean_$pp_org_patternfly_component_page()) {
-   this.m_collapse__void();
-  } else {
-   this.m_expand__void();
   }
  }
  //Bridge method.
@@ -140,7 +140,6 @@ class PageSidebar extends PageSubComponent {
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
-  Page = goog.module.get('org.patternfly.component.page.Page$impl');
   Aria = goog.module.get('org.patternfly.core.Aria$impl');
   Validation = goog.module.get('org.patternfly.core.Validation$impl');
   Brightness = goog.module.get('org.patternfly.style.Brightness$impl');

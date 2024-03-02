@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"BannerComponent.impl.java.js",
-"lineCount":58,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA+Ca,e;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,0B;EAAAA,sC;EAAAA,2E;EAAAA,iB;;;CAAA,8D;EACHC,6xB;EAOAA;GAGQC,49EAHRD;O;EAiBAA;GAGQC,0gLAHRD;O;EAoCAA;GAGQC,qlRAHRD;O;;;QA/DK,O;EAAAE,kC;EAAAA,+B;EAAAA;",
+"lineCount":65,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MAmDa,e;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,0B;EAAAA,sC;EAAAA,2E;EAAAA,iB;;;CAAA,8D;EACHC,+S;EAEAA,6B;EACAA;GAIQC,49EAJRD;O;EAkBAA;GAGQC,0gLAHRD;O;EAoCAA;GAIQC,qlRAJRD;O;EAiCAA,+D;EACAA,wJ;;;QA9FK,O;EAAAE,kC;EAAAA,+B;EAAAA;",
 "sources":["BannerComponent.java"],
 "names":["org.patternfly.showcase.component.BannerComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.BannerComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.BannerComponent.<init>","org.patternfly.showcase.component.BannerComponent.<lambda in <init>>","org.patternfly.showcase.component.BannerComponent.<clinit>"]
 }

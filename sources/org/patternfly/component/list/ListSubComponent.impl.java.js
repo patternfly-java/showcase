@@ -18,7 +18,7 @@ class ListSubComponent extends SubComponent {
  }
  /** @nodts */
  $ctor__org_patternfly_component_list_ListSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(/** ?string */ name, /** E */ element) {
-  this.$ctor__org_patternfly_component_SubComponent__org_patternfly_component_ComponentType__java_lang_String__elemental2_dom_HTMLElement__void(ComponentType.f_SimpleList__org_patternfly_component_ComponentType, name, element);
+  this.$ctor__org_patternfly_component_SubComponent__org_patternfly_component_ComponentType__java_lang_String__elemental2_dom_HTMLElement__void(ComponentType.f_List__org_patternfly_component_ComponentType, name, element);
  }
  /** @nodts */
  static $clinit() {

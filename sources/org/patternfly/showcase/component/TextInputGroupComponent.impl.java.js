@@ -4,14 +4,15 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
 let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
 let Boolean = goog.forwardDeclare('java.lang.Boolean$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Arrays = goog.forwardDeclare('java.util.Arrays$impl');
 let List = goog.forwardDeclare('java.util.List$impl');
 let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
@@ -26,7 +27,10 @@ let ObservableValue = goog.forwardDeclare('org.patternfly.core.ObservableValue$i
 let Subscriber = goog.forwardDeclare('org.patternfly.core.ObservableValue.Subscriber$impl');
 let ChangeHandler = goog.forwardDeclare('org.patternfly.handler.ChangeHandler$impl');
 let CloseHandler = goog.forwardDeclare('org.patternfly.handler.CloseHandler$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -45,7 +49,8 @@ class TextInputGroupComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_TextInputGroupComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Text input group', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/textinputgroup/TextInputGroup.html', 'https://www.patternfly.org/components/text-input-group/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('A text input group is a more flexible composable version of a text input. It enables consumers of PatternFly to build custom inputs for filtering and similar use cases by placing elements like icons, chips groups and buttons within a text input.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'text-input-group'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('tig-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('tig-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(TextInputGroup.m_textInputGroup__org_patternfly_component_textinputgroup_TextInputGroup().m_addMain__org_patternfly_component_textinputgroup_TextInputGroupMain__org_patternfly_component_textinputgroup_TextInputGroup(TextInputGroupMain.m_textInputGroupMain__java_lang_String__org_patternfly_component_textinputgroup_TextInputGroupMain('basic-text-input-group-0'))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
@@ -116,6 +121,10 @@ class TextInputGroupComponent extends SnippetPage {
    }));
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(textInputGroup_1), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(TextInputGroup));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(TextInputGroup), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(TextInputGroupMain), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(TextInputGroupUtilities), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -131,13 +140,14 @@ class TextInputGroupComponent extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
   MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
   Boolean = goog.module.get('java.lang.Boolean$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Arrays = goog.module.get('java.util.Arrays$impl');
   j_u_function_Function = goog.module.get('java.util.function.Function$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
@@ -152,7 +162,10 @@ class TextInputGroupComponent extends SnippetPage {
   Subscriber = goog.module.get('org.patternfly.core.ObservableValue.Subscriber$impl');
   ChangeHandler = goog.module.get('org.patternfly.handler.ChangeHandler$impl');
   CloseHandler = goog.module.get('org.patternfly.handler.CloseHandler$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');

@@ -4,9 +4,10 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
@@ -18,7 +19,12 @@ let CodeEditorHeaderMain = goog.forwardDeclare('org.patternfly.component.code.Co
 let CodeEditorLink = goog.forwardDeclare('org.patternfly.component.code.CodeEditorLink$impl');
 let CodeEditorLinks = goog.forwardDeclare('org.patternfly.component.code.CodeEditorLinks$impl');
 let CodeEditorTab = goog.forwardDeclare('org.patternfly.component.code.CodeEditorTab$impl');
+let CodeEditorTabIcon = goog.forwardDeclare('org.patternfly.component.code.CodeEditorTabIcon$impl');
+let CodeEditorTabText = goog.forwardDeclare('org.patternfly.component.code.CodeEditorTabText$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -36,7 +42,8 @@ class CodeEditorComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_CodeEditorComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Code editor', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeEditor.html', 'https://www.patternfly.org/components/code-editor/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('A code editor is a versatile text editor that allows for editing various languages. '), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'code-editor'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('code-editor-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('code-editor-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(CodeEditor.m_codeEditor__org_patternfly_component_code_CodeEditor().m_addHeader__org_patternfly_component_code_CodeEditorHeader__org_patternfly_component_code_CodeEditor(CodeEditorHeader.m_codeEditorHeader__org_patternfly_component_code_CodeEditorHeader().m_addActions__org_patternfly_component_code_CodeEditorActions__org_patternfly_component_code_CodeEditorHeader(CodeEditorActions.m_codeEditorActions__org_patternfly_component_code_CodeEditorActions().m_addAction__org_patternfly_component_code_CodeEditorAction__org_patternfly_component_code_CodeEditorActions(CodeEditorAction.m_codeEditorCopyToClipboardAction__org_patternfly_component_code_CodeEditorAction()).m_addAction__org_patternfly_component_code_CodeEditorAction__org_patternfly_component_code_CodeEditorActions(CodeEditorAction.m_codeEditorAction__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeEditorAction(PredefinedIcon.f_download__org_patternfly_style_PredefinedIcon)).m_addAction__org_patternfly_component_code_CodeEditorAction__org_patternfly_component_code_CodeEditorActions(CodeEditorAction.m_codeEditorAction__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeEditorAction(PredefinedIcon.f_upload__org_patternfly_style_PredefinedIcon))).m_addTab__org_patternfly_component_code_CodeEditorTab__org_patternfly_component_code_CodeEditorHeader(CodeEditorTab.m_codeEditorTab__org_patternfly_style_PredefinedIcon__java_lang_String__org_patternfly_component_code_CodeEditorTab(PredefinedIcon.f_code__org_patternfly_style_PredefinedIcon, 'Java'))).m_code__java_lang_String__org_patternfly_component_code_CodeEditor(CodeEditorComponent.f_CODE__org_patternfly_showcase_component_CodeEditorComponent_)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
@@ -55,6 +62,17 @@ class CodeEditorComponent extends SnippetPage {
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('code-editor-header-content', 'With optional header content and keyboard shortcuts', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('code-editor-header-content'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(CodeEditor.m_codeEditor__org_patternfly_component_code_CodeEditor().m_addHeader__org_patternfly_component_code_CodeEditorHeader__org_patternfly_component_code_CodeEditor(CodeEditorHeader.m_codeEditorHeader__org_patternfly_component_code_CodeEditorHeader().m_addActions__org_patternfly_component_code_CodeEditorActions__org_patternfly_component_code_CodeEditorHeader(CodeEditorActions.m_codeEditorActions__org_patternfly_component_code_CodeEditorActions().m_addAction__org_patternfly_component_code_CodeEditorAction__org_patternfly_component_code_CodeEditorActions(CodeEditorAction.m_codeEditorCopyToClipboardAction__org_patternfly_component_code_CodeEditorAction()).m_addAction__org_patternfly_component_code_CodeEditorAction__org_patternfly_component_code_CodeEditorActions(CodeEditorAction.m_codeEditorAction__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeEditorAction(PredefinedIcon.f_download__org_patternfly_style_PredefinedIcon)).m_addAction__org_patternfly_component_code_CodeEditorAction__org_patternfly_component_code_CodeEditorActions(CodeEditorAction.m_codeEditorAction__org_patternfly_style_PredefinedIcon__org_patternfly_component_code_CodeEditorAction(PredefinedIcon.f_upload__org_patternfly_style_PredefinedIcon))).m_addMain__org_patternfly_component_code_CodeEditorHeaderMain__org_patternfly_component_code_CodeEditorHeader(/**@type {CodeEditorHeaderMain}*/ ($Casts.$to(CodeEditorHeaderMain.m_codeEditorHeaderMain__org_patternfly_component_code_CodeEditorHeaderMain().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Header main content'), CodeEditorHeaderMain))).m_addLinks__org_patternfly_component_code_CodeEditorLinks__org_patternfly_component_code_CodeEditorHeader(CodeEditorLinks.m_codeEditorLinks__org_patternfly_component_code_CodeEditorLinks().m_addLink__org_patternfly_component_code_CodeEditorLink__org_patternfly_component_code_CodeEditorLinks(CodeEditorLink.m_codeEditorViewShortcutsLink__org_patternfly_component_code_CodeEditorLink())).m_addTab__org_patternfly_component_code_CodeEditorTab__org_patternfly_component_code_CodeEditorHeader(CodeEditorTab.m_codeEditorTab__org_patternfly_style_PredefinedIcon__java_lang_String__org_patternfly_component_code_CodeEditorTab(PredefinedIcon.f_code__org_patternfly_style_PredefinedIcon, 'Java'))).m_code__java_lang_String__org_patternfly_component_code_CodeEditor(CodeEditorComponent.f_CODE__org_patternfly_showcase_component_CodeEditorComponent_)), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(CodeEditor));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditor), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorAction), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorActions), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorHeader), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorHeaderMain), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorLink), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorLinks), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorTab), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorTabIcon), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(CodeEditorTabText), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -70,9 +88,10 @@ class CodeEditorComponent extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
@@ -84,7 +103,12 @@ class CodeEditorComponent extends SnippetPage {
   CodeEditorLink = goog.module.get('org.patternfly.component.code.CodeEditorLink$impl');
   CodeEditorLinks = goog.module.get('org.patternfly.component.code.CodeEditorLinks$impl');
   CodeEditorTab = goog.module.get('org.patternfly.component.code.CodeEditorTab$impl');
+  CodeEditorTabIcon = goog.module.get('org.patternfly.component.code.CodeEditorTabIcon$impl');
+  CodeEditorTabText = goog.module.get('org.patternfly.component.code.CodeEditorTabText$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

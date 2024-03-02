@@ -10,6 +10,8 @@ let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Card = goog.forwardDeclare('org.patternfly.component.card.Card$impl');
 let CardSelectableActions = goog.forwardDeclare('org.patternfly.component.card.CardSelectableActions$impl');
+let Checkbox = goog.forwardDeclare('org.patternfly.component.form.Checkbox$impl');
+let Dropdown = goog.forwardDeclare('org.patternfly.component.menu.Dropdown$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
 let Modifiers = goog.forwardDeclare('org.patternfly.style.Modifiers$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
@@ -42,6 +44,18 @@ class CardActions extends CardSubComponent {
  /** @nodts */
  $ctor__org_patternfly_component_card_CardActions__void() {
   this.$ctor__org_patternfly_component_card_CardSubComponent__java_lang_String__elemental2_dom_HTMLElement__void(CardActions.f_SUB_COMPONENT_NAME__org_patternfly_component_card_CardActions, /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_card__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_actions__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+ }
+ /** @nodts @return {CardActions} */
+ m_addDropdown__org_patternfly_component_menu_Dropdown__org_patternfly_component_card_CardActions(/** Dropdown */ dropdown) {
+  return /**@type {CardActions}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(dropdown), CardActions));
+ }
+ /** @nodts @return {CardActions} */
+ m_addCheckbox__org_patternfly_component_form_Checkbox__org_patternfly_component_card_CardActions(/** Checkbox */ checkbox) {
+  return this.m_add__org_patternfly_component_form_Checkbox__org_patternfly_component_card_CardActions(checkbox);
+ }
+ /** @nodts @return {CardActions} */
+ m_add__org_patternfly_component_form_Checkbox__org_patternfly_component_card_CardActions(/** Checkbox */ checkbox) {
+  return /**@type {CardActions}*/ ($Casts.$to(this.m_add__elemental2_dom_Node__org_jboss_elemento_TypedBuilder(checkbox.m_standalone__org_patternfly_component_form_Checkbox().m_element__elemental2_dom_HTMLElement()), CardActions));
  }
  /** @nodts @return {CardActions} */
  m_addSelectableActions__org_patternfly_component_card_CardSelectableActions__org_patternfly_component_card_CardActions(/** CardSelectableActions */ selectableActions) {

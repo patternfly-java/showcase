@@ -16,12 +16,15 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.By;
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.inputgroup.InputGroup;
+import org.patternfly.component.inputgroup.InputGroupItem;
+import org.patternfly.component.inputgroup.InputGroupText;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.form.TextArea.textArea;
 import static org.patternfly.component.form.TextAreaResize.both;
@@ -37,21 +40,21 @@ import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.component.menu.MenuToggle.menuToggle;
 import static org.patternfly.component.popover.Popover.popover;
 import static org.patternfly.core.ValidationStatus.error;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.fas;
 import static org.patternfly.style.PredefinedIcon.questionCircle;
 import static org.patternfly.thirdparty.popper.Placement.top;
 
+@Route(value = "/components/input-group", title = "Input group")
 public class InputGroupComponent extends SnippetPage {
 
     public InputGroupComponent() {
-        super("Input group",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/inputgroup/InputGroup.html",
-                "https://www.patternfly.org/components/input-group/design-guidelines",
-                p().textContent(
-                                "An input group groups multiple related controls or inputs together so they appear as one control.")
-                        .element());
+        super(components.get("input-group"));
 
+        startExamples();
         addSnippet(new Snippet("input-group-basic", "Basic",
                 code.get("input-group-basic"), () ->
                 // @code-start:input-group-basic
@@ -169,5 +172,10 @@ public class InputGroupComponent extends SnippetPage {
                         .element()
                 // @code-end:input-group-multiple-siblings
         ));
+
+        startApiDocs(InputGroup.class);
+        addApiDoc(InputGroup.class, component);
+        addApiDoc(InputGroupItem.class, subcomponent);
+        addApiDoc(InputGroupText.class, subcomponent);
     }
 }

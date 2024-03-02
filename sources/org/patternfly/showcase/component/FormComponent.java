@@ -15,6 +15,19 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.form.Form;
+import org.patternfly.component.form.FormActionGroup;
+import org.patternfly.component.form.FormAlert;
+import org.patternfly.component.form.FormControl;
+import org.patternfly.component.form.FormFieldGroup;
+import org.patternfly.component.form.FormFieldGroupBody;
+import org.patternfly.component.form.FormFieldGroupHeader;
+import org.patternfly.component.form.FormGroup;
+import org.patternfly.component.form.FormGroupControl;
+import org.patternfly.component.form.FormGroupLabel;
+import org.patternfly.component.form.FormGroupRole;
+import org.patternfly.component.form.FormSection;
 import org.patternfly.component.form.FormSelectOption;
 import org.patternfly.component.popover.Popover;
 import org.patternfly.showcase.Snippet;
@@ -24,7 +37,6 @@ import static java.util.Arrays.asList;
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.h;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.alert.Alert.alert;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.form.Checkbox.checkbox;
@@ -56,188 +68,189 @@ import static org.patternfly.core.Severity.danger;
 import static org.patternfly.core.ValidationStatus.error;
 import static org.patternfly.layout.grid.Grid.grid;
 import static org.patternfly.layout.grid.GridItem.gridItem;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.PredefinedIcon.trash;
 
+@Route(value = "/components/forms/form", title = "Form")
 public class FormComponent extends SnippetPage {
 
     public FormComponent() {
-        super("Form",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/Form.html",
-                "https://www.patternfly.org/components/forms/form/design-guidelines",
-                p().textContent(
-                        "A form is a group of elements used to collect information from a user in a variety of contexts including in a modal, in a wizard, or on a page. Use cases for forms include tasks reliant on user-inputted information for completion like logging in, registering, configuring settings, or completing surveys.")
-                        .element());
+        super(components.get("form"));
 
+        startExamples();
         addSnippet(new Snippet("form-basic", "Basic",
                 code.get("form-basic"), () -> {
-                    // @code-start:form-basic
-                    Popover nameInfo = popover()
-                            .addHeader(popoverHeader()
-                                    .add(div()
-                                            .add("The ")
-                                            .add(a("https://schema.org/name", "_blank").textContent("name"))
-                                            .add(" of a ")
-                                            .add(a("https://schema.org/Person", "_blank").textContent("person"))))
-                            .addBody(popoverBody()
-                                    .add(div()
-                                            .add("Often composed of ")
-                                            .add(a("https://schema.org/givenName", "_blank").textContent("givenName"))
-                                            .add(" and ")
-                                            .add(a("https://schema.org/familyName", "_blank").textContent("familyName"))
-                                            .add(".")));
-                    return div()
-                            .add(form()
-                                    .addGroup(formGroup().fieldId("form-basic-name").required()
-                                            .addLabel(formGroupLabel("Full name")
-                                                    .help("More info for name field", nameInfo))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput("form-basic-name"))
-                                                    .addHelperText(helperText("Include your middle name if you have one."))))
-                                    .addGroup(formGroup().fieldId("form-basic-email").required()
-                                            .addLabel(formGroupLabel("Email"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput(email, "form-basic-email"))))
-                                    .addGroup(formGroup().fieldId("form-basic-phone").required()
-                                            .addLabel(formGroupLabel("Phone number"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput(tel, "form-basic-phone")
-                                                            .placeholder("555-555-555"))))
-                                    .addGroup(formGroup().fieldId("form-basic-ct").role(group)
-                                            .addLabel(formGroupLabel("How can we contact you?"))
-                                            .addControl(formGroupControl().inline()
-                                                    .addCheckbox(checkbox("form-basic-ct-0", "form-basic-ct", "Email"))
-                                                    .addCheckbox(checkbox("form-basic-ct-1", "form-basic-ct", "Phone"))
-                                                    .addCheckbox(checkbox("form-basic-ct-2", "form-basic-ct", "Mail"))))
-                                    .addGroup(formGroup().fieldId("form-basic-tz").role(radiogroup)
-                                            .addLabel(formGroupLabel("Timezone"))
-                                            .addControl(formGroupControl().inline()
-                                                    .addRadio(radio("form-basic-tz-0", "form-basic-tz", "Eastern"))
-                                                    .addRadio(radio("form-basic-tz-1", "form-basic-tz", "Central"))
-                                                    .addRadio(radio("form-basic-tz-2", "form-basic-tz", "Pacific"))))
-                                    .addGroup(formGroup().fieldId("form-basic-additional")
-                                            .addLabel(formGroupLabel("Additional note"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput("form-basic-additional").disabled())))
-                                    .addGroup(formGroup().fieldId("form-basic-updates")
-                                            .addControl(formGroupControl()
-                                                    .addCheckbox(checkbox("form-basic-updates", "form-basic-updates",
-                                                            "I'd like updates via email."))))
-                                    .addActionGroup(formActionGroup()
-                                            .addButton(button("Submit").primary())
-                                            .addButton(button("Cancel").link())))
-                            .element();
-                    // @code-end:form-basic
-                }));
+            // @code-start:form-basic
+            Popover nameInfo = popover()
+                    .addHeader(popoverHeader()
+                            .add(div()
+                                    .add("The ")
+                                    .add(a("https://schema.org/name", "_blank").textContent("name"))
+                                    .add(" of a ")
+                                    .add(a("https://schema.org/Person", "_blank").textContent("person"))))
+                    .addBody(popoverBody()
+                            .add(div()
+                                    .add("Often composed of ")
+                                    .add(a("https://schema.org/givenName", "_blank").textContent("givenName"))
+                                    .add(" and ")
+                                    .add(a("https://schema.org/familyName", "_blank").textContent("familyName"))
+                                    .add(".")));
+            return div()
+                    .add(form()
+                            .addGroup(formGroup().fieldId("form-basic-name").required()
+                                    .addLabel(formGroupLabel("Full name")
+                                            .help("More info for name field", nameInfo))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput("form-basic-name"))
+                                            .addHelperText(helperText("Include your middle name if you have one."))))
+                            .addGroup(formGroup().fieldId("form-basic-email").required()
+                                    .addLabel(formGroupLabel("Email"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput(email, "form-basic-email"))))
+                            .addGroup(formGroup().fieldId("form-basic-phone").required()
+                                    .addLabel(formGroupLabel("Phone number"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput(tel, "form-basic-phone")
+                                                    .placeholder("555-555-555"))))
+                            .addGroup(formGroup().fieldId("form-basic-ct").role(group)
+                                    .addLabel(formGroupLabel("How can we contact you?"))
+                                    .addControl(formGroupControl().inline()
+                                            .addCheckbox(checkbox("form-basic-ct-0", "form-basic-ct", "Email"))
+                                            .addCheckbox(checkbox("form-basic-ct-1", "form-basic-ct", "Phone"))
+                                            .addCheckbox(checkbox("form-basic-ct-2", "form-basic-ct", "Mail"))))
+                            .addGroup(formGroup().fieldId("form-basic-tz").role(radiogroup)
+                                    .addLabel(formGroupLabel("Timezone"))
+                                    .addControl(formGroupControl().inline()
+                                            .addRadio(radio("form-basic-tz-0", "form-basic-tz", "Eastern"))
+                                            .addRadio(radio("form-basic-tz-1", "form-basic-tz", "Central"))
+                                            .addRadio(radio("form-basic-tz-2", "form-basic-tz", "Pacific"))))
+                            .addGroup(formGroup().fieldId("form-basic-additional")
+                                    .addLabel(formGroupLabel("Additional note"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput("form-basic-additional").disabled())))
+                            .addGroup(formGroup().fieldId("form-basic-updates")
+                                    .addControl(formGroupControl()
+                                            .addCheckbox(checkbox("form-basic-updates", "form-basic-updates",
+                                                    "I'd like updates via email."))))
+                            .addActionGroup(formActionGroup()
+                                    .addButton(button("Submit").primary())
+                                    .addButton(button("Cancel").link())))
+                    .element();
+            // @code-end:form-basic
+        }));
 
         addSnippet(new Snippet("form-horizontal", "Horizontal",
                 code.get("form-horizontal"), () -> {
-                    // @code-start:form-horizontal
-                    String[] values = { "Mr", "Miss", "Mrs", "Ms", "Dr", "Other" };
+            // @code-start:form-horizontal
+            String[] values = {"Mr", "Miss", "Mrs", "Ms", "Dr", "Other"};
 
-                    return div()
-                            .add(form().horizontal()
-                                    .addGroup(formGroup().fieldId("form-hz-name").required()
-                                            .addLabel(formGroupLabel("Full name"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput("form-hz-name"))
-                                                    .addHelperText(helperText("Include your middle name if you have one."))))
-                                    .addGroup(formGroup().fieldId("form-hz-email").required()
-                                            .addLabel(formGroupLabel("Email"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput(email, "form-hz-email"))))
-                                    .addGroup(formGroup().fieldId("form-hz-title").required()
-                                            .addLabel(formGroupLabel("Your title"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(formSelect("form-hz-title")
-                                                            .addOption(formSelectOption("Select one").placeholder())
-                                                            .addOptions(asList(values), FormSelectOption::formSelectOption))))
-                                    .addGroup(formGroup().fieldId("form-hz-exp").required()
-                                            .addLabel(formGroupLabel("Your experience"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textArea("form-hz-exp").resize(both))))
-                                    .addGroup(formGroup().fieldId("form-hz-ct").role(group)
-                                            .addLabel(formGroupLabel("How can we contact you?"))
-                                            .addControl(formGroupControl().stack()
-                                                    .addCheckbox(checkbox("form-hz-ct-0", "form-hz-ct", "Email"))
-                                                    .addCheckbox(checkbox("form-hz-ct-1", "form-hz-ct", "Phone"))
-                                                    .addCheckbox(checkbox("form-hz-ct-2", "form-hz-ct", "Mail"))))
-                                    .addGroup(formGroup().fieldId("form-hz-tz").role(radiogroup)
-                                            .addLabel(formGroupLabel("Timezone"))
-                                            .addControl(formGroupControl().stack()
-                                                    .addRadio(radio("form-hz-tz-0", "form-hz-tz", "Eastern"))
-                                                    .addRadio(radio("form-hz-tz-1", "form-hz-tz", "Central"))
-                                                    .addRadio(radio("form-hz-tz-2", "form-hz-tz", "Pacific"))))
-                                    .addActionGroup(formActionGroup()
-                                            .addButton(button("Submit").primary())
-                                            .addButton(button("Cancel").link())))
-                            .element();
-                    // @code-end:form-horizontal
-                }));
+            return div()
+                    .add(form().horizontal()
+                            .addGroup(formGroup().fieldId("form-hz-name").required()
+                                    .addLabel(formGroupLabel("Full name"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput("form-hz-name"))
+                                            .addHelperText(helperText("Include your middle name if you have one."))))
+                            .addGroup(formGroup().fieldId("form-hz-email").required()
+                                    .addLabel(formGroupLabel("Email"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput(email, "form-hz-email"))))
+                            .addGroup(formGroup().fieldId("form-hz-title").required()
+                                    .addLabel(formGroupLabel("Your title"))
+                                    .addControl(formGroupControl()
+                                            .addControl(formSelect("form-hz-title")
+                                                    .addOption(formSelectOption("Select one").placeholder())
+                                                    .addOptions(asList(values), FormSelectOption::formSelectOption))))
+                            .addGroup(formGroup().fieldId("form-hz-exp").required()
+                                    .addLabel(formGroupLabel("Your experience"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textArea("form-hz-exp").resize(both))))
+                            .addGroup(formGroup().fieldId("form-hz-ct").role(group)
+                                    .addLabel(formGroupLabel("How can we contact you?"))
+                                    .addControl(formGroupControl().stack()
+                                            .addCheckbox(checkbox("form-hz-ct-0", "form-hz-ct", "Email"))
+                                            .addCheckbox(checkbox("form-hz-ct-1", "form-hz-ct", "Phone"))
+                                            .addCheckbox(checkbox("form-hz-ct-2", "form-hz-ct", "Mail"))))
+                            .addGroup(formGroup().fieldId("form-hz-tz").role(radiogroup)
+                                    .addLabel(formGroupLabel("Timezone"))
+                                    .addControl(formGroupControl().stack()
+                                            .addRadio(radio("form-hz-tz-0", "form-hz-tz", "Eastern"))
+                                            .addRadio(radio("form-hz-tz-1", "form-hz-tz", "Central"))
+                                            .addRadio(radio("form-hz-tz-2", "form-hz-tz", "Pacific"))))
+                            .addActionGroup(formActionGroup()
+                                    .addButton(button("Submit").primary())
+                                    .addButton(button("Cancel").link())))
+                    .element();
+            // @code-end:form-horizontal
+        }));
 
         addSnippet(new Snippet("form-lw", "Limit width",
                 code.get("form-lw"), () -> {
-                    // @code-start:form-lw
-                    Popover nameInfo = popover()
-                            .addHeader(popoverHeader()
-                                    .add(div()
-                                            .add("The ")
-                                            .add(a("https://schema.org/name", "_blank").textContent("name"))
-                                            .add(" of a ")
-                                            .add(a("https://schema.org/Person", "_blank").textContent("person"))))
-                            .addBody(popoverBody()
-                                    .add(div()
-                                            .add("Often composed of ")
-                                            .add(a("https://schema.org/givenName", "_blank").textContent("givenName"))
-                                            .add(" and ")
-                                            .add(a("https://schema.org/familyName", "_blank").textContent("familyName"))
-                                            .add(".")));
-                    return div()
-                            .add(form().limitWidth()
-                                    .addGroup(formGroup().fieldId("form-lw-name").required()
-                                            .addLabel(formGroupLabel("Full name")
-                                                    .help("More info for name field", nameInfo))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput("form-lw-name"))
-                                                    .addHelperText(helperText("Include your middle name if you have one."))))
-                                    .addGroup(formGroup().fieldId("form-lw-email").required()
-                                            .addLabel(formGroupLabel("Email"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput(email, "form-lw-email"))))
-                                    .addGroup(formGroup().fieldId("form-lw-phone").required()
-                                            .addLabel(formGroupLabel("Phone number"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput(tel, "form-lw-phone")
-                                                            .placeholder("555-555-555"))))
-                                    .addGroup(formGroup().fieldId("form-lw-ct").role(group)
-                                            .addLabel(formGroupLabel("How can we contact you?"))
-                                            .addControl(formGroupControl().inline()
-                                                    .addCheckbox(checkbox("form-lw-ct-0", "form-lw-ct", "Email"))
-                                                    .addCheckbox(checkbox("form-lw-ct-1", "form-lw-ct", "Phone"))
-                                                    .addCheckbox(checkbox("form-lw-ct-2", "form-lw-ct", "Mail"))))
-                                    .addGroup(formGroup().fieldId("form-lw-tz").role(radiogroup)
-                                            .addLabel(formGroupLabel("Timezone"))
-                                            .addControl(formGroupControl().inline()
-                                                    .addRadio(radio("form-lw-tz-0", "form-lw-tz", "Eastern"))
-                                                    .addRadio(radio("form-lw-tz-1", "form-lw-tz", "Central"))
-                                                    .addRadio(radio("form-lw-tz-2", "form-lw-tz", "Pacific"))))
-                                    .addGroup(formGroup().fieldId("form-lw-additional")
-                                            .addLabel(formGroupLabel("Additional note"))
-                                            .addControl(formGroupControl()
-                                                    .addControl(textInput("form-lw-additional").disabled())))
-                                    .addGroup(formGroup().fieldId("form-lw-updates")
-                                            .addControl(formGroupControl()
-                                                    .addCheckbox(checkbox("form-lw-updates", "form-lw-updates",
-                                                            "I'd like updates via email."))))
-                                    .addActionGroup(formActionGroup()
-                                            .addButton(button("Submit").primary())
-                                            .addButton(button("Cancel")
-                                                    .link())))
-                            .element();
-                    // @code-end:form-lw
-                }));
+            // @code-start:form-lw
+            Popover nameInfo = popover()
+                    .addHeader(popoverHeader()
+                            .add(div()
+                                    .add("The ")
+                                    .add(a("https://schema.org/name", "_blank").textContent("name"))
+                                    .add(" of a ")
+                                    .add(a("https://schema.org/Person", "_blank").textContent("person"))))
+                    .addBody(popoverBody()
+                            .add(div()
+                                    .add("Often composed of ")
+                                    .add(a("https://schema.org/givenName", "_blank").textContent("givenName"))
+                                    .add(" and ")
+                                    .add(a("https://schema.org/familyName", "_blank").textContent("familyName"))
+                                    .add(".")));
+            return div()
+                    .add(form().limitWidth()
+                            .addGroup(formGroup().fieldId("form-lw-name").required()
+                                    .addLabel(formGroupLabel("Full name")
+                                            .help("More info for name field", nameInfo))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput("form-lw-name"))
+                                            .addHelperText(helperText("Include your middle name if you have one."))))
+                            .addGroup(formGroup().fieldId("form-lw-email").required()
+                                    .addLabel(formGroupLabel("Email"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput(email, "form-lw-email"))))
+                            .addGroup(formGroup().fieldId("form-lw-phone").required()
+                                    .addLabel(formGroupLabel("Phone number"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput(tel, "form-lw-phone")
+                                                    .placeholder("555-555-555"))))
+                            .addGroup(formGroup().fieldId("form-lw-ct").role(group)
+                                    .addLabel(formGroupLabel("How can we contact you?"))
+                                    .addControl(formGroupControl().inline()
+                                            .addCheckbox(checkbox("form-lw-ct-0", "form-lw-ct", "Email"))
+                                            .addCheckbox(checkbox("form-lw-ct-1", "form-lw-ct", "Phone"))
+                                            .addCheckbox(checkbox("form-lw-ct-2", "form-lw-ct", "Mail"))))
+                            .addGroup(formGroup().fieldId("form-lw-tz").role(radiogroup)
+                                    .addLabel(formGroupLabel("Timezone"))
+                                    .addControl(formGroupControl().inline()
+                                            .addRadio(radio("form-lw-tz-0", "form-lw-tz", "Eastern"))
+                                            .addRadio(radio("form-lw-tz-1", "form-lw-tz", "Central"))
+                                            .addRadio(radio("form-lw-tz-2", "form-lw-tz", "Pacific"))))
+                            .addGroup(formGroup().fieldId("form-lw-additional")
+                                    .addLabel(formGroupLabel("Additional note"))
+                                    .addControl(formGroupControl()
+                                            .addControl(textInput("form-lw-additional").disabled())))
+                            .addGroup(formGroup().fieldId("form-lw-updates")
+                                    .addControl(formGroupControl()
+                                            .addCheckbox(checkbox("form-lw-updates", "form-lw-updates",
+                                                    "I'd like updates via email."))))
+                            .addActionGroup(formActionGroup()
+                                    .addButton(button("Submit").primary())
+                                    .addButton(button("Cancel")
+                                            .link())))
+                    .element();
+            // @code-end:form-lw
+        }));
 
         addSnippet(new Snippet("form-invalid", "Invalid",
                 code.get("form-invalid"), () ->
@@ -251,7 +264,7 @@ public class FormComponent extends SnippetPage {
                                                         .validated(error))
                                                 .addHelperText(helperText("Must be a number", error)))))
                         .element()
-        // @code-end:form-invalid
+                // @code-end:form-invalid
         ));
 
         addSnippet(new Snippet("form-invalid-alert", "Invalid with form alert",
@@ -270,7 +283,7 @@ public class FormComponent extends SnippetPage {
                                                         .validated(error))
                                                 .addHelperText(helperText("Must be a number", error)))))
                         .element()
-        // @code-end:form-invalid-alert
+                // @code-end:form-invalid-alert
         ));
 
         addSnippet(new Snippet("form-hzs-npt", "Horizontal stacked no padding top",
@@ -287,7 +300,7 @@ public class FormComponent extends SnippetPage {
                                                         checkbox("form-hzs-npt-options-1", "form-hzs-npt-options",
                                                                 "Option 2")))))
                         .element()
-        // @code-end:form-hzs-npt
+                // @code-end:form-hzs-npt
         ));
 
         addSnippet(new Snippet("form-hzs-hot", "Horizontal stacked helper text on top",
@@ -305,7 +318,7 @@ public class FormComponent extends SnippetPage {
                                                         checkbox("form-hzs-hot-options-1", "form-hzs-hot-options",
                                                                 "Option 2")))))
                         .element()
-        // @code-end:form-hzs-hot
+                // @code-end:form-hzs-hot
         ));
 
         addSnippet(new Snippet("form-section", "Form sections",
@@ -324,7 +337,7 @@ public class FormComponent extends SnippetPage {
                                                 .addControl(formGroupControl()
                                                         .addControl(textInput("form-section-2-input"))))))
                         .element()
-        // @code-end:form-section
+                // @code-end:form-section
         ));
 
         addSnippet(new Snippet("form-grid", "Form grid",
@@ -350,7 +363,7 @@ public class FormComponent extends SnippetPage {
                                                         .addControl(textInput(tel, "form-grid-phone")
                                                                 .placeholder("555-555-555"))))))
                         .element()
-        // @code-end:form-grid
+                // @code-end:form-grid
         ));
 
         addSnippet(new Snippet("form-field-group", "Field groups",
@@ -481,7 +494,21 @@ public class FormComponent extends SnippetPage {
                                         .addControl(formGroupControl()
                                                 .addControl(textInput("fg13-label0")))))
                         .element()
-        // @code-end:form-field-group
+                // @code-end:form-field-group
         ));
+
+        startApiDocs(Form.class);
+        addApiDoc(Form.class, component);
+        addApiDoc(FormActionGroup.class, subcomponent);
+        addApiDoc(FormAlert.class, subcomponent);
+        addApiDoc(FormControl.class, subcomponent);
+        addApiDoc(FormFieldGroup.class, subcomponent);
+        addApiDoc(FormFieldGroupBody.class, subcomponent);
+        addApiDoc(FormFieldGroupHeader.class, subcomponent);
+        addApiDoc(FormGroup.class, subcomponent);
+        addApiDoc(FormGroupControl.class, subcomponent);
+        addApiDoc(FormGroupLabel.class, subcomponent);
+        addApiDoc(FormGroupRole.class, other);
+        addApiDoc(FormSection.class, subcomponent);
     }
 }

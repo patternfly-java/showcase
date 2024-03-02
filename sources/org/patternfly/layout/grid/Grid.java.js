@@ -2,6 +2,7 @@ goog.module('org.patternfly.layout.grid.Grid');
 
 goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('java.lang.Integer');
+goog.require('java.lang.Iterable');
 goog.require('java.lang.String');
 goog.require('java.lang.StringBuilder');
 goog.require('java.util.function.Function');

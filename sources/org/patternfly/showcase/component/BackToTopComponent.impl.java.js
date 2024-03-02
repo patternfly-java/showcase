@@ -4,13 +4,17 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let BackToTop = goog.forwardDeclare('org.patternfly.component.backtotop.BackToTop$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 class BackToTopComponent extends SnippetPage {
@@ -27,10 +31,13 @@ class BackToTopComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_BackToTopComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Back to top', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/backtotop/BackToTop.html', 'https://www.patternfly.org/components/back-to-top/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('The back to top component is a shortcut that allows users to quickly navigate to the top of a lengthy content page.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'back-to-top'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('btt-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('btt-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_id__java_lang_String__org_jboss_elemento_TypedBuilder('ws-core-c-back-to-top-basic'), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(BackToTop.m_backToTop__org_patternfly_component_backtotop_BackToTop().m_alwaysVisible__org_patternfly_component_backtotop_BackToTop()), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(BackToTop));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(BackToTop), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -46,13 +53,17 @@ class BackToTopComponent extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   BackToTop = goog.module.get('org.patternfly.component.backtotop.BackToTop$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }

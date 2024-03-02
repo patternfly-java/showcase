@@ -136,7 +136,7 @@ class BaseComponentFlat extends j_l_Object {
   return HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0);
  }
  //Default method forwarding stub.
- /** @override @nodts @return {B} */
+ /** @override @nodts @return {B} @deprecated */
  m_id__org_jboss_elemento_TypedBuilder() {
   return HasElement.m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this);
  }
@@ -154,6 +154,11 @@ class BaseComponentFlat extends j_l_Object {
  /** @override @nodts @template V @return {B} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(/** EventType<V, ?> */ arg0, /** ?function(V):void */ arg1) {
   return HasElement.m_on__$default__org_jboss_elemento_HasElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(this, arg0, arg1);
+ }
+ //Default method forwarding stub.
+ /** @override @nodts @return {B} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<B> */ arg0) {
+  return HasElement.m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0);
  }
  //Default method forwarding stub.
  /** @override @nodts @return {B} */
@@ -179,6 +184,11 @@ class BaseComponentFlat extends j_l_Object {
  /** @override @nodts @return {B} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** Supplier<?boolean> */ arg1) {
   return HasElement.m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0, arg1);
+ }
+ //Default method forwarding stub.
+ /** @override @nodts @return {B} */
+ m_uniqueId__org_jboss_elemento_TypedBuilder() {
+  return HasElement.m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this);
  }
  //Default method forwarding stub.
  /** @override @nodts @return {B} */

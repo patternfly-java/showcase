@@ -4,9 +4,10 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Avatar = goog.forwardDeclare('org.patternfly.component.avatar.Avatar$impl');
@@ -15,7 +16,10 @@ let MenuToggle = goog.forwardDeclare('org.patternfly.component.menu.MenuToggle$i
 let MenuToggleAction = goog.forwardDeclare('org.patternfly.component.menu.MenuToggleAction$impl');
 let MenuToggleCheckbox = goog.forwardDeclare('org.patternfly.component.menu.MenuToggleCheckbox$impl');
 let MenuToggleType = goog.forwardDeclare('org.patternfly.component.menu.MenuToggleType$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -33,7 +37,8 @@ class MenuToggleComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_MenuToggleComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Menu toggle', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/menu/MenuToggle.html', 'https://www.patternfly.org/components/menus/menu-toggle/html/', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('The menu toggle component pairs with the menu OR the panel component to create more customizable dropdown and select implementations. Using a menu toggle with a menu enables you to create custom component configurations not supported by the standard dropdown or select components.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'menu-toggle'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('menu-toggle-basic', 'Basic toggle', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('menu-toggle-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(MenuToggle.m_menuToggle__java_lang_String__org_patternfly_component_menu_MenuToggle('Toggle')), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(' '), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(MenuToggle.m_menuToggle__java_lang_String__org_patternfly_component_menu_MenuToggle('Toggle').m_primary__org_patternfly_component_menu_MenuToggle()), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(' '), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {MenuToggle}*/ ($Casts.$to(MenuToggle.m_menuToggle__java_lang_String__org_patternfly_component_menu_MenuToggle('Toggle').m_secondary__org_jboss_elemento_TypedBuilder(), MenuToggle))), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(' '), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {MenuToggle}*/ ($Casts.$to(MenuToggle.m_menuToggle__java_lang_String__org_patternfly_component_menu_MenuToggle('Toggle').m_disabled__org_jboss_elemento_TypedBuilder(), MenuToggle))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
@@ -61,6 +66,10 @@ class MenuToggleComponent extends SnippetPage {
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('menu-toggle-split-action', 'Split button toggle with action', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('menu-toggle-split-action'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(MenuToggle.m_menuToggle__org_patternfly_component_menu_MenuToggleType__org_patternfly_component_menu_MenuToggle(MenuToggleType.f_split__org_patternfly_component_menu_MenuToggleType).m_addAction__org_patternfly_component_menu_MenuToggleAction__org_patternfly_component_menu_MenuToggle(MenuToggleAction.m_menuToggleAction__java_lang_String__org_patternfly_component_menu_MenuToggleAction('Action'))), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(' '), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(MenuToggle.m_menuToggle__org_patternfly_component_menu_MenuToggleType__org_patternfly_component_menu_MenuToggle(MenuToggleType.f_split__org_patternfly_component_menu_MenuToggleType).m_primary__org_patternfly_component_menu_MenuToggle().m_addAction__org_patternfly_component_menu_MenuToggleAction__org_patternfly_component_menu_MenuToggle(MenuToggleAction.m_menuToggleAction__java_lang_String__org_patternfly_component_menu_MenuToggleAction('Action'))), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(' '), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {MenuToggle}*/ ($Casts.$to(MenuToggle.m_menuToggle__org_patternfly_component_menu_MenuToggleType__org_patternfly_component_menu_MenuToggle(MenuToggleType.f_split__org_patternfly_component_menu_MenuToggleType).m_secondary__org_jboss_elemento_TypedBuilder(), MenuToggle)).m_addAction__org_patternfly_component_menu_MenuToggleAction__org_patternfly_component_menu_MenuToggle(MenuToggleAction.m_menuToggleAction__java_lang_String__org_patternfly_component_menu_MenuToggleAction('Action'))), HTMLContainerBuilder)).m_add__java_lang_String__org_jboss_elemento_TypedBuilder(' '), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {MenuToggle}*/ ($Casts.$to(MenuToggle.m_menuToggle__org_patternfly_component_menu_MenuToggleType__org_patternfly_component_menu_MenuToggle(MenuToggleType.f_split__org_patternfly_component_menu_MenuToggleType).m_disabled__org_jboss_elemento_TypedBuilder(), MenuToggle)).m_addAction__org_patternfly_component_menu_MenuToggleAction__org_patternfly_component_menu_MenuToggle(MenuToggleAction.m_menuToggleAction__java_lang_String__org_patternfly_component_menu_MenuToggleAction('Action'))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(MenuToggle));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(MenuToggle), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(MenuToggleAction), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(MenuToggleCheckbox), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -76,9 +85,10 @@ class MenuToggleComponent extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Avatar = goog.module.get('org.patternfly.component.avatar.Avatar$impl');
@@ -87,7 +97,10 @@ class MenuToggleComponent extends SnippetPage {
   MenuToggleAction = goog.module.get('org.patternfly.component.menu.MenuToggleAction$impl');
   MenuToggleCheckbox = goog.module.get('org.patternfly.component.menu.MenuToggleCheckbox$impl');
   MenuToggleType = goog.module.get('org.patternfly.component.menu.MenuToggleType$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

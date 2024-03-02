@@ -58,7 +58,7 @@ class PredefinedIcon extends Enum {
  /** @nodts @return {!Array<!PredefinedIcon>} */
  static m_values__arrayOf_org_patternfly_style_PredefinedIcon() {
   PredefinedIcon.$clinit();
-  return /**@type {!Array<PredefinedIcon>}*/ ($Arrays.$init([PredefinedIcon.$static_angleDoubleLeft__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleDoubleRight__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleLeft__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleRight__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleUp__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_arrowLeft__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_arrowRight__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_arrowsAltV__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bars__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bell__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_book__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bookOpen__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_box__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bullhorn__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_caretDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_check__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_checkCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_code__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_cog__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_copy__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_cube__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_cubes__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_database__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_desktop__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_download__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_ellipsisV__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_exclamationCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_exclamationTriangle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_externalLinkAlt__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_externalLinkSquareAlt__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_filter__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_flag__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_globe__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_help__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_infoCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_key__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_laptop__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_lock__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_lockOpen__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_longArrowAltDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_longArrowAltUp__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_minus__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_play__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_plus__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_plusCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_questionCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_search__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_server__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_sortAmountDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_star__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_users__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_times__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_timesCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_trash__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_undo__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_upload__org_patternfly_style_PredefinedIcon], PredefinedIcon));
+  return /**@type {!Array<PredefinedIcon>}*/ ($Arrays.$init([PredefinedIcon.$static_angleDoubleLeft__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleDoubleRight__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleLeft__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleRight__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_angleUp__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_arrowLeft__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_arrowRight__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_arrowsAltV__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bars__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bell__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_book__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bookOpen__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_box__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_bullhorn__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_caretDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_check__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_checkCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_code__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_cog__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_copy__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_cube__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_cubes__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_database__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_desktop__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_download__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_ellipsisV__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_exclamationCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_exclamationTriangle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_externalLinkAlt__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_externalLinkSquareAlt__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_filter__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_flag__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_globe__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_help__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_infoCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_key__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_laptop__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_link__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_lock__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_lockOpen__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_longArrowAltDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_longArrowAltUp__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_minus__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_play__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_plus__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_plusCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_questionCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_search__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_server__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_shareSquare__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_sortAmountDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_star__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_user__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_users__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_times__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_timesCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_trash__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_undo__org_patternfly_style_PredefinedIcon, PredefinedIcon.$static_upload__org_patternfly_style_PredefinedIcon], PredefinedIcon));
  }
  /** @nodts @return {!PredefinedIcon} */
  static get f_angleDoubleLeft__org_patternfly_style_PredefinedIcon() {
@@ -213,6 +213,10 @@ class PredefinedIcon extends Enum {
   return (PredefinedIcon.$clinit(), PredefinedIcon.$static_laptop__org_patternfly_style_PredefinedIcon);
  }
  /** @nodts @return {!PredefinedIcon} */
+ static get f_link__org_patternfly_style_PredefinedIcon() {
+  return (PredefinedIcon.$clinit(), PredefinedIcon.$static_link__org_patternfly_style_PredefinedIcon);
+ }
+ /** @nodts @return {!PredefinedIcon} */
  static get f_lock__org_patternfly_style_PredefinedIcon() {
   return (PredefinedIcon.$clinit(), PredefinedIcon.$static_lock__org_patternfly_style_PredefinedIcon);
  }
@@ -257,12 +261,20 @@ class PredefinedIcon extends Enum {
   return (PredefinedIcon.$clinit(), PredefinedIcon.$static_server__org_patternfly_style_PredefinedIcon);
  }
  /** @nodts @return {!PredefinedIcon} */
+ static get f_shareSquare__org_patternfly_style_PredefinedIcon() {
+  return (PredefinedIcon.$clinit(), PredefinedIcon.$static_shareSquare__org_patternfly_style_PredefinedIcon);
+ }
+ /** @nodts @return {!PredefinedIcon} */
  static get f_sortAmountDown__org_patternfly_style_PredefinedIcon() {
   return (PredefinedIcon.$clinit(), PredefinedIcon.$static_sortAmountDown__org_patternfly_style_PredefinedIcon);
  }
  /** @nodts @return {!PredefinedIcon} */
  static get f_star__org_patternfly_style_PredefinedIcon() {
   return (PredefinedIcon.$clinit(), PredefinedIcon.$static_star__org_patternfly_style_PredefinedIcon);
+ }
+ /** @nodts @return {!PredefinedIcon} */
+ static get f_user__org_patternfly_style_PredefinedIcon() {
+  return (PredefinedIcon.$clinit(), PredefinedIcon.$static_user__org_patternfly_style_PredefinedIcon);
  }
  /** @nodts @return {!PredefinedIcon} */
  static get f_users__org_patternfly_style_PredefinedIcon() {
@@ -331,6 +343,7 @@ class PredefinedIcon extends Enum {
   PredefinedIcon.$static_infoCircle__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('infoCircle'), PredefinedIcon.$ordinal_infoCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('info-circle'));
   PredefinedIcon.$static_key__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('key'), PredefinedIcon.$ordinal_key__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('key'));
   PredefinedIcon.$static_laptop__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('laptop'), PredefinedIcon.$ordinal_laptop__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('laptop'));
+  PredefinedIcon.$static_link__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('link'), PredefinedIcon.$ordinal_link__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('link'));
   PredefinedIcon.$static_lock__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('lock'), PredefinedIcon.$ordinal_lock__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('lock'));
   PredefinedIcon.$static_lockOpen__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('lockOpen'), PredefinedIcon.$ordinal_lockOpen__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('lock-open'));
   PredefinedIcon.$static_longArrowAltDown__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('longArrowAltDown'), PredefinedIcon.$ordinal_longArrowAltDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('long-arrow-alt-down'));
@@ -342,8 +355,10 @@ class PredefinedIcon extends Enum {
   PredefinedIcon.$static_questionCircle__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('questionCircle'), PredefinedIcon.$ordinal_questionCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('question-circle'));
   PredefinedIcon.$static_search__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('search'), PredefinedIcon.$ordinal_search__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('search'));
   PredefinedIcon.$static_server__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('server'), PredefinedIcon.$ordinal_server__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('server'));
+  PredefinedIcon.$static_shareSquare__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('shareSquare'), PredefinedIcon.$ordinal_shareSquare__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('share-square'));
   PredefinedIcon.$static_sortAmountDown__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('sortAmountDown'), PredefinedIcon.$ordinal_sortAmountDown__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('sort-amount-down'));
   PredefinedIcon.$static_star__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('star'), PredefinedIcon.$ordinal_star__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('star'));
+  PredefinedIcon.$static_user__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('user'), PredefinedIcon.$ordinal_user__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('user'));
   PredefinedIcon.$static_users__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('users'), PredefinedIcon.$ordinal_users__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('users'));
   PredefinedIcon.$static_times__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('times'), PredefinedIcon.$ordinal_times__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('times'));
   PredefinedIcon.$static_timesCircle__org_patternfly_style_PredefinedIcon = PredefinedIcon.$create__java_lang_String__int__java_lang_String($Util.$makeEnumName('timesCircle'), PredefinedIcon.$ordinal_timesCircle__org_patternfly_style_PredefinedIcon, PredefinedIcon.m_fas__java_lang_String__java_lang_String('times-circle'));
@@ -441,43 +456,49 @@ PredefinedIcon.$ordinal_key__org_patternfly_style_PredefinedIcon = 36;
 /**@const {number} @nodts*/
 PredefinedIcon.$ordinal_laptop__org_patternfly_style_PredefinedIcon = 37;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_lock__org_patternfly_style_PredefinedIcon = 38;
+PredefinedIcon.$ordinal_link__org_patternfly_style_PredefinedIcon = 38;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_lockOpen__org_patternfly_style_PredefinedIcon = 39;
+PredefinedIcon.$ordinal_lock__org_patternfly_style_PredefinedIcon = 39;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_longArrowAltDown__org_patternfly_style_PredefinedIcon = 40;
+PredefinedIcon.$ordinal_lockOpen__org_patternfly_style_PredefinedIcon = 40;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_longArrowAltUp__org_patternfly_style_PredefinedIcon = 41;
+PredefinedIcon.$ordinal_longArrowAltDown__org_patternfly_style_PredefinedIcon = 41;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_minus__org_patternfly_style_PredefinedIcon = 42;
+PredefinedIcon.$ordinal_longArrowAltUp__org_patternfly_style_PredefinedIcon = 42;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_play__org_patternfly_style_PredefinedIcon = 43;
+PredefinedIcon.$ordinal_minus__org_patternfly_style_PredefinedIcon = 43;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_plus__org_patternfly_style_PredefinedIcon = 44;
+PredefinedIcon.$ordinal_play__org_patternfly_style_PredefinedIcon = 44;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_plusCircle__org_patternfly_style_PredefinedIcon = 45;
+PredefinedIcon.$ordinal_plus__org_patternfly_style_PredefinedIcon = 45;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_questionCircle__org_patternfly_style_PredefinedIcon = 46;
+PredefinedIcon.$ordinal_plusCircle__org_patternfly_style_PredefinedIcon = 46;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_search__org_patternfly_style_PredefinedIcon = 47;
+PredefinedIcon.$ordinal_questionCircle__org_patternfly_style_PredefinedIcon = 47;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_server__org_patternfly_style_PredefinedIcon = 48;
+PredefinedIcon.$ordinal_search__org_patternfly_style_PredefinedIcon = 48;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_sortAmountDown__org_patternfly_style_PredefinedIcon = 49;
+PredefinedIcon.$ordinal_server__org_patternfly_style_PredefinedIcon = 49;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_star__org_patternfly_style_PredefinedIcon = 50;
+PredefinedIcon.$ordinal_shareSquare__org_patternfly_style_PredefinedIcon = 50;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_users__org_patternfly_style_PredefinedIcon = 51;
+PredefinedIcon.$ordinal_sortAmountDown__org_patternfly_style_PredefinedIcon = 51;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_times__org_patternfly_style_PredefinedIcon = 52;
+PredefinedIcon.$ordinal_star__org_patternfly_style_PredefinedIcon = 52;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_timesCircle__org_patternfly_style_PredefinedIcon = 53;
+PredefinedIcon.$ordinal_user__org_patternfly_style_PredefinedIcon = 53;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_trash__org_patternfly_style_PredefinedIcon = 54;
+PredefinedIcon.$ordinal_users__org_patternfly_style_PredefinedIcon = 54;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_undo__org_patternfly_style_PredefinedIcon = 55;
+PredefinedIcon.$ordinal_times__org_patternfly_style_PredefinedIcon = 55;
 /**@const {number} @nodts*/
-PredefinedIcon.$ordinal_upload__org_patternfly_style_PredefinedIcon = 56;
+PredefinedIcon.$ordinal_timesCircle__org_patternfly_style_PredefinedIcon = 56;
+/**@const {number} @nodts*/
+PredefinedIcon.$ordinal_trash__org_patternfly_style_PredefinedIcon = 57;
+/**@const {number} @nodts*/
+PredefinedIcon.$ordinal_undo__org_patternfly_style_PredefinedIcon = 58;
+/**@const {number} @nodts*/
+PredefinedIcon.$ordinal_upload__org_patternfly_style_PredefinedIcon = 59;
 /**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_angleDoubleLeft__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
@@ -555,6 +576,8 @@ PredefinedIcon.$static_key__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_laptop__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
+PredefinedIcon.$static_link__org_patternfly_style_PredefinedIcon;
+/**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_lock__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_lockOpen__org_patternfly_style_PredefinedIcon;
@@ -577,9 +600,13 @@ PredefinedIcon.$static_search__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_server__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
+PredefinedIcon.$static_shareSquare__org_patternfly_style_PredefinedIcon;
+/**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_sortAmountDown__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_star__org_patternfly_style_PredefinedIcon;
+/**@private {!PredefinedIcon} @nodts*/
+PredefinedIcon.$static_user__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/
 PredefinedIcon.$static_users__org_patternfly_style_PredefinedIcon;
 /**@private {!PredefinedIcon} @nodts*/

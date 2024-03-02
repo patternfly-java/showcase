@@ -15,14 +15,17 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.title.Title;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Size._2xl;
 import static org.patternfly.style.Size._3xl;
 import static org.patternfly.style.Size._4xl;
@@ -30,16 +33,13 @@ import static org.patternfly.style.Size.lg;
 import static org.patternfly.style.Size.md;
 import static org.patternfly.style.Size.xl;
 
+@Route(value = "/components/title", title = "Title")
 public class TitleComponent extends SnippetPage {
 
     public TitleComponent() {
-        super("Title",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/title/Title.html",
-                "https://www.patternfly.org/components/title/design-guidelines",
-                p().textContent(
-                        "A title component applies top and bottom margins, font-weight, font-size, and line-height to titles. The most common usage for a title is to define headings within a page.")
-                        .element());
+        super(components.get("title"));
 
+        startExamples();
         addSnippet(new Snippet("title-default-sizes", "Default sizes",
                 code.get("title-default-sizes"), () ->
                 // @code-start:title-default-sizes
@@ -52,7 +52,7 @@ public class TitleComponent extends SnippetPage {
                                 .add(title(5, "h5 defaults to md"))
                                 .add(title(6, "h6 defaults to md")))
                         .element()
-        // @code-end:title-default-sizes
+                // @code-end:title-default-sizes
         ));
 
         addSnippet(new Snippet("title-custom-sizes", "Custom sizes",
@@ -67,7 +67,10 @@ public class TitleComponent extends SnippetPage {
                                 .add(title(5, lg, "h5 has lg"))
                                 .add(title(6, md, "h6 as md")))
                         .element()
-        // @code-end:title-custom-sizes
+                // @code-end:title-custom-sizes
         ));
+
+        startApiDocs(Title.class);
+        addApiDoc(Title.class, component);
     }
 }

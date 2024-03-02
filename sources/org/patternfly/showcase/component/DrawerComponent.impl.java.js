@@ -4,14 +4,16 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Button = goog.forwardDeclare('org.patternfly.component.button.Button$impl');
 let Drawer = goog.forwardDeclare('org.patternfly.component.drawer.Drawer$impl');
 let DrawerCloseButton = goog.forwardDeclare('org.patternfly.component.drawer.DrawerCloseButton$impl');
+let DrawerColor = goog.forwardDeclare('org.patternfly.component.drawer.DrawerColor$impl');
 let DrawerContent = goog.forwardDeclare('org.patternfly.component.drawer.DrawerContent$impl');
 let DrawerContentBody = goog.forwardDeclare('org.patternfly.component.drawer.DrawerContentBody$impl');
 let DrawerPanel = goog.forwardDeclare('org.patternfly.component.drawer.DrawerPanel$impl');
@@ -22,8 +24,11 @@ let DrawerSection = goog.forwardDeclare('org.patternfly.component.drawer.DrawerS
 let Position = goog.forwardDeclare('org.patternfly.component.drawer.Position$impl');
 let Title = goog.forwardDeclare('org.patternfly.component.title.Title$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let LoremIpsum = goog.forwardDeclare('org.patternfly.showcase.LoremIpsum$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
 let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
 let Classes = goog.forwardDeclare('org.patternfly.style.Classes$impl');
@@ -45,7 +50,8 @@ class DrawerComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_DrawerComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Drawer', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/drawer/Drawer.html', 'https://www.patternfly.org/components/drawer/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('A drawer is a sliding panel that enters from the right edge of the viewport. It can be configured to either overlay content on a page or create a sidebar by pushing that content to the left.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'drawer'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('drawer-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('drawer-basic'), j_l_String)), Supplier.$adapt(() =>{
    let drawer = Drawer.m_drawer__org_patternfly_component_drawer_Drawer();
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {Button}*/ ($Casts.$to(Button.m_button__java_lang_String__org_patternfly_component_button_Button('Toggle drawer').m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_util__java_lang_String__java_lang_String('mb-lg')], j_l_String))), Button)).m_primary__org_patternfly_component_button_Button().m_onClick__org_patternfly_handler_ComponentHandler__org_patternfly_component_button_Button(ComponentHandler.$adapt((/** Event */ event, btn) =>{
@@ -158,6 +164,18 @@ class DrawerComponent extends SnippetPage {
     drawer_15.m_toggle__void();
    }))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_style__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder('height', '400px'), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(drawer_15.m_position__org_patternfly_component_drawer_Position__org_patternfly_component_drawer_Drawer(Position.f_bottom__org_patternfly_component_drawer_Position).m_addContent__org_patternfly_component_drawer_DrawerContent__org_patternfly_component_drawer_Drawer(DrawerContent.m_drawerContent__org_patternfly_component_drawer_DrawerContent().m_addBody__org_patternfly_component_drawer_DrawerContentBody__org_patternfly_component_drawer_DrawerContent(/**@type {DrawerContentBody}*/ ($Casts.$to(DrawerContentBody.m_drawerContentBody__org_patternfly_component_drawer_DrawerContentBody().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(LoremIpsum.m_paragraphs__int__java_lang_String(20)), DrawerContentBody)))).m_addPanel__org_patternfly_component_drawer_DrawerPanel__org_patternfly_component_drawer_Drawer(DrawerPanel.m_drawerPanel__org_patternfly_component_drawer_DrawerPanel().m_resizable__org_patternfly_component_drawer_DrawerPanel().m_minSize__java_lang_String__org_patternfly_component_drawer_DrawerPanel('100px').m_defaultSize__java_lang_String__org_patternfly_component_drawer_DrawerPanel('200px').m_addHead__org_patternfly_component_drawer_DrawerPanelHead__org_patternfly_component_drawer_DrawerPanel(/**@type {DrawerPanelHead}*/ ($Casts.$to(DrawerPanelHead.m_drawerPanelHead__org_patternfly_component_drawer_DrawerPanelHead().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_span__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('drawer-panel'), HTMLContainerBuilder))), DrawerPanelHead)).m_addCloseButton__org_patternfly_component_drawer_DrawerCloseButton__org_patternfly_component_drawer_DrawerPanelHead(DrawerCloseButton.m_drawerCloseButton__org_patternfly_component_drawer_DrawerCloseButton())))), HTMLContainerBuilder))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(Drawer));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(Drawer), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerCloseButton), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerColor), Type.f_modifier__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerContent), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerContentBody), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerPanel), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerPanelBody), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerPanelHead), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerPanelWidth), Type.f_modifier__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(DrawerSection), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(Position), Type.f_modifier__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -173,14 +191,16 @@ class DrawerComponent extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Button = goog.module.get('org.patternfly.component.button.Button$impl');
   Drawer = goog.module.get('org.patternfly.component.drawer.Drawer$impl');
   DrawerCloseButton = goog.module.get('org.patternfly.component.drawer.DrawerCloseButton$impl');
+  DrawerColor = goog.module.get('org.patternfly.component.drawer.DrawerColor$impl');
   DrawerContent = goog.module.get('org.patternfly.component.drawer.DrawerContent$impl');
   DrawerContentBody = goog.module.get('org.patternfly.component.drawer.DrawerContentBody$impl');
   DrawerPanel = goog.module.get('org.patternfly.component.drawer.DrawerPanel$impl');
@@ -191,8 +211,11 @@ class DrawerComponent extends SnippetPage {
   Position = goog.module.get('org.patternfly.component.drawer.Position$impl');
   Title = goog.module.get('org.patternfly.component.title.Title$impl');
   ComponentHandler = goog.module.get('org.patternfly.handler.ComponentHandler$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   LoremIpsum = goog.module.get('org.patternfly.showcase.LoremIpsum$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   Breakpoint = goog.module.get('org.patternfly.style.Breakpoint$impl');
   Breakpoints = goog.module.get('org.patternfly.style.Breakpoints$impl');
   Classes = goog.module.get('org.patternfly.style.Classes$impl');

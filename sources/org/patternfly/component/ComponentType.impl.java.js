@@ -45,7 +45,7 @@ class ComponentType extends Enum {
  /** @nodts @return {!Array<!ComponentType>} */
  static m_values__arrayOf_org_patternfly_component_ComponentType() {
   ComponentType.$clinit();
-  return /**@type {!Array<ComponentType>}*/ ($Arrays.$init([ComponentType.f_Accordion__org_patternfly_component_ComponentType, ComponentType.f_ActionList__org_patternfly_component_ComponentType, ComponentType.f_Alert__org_patternfly_component_ComponentType, ComponentType.f_AlertGroup__org_patternfly_component_ComponentType, ComponentType.f_Avatar__org_patternfly_component_ComponentType, ComponentType.f_BackToTop__org_patternfly_component_ComponentType, ComponentType.f_Badge__org_patternfly_component_ComponentType, ComponentType.f_Banner__org_patternfly_component_ComponentType, ComponentType.f_Brand__org_patternfly_component_ComponentType, ComponentType.f_Breadcrumb__org_patternfly_component_ComponentType, ComponentType.f_Button__org_patternfly_component_ComponentType, ComponentType.f_Card__org_patternfly_component_ComponentType, ComponentType.f_CardView__org_patternfly_component_ComponentType, ComponentType.f_Checkbox__org_patternfly_component_ComponentType, ComponentType.f_Chip__org_patternfly_component_ComponentType, ComponentType.f_ChipGroup__org_patternfly_component_ComponentType, ComponentType.f_CodeBlock__org_patternfly_component_ComponentType, ComponentType.f_CodeEditor__org_patternfly_component_ComponentType, ComponentType.f_ContextSelector__org_patternfly_component_ComponentType, ComponentType.f_DataList__org_patternfly_component_ComponentType, ComponentType.f_DataTable__org_patternfly_component_ComponentType, ComponentType.f_DescriptionList__org_patternfly_component_ComponentType, ComponentType.f_Divider__org_patternfly_component_ComponentType, ComponentType.f_Drawer__org_patternfly_component_ComponentType, ComponentType.f_Dropdown__org_patternfly_component_ComponentType, ComponentType.f_EmptyState__org_patternfly_component_ComponentType, ComponentType.f_ExpandableSection__org_patternfly_component_ComponentType, ComponentType.f_Form__org_patternfly_component_ComponentType, ComponentType.f_FormSelect__org_patternfly_component_ComponentType, ComponentType.f_HelperText__org_patternfly_component_ComponentType, ComponentType.f_Hint__org_patternfly_component_ComponentType, ComponentType.f_Icon__org_patternfly_component_ComponentType, ComponentType.f_InputGroup__org_patternfly_component_ComponentType, ComponentType.f_Label__org_patternfly_component_ComponentType, ComponentType.f_LabelGroup__org_patternfly_component_ComponentType, ComponentType.f_List__org_patternfly_component_ComponentType, ComponentType.f_Masthead__org_patternfly_component_ComponentType, ComponentType.f_Menu__org_patternfly_component_ComponentType, ComponentType.f_MenuToggle__org_patternfly_component_ComponentType, ComponentType.f_Navigation__org_patternfly_component_ComponentType, ComponentType.f_NotificationBadge__org_patternfly_component_ComponentType, ComponentType.f_OptionsMenu__org_patternfly_component_ComponentType, ComponentType.f_Page__org_patternfly_component_ComponentType, ComponentType.f_Pagination__org_patternfly_component_ComponentType, ComponentType.f_Panel__org_patternfly_component_ComponentType, ComponentType.f_Popover__org_patternfly_component_ComponentType, ComponentType.f_Radio__org_patternfly_component_ComponentType, ComponentType.f_Select__org_patternfly_component_ComponentType, ComponentType.f_Sidebar__org_patternfly_component_ComponentType, ComponentType.f_SimpleList__org_patternfly_component_ComponentType, ComponentType.f_Skeleton__org_patternfly_component_ComponentType, ComponentType.f_SkipToContent__org_patternfly_component_ComponentType, ComponentType.f_Slider__org_patternfly_component_ComponentType, ComponentType.f_Spinner__org_patternfly_component_ComponentType, ComponentType.f_Switch__org_patternfly_component_ComponentType, ComponentType.f_Tabs__org_patternfly_component_ComponentType, ComponentType.f_TextContent__org_patternfly_component_ComponentType, ComponentType.f_TextInput__org_patternfly_component_ComponentType, ComponentType.f_TextInputGroup__org_patternfly_component_ComponentType, ComponentType.f_Title__org_patternfly_component_ComponentType, ComponentType.f_ToggleGroup__org_patternfly_component_ComponentType, ComponentType.f_Toolbar__org_patternfly_component_ComponentType, ComponentType.f_Tooltip__org_patternfly_component_ComponentType, ComponentType.f_TreeView__org_patternfly_component_ComponentType, ComponentType.f_Wizard__org_patternfly_component_ComponentType], ComponentType));
+  return /**@type {!Array<ComponentType>}*/ ($Arrays.$init([ComponentType.f_Accordion__org_patternfly_component_ComponentType, ComponentType.f_ActionList__org_patternfly_component_ComponentType, ComponentType.f_Alert__org_patternfly_component_ComponentType, ComponentType.f_AlertGroup__org_patternfly_component_ComponentType, ComponentType.f_Avatar__org_patternfly_component_ComponentType, ComponentType.f_BackToTop__org_patternfly_component_ComponentType, ComponentType.f_Badge__org_patternfly_component_ComponentType, ComponentType.f_Banner__org_patternfly_component_ComponentType, ComponentType.f_Brand__org_patternfly_component_ComponentType, ComponentType.f_Breadcrumb__org_patternfly_component_ComponentType, ComponentType.f_Button__org_patternfly_component_ComponentType, ComponentType.f_Card__org_patternfly_component_ComponentType, ComponentType.f_CardView__org_patternfly_component_ComponentType, ComponentType.f_Checkbox__org_patternfly_component_ComponentType, ComponentType.f_Chip__org_patternfly_component_ComponentType, ComponentType.f_ChipGroup__org_patternfly_component_ComponentType, ComponentType.f_CodeBlock__org_patternfly_component_ComponentType, ComponentType.f_CodeEditor__org_patternfly_component_ComponentType, ComponentType.f_ContextSelector__org_patternfly_component_ComponentType, ComponentType.f_DataList__org_patternfly_component_ComponentType, ComponentType.f_DataTable__org_patternfly_component_ComponentType, ComponentType.f_DescriptionList__org_patternfly_component_ComponentType, ComponentType.f_Divider__org_patternfly_component_ComponentType, ComponentType.f_Drawer__org_patternfly_component_ComponentType, ComponentType.f_Dropdown__org_patternfly_component_ComponentType, ComponentType.f_EmptyState__org_patternfly_component_ComponentType, ComponentType.f_ExpandableSection__org_patternfly_component_ComponentType, ComponentType.f_Form__org_patternfly_component_ComponentType, ComponentType.f_FormSelect__org_patternfly_component_ComponentType, ComponentType.f_HelperText__org_patternfly_component_ComponentType, ComponentType.f_Hint__org_patternfly_component_ComponentType, ComponentType.f_Icon__org_patternfly_component_ComponentType, ComponentType.f_InputGroup__org_patternfly_component_ComponentType, ComponentType.f_JumpLinks__org_patternfly_component_ComponentType, ComponentType.f_Label__org_patternfly_component_ComponentType, ComponentType.f_LabelGroup__org_patternfly_component_ComponentType, ComponentType.f_List__org_patternfly_component_ComponentType, ComponentType.f_Masthead__org_patternfly_component_ComponentType, ComponentType.f_Menu__org_patternfly_component_ComponentType, ComponentType.f_MenuToggle__org_patternfly_component_ComponentType, ComponentType.f_Navigation__org_patternfly_component_ComponentType, ComponentType.f_NotificationBadge__org_patternfly_component_ComponentType, ComponentType.f_OptionsMenu__org_patternfly_component_ComponentType, ComponentType.f_Page__org_patternfly_component_ComponentType, ComponentType.f_Pagination__org_patternfly_component_ComponentType, ComponentType.f_Panel__org_patternfly_component_ComponentType, ComponentType.f_Popover__org_patternfly_component_ComponentType, ComponentType.f_Progress__org_patternfly_component_ComponentType, ComponentType.f_Radio__org_patternfly_component_ComponentType, ComponentType.f_Select__org_patternfly_component_ComponentType, ComponentType.f_Sidebar__org_patternfly_component_ComponentType, ComponentType.f_SimpleList__org_patternfly_component_ComponentType, ComponentType.f_Skeleton__org_patternfly_component_ComponentType, ComponentType.f_SkipToContent__org_patternfly_component_ComponentType, ComponentType.f_Slider__org_patternfly_component_ComponentType, ComponentType.f_Spinner__org_patternfly_component_ComponentType, ComponentType.f_Switch__org_patternfly_component_ComponentType, ComponentType.f_Tabs__org_patternfly_component_ComponentType, ComponentType.f_TextContent__org_patternfly_component_ComponentType, ComponentType.f_TextInput__org_patternfly_component_ComponentType, ComponentType.f_TextInputGroup__org_patternfly_component_ComponentType, ComponentType.f_Title__org_patternfly_component_ComponentType, ComponentType.f_ToggleGroup__org_patternfly_component_ComponentType, ComponentType.f_Toolbar__org_patternfly_component_ComponentType, ComponentType.f_Tooltip__org_patternfly_component_ComponentType, ComponentType.f_TreeView__org_patternfly_component_ComponentType, ComponentType.f_Truncate__org_patternfly_component_ComponentType, ComponentType.f_Wizard__org_patternfly_component_ComponentType], ComponentType));
  }
  /** @nodts */
  static $clinit() {
@@ -132,69 +132,75 @@ ComponentType.$ordinal_Icon__org_patternfly_component_ComponentType = 31;
 /**@const {number} @nodts*/
 ComponentType.$ordinal_InputGroup__org_patternfly_component_ComponentType = 32;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Label__org_patternfly_component_ComponentType = 33;
+ComponentType.$ordinal_JumpLinks__org_patternfly_component_ComponentType = 33;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_LabelGroup__org_patternfly_component_ComponentType = 34;
+ComponentType.$ordinal_Label__org_patternfly_component_ComponentType = 34;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_List__org_patternfly_component_ComponentType = 35;
+ComponentType.$ordinal_LabelGroup__org_patternfly_component_ComponentType = 35;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Masthead__org_patternfly_component_ComponentType = 36;
+ComponentType.$ordinal_List__org_patternfly_component_ComponentType = 36;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Menu__org_patternfly_component_ComponentType = 37;
+ComponentType.$ordinal_Masthead__org_patternfly_component_ComponentType = 37;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_MenuToggle__org_patternfly_component_ComponentType = 38;
+ComponentType.$ordinal_Menu__org_patternfly_component_ComponentType = 38;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Navigation__org_patternfly_component_ComponentType = 39;
+ComponentType.$ordinal_MenuToggle__org_patternfly_component_ComponentType = 39;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_NotificationBadge__org_patternfly_component_ComponentType = 40;
+ComponentType.$ordinal_Navigation__org_patternfly_component_ComponentType = 40;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_OptionsMenu__org_patternfly_component_ComponentType = 41;
+ComponentType.$ordinal_NotificationBadge__org_patternfly_component_ComponentType = 41;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Page__org_patternfly_component_ComponentType = 42;
+ComponentType.$ordinal_OptionsMenu__org_patternfly_component_ComponentType = 42;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Pagination__org_patternfly_component_ComponentType = 43;
+ComponentType.$ordinal_Page__org_patternfly_component_ComponentType = 43;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Panel__org_patternfly_component_ComponentType = 44;
+ComponentType.$ordinal_Pagination__org_patternfly_component_ComponentType = 44;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Popover__org_patternfly_component_ComponentType = 45;
+ComponentType.$ordinal_Panel__org_patternfly_component_ComponentType = 45;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Radio__org_patternfly_component_ComponentType = 46;
+ComponentType.$ordinal_Popover__org_patternfly_component_ComponentType = 46;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Select__org_patternfly_component_ComponentType = 47;
+ComponentType.$ordinal_Progress__org_patternfly_component_ComponentType = 47;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Sidebar__org_patternfly_component_ComponentType = 48;
+ComponentType.$ordinal_Radio__org_patternfly_component_ComponentType = 48;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_SimpleList__org_patternfly_component_ComponentType = 49;
+ComponentType.$ordinal_Select__org_patternfly_component_ComponentType = 49;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Skeleton__org_patternfly_component_ComponentType = 50;
+ComponentType.$ordinal_Sidebar__org_patternfly_component_ComponentType = 50;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_SkipToContent__org_patternfly_component_ComponentType = 51;
+ComponentType.$ordinal_SimpleList__org_patternfly_component_ComponentType = 51;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Slider__org_patternfly_component_ComponentType = 52;
+ComponentType.$ordinal_Skeleton__org_patternfly_component_ComponentType = 52;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Spinner__org_patternfly_component_ComponentType = 53;
+ComponentType.$ordinal_SkipToContent__org_patternfly_component_ComponentType = 53;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Switch__org_patternfly_component_ComponentType = 54;
+ComponentType.$ordinal_Slider__org_patternfly_component_ComponentType = 54;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Tabs__org_patternfly_component_ComponentType = 55;
+ComponentType.$ordinal_Spinner__org_patternfly_component_ComponentType = 55;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_TextContent__org_patternfly_component_ComponentType = 56;
+ComponentType.$ordinal_Switch__org_patternfly_component_ComponentType = 56;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_TextInput__org_patternfly_component_ComponentType = 57;
+ComponentType.$ordinal_Tabs__org_patternfly_component_ComponentType = 57;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_TextInputGroup__org_patternfly_component_ComponentType = 58;
+ComponentType.$ordinal_TextContent__org_patternfly_component_ComponentType = 58;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Title__org_patternfly_component_ComponentType = 59;
+ComponentType.$ordinal_TextInput__org_patternfly_component_ComponentType = 59;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_ToggleGroup__org_patternfly_component_ComponentType = 60;
+ComponentType.$ordinal_TextInputGroup__org_patternfly_component_ComponentType = 60;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Toolbar__org_patternfly_component_ComponentType = 61;
+ComponentType.$ordinal_Title__org_patternfly_component_ComponentType = 61;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Tooltip__org_patternfly_component_ComponentType = 62;
+ComponentType.$ordinal_ToggleGroup__org_patternfly_component_ComponentType = 62;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_TreeView__org_patternfly_component_ComponentType = 63;
+ComponentType.$ordinal_Toolbar__org_patternfly_component_ComponentType = 63;
 /**@const {number} @nodts*/
-ComponentType.$ordinal_Wizard__org_patternfly_component_ComponentType = 64;
+ComponentType.$ordinal_Tooltip__org_patternfly_component_ComponentType = 64;
+/**@const {number} @nodts*/
+ComponentType.$ordinal_TreeView__org_patternfly_component_ComponentType = 65;
+/**@const {number} @nodts*/
+ComponentType.$ordinal_Truncate__org_patternfly_component_ComponentType = 66;
+/**@const {number} @nodts*/
+ComponentType.$ordinal_Wizard__org_patternfly_component_ComponentType = 67;
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_Accordion__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Accordion'), ComponentType.$ordinal_Accordion__org_patternfly_component_ComponentType, 'ac', 'PF5/Accordion');
 /**@const {!ComponentType} @nodts*/
@@ -214,7 +220,7 @@ ComponentType.f_Banner__org_patternfly_component_ComponentType = /**@pureOrBreak
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_Brand__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Brand'), ComponentType.$ordinal_Brand__org_patternfly_component_ComponentType, 'bnd', 'PF5/Brand');
 /**@const {!ComponentType} @nodts*/
-ComponentType.f_Breadcrumb__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Breadcrumb'), ComponentType.$ordinal_Breadcrumb__org_patternfly_component_ComponentType, 'bc', null);
+ComponentType.f_Breadcrumb__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Breadcrumb'), ComponentType.$ordinal_Breadcrumb__org_patternfly_component_ComponentType, 'bc', 'PF5/Breadcrumb');
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_Button__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Button'), ComponentType.$ordinal_Button__org_patternfly_component_ComponentType, 'btn', 'PF5/Button');
 /**@const {!ComponentType} @nodts*/
@@ -262,6 +268,8 @@ ComponentType.f_Icon__org_patternfly_component_ComponentType = /**@pureOrBreakMy
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_InputGroup__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('InputGroup'), ComponentType.$ordinal_InputGroup__org_patternfly_component_ComponentType, 'ig', 'PF5/InputGroup');
 /**@const {!ComponentType} @nodts*/
+ComponentType.f_JumpLinks__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('JumpLinks'), ComponentType.$ordinal_JumpLinks__org_patternfly_component_ComponentType, 'jl', 'PF5/JumpLinks');
+/**@const {!ComponentType} @nodts*/
 ComponentType.f_Label__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Label'), ComponentType.$ordinal_Label__org_patternfly_component_ComponentType, 'lbl', 'PF5/Label');
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_LabelGroup__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('LabelGroup'), ComponentType.$ordinal_LabelGroup__org_patternfly_component_ComponentType, 'lbg', null);
@@ -287,6 +295,8 @@ ComponentType.f_Pagination__org_patternfly_component_ComponentType = /**@pureOrB
 ComponentType.f_Panel__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Panel'), ComponentType.$ordinal_Panel__org_patternfly_component_ComponentType, 'pnl', 'PF5/Panel');
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_Popover__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Popover'), ComponentType.$ordinal_Popover__org_patternfly_component_ComponentType, 'pvr', 'PF5/Popover');
+/**@const {!ComponentType} @nodts*/
+ComponentType.f_Progress__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Progress'), ComponentType.$ordinal_Progress__org_patternfly_component_ComponentType, 'prg', 'PF5/Progress');
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_Radio__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Radio'), ComponentType.$ordinal_Radio__org_patternfly_component_ComponentType, 'rd', 'PF5/Radio');
 /**@const {!ComponentType} @nodts*/
@@ -323,6 +333,8 @@ ComponentType.f_Toolbar__org_patternfly_component_ComponentType = /**@pureOrBrea
 ComponentType.f_Tooltip__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Tooltip'), ComponentType.$ordinal_Tooltip__org_patternfly_component_ComponentType, 'tt', 'PF5/Tooltip');
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_TreeView__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('TreeView'), ComponentType.$ordinal_TreeView__org_patternfly_component_ComponentType, 'tv', null);
+/**@const {!ComponentType} @nodts*/
+ComponentType.f_Truncate__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Truncate'), ComponentType.$ordinal_Truncate__org_patternfly_component_ComponentType, 'tr', 'PF5/Truncate');
 /**@const {!ComponentType} @nodts*/
 ComponentType.f_Wizard__org_patternfly_component_ComponentType = /**@pureOrBreakMyCode*/ ComponentType.$create__java_lang_String__int__java_lang_String__java_lang_String($Util.$makeEnumName('Wizard'), ComponentType.$ordinal_Wizard__org_patternfly_component_ComponentType, 'wzd', 'PF5/Wizard');
 /**@type {Map<?string, !ComponentType>} @nodts*/

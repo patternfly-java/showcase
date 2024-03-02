@@ -15,6 +15,20 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.menu.Menu;
+import org.patternfly.component.menu.MenuActionHandler;
+import org.patternfly.component.menu.MenuContent;
+import org.patternfly.component.menu.MenuFooter;
+import org.patternfly.component.menu.MenuGroup;
+import org.patternfly.component.menu.MenuHeader;
+import org.patternfly.component.menu.MenuItem;
+import org.patternfly.component.menu.MenuItemAction;
+import org.patternfly.component.menu.MenuItemType;
+import org.patternfly.component.menu.MenuList;
+import org.patternfly.component.menu.MenuSearch;
+import org.patternfly.component.menu.MenuSearchInput;
+import org.patternfly.component.menu.MenuType;
 import org.patternfly.core.Aria;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
@@ -23,7 +37,6 @@ import org.patternfly.showcase.SnippetPage;
 import static elemental2.dom.DomGlobal.console;
 import static java.util.stream.Collectors.joining;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.menu.Menu.menu;
 import static org.patternfly.component.menu.MenuContent.menuContent;
@@ -36,21 +49,23 @@ import static org.patternfly.component.menu.MenuItemAction.menuItemAction;
 import static org.patternfly.component.menu.MenuList.menuList;
 import static org.patternfly.core.SelectionMode.click;
 import static org.patternfly.core.SelectionMode.multi;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.handler;
+import static org.patternfly.showcase.ApiDoc.Type.other;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.bars;
 import static org.patternfly.style.PredefinedIcon.bell;
 import static org.patternfly.style.PredefinedIcon.fas;
 
+@Route(value = "/components/menus/menu", title = "Menu")
 public class MenuComponent extends SnippetPage {
 
     public MenuComponent() {
-        super("Menu",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/menu/Menu.html",
-                "https://www.patternfly.org/components/menus/menu/design-guidelines",
-                p().textContent(
-                        "A menu is a list of options or actions that users can choose from. It can be used in a variety of contexts whenever the user needs to choose between multiple values, options, or actions. A menu is most often paired with a menu toggle as its trigger, but can also be used inline or can be attached to other interactable elements to toggle it open and close.")
-                        .element());
+        super(components.get("menu"));
 
+        startExamples();
         addSnippet(new Snippet("menu-basic", "Basic menu",
                 code.get("menu-basic"), () ->
                 // @code-start:menu-basic
@@ -62,14 +77,14 @@ public class MenuComponent extends SnippetPage {
                                                 .addItem(actionMenuItem("item-0", "Action")
                                                         .onClick((e, actionItem) -> console.log(
                                                                 "Clicked on action item " + actionItem.id)))
-                                                .addItem(linkMenuItem("item-1", "Link", "#home")
+                                                .addItem(linkMenuItem("item-1", "Link", "#item-1")
                                                         .onClick((e, item) -> e.preventDefault()))
                                                 .addItem(actionMenuItem("item-2", "Disabled action")
                                                         .disabled())
-                                                .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                         .disabled()))))
                         .element()
-        // @code-end:menu-basic
+                // @code-end:menu-basic
         ));
 
         addSnippet(new Snippet("menu-danger", "Danger menu item",
@@ -85,7 +100,7 @@ public class MenuComponent extends SnippetPage {
                                                 .addItem(actionMenuItem("item-2", "Delete")
                                                         .danger()))))
                         .element()
-        // @code-end:menu-danger
+                // @code-end:menu-danger
         ));
 
         addSnippet(new Snippet("menu-icons", "With icons",
@@ -102,7 +117,7 @@ public class MenuComponent extends SnippetPage {
                                                 .addItem(actionMenuItem("item-2", "From Dockerfile")
                                                         .icon(fas("cube"))))))
                         .element()
-        // @code-end:menu-icons
+                // @code-end:menu-icons
         ));
 
         addSnippet(new Snippet("menu-actions", "With action",
@@ -131,7 +146,7 @@ public class MenuComponent extends SnippetPage {
                                                                 .description("This is a description")
                                                                 .addAction(menuItemAction("action-3", bars)))))))
                         .element()
-        // @code-end:menu-actions
+                // @code-end:menu-actions
         ));
 
         addSnippet(new Snippet("menu-links", "With links",
@@ -141,13 +156,13 @@ public class MenuComponent extends SnippetPage {
                         .add(menu(click)
                                 .addContent(menuContent()
                                         .addList(menuList()
-                                                .addItem(linkMenuItem("item-0", "Link 1", "#home")
+                                                .addItem(linkMenuItem("item-0", "Link 1", "#item-0")
                                                         .external())
-                                                .addItem(linkMenuItem("item-1", "Link 2", "#home")
+                                                .addItem(linkMenuItem("item-1", "Link 2", "#item-1")
                                                         .external())
-                                                .addItem(linkMenuItem("item-2", "Link 3", "#home")))))
+                                                .addItem(linkMenuItem("item-2", "Link 3", "#item-2")))))
                         .element()
-        // @code-end:menu-links
+                // @code-end:menu-links
         ));
 
         addSnippet(new Snippet("menu-descriptions", "With descriptions",
@@ -168,7 +183,7 @@ public class MenuComponent extends SnippetPage {
                                                         .icon(fas("code-branch"))
                                                         .description(LoremIpsum.words(50))))))
                         .element()
-        // @code-end:menu-descriptions
+                // @code-end:menu-descriptions
         ));
 
         addSnippet(new Snippet("menu-checkbox", "Item checkbox",
@@ -189,7 +204,7 @@ public class MenuComponent extends SnippetPage {
                                                         .onClick((e, mi) -> console.log("Clicked on item " + mi.id))
                                                         .disabled()))))
                         .element()
-        // @code-end:menu-checkbox
+                // @code-end:menu-checkbox
         ));
 
         addSnippet(new Snippet("menu-footer", "Menu footer",
@@ -200,15 +215,15 @@ public class MenuComponent extends SnippetPage {
                                 .addContent(menuContent()
                                         .addList(menuList()
                                                 .addItem(actionMenuItem("item-0", "Action"))
-                                                .addItem(linkMenuItem("item-1", "Link", "#home"))
+                                                .addItem(linkMenuItem("item-1", "Link", "#item-1"))
                                                 .addItem(actionMenuItem("item-2", "Disabled action")
                                                         .disabled())
-                                                .addItem(linkMenuItem("item-3", "Disabled link", "#")
+                                                .addItem(linkMenuItem("item-3", "Disabled link", "#item-3")
                                                         .disabled())))
                                 .addFooter(menuFooter()
                                         .add(button("Action").link().inline())))
                         .element()
-        // @code-end:menu-footer
+                // @code-end:menu-footer
         ));
 
         addSnippet(new Snippet("menu-separator", "Separated items",
@@ -223,7 +238,7 @@ public class MenuComponent extends SnippetPage {
                                                 .addDivider()
                                                 .addItem(actionMenuItem("item-2", "Action 3")))))
                         .element()
-        // @code-end:menu-separator
+                // @code-end:menu-separator
         ));
 
         addSnippet(new Snippet("menu-titled-groups", "Titled groups of items",
@@ -234,19 +249,19 @@ public class MenuComponent extends SnippetPage {
                                 .addContent(menuContent()
                                         .addGroup(menuGroup()
                                                 .addList(menuList()
-                                                        .addItem(linkMenuItem("item-0", "Link not in group", "#"))))
+                                                        .addItem(linkMenuItem("item-0", "Link not in group", "#item-0"))))
                                         .addDivider()
                                         .addGroup(menuGroup("Group 1")
                                                 .addList(menuList()
-                                                        .add(linkMenuItem("item-10", "Link 1", "#"))
-                                                        .add(linkMenuItem("item-11", "Link 2", "#"))))
+                                                        .add(linkMenuItem("item-10", "Link 1", "#item-10"))
+                                                        .add(linkMenuItem("item-11", "Link 2", "#item-11"))))
                                         .addDivider()
                                         .addGroup(menuGroup("Group 2")
                                                 .addList(menuList()
-                                                        .add(linkMenuItem("item-20", "Link 1", "#"))
-                                                        .add(linkMenuItem("item-21", "Link 2", "#"))))))
+                                                        .add(linkMenuItem("item-20", "Link 1", "#item-20"))
+                                                        .add(linkMenuItem("item-21", "Link 2", "#item-21"))))))
                         .element()
-        // @code-end:menu-titled-groups
+                // @code-end:menu-titled-groups
         ));
 
         addSnippet(new Snippet("menu-favorites", "With favorites",
@@ -277,7 +292,22 @@ public class MenuComponent extends SnippetPage {
                                                                 .description("Description 3")
                                                                 .addAction(menuItemAction("action-2", bell)))))))
                         .element()
-        // @code-end:menu-favorites
+                // @code-end:menu-favorites
         ));
+
+        startApiDocs(Menu.class);
+        addApiDoc(Menu.class, component);
+        addApiDoc(MenuActionHandler.class, handler);
+        addApiDoc(MenuContent.class, subcomponent);
+        addApiDoc(MenuFooter.class, subcomponent);
+        addApiDoc(MenuGroup.class, subcomponent);
+        addApiDoc(MenuHeader.class, subcomponent);
+        addApiDoc(MenuItem.class, subcomponent);
+        addApiDoc(MenuItemAction.class, subcomponent);
+        addApiDoc(MenuItemType.class, other);
+        addApiDoc(MenuList.class, subcomponent);
+        addApiDoc(MenuSearch.class, subcomponent);
+        addApiDoc(MenuSearchInput.class, subcomponent);
+        addApiDoc(MenuType.class, other);
     }
 }

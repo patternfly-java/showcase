@@ -16,11 +16,14 @@
 package org.patternfly.component.navigation;
 
 import org.patternfly.core.Aria;
+import org.patternfly.core.ElementDelegate;
 import org.patternfly.core.WithText;
 import org.patternfly.handler.ComponentHandler;
 
 import elemental2.dom.HTMLAnchorElement;
+import elemental2.dom.HTMLElement;
 import elemental2.dom.HTMLLIElement;
+import elemental2.dom.ScrollIntoViewOptions;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.li;
@@ -34,16 +37,20 @@ import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.nav;
 
 public class NavigationItem extends NavigationSubComponent<HTMLLIElement, NavigationItem> implements
-        WithText<HTMLLIElement, NavigationItem> {
+        WithText<HTMLLIElement, NavigationItem>, ElementDelegate<HTMLLIElement, NavigationItem> {
 
     // ------------------------------------------------------ factory
 
+    public static NavigationItem navigationItem(String id) {
+        return new NavigationItem(id);
+    }
+
     public static NavigationItem navigationItem(String id, String text) {
-        return new NavigationItem(id, text, null);
+        return new NavigationItem(id).text(text);
     }
 
     public static NavigationItem navigationItem(String id, String text, String href) {
-        return new NavigationItem(id, text, href);
+        return new NavigationItem(id).text(text).href(href);
     }
 
     // ------------------------------------------------------ instance
@@ -52,25 +59,56 @@ public class NavigationItem extends NavigationSubComponent<HTMLLIElement, Naviga
 
     public final String id;
     final HTMLAnchorElement a;
+    private NavigationLinkText text;
 
-    NavigationItem(String id, String text, String href) {
+    NavigationItem(String id) {
         super(SUB_COMPONENT_NAME, li().css(component(nav, item)).element());
         this.id = id;
 
-        add(a = a().css(component(nav, link))
+        element().appendChild(a = a().css(component(nav, link))
+                .on(click, e -> {
+                    Navigation navigation = lookupComponent();
+                    navigation.select(this);
+                })
                 .data(navigationItem, id)
-                .textContent(text)
                 .element());
-        if (href != null) {
-            a.href = href;
-        }
+    }
+
+    @Override
+    public HTMLElement delegate() {
+        return a;
+    }
+
+    // ------------------------------------------------------ add
+
+    public NavigationItem addLinkText(NavigationLinkText text) {
+        return add(text);
+    }
+
+    public NavigationItem add(NavigationLinkText text) {
+        this.text = text;
+        a.appendChild(text.element());
+        return this;
     }
 
     // ------------------------------------------------------ builder
 
     @Override
     public NavigationItem text(String text) {
-        a.textContent = text;
+        if (text != null) {
+            if (this.text != null) {
+                this.text.textNode(text);
+            } else {
+                a(a).textNode(text);
+            }
+        }
+        return this;
+    }
+
+    public NavigationItem href(String href) {
+        if (href != null) {
+            a.href = href;
+        }
         return this;
     }
 
@@ -91,6 +129,9 @@ public class NavigationItem extends NavigationSubComponent<HTMLLIElement, Naviga
     void select() {
         a.classList.add(modifier(current));
         a.setAttribute(Aria.current, "page");
-        a.scrollIntoView(false);
+        ScrollIntoViewOptions options = ScrollIntoViewOptions.create();
+        options.setBlock("nearest");
+        options.setInline("nearest");
+        a.scrollIntoView(options);
     }
 }

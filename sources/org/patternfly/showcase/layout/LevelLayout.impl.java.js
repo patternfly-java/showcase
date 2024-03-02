@@ -4,14 +4,18 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Level = goog.forwardDeclare('org.patternfly.layout.level.Level$impl');
 let LevelItem = goog.forwardDeclare('org.patternfly.layout.level.LevelItem$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Layout_$Overlay = goog.forwardDeclare('org.patternfly.showcase.layout.Layout.$Overlay$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -29,13 +33,17 @@ class LevelLayout extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_layout_LevelLayout__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Level', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/level/Level.html', 'https://www.patternfly.org/layouts/level/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Use a Level layout to evenly distribute content horizontally within a container.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_layout_Layout__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_layouts__org_patternfly_showcase_Data, 'level'), Layout_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('level-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('level-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init(['ws-core-l-level'], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Level.m_level__org_patternfly_layout_level_Level().m_addItem__org_patternfly_layout_level_LevelItem__org_patternfly_layout_level_Level(/**@type {LevelItem}*/ ($Casts.$to(LevelItem.m_levelItem__org_patternfly_layout_level_LevelItem().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Level item'), LevelItem))).m_addItem__org_patternfly_layout_level_LevelItem__org_patternfly_layout_level_Level(/**@type {LevelItem}*/ ($Casts.$to(LevelItem.m_levelItem__org_patternfly_layout_level_LevelItem().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Level item'), LevelItem))).m_addItem__org_patternfly_layout_level_LevelItem__org_patternfly_layout_level_Level(/**@type {LevelItem}*/ ($Casts.$to(LevelItem.m_levelItem__org_patternfly_layout_level_LevelItem().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Level item'), LevelItem)))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('level-gutter', 'With gutters', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('level-gutter'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init(['ws-core-l-level'], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {Level}*/ ($Casts.$to(Level.m_level__org_patternfly_layout_level_Level().m_gutter__org_jboss_elemento_TypedBuilder(), Level)).m_addItem__org_patternfly_layout_level_LevelItem__org_patternfly_layout_level_Level(/**@type {LevelItem}*/ ($Casts.$to(LevelItem.m_levelItem__org_patternfly_layout_level_LevelItem().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Level item'), LevelItem))).m_addItem__org_patternfly_layout_level_LevelItem__org_patternfly_layout_level_Level(/**@type {LevelItem}*/ ($Casts.$to(LevelItem.m_levelItem__org_patternfly_layout_level_LevelItem().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Level item'), LevelItem))).m_addItem__org_patternfly_layout_level_LevelItem__org_patternfly_layout_level_Level(/**@type {LevelItem}*/ ($Casts.$to(LevelItem.m_levelItem__org_patternfly_layout_level_LevelItem().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Level item'), LevelItem)))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(Level));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(Level), Type.f_layout__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(LevelItem), Type.f_layout__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -51,14 +59,18 @@ class LevelLayout extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Level = goog.module.get('org.patternfly.layout.level.Level$impl');
   LevelItem = goog.module.get('org.patternfly.layout.level.LevelItem$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Layout_$Overlay = goog.module.get('org.patternfly.showcase.layout.Layout.$Overlay$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

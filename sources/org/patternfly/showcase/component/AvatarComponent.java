@@ -15,16 +15,19 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.avatar.Avatar;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.avatar.Avatar.avatar;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Assets.avatarDark;
 import static org.patternfly.showcase.Assets.avatarLight;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Brightness.dark;
 import static org.patternfly.style.Brightness.light;
 import static org.patternfly.style.Size.lg;
@@ -32,23 +35,20 @@ import static org.patternfly.style.Size.md;
 import static org.patternfly.style.Size.sm;
 import static org.patternfly.style.Size.xl;
 
+@Route(value = "/components/avatar", title = "Avatar")
 public class AvatarComponent extends SnippetPage {
 
     public AvatarComponent() {
-        super("Avatar",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/avatar/Avatar.html",
-                "https://www.patternfly.org/components/avatar/design-guidelines",
-                p().textContent(
-                        "An avatar is a visual used to represent a user. It may contain an image or a placeholder graphic.")
-                        .element());
+        super(components.get("avatar"));
 
+        startExamples();
         addSnippet(new Snippet("avatar-basic", "Basic",
                 code.get("avatar-basic"), () ->
                 // @code-start:avatar-basic
                 div()
                         .add(avatar(avatarLight, "avatar"))
                         .element()
-        // @code-end:avatar-basic
+                // @code-end:avatar-basic
         ));
 
         addSnippet(new Snippet("avatar-size", "Size variations",
@@ -67,7 +67,7 @@ public class AvatarComponent extends SnippetPage {
                         .add("Extra large").add(br())
                         .add(avatar(avatarLight, "avatar").size(xl))
                         .element()
-        // @code-end:avatar-size
+                // @code-end:avatar-size
         ));
 
         addSnippet(new Snippet("avatar-bordered-light", "Bordered - light",
@@ -76,7 +76,7 @@ public class AvatarComponent extends SnippetPage {
                 div()
                         .add(avatar(avatarLight, "avatar").border(light))
                         .element()
-        // @code-end:avatar-bordered-light
+                // @code-end:avatar-bordered-light
         ));
 
         addSnippet(new Snippet("avatar-bordered-dark", "Bordered - dark",
@@ -85,7 +85,10 @@ public class AvatarComponent extends SnippetPage {
                 div()
                         .add(avatar(avatarDark, "avatar").border(dark))
                         .element()
-        // @code-end:avatar-bordered-dark
-        ));
+                // @code-end:avatar-bordered-dark
+        ).style("background: var(--pf-v5-global--BackgroundColor--dark-100)"));
+
+        startApiDocs(Avatar.class);
+        addApiDoc(Avatar.class, component);
     }
 }

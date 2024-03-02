@@ -42,7 +42,7 @@ class PageMainSection extends PageSectionBuilder {
  }
  /** @nodts @return {PageMainSection} */
  m_background__org_patternfly_style_Brightness__org_patternfly_component_page_PageMainSection(/** Brightness */ brightness) {
-  if (Validation.m_verifyEnum__java_lang_String__elemental2_dom_HTMLElement__java_lang_String__java_lang_Enum__java_lang_Enum__arrayOf_java_lang_Enum__boolean('PF5/PageMainSection', this.m_element__elemental2_dom_HTMLElement(), 'background', brightness, Brightness.f_light__org_patternfly_style_Brightness, /**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_dark100__org_patternfly_style_Brightness, Brightness.f_dark200__org_patternfly_style_Brightness], Brightness)))) {
+  if (Validation.m_verifyEnum__java_lang_String__elemental2_dom_HTMLElement__java_lang_String__java_lang_Enum__java_lang_Enum__arrayOf_java_lang_Enum__boolean('PF5/PageMainSection', this.m_element__elemental2_dom_HTMLElement(), 'background', brightness, Brightness.f_light__org_patternfly_style_Brightness, /**@type {!Array<Brightness>}*/ ($Arrays.$init([Brightness.f_light100__org_patternfly_style_Brightness, Brightness.f_dark100__org_patternfly_style_Brightness, Brightness.f_dark200__org_patternfly_style_Brightness], Brightness)))) {
    this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([brightness.m_modifier__java_lang_String()], j_l_String)));
   }
   return this;

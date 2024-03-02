@@ -7,6 +7,7 @@ goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
 goog.require('org.patternfly.component.BaseComponent');
 goog.require('org.patternfly.component.ComponentType');
+goog.require('org.patternfly.component.toolbar.ToolbarContent');
 goog.require('org.patternfly.style.Classes');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');

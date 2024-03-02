@@ -15,25 +15,26 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.layout.stack.Stack;
+import org.patternfly.layout.stack.StackItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 
+@Route(value = "/layouts/stack", title = "Stack")
 public class StackLayout extends SnippetPage {
 
     public StackLayout() {
-        super("Stack",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/stack/Stack.html",
-                "https://www.patternfly.org/layouts/stack/design-guidelines",
-                p().textContent(
-                        "The stack layout positions items vertically, with one or more items filling the available vertical space.")
-                        .element());
+        super(layouts.get("stack"));
 
+        startExamples();
         addSnippet(new Snippet("stack-basic", "Basic",
                 code.get("stack-basic"), () ->
                 // @code-start:stack-basic
@@ -43,7 +44,7 @@ public class StackLayout extends SnippetPage {
                                 .addItem(stackItem().fill().textContent("pf-m-fill"))
                                 .addItem(stackItem().textContent("content")))
                         .element()
-        // @code-end:stack-basic
+                // @code-end:stack-basic
         ));
 
         addSnippet(new Snippet("stack-gutter", "With gutters",
@@ -55,7 +56,11 @@ public class StackLayout extends SnippetPage {
                                 .addItem(stackItem().fill().textContent("pf-m-fill"))
                                 .addItem(stackItem().textContent("content")))
                         .element()
-        // @code-end:stack-gutter
+                // @code-end:stack-gutter
         ));
+
+        startApiDocs(Stack.class);
+        addApiDoc(Stack.class, layout);
+        addApiDoc(StackItem.class, layout);
     }
 }

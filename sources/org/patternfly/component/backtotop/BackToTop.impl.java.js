@@ -121,6 +121,12 @@ class BackToTop extends BaseComponentFlat {
   return this;
  }
  /** @nodts @return {BackToTop} */
+ m_scrollableSelector__java_lang_String__org_patternfly_component_backtotop_BackToTop(/** ?string */ selector) {
+  return this.m_scrollableSelector__java_util_function_Supplier__org_patternfly_component_backtotop_BackToTop(Supplier.$adapt(() =>{
+   return Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(DomGlobal_$Overlay.f_document__elemental2_dom_DomGlobal_$Overlay, By.m_selector__java_lang_String__org_jboss_elemento_By(selector));
+  }));
+ }
+ /** @nodts @return {BackToTop} */
  m_scrollableSelector__org_jboss_elemento_By__org_patternfly_component_backtotop_BackToTop(/** By */ selector) {
   return this.m_scrollableSelector__java_util_function_Supplier__org_patternfly_component_backtotop_BackToTop(Supplier.$adapt(() =>{
    return Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(DomGlobal_$Overlay.f_document__elemental2_dom_DomGlobal_$Overlay, selector);
@@ -188,6 +194,7 @@ class BackToTop extends BaseComponentFlat {
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
+  By = goog.module.get('org.jboss.elemento.By$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');

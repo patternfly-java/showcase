@@ -6,7 +6,6 @@ goog.require('nativebootstrap.Equality');
 goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.HTMLContainerBuilder');
-goog.require('org.patternfly.component.page.Page');
 goog.require('org.patternfly.component.page.PageSidebarBody');
 goog.require('org.patternfly.component.page.PageSubComponent');
 goog.require('org.patternfly.core.Aria');
@@ -15,7 +14,6 @@ goog.require('org.patternfly.core.Validation');
 goog.require('org.patternfly.handler.ToggleHandler');
 goog.require('org.patternfly.style.Brightness');
 goog.require('org.patternfly.style.Classes');
-goog.require('org.patternfly.style.Rect');
 goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 

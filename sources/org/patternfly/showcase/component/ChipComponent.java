@@ -15,28 +15,30 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.chip.Chip;
+import org.patternfly.component.chip.ChipGroup;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.chip.Chip.chip;
 import static org.patternfly.component.chip.ChipGroup.chipGroup;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/chip", title = "Chip")
 public class ChipComponent extends SnippetPage {
 
     public ChipComponent() {
-        super("Chip",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/chip/Chip.html",
-                "https://www.patternfly.org/components/chip/design-guidelines",
-                p().textContent(
-                        "A chip is used to communicate a value or a set of attribute-value pairs within workflows that involve filtering a set of objects.")
-                        .element());
+        super(components.get("chip"));
 
+        startExamples();
         addSnippet(new Snippet("chip-variants", "Chip variants",
+                "Chips can be removable or read-only. The Overflow chip is a special chip that is used to expand or collapse the content of a chip group.",
                 code.get("chip-variants"), () ->
                 // @code-start:chip-variants
                 div()
@@ -51,7 +53,7 @@ public class ChipComponent extends SnippetPage {
                         .add(br())
                         .add(chip("Read-only chip").readonly())
                         .element()
-        // @code-end:chip-variants
+                // @code-end:chip-variants
         ));
 
         addSnippet(new Snippet("chip-group", "Chip group",
@@ -65,7 +67,7 @@ public class ChipComponent extends SnippetPage {
                                 .addChip(chip("Chip four"))
                                 .addChip(chip("Chip five")))
                         .element()
-        // @code-end:chip-group
+                // @code-end:chip-group
         ));
 
         addSnippet(new Snippet("chip-group-category", "Chip group with category",
@@ -79,7 +81,7 @@ public class ChipComponent extends SnippetPage {
                                 .addChip(chip("Chip four"))
                                 .addChip(chip("Chip five")))
                         .element()
-        // @code-end:chip-group-category
+                // @code-end:chip-group-category
         ));
 
         addSnippet(new Snippet("chip-group-removable-category", "Chip group with removable category",
@@ -100,7 +102,11 @@ public class ChipComponent extends SnippetPage {
                                 .addChip(chip("Chip three"))
                                 .addChip(chip("Chip four")))
                         .element()
-        // @code-end:chip-group-removable-category
+                // @code-end:chip-group-removable-category
         ));
+
+        startApiDocs(Chip.class);
+        addApiDoc(Chip.class, component);
+        addApiDoc(ChipGroup.class, component);
     }
 }

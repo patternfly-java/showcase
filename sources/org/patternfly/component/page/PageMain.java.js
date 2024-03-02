@@ -8,6 +8,7 @@ goog.require('elemental2.dom.Node.$Overlay');
 goog.require('elemental2.dom.TouchEvent.$Overlay');
 goog.require('java.lang.Iterable');
 goog.require('java.lang.String');
+goog.require('nativebootstrap.Equality');
 goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.Elements');
 goog.require('org.jboss.elemento.EventType');

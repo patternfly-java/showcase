@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"IconComponent.impl.java.js",
-"lineCount":82,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;MAoDa,a;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,wB;EAAAA,oC;EAAAA,yE;EAAAA,iB;;;CAAA,4D;EACHC,0wB;EAOAA;GAGQC,2xDAHRD;O;EAeAA;GAGQC,ouEAHRD;O;EAeAA;GAGQC,80FAHRD;O;EAiBAA;GAGQC,ojFAHRD;O;EAeAA;GAGQC,87PAHRD;O;EAqCAA;GAGYC,IAAKC,IAALD,2JAHZD;GAIYC,qiCAGmCE,CAHnCF,EAGsCG,CAHtCH,EAGyCI,KAHzCJ;IAGkCA,IAAIG,GAAJH,mDAHlCA;IAGkCA,IAAOI,OAAPJ,sDAHlCA;IAGmDA,uHAHnDA;+NAJZD;O;EAaAA;GAGYC,IAAKC,MAALD,2JAHZD;GAIYC,mjCAGmCE,GAHnCF,EAGsCG,GAHtCH,EAGyCI,OAHzCJ;IAGkCA,IAAIG,GAAJH,qDAHlCA;IAGkCA,IAAOI,OAAPJ,wDAHlCA;IAGmDA,uKACnBK,OADmBL;KACnBA,IAAAK,SAAAL,uDADmBA;KACRA,wFADQA;QAHnDA;iOAJZD;O;;;QA1HK,O;EAAAO,gC;EAAAA,6B;EAAAA;",
+"lineCount":91,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA0Da,a;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,wB;EAAAA,oC;EAAAA,yE;EAAAA,iB;;;CAAA,4D;EACHC,6S;EAEAA,6B;EACAA;GAGQC,2xDAHRD;O;EAeAA;GAGQC,ouEAHRD;O;EAeAA;GAIQC,w1FAJRD;O;EAkBAA;GAIQC,ojFAJRD;O;EAgBAA;GAGQC,87PAHRD;O;EAqCAA;GAGIC,IAAKC,IAALD,2JAHJD;GAIIC,qiCAGmCE,CAHnCF,EAGsCG,CAHtCH,EAGyCI,KAHzCJ;IAGkCA,IAAIG,GAAJH,mDAHlCA;IAGkCA,IAAOI,OAAPJ,sDAHlCA;IAGmDA,uHAHnDA;+NAJJD;O;EAaAA;GAGIC,IAAKC,MAALD,2JAHJD;GAIIC,mjCAGmCE,GAHnCF,EAGsCG,GAHtCH,EAGyCI,OAHzCJ;IAGkCA,IAAIG,GAAJH,qDAHlCA;IAGkCA,IAAOI,OAAPJ,wDAHlCA;IAGmDA,uKACnBK,OADmBL;KACnBA,IAAAK,SAAAL,uDADmBA;KACRA,wFADQA;QAHnDA;iOAJJD;O;EAcAA,6D;EACAA,sJ;EACAA,+J;;;QAxIK,O;EAAAO,gC;EAAAA,6B;EAAAA;",
 "sources":["IconComponent.java"],
 "names":["org.patternfly.showcase.component.IconComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.IconComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.IconComponent.<init>","org.patternfly.showcase.component.IconComponent.<lambda in <init>>","icon","e","c","value","spinner","org.patternfly.showcase.component.IconComponent.<clinit>"]
 }

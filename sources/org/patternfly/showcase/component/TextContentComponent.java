@@ -15,6 +15,8 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.text.TextContent;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -32,20 +34,19 @@ import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.small;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.component.text.TextContent.textContent;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.plain;
 
+@Route(value = "/components/text-content", title = "Text")
 public class TextContentComponent extends SnippetPage {
 
     public TextContentComponent() {
-        super("Text",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/text/TextContent.html",
-                "https://www.patternfly.org/components/text/design-guidelines",
-                p().textContent(
-                        "Text and TextList components are always wrapped in TextContent and provide correct formatting to a number of standard HTML tags.")
-                        .element());
+        super(components.get("text"));
 
+        startExamples();
         addSnippet(new Snippet("text-content-headings", "Heading",
                 code.get("text-content-headings"), () ->
                 // @code-start:text-content-headings
@@ -58,7 +59,7 @@ public class TextContentComponent extends SnippetPage {
                                 .add(h(5, "Fifth Level"))
                                 .add(h(6, "Sixth Level")))
                         .element()
-        // @code-end:text-content-headings
+                // @code-end:text-content-headings
         ));
 
         addSnippet(new Snippet("text-content-body", "Body",
@@ -74,7 +75,7 @@ public class TextContentComponent extends SnippetPage {
                                 .add(blockquote().textContent(LoremIpsum.paragraphs(2)))
                                 .add(small().textContent(LoremIpsum.paragraphs(3))))
                         .element()
-        // @code-end:text-content-body
+                // @code-end:text-content-body
         ));
 
         addSnippet(new Snippet("text-content-ul", "Unordered list",
@@ -91,7 +92,7 @@ public class TextContentComponent extends SnippetPage {
                                                         .add(li().textContent(LoremIpsum.words()))))
                                         .add(li().add(LoremIpsum.words()))))
                         .element()
-        // @code-end:text-content-ul
+                // @code-end:text-content-ul
         ));
 
         addSnippet(new Snippet("text-content-ol", "Ordered list",
@@ -108,7 +109,7 @@ public class TextContentComponent extends SnippetPage {
                                         .add(li().textContent(LoremIpsum.words()))
                                         .add(li().textContent(LoremIpsum.words()))))
                         .element()
-        // @code-end:text-content-ol
+                // @code-end:text-content-ol
         ));
 
         addSnippet(new Snippet("text-content-plain-list", "Plain list",
@@ -132,7 +133,7 @@ public class TextContentComponent extends SnippetPage {
                                         .add(li().textContent(LoremIpsum.words()))
                                         .add(li().textContent(LoremIpsum.words()))))
                         .element()
-        // @code-end:text-content-plain-list
+                // @code-end:text-content-plain-list
         ));
 
         addSnippet(new Snippet("text-content-dl", "Description list",
@@ -149,7 +150,10 @@ public class TextContentComponent extends SnippetPage {
                                         .add(dt().textContent("CSS"))
                                         .add(dd().textContent("A technology to make HTML look better"))))
                         .element()
-        // @code-end:text-content-dl
+                // @code-end:text-content-dl
         ));
+
+        startApiDocs(TextContent.class);
+        addApiDoc(TextContent.class, component);
     }
 }

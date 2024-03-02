@@ -25,8 +25,10 @@ let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
  * @extends {IsElement<E>}
  */
 class HasElement {
- /** @abstract @nodts @return {B} */
+ /** @abstract @nodts @return {B} @deprecated */
  m_id__org_jboss_elemento_TypedBuilder() {}
+ /** @abstract @nodts @return {B} */
+ m_uniqueId__org_jboss_elemento_TypedBuilder() {}
  /** @abstract @nodts @return {B} */
  m_id__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ id) {}
  /** @abstract @nodts @return {B} */
@@ -63,10 +65,17 @@ class HasElement {
  m_aria__java_lang_String__java_lang_String__org_jboss_elemento_TypedBuilder(/** ?string */ name, /** ?string */ value) {}
  /** @abstract @nodts @return {B} */
  m_apply__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<E> */ consumer) {}
+ /** @abstract @nodts @return {B} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<B> */ consumer) {}
  /** @abstract @nodts @template V @return {B} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(/** EventType<V, ?> */ type, /** ?function(V):void */ callback) {}
- /** @nodts @template E, B @return {B} */
+ /** @nodts @template E, B @return {B} @deprecated */
  static m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg) {
+  HasElement.$clinit();
+  return $thisArg.m_id__java_lang_String__org_jboss_elemento_TypedBuilder(Id.m_unique__java_lang_String());
+ }
+ /** @nodts @template E, B @return {B} */
+ static m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg) {
   HasElement.$clinit();
   return $thisArg.m_id__java_lang_String__org_jboss_elemento_TypedBuilder(Id.m_unique__java_lang_String());
  }
@@ -186,6 +195,12 @@ class HasElement {
  static m_apply__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** Consumer<E> */ consumer) {
   HasElement.$clinit();
   consumer.m_accept__java_lang_Object__void($thisArg.m_element__elemental2_dom_Element());
+  return $thisArg.m_that__org_jboss_elemento_TypedBuilder();
+ }
+ /** @nodts @template E, B @return {B} */
+ static m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** !HasElement<E, B> */ $thisArg, /** Consumer<B> */ consumer) {
+  HasElement.$clinit();
+  consumer.m_accept__java_lang_Object__void($thisArg.m_that__org_jboss_elemento_TypedBuilder());
   return $thisArg.m_that__org_jboss_elemento_TypedBuilder();
  }
  /** @nodts @template E, B, V @return {B} */

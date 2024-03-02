@@ -4,15 +4,19 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let Integer = goog.forwardDeclare('java.lang.Integer$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Grid = goog.forwardDeclare('org.patternfly.layout.grid.Grid$impl');
 let GridItem = goog.forwardDeclare('org.patternfly.layout.grid.GridItem$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Layout_$Overlay = goog.forwardDeclare('org.patternfly.showcase.layout.Layout.$Overlay$impl');
 let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
 let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
@@ -32,7 +36,8 @@ class GridLayout extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_layout_GridLayout__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Grid', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/grid/Grid.html', 'https://www.patternfly.org/layouts/grid/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('The grid layout places content on a fixed 12 column grid.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_layout_Layout__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_layouts__org_patternfly_showcase_Data, 'grid'), Layout_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('grid-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('grid-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init(['ws-core-l-grid'], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Grid.m_grid__org_patternfly_layout_grid_Grid().m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(8).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 8'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(4).m_rowSpan__int__org_patternfly_layout_grid_GridItem(2).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 4, rowSpan = 2'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(2).m_rowSpan__int__org_patternfly_layout_grid_GridItem(3).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 2, rowSpan = 3'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(2).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 2'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(4).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 4'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(2).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 2'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(2).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 2'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(2).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 2'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(4).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 4'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(2).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 2'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(4).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 4'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_patternfly_layout_grid_GridItem().m_span__int__org_patternfly_layout_grid_GridItem(4).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('span = 4'), GridItem)))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
@@ -54,6 +59,9 @@ class GridLayout extends SnippetPage {
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('grid-alternative-components', 'Alternative components', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('grid-alternative-components'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init(['ws-core-l-grid'], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Grid.m_grid__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_layout_grid_Grid(Elements.m_ul__org_jboss_elemento_HTMLContainerBuilder()).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_layout_grid_GridItem(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder()).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Grid item'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_layout_grid_GridItem(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder()).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Grid item'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_layout_grid_GridItem(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder()).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Grid item'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_layout_grid_GridItem(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder()).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Grid item'), GridItem))).m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/**@type {GridItem}*/ ($Casts.$to(GridItem.m_gridItem__org_jboss_elemento_HTMLContainerBuilder__org_patternfly_layout_grid_GridItem(Elements.m_li__org_jboss_elemento_HTMLContainerBuilder()).m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Grid item'), GridItem)))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(Grid));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(Grid), Type.f_layout__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(GridItem), Type.f_layout__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -69,15 +77,19 @@ class GridLayout extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   Integer = goog.module.get('java.lang.Integer$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Grid = goog.module.get('org.patternfly.layout.grid.Grid$impl');
   GridItem = goog.module.get('org.patternfly.layout.grid.GridItem$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Layout_$Overlay = goog.module.get('org.patternfly.showcase.layout.Layout.$Overlay$impl');
   Breakpoint = goog.module.get('org.patternfly.style.Breakpoint$impl');
   Breakpoints = goog.module.get('org.patternfly.style.Breakpoints$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');

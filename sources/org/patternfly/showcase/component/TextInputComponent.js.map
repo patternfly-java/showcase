@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"TextInputComponent.impl.java.js",
-"lineCount":67,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;MA+Ba,kB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,6B;EAAAA,yC;EAAAA,8E;EAAAA,iB;;;CAAA,iE;EACHC,0rB;EAKAA;GAGQC,+aAHRD;O;EASAA;GAGQC,ikBAHRD;O;EAUAA;GAGYC,IAASC,WAATD,gLAHZD;GAIYC,IAAUE,iBAAVF,6PAJZD;GAMYC,+3BAE2CG,CAF3CH,EAE8CI,CAF9CJ,EAEiDK,KAFjDL;IAE0CA,IAAII,GAAJJ,mDAF1CA;IAE0CA,IAAOK,OAAPL,sDAF1CA;IAE2DA,yIAF3DA;4OANZD;O;EAcAA;GAGQC,2nBAHRD;O;EASAA;GAGQC,qwCAHRD;O;EAYAA;GAGQC,2zBAHRD;O;;;QA9DK,O;EAAAO,qC;EAAAA,kC;EAAAA;",
+"lineCount":76,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;MAoCa,kB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,6B;EAAAA,yC;EAAAA,8E;EAAAA,iB;;;CAAA,iE;EACHC,mT;EAEAA,6B;EACAA;GAGQC,+aAHRD;O;EASAA;GAGQC,ikBAHRD;O;EAUAA;GAGIC,IAASC,WAATD,gLAHJD;GAIIC,IAAUE,iBAAVF,6PAJJD;GAMIC,+3BAE2CG,CAF3CH,EAE8CI,CAF9CJ,EAEiDK,KAFjDL;IAE0CA,IAAII,GAAJJ,mDAF1CA;IAE0CA,IAAOK,OAAPL,sDAF1CA;IAE2DA,yIAF3DA;4OANJD;O;EAcAA;GAGQC,2nBAHRD;O;EASAA;GAGQC,qwCAHRD;O;EAYAA;GAGQC,2zBAHRD;O;EAWAA,kE;EACAA,2J;EACAA,2J;;;QAzEK,O;EAAAO,qC;EAAAA,kC;EAAAA;",
 "sources":["TextInputComponent.java"],
 "names":["org.patternfly.showcase.component.TextInputComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.TextInputComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.TextInputComponent.<init>","org.patternfly.showcase.component.TextInputComponent.<lambda in <init>>","plainToggle","readOnlyTextInput","e","c","value","org.patternfly.showcase.component.TextInputComponent.<clinit>"]
 }

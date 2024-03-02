@@ -57,10 +57,19 @@ class Page extends BaseComponent {
  /** @nodts @return {Page} */
  static m_page__org_patternfly_component_page_Page() {
   Page.$clinit();
-  if ($Equality.$same(Page.f_instance__org_patternfly_component_page_Page_, null)) {
-   Page.f_instance__org_patternfly_component_page_Page_ = Page.$create__();
+  return Page.m_page__boolean__org_patternfly_component_page_Page(false);
+ }
+ /** @nodts @return {Page} */
+ static m_page__boolean__org_patternfly_component_page_Page(/** boolean */ newInstance) {
+  Page.$clinit();
+  if (newInstance) {
+   return Page.$create__();
+  } else {
+   if ($Equality.$same(Page.f_instance__org_patternfly_component_page_Page_, null)) {
+    Page.f_instance__org_patternfly_component_page_Page_ = Page.$create__();
+   }
+   return Page.f_instance__org_patternfly_component_page_Page_;
   }
-  return Page.f_instance__org_patternfly_component_page_Page_;
  }
  /** @nodts @return {!Page} */
  static $create__() {
@@ -212,7 +221,11 @@ class Page extends BaseComponent {
    this.f_masthead__org_patternfly_component_page_Page_.m_onPageResize__org_patternfly_style_Rect__org_patternfly_style_Rect__void_$pp_org_patternfly_component_page(current, previous);
   }
   if (!$Equality.$same(this.f_sidebar__org_patternfly_component_page_Page_, null)) {
-   this.f_sidebar__org_patternfly_component_page_Page_.m_onPageResize__org_patternfly_style_Rect__org_patternfly_style_Rect__void_$pp_org_patternfly_component_page(current, previous);
+   if (this.m_underXl__boolean_$pp_org_patternfly_component_page()) {
+    this.f_sidebar__org_patternfly_component_page_Page_.m_collapse__void();
+   } else {
+    this.f_sidebar__org_patternfly_component_page_Page_.m_expand__void();
+   }
   }
  }
  //Bridge method.

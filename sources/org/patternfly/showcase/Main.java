@@ -16,15 +16,16 @@
 package org.patternfly.showcase;
 
 import org.jboss.elemento.By;
+import org.jboss.elemento.router.Place;
+import org.jboss.elemento.router.PlaceManager;
+import org.jboss.elemento.router.RoutesImpl;
 import org.patternfly.component.navigation.Navigation;
+import org.patternfly.component.navigation.NavigationItem;
 import org.patternfly.thirdparty.ThirdParty;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
-import static elemental2.dom.DomGlobal.location;
-import static elemental2.dom.DomGlobal.window;
+import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.body;
-import static org.jboss.elemento.EventType.bind;
-import static org.jboss.elemento.EventType.hashchange;
 import static org.patternfly.component.backtotop.BackToTop.backToTop;
 import static org.patternfly.component.brand.Brand.brand;
 import static org.patternfly.component.navigation.ExpandableNavigationGroup.expandableNavigationGroup;
@@ -32,6 +33,8 @@ import static org.patternfly.component.navigation.Navigation.navigation;
 import static org.patternfly.component.navigation.NavigationItem.navigationItem;
 import static org.patternfly.component.navigation.NavigationType.Vertical.expandable;
 import static org.patternfly.component.page.Masthead.masthead;
+import static org.patternfly.component.page.MastheadBrand.mastheadBrand;
+import static org.patternfly.component.page.MastheadMain.mastheadMain;
 import static org.patternfly.component.page.MastheadToggle.mastheadToggle;
 import static org.patternfly.component.page.Page.page;
 import static org.patternfly.component.page.PageMain.pageMain;
@@ -39,111 +42,80 @@ import static org.patternfly.component.page.PageSidebar.pageSidebar;
 import static org.patternfly.component.page.PageSidebarBody.pageSidebarBody;
 import static org.patternfly.component.skiptocontent.SkipToContent.skipToContent;
 import static org.patternfly.showcase.Assets.pfLogo;
+import static org.patternfly.showcase.Data.groupComponents;
+import static org.patternfly.showcase.Data.layouts;
+import static org.patternfly.showcase.Data.topLevelComponents;
 import static org.patternfly.style.Classes.brand;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Variable.componentVar;
 import static org.patternfly.style.Variables.Height;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"Convert2MethodRef", "unused"})
 public class Main {
 
-    private Navigation navigation;
+    static final String MAIN_ID = "pfj-main-id";
 
     @GWT3EntryPoint
     public void onModuleLoad() {
         ThirdParty.injectAll();
-        navigation = navigation(expandable)
-                .addItem(navigationItem("get-started", "Get started", "#get-started"))
-                .addGroup(expandableNavigationGroup("components", "Components")
-                        .addItem(navigationItem("c-accordion", "Accordion", "#c-accordion"))
-                        .addItem(navigationItem("c-action-list", "Action list", "#c-action-list"))
-                        .addItem(navigationItem("c-alert", "Alert", "#c-alert"))
-                        .addItem(navigationItem("c-avatar", "Avatar", "#c-avatar"))
-                        .addItem(navigationItem("c-back-to-top", "Back to top", "#c-back-to-top"))
-                        .addItem(navigationItem("c-badge", "Badge", "#c-badge"))
-                        .addItem(navigationItem("c-banner", "Banner", "#c-banner"))
-                        .addItem(navigationItem("c-brand", "Brand", "#c-brand"))
-                        .addItem(navigationItem("c-button", "Button", "#c-button"))
-                        .addItem(navigationItem("c-card", "Card", "#c-card"))
-                        .addItem(navigationItem("c-chip", "Chip", "#c-chip"))
-                        .addItem(navigationItem("c-code-block", "Code block", "#c-code-block"))
-                        .addItem(navigationItem("c-code-editor", "Code editor", "#c-code-editor"))
-                        // .addItem(navigationItem("c-data-list", "Data list", "#c-data-list"))
-                        .addItem(navigationItem("c-description-list", "Description list", "#c-description-list"))
-                        .addItem(navigationItem("c-drawer", "Drawer", "#c-drawer"))
-                        .addItem(navigationItem("c-empty-state", "Empty state", "#c-empty-state"))
-                        .addItem(navigationItem("c-expandable-section", "Expandable section", "#c-expandable-section"))
-                        .addGroup(expandableNavigationGroup("forms", "Forms")
-                                .addItem(navigationItem("c-checkbox", "Checkbox", "#c-checkbox"))
-                                .addItem(navigationItem("c-form", "Form", "#c-form"))
-                                .addItem(navigationItem("c-form-control", "Form control", "#c-form-control"))
-                                .addItem(navigationItem("c-form-select", "Form select", "#c-form-select"))
-                                .addItem(navigationItem("c-radio", "Radio", "#c-radio"))
-                                .addItem(navigationItem("c-text-area", "Text area", "#c-text-area"))
-                                .addItem(navigationItem("c-text-input", "Text input", "#c-text-input")))
-                        .addItem(navigationItem("c-helper-text", "Helper text", "#c-helper-text"))
-                        .addItem(navigationItem("c-hint", "Hint", "#c-hint"))
-                        .addItem(navigationItem("c-icon", "Icon", "#c-icon"))
-                        .addItem(navigationItem("c-input-group", "Input group", "#c-input-group"))
-                        .addItem(navigationItem("c-label", "Label", "#c-label"))
-                        .addItem(navigationItem("c-list", "List", "#c-list"))
-                        .addItem(navigationItem("c-masthead", "Masthead", "#c-masthead"))
-                        .addGroup(expandableNavigationGroup("menus", "Menus")
-                                .addItem(navigationItem("c-dropdown", "Dropdown", "#c-dropdown"))
-                                .addItem(navigationItem("c-menu", "Menu", "#c-menu"))
-                                .addItem(navigationItem("c-menu-toggle", "Menu toggle", "#c-menu-toggle")))
-                        // .addItem(navigationItem("c-options-menu", "Options menu", "#c-options-menu"))
-                        // .addItem(navigationItem("c-select", "Select", "#c-select"))
-                        .addItem(navigationItem("c-panel", "Panel", "#c-panel"))
-                        .addItem(navigationItem("c-popover", "Popover", "#c-popover"))
-                        .addItem(navigationItem("c-slider", "Slider", "#c-slider"))
-                        .addItem(navigationItem("c-spinner", "Spinner", "#c-spinner"))
-                        .addItem(navigationItem("c-switch", "Switch", "#c-switch"))
-                        // .addItem(navigationItem("c-table", "Table", "#c-table"))
-                        .addItem(navigationItem("c-tabs", "Tabs", "#c-tabs"))
-                        .addItem(navigationItem("c-text-content", "Text content", "#c-text-content"))
-                        .addItem(navigationItem("c-text-input-group", "Text input group", "#c-text-input-group"))
-                        .addItem(navigationItem("c-title", "Title", "#c-title"))
-                        .addItem(navigationItem("c-tooltip", "Tooltip", "#c-tooltip"))
-                // .addItem(navigationItem("c-title", "Title", "#c-title"))
-                // .addItem(navigationItem("c-toolbar", "Toolbar", "#c-toolbar"))
-                )
-                .addGroup(expandableNavigationGroup("layouts", "Layouts")
-                        .addItem(navigationItem("l-bullseye", "Bullseye", "#l-bullseye"))
-                        .addItem(navigationItem("l-flex", "Flex", "#l-flex"))
-                        .addItem(navigationItem("l-gallery", "Gallery", "#l-gallery"))
-                        .addItem(navigationItem("l-grid", "Grid", "#l-grid"))
-                        .addItem(navigationItem("l-level", "Level", "#l-level"))
-                        .addItem(navigationItem("l-split", "Split", "#l-split"))
-                        .addItem(navigationItem("l-stack", "Stack", "#l-stack")))
-                // .addGroup(expandableNavigationGroup("demos", "Demos")
-                // .addItem(navigationItem("d-server", "Server", "#d-server"))
-                // .addItem(navigationItem("d-user", "User", "#d-user")))
-                .addItem(navigationItem("contribute", "Contribute", "#contribute"))
-                .addItem(navigationItem("get-in-touch", "Get in touch", "#get-in-touch"));
+        Navigation navigation = navigation(expandable);
+        PlaceManager placeManager = new PlaceManager()
+                .root(By.id(MAIN_ID))
+                .title(title -> "PatternFly Java • " + title)
+                .notFound(place -> new NotFound(place))
+                .register(RoutesImpl.INSTANCE.places())
+                .afterPlace((pm, place, page) -> navigation.select(place.route));
+        setupNavigation(navigation, placeManager);
+        appendBody(navigation);
+        placeManager.start();
+    }
 
-        String mainId = "main-id";
+    private void setupNavigation(Navigation navigation, PlaceManager placeManager) {
+        navigation
+                .addItem(ni(placeManager.place("/get-started")))
+                .addGroup(expandableNavigationGroup("components", "Components")
+                        .addItem(ni(placeManager.place("/components/all-components")))
+                        .addItems(topLevelComponents(), component ->
+                                navigationItem(component.route, component.title, component.route))
+                        .insertGroupAfter(expandableNavigationGroup("forms", "Forms")
+                                        .addItems(groupComponents("forms"), sc ->
+                                                navigationItem(sc.route, sc.title, sc.route)),
+                                "/components/expandable-section")
+                        .insertGroupAfter(expandableNavigationGroup("menus", "Menus")
+                                        .addItems(groupComponents("menus"), sc ->
+                                                navigationItem(sc.route, sc.title, sc.route)),
+                                "/components/masthead"))
+                .addGroup(expandableNavigationGroup("layouts", "Layouts")
+                        .addItem(ni(placeManager.place("/layouts/about-layouts"), "About layouts"))
+                        .addItems(layouts(), layout ->
+                                navigationItem(layout.route, layout.title, layout.route)))
+                .addItem(ni(placeManager.place("/contribute")))
+                .addItem(ni(placeManager.place("/get-in-touch")));
+    }
+
+    private NavigationItem ni(Place place) {
+        return ni(place, place.title);
+    }
+
+    private NavigationItem ni(Place place, String text) {
+        return navigationItem(place.route, text, place.route);
+    }
+
+    private void appendBody(Navigation navigation) {
         body().add(page()
-                .addSkipToContent(skipToContent(mainId))
+                .addSkipToContent(skipToContent(MAIN_ID))
                 .addMasthead(masthead().css("ws-masthead")
-                        .addToggle(mastheadToggle())
-                        .addBrand(brand(pfLogo, "PatternFly")
-                                .style(componentVar(component(brand), Height).name, "36px"),
-                                "#home"))
+                        .addToggle(mastheadToggle()
+                                .toggleSidebar())
+                        .addMain(mastheadMain()
+                                .addBrand(mastheadBrand(a("/"))
+                                        .addBrand(brand(pfLogo, "PatternFly")
+                                                .style(componentVar(component(brand), Height).name, "36px")))))
                 .addSidebar(pageSidebar()
                         .addBody(pageSidebarBody()
                                 .addNavigation(navigation)))
-                .addMain(pageMain(mainId))
+                .addMain(pageMain(MAIN_ID))
                 .add(backToTop().css("ws-back-to-top")
-                        .scrollableSelector(By.id(mainId))));
-
-        bind(window, hashchange, e -> navigate(location.hash));
-        navigate(location.hash);
-    }
-
-    private void navigate(String hash) {
-        String id = hash != null && hash.startsWith("#") ? hash.substring(1) : "";
-        page().main().replace(Placemanager.lookup(id).get());
-        navigation.select(id);
+                        .scrollableSelector(By.id(MAIN_ID))));
     }
 }

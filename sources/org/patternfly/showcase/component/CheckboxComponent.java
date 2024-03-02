@@ -15,27 +15,30 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.form.Checkbox;
+import org.patternfly.component.form.CheckboxBody;
+import org.patternfly.component.form.CheckboxDescription;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.form.Checkbox.checkbox;
 import static org.patternfly.component.form.CheckboxBody.checkboxBody;
 import static org.patternfly.component.form.CheckboxDescription.checkboxDescription;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/forms/checkbox", title = "Checkbox")
 public class CheckboxComponent extends SnippetPage {
 
     public CheckboxComponent() {
-        super("Checkbox",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/form/Checkbox.html",
-                "https://www.patternfly.org/components/forms/checkbox/design-guidelines",
-                p().textContent(
-                        "A checkbox is used to select a single item or multiple items, typically to choose elements to perform an action or to reflect a binary setting.")
-                        .element());
+        super(components.get("checkbox"));
 
+        startExamples();
         addSnippet(new Snippet("checkbox-basic", "Basic",
                 code.get("checkbox-basic"), () ->
                 // @code-start:checkbox-basic
@@ -44,7 +47,7 @@ public class CheckboxComponent extends SnippetPage {
                                 .value(true))
                         .add(checkbox("basic-checkbox-1", "basic-checkbox", "Checkbox 2"))
                         .element()
-        // @code-end:checkbox-basic
+                // @code-end:checkbox-basic
         ));
 
         addSnippet(new Snippet("checkbox-disabled", "Disabled",
@@ -57,7 +60,7 @@ public class CheckboxComponent extends SnippetPage {
                         .add(checkbox("disabled-checkbox-1", "disabled-checkbox", "Disabled checkbox 2")
                                 .disabled())
                         .element()
-        // @code-end:checkbox-disabled
+                // @code-end:checkbox-disabled
         ));
 
         addSnippet(new Snippet("checkbox-description", "Checkbox with description",
@@ -67,7 +70,7 @@ public class CheckboxComponent extends SnippetPage {
                         .add(checkbox("cwd-0", "cwd", "Checkbox with description")
                                 .addDescription(checkboxDescription(LoremIpsum.words(50))))
                         .element()
-        // @code-end:checkbox-description
+                // @code-end:checkbox-description
         ));
 
         addSnippet(new Snippet("checkbox-body", "Checkbox with body",
@@ -77,7 +80,7 @@ public class CheckboxComponent extends SnippetPage {
                         .add(checkbox("cwb-0", "cwb", "Checkbox with body")
                                 .addBody(checkboxBody("This is where custom content goes.")))
                         .element()
-        // @code-end:checkbox-body
+                // @code-end:checkbox-body
         ));
 
         addSnippet(new Snippet("checkbox-description-body", "Checkbox with description and body",
@@ -88,7 +91,7 @@ public class CheckboxComponent extends SnippetPage {
                                 .addDescription(checkboxDescription(LoremIpsum.words(50)))
                                 .addBody(checkboxBody("This is where custom content goes.")))
                         .element()
-        // @code-end:checkbox-description-body
+                // @code-end:checkbox-description-body
         ));
 
         addSnippet(new Snippet("checkbox-standalone", "Standalone input",
@@ -98,7 +101,7 @@ public class CheckboxComponent extends SnippetPage {
                         .add(checkbox("standalone-checkbox-0", "standalone-checkbox")
                                 .standalone())
                         .element()
-        // @code-end:checkbox-standalone
+                // @code-end:checkbox-standalone
         ));
 
         addSnippet(new Snippet("checkbox-required", "Required input",
@@ -108,7 +111,12 @@ public class CheckboxComponent extends SnippetPage {
                         .add(checkbox("required-checkbox-0", "required-checkbox", "Required checkbox")
                                 .required())
                         .element()
-        // @code-end:checkbox-required
+                // @code-end:checkbox-required
         ));
+
+        startApiDocs(Checkbox.class);
+        addApiDoc(Checkbox.class, component);
+        addApiDoc(CheckboxBody.class, subcomponent);
+        addApiDoc(CheckboxDescription.class, subcomponent);
     }
 }

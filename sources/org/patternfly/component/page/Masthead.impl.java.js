@@ -8,11 +8,9 @@ let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let ComponentType = goog.forwardDeclare('org.patternfly.component.ComponentType$impl');
-let Brand = goog.forwardDeclare('org.patternfly.component.brand.Brand$impl');
 let MastheadContent = goog.forwardDeclare('org.patternfly.component.page.MastheadContent$impl');
 let MastheadMain = goog.forwardDeclare('org.patternfly.component.page.MastheadMain$impl');
 let MastheadToggle = goog.forwardDeclare('org.patternfly.component.page.MastheadToggle$impl');
-let Toolbar = goog.forwardDeclare('org.patternfly.component.toolbar.Toolbar$impl');
 let Validation = goog.forwardDeclare('org.patternfly.core.Validation$impl');
 let Breakpoint = goog.forwardDeclare('org.patternfly.style.Breakpoint$impl');
 let Breakpoints = goog.forwardDeclare('org.patternfly.style.Breakpoints$impl');
@@ -52,6 +50,7 @@ class Masthead extends BaseComponent {
  $ctor__org_patternfly_component_page_Masthead__void() {
   this.$ctor__org_patternfly_component_BaseComponent__org_patternfly_component_ComponentType__elemental2_dom_HTMLElement__void(ComponentType.f_Masthead__org_patternfly_component_ComponentType, /**@type {HTMLContainerBuilder<HTMLElement>}*/ ($Casts.$to(Elements.m_header__org_jboss_elemento_HTMLContainerBuilder().m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_masthead__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement());
   this.f_displayModifiers__org_patternfly_component_page_Masthead_ = /**@type {Breakpoints<Display>}*/ (Breakpoints.m_breakpoints__org_patternfly_style_Breakpoint__java_lang_Object__org_patternfly_style_Breakpoints(Breakpoint.f_md__org_patternfly_style_Breakpoint, Display.f_inline__org_patternfly_style_Display));
+  this.m_classList__org_jboss_elemento_ClassList().m_add__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([this.f_displayModifiers__org_patternfly_component_page_Masthead_.m_modifiers__java_lang_String()], j_l_String)));
  }
  /** @nodts @return {Masthead} */
  m_addToggle__org_patternfly_component_page_MastheadToggle__org_patternfly_component_page_Masthead(/** MastheadToggle */ toggle) {
@@ -63,26 +62,25 @@ class Masthead extends BaseComponent {
   return /**@type {Masthead}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(main), Masthead));
  }
  /** @nodts @return {Masthead} */
- m_addBrand__org_patternfly_component_brand_Brand__java_lang_String__org_patternfly_component_page_Masthead(/** Brand */ brand, /** ?string */ homeLink) {
-  this.m_addMain__org_patternfly_component_page_MastheadMain__org_patternfly_component_page_Masthead(/**@type {MastheadMain}*/ ($Casts.$to(MastheadMain.m_mastheadMain__org_patternfly_component_page_MastheadMain().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLAnchorElement>}*/ ($Casts.$to(Elements.m_a__java_lang_String__org_jboss_elemento_HTMLContainerBuilder(homeLink).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_component__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_masthead__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([Classes.f_brand__org_patternfly_style_Classes], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(brand), HTMLContainerBuilder))), MastheadMain)));
-  return this;
- }
- /** @nodts @return {Masthead} */
- m_addToolbar__org_patternfly_component_toolbar_Toolbar__org_patternfly_component_page_Masthead(/** Toolbar */ toolbar) {
-  this.m_addContent__org_patternfly_component_page_MastheadContent__org_patternfly_component_page_Masthead(/**@type {MastheadContent}*/ ($Casts.$to(MastheadContent.m_mastheadContent__org_patternfly_component_page_MastheadContent().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(toolbar), MastheadContent)));
-  return this;
- }
- /** @nodts @return {Masthead} */
  m_addContent__org_patternfly_component_page_MastheadContent__org_patternfly_component_page_Masthead(/** MastheadContent */ content) {
   return /**@type {Masthead}*/ ($Casts.$to(this.m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(content), Masthead));
  }
  /** @nodts @return {Masthead} */
  m_display__org_patternfly_style_Breakpoints__org_patternfly_component_page_Masthead(/** Breakpoints<Display> */ displayModifiers) {
+  if (!$Equality.$same(this.f_displayModifiers__org_patternfly_component_page_Masthead_, null)) {
+   this.m_classList__org_jboss_elemento_ClassList().m_remove__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([this.f_displayModifiers__org_patternfly_component_page_Masthead_.m_modifiers__java_lang_String()], j_l_String)));
+  }
   this.f_displayModifiers__org_patternfly_component_page_Masthead_ = displayModifiers;
+  this.m_classList__org_jboss_elemento_ClassList().m_add__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([this.f_displayModifiers__org_patternfly_component_page_Masthead_.m_modifiers__java_lang_String()], j_l_String)));
   return this;
  }
  /** @nodts @return {Masthead} */
  m_inset__org_patternfly_style_Breakpoints__org_patternfly_component_page_Masthead(/** Breakpoints<Inset> */ insetModifiers) {
+  if (!$Equality.$same(this.f_insetModifiers__org_patternfly_component_page_Masthead_, null)) {
+   this.m_classList__org_jboss_elemento_ClassList().m_remove__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([this.f_insetModifiers__org_patternfly_component_page_Masthead_.m_modifiers__java_lang_String()], j_l_String)));
+  }
+  this.f_insetModifiers__org_patternfly_component_page_Masthead_ = insetModifiers;
+  this.m_classList__org_jboss_elemento_ClassList().m_add__arrayOf_java_lang_String__void(/**@type {!Array<?string>}*/ ($Arrays.$init([this.f_insetModifiers__org_patternfly_component_page_Masthead_.m_modifiers__java_lang_String()], j_l_String)));
   this.f_insetModifiers__org_patternfly_component_page_Masthead_ = insetModifiers;
   return this;
  }
@@ -131,8 +129,6 @@ class Masthead extends BaseComponent {
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   ComponentType = goog.module.get('org.patternfly.component.ComponentType$impl');
-  MastheadContent = goog.module.get('org.patternfly.component.page.MastheadContent$impl');
-  MastheadMain = goog.module.get('org.patternfly.component.page.MastheadMain$impl');
   Validation = goog.module.get('org.patternfly.core.Validation$impl');
   Breakpoint = goog.module.get('org.patternfly.style.Breakpoint$impl');
   Breakpoints = goog.module.get('org.patternfly.style.Breakpoints$impl');

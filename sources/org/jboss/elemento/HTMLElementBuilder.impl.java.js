@@ -116,7 +116,7 @@ class HTMLElementBuilder extends j_l_Object {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), HTMLElementBuilder));
  }
  //Bridge method.
- /** @final @override @nodts @return {HTMLElementBuilder<E>} */
+ /** @final @override @nodts @return {HTMLElementBuilder<E>} @deprecated */
  m_id__org_jboss_elemento_TypedBuilder() {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), HTMLElementBuilder));
  }
@@ -134,6 +134,11 @@ class HTMLElementBuilder extends j_l_Object {
  /** @final @override @nodts @template V @return {HTMLElementBuilder<E>} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(/** EventType<V, ?> */ arg0, /** ?function(V):void */ arg1) {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_on__$default__org_jboss_elemento_HasElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLElementBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {HTMLElementBuilder<E>} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<HTMLElementBuilder<E>> */ arg0) {
+  return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), HTMLElementBuilder));
  }
  //Bridge method.
  /** @final @override @nodts @return {HTMLElementBuilder<E>} */
@@ -159,6 +164,11 @@ class HTMLElementBuilder extends j_l_Object {
  /** @final @override @nodts @return {HTMLElementBuilder<E>} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** Supplier<?boolean> */ arg1) {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLElementBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {HTMLElementBuilder<E>} */
+ m_uniqueId__org_jboss_elemento_TypedBuilder() {
+  return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), HTMLElementBuilder));
  }
  //Bridge method.
  /** @final @override @nodts @return {HTMLElementBuilder<E>} */
@@ -271,7 +281,7 @@ class HTMLElementBuilder extends j_l_Object {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), HTMLElementBuilder));
  }
  //Default method forwarding stub.
- /** @nodts @return {HTMLElementBuilder<E>} */
+ /** @nodts @return {HTMLElementBuilder<E>} @deprecated */
  m_id__org_jboss_elemento_HTMLElementBuilder() {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), HTMLElementBuilder));
  }
@@ -289,6 +299,11 @@ class HTMLElementBuilder extends j_l_Object {
  /** @nodts @template V @return {HTMLElementBuilder<E>} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_HTMLElementBuilder(/** EventType<V, ?> */ arg0, /** ?function(V):void */ arg1) {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_on__$default__org_jboss_elemento_HasElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLElementBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {HTMLElementBuilder<E>} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_HTMLElementBuilder(/** Consumer<HTMLElementBuilder<E>> */ arg0) {
+  return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), HTMLElementBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {HTMLElementBuilder<E>} */
@@ -314,6 +329,11 @@ class HTMLElementBuilder extends j_l_Object {
  /** @nodts @return {HTMLElementBuilder<E>} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_HTMLElementBuilder(/** ?string */ arg0, /** Supplier<?boolean> */ arg1) {
   return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0, arg1), HTMLElementBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {HTMLElementBuilder<E>} */
+ m_uniqueId__org_jboss_elemento_HTMLElementBuilder() {
+  return /**@type {HTMLElementBuilder<E>}*/ ($Casts.$to(HasElement.m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), HTMLElementBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {HTMLElementBuilder<E>} */

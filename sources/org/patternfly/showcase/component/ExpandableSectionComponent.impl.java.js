@@ -4,9 +4,10 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
 let Badge = goog.forwardDeclare('org.patternfly.component.badge.Badge$impl');
@@ -18,8 +19,11 @@ let InlineIcon = goog.forwardDeclare('org.patternfly.component.icon.InlineIcon$i
 let ToggleHandler = goog.forwardDeclare('org.patternfly.handler.ToggleHandler$impl');
 let Stack = goog.forwardDeclare('org.patternfly.layout.stack.Stack$impl');
 let StackItem = goog.forwardDeclare('org.patternfly.layout.stack.StackItem$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let LoremIpsum = goog.forwardDeclare('org.patternfly.showcase.LoremIpsum$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
@@ -37,7 +41,8 @@ class ExpandableSectionComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_ExpandableSectionComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Expandable section', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/expandable/ExpandableSection.html', 'https://www.patternfly.org/components/expandable-section/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('An expandable section component is used to support progressive disclosure in a form or page by hiding additional content when you don\'t want it to be shown by default. An expandable section can contain any type of content such as plain text, form inputs, and charts.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'expandable-section'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('expandable-section-basic', 'Basic', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('expandable-section-basic'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(ExpandableSection.m_expandableSection__org_patternfly_component_expandable_ExpandableSection().m_addToggle__org_patternfly_component_expandable_ExpandableSectionToggle__org_patternfly_component_expandable_ExpandableSection(ExpandableSectionToggle.m_expandableSectionToggle__java_lang_String__org_patternfly_component_expandable_ExpandableSectionToggle('Show more')).m_addContent__org_patternfly_component_expandable_ExpandableSectionContent__org_patternfly_component_expandable_ExpandableSection(/**@type {ExpandableSectionContent}*/ ($Casts.$to(ExpandableSectionContent.m_expandableSectionContent__org_patternfly_component_expandable_ExpandableSectionContent().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('This content is visible only when the component is expanded.'), ExpandableSectionContent)))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
@@ -63,6 +68,11 @@ class ExpandableSectionComponent extends SnippetPage {
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('expandable-section-truncate', 'Truncate', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('expandable-section-truncate'), j_l_String)), Supplier.$adapt(() =>{
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(ExpandableSection.m_expandableSection__org_patternfly_component_expandable_ExpandableSection().m_truncate__int__org_patternfly_component_expandable_ExpandableSection(2).m_addContent__org_patternfly_component_expandable_ExpandableSectionContent__org_patternfly_component_expandable_ExpandableSection(/**@type {ExpandableSectionContent}*/ ($Casts.$to(ExpandableSectionContent.m_expandableSectionContent__org_patternfly_component_expandable_ExpandableSectionContent().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(LoremIpsum.m_paragraphs__int__java_lang_String(20)), ExpandableSectionContent))).m_addToggle__org_patternfly_component_expandable_ExpandableSectionToggle__org_patternfly_component_expandable_ExpandableSection(ExpandableSectionToggle.m_expandableSectionToggle__java_lang_String__java_lang_String__org_patternfly_component_expandable_ExpandableSectionToggle('Show more', 'Show less'))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(ExpandableSection));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(ExpandableSection), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(ExpandableSectionContent), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(ExpandableSectionToggle), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(ExpandableSectionToggleText), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -78,9 +88,10 @@ class ExpandableSectionComponent extends SnippetPage {
  /** @nodts */
  static $loadModules() {
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Badge = goog.module.get('org.patternfly.component.badge.Badge$impl');
@@ -92,8 +103,11 @@ class ExpandableSectionComponent extends SnippetPage {
   ToggleHandler = goog.module.get('org.patternfly.handler.ToggleHandler$impl');
   Stack = goog.module.get('org.patternfly.layout.stack.Stack$impl');
   StackItem = goog.module.get('org.patternfly.layout.stack.StackItem$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   LoremIpsum = goog.module.get('org.patternfly.showcase.LoremIpsum$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }

@@ -116,7 +116,7 @@ class SVGElementBuilder extends j_l_Object {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), SVGElementBuilder));
  }
  //Bridge method.
- /** @final @override @nodts @return {SVGElementBuilder<E>} */
+ /** @final @override @nodts @return {SVGElementBuilder<E>} @deprecated */
  m_id__org_jboss_elemento_TypedBuilder() {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGElementBuilder));
  }
@@ -134,6 +134,11 @@ class SVGElementBuilder extends j_l_Object {
  /** @final @override @nodts @template V @return {SVGElementBuilder<E>} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(/** EventType<V, ?> */ arg0, /** ?function(V):void */ arg1) {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_on__$default__org_jboss_elemento_HasElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGElementBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGElementBuilder<E>} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(/** Consumer<SVGElementBuilder<E>> */ arg0) {
+  return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), SVGElementBuilder));
  }
  //Bridge method.
  /** @final @override @nodts @return {SVGElementBuilder<E>} */
@@ -159,6 +164,11 @@ class SVGElementBuilder extends j_l_Object {
  /** @final @override @nodts @return {SVGElementBuilder<E>} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(/** ?string */ arg0, /** Supplier<?boolean> */ arg1) {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGElementBuilder));
+ }
+ //Bridge method.
+ /** @final @override @nodts @return {SVGElementBuilder<E>} */
+ m_uniqueId__org_jboss_elemento_TypedBuilder() {
+  return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGElementBuilder));
  }
  //Bridge method.
  /** @final @override @nodts @return {SVGElementBuilder<E>} */
@@ -261,7 +271,7 @@ class SVGElementBuilder extends j_l_Object {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_css__$default__org_jboss_elemento_HasElement__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(this, arg0), SVGElementBuilder));
  }
  //Default method forwarding stub.
- /** @nodts @return {SVGElementBuilder<E>} */
+ /** @nodts @return {SVGElementBuilder<E>} @deprecated */
  m_id__org_jboss_elemento_svg_SVGElementBuilder() {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_id__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGElementBuilder));
  }
@@ -279,6 +289,11 @@ class SVGElementBuilder extends j_l_Object {
  /** @nodts @template V @return {SVGElementBuilder<E>} */
  m_on__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_svg_SVGElementBuilder(/** EventType<V, ?> */ arg0, /** ?function(V):void */ arg1) {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_on__$default__org_jboss_elemento_HasElement__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGElementBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGElementBuilder<E>} */
+ m_run__java_util_function_Consumer__org_jboss_elemento_svg_SVGElementBuilder(/** Consumer<SVGElementBuilder<E>> */ arg0) {
+  return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_run__$default__org_jboss_elemento_HasElement__java_util_function_Consumer__org_jboss_elemento_TypedBuilder(this, arg0), SVGElementBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGElementBuilder<E>} */
@@ -304,6 +319,11 @@ class SVGElementBuilder extends j_l_Object {
  /** @nodts @return {SVGElementBuilder<E>} */
  m_toggle__java_lang_String__java_util_function_Supplier__org_jboss_elemento_svg_SVGElementBuilder(/** ?string */ arg0, /** Supplier<?boolean> */ arg1) {
   return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_toggle__$default__org_jboss_elemento_HasElement__java_lang_String__java_util_function_Supplier__org_jboss_elemento_TypedBuilder(this, arg0, arg1), SVGElementBuilder));
+ }
+ //Default method forwarding stub.
+ /** @nodts @return {SVGElementBuilder<E>} */
+ m_uniqueId__org_jboss_elemento_svg_SVGElementBuilder() {
+  return /**@type {SVGElementBuilder<E>}*/ ($Casts.$to(HasElement.m_uniqueId__$default__org_jboss_elemento_HasElement__org_jboss_elemento_TypedBuilder(this), SVGElementBuilder));
  }
  //Default method forwarding stub.
  /** @nodts @return {SVGElementBuilder<E>} */

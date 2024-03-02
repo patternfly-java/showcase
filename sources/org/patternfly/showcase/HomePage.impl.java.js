@@ -2,7 +2,7 @@ goog.module('org.patternfly.showcase.HomePage$impl');
 
 const j_l_Object = goog.require('java.lang.Object$impl');
 const $Util = goog.require('nativebootstrap.Util$impl');
-const Page = goog.require('org.patternfly.showcase.Page$impl');
+const Page = goog.require('org.jboss.elemento.router.Page$impl');
 
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
@@ -51,7 +51,7 @@ class HomePage extends j_l_Object {
  //Default method forwarding stub.
  /** @override @nodts @return {Iterator<HTMLElement>} */
  m_iterator__java_util_Iterator() {
-  return Page.m_iterator__$default__org_patternfly_showcase_Page__java_util_Iterator(this);
+  return Page.m_iterator__$default__org_jboss_elemento_router_Page__java_util_Iterator(this);
  }
  //Default method forwarding stub.
  /** @override @nodts @return {Spliterator<HTMLElement>} */

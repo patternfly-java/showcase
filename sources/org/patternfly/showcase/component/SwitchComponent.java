@@ -15,25 +15,25 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.switch_.Switch;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.br;
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.switch_.Switch.switch_;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/switch", title = "Switch")
 public class SwitchComponent extends SnippetPage {
 
     public SwitchComponent() {
-        super("Switch",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/switch_/Switch.html",
-                "https://www.patternfly.org/components/switch/design-guidelines",
-                p().textContent(
-                                "A switch toggles the state of a setting (between on and off). Switches and checkboxes can often be used interchangeably, but the switch provides a more explicit, visible representation on a setting.")
-                        .element());
+        super(components.get("switch"));
 
+        startExamples();
         addSnippet(new Snippet("switch-basic", "Basic",
                 code.get("switch-basic"), () ->
                 // @code-start:switch-basic
@@ -98,5 +98,8 @@ public class SwitchComponent extends SnippetPage {
                         .element()
                 // @code-end:switch-disabled
         ));
+
+        startApiDocs(Switch.class);
+        addApiDoc(Switch.class, component);
     }
 }

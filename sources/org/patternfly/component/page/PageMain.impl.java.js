@@ -8,6 +8,7 @@ let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overla
 let TouchEvent_$Overlay = goog.forwardDeclare('elemental2.dom.TouchEvent.$Overlay$impl');
 let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
+let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
@@ -120,7 +121,7 @@ class PageMain extends PageSubComponent {
  }
  /** @nodts */
  m_onMainClick__void_$p_org_patternfly_component_page_PageMain() {
-  if (Page.m_page__org_patternfly_component_page_Page().m_underXl__boolean_$pp_org_patternfly_component_page() && Page.m_page__org_patternfly_component_page_Page().m_sidebar__org_patternfly_component_page_PageSidebar().m_expanded__boolean()) {
+  if (Page.m_page__org_patternfly_component_page_Page().m_underXl__boolean_$pp_org_patternfly_component_page() && !$Equality.$same(Page.m_page__org_patternfly_component_page_Page().m_sidebar__org_patternfly_component_page_PageSidebar(), null) && Page.m_page__org_patternfly_component_page_Page().m_sidebar__org_patternfly_component_page_PageSidebar().m_expanded__boolean()) {
    Page.m_page__org_patternfly_component_page_Page().m_sidebar__org_patternfly_component_page_PageSidebar().m_collapse__void();
   }
  }
@@ -146,6 +147,7 @@ class PageMain extends PageSubComponent {
   MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
   TouchEvent_$Overlay = goog.module.get('elemental2.dom.TouchEvent.$Overlay$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
+  $Equality = goog.module.get('nativebootstrap.Equality$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');

@@ -52,6 +52,8 @@ Aria.f_multiSelectable__org_patternfly_core_Aria = 'aria-multiselectable';
 /**@const {string} @nodts*/
 Aria.f_orientation__org_patternfly_core_Aria = 'aria-orientation';
 /**@const {string} @nodts*/
+Aria.f_pressed__org_patternfly_core_Aria = 'aria-pressed';
+/**@const {string} @nodts*/
 Aria.f_relevant__org_patternfly_core_Aria = 'aria-relevant';
 /**@const {string} @nodts*/
 Aria.f_selected__org_patternfly_core_Aria = 'aria-selected';

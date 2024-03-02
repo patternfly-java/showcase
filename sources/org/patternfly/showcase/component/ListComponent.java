@@ -15,28 +15,31 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.list.List;
+import org.patternfly.component.list.ListItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.ol;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.list.List.list;
 import static org.patternfly.component.list.ListItem.listItem;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.bookOpen;
 import static org.patternfly.style.PredefinedIcon.desktop;
 import static org.patternfly.style.PredefinedIcon.key;
 
+@Route(value = "/components/list", title = "List")
 public class ListComponent extends SnippetPage {
 
     public ListComponent() {
-        super("List",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/list/List.html",
-                "https://www.patternfly.org/components/list/design-guidelines",
-                p().textContent("A list component embeds a formatted list (bulleted or numbered list) into page content.")
-                        .element());
+        super(components.get("list"));
 
+        startExamples();
         addSnippet(new Snippet("list-basic", "Basic",
                 code.get("list-basic"), () ->
                 // @code-start:list-basic
@@ -120,5 +123,9 @@ public class ListComponent extends SnippetPage {
                         .element()
                 // @code-end:list-icons-lg
         ));
+
+        startApiDocs(List.class);
+        addApiDoc(List.class, component);
+        addApiDoc(ListItem.class, subcomponent);
     }
 }

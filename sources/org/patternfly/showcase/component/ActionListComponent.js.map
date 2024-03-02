@@ -1,8 +1,8 @@
 {
 "version":3,
 "file":"ActionListComponent.impl.java.js",
-"lineCount":56,
-"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;MAwCa,mB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,8B;EAAAA,0C;EAAAA,+E;EAAAA,iB;;;CAAA,kE;EACHC,+sB;EAOAA;GAGYC,IAASC,QAATD,g5EAHZD;GAiBYC,4qGAjBZD;O;EAoCAA;GAGQC,4tDAHRD;O;EAaAA;GAGQC,o1HAHRD;O;;;QA3DK,O;EAAAG,sC;EAAAA,mC;EAAAA;",
+"lineCount":65,
+"mappings":"A;;;;;;;;;;;;;;;;;;;;;;;;;;;;;MA+Ca,mB;;CAAA,W;EAAAA,Q;;;QAEF,S;EAAAC,8B;EAAAA,0C;EAAAA,+E;EAAAA,iB;;;CAAA,kE;EACHC,oT;EAEAA,6B;EACAA;GAGIC,IAASC,QAATD,05EAHJD;GAiBIC,skGAjBJD;O;EAoCAA;GAGQC,4qDAHRD;O;EAaAA;GAGQC,0sHAHRD;O;EAyBAA,mE;EACAA,4J;EACAA,oK;EACAA,mK;;;QAnFK,O;EAAAG,sC;EAAAA,mC;EAAAA;",
 "sources":["ActionListComponent.java"],
 "names":["org.patternfly.showcase.component.ActionListComponent.<synthetic: ctor_js>","org.patternfly.showcase.component.ActionListComponent.<synthetic: ctor_create>","org.patternfly.showcase.component.ActionListComponent.<init>","org.patternfly.showcase.component.ActionListComponent.<lambda in <init>>","dropdown","org.patternfly.showcase.component.ActionListComponent.<clinit>"]
 }

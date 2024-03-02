@@ -6,8 +6,8 @@ const $Util = goog.require('nativebootstrap.Util$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Objects = goog.forwardDeclare('java.util.Objects$impl');
 let $Equality = goog.forwardDeclare('nativebootstrap.Equality$impl');
-let Numbers = goog.forwardDeclare('org.patternfly.component.slider.Numbers$impl');
 let SliderSteps = goog.forwardDeclare('org.patternfly.component.slider.SliderSteps$impl');
+let Numbers = goog.forwardDeclare('org.patternfly.core.Numbers$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 let $Objects = goog.forwardDeclare('vmbootstrap.Objects$impl');
 
@@ -93,7 +93,7 @@ class SliderStep extends j_l_Object {
   j_l_String = goog.module.get('java.lang.String$impl');
   Objects = goog.module.get('java.util.Objects$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
-  Numbers = goog.module.get('org.patternfly.component.slider.Numbers$impl');
+  Numbers = goog.module.get('org.patternfly.core.Numbers$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
   $Objects = goog.module.get('vmbootstrap.Objects$impl');
  }

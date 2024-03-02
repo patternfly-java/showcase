@@ -15,34 +15,36 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.brand.Brand;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.img;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.brand.Brand.brand;
+import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
 import static org.patternfly.style.Breakpoints.breakpoints;
 
+@Route(value = "/components/brand", title = "Brand")
 public class BrandComponent extends SnippetPage {
 
     public BrandComponent() {
-        super("Brand",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/brand/Brand.html",
-                "https://www.patternfly.org/components/brand/design-guidelines",
-                p().textContent("A brand is used to place a product logotype on a screen.").element());
+        super(components.get("brand"));
 
+        startExamples();
         addSnippet(new Snippet("brand-basic", "Basic",
                 code.get("brand-basic"), () ->
                 // @code-start:brand-basic
                 div()
                         .add(brand("https://www.patternfly.org/assets/images/pf_logo.svg", "PatternFly logo"))
                         .element()
-        // @code-end:brand-basic
+                // @code-end:brand-basic
         ));
 
         addSnippet(new Snippet("brand-responsive", "Responsive",
@@ -63,7 +65,10 @@ public class BrandComponent extends SnippetPage {
                                 .addImg(img("https://www.patternfly.org/assets/images/pf-c-brand__logo-base.jpg")
                                         .apply(i -> i.alt = "PatternFly fallback logo")))
                         .element()
-        // @code-end:brand-responsive
+                // @code-end:brand-responsive
         ));
+
+        startApiDocs(Brand.class);
+        addApiDoc(Brand.class, component);
     }
 }

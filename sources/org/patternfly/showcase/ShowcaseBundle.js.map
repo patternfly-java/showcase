@@ -1,0 +1,8 @@
+{
+"version":3,
+"file":"ShowcaseBundle.impl.java.js",
+"lineCount":20,
+"mappings":"A;;;;;;;;;;;MAsBiB,c;;CAGA,0E;;CAGA,uE;;QANA,O;EAAAA,iC;EAAAA;",
+"sources":["ShowcaseBundle.java"],
+"names":["org.patternfly.showcase.ShowcaseBundle.<clinit>"]
+}

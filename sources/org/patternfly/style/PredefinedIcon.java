@@ -93,6 +93,8 @@ public enum PredefinedIcon {
 
     laptop(fas("laptop")),
 
+    link(fas("link")),
+
     lock(fas("lock")),
 
     lockOpen(fas("lock-open")),
@@ -115,9 +117,13 @@ public enum PredefinedIcon {
 
     server(fas("server")),
 
+    shareSquare(fas("share-square")),
+
     sortAmountDown(fas("sort-amount-down")),
 
     star(fas("star")),
+
+    user(fas("user")),
 
     users(fas("users")),
 

@@ -1,7 +1,9 @@
 goog.module('org.patternfly.layout.gallery.Gallery');
 
 goog.require('elemental2.dom.HTMLElement.$Overlay');
+goog.require('java.lang.Iterable');
 goog.require('java.lang.String');
+goog.require('java.util.function.Function');
 goog.require('nativebootstrap.Equality');
 goog.require('nativebootstrap.Util');
 goog.require('org.jboss.elemento.Elements');

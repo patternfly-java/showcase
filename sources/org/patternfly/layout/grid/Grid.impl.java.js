@@ -5,6 +5,7 @@ const BaseLayout = goog.require('org.patternfly.layout.BaseLayout$impl');
 const Gutter = goog.require('org.patternfly.style.Modifiers.Gutter$impl');
 
 let Integer = goog.forwardDeclare('java.lang.Integer$impl');
+let Iterable = goog.forwardDeclare('java.lang.Iterable$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let StringBuilder = goog.forwardDeclare('java.lang.StringBuilder$impl');
 let j_u_function_Function = goog.forwardDeclare('java.util.function.Function$impl');
@@ -54,6 +55,17 @@ class Grid extends BaseLayout {
  /** @nodts @template E */
  $ctor__org_patternfly_layout_grid_Grid__org_jboss_elemento_HTMLContainerBuilder__void(/** HTMLContainerBuilder<E> */ builder) {
   this.$ctor__org_patternfly_layout_BaseLayout__elemental2_dom_HTMLElement__void(/**@type {HTMLElement}*/ (/**@type {HTMLContainerBuilder<E>}*/ ($Casts.$to(builder.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([Classes.m_layout__java_lang_String__arrayOf_java_lang_String__java_lang_String(Classes.f_grid__org_patternfly_style_Classes, /**@type {!Array<?string>}*/ ($Arrays.$init([], j_l_String)))], j_l_String))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement()));
+ }
+ /** @nodts @template T @return {Grid} */
+ m_addItems__java_lang_Iterable__java_util_function_Function__org_patternfly_layout_grid_Grid(/** Iterable<T> */ items, /** j_u_function_Function<T, GridItem> */ display) {
+  for (let $iterator = items.m_iterator__java_util_Iterator(); $iterator.m_hasNext__boolean(); ) {
+   let item = $iterator.m_next__java_lang_Object();
+   {
+    let gridItem = /**@type {GridItem}*/ ($Casts.$to(display.m_apply__java_lang_Object__java_lang_Object(item), GridItem));
+    this.m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(gridItem);
+   }
+  }
+  return this;
  }
  /** @nodts @return {Grid} */
  m_addItem__org_patternfly_layout_grid_GridItem__org_patternfly_layout_grid_Grid(/** GridItem */ item) {
@@ -136,6 +148,7 @@ class Grid extends BaseLayout {
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
   Tuple = goog.module.get('org.patternfly.core.Tuple$impl');
   Validation = goog.module.get('org.patternfly.core.Validation$impl');
+  GridItem = goog.module.get('org.patternfly.layout.grid.GridItem$impl');
   Breakpoint = goog.module.get('org.patternfly.style.Breakpoint$impl');
   BreakpointCollector = goog.module.get('org.patternfly.style.BreakpointCollector$impl');
   Classes = goog.module.get('org.patternfly.style.Classes$impl');

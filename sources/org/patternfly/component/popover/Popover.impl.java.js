@@ -283,14 +283,20 @@ class Popover extends BaseComponent {
  /** @nodts @return {Popover} */
  m_severity__org_patternfly_core_Severity__java_lang_String__org_patternfly_component_popover_Popover(/** Severity */ severity, /** ?string */ screenReaderText) {
   if (!$Equality.$same(this.f_severity__org_patternfly_component_popover_Popover_, null)) {
-   /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)).classList.remove(this.f_severity__org_patternfly_component_popover_Popover_.f_status__org_patternfly_core_Severity.f_modifier__org_patternfly_core_Status);
+   /**@type {HTMLDivElement}*/ ($Casts.$to(this.m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay)).classList.remove(this.f_severity__org_patternfly_component_popover_Popover_.f_status__org_patternfly_core_Severity.f_modifier__org_patternfly_style_Status);
   }
   this.f_severity__org_patternfly_component_popover_Popover_ = severity;
-  this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([severity.f_status__org_patternfly_core_Severity.f_modifier__org_patternfly_core_Status], j_l_String)));
+  this.m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init([severity.f_status__org_patternfly_core_Severity.f_modifier__org_patternfly_style_Status], j_l_String)));
   Elements.m_removeChildrenFrom__elemental2_dom_Element__void(this.m_failSafeIconContainer__elemental2_dom_HTMLElement_$p_org_patternfly_component_popover_Popover());
   this.m_icon__org_patternfly_style_PredefinedIcon__org_jboss_elemento_TypedBuilder(severity.f_icon__org_patternfly_core_Severity);
   this.m_failSafeScreenReaderElement__elemental2_dom_HTMLElement_$p_org_patternfly_component_popover_Popover().textContent = screenReaderText;
   return this;
+ }
+ /** @nodts @return {Popover} */
+ m_trigger__java_lang_String__org_patternfly_component_popover_Popover(/** ?string */ trigger) {
+  return this.m_trigger__java_util_function_Supplier__org_patternfly_component_popover_Popover(Supplier.$adapt(() =>{
+   return Elements.m_find__elemental2_dom_Node__org_jboss_elemento_By__elemental2_dom_HTMLElement(DomGlobal_$Overlay.f_document__elemental2_dom_DomGlobal_$Overlay.body, By.m_selector__java_lang_String__org_jboss_elemento_By(trigger));
+  }));
  }
  /** @nodts @return {Popover} */
  m_trigger__org_jboss_elemento_By__org_patternfly_component_popover_Popover(/** By */ trigger) {
@@ -477,6 +483,7 @@ class Popover extends BaseComponent {
   Consumer = goog.module.get('java.util.function.Consumer$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
   $Equality = goog.module.get('nativebootstrap.Equality$impl');
+  By = goog.module.get('org.jboss.elemento.By$impl');
   Callback = goog.module.get('org.jboss.elemento.Callback$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');

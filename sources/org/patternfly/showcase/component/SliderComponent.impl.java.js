@@ -5,11 +5,12 @@ const SnippetPage = goog.require('org.patternfly.showcase.SnippetPage$impl');
 
 let DomGlobal_$Overlay = goog.forwardDeclare('elemental2.dom.DomGlobal.$Overlay$impl');
 let HTMLDivElement_$Overlay = goog.forwardDeclare('elemental2.dom.HTMLDivElement.$Overlay$impl');
-let $Overlay = goog.forwardDeclare('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
 let MouseEvent_$Overlay = goog.forwardDeclare('elemental2.dom.MouseEvent.$Overlay$impl');
+let Class = goog.forwardDeclare('java.lang.Class$impl');
 let Double = goog.forwardDeclare('java.lang.Double$impl');
 let j_l_String = goog.forwardDeclare('java.lang.String$impl');
 let Supplier = goog.forwardDeclare('java.util.function.Supplier$impl');
+let $Overlay = goog.forwardDeclare('jsinterop.base.JsPropertyMap.$Overlay$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let HTMLContainerBuilder = goog.forwardDeclare('org.jboss.elemento.HTMLContainerBuilder$impl');
@@ -27,7 +28,10 @@ let SliderStep = goog.forwardDeclare('org.patternfly.component.slider.SliderStep
 let SliderSteps = goog.forwardDeclare('org.patternfly.component.slider.SliderSteps$impl');
 let ChangeHandler = goog.forwardDeclare('org.patternfly.handler.ChangeHandler$impl');
 let ComponentHandler = goog.forwardDeclare('org.patternfly.handler.ComponentHandler$impl');
+let Type = goog.forwardDeclare('org.patternfly.showcase.ApiDoc.Type$impl');
+let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
 let Snippet = goog.forwardDeclare('org.patternfly.showcase.Snippet$impl');
+let Component_$Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let PredefinedIcon = goog.forwardDeclare('org.patternfly.style.PredefinedIcon$impl');
 let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
@@ -46,7 +50,8 @@ class SliderComponent extends SnippetPage {
  }
  /** @nodts */
  $ctor__org_patternfly_showcase_component_SliderComponent__void() {
-  this.$ctor__org_patternfly_showcase_SnippetPage__java_lang_String__java_lang_String__java_lang_String__elemental2_dom_HTMLElement__void('Slider', 'https://patternfly-java.github.io/patternfly-java/org/patternfly/component/slider/Slider.html', 'https://www.patternfly.org/components/slider/design-guidelines', /**@type {HTMLParagraphElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('A slider provides a quick and effective way for users to set and adjust a numeric value from a defined range of values.'), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), $Overlay)));
+  this.$ctor__org_patternfly_showcase_SnippetPage__org_patternfly_showcase_component_Component__void(/**@type {Object}*/ ($Casts.$to($Overlay.m_get__$devirt__jsinterop_base_JsPropertyMap__java_lang_String__java_lang_Object(Data.f_components__org_patternfly_showcase_Data, 'slider'), Component_$Overlay)));
+  this.m_startExamples__void();
   this.m_addSnippet__org_patternfly_showcase_Snippet__void(Snippet.$create__java_lang_String__java_lang_String__java_lang_String__java_util_function_Supplier('slider-discrete', 'Discrete', /**@type {?string}*/ ($Casts.$to(PatternFlyCode.code.get('slider-discrete'), j_l_String)), Supplier.$adapt(() =>{
    let values = /**@type {!Array<HTMLContainerBuilder>}*/ ($Arrays.$init([Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), Elements.m_span__org_jboss_elemento_HTMLContainerBuilder(), Elements.m_span__org_jboss_elemento_HTMLContainerBuilder()], HTMLContainerBuilder));
    return /**@type {HTMLDivElement}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLDivElement>}*/ ($Casts.$to(Elements.m_div__org_jboss_elemento_HTMLContainerBuilder().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_add__java_lang_String__org_jboss_elemento_TypedBuilder('Slider value is '), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(values[0]), HTMLContainerBuilder))), HTMLContainerBuilder)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Slider.m_slider__org_patternfly_component_slider_Slider().m_value__double__org_patternfly_component_slider_Slider(50).m_customSteps__org_patternfly_component_slider_SliderSteps__org_patternfly_component_slider_Slider(SliderSteps.m_sliderSteps__org_patternfly_component_slider_SliderStep__arrayOf_org_patternfly_component_slider_SliderStep__org_patternfly_component_slider_SliderSteps(SliderStep.m_sliderStep__double__org_patternfly_component_slider_SliderStep(0), /**@type {!Array<SliderStep>}*/ ($Arrays.$init([SliderStep.m_sliderStep__double__java_lang_String__boolean__org_patternfly_component_slider_SliderStep(12.5, '1', true), SliderStep.m_sliderStep__double__java_lang_String__org_patternfly_component_slider_SliderStep(25, '2'), SliderStep.m_sliderStep__double__java_lang_String__boolean__org_patternfly_component_slider_SliderStep(37.5, '3', true), SliderStep.m_sliderStep__double__java_lang_String__org_patternfly_component_slider_SliderStep(50, '4'), SliderStep.m_sliderStep__double__java_lang_String__boolean__org_patternfly_component_slider_SliderStep(62.5, '5', true), SliderStep.m_sliderStep__double__java_lang_String__org_patternfly_component_slider_SliderStep(75, '6'), SliderStep.m_sliderStep__double__java_lang_String__boolean__org_patternfly_component_slider_SliderStep(87.5, '7', true), SliderStep.m_sliderStep__double__java_lang_String__org_patternfly_component_slider_SliderStep(100, '8')], SliderStep)))).m_onChange__org_patternfly_handler_ChangeHandler__org_patternfly_component_slider_Slider(ChangeHandler.$adapt((/** Event */ e, s, v) =>{
@@ -133,6 +138,12 @@ class SliderComponent extends SnippetPage {
     value_1.m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder(s_21.m_currentStep__org_patternfly_component_slider_SliderStep().f_label__org_patternfly_component_slider_SliderStep);
    }))), HTMLContainerBuilder)).m_element__elemental2_dom_HTMLElement(), HTMLDivElement_$Overlay));
   })));
+  this.m_startApiDocs__java_lang_Class__void(Class.$get(Slider));
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(Slider), Type.f_component__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(SliderActions), Type.f_subcomponent__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(SliderInputPosition), Type.f_other__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(SliderStep), Type.f_other__org_patternfly_showcase_ApiDoc_Type);
+  this.m_addApiDoc__java_lang_Class__org_patternfly_showcase_ApiDoc_Type__void(Class.$get(SliderSteps), Type.f_other__org_patternfly_showcase_ApiDoc_Type);
  }
  /** @nodts */
  static $clinit() {
@@ -149,11 +160,12 @@ class SliderComponent extends SnippetPage {
  static $loadModules() {
   DomGlobal_$Overlay = goog.module.get('elemental2.dom.DomGlobal.$Overlay$impl');
   HTMLDivElement_$Overlay = goog.module.get('elemental2.dom.HTMLDivElement.$Overlay$impl');
-  $Overlay = goog.module.get('elemental2.dom.HTMLParagraphElement.$Overlay$impl');
   MouseEvent_$Overlay = goog.module.get('elemental2.dom.MouseEvent.$Overlay$impl');
+  Class = goog.module.get('java.lang.Class$impl');
   Double = goog.module.get('java.lang.Double$impl');
   j_l_String = goog.module.get('java.lang.String$impl');
   Supplier = goog.module.get('java.util.function.Supplier$impl');
+  $Overlay = goog.module.get('jsinterop.base.JsPropertyMap.$Overlay$impl');
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   HTMLContainerBuilder = goog.module.get('org.jboss.elemento.HTMLContainerBuilder$impl');
@@ -171,7 +183,10 @@ class SliderComponent extends SnippetPage {
   SliderSteps = goog.module.get('org.patternfly.component.slider.SliderSteps$impl');
   ChangeHandler = goog.module.get('org.patternfly.handler.ChangeHandler$impl');
   ComponentHandler = goog.module.get('org.patternfly.handler.ComponentHandler$impl');
+  Type = goog.module.get('org.patternfly.showcase.ApiDoc.Type$impl');
+  Data = goog.module.get('org.patternfly.showcase.Data$impl');
   Snippet = goog.module.get('org.patternfly.showcase.Snippet$impl');
+  Component_$Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   PredefinedIcon = goog.module.get('org.patternfly.style.PredefinedIcon$impl');
   $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');

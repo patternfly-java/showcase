@@ -15,13 +15,23 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.code.CodeEditor;
+import org.patternfly.component.code.CodeEditorAction;
+import org.patternfly.component.code.CodeEditorActions;
+import org.patternfly.component.code.CodeEditorHeader;
+import org.patternfly.component.code.CodeEditorHeaderMain;
+import org.patternfly.component.code.CodeEditorLink;
+import org.patternfly.component.code.CodeEditorLinks;
+import org.patternfly.component.code.CodeEditorTab;
+import org.patternfly.component.code.CodeEditorTabIcon;
+import org.patternfly.component.code.CodeEditorTabText;
 import org.patternfly.showcase.Code;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 import org.patternfly.style.PredefinedIcon;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.component.code.CodeEditor.codeEditor;
 import static org.patternfly.component.code.CodeEditorAction.codeEditorAction;
@@ -32,9 +42,13 @@ import static org.patternfly.component.code.CodeEditorHeaderMain.codeEditorHeade
 import static org.patternfly.component.code.CodeEditorLink.codeEditorViewShortcutsLink;
 import static org.patternfly.component.code.CodeEditorLinks.codeEditorLinks;
 import static org.patternfly.component.code.CodeEditorTab.codeEditorTab;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.download;
 import static org.patternfly.style.PredefinedIcon.upload;
 
+@Route(value = "/components/code-editor", title = "Code editor")
 public class CodeEditorComponent extends SnippetPage {
 
     private static final String CODE = "expandableSection()\n" +
@@ -44,13 +58,9 @@ public class CodeEditorComponent extends SnippetPage {
             "              .textContent(\"This content is visible only when the component is expanded.\"))";
 
     public CodeEditorComponent() {
-        super("Code editor",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/code/CodeEditor.html",
-                "https://www.patternfly.org/components/code-editor/design-guidelines",
-                p().textContent(
-                        "A code editor is a versatile text editor that allows for editing various languages. ")
-                        .element());
+        super(components.get("code-editor"));
 
+        startExamples();
         addSnippet(new Snippet("code-editor-basic", "Basic",
                 Code.code.get("code-editor-basic"), () ->
                 // @code-start:code-editor-basic
@@ -64,7 +74,7 @@ public class CodeEditorComponent extends SnippetPage {
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
                         .element()
-        // @code-end:code-editor-basic
+                // @code-end:code-editor-basic
         ));
 
         addSnippet(new Snippet("code-editor-readonly", "Readonly",
@@ -81,7 +91,7 @@ public class CodeEditorComponent extends SnippetPage {
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
                         .element()
-        // @code-end:code-editor-readonly
+                // @code-end:code-editor-readonly
         ));
 
         addSnippet(new Snippet("code-editor-no-actions", "Without actions",
@@ -93,7 +103,7 @@ public class CodeEditorComponent extends SnippetPage {
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
                         .element()
-        // @code-end:code-editor-no-actions
+                // @code-end:code-editor-no-actions
         ));
 
         addSnippet(new Snippet("code-editor-no-tab", "Without tab",
@@ -108,7 +118,7 @@ public class CodeEditorComponent extends SnippetPage {
                                                 .addAction(codeEditorAction(button().icon(upload).control().disabled()))))
                                 .code(CODE))
                         .element()
-        // @code-end:code-editor-no-tab
+                // @code-end:code-editor-no-tab
         ));
 
         addSnippet(new Snippet("code-editor-no-actions-no-tab", "Without actions and tab",
@@ -118,7 +128,7 @@ public class CodeEditorComponent extends SnippetPage {
                         .add(codeEditor()
                                 .code(CODE))
                         .element()
-        // @code-end:code-editor-no-actions-no-tab
+                // @code-end:code-editor-no-actions-no-tab
         ));
 
         addSnippet(new Snippet("code-editor-header-content", "With optional header content and keyboard shortcuts",
@@ -138,7 +148,19 @@ public class CodeEditorComponent extends SnippetPage {
                                         .addTab(codeEditorTab(PredefinedIcon.code, "Java")))
                                 .code(CODE))
                         .element()
-        // @code-end:code-editor-header-content
+                // @code-end:code-editor-header-content
         ));
+
+        startApiDocs(CodeEditor.class);
+        addApiDoc(CodeEditor.class, component);
+        addApiDoc(CodeEditorAction.class, subcomponent);
+        addApiDoc(CodeEditorActions.class, subcomponent);
+        addApiDoc(CodeEditorHeader.class, subcomponent);
+        addApiDoc(CodeEditorHeaderMain.class, subcomponent);
+        addApiDoc(CodeEditorLink.class, subcomponent);
+        addApiDoc(CodeEditorLinks.class, subcomponent);
+        addApiDoc(CodeEditorTab.class, subcomponent);
+        addApiDoc(CodeEditorTabIcon.class, subcomponent);
+        addApiDoc(CodeEditorTabText.class, subcomponent);
     }
 }

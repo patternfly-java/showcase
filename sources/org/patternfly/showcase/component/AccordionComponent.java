@@ -15,6 +15,11 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.component.accordion.Accordion;
+import org.patternfly.component.accordion.AccordionItem;
+import org.patternfly.component.accordion.AccordionItemBody;
+import org.patternfly.showcase.ApiDoc;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -27,18 +32,16 @@ import static org.patternfly.component.accordion.AccordionItemBody.accordionItem
 import static org.patternfly.component.button.Button.button;
 import static org.patternfly.core.IconPosition.end;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.arrowRight;
 
+@Route(value = "/components/accordion", title = "Accordion")
 public class AccordionComponent extends SnippetPage {
 
     public AccordionComponent() {
-        super("Accordion",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/accordion/Accordion.html",
-                "https://www.patternfly.org/components/accordion/design-guidelines",
-                p().textContent(
-                        "An accordion is an interactive container that expands and collapses to hide or reveal nested content. It takes advantage of progressive disclosure to help reduce page scrolling, by allowing users to choose whether they want to show or hide more detailed information as needed.")
-                        .element());
+        super(components.get("accordion"));
 
+        startExamples();
         addSnippet(new Snippet("accordion-dl", "Definition list",
                 code.get("accordion-dl"), () ->
                 // @code-start:accordion-dl
@@ -55,7 +58,7 @@ public class AccordionComponent extends SnippetPage {
                                 .addItem(accordionItem("accordion-dl-4", "Item five")
                                         .add(p().textContent(LoremIpsum.paragraphs(3)))))
                         .element()
-        // @code-end:accordion-dl
+                // @code-end:accordion-dl
         ));
 
         addSnippet(new Snippet("accordion-single", "Single expand behavior",
@@ -74,7 +77,7 @@ public class AccordionComponent extends SnippetPage {
                                 .addItem(accordionItem("accordion-single-4", "Item five")
                                         .add(p().textContent(LoremIpsum.paragraphs(3)))))
                         .element()
-        // @code-end:accordion-single
+                // @code-end:accordion-single
         ));
 
         addSnippet(new Snippet("accordion-fixed", "Fixed with multiple expand behavior",
@@ -93,7 +96,7 @@ public class AccordionComponent extends SnippetPage {
                                 .addItem(accordionItem("accordion-fixed-4", "Item five")
                                         .add(p().textContent(LoremIpsum.paragraphs(5)))))
                         .element()
-        // @code-end:accordion-fixed
+                // @code-end:accordion-fixed
         ));
 
         addSnippet(new Snippet("accordion-bordered", "Bordered",
@@ -118,7 +121,7 @@ public class AccordionComponent extends SnippetPage {
                                 .addItem(accordionItem("accordion-bordered-4", "Item five")
                                         .add(p().textContent(LoremIpsum.paragraphs(3)))))
                         .element()
-        // @code-end:accordion-bordered
+                // @code-end:accordion-bordered
         ));
 
         addSnippet(new Snippet("accordion-large", "Large",
@@ -144,7 +147,12 @@ public class AccordionComponent extends SnippetPage {
                                 .addItem(accordionItem("accordion-large-4", "Item five")
                                         .add(p().textContent(LoremIpsum.paragraphs(3)))))
                         .element()
-        // @code-end:accordion-large
+                // @code-end:accordion-large
         ));
+
+        startApiDocs(Accordion.class);
+        addApiDoc(Accordion.class, ApiDoc.Type.component);
+        addApiDoc(AccordionItem.class, ApiDoc.Type.subcomponent);
+        addApiDoc(AccordionItemBody.class, ApiDoc.Type.subcomponent);
     }
 }

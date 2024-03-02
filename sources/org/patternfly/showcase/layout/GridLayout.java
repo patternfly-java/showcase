@@ -15,16 +15,20 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
+import org.patternfly.layout.grid.Grid;
+import org.patternfly.layout.grid.GridItem;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
 import static org.jboss.elemento.Elements.li;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.ul;
 import static org.patternfly.layout.grid.Grid.grid;
 import static org.patternfly.layout.grid.GridItem.gridItem;
+import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.layouts;
 import static org.patternfly.style.Breakpoint._2xl;
 import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoint.lg;
@@ -32,14 +36,13 @@ import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
 import static org.patternfly.style.Breakpoints.breakpoints;
 
+@Route(value = "/layouts/grid", title = "Grid")
 public class GridLayout extends SnippetPage {
 
     public GridLayout() {
-        super("Grid",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/layout/grid/Grid.html",
-                "https://www.patternfly.org/layouts/grid/design-guidelines",
-                p().textContent("The grid layout places content on a fixed 12 column grid.").element());
+        super(layouts.get("grid"));
 
+        startExamples();
         addSnippet(new Snippet("grid-basic", "Basic",
                 code.get("grid-basic"), () ->
                 // @code-start:grid-basic
@@ -70,7 +73,7 @@ public class GridLayout extends SnippetPage {
                                 .addItem(gridItem().span(4)
                                         .textContent("span = 4")))
                         .element()
-        // @code-end:grid-basic
+                // @code-end:grid-basic
         ));
 
         addSnippet(new Snippet("grid-gutter", "With gutters",
@@ -103,7 +106,7 @@ public class GridLayout extends SnippetPage {
                                 .addItem(gridItem().span(4)
                                         .textContent("span = 4")))
                         .element()
-        // @code-end:grid-gutter
+                // @code-end:grid-gutter
         ));
 
         addSnippet(new Snippet("grid-overrides", "With overrides",
@@ -125,7 +128,7 @@ public class GridLayout extends SnippetPage {
                                 .addItem(gridItem().textContent("Grid item"))
                                 .addItem(gridItem().textContent("Grid item")))
                         .element()
-        // @code-end:grid-overrides
+                // @code-end:grid-overrides
         ));
 
         addSnippet(new Snippet("grid-order-standard", "Standard ordering",
@@ -137,7 +140,7 @@ public class GridLayout extends SnippetPage {
                                 .addItem(gridItem().textContent("Item B"))
                                 .addItem(gridItem().order(breakpoints(default_, "-1")).textContent("Item C")))
                         .element()
-        // @code-end:grid-order-standard
+                // @code-end:grid-order-standard
         ));
 
         addSnippet(new Snippet("grid-order-responsive", "Responsive ordering",
@@ -150,7 +153,7 @@ public class GridLayout extends SnippetPage {
                                 .addItem(gridItem().order(breakpoints(default_, "-1", md, "1"))
                                         .textContent("Item C")))
                         .element()
-        // @code-end:grid-order-responsive
+                // @code-end:grid-order-responsive
         ));
 
         addSnippet(new Snippet("grid-order-grouped", "Grouped ordering",
@@ -169,7 +172,7 @@ public class GridLayout extends SnippetPage {
                                         .addItem(gridItem().textContent("Set 2, Item C"))
                                         .addItem(gridItem().order(breakpoints(default_, "2")).textContent("Set 2, Item D"))))
                         .element()
-        // @code-end:grid-order-grouped
+                // @code-end:grid-order-grouped
         ));
 
         addSnippet(new Snippet("grid-alternative-components", "Alternative components",
@@ -183,7 +186,11 @@ public class GridLayout extends SnippetPage {
                                 .addItem(gridItem(li()).textContent("Grid item"))
                                 .addItem(gridItem(li()).textContent("Grid item")))
                         .element()
-        // @code-end:grid-alternative-components
+                // @code-end:grid-alternative-components
         ));
+
+        startApiDocs(Grid.class);
+        addApiDoc(Grid.class, layout);
+        addApiDoc(GridItem.class, layout);
     }
 }

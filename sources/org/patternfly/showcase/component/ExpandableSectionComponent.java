@@ -15,13 +15,17 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.badge.Badge;
+import org.patternfly.component.expandable.ExpandableSection;
+import org.patternfly.component.expandable.ExpandableSectionContent;
+import org.patternfly.component.expandable.ExpandableSectionToggle;
+import org.patternfly.component.expandable.ExpandableSectionToggleText;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
 
 import static org.jboss.elemento.Elements.div;
-import static org.jboss.elemento.Elements.p;
 import static org.jboss.elemento.Elements.span;
 import static org.patternfly.component.badge.Badge.badge;
 import static org.patternfly.component.expandable.ExpandableSection.expandableSection;
@@ -31,19 +35,19 @@ import static org.patternfly.component.expandable.ExpandableSectionToggleText.ex
 import static org.patternfly.component.icon.InlineIcon.inlineIcon;
 import static org.patternfly.layout.stack.Stack.stack;
 import static org.patternfly.layout.stack.StackItem.stackItem;
+import static org.patternfly.showcase.ApiDoc.Type.component;
+import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
+import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.fas;
 
+@Route(value = "/components/expandable-section", title = "Expandable section")
 public class ExpandableSectionComponent extends SnippetPage {
 
     public ExpandableSectionComponent() {
-        super("Expandable section",
-                "https://patternfly-java.github.io/patternfly-java/org/patternfly/component/expandable/ExpandableSection.html",
-                "https://www.patternfly.org/components/expandable-section/design-guidelines",
-                p().textContent(
-                        "An expandable section component is used to support progressive disclosure in a form or page by hiding additional content when you don't want it to be shown by default. An expandable section can contain any type of content such as plain text, form inputs, and charts.")
-                        .element());
+        super(components.get("expandable-section"));
 
+        startExamples();
         addSnippet(new Snippet("expandable-section-basic", "Basic",
                 code.get("expandable-section-basic"), () ->
                 // @code-start:expandable-section-basic
@@ -53,7 +57,7 @@ public class ExpandableSectionComponent extends SnippetPage {
                                 .addContent(expandableSectionContent()
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()
-        // @code-end:expandable-section-basic
+                // @code-end:expandable-section-basic
         ));
 
         addSnippet(new Snippet("expandable-section-dynamic-text", "Basic with dynamic toggle text",
@@ -65,7 +69,7 @@ public class ExpandableSectionComponent extends SnippetPage {
                                 .addContent(expandableSectionContent()
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()
-        // @code-end:expandable-section-dynamic-text
+                // @code-end:expandable-section-dynamic-text
         ));
 
         addSnippet(new Snippet("expandable-section-detached", "Detached",
@@ -85,7 +89,7 @@ public class ExpandableSectionComponent extends SnippetPage {
                                                 .addToggle(expandableSectionToggle("Show more", "Show less")
                                                         .up()))))
                         .element()
-        // @code-end:expandable-section-detached
+                // @code-end:expandable-section-detached
         ));
 
         addSnippet(new Snippet("expandable-section-disclosure", "Disclosure variation",
@@ -98,7 +102,7 @@ public class ExpandableSectionComponent extends SnippetPage {
                                 .addContent(expandableSectionContent()
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()
-        // @code-end:expandable-section-disclosure
+                // @code-end:expandable-section-disclosure
         ));
 
         addSnippet(new Snippet("expandable-section-indented", "Indented",
@@ -111,30 +115,30 @@ public class ExpandableSectionComponent extends SnippetPage {
                                 .addContent(expandableSectionContent()
                                         .textContent("This content is visible only when the component is expanded.")))
                         .element()
-        // @code-end:expandable-section-indented
+                // @code-end:expandable-section-indented
         ));
 
         addSnippet(new Snippet("expandable-section-custom-toggle", "With custom toggle content",
                 code.get("expandable-section-custom-toggle"), () -> {
-                    // @code-start:expandable-section-custom-toggle
-                    Badge badge = badge(4).read();
-                    return div()
-                            .add(expandableSection()
-                                    .onToggle((e, c, expanded) -> badge.count(badge.count() + 1))
-                                    .addToggle(expandableSectionToggle()
-                                            .addText(expandableSectionToggleText()
-                                                    .add(div()
-                                                            .add(span().textContent("You can also use icons "))
-                                                            .add(inlineIcon(fas("check-circle")))
-                                                            .add(span().textContent(" or badges "))
-                                                            .add(badge)
-                                                            .add(span().textContent(" !")))))
-                                    .addContent(expandableSectionContent()
-                                            .textContent(
-                                                    "This content is visible only when the component is expanded.")))
-                            .element();
-                    // @code-end:expandable-section-custom-toggle
-                }));
+            // @code-start:expandable-section-custom-toggle
+            Badge badge = badge(4).read();
+            return div()
+                    .add(expandableSection()
+                            .onToggle((e, c, expanded) -> badge.count(badge.count() + 1))
+                            .addToggle(expandableSectionToggle()
+                                    .addText(expandableSectionToggleText()
+                                            .add(div()
+                                                    .add(span().textContent("You can also use icons "))
+                                                    .add(inlineIcon(fas("check-circle")))
+                                                    .add(span().textContent(" or badges "))
+                                                    .add(badge)
+                                                    .add(span().textContent(" !")))))
+                            .addContent(expandableSectionContent()
+                                    .textContent(
+                                            "This content is visible only when the component is expanded.")))
+                    .element();
+            // @code-end:expandable-section-custom-toggle
+        }));
 
         addSnippet(new Snippet("expandable-section-truncate", "Truncate",
                 code.get("expandable-section-truncate"), () ->
@@ -146,7 +150,13 @@ public class ExpandableSectionComponent extends SnippetPage {
                                         .textContent(LoremIpsum.paragraphs(20)))
                                 .addToggle(expandableSectionToggle("Show more", "Show less")))
                         .element()
-        // @code-end:expandable-section-truncate
+                // @code-end:expandable-section-truncate
         ));
+
+        startApiDocs(ExpandableSection.class);
+        addApiDoc(ExpandableSection.class, component);
+        addApiDoc(ExpandableSectionContent.class, subcomponent);
+        addApiDoc(ExpandableSectionToggle.class, subcomponent);
+        addApiDoc(ExpandableSectionToggleText.class, subcomponent);
     }
 }
