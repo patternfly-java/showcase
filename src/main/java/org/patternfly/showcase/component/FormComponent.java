@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.form.Form;
 import org.patternfly.component.form.FormActionGroup;
 import org.patternfly.component.form.FormAlert;
@@ -76,6 +77,7 @@ import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.PredefinedIcon.trash;
 
+@Route(value = "/components/forms/form", title = "Form")
 public class FormComponent extends SnippetPage {
 
     public FormComponent() {

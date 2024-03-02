@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.list.ActionList;
 import org.patternfly.component.list.ActionListGroup;
 import org.patternfly.component.list.ActionListItem;
@@ -43,6 +44,7 @@ import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 import static org.patternfly.style.PredefinedIcon.times;
 
+@Route(value = "/components/action-list", title = "Action list")
 public class ActionListComponent extends SnippetPage {
 
     public ActionListComponent() {

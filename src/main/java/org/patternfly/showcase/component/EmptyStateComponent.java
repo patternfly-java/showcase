@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.emptystate.EmptyState;
 import org.patternfly.component.emptystate.EmptyStateActions;
 import org.patternfly.component.emptystate.EmptyStateBody;
@@ -43,6 +44,7 @@ import static org.patternfly.style.Size.xl;
 import static org.patternfly.style.Size.xs;
 import static org.patternfly.style.Variable.globalVar;
 
+@Route(value = "/components/empty-state", title = "Empty state")
 public class EmptyStateComponent extends SnippetPage {
 
     public EmptyStateComponent() {

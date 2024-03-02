@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.layout.stack.Stack;
 import org.patternfly.layout.stack.StackItem;
 import org.patternfly.showcase.Snippet;
@@ -27,6 +28,7 @@ import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 
+@Route(value = "/layouts/stack", title = "Stack")
 public class StackLayout extends SnippetPage {
 
     public StackLayout() {

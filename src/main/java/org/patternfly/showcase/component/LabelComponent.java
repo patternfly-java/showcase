@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.HTMLContainerBuilder;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.label.Label;
 import org.patternfly.component.label.LabelEditCancelHandler;
 import org.patternfly.component.label.LabelEditCompleteHandler;
@@ -42,6 +43,7 @@ import static org.patternfly.style.Color.purple;
 import static org.patternfly.style.Color.red;
 import static org.patternfly.style.PredefinedIcon.infoCircle;
 
+@Route(value = "/components/label", title = "Label")
 public class LabelComponent extends SnippetPage {
 
     public LabelComponent() {

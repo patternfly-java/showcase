@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.navigation.ExpandableNavigationGroup;
 import org.patternfly.component.navigation.Navigation;
 import org.patternfly.component.navigation.NavigationGroup;
@@ -49,6 +50,7 @@ import static org.patternfly.showcase.component.NotYetImplemented.nyi;
 import static org.patternfly.style.PredefinedIcon.arrowRight;
 import static org.patternfly.style.PredefinedIcon.user;
 
+@Route(value = "/components/navigation", title = "Navigation")
 public class NavigationComponent extends SnippetPage {
 
     public NavigationComponent() {

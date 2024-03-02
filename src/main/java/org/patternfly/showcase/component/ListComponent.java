@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.list.List;
 import org.patternfly.component.list.ListItem;
 import org.patternfly.showcase.Snippet;
@@ -32,6 +33,7 @@ import static org.patternfly.style.PredefinedIcon.bookOpen;
 import static org.patternfly.style.PredefinedIcon.desktop;
 import static org.patternfly.style.PredefinedIcon.key;
 
+@Route(value = "/components/list", title = "List")
 public class ListComponent extends SnippetPage {
 
     public ListComponent() {

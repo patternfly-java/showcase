@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.code.CodeBlock;
 import org.patternfly.component.code.CodeBlockAction;
 import org.patternfly.component.code.CodeBlockActions;
@@ -33,6 +34,7 @@ import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.play;
 
+@Route(value = "/components/code-block", title = "Code block")
 public class CodeBlockComponent extends SnippetPage {
 
     private static final String CODE = "apiVersion: helm.openshift.io/v1beta1/\n" +

@@ -17,6 +17,7 @@ package org.patternfly.showcase.component;
 
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.Id;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.slider.Slider;
 import org.patternfly.component.slider.SliderActions;
 import org.patternfly.component.slider.SliderInputPosition;
@@ -56,6 +57,7 @@ import static org.patternfly.style.PredefinedIcon.minus;
 import static org.patternfly.style.PredefinedIcon.plus;
 
 @SuppressWarnings("unchecked")
+@Route(value = "/components/slider", title = "Slider")
 public class SliderComponent extends SnippetPage {
 
     public SliderComponent() {

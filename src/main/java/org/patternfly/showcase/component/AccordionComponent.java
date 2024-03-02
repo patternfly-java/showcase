@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.accordion.Accordion;
 import org.patternfly.component.accordion.AccordionItem;
 import org.patternfly.component.accordion.AccordionItemBody;
@@ -34,6 +35,7 @@ import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.arrowRight;
 
+@Route(value = "/components/accordion", title = "Accordion")
 public class AccordionComponent extends SnippetPage {
 
     public AccordionComponent() {

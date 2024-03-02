@@ -18,6 +18,7 @@ package org.patternfly.showcase.component;
 import java.util.List;
 
 import org.jboss.elemento.Id;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.form.FormControl;
 import org.patternfly.component.form.FormSelectOption;
 import org.patternfly.core.Tuples;
@@ -45,6 +46,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.bell;
 import static org.patternfly.style.PredefinedIcon.fas;
 
+@Route(value = "/components/forms/form-control", title = "Form control")
 public class FormControlComponent extends SnippetPage {
 
     public FormControlComponent() {

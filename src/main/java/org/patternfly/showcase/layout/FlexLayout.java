@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.layout.flex.Align;
 import org.patternfly.layout.flex.AlignContent;
 import org.patternfly.layout.flex.AlignItems;
@@ -48,6 +49,7 @@ import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.xl;
 import static org.patternfly.style.Breakpoints.breakpoints;
 
+@Route(value = "/layouts/flex", title = "Flex")
 public class FlexLayout extends SnippetPage {
 
     public FlexLayout() {

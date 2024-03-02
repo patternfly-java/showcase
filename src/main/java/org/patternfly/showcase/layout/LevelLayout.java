@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.layout.level.Level;
 import org.patternfly.layout.level.LevelItem;
 import org.patternfly.showcase.Snippet;
@@ -27,6 +28,7 @@ import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 
+@Route(value = "/layouts/level", title = "Level")
 public class LevelLayout extends SnippetPage {
 
     public LevelLayout() {

@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.divider.Divider;
 import org.patternfly.component.divider.DividerType;
 import org.patternfly.showcase.Snippet;
@@ -45,6 +46,7 @@ import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Orientation.horizontal;
 import static org.patternfly.style.Orientation.vertical;
 
+@Route(value = "/components/divider", title = "Divider")
 public class DividerComponent extends SnippetPage {
 
     public DividerComponent() {

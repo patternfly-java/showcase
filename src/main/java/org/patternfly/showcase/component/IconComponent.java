@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.icon.Icon;
 import org.patternfly.component.icon.InlineIcon;
 import org.patternfly.showcase.LoremIpsum;
@@ -54,6 +55,7 @@ import static org.patternfly.style.Status.info;
 import static org.patternfly.style.Status.success;
 import static org.patternfly.style.Status.warning;
 
+@Route(value = "/components/icon", title = "Icon")
 public class IconComponent extends SnippetPage {
 
     public IconComponent() {

@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.panel.Panel;
 import org.patternfly.component.panel.PanelFooter;
 import org.patternfly.component.panel.PanelHeader;
@@ -30,6 +31,7 @@ import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/panel", title = "Panel")
 public class PanelComponent extends SnippetPage {
 
     public PanelComponent() {

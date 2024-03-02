@@ -15,10 +15,11 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Page;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.card.Card;
 import org.patternfly.layout.gallery.Gallery;
 import org.patternfly.showcase.OverviewPage;
-import org.patternfly.showcase.router.Page;
 
 import static org.jboss.elemento.Elements.a;
 import static org.jboss.elemento.Elements.img;
@@ -30,6 +31,7 @@ import static org.patternfly.layout.gallery.GalleryItem.galleryItem;
 import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.modifier;
 
+@Route(value = "/components/all-components", title = "All components")
 public class ComponentsPage extends OverviewPage<Component> implements Page {
 
     public ComponentsPage() {

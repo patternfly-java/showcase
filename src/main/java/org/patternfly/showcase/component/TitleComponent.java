@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.title.Title;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -32,6 +33,7 @@ import static org.patternfly.style.Size.lg;
 import static org.patternfly.style.Size.md;
 import static org.patternfly.style.Size.xl;
 
+@Route(value = "/components/title", title = "Title")
 public class TitleComponent extends SnippetPage {
 
     public TitleComponent() {

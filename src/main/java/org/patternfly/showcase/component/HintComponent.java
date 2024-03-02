@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.hint.Hint;
 import org.patternfly.component.hint.HintActions;
 import org.patternfly.component.hint.HintBody;
@@ -44,6 +45,7 @@ import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
+@Route(value = "/components/hint", title = "Hint")
 public class HintComponent extends SnippetPage {
 
     public HintComponent() {

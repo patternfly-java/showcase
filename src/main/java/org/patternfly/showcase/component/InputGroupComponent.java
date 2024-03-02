@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.By;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.inputgroup.InputGroup;
 import org.patternfly.component.inputgroup.InputGroupItem;
 import org.patternfly.component.inputgroup.InputGroupText;
@@ -47,6 +48,7 @@ import static org.patternfly.style.PredefinedIcon.fas;
 import static org.patternfly.style.PredefinedIcon.questionCircle;
 import static org.patternfly.thirdparty.popper.Placement.top;
 
+@Route(value = "/components/input-group", title = "Input group")
 public class InputGroupComponent extends SnippetPage {
 
     public InputGroupComponent() {

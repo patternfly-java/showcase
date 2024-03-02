@@ -17,6 +17,7 @@ package org.patternfly.showcase.component;
 
 import java.util.Random;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.tabs.Tab;
@@ -68,6 +69,7 @@ import static org.patternfly.style.PredefinedIcon.laptop;
 import static org.patternfly.style.PredefinedIcon.server;
 import static org.patternfly.style.PredefinedIcon.users;
 
+@Route(value = "/components/tabs", title = "Tabs")
 public class TabsComponent extends SnippetPage {
 
     public TabsComponent() {

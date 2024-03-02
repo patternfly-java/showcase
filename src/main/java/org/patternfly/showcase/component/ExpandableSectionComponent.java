@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.badge.Badge;
 import org.patternfly.component.expandable.ExpandableSection;
 import org.patternfly.component.expandable.ExpandableSectionContent;
@@ -40,6 +41,7 @@ import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.fas;
 
+@Route(value = "/components/expandable-section", title = "Expandable section")
 public class ExpandableSectionComponent extends SnippetPage {
 
     public ExpandableSectionComponent() {

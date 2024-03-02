@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.form.Radio;
 import org.patternfly.component.form.RadioBody;
 import org.patternfly.component.form.RadioDescription;
@@ -31,6 +32,7 @@ import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/forms/radio", title = "Radio")
 public class RadioComponent extends SnippetPage {
 
     public RadioComponent() {

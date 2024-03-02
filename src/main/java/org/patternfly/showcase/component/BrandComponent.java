@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.brand.Brand;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -30,6 +31,7 @@ import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
 import static org.patternfly.style.Breakpoints.breakpoints;
 
+@Route(value = "/components/brand", title = "Brand")
 public class BrandComponent extends SnippetPage {
 
     public BrandComponent() {

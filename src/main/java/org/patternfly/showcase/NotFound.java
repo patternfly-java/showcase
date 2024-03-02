@@ -15,8 +15,8 @@
  */
 package org.patternfly.showcase;
 
-import org.patternfly.showcase.router.Page;
-import org.patternfly.showcase.router.Place;
+import org.jboss.elemento.router.Page;
+import org.jboss.elemento.router.Place;
 
 import elemental2.dom.HTMLElement;
 

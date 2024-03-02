@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.banner.Banner;
 import org.patternfly.core.Aria;
 import org.patternfly.showcase.Snippet;
@@ -47,6 +48,7 @@ import static org.patternfly.style.PredefinedIcon.exclamationCircle;
 import static org.patternfly.style.PredefinedIcon.exclamationTriangle;
 import static org.patternfly.style.PredefinedIcon.infoCircle;
 
+@Route(value = "/components/banner", title = "Banner")
 public class BannerComponent extends SnippetPage {
 
     public BannerComponent() {

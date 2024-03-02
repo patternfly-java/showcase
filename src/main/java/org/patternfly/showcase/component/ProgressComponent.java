@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.Id;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.help.HelperText;
 import org.patternfly.component.progress.MeasureLocation;
 import org.patternfly.component.progress.Progress;
@@ -52,6 +53,7 @@ import static org.patternfly.style.Status.info;
 import static org.patternfly.style.Status.success;
 import static org.patternfly.style.Status.warning;
 
+@Route(value = "/components/progress", title = "Progress")
 public class ProgressComponent extends SnippetPage {
 
     public ProgressComponent() {

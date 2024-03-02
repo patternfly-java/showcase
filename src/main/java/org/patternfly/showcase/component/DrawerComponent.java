@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.drawer.Drawer;
 import org.patternfly.component.drawer.DrawerCloseButton;
 import org.patternfly.component.drawer.DrawerColor;
@@ -56,6 +57,7 @@ import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.Size._2xl;
 
+@Route(value = "/components/drawer", title = "Drawer")
 public class DrawerComponent extends SnippetPage {
 
     public DrawerComponent() {

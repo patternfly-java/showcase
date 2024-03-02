@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.menu.MenuToggle;
 import org.patternfly.component.menu.MenuToggleAction;
 import org.patternfly.component.menu.MenuToggleCheckbox;
@@ -37,6 +38,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.cog;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
+@Route(value = "/components/menus/menu-toggle", title = "Menu toggle")
 public class MenuToggleComponent extends SnippetPage {
 
     public MenuToggleComponent() {

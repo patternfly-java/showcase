@@ -24,10 +24,10 @@ import org.gwtproject.safehtml.shared.SafeHtml;
 import org.jboss.elemento.By;
 import org.jboss.elemento.HTMLContainerBuilder;
 import org.jboss.elemento.Id;
+import org.jboss.elemento.router.Page;
 import org.patternfly.component.jumplinks.JumpLinks;
 import org.patternfly.showcase.component.Component;
 import org.patternfly.showcase.layout.Layout;
-import org.patternfly.showcase.router.Page;
 import org.patternfly.style.Classes;
 import org.patternfly.style.Size;
 

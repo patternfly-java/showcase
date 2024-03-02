@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.card.Card;
 import org.patternfly.component.card.CardActions;
 import org.patternfly.component.card.CardBody;
@@ -59,6 +60,7 @@ import static org.patternfly.style.Classes.noFill;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
+@Route(value = "/components/card", title = "Card")
 public class CardComponent extends SnippetPage {
 
     public CardComponent() {

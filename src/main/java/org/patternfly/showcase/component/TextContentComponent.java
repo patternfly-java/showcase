@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.text.TextContent;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
@@ -39,6 +40,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.plain;
 
+@Route(value = "/components/text-content", title = "Text")
 public class TextContentComponent extends SnippetPage {
 
     public TextContentComponent() {

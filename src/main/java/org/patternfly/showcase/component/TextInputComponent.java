@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.TextInput;
 import org.patternfly.component.form.TextInputType;
@@ -32,6 +33,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.util;
 import static org.patternfly.style.PredefinedIcon.fas;
 
+@Route(value = "/components/forms/text-input", title = "Text input")
 public class TextInputComponent extends SnippetPage {
 
     public TextInputComponent() {

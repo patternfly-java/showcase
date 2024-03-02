@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.CheckboxBody;
 import org.patternfly.component.form.CheckboxDescription;
@@ -31,6 +32,7 @@ import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/forms/checkbox", title = "Checkbox")
 public class CheckboxComponent extends SnippetPage {
 
     public CheckboxComponent() {

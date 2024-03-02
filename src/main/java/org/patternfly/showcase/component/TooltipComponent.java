@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.By;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.tooltip.Tooltip;
 import org.patternfly.component.tooltip.TooltipToggle;
@@ -38,6 +39,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.copy;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 
+@Route(value = "/components/tooltip", title = "Tooltip")
 public class TooltipComponent extends SnippetPage {
 
     public TooltipComponent() {

@@ -15,7 +15,8 @@
  */
 package org.patternfly.showcase;
 
-import org.patternfly.showcase.router.Page;
+import org.jboss.elemento.router.Page;
+import org.jboss.elemento.router.Route;
 
 import elemental2.dom.HTMLElement;
 
@@ -27,7 +28,8 @@ import static org.patternfly.component.text.TextContent.textContent;
 import static org.patternfly.component.title.Title.title;
 import static org.patternfly.style.Brightness.light;
 
-class ContributePage implements Page {
+@Route(value = "/contribute", title = "Contribute")
+public class ContributePage implements Page {
 
     @Override
     public Iterable<HTMLElement> elements() {

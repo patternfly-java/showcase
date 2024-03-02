@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.page.Masthead;
 import org.patternfly.component.page.MastheadContent;
 import org.patternfly.component.page.MastheadMain;
@@ -51,6 +52,7 @@ import static org.patternfly.style.Display.stack;
 import static org.patternfly.style.Variable.componentVar;
 import static org.patternfly.style.Variables.Height;
 
+@Route(value = "/components/masthead", title = "Masthead")
 public class MastheadComponent extends SnippetPage {
 
     public MastheadComponent() {

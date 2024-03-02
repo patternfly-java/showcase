@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.layout.gallery.Gallery;
 import org.patternfly.layout.gallery.GalleryItem;
 import org.patternfly.showcase.Snippet;
@@ -35,6 +36,7 @@ import static org.patternfly.style.Breakpoint.lg;
 import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.xl;
 
+@Route(value = "/layouts/gallery", title = "Gallery")
 public class GalleryLayout extends SnippetPage {
 
     public GalleryLayout() {

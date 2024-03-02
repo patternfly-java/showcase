@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.menu.Menu;
 import org.patternfly.component.menu.MenuActionHandler;
 import org.patternfly.component.menu.MenuContent;
@@ -58,6 +59,7 @@ import static org.patternfly.style.PredefinedIcon.bars;
 import static org.patternfly.style.PredefinedIcon.bell;
 import static org.patternfly.style.PredefinedIcon.fas;
 
+@Route(value = "/components/menus/menu", title = "Menu")
 public class MenuComponent extends SnippetPage {
 
     public MenuComponent() {

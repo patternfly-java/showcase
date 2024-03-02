@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.form.Checkbox;
 import org.patternfly.component.form.TextArea;
 import org.patternfly.component.form.TextAreaResize;
@@ -45,6 +46,7 @@ import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.util;
 
+@Route(value = "/components/forms/text-area", title = "Text area")
 public class TextAreaComponent extends SnippetPage {
 
     public TextAreaComponent() {

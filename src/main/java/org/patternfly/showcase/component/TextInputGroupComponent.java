@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.Key;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.chip.Chip;
 import org.patternfly.component.chip.ChipGroup;
 import org.patternfly.component.textinputgroup.TextInputGroup;
@@ -44,6 +45,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.search;
 import static org.patternfly.style.PredefinedIcon.times;
 
+@Route(value = "/components/text-input-group", title = "Text input group")
 public class TextInputGroupComponent extends SnippetPage {
 
     public TextInputGroupComponent() {

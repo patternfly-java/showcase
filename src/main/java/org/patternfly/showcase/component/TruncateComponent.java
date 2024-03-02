@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.truncate.Truncate;
 import org.patternfly.component.truncate.TruncatePosition;
 import org.patternfly.showcase.LoremIpsum;
@@ -30,6 +31,7 @@ import static org.patternfly.showcase.ApiDoc.Type.modifier;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/truncate", title = "Truncate")
 public class TruncateComponent extends SnippetPage {
 
     public TruncateComponent() {

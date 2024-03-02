@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.skeleton.Shape;
 import org.patternfly.component.skeleton.Skeleton;
 import org.patternfly.showcase.Snippet;
@@ -38,6 +39,7 @@ import static org.patternfly.style.Size.md;
 import static org.patternfly.style.Size.sm;
 import static org.patternfly.style.Size.xl;
 
+@Route(value = "/components/skeleton", title = "Skeleton")
 public class SkeletonComponent extends SnippetPage {
 
     public SkeletonComponent() {

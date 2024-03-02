@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.chip.Chip;
 import org.patternfly.component.chip.ChipGroup;
 import org.patternfly.showcase.Snippet;
@@ -29,6 +30,7 @@ import static org.patternfly.showcase.ApiDoc.Type.component;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/chip", title = "Chip")
 public class ChipComponent extends SnippetPage {
 
     public ChipComponent() {

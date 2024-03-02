@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.code.CodeEditor;
 import org.patternfly.component.code.CodeEditorAction;
 import org.patternfly.component.code.CodeEditorActions;
@@ -47,6 +48,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.download;
 import static org.patternfly.style.PredefinedIcon.upload;
 
+@Route(value = "/components/code-editor", title = "Code editor")
 public class CodeEditorComponent extends SnippetPage {
 
     private static final String CODE = "expandableSection()\n" +

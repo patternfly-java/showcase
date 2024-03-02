@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.spinner.Spinner;
 import org.patternfly.showcase.LoremIpsum;
 import org.patternfly.showcase.Snippet;
@@ -34,6 +35,7 @@ import static org.patternfly.style.Size.md;
 import static org.patternfly.style.Size.sm;
 import static org.patternfly.style.Size.xl;
 
+@Route(value = "/components/spinner", title = "Spinner")
 public class SpinnerComponent extends SnippetPage {
 
     public SpinnerComponent() {

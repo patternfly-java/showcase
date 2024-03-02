@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.button.Button;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -36,6 +37,7 @@ import static org.patternfly.style.PredefinedIcon.plusCircle;
 import static org.patternfly.style.PredefinedIcon.times;
 import static org.patternfly.style.PredefinedIcon.upload;
 
+@Route(value = "/components/button", title = "Button")
 public class ButtonComponent extends SnippetPage {
 
     public ButtonComponent() {

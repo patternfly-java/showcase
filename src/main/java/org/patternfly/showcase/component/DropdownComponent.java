@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.menu.Dropdown;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -42,6 +43,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.PredefinedIcon.cog;
 import static org.patternfly.style.PredefinedIcon.ellipsisV;
 
+@Route(value = "/components/menus/dropdown", title = "Dropdown")
 public class DropdownComponent extends SnippetPage {
 
     public DropdownComponent() {

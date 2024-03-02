@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.page.Page;
 import org.patternfly.component.page.PageMain;
 import org.patternfly.component.page.PageMainBody;
@@ -75,6 +76,7 @@ import static org.patternfly.style.Padding.padding;
 import static org.patternfly.style.Variable.componentVar;
 import static org.patternfly.style.Variables.MaxWidth;
 
+@Route(value = "/components/page", title = "Page")
 public class PageComponent extends SnippetPage {
 
     public PageComponent() {

@@ -16,10 +16,11 @@
 package org.patternfly.showcase.layout;
 
 import org.jboss.elemento.HTMLContainerBuilder;
+import org.jboss.elemento.router.Page;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.card.Card;
 import org.patternfly.layout.gallery.Gallery;
 import org.patternfly.showcase.OverviewPage;
-import org.patternfly.showcase.router.Page;
 import org.patternfly.style.Size;
 
 import elemental2.dom.HTMLDivElement;
@@ -41,6 +42,7 @@ import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.Classes.modifier;
 
+@Route(value = "/layouts/about-layouts", title = "Layouts")
 public class LayoutsPage extends OverviewPage<Layout> implements Page {
 
     public LayoutsPage() {

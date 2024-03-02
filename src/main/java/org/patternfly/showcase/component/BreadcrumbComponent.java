@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.breadcrumb.Breadcrumb;
 import org.patternfly.component.breadcrumb.BreadcrumbItem;
 import org.patternfly.showcase.Snippet;
@@ -29,6 +30,7 @@ import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 import static org.patternfly.showcase.component.NotYetImplemented.nyi;
 
+@Route(value = "/components/breadcrumb", title = "Breadcrumb")
 public class BreadcrumbComponent extends SnippetPage {
 
     public BreadcrumbComponent() {

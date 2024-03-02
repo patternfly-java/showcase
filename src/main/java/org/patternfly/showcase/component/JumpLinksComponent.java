@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.jumplinks.JumpLinks;
 import org.patternfly.component.jumplinks.JumpLinksItem;
 import org.patternfly.component.jumplinks.JumpLinksList;
@@ -37,6 +38,7 @@ import static org.patternfly.style.Breakpoint.default_;
 import static org.patternfly.style.Breakpoints.breakpoints;
 import static org.patternfly.style.ExpandableModifier.expandable;
 
+@Route(value = "/components/jump-links", title = "Jump links")
 public class JumpLinksComponent extends SnippetPage {
 
     public JumpLinksComponent() {

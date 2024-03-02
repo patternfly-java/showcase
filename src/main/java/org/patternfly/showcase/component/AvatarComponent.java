@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.avatar.Avatar;
 import org.patternfly.showcase.Snippet;
 import org.patternfly.showcase.SnippetPage;
@@ -34,6 +35,7 @@ import static org.patternfly.style.Size.md;
 import static org.patternfly.style.Size.sm;
 import static org.patternfly.style.Size.xl;
 
+@Route(value = "/components/avatar", title = "Avatar")
 public class AvatarComponent extends SnippetPage {
 
     public AvatarComponent() {

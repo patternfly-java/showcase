@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.Id;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.list.SimpleList;
 import org.patternfly.component.list.SimpleListGroup;
 import org.patternfly.component.list.SimpleListItem;
@@ -33,6 +34,7 @@ import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/simple-list", title = "Simple list")
 public class SimpleListComponent extends SnippetPage {
 
     public SimpleListComponent() {

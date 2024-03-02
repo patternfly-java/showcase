@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.list.DescriptionList;
 import org.patternfly.component.list.DescriptionListDescription;
 import org.patternfly.component.list.DescriptionListGroup;
@@ -53,6 +54,7 @@ import static org.patternfly.style.PredefinedIcon.globe;
 import static org.patternfly.style.PredefinedIcon.key;
 import static org.patternfly.style.PredefinedIcon.plusCircle;
 
+@Route(value = "/components/description-list", title = "Description list")
 public class DescriptionListComponent extends SnippetPage {
 
     public DescriptionListComponent() {

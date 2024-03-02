@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.Id;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.form.FormSelect;
 import org.patternfly.component.form.FormSelectOption;
 import org.patternfly.component.form.FormSelectOptionGroup;
@@ -44,6 +45,7 @@ import static org.patternfly.showcase.ApiDoc.Type.subcomponent;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.components;
 
+@Route(value = "/components/forms/form-select", title = "Form select")
 public class FormSelectComponent extends SnippetPage {
 
     public FormSelectComponent() {

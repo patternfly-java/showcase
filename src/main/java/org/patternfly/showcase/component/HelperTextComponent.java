@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.help.HelperText;
 import org.patternfly.component.help.HelperTextItem;
 import org.patternfly.showcase.Snippet;
@@ -37,6 +38,7 @@ import static org.patternfly.style.PredefinedIcon.check;
 import static org.patternfly.style.PredefinedIcon.fas;
 import static org.patternfly.style.PredefinedIcon.times;
 
+@Route(value = "/components/helper-text", title = "Helper text")
 public class HelperTextComponent extends SnippetPage {
 
     public HelperTextComponent() {

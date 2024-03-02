@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.alert.Alert;
 import org.patternfly.component.alert.AlertActionGroup;
 import org.patternfly.component.alert.AlertDescription;
@@ -70,6 +71,7 @@ import static org.patternfly.style.PredefinedIcon.laptop;
 import static org.patternfly.style.PredefinedIcon.server;
 import static org.patternfly.style.PredefinedIcon.users;
 
+@Route(value = "/components/alert", title = "Alert")
 public class AlertComponent extends SnippetPage {
 
     public AlertComponent() {

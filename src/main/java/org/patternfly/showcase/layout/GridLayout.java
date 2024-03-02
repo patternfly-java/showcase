@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.layout.grid.Grid;
 import org.patternfly.layout.grid.GridItem;
 import org.patternfly.showcase.Snippet;
@@ -35,6 +36,7 @@ import static org.patternfly.style.Breakpoint.md;
 import static org.patternfly.style.Breakpoint.sm;
 import static org.patternfly.style.Breakpoints.breakpoints;
 
+@Route(value = "/layouts/grid", title = "Grid")
 public class GridLayout extends SnippetPage {
 
     public GridLayout() {

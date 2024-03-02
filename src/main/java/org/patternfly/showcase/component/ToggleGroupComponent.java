@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.component;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.togglegroup.ToggleGroup;
 import org.patternfly.component.togglegroup.ToggleGroupItem;
@@ -40,6 +41,7 @@ import static org.patternfly.style.PredefinedIcon.copy;
 import static org.patternfly.style.PredefinedIcon.shareSquare;
 import static org.patternfly.style.PredefinedIcon.undo;
 
+@Route(value = "/components/toggle-group", title = "Toggle group")
 public class ToggleGroupComponent extends SnippetPage {
 
     public ToggleGroupComponent() {

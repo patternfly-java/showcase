@@ -15,6 +15,7 @@
  */
 package org.patternfly.showcase.layout;
 
+import org.jboss.elemento.router.Route;
 import org.patternfly.layout.split.Split;
 import org.patternfly.layout.split.SplitItem;
 import org.patternfly.showcase.Snippet;
@@ -27,6 +28,7 @@ import static org.patternfly.showcase.ApiDoc.Type.layout;
 import static org.patternfly.showcase.Code.code;
 import static org.patternfly.showcase.Data.layouts;
 
+@Route(value = "/layouts/split", title = "Split")
 public class SplitLayout extends SnippetPage {
 
     public SplitLayout() {

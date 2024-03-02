@@ -16,73 +16,11 @@
 package org.patternfly.showcase;
 
 import org.jboss.elemento.By;
+import org.jboss.elemento.router.Place;
+import org.jboss.elemento.router.PlaceManager;
+import org.jboss.elemento.router.RoutesImpl;
 import org.patternfly.component.navigation.Navigation;
 import org.patternfly.component.navigation.NavigationItem;
-import org.patternfly.showcase.component.AccordionComponent;
-import org.patternfly.showcase.component.ActionListComponent;
-import org.patternfly.showcase.component.AlertComponent;
-import org.patternfly.showcase.component.AvatarComponent;
-import org.patternfly.showcase.component.BackToTopComponent;
-import org.patternfly.showcase.component.BadgeComponent;
-import org.patternfly.showcase.component.BannerComponent;
-import org.patternfly.showcase.component.BrandComponent;
-import org.patternfly.showcase.component.BreadcrumbComponent;
-import org.patternfly.showcase.component.ButtonComponent;
-import org.patternfly.showcase.component.CardComponent;
-import org.patternfly.showcase.component.CheckboxComponent;
-import org.patternfly.showcase.component.ChipComponent;
-import org.patternfly.showcase.component.CodeBlockComponent;
-import org.patternfly.showcase.component.CodeEditorComponent;
-import org.patternfly.showcase.component.ComponentsPage;
-import org.patternfly.showcase.component.DescriptionListComponent;
-import org.patternfly.showcase.component.DividerComponent;
-import org.patternfly.showcase.component.DrawerComponent;
-import org.patternfly.showcase.component.DropdownComponent;
-import org.patternfly.showcase.component.EmptyStateComponent;
-import org.patternfly.showcase.component.ExpandableSectionComponent;
-import org.patternfly.showcase.component.FormComponent;
-import org.patternfly.showcase.component.FormControlComponent;
-import org.patternfly.showcase.component.FormSelectComponent;
-import org.patternfly.showcase.component.HelperTextComponent;
-import org.patternfly.showcase.component.HintComponent;
-import org.patternfly.showcase.component.IconComponent;
-import org.patternfly.showcase.component.InputGroupComponent;
-import org.patternfly.showcase.component.JumpLinksComponent;
-import org.patternfly.showcase.component.LabelComponent;
-import org.patternfly.showcase.component.ListComponent;
-import org.patternfly.showcase.component.MastheadComponent;
-import org.patternfly.showcase.component.MenuComponent;
-import org.patternfly.showcase.component.MenuToggleComponent;
-import org.patternfly.showcase.component.NavigationComponent;
-import org.patternfly.showcase.component.PageComponent;
-import org.patternfly.showcase.component.PanelComponent;
-import org.patternfly.showcase.component.PopoverComponent;
-import org.patternfly.showcase.component.ProgressComponent;
-import org.patternfly.showcase.component.RadioComponent;
-import org.patternfly.showcase.component.SimpleListComponent;
-import org.patternfly.showcase.component.SkeletonComponent;
-import org.patternfly.showcase.component.SliderComponent;
-import org.patternfly.showcase.component.SpinnerComponent;
-import org.patternfly.showcase.component.SwitchComponent;
-import org.patternfly.showcase.component.TabsComponent;
-import org.patternfly.showcase.component.TextAreaComponent;
-import org.patternfly.showcase.component.TextContentComponent;
-import org.patternfly.showcase.component.TextInputComponent;
-import org.patternfly.showcase.component.TextInputGroupComponent;
-import org.patternfly.showcase.component.TitleComponent;
-import org.patternfly.showcase.component.ToggleGroupComponent;
-import org.patternfly.showcase.component.TooltipComponent;
-import org.patternfly.showcase.component.TruncateComponent;
-import org.patternfly.showcase.layout.BullseyeLayout;
-import org.patternfly.showcase.layout.FlexLayout;
-import org.patternfly.showcase.layout.GalleryLayout;
-import org.patternfly.showcase.layout.GridLayout;
-import org.patternfly.showcase.layout.LayoutsPage;
-import org.patternfly.showcase.layout.LevelLayout;
-import org.patternfly.showcase.layout.SplitLayout;
-import org.patternfly.showcase.layout.StackLayout;
-import org.patternfly.showcase.router.Place;
-import org.patternfly.showcase.router.PlaceManager;
 import org.patternfly.thirdparty.ThirdParty;
 import org.treblereel.j2cl.processors.annotations.GWT3EntryPoint;
 
@@ -120,98 +58,23 @@ public class Main {
     @GWT3EntryPoint
     public void onModuleLoad() {
         ThirdParty.injectAll();
-        PlaceManager placeManager = registerPlaces()
+        Navigation navigation = navigation(expandable);
+        PlaceManager placeManager = new PlaceManager()
                 .root(By.id(MAIN_ID))
                 .title(title -> "PatternFly Java • " + title)
-                .notFound(place -> new NotFound(place));
-        Navigation navigation = setupNavigation(placeManager);
+                .notFound(place -> new NotFound(place))
+                .register(RoutesImpl.INSTANCE.places())
+                .afterPlace((pm, place, page) -> navigation.select(place.route));
+        setupNavigation(navigation, placeManager);
         appendBody(navigation);
-        placeManager
-                .afterPlace((pm, place, page) -> navigation.select(place.route))
-                .start();
+        placeManager.start();
     }
 
-    private PlaceManager registerPlaces() {
-        PlaceManager pm = new PlaceManager();
-
-        pm.register(new Place("/"), () -> new HomePage());
-        pm.register(new Place("/contribute", "Contribute"), () -> new ContributePage());
-        pm.register(new Place("/get-in-touch", "Get in touch"), () -> new GetInTouchPage());
-        pm.register(new Place("/get-started", "Get started"), () -> new GetStartedPage());
-
-        pm.register(new Place("/components/all-components", "All components"), () -> new ComponentsPage());
-        pm.register(new Place("/components/accordion", "Accordion"), () -> new AccordionComponent());
-        pm.register(new Place("/components/action-list", "Action list"), () -> new ActionListComponent());
-        pm.register(new Place("/components/alert", "Alert"), () -> new AlertComponent());
-        pm.register(new Place("/components/avatar", "Avatar"), () -> new AvatarComponent());
-        pm.register(new Place("/components/back-to-top", "Back to top"), () -> new BackToTopComponent());
-        pm.register(new Place("/components/badge", "Badge"), () -> new BadgeComponent());
-        pm.register(new Place("/components/banner", "Banner"), () -> new BannerComponent());
-        pm.register(new Place("/components/brand", "Brand"), () -> new BrandComponent());
-        pm.register(new Place("/components/breadcrumb", "Breadcrumb"), () -> new BreadcrumbComponent());
-        pm.register(new Place("/components/button", "Button"), () -> new ButtonComponent());
-        pm.register(new Place("/components/card", "Card"), () -> new CardComponent());
-        pm.register(new Place("/components/chip", "Chip"), () -> new ChipComponent());
-        pm.register(new Place("/components/code-block", "Code block"), () -> new CodeBlockComponent());
-        pm.register(new Place("/components/code-editor", "Code editor"), () -> new CodeEditorComponent());
-        pm.register(new Place("/components/description-list", "Description list"), () -> new DescriptionListComponent());
-        pm.register(new Place("/components/divider", "Divider"), () -> new DividerComponent());
-        pm.register(new Place("/components/drawer", "Drawer"), () -> new DrawerComponent());
-        pm.register(new Place("/components/empty-state", "Empty state"), () -> new EmptyStateComponent());
-        pm.register(new Place("/components/expandable-section", "Expandable section"), () -> new ExpandableSectionComponent());
-        pm.register(new Place("/components/forms/checkbox", "Checkbox"), () -> new CheckboxComponent());
-        pm.register(new Place("/components/forms/form", "Form"), () -> new FormComponent());
-        pm.register(new Place("/components/forms/form-control", "Form control"), () -> new FormControlComponent());
-        pm.register(new Place("/components/forms/form-select", "Form select"), () -> new FormSelectComponent());
-        pm.register(new Place("/components/forms/radio", "Radio"), () -> new RadioComponent());
-        pm.register(new Place("/components/forms/text-area", "Text area"), () -> new TextAreaComponent());
-        pm.register(new Place("/components/forms/text-input", "Text input"), () -> new TextInputComponent());
-        pm.register(new Place("/components/helper-text", "Helper text"), () -> new HelperTextComponent());
-        pm.register(new Place("/components/hint", "Hint"), () -> new HintComponent());
-        pm.register(new Place("/components/icon", "Icon"), () -> new IconComponent());
-        pm.register(new Place("/components/input-group", "Input group"), () -> new InputGroupComponent());
-        pm.register(new Place("/components/jump-links", "Jump links"), () -> new JumpLinksComponent());
-        pm.register(new Place("/components/label", "Label"), () -> new LabelComponent());
-        pm.register(new Place("/components/list", "List"), () -> new ListComponent());
-        pm.register(new Place("/components/masthead", "Masthead"), () -> new MastheadComponent());
-        pm.register(new Place("/components/menus/dropdown", "Dropdown"), () -> new DropdownComponent());
-        pm.register(new Place("/components/menus/menu", "Menu"), () -> new MenuComponent());
-        pm.register(new Place("/components/menus/menu-toggle", "Menu toggle"), () -> new MenuToggleComponent());
-        pm.register(new Place("/components/navigation", "Navigation"), () -> new NavigationComponent());
-        pm.register(new Place("/components/page", "Page"), () -> new PageComponent());
-        pm.register(new Place("/components/panel", "Panel"), () -> new PanelComponent());
-        pm.register(new Place("/components/popover", "Popover"), () -> new PopoverComponent());
-        pm.register(new Place("/components/progress", "Progress"), () -> new ProgressComponent());
-        pm.register(new Place("/components/simple-list", "Simple list"), () -> new SimpleListComponent());
-        pm.register(new Place("/components/skeleton", "Skeleton"), () -> new SkeletonComponent());
-        pm.register(new Place("/components/slider", "Slider"), () -> new SliderComponent());
-        pm.register(new Place("/components/spinner", "Spinner"), () -> new SpinnerComponent());
-        pm.register(new Place("/components/switch", "Switch"), () -> new SwitchComponent());
-        pm.register(new Place("/components/tabs", "Tabs"), () -> new TabsComponent());
-        pm.register(new Place("/components/text-content", "Text"), () -> new TextContentComponent());
-        pm.register(new Place("/components/text-input-group", "Text input group"), () -> new TextInputGroupComponent());
-        pm.register(new Place("/components/title", "Title"), () -> new TitleComponent());
-        pm.register(new Place("/components/toggle-group", "Toggle group"), () -> new ToggleGroupComponent());
-        pm.register(new Place("/components/tooltip", "Tooltip"), () -> new TooltipComponent());
-        pm.register(new Place("/components/truncate", "Truncate"), () -> new TruncateComponent());
-
-        pm.register(new Place("/layouts/about-layouts", "Layouts"), () -> new LayoutsPage());
-        pm.register(new Place("/layouts/bullseye", "Bullseye"), () -> new BullseyeLayout());
-        pm.register(new Place("/layouts/flex", "Flex"), () -> new FlexLayout());
-        pm.register(new Place("/layouts/gallery", "Gallery"), () -> new GalleryLayout());
-        pm.register(new Place("/layouts/grid", "Grid"), () -> new GridLayout());
-        pm.register(new Place("/layouts/level", "Level"), () -> new LevelLayout());
-        pm.register(new Place("/layouts/split", "Split"), () -> new SplitLayout());
-        pm.register(new Place("/layouts/stack", "Stack"), () -> new StackLayout());
-
-        return pm;
-    }
-
-    private Navigation setupNavigation(PlaceManager pm) {
-        return navigation(expandable)
-                .addItem(ni(pm.place("/get-started")))
+    private void setupNavigation(Navigation navigation, PlaceManager placeManager) {
+        navigation
+                .addItem(ni(placeManager.place("/get-started")))
                 .addGroup(expandableNavigationGroup("components", "Components")
-                        .addItem(ni(pm.place("/components/all-components")))
+                        .addItem(ni(placeManager.place("/components/all-components")))
                         .addItems(topLevelComponents(), component ->
                                 navigationItem(component.route, component.title, component.route))
                         .insertGroupAfter(expandableNavigationGroup("forms", "Forms")
@@ -223,11 +86,11 @@ public class Main {
                                                 navigationItem(sc.route, sc.title, sc.route)),
                                 "/components/masthead"))
                 .addGroup(expandableNavigationGroup("layouts", "Layouts")
-                        .addItem(ni(pm.place("/layouts/about-layouts"), "About layouts"))
+                        .addItem(ni(placeManager.place("/layouts/about-layouts"), "About layouts"))
                         .addItems(layouts(), layout ->
                                 navigationItem(layout.route, layout.title, layout.route)))
-                .addItem(ni(pm.place("/contribute")))
-                .addItem(ni(pm.place("/get-in-touch")));
+                .addItem(ni(placeManager.place("/contribute")))
+                .addItem(ni(placeManager.place("/get-in-touch")));
     }
 
     private NavigationItem ni(Place place) {

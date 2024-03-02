@@ -16,6 +16,7 @@
 package org.patternfly.showcase.component;
 
 import org.jboss.elemento.By;
+import org.jboss.elemento.router.Route;
 import org.patternfly.component.button.Button;
 import org.patternfly.component.popover.Popover;
 import org.patternfly.component.popover.PopoverBody;
@@ -48,6 +49,7 @@ import static org.patternfly.style.PredefinedIcon.bullhorn;
 import static org.patternfly.thirdparty.popper.Placement.auto;
 import static org.patternfly.thirdparty.popper.TriggerAction.mouseenter;
 
+@Route(value = "/components/popover", title = "Popover")
 public class PopoverComponent extends SnippetPage {
 
     public PopoverComponent() {

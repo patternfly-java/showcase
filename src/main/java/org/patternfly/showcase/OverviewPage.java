@@ -16,9 +16,9 @@
 package org.patternfly.showcase;
 
 import org.jboss.elemento.HTMLContainerBuilder;
+import org.jboss.elemento.router.Page;
 import org.patternfly.component.card.Card;
 import org.patternfly.layout.gallery.Gallery;
-import org.patternfly.showcase.router.Page;
 
 import elemental2.dom.HTMLDivElement;
 import elemental2.dom.HTMLElement;
