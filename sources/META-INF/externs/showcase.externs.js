@@ -1,4 +1,4 @@
-// noinspection ES6ConvertVarToLetConst
+// noinspection BadExpressionStatementJS,JSUnusedGlobalSymbols,SpellCheckingInspection,ES6ConvertVarToLetConst
 
 /*
  *  Copyright 2023 Red Hat
@@ -30,14 +30,14 @@
  *     pfLogo: string
  * }}
  */
-var PatternFlyAssets;
+var PatternFlyAssets
 
 /**
  * @typedef {{
  *     code: Map<string,string>
  * }}
  */
-var PatternFlyCode;
+var PatternFlyCode
 
 // ------------------------------------------------------ component
 

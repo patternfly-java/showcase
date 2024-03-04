@@ -26,7 +26,7 @@ import jsinterop.base.JsPropertyMap;
 
 import static elemental2.core.Global.JSON;
 
-public class Data {
+public final class Data {
 
     public static JsPropertyMap<Component> components;
     public static JsPropertyMap<Layout> layouts;

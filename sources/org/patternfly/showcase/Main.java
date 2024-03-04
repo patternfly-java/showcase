@@ -45,6 +45,7 @@ import static org.patternfly.showcase.Assets.pfLogo;
 import static org.patternfly.showcase.Data.groupComponents;
 import static org.patternfly.showcase.Data.layouts;
 import static org.patternfly.showcase.Data.topLevelComponents;
+import static org.patternfly.showcase.Environment.env;
 import static org.patternfly.style.Classes.brand;
 import static org.patternfly.style.Classes.component;
 import static org.patternfly.style.Variable.componentVar;
@@ -60,6 +61,7 @@ public class Main {
         ThirdParty.injectAll();
         Navigation navigation = navigation(expandable);
         PlaceManager placeManager = new PlaceManager()
+                .base(env().base())
                 .root(By.id(MAIN_ID))
                 .title(title -> "PatternFly Java • " + title)
                 .notFound(place -> new NotFound(place))

@@ -27,6 +27,7 @@ goog.require('org.patternfly.component.page.PageSidebar');
 goog.require('org.patternfly.component.page.PageSidebarBody');
 goog.require('org.patternfly.component.skiptocontent.SkipToContent');
 goog.require('org.patternfly.showcase.Data');
+goog.require('org.patternfly.showcase.Environment');
 goog.require('org.patternfly.showcase.NotFound');
 goog.require('org.patternfly.showcase.component.Component.$Overlay');
 goog.require('org.patternfly.showcase.layout.Layout.$Overlay');

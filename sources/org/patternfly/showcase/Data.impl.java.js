@@ -13,6 +13,9 @@ let $Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.
 let Layout_$Overlay = goog.forwardDeclare('org.patternfly.showcase.layout.Layout.$Overlay$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
+/**
+ * @final
+ */
 class Data extends j_l_Object {
  /** @protected @nodts */
  constructor() {

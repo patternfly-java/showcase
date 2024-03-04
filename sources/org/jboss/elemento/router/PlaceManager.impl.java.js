@@ -23,6 +23,7 @@ let By = goog.forwardDeclare('org.jboss.elemento.By$impl');
 let Elements = goog.forwardDeclare('org.jboss.elemento.Elements$impl');
 let EventType = goog.forwardDeclare('org.jboss.elemento.EventType$impl');
 let AfterPlaceHandler = goog.forwardDeclare('org.jboss.elemento.router.AfterPlaceHandler$impl');
+let Base = goog.forwardDeclare('org.jboss.elemento.router.Base$impl');
 let BeforePlaceHandler = goog.forwardDeclare('org.jboss.elemento.router.BeforePlaceHandler$impl');
 let Page = goog.forwardDeclare('org.jboss.elemento.router.Page$impl');
 let Place = goog.forwardDeclare('org.jboss.elemento.router.Place$impl');
@@ -41,6 +42,8 @@ class PlaceManager extends j_l_Object {
   this.f_beforeHandlers__org_jboss_elemento_router_PlaceManager_;
   /**@type {List<AfterPlaceHandler>} @nodts*/
   this.f_afterHandlers__org_jboss_elemento_router_PlaceManager_;
+  /**@type {Base} @nodts*/
+  this.f_base__org_jboss_elemento_router_PlaceManager_;
   /**@type {Place} @nodts*/
   this.f_current__org_jboss_elemento_router_PlaceManager_;
   /**@type {Supplier<HTMLElement>} @nodts*/
@@ -66,6 +69,7 @@ class PlaceManager extends j_l_Object {
   this.f_places__org_jboss_elemento_router_PlaceManager_ = /**@type {!HashMap<Place, Supplier<Page>>}*/ (HashMap.$create__());
   this.f_beforeHandlers__org_jboss_elemento_router_PlaceManager_ = /**@type {!ArrayList<BeforePlaceHandler>}*/ (ArrayList.$create__());
   this.f_afterHandlers__org_jboss_elemento_router_PlaceManager_ = /**@type {!ArrayList<AfterPlaceHandler>}*/ (ArrayList.$create__());
+  this.f_base__org_jboss_elemento_router_PlaceManager_ = Base.$create__java_lang_String('/');
   this.f_current__org_jboss_elemento_router_PlaceManager_ = PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_;
   this.f_root__org_jboss_elemento_router_PlaceManager_ = Supplier.$adapt(() =>{
    return DomGlobal_$Overlay.f_document__elemental2_dom_DomGlobal_$Overlay.body;
@@ -76,6 +80,11 @@ class PlaceManager extends j_l_Object {
    return DefaultNotFound.$create__();
   });
   this.f_linkSelector__org_jboss_elemento_router_PlaceManager_ = null;
+ }
+ /** @nodts @return {PlaceManager} */
+ m_base__java_lang_String__org_jboss_elemento_router_PlaceManager(/** ?string */ base) {
+  this.f_base__org_jboss_elemento_router_PlaceManager_ = Base.$create__java_lang_String(base);
+  return this;
  }
  /** @nodts @return {PlaceManager} */
  m_root__java_lang_String__org_jboss_elemento_router_PlaceManager(/** ?string */ selector) {
@@ -151,7 +160,8 @@ class PlaceManager extends j_l_Object {
  }
  /** @nodts @return {Place} */
  m_place__java_lang_String__org_jboss_elemento_router_Place(/** ?string */ route) {
-  return /**@type {Place}*/ ($Casts.$to(this.f_routes__org_jboss_elemento_router_PlaceManager_.getOrDefault(route, PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_), Place));
+  let relative = this.f_base__org_jboss_elemento_router_PlaceManager_.m_relative__java_lang_String__java_lang_String_$pp_org_jboss_elemento_router(route);
+  return /**@type {Place}*/ ($Casts.$to(this.f_routes__org_jboss_elemento_router_PlaceManager_.getOrDefault(relative, PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_), Place));
  }
  /** @nodts */
  m_start__void() {
@@ -160,15 +170,19 @@ class PlaceManager extends j_l_Object {
   let place = this.m_place__java_lang_String__org_jboss_elemento_router_Place(DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.pathname);
   if (!$Equality.$same(place, null)) {
    if (this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place)) {
-    History_$Overlay.m_replaceState__$devirt__elemental2_dom_History__java_lang_Object__java_lang_String__java_lang_String__void(goog.global.history, place.f_route__org_jboss_elemento_router_Place, '', DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.pathname);
+    this.m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(place, false);
    }
   }
+ }
+ /** @nodts */
+ m_goTo__java_lang_String__void(/** ?string */ route) {
+  this.m_goTo__org_jboss_elemento_router_Place__void(this.m_place__java_lang_String__org_jboss_elemento_router_Place(route));
  }
  /** @nodts */
  m_goTo__org_jboss_elemento_router_Place__void(/** Place */ place) {
   if (!$Equality.$same(place, null)) {
    if (this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place)) {
-    History_$Overlay.m_pushState__$devirt__elemental2_dom_History__java_lang_Object__java_lang_String__java_lang_String__void(goog.global.history, place.f_route__org_jboss_elemento_router_Place, '', place.f_route__org_jboss_elemento_router_Place);
+    this.m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(place, true);
    }
   }
  }
@@ -186,7 +200,7 @@ class PlaceManager extends j_l_Object {
        if (!$Equality.$same(place, null)) {
         e_1.preventDefault();
         if (this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place)) {
-         History_$Overlay.m_pushState__$devirt__elemental2_dom_History__java_lang_Object__java_lang_String__java_lang_String__void(goog.global.history, place.f_route__org_jboss_elemento_router_Place, '', place.f_route__org_jboss_elemento_router_Place);
+         this.m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(place, true);
         }
        }
       }
@@ -278,6 +292,15 @@ class PlaceManager extends j_l_Object {
   }
  }
  /** @nodts */
+ m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(/** Place */ place, /** boolean */ push) {
+  let absolute = this.f_base__org_jboss_elemento_router_PlaceManager_.m_absolute__java_lang_String__java_lang_String_$pp_org_jboss_elemento_router(place.f_route__org_jboss_elemento_router_Place);
+  if (push) {
+   History_$Overlay.m_pushState__$devirt__elemental2_dom_History__java_lang_Object__java_lang_String__java_lang_String__void(goog.global.history, place.f_route__org_jboss_elemento_router_Place, '', absolute);
+  } else {
+   History_$Overlay.m_replaceState__$devirt__elemental2_dom_History__java_lang_Object__java_lang_String__java_lang_String__void(goog.global.history, place.f_route__org_jboss_elemento_router_Place, '', absolute);
+  }
+ }
+ /** @nodts */
  static $clinit() {
   PlaceManager.$clinit = () =>{};
   PlaceManager.$loadModules();
@@ -309,6 +332,7 @@ class PlaceManager extends j_l_Object {
   Elements = goog.module.get('org.jboss.elemento.Elements$impl');
   EventType = goog.module.get('org.jboss.elemento.EventType$impl');
   AfterPlaceHandler = goog.module.get('org.jboss.elemento.router.AfterPlaceHandler$impl');
+  Base = goog.module.get('org.jboss.elemento.router.Base$impl');
   BeforePlaceHandler = goog.module.get('org.jboss.elemento.router.BeforePlaceHandler$impl');
   Page = goog.module.get('org.jboss.elemento.router.Page$impl');
   Place = goog.module.get('org.jboss.elemento.router.Place$impl');

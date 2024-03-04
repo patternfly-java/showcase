@@ -28,6 +28,7 @@ let PageSidebar = goog.forwardDeclare('org.patternfly.component.page.PageSidebar
 let PageSidebarBody = goog.forwardDeclare('org.patternfly.component.page.PageSidebarBody$impl');
 let SkipToContent = goog.forwardDeclare('org.patternfly.component.skiptocontent.SkipToContent$impl');
 let Data = goog.forwardDeclare('org.patternfly.showcase.Data$impl');
+let Environment = goog.forwardDeclare('org.patternfly.showcase.Environment$impl');
 let NotFound = goog.forwardDeclare('org.patternfly.showcase.NotFound$impl');
 let $Overlay = goog.forwardDeclare('org.patternfly.showcase.component.Component.$Overlay$impl');
 let Layout_$Overlay = goog.forwardDeclare('org.patternfly.showcase.layout.Layout.$Overlay$impl');
@@ -58,7 +59,7 @@ class Main extends j_l_Object {
  m_onModuleLoad__void() {
   ThirdParty.m_injectAll__void();
   let navigation = Navigation.m_navigation__org_patternfly_component_navigation_NavigationType__org_patternfly_component_navigation_Navigation(Vertical.f_expandable__org_patternfly_component_navigation_NavigationType_Vertical);
-  let placeManager = PlaceManager.$create__().m_root__org_jboss_elemento_By__org_jboss_elemento_router_PlaceManager(By.m_id__java_lang_String__org_jboss_elemento_By(Main.f_MAIN_ID__org_patternfly_showcase_Main)).m_title__java_util_function_Function__org_jboss_elemento_router_PlaceManager(j_u_function_Function.$adapt((title) =>{
+  let placeManager = PlaceManager.$create__().m_base__java_lang_String__org_jboss_elemento_router_PlaceManager(Environment.m_env__org_patternfly_showcase_Environment().m_base__java_lang_String()).m_root__org_jboss_elemento_By__org_jboss_elemento_router_PlaceManager(By.m_id__java_lang_String__org_jboss_elemento_By(Main.f_MAIN_ID__org_patternfly_showcase_Main)).m_title__java_util_function_Function__org_jboss_elemento_router_PlaceManager(j_u_function_Function.$adapt((title) =>{
    let title_1 = /**@type {?string}*/ ($Casts.$to(title, j_l_String));
    return 'PatternFly Java \u2022 ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(title_1);
   })).m_notFound__java_util_function_Function__org_jboss_elemento_router_PlaceManager(j_u_function_Function.$adapt((place) =>{
@@ -136,6 +137,7 @@ class Main extends j_l_Object {
   PageSidebarBody = goog.module.get('org.patternfly.component.page.PageSidebarBody$impl');
   SkipToContent = goog.module.get('org.patternfly.component.skiptocontent.SkipToContent$impl');
   Data = goog.module.get('org.patternfly.showcase.Data$impl');
+  Environment = goog.module.get('org.patternfly.showcase.Environment$impl');
   NotFound = goog.module.get('org.patternfly.showcase.NotFound$impl');
   $Overlay = goog.module.get('org.patternfly.showcase.component.Component.$Overlay$impl');
   Layout_$Overlay = goog.module.get('org.patternfly.showcase.layout.Layout.$Overlay$impl');
