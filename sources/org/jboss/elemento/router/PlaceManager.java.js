@@ -26,6 +26,7 @@ goog.require('org.jboss.elemento.EventType');
 goog.require('org.jboss.elemento.router.AfterPlaceHandler');
 goog.require('org.jboss.elemento.router.Base');
 goog.require('org.jboss.elemento.router.BeforePlaceHandler');
+goog.require('org.jboss.elemento.router.LinkSelector');
 goog.require('org.jboss.elemento.router.Page');
 goog.require('org.jboss.elemento.router.Place');
 goog.require('org.jboss.elemento.router.PlaceManager.DefaultNotFound');
