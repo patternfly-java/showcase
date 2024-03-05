@@ -63,6 +63,7 @@ public class Main {
         PlaceManager placeManager = new PlaceManager()
                 .base(env().base())
                 .root(By.id(MAIN_ID))
+                .linkSelector(By.attribute("target", ApiDoc.API_DOC_TARGET), true)
                 .title(title -> "PatternFly Java • " + title)
                 .notFound(place -> new NotFound(place))
                 .register(RoutesImpl.INSTANCE.places())
