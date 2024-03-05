@@ -18,7 +18,6 @@ let PageMainSection = goog.forwardDeclare('org.patternfly.component.page.PageMai
 let TextContent = goog.forwardDeclare('org.patternfly.component.text.TextContent$impl');
 let Title = goog.forwardDeclare('org.patternfly.component.title.Title$impl');
 let Brightness = goog.forwardDeclare('org.patternfly.style.Brightness$impl');
-let $Arrays = goog.forwardDeclare('vmbootstrap.Arrays$impl');
 let $Casts = goog.forwardDeclare('vmbootstrap.Casts$impl');
 
 /**
@@ -45,7 +44,7 @@ class NotFound extends j_l_Object {
  }
  /** @override @nodts @return {Iterable<HTMLElement>} */
  m_elements__java_lang_Iterable() {
-  return /**@type {List<HTMLElement>}*/ (Collections.m_singletonList__java_lang_Object__java_util_List(/**@type {PageMainSection}*/ ($Casts.$to(/**@type {PageMainSection}*/ ($Casts.$to(PageMainSection.m_pageMainSection__org_patternfly_component_page_PageMainSection().m_background__org_patternfly_style_Brightness__org_patternfly_component_page_PageMainSection(Brightness.f_light__org_patternfly_style_Brightness).m_css__arrayOf_java_lang_String__org_jboss_elemento_TypedBuilder(/**@type {!Array<?string>}*/ ($Arrays.$init(['sc-page'], j_l_String))), PageMainSection)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {TextContent}*/ ($Casts.$to(/**@type {TextContent}*/ ($Casts.$to(TextContent.m_textContent__org_patternfly_component_text_TextContent().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Title.m_title__int__java_lang_String__org_patternfly_component_title_Title(1, 'Not Found')), TextContent)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Page ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_place__org_patternfly_showcase_NotFound_.f_route__org_jboss_elemento_router_Place) + ' not found'), HTMLContainerBuilder))), TextContent))), PageMainSection)).m_element__elemental2_dom_HTMLElement()));
+  return /**@type {List<HTMLElement>}*/ (Collections.m_singletonList__java_lang_Object__java_util_List(/**@type {PageMainSection}*/ ($Casts.$to(PageMainSection.m_pageMainSection__org_patternfly_component_page_PageMainSection().m_background__org_patternfly_style_Brightness__org_patternfly_component_page_PageMainSection(Brightness.f_light__org_patternfly_style_Brightness).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {TextContent}*/ ($Casts.$to(/**@type {TextContent}*/ ($Casts.$to(TextContent.m_textContent__org_patternfly_component_text_TextContent().m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(Title.m_title__int__java_lang_String__org_patternfly_component_title_Title(1, 'Not Found')), TextContent)).m_add__org_jboss_elemento_IsElement__org_jboss_elemento_TypedBuilder(/**@type {HTMLContainerBuilder<HTMLParagraphElement>}*/ ($Casts.$to(Elements.m_p__org_jboss_elemento_HTMLContainerBuilder().m_textContent__java_lang_String__org_jboss_elemento_TypedBuilder('Page ' + j_l_String.m_valueOf__java_lang_Object__java_lang_String(this.f_place__org_patternfly_showcase_NotFound_.f_route__org_jboss_elemento_router_Place) + ' not found'), HTMLContainerBuilder))), TextContent))), PageMainSection)).m_element__elemental2_dom_HTMLElement()));
  }
  //Default method forwarding stub.
  /** @override @nodts */
@@ -85,7 +84,6 @@ class NotFound extends j_l_Object {
   TextContent = goog.module.get('org.patternfly.component.text.TextContent$impl');
   Title = goog.module.get('org.patternfly.component.title.Title$impl');
   Brightness = goog.module.get('org.patternfly.style.Brightness$impl');
-  $Arrays = goog.module.get('vmbootstrap.Arrays$impl');
   $Casts = goog.module.get('vmbootstrap.Casts$impl');
  }
 }

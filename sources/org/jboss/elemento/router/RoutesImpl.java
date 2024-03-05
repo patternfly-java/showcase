@@ -76,7 +76,7 @@ public class RoutesImpl implements Routes {
         places.put(new Place("/components/switch", "Switch", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.SwitchComponent());
         places.put(new Place("/components/tabs", "Tabs", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.TabsComponent());
         places.put(new Place("/components/forms/text-area", "Text area", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.TextAreaComponent());
-        places.put(new Place("/components/text-content", "Text", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.TextContentComponent());
+        places.put(new Place("/components/text", "Text", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.TextContentComponent());
         places.put(new Place("/components/forms/text-input", "Text input", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.TextInputComponent());
         places.put(new Place("/components/text-input-group", "Text input group", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.TextInputGroupComponent());
         places.put(new Place("/components/title", "Title", (Supplier<HTMLElement>) null), () -> new org.patternfly.showcase.component.TitleComponent());

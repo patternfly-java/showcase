@@ -54,6 +54,8 @@ class PlaceManager extends j_l_Object {
   this.f_notFound__org_jboss_elemento_router_PlaceManager_;
   /**@type {By} @nodts*/
   this.f_linkSelector__org_jboss_elemento_router_PlaceManager_;
+  /**@type {?string} @nodts*/
+  this.f_failedRoute__org_jboss_elemento_router_PlaceManager_;
  }
  /** @nodts @return {!PlaceManager} */
  static $create__() {
@@ -80,6 +82,7 @@ class PlaceManager extends j_l_Object {
    return DefaultNotFound.$create__();
   });
   this.f_linkSelector__org_jboss_elemento_router_PlaceManager_ = null;
+  this.f_failedRoute__org_jboss_elemento_router_PlaceManager_ = null;
  }
  /** @nodts @return {PlaceManager} */
  m_base__java_lang_String__org_jboss_elemento_router_PlaceManager(/** ?string */ base) {
@@ -160,23 +163,21 @@ class PlaceManager extends j_l_Object {
  }
  /** @nodts @return {Place} */
  m_place__java_lang_String__org_jboss_elemento_router_Place(/** ?string */ route) {
-  let relative = this.f_base__org_jboss_elemento_router_PlaceManager_.m_relative__java_lang_String__java_lang_String_$pp_org_jboss_elemento_router(route);
-  return /**@type {Place}*/ ($Casts.$to(this.f_routes__org_jboss_elemento_router_PlaceManager_.getOrDefault(relative, PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_), Place));
+  let place = this.m_findPlace__java_lang_String__org_jboss_elemento_router_Place_$p_org_jboss_elemento_router_PlaceManager(route);
+  return PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_.equals(place) ? null : place;
  }
  /** @nodts */
  m_start__void() {
   this.m_bindClickHandler__void_$p_org_jboss_elemento_router_PlaceManager();
   this.m_bindHistoryHandler__void_$p_org_jboss_elemento_router_PlaceManager();
-  let place = this.m_place__java_lang_String__org_jboss_elemento_router_Place(DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.pathname);
-  if (!$Equality.$same(place, null)) {
-   if (this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place)) {
-    this.m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(place, false);
-   }
+  let place = this.m_findPlace__java_lang_String__org_jboss_elemento_router_Place_$p_org_jboss_elemento_router_PlaceManager(DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.pathname);
+  if (this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place)) {
+   this.m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(place, false);
   }
  }
  /** @nodts */
  m_goTo__java_lang_String__void(/** ?string */ route) {
-  this.m_goTo__org_jboss_elemento_router_Place__void(this.m_place__java_lang_String__org_jboss_elemento_router_Place(route));
+  this.m_goTo__org_jboss_elemento_router_Place__void(this.m_findPlace__java_lang_String__org_jboss_elemento_router_Place_$p_org_jboss_elemento_router_PlaceManager(route));
  }
  /** @nodts */
  m_goTo__org_jboss_elemento_router_Place__void(/** Place */ place) {
@@ -193,17 +194,11 @@ class PlaceManager extends j_l_Object {
    let a = this.m_anchorElement__elemental2_dom_Event__elemental2_dom_HTMLAnchorElement_$p_org_jboss_elemento_router_PlaceManager(e_1);
    if (!$Equality.$same(a, null)) {
     let url = new URL(a.href, DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.origin);
-    if (j_l_String.m_equals__java_lang_String__java_lang_Object__boolean(url.origin, DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.origin)) {
-     if ($Equality.$same(url.hash, null) || j_l_String.m_isEmpty__java_lang_String__boolean(url.hash)) {
-      if ($Equality.$same(this.f_linkSelector__org_jboss_elemento_router_PlaceManager_, null) || a.matches(this.f_linkSelector__org_jboss_elemento_router_PlaceManager_.toString())) {
-       let place = this.m_place__java_lang_String__org_jboss_elemento_router_Place(url.pathname);
-       if (!$Equality.$same(place, null)) {
-        e_1.preventDefault();
-        if (this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place)) {
-         this.m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(place, true);
-        }
-       }
-      }
+    if (this.m_shouldHandleLink__elemental2_dom_HTMLAnchorElement__elemental2_dom_URL__boolean_$p_org_jboss_elemento_router_PlaceManager(a, url)) {
+     let place = this.m_findPlace__java_lang_String__org_jboss_elemento_router_Place_$p_org_jboss_elemento_router_PlaceManager(url.pathname);
+     e_1.preventDefault();
+     if (this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place)) {
+      this.m_updateHistory__org_jboss_elemento_router_Place__boolean__void_$p_org_jboss_elemento_router_PlaceManager(place, true);
      }
     }
    }
@@ -223,18 +218,34 @@ class PlaceManager extends j_l_Object {
   }
   return anchorElement;
  }
+ /** @nodts @return {boolean} */
+ m_shouldHandleLink__elemental2_dom_HTMLAnchorElement__elemental2_dom_URL__boolean_$p_org_jboss_elemento_router_PlaceManager(/** HTMLAnchorElement */ a, /** URL */ url) {
+  if (j_l_String.m_equals__java_lang_String__java_lang_Object__boolean(url.origin, DomGlobal_$Overlay.f_location__elemental2_dom_DomGlobal_$Overlay.origin) && j_l_String.m_isEmpty__java_lang_String__boolean(url.hash)) {
+   if (this.f_base__org_jboss_elemento_router_PlaceManager_.m_isRelative__java_lang_String__boolean_$pp_org_jboss_elemento_router(url.pathname)) {
+    return $Equality.$same(this.f_linkSelector__org_jboss_elemento_router_PlaceManager_, null) || a.matches(this.f_linkSelector__org_jboss_elemento_router_PlaceManager_.toString());
+   }
+  }
+  return false;
+ }
  /** @nodts */
  m_bindHistoryHandler__void_$p_org_jboss_elemento_router_PlaceManager() {
   EventType.m_bind__elemental2_dom_EventTarget__org_jboss_elemento_EventType__org_jboss_elemento_EventCallbackFn__org_gwtproject_event_shared_HandlerRegistration(goog.global.window, EventType.f_popstate__org_jboss_elemento_EventType, (event) =>{
    let event_1 = /**@type {PopStateEvent}*/ ($Casts.$to(event, PopStateEvent_$Overlay));
    if (!$Equality.$same(event_1.state, null)) {
     let route = j_l_String.m_valueOf__java_lang_Object__java_lang_String(event_1.state);
-    let place = this.m_place__java_lang_String__org_jboss_elemento_router_Place(route);
-    if (!$Equality.$same(place, null)) {
-     this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place);
-    }
+    let place = this.m_findPlace__java_lang_String__org_jboss_elemento_router_Place_$p_org_jboss_elemento_router_PlaceManager(route);
+    this.m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(place);
    }
   });
+ }
+ /** @nodts @return {Place} */
+ m_findPlace__java_lang_String__org_jboss_elemento_router_Place_$p_org_jboss_elemento_router_PlaceManager(/** ?string */ route) {
+  let relative = this.f_base__org_jboss_elemento_router_PlaceManager_.m_relative__java_lang_String__java_lang_String_$pp_org_jboss_elemento_router(route);
+  let place = /**@type {Place}*/ ($Casts.$to(this.f_routes__org_jboss_elemento_router_PlaceManager_.getOrDefault(relative, PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_), Place));
+  if (PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_.equals(place)) {
+   this.f_failedRoute__org_jboss_elemento_router_PlaceManager_ = route;
+  }
+  return place;
  }
  /** @nodts @return {boolean} */
  m_internalGoto__org_jboss_elemento_router_Place__boolean_$p_org_jboss_elemento_router_PlaceManager(/** Place */ place) {
@@ -246,7 +257,7 @@ class PlaceManager extends j_l_Object {
     }
    }
   }
-  let page = this.m_page__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager(place);
+  let page = this.m_findPage__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager(place);
   if (!$Equality.$same(place.f_title__org_jboss_elemento_router_Place, null)) {
    DomGlobal_$Overlay.f_document__elemental2_dom_DomGlobal_$Overlay.title = /**@type {?string}*/ ($Casts.$to(this.f_title__org_jboss_elemento_router_PlaceManager_.m_apply__java_lang_Object__java_lang_Object(place.f_title__org_jboss_elemento_router_Place), j_l_String));
   }
@@ -261,32 +272,32 @@ class PlaceManager extends j_l_Object {
     rootElement.appendChild(e);
    }
   }
-  this.f_current__org_jboss_elemento_router_PlaceManager_ = place;
-  for (let $iterator_2 = this.f_afterHandlers__org_jboss_elemento_router_PlaceManager_.m_iterator__java_util_Iterator(); $iterator_2.m_hasNext__boolean(); ) {
-   let handler_1 = /**@type {AfterPlaceHandler}*/ ($Casts.$to($iterator_2.m_next__java_lang_Object(), AfterPlaceHandler));
-   {
-    handler_1.m_afterPlace__org_jboss_elemento_router_PlaceManager__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page__void(this, place, page);
-   }
-  }
-  return true;
- }
- /** @nodts @return {Page} */
- m_page__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager(/** Place */ place) {
-  if (!$Equality.$same(place, null)) {
-   if (this.f_places__org_jboss_elemento_router_PlaceManager_.containsKey(place)) {
-    let supplier = /**@type {Supplier<Page>}*/ ($Casts.$to(this.f_places__org_jboss_elemento_router_PlaceManager_.get(place), Supplier));
-    return /**@type {Page}*/ ($Casts.$to(supplier.m_get__java_lang_Object(), Page));
-   } else {
-    return this.m_notFound__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager(place);
-   }
+  if (PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_.equals(place)) {
+   return false;
   } else {
-   return this.m_notFound__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager(PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_);
+   this.f_current__org_jboss_elemento_router_PlaceManager_ = place;
+   for (let $iterator_2 = this.f_afterHandlers__org_jboss_elemento_router_PlaceManager_.m_iterator__java_util_Iterator(); $iterator_2.m_hasNext__boolean(); ) {
+    let handler_1 = /**@type {AfterPlaceHandler}*/ ($Casts.$to($iterator_2.m_next__java_lang_Object(), AfterPlaceHandler));
+    {
+     handler_1.m_afterPlace__org_jboss_elemento_router_PlaceManager__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page__void(this, place, page);
+    }
+   }
+   return true;
   }
  }
  /** @nodts @return {Page} */
- m_notFound__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager(/** Place */ place) {
+ m_findPage__org_jboss_elemento_router_Place__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager(/** Place */ place) {
+  if (this.f_places__org_jboss_elemento_router_PlaceManager_.containsKey(place)) {
+   let supplier = /**@type {Supplier<Page>}*/ ($Casts.$to(this.f_places__org_jboss_elemento_router_PlaceManager_.get(place), Supplier));
+   return /**@type {Page}*/ ($Casts.$to(supplier.m_get__java_lang_Object(), Page));
+  } else {
+   return this.m_notFound__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager();
+  }
+ }
+ /** @nodts @return {Page} */
+ m_notFound__org_jboss_elemento_router_Page_$p_org_jboss_elemento_router_PlaceManager() {
   if (!$Equality.$same(this.f_notFound__org_jboss_elemento_router_PlaceManager_, null)) {
-   return /**@type {Page}*/ ($Casts.$to(this.f_notFound__org_jboss_elemento_router_PlaceManager_.m_apply__java_lang_Object__java_lang_Object(place), Page));
+   return /**@type {Page}*/ ($Casts.$to(this.f_notFound__org_jboss_elemento_router_PlaceManager_.m_apply__java_lang_Object__java_lang_Object(Place.$create__java_lang_String__java_lang_String(this.f_failedRoute__org_jboss_elemento_router_PlaceManager_, 'Not found')), Page));
   } else {
    return DefaultNotFound.$create__();
   }
@@ -305,7 +316,7 @@ class PlaceManager extends j_l_Object {
   PlaceManager.$clinit = () =>{};
   PlaceManager.$loadModules();
   j_l_Object.$clinit();
-  PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_ = Place.$create__java_lang_String__java_lang_String('/404', 'Not found');
+  PlaceManager.f_NOT_FOUND__org_jboss_elemento_router_PlaceManager_ = Place.$create__java_lang_String('org.jboss.elemento.router.notFound');
  }
  /** @nodts @return {boolean} */
  static $isInstance(/** ? */ instance) {

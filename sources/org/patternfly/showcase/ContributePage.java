@@ -35,7 +35,6 @@ public class ContributePage implements Page {
     public Iterable<HTMLElement> elements() {
         return singletonList(pageMainSection()
                 .background(light)
-                .css("sc-page")
                 .add(textContent()
                         .add(title(1, "Contribute"))
                         .add(p()

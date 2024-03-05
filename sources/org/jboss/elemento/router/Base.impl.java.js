@@ -42,6 +42,10 @@ class Base extends j_l_Object {
   }
   return path;
  }
+ /** @nodts @return {boolean} */
+ m_isRelative__java_lang_String__boolean_$pp_org_jboss_elemento_router(/** ?string */ path) {
+  return this.f_empty__org_jboss_elemento_router_Base_ || !$Equality.$same(path, null) && j_l_String.m_startsWith__java_lang_String__java_lang_String__boolean(path, this.f_slashBase__org_jboss_elemento_router_Base_);
+ }
  /** @nodts @return {?string} */
  m_absolute__java_lang_String__java_lang_String_$pp_org_jboss_elemento_router(/** ?string */ path) {
   if (!this.f_empty__org_jboss_elemento_router_Base_ && !$Equality.$same(path, null)) {

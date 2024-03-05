@@ -39,7 +39,6 @@ class NotFound implements Page {
     public Iterable<HTMLElement> elements() {
         return singletonList(pageMainSection()
                 .background(light)
-                .css("sc-page")
                 .add(textContent()
                         .add(title(1, "Not Found"))
                         .add(p().textContent("Page " + place.route + " not found")))

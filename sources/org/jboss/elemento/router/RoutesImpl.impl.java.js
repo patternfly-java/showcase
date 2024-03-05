@@ -253,7 +253,7 @@ class RoutesImpl extends j_l_Object {
   this.f_places__org_jboss_elemento_router_RoutesImpl_.put(Place.$create__java_lang_String__java_lang_String__java_util_function_Supplier('/components/forms/text-area', 'Text area', /**@type {Supplier<HTMLElement>}*/ (null)), Supplier.$adapt(() =>{
    return TextAreaComponent.$create__();
   }));
-  this.f_places__org_jboss_elemento_router_RoutesImpl_.put(Place.$create__java_lang_String__java_lang_String__java_util_function_Supplier('/components/text-content', 'Text', /**@type {Supplier<HTMLElement>}*/ (null)), Supplier.$adapt(() =>{
+  this.f_places__org_jboss_elemento_router_RoutesImpl_.put(Place.$create__java_lang_String__java_lang_String__java_util_function_Supplier('/components/text', 'Text', /**@type {Supplier<HTMLElement>}*/ (null)), Supplier.$adapt(() =>{
    return TextContentComponent.$create__();
   }));
   this.f_places__org_jboss_elemento_router_RoutesImpl_.put(Place.$create__java_lang_String__java_lang_String__java_util_function_Supplier('/components/forms/text-input', 'Text input', /**@type {Supplier<HTMLElement>}*/ (null)), Supplier.$adapt(() =>{

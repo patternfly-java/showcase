@@ -35,7 +35,6 @@ public class GetStartedPage implements Page {
     public Iterable<HTMLElement> elements() {
         return singletonList(pageMainSection()
                 .background(light)
-                .css("sc-page")
                 .add(textContent()
                         .add(title(1, "Get started"))
                         .add(p()

@@ -5,7 +5,6 @@ goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('elemental2.dom.HTMLParagraphElement.$Overlay');
 goog.require('java.lang.Iterable');
 goog.require('java.lang.Object');
-goog.require('java.lang.String');
 goog.require('java.util.Collections');
 goog.require('java.util.Iterator');
 goog.require('java.util.List');
@@ -19,7 +18,6 @@ goog.require('org.patternfly.component.page.PageMainSection');
 goog.require('org.patternfly.component.text.TextContent');
 goog.require('org.patternfly.component.title.Title');
 goog.require('org.patternfly.style.Brightness');
-goog.require('vmbootstrap.Arrays');
 goog.require('vmbootstrap.Casts');
 
 const GetStartedPage = goog.require('org.patternfly.showcase.GetStartedPage$impl');

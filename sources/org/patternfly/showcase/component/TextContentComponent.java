@@ -40,7 +40,7 @@ import static org.patternfly.showcase.Data.components;
 import static org.patternfly.style.Classes.modifier;
 import static org.patternfly.style.Classes.plain;
 
-@Route(value = "/components/text-content", title = "Text")
+@Route(value = "/components/text", title = "Text")
 public class TextContentComponent extends SnippetPage {
 
     public TextContentComponent() {

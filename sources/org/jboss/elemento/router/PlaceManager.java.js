@@ -8,6 +8,7 @@ goog.require('elemental2.dom.HTMLElement.$Overlay');
 goog.require('elemental2.dom.History.$Overlay');
 goog.require('elemental2.dom.MouseEvent.$Overlay');
 goog.require('elemental2.dom.PopStateEvent.$Overlay');
+goog.require('elemental2.dom.URL.$Overlay');
 goog.require('java.lang.Object');
 goog.require('java.lang.String');
 goog.require('java.util.ArrayList');
